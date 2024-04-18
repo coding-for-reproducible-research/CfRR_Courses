@@ -1,0 +1,132 @@
+[
+    {
+        "question": "What function from scikit-learn is typically used to fit a linear regression model?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "linear_model.LogisticRegression()",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "linear_model.LinearRegression()",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "cluster.KMeans()",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "tree.DecisionTreeClassifier()",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What is the main purpose of the KMeans algorithm in scikit-learn?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To classify data into pre-defined categories",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "To reduce the dimensionality of the feature space",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "To partition the data into a set of k groups based on feature similarities",
+                "correct": true,
+                "feedback": "correct."
+            },
+            {
+                "answer": "To predict a continuous target variable",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What is the purpose of the 'random_state' parameter in scikit-learn algorithms?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To select the number of features to include in a model automatically.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "To determine the number of cluster or classes in the output.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "To ensure reproducibility of results by setting a seed for the random number generator.",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "To increase the computational efficiency of the algorithm.",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "In a Linear regression model, after fitting the model, where can you find the slope and intercept of the linear equation?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Slope in coef_, intercept in intercept_",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Slope in coef_, intercept in intercept_",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Slope in slope_, intercept in constant_",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Slope in parameters_, intercept in bias_'",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "After a model has been trained using scikit-learn, which method is used to make predicitions on new data?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "predict()",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "fit()",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "transform()",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "score()",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    }
+]

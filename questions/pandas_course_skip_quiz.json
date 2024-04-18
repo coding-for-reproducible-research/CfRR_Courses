@@ -1,0 +1,262 @@
+[
+    {
+        "question": "Which function is used to read a .csv file in Pandas",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "open_csv()",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "csv_read()",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "read_csv()",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "load_csv()",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "How can you select the 'Age' columns from a dataframe named 'df'?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "df('Age')",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "df[Age]",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "df['Age']",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "df.Age()",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "Which function would you use to get a quick statistical summary of a DataFrame df?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "df.describe()",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "df.summary()",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "df.info()",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "df.details()",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What is the purpose of the dropna() method in Pandas?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Add new NaN values to the DataFrame",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Drop columns that contain any NaN values",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Drop rows that contain any NaN values",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Both rop columns that contain any NaN values and Drop rows that contain any NaN values are correct",
+                "correct": true,
+                "feedback": "Correct."
+            }
+        ]
+    },
+    {
+        "question": "If you want to change the index of a DataFrame df to be the values from the 'email' column, which method should you use?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "df.set_index('email')",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "df.index('email')",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "df.reset_index('email')",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "df.reindex('email')",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What does the groupby() function allow you to do in Pandas?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Combine several similar rows into one",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Sort the DataFrame based on a specific column",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Split the data into groups based on some criteria",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Merge multiple DataFrames into one",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "How can you handle missing data in a DataFrame df by replacing NaN values with 0?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "df.fillna(0)",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "df.replace_nan(0)",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "df.dropna(0)",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "df.nan_to_num(0)",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What is the output of df.iloc[0] if df is a DataFrame?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "It returns the first row as a Series",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "It returns the first column as a Series",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "It returns the first element of the DataFrame",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "It returns the first index label",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "Which Pandas function would you use to concatenate two DataFrames vertically?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "pd.concat() with parameter axis=0",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "pd.join()",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "pd.merge()",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "pd.append()",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "How do you slice rows 10 through 20 from a DataFrame df?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "df[10:21]",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "df.iloc[10:20]",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "df.loc[10:20]",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "df.rows[10:20]",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    }
+]

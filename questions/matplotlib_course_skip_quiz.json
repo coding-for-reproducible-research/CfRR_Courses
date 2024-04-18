@@ -1,0 +1,262 @@
+[
+    {
+        "question": "What is Matplotlib used for in Python?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Web development",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Data visualization",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Machine Learning",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Networking",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "How do you import the pyplot module from matplotlib?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "from matplotlib import pyplot as plt",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "import matplotlib as plt",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "import pyplot from matplotlib",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "import matplotlib.pyplot",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "Which function is used to create a simple line plot in matplotlib?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "plt.line()",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "plt.plot()",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "plt.show()",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "plt.graph()",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "If you want to save a plot to a file, whcih function would you use?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "plt.save()",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "plt.savefig()",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "plt.export()",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "plt.store()",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What is the correct way to show the plot that you have created?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "plt.display()",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "plt.show()",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "plt.visualize()",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "plt.draw()",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "Which function would you use to create a histogram in Matplotlib?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "plt.bar()",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "plt.hist()",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "plt.histogram()",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "plt.scatter()",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What does the 'plt.xlabel('Label Name')' function do?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Changes the plot title to 'Label Name'",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Sets the label of the x-axis to 'Label Name'",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Labels the y-axis as 'Label Name'",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Labels the first data point as 'Label Name'",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "How can you add a title to your plot in Matplotlib?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "plt.title('Title of plot')",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "plt.set_title('Title of Plot')",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "plt.name('Title of Plot')",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "plt.plot_title('Title of Plot')",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "Which parameter would you adjust to change the line color to red in a plot command?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "plt.plot(x, y, color='red')",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "plt.plot(x, y, line='red')",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "plt.plot(x, y, style='red')",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "plt.plot(x, y, 'red')",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "How do you add a legend to a plot in matplotlib?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "plt.legend('Show legend')",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "plt.add_legend()",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "plt.legend()",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "plt.set_legend()",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    }
+]
