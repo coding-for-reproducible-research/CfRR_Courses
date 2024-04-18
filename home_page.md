@@ -1,6 +1,8 @@
 # Coding for Reproducible Research
 This training programme provides a series workshops to support researchers at the University of Exeter to expand their skillsets and position them to confidently perform the informatics research projects in an efficient and reproducible way. The programme covers not only training on specific languages, such as Python, R, and Unix/Linux, but additionally incorporates training relating to good practise and reproducible working methods that is designed to be agnostic of programming language. In this way we offer a holistic perspective as to how programming tasks should be approached, ultimately providing researchers with the tools and knowledge to feel confident in what they are doing. All workshops are open to any staff or student, from any college or department and accessible from any campus.
 
+
+
 These workshops are brought to you by the [University of Exeter Research Software Engineering Group](https://www.exeter.ac.uk/research/software-engineering/), [University of Exeter Institute of Data Science and Artificial Intelligence](https://www.exeter.ac.uk/research/institutes/idsai/), [University of Exeter Researcher Development](https://www.exeter.ac.uk/research/doctoralcollege/researcherdevelopment/) and the [University of Exeter Doctoral College](https://www.exeter.ac.uk/research/doctoralcollege/).
 
 ## Workshops 
