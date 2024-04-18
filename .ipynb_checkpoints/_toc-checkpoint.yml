@@ -2,10 +2,54 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: Introduction
-chapters:
-- file: Python_NumPy
-- file: Python_Pandas
-- file: Python_Matplotlib
-- file: Python_ScikitLearn
-- file: Python_MachineLearning
+root: home_page
+parts:
+  - caption: What is Coding for Reproducible Research?
+    chapters:
+    - file: section_landing_pages/workshops
+      sections:
+      - file: course_homepages/computational_thinking
+      - file: course_homepages/advanced_regression_analysis
+      - file: course_homepages/intermediate_python
+      - file: course_homepages/intermediate_version_control
+      - file: course_homepages/introduction_to_hpc_and_isca
+      - file: course_homepages/introduction_to_julia
+      - file: course_homepages/introduction_to_machine_learning
+      - file: course_homepages/introduction_to_python
+      - file: course_homepages/introduction_to_r
+      - file: course_homepages/introduction_to_unix
+      - file: course_homepages/introduction_to_version_control_with_git_and_github
+      - file: course_homepages/parallel_computing
+      - file: course_homepages/regression_analysis_with_r
+      - file: course_homepages/software_development_best_practice
+      - file: course_homepages/working_with_data_in_r
+  - caption: Self Study Notes
+    chapters:
+    - file: section_landing_pages/computational_thinking
+      sections:
+      - file: individual_modules/computational_thinking/01_welcome
+      - file: individual_modules/computational_thinking/02_introduction
+      - file: individual_modules/computational_thinking/03_algorithms
+      - file: individual_modules/computational_thinking/04_decomposition
+      - file: individual_modules/computational_thinking/05_pattern_recognition
+      - file: individual_modules/computational_thinking/06_abstraction
+      - file: individual_modules/computational_thinking/07_alignment
+      - file: individual_modules/computational_thinking/08_sudoku_task
+      - file: individual_modules/computational_thinking/09_wrapup
+    - file: section_landing_pages/misc
+      sections:
+      - file: individual_modules/Python_NumPy
+      - file: individual_modules/Python_Pandas
+      - file: individual_modules/Python_Matplotlib
+      - file: individual_modules/Python_ScikitLearn
+      - file: individual_modules/Python_MachineLearning
+  - caption: Pathways
+    chapters:
+    - file: pathways/data_scientist
+    - file: pathways/software_engineer
+      
+
+
+
+
+
