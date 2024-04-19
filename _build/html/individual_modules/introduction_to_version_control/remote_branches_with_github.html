@@ -1,0 +1,1214 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Remote Branches with GitHub &#8212; Coding For Reproducible Research</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'individual_modules/introduction_to_version_control/remote_branches_with_github';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Collaborating with Branches" href="collaborating_with_branches.html" />
+    <link rel="prev" title="Working with Local Branches" href="local_branches.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../home_page.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/exeter_logo.png" class="logo__image only-light" alt="Coding For Reproducible Research - Home"/>
+    <script>document.write(`<img src="../../_static/exeter_logo.png" class="logo__image only-dark" alt="Coding For Reproducible Research - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../home_page.html">
+                    What is Coding for Reproducible Research?
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Details and Delivery Dates</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/theortical.html">Theortical</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/computational_thinking.html">Computational Thinking</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/machine_learning.html">Machine Learning</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_machine_learning.html">Introduction to Machine Learning</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/high_performance_computing.html">High Performance Computing</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_hpc_and_isca.html">Introduction to HPC and ISCA</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/julia.html">Julia</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_julia.html">Introduction to Julia</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/unix.html">UNIX</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_unix.html">Introduction to UNIX</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/parallel_computing.html">Parallel Computing</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/intro_parallel_computing.html">Parallel Computing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/R.html">R</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_r.html">Introduction to R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/working_with_data_in_r.html">Working With Data In R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/regression_analysis_with_r.html">Regression Analysis with R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/advanced_regression_analysis.html">Advanced Regression Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/python.html">Python</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_python.html">Introduction to Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/intermediate_python.html">Intermediate Python</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/software_development.html">Software Development</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/software_development_best_practice.html">Software Development Best Practices</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/version_control.html">Version Control</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_version_control_with_git_and_github.html">Introduction to Version Control with Git and Github</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/intermediate_version_control.html">Intermediate Version Control</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Self Study Notes</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_python.html">Introduction to Python</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/motivation.html">Motivation and Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/fundamentals.html">Python Fundamentals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/lists.html">Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/control_flow.html">Control Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/additional_exercises.html">Additional Session 1 Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/recap.html">Session 1 Recap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/imports.html">Imports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/analysis_task_intro.html">Data Analysis Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/analysis_task_1.html">Data Analysis Task 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/analysis_task_2.html">Data Analysis Task 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/analysis_task_3.html">Data Analysis Task 3</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_r.html">Introduction to R</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/gettingstarted.html">Getting Up and Running with R</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/basic_commands.html">Running Commands With R</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/data_types.html">Data Types and Structures</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/load_data.html">Loading Data From Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/manipulating_data.html">Manipulating Datasets</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/control_flow.html">Control Flow</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/plots.html">Plots</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/stats.html">Statistical Analysis</a></li>
+
+
+
+
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_hpc.html">Introduction to HPC and ISCA</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/motivation.html">Why might I want to use a HPC Cluster?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/isca.html">Exeter supported HPC facilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/connection.html">How do I connect to a HPC Cluster?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/file_transfer.html">File Transfer Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/schedulers.html">Running a job on a HPC system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/modules.html">Loading software packages on HPC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/example_jobs.html">Running more complex jobs on a HPC system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/exploiting_slurm.html">Harnessing the power of the scheduler</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_version_control.html">Introduction to Version Control</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="motivation.html">Motivation: Why use Version Control Systems?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git_vs_github.html">Git vs Github</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring_git.html">Setting up Git and GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="making_repos.html">Making Repositories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_repo.html">An Example Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recording_changes.html">Recording Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="history_and_changes.html">Viewing History and Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pushing_and_pulling.html">Pushing to and Pulling From the Remote Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="undoing_changes.html">Undoing Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ignoring_files.html">Ignoring Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="local_branches.html">Working with Local Branches</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Remote Branches with GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collaborating_with_branches.html">Collaborating with Branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merge_conflicts.html">Merge Conflicts</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_unix.html">Introduction to UNIX</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/intro.html">Introducing the UNIX shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/filedir.html">File Directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/create.html">Working With Files and Directories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/pipefilter.html">Pipes and Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/loop.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/script.html">Shell Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/find.html">Finding Things</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/computational_thinking.html">Computational Thinking</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/algorithms.html">Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/decomposition.html">Decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/pattern_recognition.html">Pattern recognition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/abstraction.html">Abstraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/alignment.html">Aligning the human solution with the computer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/final_exercise.html">Sudoku Task</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/misc.html">Misc</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_NumPy.html">Python: Numpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_Pandas.html">Python: Pandas</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_Matplotlib.html">Python: Matplotlib</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_ScikitLearn.html">Python: Scikit-Learn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_MachineLearning.html">Python: Machine Learning</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pathways</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../pathways/complete_notebooks/data_scientist.html">Data Scientist</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/berrli/CfRR_Courses" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/berrli/CfRR_Courses/issues/new?title=Issue%20on%20page%20%2Findividual_modules/introduction_to_version_control/remote_branches_with_github.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/individual_modules/introduction_to_version_control/remote_branches_with_github.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Remote Branches with GitHub</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-and-remote-branches">Local and remote branches</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-branches">Viewing branches</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-remote-branches">Working with remote branches</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-remote-branch-on-github">Create a remote branch on GitHub</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fetch-the-remote-branch">Fetch the remote branch</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-tracking-local-branch">Create a new tracking local branch</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-content-to-the-local-branch-and-push">Add content to the local branch and push</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merge-remote-branch-into-remote-main">Merge remote branch into remote <code class="docutils literal notranslate"><span class="pre">main</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pull-changes-into-our-local-repository">Pull changes into our local repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning-up">Cleaning up</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deleting-branches-from-a-local-repository">Deleting branches from a local repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deleting-branches-from-the-remote-repository-via-github">Deleting branches from the remote repository via GitHub</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="remote-branches-with-github">
+<h1>Remote Branches with GitHub<a class="headerlink" href="#remote-branches-with-github" title="Link to this heading">#</a></h1>
+<section id="learning-objectives">
+<h2>Learning objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>By the end of this episode you will be able to create remote branches using
+GitHub and track these remote branches locally. You will also learn how to
+merge remote branches using a pull request, as well as how to delete branches
+in your local and remote repositories.</p>
+</section>
+<section id="local-and-remote-branches">
+<h2>Local and remote branches<a class="headerlink" href="#local-and-remote-branches" title="Link to this heading">#</a></h2>
+<p>Branches can reside in our local repository and/or remote repository, in the
+same way that commits can. An <strong>upstream</strong> branch is one which resides in the
+remote repository and is tracked locally, meaning the local branch is linked to
+the remote branch. Our local repository stores references to any remote branches,
+prepending their names with <code class="docutils literal notranslate"><span class="pre">remotes/origin/</span></code> (or simply <code class="docutils literal notranslate"><span class="pre">origin/</span></code>). It should
+be noted that these remote branches are not updated automatically - we need to
+use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span></code> to update them.</p>
+<section id="viewing-branches">
+<h3>Viewing branches<a class="headerlink" href="#viewing-branches" title="Link to this heading">#</a></h3>
+<p>We can list <em>all</em> the branches that our local repository is aware of (both
+local branches and remote branches) by using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span> <span class="pre">--all</span></code> (or
+just <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span> <span class="pre">-a</span></code>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git branch -a
+  branches-material
+* main
+  remotes/origin/HEAD -&gt; origin/main
+  remotes/origin/main
+</pre></div>
+</div>
+<p>There are three branches worth noting here, namely <code class="docutils literal notranslate"><span class="pre">main</span></code> (our local version of
+<code class="docutils literal notranslate"><span class="pre">main</span></code>), <code class="docutils literal notranslate"><span class="pre">remotes/origin/main</span></code> (our remote version of <code class="docutils literal notranslate"><span class="pre">main</span></code>) and <code class="docutils literal notranslate"><span class="pre">branches-material</span></code>
+(our newly created local branch). We can safely ignore
+<code class="docutils literal notranslate"><span class="pre">remotes/origin/HEAD</span> <span class="pre">-&gt;</span> <span class="pre">origin/main</span></code> for the time being.</p>
+<p>As we have only created <code class="docutils literal notranslate"><span class="pre">branches-material</span></code> locally, it does not have a remote
+counterpart, unlike <code class="docutils literal notranslate"><span class="pre">main</span></code>. Using GitHub, we can verify there is no remote branch
+called <code class="docutils literal notranslate"><span class="pre">branches-material</span></code>. The necessary steps are as follows:</p>
+<ul>
+<li><p><strong>Step 1</strong> Navigate to your repository on GitHub.</p></li>
+<li><p><strong>Step 2</strong> Click on <em>branch(es)</em>, above the list of files on the left-hand side,
+as indicated in the following screenshot:</p>
+<p>![Viewing branches on GitHub](/images/github-view-branches.png)</p>
+</li>
+<li><p><strong>Step 3</strong> Click on <em>All branches</em>, located to the left of the green <em>New branch</em>
+button on the right-hand side of the screen — this will display a list of all
+the branches in your remote repository. <code class="docutils literal notranslate"><span class="pre">branches-material</span></code> will be missing
+from this list.</p></li>
+</ul>
+</section>
+</section>
+<section id="working-with-remote-branches">
+<h2>Working with remote branches<a class="headerlink" href="#working-with-remote-branches" title="Link to this heading">#</a></h2>
+<p>So far, we’ve seen how to create a local branch, commit to it and merge it into
+another branch (e.g. into <code class="docutils literal notranslate"><span class="pre">main</span></code>). This branch didn’t have an upstream branch
+in the remote repository. We’re now going to look at the case where we
+use GitHub to create a branch in the <em>remote repository</em>, which we then
+bring into our local repository to work with. This approach takes advantage of
+useful functionality provided by GitHub, promoting collaborative working. We
+will look at an alternative workflow that doesn’t rely on the features GitHub
+provides in a later episode.</p>
+<p>Now, let’s add some material to the cheatsheet relating to working with remote
+branches, using GitHub to drive this development. The basic flow for doing this
+will be the following:</p>
+<ul class="simple">
+<li><p>Create a remote branch on GitHub that will receive our additions to the
+cheatsheet.</p></li>
+<li><p>Work on the cheatsheet locally, then push the changes up to the remote branch.</p></li>
+<li><p>Use GitHub to merge the work into the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch in the remote repository,
+using a pull request.</p></li>
+</ul>
+<p>In order to do this, we need to do the following:</p>
+<ul class="simple">
+<li><p>Create a remote branch on GitHub.</p></li>
+<li><p>Update our local repository from the remote repository, so that we have a
+reference to the newly created remote branch.</p></li>
+<li><p>Create a local branch that is set up to track the remote one.</p></li>
+<li><p>Add new commits to the local branch corresponding to our work on the
+cheatsheet.</p></li>
+<li><p>Push these commits to the upstream remote branch.</p></li>
+<li><p>Merge the remote branch into the remote <code class="docutils literal notranslate"><span class="pre">main</span></code> branch, using
+a pull request on GitHub.</p></li>
+<li><p>Update our local repository to reflect this change to the remote repository.</p></li>
+</ul>
+<section id="create-a-remote-branch-on-github">
+<h3>Create a remote branch on GitHub<a class="headerlink" href="#create-a-remote-branch-on-github" title="Link to this heading">#</a></h3>
+<p>In GitHub, the following steps allow you to create a new remote branch:</p>
+<ul class="simple">
+<li><p><strong>Step 1</strong> Navigate to your repository on GitHub.</p></li>
+<li><p><strong>Step 2</strong> Click on the dropdown, located to the left of <em>branches</em>, on the
+left-hand side of the screen.</p></li>
+<li><p><strong>Step 3</strong> Select the branch you would like to create a branch from. (For this
+course, this will typically be <code class="docutils literal notranslate"><span class="pre">main</span></code>. If it is <code class="docutils literal notranslate"><span class="pre">main</span></code>, this step
+becomes redundant.)</p></li>
+<li><p><strong>Step 4</strong> Click on the dropdown again and type in the name of your new branch
+where it says <em>Find or create a branch…</em>.</p></li>
+<li><p><strong>Step 5</strong> Click on <em>Create branch: new-branch from ‘base-branch’</em>, where
+<em>new-branch</em> is the name of your new branch and <em>base-branch</em> is the name of
+the branch you are branching off of (e.g. <code class="docutils literal notranslate"><span class="pre">main</span></code>).</p></li>
+</ul>
+<p>In our example <code class="docutils literal notranslate"><span class="pre">git-good-practice</span></code> repository, let’s suppose we’ve just created a
+new remote branch called <code class="docutils literal notranslate"><span class="pre">remote-branches-material</span></code>, which is based on top of
+<code class="docutils literal notranslate"><span class="pre">main</span></code>. Our local repository doesn’t have any knowledge of this new branch, as
+can be seen by listing the branches:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git branch -a
+  branches-material
+* main
+  remotes/origin/HEAD -&gt; origin/main
+  remotes/origin/main
+</pre></div>
+</div>
+</section>
+<section id="fetch-the-remote-branch">
+<h3>Fetch the remote branch<a class="headerlink" href="#fetch-the-remote-branch" title="Link to this heading">#</a></h3>
+<p>In order to update our local repository so that it has knowledge of the new
+remote branch, we use the following command from within our local repository:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">fetch</span>
+</pre></div>
+</div>
+<p>(Like with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code>, we can instead run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span> <span class="pre">origin</span></code> to
+be explicit about the reference to the remote repository.)
+We won’t go into too much detail about exactly what <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span> <span class="pre">origin</span></code> is doing. For
+our purposes, we use it to inspect the remote repository for information about
+any new branches, or commits that have been made in remote branches, that our
+local repository doesn’t yet know about.</p>
+<p>In our example, after running <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span></code> in our <code class="docutils literal notranslate"><span class="pre">git-good-practice</span></code>
+repository, we see that information about the new remote <code class="docutils literal notranslate"><span class="pre">remote-branches-material</span></code>
+has been retrieved:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git fetch
+Username for &#39;https://github.com&#39;: jbloggs9999
+Password for &#39;https://jbloggs9999@github.com&#39;:
+From https://github.com/jbloggs9999/git-good-practice
+ * [new branch]      remote-branches-material -&gt; origin/remote-branches-material
+
+$ git branch -a
+  branches-material
+* main
+  remotes/origin/HEAD -&gt; origin/main
+  remotes/origin/main
+  remotes/origin/remote-branches-material
+</pre></div>
+</div>
+<p>However, this has only created a reference to the remote branch, indicated
+by <code class="docutils literal notranslate"><span class="pre">remotes/origin/remote-branches-material</span></code> in the above output. We still need
+to create a <em>local</em> branch that will track the remote branch.</p>
+</section>
+<section id="create-a-new-tracking-local-branch">
+<h3>Create a new tracking local branch<a class="headerlink" href="#create-a-new-tracking-local-branch" title="Link to this heading">#</a></h3>
+<p>In order to create a local version of the
+<code class="docutils literal notranslate"><span class="pre">origin/remote-branches-material</span></code> branch where we can add commits, we can
+perform the following checkout:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout remote-branches-material 
+Switched to a new branch &#39;remote-branches-material&#39;
+branch &#39;remote-branches-material&#39; set up to track &#39;origin/remote-branches-material&#39;. 
+</pre></div>
+</div>
+<p>You may be surprised by this: after all, we’ve asked Git to checkout a branch
+that doesn’t actually exist! Fortunately, Git is smart enough to realise that
+what we want to do is set up a new local branch that tracks the <code class="docutils literal notranslate"><span class="pre">origin/remote-branches-material</span></code>
+remote branch. So it automatically creates a new local branch — called <code class="docutils literal notranslate"><span class="pre">remote-branches-material</span></code> — that
+will track <code class="docutils literal notranslate"><span class="pre">origin/remote-branches-material</span></code>, and checks out this new local branch for us. We
+can verify this by listing all the branches again:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git branch -a
+  branches-material
+  main
+* remote-branches-material
+  remotes/origin/HEAD -&gt; origin/main
+  remotes/origin/main
+  remotes/origin/remote-branches-material
+</pre></div>
+</div>
+</section>
+<section id="add-content-to-the-local-branch-and-push">
+<h3>Add content to the local branch and push<a class="headerlink" href="#add-content-to-the-local-branch-and-push" title="Link to this heading">#</a></h3>
+<p>We are now set to add our new material to <code class="docutils literal notranslate"><span class="pre">Git-cheatsheet.md</span></code> about remote
+branches. We modify the start of the subsection <em>Branches</em> so that it now reads as
+follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>## Branches
+
+`git branch &lt;new-branch-name&gt;` — Create a new branch called `&lt;new-branch-name&gt;`
+                                 based at the current commit (i.e. at `HEAD`).
+
+`git checkout &lt;branch&gt;` — Check out the branch `&lt;branch&gt;`, so that new commits
+                          are added to `&lt;branch&gt;`.
+
+- Can also be used to create and checkout a new local branch `&lt;branch&gt;` that
+  tracks an existing remote branch `origin/&lt;branch&gt;`.
+
+`git merge &lt;branch-to-merge-in&gt;` — Combine the commit history of `&lt;branch-to-merge-in&gt;`
+                                   with that of the branch currently checked out.
+</pre></div>
+</div>
+<p>Having included this addition, we commit to our local <code class="docutils literal notranslate"><span class="pre">remote-branches-material</span></code> branch.</p>
+<blockquote>
+<div><h4 class="rubric" id="markdown-syntax">Markdown syntax</h4>
+<p>Unordered lists are denoted by using a hyphen (<code class="docutils literal notranslate"><span class="pre">-</span></code>) or an asterisk (<code class="docutils literal notranslate"><span class="pre">*</span></code>),
+followed by a space, with the text in the list item following. Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">Foo</span>
+<span class="o">-</span> <span class="n">Bar</span>
+<span class="o">-</span> <span class="n">Baz</span>
+</pre></div>
+</div>
+<p>renders as:</p>
+<ul class="simple">
+<li><p>Foo</p></li>
+<li><p>Bar</p></li>
+<li><p>Baz</p></li>
+</ul>
+<p>Text that flows over multiple lines in the source file, yet belongs to a single
+list item, should respect the indenting. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="nb">list</span> <span class="n">entry</span> <span class="k">with</span>
+  
+  <span class="n">new</span> <span class="n">line</span>
+
+<span class="o">*</span> <span class="n">the</span> <span class="n">quick</span> <span class="n">brown</span> <span class="n">fox</span> <span class="n">jumps</span> <span class="n">over</span> <span class="n">the</span>
+  <span class="n">lazy</span> <span class="n">dog</span>
+</pre></div>
+</div>
+<p>renders as:</p>
+<ul>
+<li><p>list entry with</p>
+<p>new line</p>
+</li>
+<li><p>the quick brown fox jumps over the
+lazy dog</p></li>
+</ul>
+</div></blockquote>
+<p>We’re now in the position where our local branch
+<code class="docutils literal notranslate"><span class="pre">remote-branches-material</span></code> is ahead of the remote branch
+<code class="docutils literal notranslate"><span class="pre">origin/remote-branches-material</span></code> that it tracks, as can be seen from
+the log on <code class="docutils literal notranslate"><span class="pre">remote-branches-material</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log --oneline -3
+5125372 (HEAD -&gt; remote-branches-material) Add note about creating local tracking branches
+3b918f2 (origin/remote-branches-material, origin/main, origin/HEAD, main, branches-material) Add entry about merging branches
+51da8da Add entry about checking out a branch
+</pre></div>
+</div>
+<p>In order to update an upstream remote branch with new commits in the local
+tracking branch, we can use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code> (or <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span></code>), like we did when working with
+the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch in the episode
+[Pushing to and Pulling From the Remote Repository](/10_pushing_and_pulling/index.html).
+Note however that this will push the commits <em>on the currently checked out branch</em> to its upstream
+remote branch. So, in general, if you have a local branch <code class="docutils literal notranslate"><span class="pre">&lt;foo&gt;</span></code> that tracks a
+remote branch <code class="docutils literal notranslate"><span class="pre">origin/&lt;foo&gt;</span></code>, then in order to push <code class="docutils literal notranslate"><span class="pre">&lt;foo&gt;</span></code> to <code class="docutils literal notranslate"><span class="pre">origin/&lt;foo&gt;</span></code> we
+need to first checkout <code class="docutils literal notranslate"><span class="pre">&lt;foo&gt;</span></code>.</p>
+<blockquote>
+<div><h4 class="rubric" id="alternative-specify-the-branch-explicitly">Alternative: specify the branch explicitly</h4>
+<p>Alternatively, if you have a local branch <code class="docutils literal notranslate"><span class="pre">&lt;foo&gt;</span></code> that tracks a remote branch
+<code class="docutils literal notranslate"><span class="pre">origin/&lt;foo&gt;</span></code>, then you can run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span> <span class="pre">&lt;foo&gt;</span></code> from any local branch
+to push commits from <code class="docutils literal notranslate"><span class="pre">&lt;foo&gt;</span></code> to <code class="docutils literal notranslate"><span class="pre">origin/&lt;foo&gt;</span></code>.</p>
+</div></blockquote>
+<p>In our example, we’re already on the branch <code class="docutils literal notranslate"><span class="pre">remote-branches-material</span></code> that we want to push,
+so we can just go ahead and do <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git push
+Username for &#39;https://github.com&#39;: jbloggs9999
+Password for &#39;https://jbloggs9999@github.com&#39;:
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 438 bytes | 219.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/jbloggs9999/git-good-practice.git
+   3b918f2..5125372  remote-branches-material -&gt; remote-branches-material
+</pre></div>
+</div>
+<p>The last line of the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code> message shows that we’ve successfully updated the remote
+branch with the new commit.</p>
+</section>
+</section>
+<section id="merge-remote-branch-into-remote-main">
+<h2>Merge remote branch into remote <code class="docutils literal notranslate"><span class="pre">main</span></code><a class="headerlink" href="#merge-remote-branch-into-remote-main" title="Link to this heading">#</a></h2>
+<p>Once we have pushed our changes to the remote branch, we can merge said remote
+branch into remote <code class="docutils literal notranslate"><span class="pre">main</span></code> by means of a pull request on GitHub. We can create and
+complete a pull request (PR) as follows:</p>
+<ul class="simple">
+<li><p><strong>Step 1</strong> Navigate to your repository on GitHub.</p></li>
+<li><p><strong>Step 2</strong> Click on the <em>Pull requests</em> tab (third tab from the left).</p></li>
+<li><p><strong>Step 3</strong> Click on the green <em>New pull request</em> button on the right-hand side
+of the screen.</p></li>
+<li><p><strong>Step 4</strong> Ensure <code class="docutils literal notranslate"><span class="pre">main</span></code> has been chosen as <em>base</em> and choose your remote branch,
+which in this case is <code class="docutils literal notranslate"><span class="pre">remote-branches-material</span></code>, as <em>compare</em>.</p></li>
+<li><p><strong>Step 5</strong> Click on the green <em>Create pull request</em> button.</p></li>
+<li><p><strong>Step 6</strong> GitHub will generate a title based on the name of the branch you
+are comparing, but this can be changed. You are also welcome to add a
+description where it says <em>Leave a comment</em>.</p></li>
+<li><p><strong>Step 7</strong> Click on the green <em>Create pull request</em> button.</p></li>
+<li><p><strong>Step 8</strong> Click on the green <em>Merge pull request</em> button, located near the
+bottom of the page.</p></li>
+</ul>
+</section>
+<section id="pull-changes-into-our-local-repository">
+<h2>Pull changes into our local repository<a class="headerlink" href="#pull-changes-into-our-local-repository" title="Link to this heading">#</a></h2>
+<p>We have just merged our branch into <code class="docutils literal notranslate"><span class="pre">main</span></code> in the remote repository. To see
+the changes made to <code class="docutils literal notranslate"><span class="pre">main</span></code> in our local repository, we need to pull them from
+the remote repository.</p>
+<p>To update <code class="docutils literal notranslate"><span class="pre">main</span></code>, we first check it out:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout main
+Switched to branch &#39;main&#39;
+Your branch is up to date with &#39;origin/main&#39;.
+</pre></div>
+</div>
+<p>There’s an important point to make about the output here. It is stated that
+<code class="docutils literal notranslate"><span class="pre">Your</span> <span class="pre">branch</span> <span class="pre">is</span> <span class="pre">up</span> <span class="pre">to</span> <span class="pre">date</span> <span class="pre">with</span> <span class="pre">'origin/main'.</span></code>. This doesn’t mean there aren’t changes on the remote to
+pull in. Instead, it means that Git is not aware of any extra commits in
+<code class="docutils literal notranslate"><span class="pre">origin/main</span></code> compared to <code class="docutils literal notranslate"><span class="pre">main</span></code> <em>since last <code class="docutils literal notranslate"><span class="pre">fetch</span></code>ing from the remote repository</em>.</p>
+<p>So, let us fetch updates from the remote repository:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git fetch
+Username for &#39;https://github.com&#39;: jbloggs9999
+Password for &#39;https://jbloggs9999@github.com&#39;:
+remote: Enumerating objects: 1, done.
+remote: Counting objects: 100% (1/1), done.
+remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (1/1), 667 bytes | 83.00 KiB/s, done.
+From https://github.com/jbloggs/git-good-practice
+   3b918f2..86ebbee  main       -&gt; origin/main
+</pre></div>
+</div>
+<p>We can see that our local repository is now aware of the change to the remote
+<code class="docutils literal notranslate"><span class="pre">origin/main</span></code> branch by checking the status again:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git status
+On branch main
+Your branch is behind &#39;origin/main&#39; by 2 commits, and can be fast-forwarded.
+  (use &quot;git pull&quot; to update your local branch)
+
+nothing to commit, working tree clean
+</pre></div>
+</div>
+<p>In the
+[Pushing to and Pulling From the Remote Repository](/10_pushing_and_pulling/index.html)
+episode, we mentioned that <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> can be used to retrieve updates from the
+remote repository. To be more precise, <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> is used to bring in commits
+<em>in a remote branch into a corresponding local branch</em>. In general, if you have
+a remote branch that has commits not yet in a local tracking
+branch <code class="docutils literal notranslate"><span class="pre">&lt;branch&gt;</span></code>, then run the following command <em>with <code class="docutils literal notranslate"><span class="pre">&lt;branch&gt;</span></code> checked out</em>
+to update <code class="docutils literal notranslate"><span class="pre">&lt;branch&gt;</span></code> with these new commits:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">pull</span>
+</pre></div>
+</div>
+<p>(or, to be explicit about the remote repository, <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span> <span class="pre">origin</span></code>).</p>
+<blockquote>
+<div><h4 class="rubric" id="pull-automatically-fetches"><code class="docutils literal notranslate"><span class="pre">pull</span></code> automatically <code class="docutils literal notranslate"><span class="pre">fetch</span></code>es</h4>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> actually performs a two step process on a branch
+<code class="docutils literal notranslate"><span class="pre">&lt;branch&gt;</span></code>. First, it runs a <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span></code> to retrieve all new commits,
+branches, etc. from the remote repository. Then,
+it merges the changes that have been fetched into the <code class="docutils literal notranslate"><span class="pre">origin/&lt;branch&gt;</span></code> into
+<code class="docutils literal notranslate"><span class="pre">&lt;branch&gt;</span></code>. As a result, we did not in fact need to use the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span></code> command
+before using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> above.</p>
+</div></blockquote>
+<p>We pull the changes to <code class="docutils literal notranslate"><span class="pre">origin/main</span></code> into our local <code class="docutils literal notranslate"><span class="pre">main</span></code> branch:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git pull
+Username for &#39;https://github.com&#39;: jbloggs9999
+Password for &#39;https://jbloggs9999@github.com&#39;:
+Updating 3b918f2..86ebbee
+Fast-forward
+ Git-cheatsheet.md | 3 +++
+ 1 file changed, 3 insertions(+)
+</pre></div>
+</div>
+<p>We can now see from the log that our changes are fully reflected in <code class="docutils literal notranslate"><span class="pre">main</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log --oneline -5
+86ebbee (HEAD -&gt; main, origin/main, origin/HEAD) Merge pull request #1 from jbloggs9999/remote-branches-material
+5125372 (origin/remote-branches-material, remote-branches-material) Add note about creating local tracking branches
+3b918f2 (branches-material) Add entry about merging branches
+51da8da Add entry about checking out a branch
+8124186 Add entry about creating branches
+</pre></div>
+</div>
+</section>
+<section id="cleaning-up">
+<h2>Cleaning up<a class="headerlink" href="#cleaning-up" title="Link to this heading">#</a></h2>
+<p>All the work we’ve done in our branches has been incorporated into <code class="docutils literal notranslate"><span class="pre">main</span></code> (both
+locally and in the remote repository). So, to clean up the state of the repository,
+we’re going to delete the branches <code class="docutils literal notranslate"><span class="pre">branches-material</span></code> and <code class="docutils literal notranslate"><span class="pre">remote-branches-material</span></code>,
+including the remote version of <code class="docutils literal notranslate"><span class="pre">remote-branches-material</span></code>, since these
+no longer serve any purpose.</p>
+<blockquote>
+<div><h3 class="rubric" id="good-practice-deleting-old-branches">Good practice: deleting old branches</h3>
+<p>It is good practice to delete branches that are no longer required. This makes
+navigating a repository easier and makes it clear what work is still ongoing
+compared to work that has been finished.</p>
+</div></blockquote>
+<section id="deleting-branches-from-a-local-repository">
+<h3>Deleting branches from a local repository<a class="headerlink" href="#deleting-branches-from-a-local-repository" title="Link to this heading">#</a></h3>
+<p>The general commands for deleting branches are as follows:</p>
+<ul class="simple">
+<li><p>For deleting <em>local</em> branches: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span> <span class="pre">-d</span> <span class="pre">&lt;local-branches&gt;</span></code></p></li>
+<li><p>For deleting <em>remote</em> branches: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span> <span class="pre">-d</span> <span class="pre">-r</span> <span class="pre">&lt;remote-branches&gt;</span></code></p></li>
+</ul>
+<p>In both cases, note that you can specify more than one branch by separating the
+branch names by a space.</p>
+<p>There are a couple of important things to note about deleting branches:</p>
+<ul class="simple">
+<li><p>You can’t delete a branch you currently have checked out. So make sure you
+checkout a different branch before deletion e.g. do deletions from <code class="docutils literal notranslate"><span class="pre">main</span></code>.</p></li>
+<li><p>Deleting branches removes the commits contained in those branches which don’t
+feature in other branches. So, before deleting a branch, be sure that the
+changes you want to keep have been merged into another branch e.g. <code class="docutils literal notranslate"><span class="pre">main</span></code>.</p></li>
+</ul>
+<p>We delete our local branches:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git branch -d branches-material remote-branches-material 
+Deleted branch branches-material (was 3b918f2).
+Deleted branch remote-branches-material (was 5125372).
+</pre></div>
+</div>
+<p>Then we delete our remote branch reference <code class="docutils literal notranslate"><span class="pre">origin/remote-branches-material</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git branch -r -d origin/remote-branches-material
+Deleted remote-tracking branch origin/remote-branches-material (was 5125372).
+</pre></div>
+</div>
+<blockquote>
+<div><h3 class="rubric" id="force-deletion">Force deletion</h3>
+<p>Git may stop you from deleting a branch, because it can’t verify that
+all the commits in the branch have been merged into a corresponding remote
+branch or another local branch. This is a protection
+mechanism to stop you from potentially losing changes. If you encounter this but
+are sure you want to proceed with the deletion, you can force the deletion
+by using <code class="docutils literal notranslate"><span class="pre">-D</span></code> instead of <code class="docutils literal notranslate"><span class="pre">-d</span></code> in the commands above.</p>
+</div></blockquote>
+<p>Our local repository is now looking cleaner with regards to the branches we have:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git branch -a
+* main
+  remotes/origin/HEAD -&gt; origin/main
+  remotes/origin/main
+</pre></div>
+</div>
+<p>Note also that the references to the non-<code class="docutils literal notranslate"><span class="pre">main</span></code> branches have disappeared from
+the log (note that the <em>commits</em> have <em>not</em> disappeared, however, because these
+are part of <code class="docutils literal notranslate"><span class="pre">main</span></code>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log --oneline -5
+86ebbee (HEAD -&gt; main, origin/main, origin/HEAD) Merge pull request #1 from jbloggs9999/remote-branches-material
+5125372 Add note about creating local tracking branches
+3b918f2 Add entry about merging branches
+51da8da Add entry about checking out a branch
+8124186 Add entry about creating branches
+</pre></div>
+</div>
+</section>
+<section id="deleting-branches-from-the-remote-repository-via-github">
+<h3>Deleting branches from the remote repository via GitHub<a class="headerlink" href="#deleting-branches-from-the-remote-repository-via-github" title="Link to this heading">#</a></h3>
+<p>Finally, we need to delete the remote branch <code class="docutils literal notranslate"><span class="pre">remote-branches-material</span></code> from the
+remote repository in GitHub. The necessary steps are as follows:</p>
+<ul class="simple">
+<li><p><strong>Step 1</strong> Navigate to your respository on GitHub.</p></li>
+<li><p><strong>Step 2</strong> Click on <em>branches</em>, above the list of files on the left-hand side.</p></li>
+<li><p><strong>Step 3</strong> Click on <em>All branches</em>, located to the left of the green <em>New branch</em>
+button on the right-hand side of the screen.</p></li>
+<li><p><strong>Step 4</strong> Identify the branch to be deleted and click on the appropriate
+<em>bin icon</em> on the right-hand side of the screen. If you hover over the icon,
+it will show a message stating <em>Delete chosen-branch</em>, where <em>chosen-branch</em>
+is the name of the branch to be deleted.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "berrli/CfRR_Courses",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./individual_modules/introduction_to_version_control"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="local_branches.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Working with Local Branches</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="collaborating_with_branches.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Collaborating with Branches</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-and-remote-branches">Local and remote branches</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-branches">Viewing branches</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-remote-branches">Working with remote branches</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-remote-branch-on-github">Create a remote branch on GitHub</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fetch-the-remote-branch">Fetch the remote branch</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-tracking-local-branch">Create a new tracking local branch</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-content-to-the-local-branch-and-push">Add content to the local branch and push</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merge-remote-branch-into-remote-main">Merge remote branch into remote <code class="docutils literal notranslate"><span class="pre">main</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pull-changes-into-our-local-repository">Pull changes into our local repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning-up">Cleaning up</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deleting-branches-from-a-local-repository">Deleting branches from a local repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deleting-branches-from-the-remote-repository-via-github">Deleting branches from the remote repository via GitHub</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Coding For Reproducible Research Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

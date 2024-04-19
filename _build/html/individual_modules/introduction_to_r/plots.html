@@ -1,0 +1,1228 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Plots &#8212; Coding For Reproducible Research</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'individual_modules/introduction_to_r/plots';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Statistical Analysis" href="stats.html" />
+    <link rel="prev" title="Control Flow" href="control_flow.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../home_page.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/exeter_logo.png" class="logo__image only-light" alt="Coding For Reproducible Research - Home"/>
+    <script>document.write(`<img src="../../_static/exeter_logo.png" class="logo__image only-dark" alt="Coding For Reproducible Research - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../home_page.html">
+                    What is Coding for Reproducible Research?
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Details and Delivery Dates</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/theortical.html">Theortical</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/computational_thinking.html">Computational Thinking</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/machine_learning.html">Machine Learning</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_machine_learning.html">Introduction to Machine Learning</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/high_performance_computing.html">High Performance Computing</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_hpc_and_isca.html">Introduction to HPC and ISCA</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/julia.html">Julia</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_julia.html">Introduction to Julia</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/unix.html">UNIX</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_unix.html">Introduction to UNIX</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/parallel_computing.html">Parallel Computing</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/intro_parallel_computing.html">Parallel Computing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/R.html">R</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_r.html">Introduction to R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/working_with_data_in_r.html">Working With Data In R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/regression_analysis_with_r.html">Regression Analysis with R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/advanced_regression_analysis.html">Advanced Regression Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/python.html">Python</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_python.html">Introduction to Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/intermediate_python.html">Intermediate Python</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/software_development.html">Software Development</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/software_development_best_practice.html">Software Development Best Practices</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/version_control.html">Version Control</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_version_control_with_git_and_github.html">Introduction to Version Control with Git and Github</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/intermediate_version_control.html">Intermediate Version Control</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Self Study Notes</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_python.html">Introduction to Python</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/motivation.html">Motivation and Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/fundamentals.html">Python Fundamentals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/lists.html">Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/control_flow.html">Control Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/additional_exercises.html">Additional Session 1 Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/recap.html">Session 1 Recap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/imports.html">Imports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/analysis_task_intro.html">Data Analysis Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/analysis_task_1.html">Data Analysis Task 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/analysis_task_2.html">Data Analysis Task 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/analysis_task_3.html">Data Analysis Task 3</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_r.html">Introduction to R</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="gettingstarted.html">Getting Up and Running with R</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="basic_commands.html">Running Commands With R</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="data_types.html">Data Types and Structures</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="load_data.html">Loading Data From Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manipulating_data.html">Manipulating Datasets</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="control_flow.html">Control Flow</a></li>
+
+
+
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Plots</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="stats.html">Statistical Analysis</a></li>
+
+
+
+
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_hpc.html">Introduction to HPC and ISCA</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/motivation.html">Why might I want to use a HPC Cluster?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/isca.html">Exeter supported HPC facilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/connection.html">How do I connect to a HPC Cluster?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/file_transfer.html">File Transfer Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/schedulers.html">Running a job on a HPC system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/modules.html">Loading software packages on HPC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/example_jobs.html">Running more complex jobs on a HPC system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/exploiting_slurm.html">Harnessing the power of the scheduler</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_version_control.html">Introduction to Version Control</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/motivation.html">Motivation: Why use Version Control Systems?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/git_vs_github.html">Git vs Github</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/configuring_git.html">Setting up Git and GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/making_repos.html">Making Repositories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/example_repo.html">An Example Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/recording_changes.html">Recording Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/history_and_changes.html">Viewing History and Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/pushing_and_pulling.html">Pushing to and Pulling From the Remote Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/undoing_changes.html">Undoing Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/ignoring_files.html">Ignoring Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/local_branches.html">Working with Local Branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/remote_branches_with_github.html">Remote Branches with GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/collaborating_with_branches.html">Collaborating with Branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/merge_conflicts.html">Merge Conflicts</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_unix.html">Introduction to UNIX</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/intro.html">Introducing the UNIX shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/filedir.html">File Directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/create.html">Working With Files and Directories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/pipefilter.html">Pipes and Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/loop.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/script.html">Shell Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/find.html">Finding Things</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/computational_thinking.html">Computational Thinking</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/algorithms.html">Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/decomposition.html">Decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/pattern_recognition.html">Pattern recognition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/abstraction.html">Abstraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/alignment.html">Aligning the human solution with the computer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/final_exercise.html">Sudoku Task</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/misc.html">Misc</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_NumPy.html">Python: Numpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_Pandas.html">Python: Pandas</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_Matplotlib.html">Python: Matplotlib</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_ScikitLearn.html">Python: Scikit-Learn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_MachineLearning.html">Python: Machine Learning</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pathways</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../pathways/complete_notebooks/data_scientist.html">Data Scientist</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/berrli/CfRR_Courses" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/berrli/CfRR_Courses/issues/new?title=Issue%20on%20page%20%2Findividual_modules/introduction_to_r/plots.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/individual_modules/introduction_to_r/plots.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Plots</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Plots</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setosa-setosa-setosa-setosa-setosa-setosa-setosa-setosa-setosa-setosa">[1] setosa setosa setosa setosa setosa setosa setosa setosa setosa setosa</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#levels-setosa-versicolor-virginica">Levels: setosa versicolor virginica</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">[1] 1 1 1 1 1 1 1 1 1 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#red-red-red-red-red-red-red-red-red-red">[1] “red” “red” “red” “red” “red” “red” “red” “red” “red” “red”</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-sepal-length-with-increased-bins">Plotting “Sepal.Length” with increased bins</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-data-to-an-existing-plot">Adding data to an existing plot</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-sepal-length-on-a-then-add-sepal-width-data-as-points-and-petal-length-as-lines">Plot “Sepal.Length” on a, then add “Sepal.Width” data as points and “Petal.Length” as lines</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-horizontal-line-at-6-and-a-vertical-line-at-60">Adding a horizontal line at 6 and a vertical line at 60</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-sepal-length-against-petal-length-and-adding-a-line-of-best-fit">Plotting “Sepal.Length” against “Petal.Length” and adding a line of best fit</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#further-customisations">Further customisations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-sepal-length-and-colouring-and-using-different-points-by-species-then-adding-a-legend">Plotting “Sepal.Length” and colouring and using different points by “Species”, then adding a legend</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-text-to-a-plot">Adding text to a plot</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-sepal-length-without-axes-and-adding-them-with-adjustment">Plotting “Sepal.Length” without axes and adding them with adjustment</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#adjusting-the-plot-margins">Adjusting the plot margins</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-composite-plots">Creating composite plots</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">[,1] [,2]</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">[1,]    1    1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">[2,]    2    3</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-and-exporting-plots">Saving and exporting plots</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-a-plot-as-a-jpeg-file">Saving a plot as a jpeg file</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#png">png</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activity">Activity:</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="plots">
+<h1>Plots<a class="headerlink" href="#plots" title="Link to this heading">#</a></h1>
+<p>The mathematician Richard Hamming once said, “The purpose of computing is insight, not numbers,” and the best way
+to develop insight is often to visualize data. Visualization deserves an entire lecture (or course) of its own,
+but we can explore a few of R’s plotting features. R is synonymous with data analysis and visualisation. R is capable of plotting many
+different types of plots and importantly these are infinitely customisable. To mke a plot look the way we want,
+we need to take advantage of the many arguments available in plotting functions.</p>
+<p>The R base function <code class="docutils literal notranslate"><span class="pre">plot()</span></code> can generate a range of different plots from some user supplied data.</p>
+<p>If we provide one vector of continous data, it plots that on the y-axis against the index on the x-axis.</p>
+<p>{% highlight r %}
+plot(iris$Sepal.Length)
+{% endhighlight %}</p>
+<p><img alt="plot of chunk unnamed-chunk-1" src="https://raw.githubusercontent.com/UniExeterRSE/intro-to-r/main/figure/rmarkdown/08_plots/unnamed-chunk-1-1.png" /></p>
+<p>If we want to plot a scatterplot between two continuous variables, we provide both to the <code class="docutils literal notranslate"><span class="pre">plot()</span></code> function. The order here can
+be important, if not explicitly labeled as the x or y variable, R will take the first entry as the x variable and
+the second entry as the y variable.</p>
+<p>{% highlight r %}
+plot(iris<span class="math notranslate nohighlight">\(Sepal.Length, iris\)</span>Sepal.Width)
+{% endhighlight %}</p>
+<p><img alt="plot of chunk unnamed-chunk-2" src="https://raw.githubusercontent.com/UniExeterRSE/intro-to-r/main/figure/rmarkdown/08_plots/unnamed-chunk-2-1.png" /></p>
+<p>Alternatively we can use the argument keywords to specify which variable should be plotted on which axis, in this
+case is doesn’t matter which order we include the arguments. For example we can state the y variable first.</p>
+<p>{% highlight r %}
+plot(y = iris<span class="math notranslate nohighlight">\(Sepal.Length, x = iris\)</span>Sepal.Width)
+{% endhighlight %}</p>
+<p><img alt="plot of chunk unnamed-chunk-3" src="https://raw.githubusercontent.com/UniExeterRSE/intro-to-r/main/figure/rmarkdown/08_plots/unnamed-chunk-3-1.png" /></p>
+<details>
+	<summary> Arguments </summary>
+	<pre>
+<p>When calling a function, in the case of multiple arguments, there are two ways arguments can be specified.
+They can be specified <strong>positionally</strong>, where R knows which argument is which based on the order they are listed or
+using <strong>keywords</strong> where a keyword followed by = is used to inform R which argument is which. With keyword arguments,
+the order does not matter, with positional arguments it is critical. It is not uncommon to see both ways used within the
+same function call.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;/pre&gt;
+</pre></div>
+</div>
+</details>
+<p>You will see that R has generated the axis labels from the variable names. We can customise this with additional
+arguments (<code class="docutils literal notranslate"><span class="pre">xlab</span></code> and <code class="docutils literal notranslate"><span class="pre">ylab</span></code>) in the function.</p>
+<p>{% highlight r %}
+plot(iris<span class="math notranslate nohighlight">\(Sepal.Length, iris\)</span>Sepal.Width , xlab = “Sepal Length (cm)”, ylab = “Sepal Width (cm)”)
+{% endhighlight %}</p>
+<p><img alt="plot of chunk unnamed-chunk-4" src="https://raw.githubusercontent.com/UniExeterRSE/intro-to-r/main/figure/rmarkdown/08_plots/unnamed-chunk-4-1.png" /></p>
+<p>We can also change the colour of the points with the <code class="docutils literal notranslate"><span class="pre">col</span></code> argument. If we give it one colour, all the points
+will be changed to the same colour.</p>
+<p>{% highlight r %}
+plot(iris<span class="math notranslate nohighlight">\(Sepal.Length, iris\)</span>Sepal.Width , xlab = “Sepal Length (cm)”, ylab = “Sepal Width (cm)”, col = “red”)
+{% endhighlight %}</p>
+<p><img alt="plot of chunk unnamed-chunk-5" src="https://raw.githubusercontent.com/UniExeterRSE/intro-to-r/main/figure/rmarkdown/08_plots/unnamed-chunk-5-1.png" /></p>
+<p>Alternatively, we can provide a vector of colours, where the first colour will be the colour of the first point drawn, the second colour, the colour of the second point and so on.
+This vector does have to be the same length as the number of points. For example if we provide a vector of three colours, this will recycled until all the points have been pointed.</p>
+<p>{% highlight r %}
+plot(iris<span class="math notranslate nohighlight">\(Sepal.Length, iris\)</span>Sepal.Width , xlab = “Sepal Length (cm)”, ylab = “Sepal Width (cm)”, col = c(“red”, “blue”, “#ddaa33”))
+{% endhighlight %}</p>
+<p><img alt="plot of chunk unnamed-chunk-6" src="https://raw.githubusercontent.com/UniExeterRSE/intro-to-r/main/figure/rmarkdown/08_plots/unnamed-chunk-6-1.png" /></p>
+<p>What has happened is the 1st,4th,7th etc are pointed in red, the 2nd,5th,8th etc in blue and the 3rd,6th,9th etc in #ddaa33.</p>
+<p>If we want to colour the points by some categorial variable, we can use the fact that factors are represented as integers to subset a vector of colours.</p>
+<p>{% highlight r %}
+plot(iris<span class="math notranslate nohighlight">\(Sepal.Length, iris\)</span>Sepal.Width , xlab = “Sepal Length (cm)”, ylab = “Sepal Width (cm)”, col = c(“red”, “blue”, “#ddaa33”)[iris$Species])
+{% endhighlight %}</p>
+<p><img alt="plot of chunk unnamed-chunk-7" src="https://raw.githubusercontent.com/UniExeterRSE/intro-to-r/main/figure/rmarkdown/08_plots/unnamed-chunk-7-1.png" /></p>
+<p>There are three levels in the factor <code class="docutils literal notranslate"><span class="pre">iris$Species</span></code>, which are represented internally by the numbers 1,2,3. These integers can be used to index a vector of at
+least three as shown below, and create a new vector, where each level is replaced by the same colour.</p>
+<p>{% highlight r %}
+iris$Species[1:10]
+{% endhighlight %}</p>
+<p>{% highlight text %}</p>
+<section id="setosa-setosa-setosa-setosa-setosa-setosa-setosa-setosa-setosa-setosa">
+<h2>[1] setosa setosa setosa setosa setosa setosa setosa setosa setosa setosa<a class="headerlink" href="#setosa-setosa-setosa-setosa-setosa-setosa-setosa-setosa-setosa-setosa" title="Link to this heading">#</a></h2>
+</section>
+<section id="levels-setosa-versicolor-virginica">
+<h2>Levels: setosa versicolor virginica<a class="headerlink" href="#levels-setosa-versicolor-virginica" title="Link to this heading">#</a></h2>
+<p>{% endhighlight %}</p>
+<p>{% highlight r %}
+as.numeric(iris$Species[1:10])
+{% endhighlight %}</p>
+<p>{% highlight text %}</p>
+</section>
+<section id="id1">
+<h2>[1] 1 1 1 1 1 1 1 1 1 1<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>{% endhighlight %}</p>
+<p>{% highlight r %}
+c(“red”, “blue”, “#ddaa33”)[iris$Species[1:10]]
+{% endhighlight %}</p>
+<p>{% highlight text %}</p>
+</section>
+<section id="red-red-red-red-red-red-red-red-red-red">
+<h2>[1] “red” “red” “red” “red” “red” “red” “red” “red” “red” “red”<a class="headerlink" href="#red-red-red-red-red-red-red-red-red-red" title="Link to this heading">#</a></h2>
+<p>{% endhighlight %}</p>
+<p>Depending on the data we are
+attempting to visualize, the type of plot we may want to use will vary. R will automatically try and plot the most
+appropriate plot for the data provided. Next, we will use a “~” to provide a formula denoting what we want to plot.
+As <code class="docutils literal notranslate"><span class="pre">iris$Species</span></code> is a factor, R defaults to a boxplot.</p>
+<p>{% highlight r %}
+plot(iris<span class="math notranslate nohighlight">\(Sepal.Length ~ iris\)</span>Species, ylab = “Sepal Length (cm)”, xlab = “Species”,
+col =  c(“red”, “blue”, “#ddaa33”))
+{% endhighlight %}</p>
+<p><img alt="plot of chunk unnamed-chunk-9" src="https://raw.githubusercontent.com/UniExeterRSE/intro-to-r/main/figure/rmarkdown/08_plots/unnamed-chunk-9-1.png" /></p>
+<p>Note here, we only need to provide a vector of three colours, as there are only three boxes in the figure.</p>
+<p>As well as the <code class="docutils literal notranslate"><span class="pre">plot()</span></code> function R has some specific plot functions (box plots (boxplot()), histograms (hist())
+and bar plots (barplot())) we can call instead. These functions use a lot of the same arguments to customise the visualise
+the appearance of the plot.</p>
+<p>For example we can recreate the same boxplot as follows</p>
+<p>{% highlight r %}
+boxplot(iris<span class="math notranslate nohighlight">\(Sepal.Length ~ iris\)</span>Species, ylab = “Sepal Length (cm)”, xlab = “Species”,
+col =  c(“red”, “blue”, “#ddaa33”))
+{% endhighlight %}</p>
+<p><img alt="plot of chunk unnamed-chunk-10" src="https://raw.githubusercontent.com/UniExeterRSE/intro-to-r/main/figure/rmarkdown/08_plots/unnamed-chunk-10-1.png" /></p>
+<p>Histograms are plotted using the function <code class="docutils literal notranslate"><span class="pre">hist()</span></code>, which allows us to plot the frequency distribution of a vector.
+You can use standard plotting arguments such as col, but also used the argument breaks to adjust the amount of bins.</p>
+<p>{% highlight r %}</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="plotting-sepal-length-with-increased-bins">
+<h1>Plotting “Sepal.Length” with increased bins<a class="headerlink" href="#plotting-sepal-length-with-increased-bins" title="Link to this heading">#</a></h1>
+<p>hist(iris$Sepal.Length, breaks = 16)
+{% endhighlight %}</p>
+<p><img alt="plot of chunk unnamed-chunk-11" src="https://raw.githubusercontent.com/UniExeterRSE/intro-to-r/main/figure/rmarkdown/08_plots/unnamed-chunk-11-1.png" /></p>
+<p>Below you can see a table containing a lot of basic plotting arguments. Also, for colour selection, making colour themes and looking for colour blind options, you can use <a class="reference external" href="https://www.colorhexa.com/">https://www.colorhexa.com/</a> which will give you R friendly colour codes.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Argument</p></th>
+<th class="head text-left"><p>Description</p></th>
+<th class="head text-left"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>bg</p></td>
+<td class="text-left"><p>The color to be used for the background</p></td>
+<td class="text-left"><p>bg = “blue”</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>cex</p></td>
+<td class="text-left"><p>Character size and expansion</p></td>
+<td class="text-left"><p>cex = 1.5, cex = 0.8</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>cex.axis</p></td>
+<td class="text-left"><p>The magnification to be used for axis annotation</p></td>
+<td class="text-left"><p>cex.axis = 1.2</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>cex.lab</p></td>
+<td class="text-left"><p>he magnification to be used for x and y label</p></td>
+<td class="text-left"><p>cex.lab = 0.8</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>cex.main</p></td>
+<td class="text-left"><p>The magnification to be used for main titles</p></td>
+<td class="text-left"><p>cex.main = 1.3</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>cex.sub</p></td>
+<td class="text-left"><p>The magnification to be used for sub-titles</p></td>
+<td class="text-left"><p>cex.sub = 0.9</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>col</p></td>
+<td class="text-left"><p>Colour</p></td>
+<td class="text-left"><p>col = “red”, col = “#ff0000”</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>family</p></td>
+<td class="text-left"><p>Font on the plot</p></td>
+<td class="text-left"><p>family = “Arial”</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>fg</p></td>
+<td class="text-left"><p>The colour to be used for the foreground of plots</p></td>
+<td class="text-left"><p>fg = “orange”</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>font</p></td>
+<td class="text-left"><p>An integer which specifies which font to use for text. Italic, bold etc.</p></td>
+<td class="text-left"><p>font = 3</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>font.axis</p></td>
+<td class="text-left"><p>The font to be used for axis annotation</p></td>
+<td class="text-left"><p>font.axis = 2</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>font.lab</p></td>
+<td class="text-left"><p>The font to be used for x and y labels</p></td>
+<td class="text-left"><p>font.lab = 3</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>font.main</p></td>
+<td class="text-left"><p>The font to be used for plot main titles</p></td>
+<td class="text-left"><p>font.main = 2</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>font.sub</p></td>
+<td class="text-left"><p>The font to be used for plot sub-titles</p></td>
+<td class="text-left"><p>font.sub = 2</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>lty</p></td>
+<td class="text-left"><p>Line type</p></td>
+<td class="text-left"><p>lty = 2</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>lwd</p></td>
+<td class="text-left"><p>Line width</p></td>
+<td class="text-left"><p>lwd = 3</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>main</p></td>
+<td class="text-left"><p>Plot primary title</p></td>
+<td class="text-left"><p>main = “Iris”</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>pch</p></td>
+<td class="text-left"><p>Scatter plot symbol for points</p></td>
+<td class="text-left"><p>pch = 1, pch= “p”</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>srt</p></td>
+<td class="text-left"><p>The string rotation in degrees</p></td>
+<td class="text-left"><p>srt = 90</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>sub</p></td>
+<td class="text-left"><p>Subtitle of plot</p></td>
+<td class="text-left"><p>sub = “All data”</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>xlab, ylab</p></td>
+<td class="text-left"><p>Label of the x or y axis</p></td>
+<td class="text-left"><p>xlab = “Distance (Miles)”</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>xlim, ylim</p></td>
+<td class="text-left"><p>Min/max x or y axis values</p></td>
+<td class="text-left"><p>xlim = c(0, 10)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>xpd</p></td>
+<td class="text-left"><p>If true, allows plotting outside the plot</p></td>
+<td class="text-left"><p>xpd = TRUE</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="adding-data-to-an-existing-plot">
+<h1>Adding data to an existing plot<a class="headerlink" href="#adding-data-to-an-existing-plot" title="Link to this heading">#</a></h1>
+<p>Once you have created a plot, there are various methods which allow us to add more data on top. For example, we may
+want to add individual data points on top of a boxplot, add more data points to a plot or add a line. To do this we
+can use functions such as points(), lines() or abline().</p>
+<p>Using <code class="docutils literal notranslate"><span class="pre">points()</span></code> and <code class="docutils literal notranslate"><span class="pre">lines()</span></code>, you can add more data to your plot. They use similar arguments to <code class="docutils literal notranslate"><span class="pre">plot()</span></code>,
+such as col, lty, pch, cex etc.</p>
+<p>{% highlight r %}</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="plot-sepal-length-on-a-then-add-sepal-width-data-as-points-and-petal-length-as-lines">
+<h1>Plot “Sepal.Length” on a, then add “Sepal.Width” data as points and “Petal.Length” as lines<a class="headerlink" href="#plot-sepal-length-on-a-then-add-sepal-width-data-as-points-and-petal-length-as-lines" title="Link to this heading">#</a></h1>
+<p>plot(iris<span class="math notranslate nohighlight">\(Sepal.Length, ylim = c(0, 8), ylab = &quot;Size (cm)&quot;, xlab = &quot;Sample&quot;)
+points(iris\)</span>Sepal.Width, col = “red”, pch = 19, cex = 0.8)
+lines(iris$Petal.Length, lty = 2, col = “blue”)
+{% endhighlight %}</p>
+<p><img alt="plot of chunk unnamed-chunk-13" src="https://raw.githubusercontent.com/UniExeterRSE/intro-to-r/main/figure/rmarkdown/08_plots/unnamed-chunk-13-1.png" /></p>
+<p>using <code class="docutils literal notranslate"><span class="pre">abline()</span></code>, you can add horizontal lines (<code class="docutils literal notranslate"><span class="pre">h=</span></code>), vertical lines (<code class="docutils literal notranslate"><span class="pre">v=</span></code>), or diagonal lines(x, y). You can also specify
+the parameters of the straight line i.e the intercept (<code class="docutils literal notranslate"><span class="pre">a=</span></code>) and slope coefficient (<code class="docutils literal notranslate"><span class="pre">b=</span></code>).</p>
+<p>It can also be wrapped around a linear regression (<code class="docutils literal notranslate"><span class="pre">lm()</span></code>) to add a line of best fit.</p>
+<p>{% highlight r %}</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="adding-a-horizontal-line-at-6-and-a-vertical-line-at-60">
+<h1>Adding a horizontal line at 6 and a vertical line at 60<a class="headerlink" href="#adding-a-horizontal-line-at-6-and-a-vertical-line-at-60" title="Link to this heading">#</a></h1>
+<p>plot(iris$Sepal.Length)
+abline(h = 6, col = “red”)
+abline(v = 60, col = “blue”)
+{% endhighlight %}</p>
+<p><img alt="plot of chunk unnamed-chunk-14" src="https://raw.githubusercontent.com/UniExeterRSE/intro-to-r/main/figure/rmarkdown/08_plots/unnamed-chunk-14-1.png" /></p>
+<p>{% highlight r %}</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="plotting-sepal-length-against-petal-length-and-adding-a-line-of-best-fit">
+<h1>Plotting “Sepal.Length” against “Petal.Length” and adding a line of best fit<a class="headerlink" href="#plotting-sepal-length-against-petal-length-and-adding-a-line-of-best-fit" title="Link to this heading">#</a></h1>
+<p>plot(iris<span class="math notranslate nohighlight">\(Sepal.Length ~ iris\)</span>Petal.Length)
+abline(lm(iris<span class="math notranslate nohighlight">\(Sepal.Length ~ iris\)</span>Petal.Length), lty = 3, col = “green”, lwd = 3)
+{% endhighlight %}</p>
+<p><img alt="plot of chunk unnamed-chunk-14" src="https://raw.githubusercontent.com/UniExeterRSE/intro-to-r/main/figure/rmarkdown/08_plots/unnamed-chunk-14-2.png" /></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="further-customisations">
+<h1>Further customisations<a class="headerlink" href="#further-customisations" title="Link to this heading">#</a></h1>
+<p>We can make many additions to our plots. As there are so many, we will only explore the most common ones here but will
+list additional ones which may be useful in the future.</p>
+<p>We often need to add a legend to our, and can do this using <code class="docutils literal notranslate"><span class="pre">legend()</span></code>. The <code class="docutils literal notranslate"><span class="pre">legend()</span></code> function allows us to
+define position, either by using x, y coordinates or by a word such as “topleft”. We also provide the text, colours
+and background.</p>
+<p>{% highlight r %}</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="plotting-sepal-length-and-colouring-and-using-different-points-by-species-then-adding-a-legend">
+<h1>Plotting “Sepal.Length” and colouring and using different points by “Species”, then adding a legend<a class="headerlink" href="#plotting-sepal-length-and-colouring-and-using-different-points-by-species-then-adding-a-legend" title="Link to this heading">#</a></h1>
+<p>plot(iris<span class="math notranslate nohighlight">\(Sepal.Length, col = c(&quot;red&quot;, &quot;blue&quot;, &quot;#ddaa33&quot;)[iris\)</span>Species],
+pch = c(1, 2, 3)[iris$Species])
+legend(“topleft”, legend = c(“Setosa”, “Versicolor”, “Virginica”),
+pch = c(1,2,3), col = c(“red”, “blue”, “#ddaa33”))
+{% endhighlight %}</p>
+<p><img alt="plot of chunk unnamed-chunk-15" src="https://raw.githubusercontent.com/UniExeterRSE/intro-to-r/main/figure/rmarkdown/08_plots/unnamed-chunk-15-1.png" /></p>
+<p>We can add additional text to a plot by using <code class="docutils literal notranslate"><span class="pre">text()</span></code> or <code class="docutils literal notranslate"><span class="pre">mtext()</span></code> for putting text in the margin. To use
+<code class="docutils literal notranslate"><span class="pre">text()</span></code>, we provide x, y coordinates,
+the text to be written (<code class="docutils literal notranslate"><span class="pre">labels</span> <span class="pre">=</span></code>), size (<code class="docutils literal notranslate"><span class="pre">cex</span> <span class="pre">=</span></code>), and colour (<code class="docutils literal notranslate"><span class="pre">col</span> <span class="pre">=</span></code>) and font (<code class="docutils literal notranslate"><span class="pre">font</span> <span class="pre">=</span></code>).</p>
+<p>Using <code class="docutils literal notranslate"><span class="pre">mtext()</span></code> requires different arguments as it is relation to the margin side we put the text in. It requires
+the text (<code class="docutils literal notranslate"><span class="pre">text</span> <span class="pre">=</span> </code>), the side of the plot
+the text will go (side =) with 1 = bottom, 2 = left, 3 = top, 4 = right, the margin line to put the text on (line = ).</p>
+<p>{% highlight r %}</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="adding-text-to-a-plot">
+<h1>Adding text to a plot<a class="headerlink" href="#adding-text-to-a-plot" title="Link to this heading">#</a></h1>
+<p>plot(iris$Sepal.Length)
+text(20, 6, “text”, cex = 0.7, col = “blue”, font = 2)
+mtext(“text”, side = 4, line = 1, col = “red”)
+{% endhighlight %}</p>
+<p><img alt="plot of chunk unnamed-chunk-16" src="https://raw.githubusercontent.com/UniExeterRSE/intro-to-r/main/figure/rmarkdown/08_plots/unnamed-chunk-16-1.png" /></p>
+<p>There are times when we may want to add additional axes or move and adjust the axes of a plot. For this, we use
+<code class="docutils literal notranslate"><span class="pre">axis()</span></code> function after we create our plot. But first we need to tell R not to plot the default axes by
+setting the argument <code class="docutils literal notranslate"><span class="pre">axes</span></code> to FALSE when running <code class="docutils literal notranslate"><span class="pre">plot()</span></code>. <code class="docutils literal notranslate"><span class="pre">axis()</span></code> can be used to plot one axis at a time.
+Arguments for <code class="docutils literal notranslate"><span class="pre">axis()</span></code> including stating which side you want the axis to be drawn <code class="docutils literal notranslate"><span class="pre">(side</span> <span class="pre">=)</span></code> where 1 = below,
+2 = left, 3 = above and 4 = right, the positions of the tick-marks are drawn <code class="docutils literal notranslate"><span class="pre">(at</span> <span class="pre">=)</span></code>, what the labels are
+<code class="docutils literal notranslate"><span class="pre">(labels</span> <span class="pre">=)</span></code>, how far from the axis the ticks should extend <code class="docutils literal notranslate"><span class="pre">(line</span> <span class="pre">=)</span></code>, the position of the axis <code class="docutils literal notranslate"><span class="pre">(pos</span> <span class="pre">=)</span></code>
+and if tick marks should be drawn <code class="docutils literal notranslate"><span class="pre">(tick</span> <span class="pre">=)</span></code>. You can also change the line width <code class="docutils literal notranslate"><span class="pre">(lwd</span> <span class="pre">=)</span></code>, colour <code class="docutils literal notranslate"><span class="pre">(col</span> <span class="pre">=)</span></code>
+and type of line <code class="docutils literal notranslate"><span class="pre">(lty</span> <span class="pre">=)</span></code>. You need to use <code class="docutils literal notranslate"><span class="pre">axis()</span></code> for each axis you want to add.</p>
+<p>{% highlight r %}</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="plotting-sepal-length-without-axes-and-adding-them-with-adjustment">
+<h1>Plotting “Sepal.Length” without axes and adding them with adjustment<a class="headerlink" href="#plotting-sepal-length-without-axes-and-adding-them-with-adjustment" title="Link to this heading">#</a></h1>
+<p>plot(iris$Sepal.Length, axes = F, ylab=”Sepal Length (cm)”)
+axis(1)
+axis(2, pos = 50, at = 1:8, lwd = 2, col = “blue”)
+{% endhighlight %}</p>
+<p><img alt="plot of chunk unnamed-chunk-17" src="https://raw.githubusercontent.com/UniExeterRSE/intro-to-r/main/figure/rmarkdown/08_plots/unnamed-chunk-17-1.png" /></p>
+<p>If you want to enclose the plot in a box (i.e. add in the extra axes as straight lines) you can use the function <code class="docutils literal notranslate"><span class="pre">box()</span></code>.</p>
+<p>Additional functions to add elements to your plots are <code class="docutils literal notranslate"><span class="pre">segments()</span></code>, <code class="docutils literal notranslate"><span class="pre">arrows()</span></code>, <code class="docutils literal notranslate"><span class="pre">curve()</span></code>, <code class="docutils literal notranslate"><span class="pre">rect()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">polygon()</span></code> and <code class="docutils literal notranslate"><span class="pre">grid()</span></code>.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="adjusting-the-plot-margins">
+<h1>Adjusting the plot margins<a class="headerlink" href="#adjusting-the-plot-margins" title="Link to this heading">#</a></h1>
+<p>There are times when you want to adjust the size of the margins of a plot to make better use of the space available.
+Using <code class="docutils literal notranslate"><span class="pre">par()</span></code> with <code class="docutils literal notranslate"><span class="pre">mar()</span></code> and/or <code class="docutils literal notranslate"><span class="pre">mgp()</span></code> before calling <code class="docutils literal notranslate"><span class="pre">plot()</span></code>, we can adjust the margins of our plot.
+The function <code class="docutils literal notranslate"><span class="pre">par()</span></code> is essentially the function to set the parameters of the plots that follow. We can can it multiple times In
+a script to change the appearance of different plots.</p>
+<p>Using the argument <code class="docutils literal notranslate"><span class="pre">mar</span></code> allows us to adjust the width of the margins on each side of the plot. They are specificed in the unit of
+lines, with the default being <code class="docutils literal notranslate"><span class="pre">c(5,</span> <span class="pre">4,</span> <span class="pre">4,</span> <span class="pre">2)</span> <span class="pre">+</span> <span class="pre">0.1</span></code> relating to bottom, left, top and right respectively.</p>
+<p>As the <code class="docutils literal notranslate"><span class="pre">mar()</span></code> function just changes the width of the margins, anything located outside of the new sized margins
+is just pushed outside of the plotting region. For this reason we may also need to adjust the elements in the margin
+so we don’t just loose them or have them partly cut off. Using <code class="docutils literal notranslate"><span class="pre">mgp()</span></code> sets the axis label locations relative to
+the edge of the inner plot window. It takes a vector of length 3 where, the first value represents the location of
+the axis label, the second value the position of the tick-mark labels, and third value the position of the tick marks.
+The default is  <code class="docutils literal notranslate"><span class="pre">c(3,</span> <span class="pre">1,</span> <span class="pre">0)</span></code>.</p>
+<p>The argument <code class="docutils literal notranslate"><span class="pre">las()</span></code> allows us to specify the orientation of the tick mark labels or any other text added to a plot.
+The options are parallel to the axis (the default, las = 0), always horizontal (las = 1), always perpendicular to the
+axis (las = 2), and always vertical (las = 3). It can also be used within the <code class="docutils literal notranslate"><span class="pre">axis()</span></code> or <code class="docutils literal notranslate"><span class="pre">text()</span></code>
+functions to change the orientation of specific elements.</p>
+<p>{% highlight r %}
+par(mar = c(4, 4, 2, 1), mgp = c(2, 0.5, 0), las = 1)
+plot(iris$Sepal.Length, ylab=”Sepal Length (cm)”)
+{% endhighlight %}</p>
+<p><img alt="plot of chunk unnamed-chunk-18" src="https://raw.githubusercontent.com/UniExeterRSE/intro-to-r/main/figure/rmarkdown/08_plots/unnamed-chunk-18-1.png" /></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="creating-composite-plots">
+<h1>Creating composite plots<a class="headerlink" href="#creating-composite-plots" title="Link to this heading">#</a></h1>
+<p>There are two options for making composite plots, or a multi-panel plots.</p>
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">par()</span></code> function with the arguments <code class="docutils literal notranslate"><span class="pre">mfrow</span></code> <code class="docutils literal notranslate"><span class="pre">mfcol</span></code> which allows us define a matrix of plots
+with a specified number of rows and columns. Using <code class="docutils literal notranslate"><span class="pre">mfcol</span></code> draws by columns and <code class="docutils literal notranslate"><span class="pre">mfrow</span></code> draws by rows.</p>
+<p>{% highlight r %}
+par(mar = c(4, 4, 2, 1))
+par(mfrow = c(1, 2))
+plot(iris<span class="math notranslate nohighlight">\(Sepal.Length, ylab=&quot;Sepal Length (cm)&quot;)
+plot(iris\)</span>Sepal.Width, ylab=”Sepal Width (cm)”)
+{% endhighlight %}</p>
+<p><img alt="plot of chunk unnamed-chunk-19" src="https://raw.githubusercontent.com/UniExeterRSE/intro-to-r/main/figure/rmarkdown/08_plots/unnamed-chunk-19-1.png" /></p>
+<p>Alternatively we can use the function <code class="docutils literal notranslate"><span class="pre">layout()</span></code> which allows for complicated ways of combining plots. Again you should think
+think of it as a matrix or grid, but in this case a plot can occupy multiple elements. In this way plots can be different sizes.
+The relevant argument is <code class="docutils literal notranslate"><span class="pre">matrix</span></code> where you need to provide a matrix with increasing integers specifying where you want each plot
+to be located.</p>
+<p>For example if we want a plot with three figures, where one figure occupies the top, and there are two figures underneath,
+we need a 2x2 matrix with 1s across top and 2 and 3 underneath. We can create a matrix with the function <code class="docutils literal notranslate"><span class="pre">matrix()</span></code>
+where we provide the elements as a vector, the number of rows (or columns or both). The <code class="docutils literal notranslate"><span class="pre">byrow</span></code> argument, if true,
+will add the numbers to the matrix by row, if FALSE, it will add by column.</p>
+<p>{% highlight r %}
+matrix(c(1, 1, 2, 3), nrow = 2, ncol = 2, byrow = TRUE)
+{% endhighlight %}</p>
+<p>{% highlight text %}</p>
+<section id="id2">
+<h2>[,1] [,2]<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+</section>
+<section id="id3">
+<h2>[1,]    1    1<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+</section>
+<section id="id4">
+<h2>[2,]    2    3<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<p>{% endhighlight %}</p>
+<p>If we provide the this matrix to the <code class="docutils literal notranslate"><span class="pre">layout()</span></code> function, we are telling it to put the first plot to the positions
+occupied with the value 1, the second plot where the value 2 is located, and the third plot where the value 3 is located.</p>
+<p>{% highlight r %}
+par(mar = c(4, 4, 2, 1))
+layout(matrix(c(1, 1, 2, 3), 2, 2, byrow = TRUE))
+plot(iris<span class="math notranslate nohighlight">\(Sepal.Length, ylab = &quot;Sepal Length (cm)&quot;)
+plot(iris\)</span>Sepal.Width, ylab = “Sepal Width (cm)”)
+plot(iris$Petal.Length, ylab = “Petal Length (cm)”)
+{% endhighlight %}</p>
+<p><img alt="plot of chunk unnamed-chunk-21" src="https://raw.githubusercontent.com/UniExeterRSE/intro-to-r/main/figure/rmarkdown/08_plots/unnamed-chunk-21-1.png" /></p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="saving-and-exporting-plots">
+<h1>Saving and exporting plots<a class="headerlink" href="#saving-and-exporting-plots" title="Link to this heading">#</a></h1>
+<p>We can save our plots in various file formats byusing the appropriate function. These include as a pdf <code class="docutils literal notranslate"><span class="pre">(pdf())</span></code>,
+jpeg <code class="docutils literal notranslate"><span class="pre">(jpeg())</span></code>, png <code class="docutils literal notranslate"><span class="pre">(png())</span></code> or tiff <code class="docutils literal notranslate"><span class="pre">(tiff())</span></code>. These functions, with their arguments, need to be called
+before the plot is created (in order to open the connection to the file), and then the connection needs to be closed
+by executing <code class="docutils literal notranslate"><span class="pre">dev.off()</span></code>. The first argument for all of these functions is the path and/or file name where you want
+save the plot. When you call these functions you can also define the size of the image (using the arguments <code class="docutils literal notranslate"><span class="pre">width</span></code>,
+<code class="docutils literal notranslate"><span class="pre">height</span></code>, <code class="docutils literal notranslate"><span class="pre">units</span></code>, the background colour <code class="docutils literal notranslate"><span class="pre">bg</span></code> and resolution <code class="docutils literal notranslate"><span class="pre">res</span></code>. If the file does not exist it will be
+created, if it already exists, it will be overwritten without warning. All of these functions apart from <code class="docutils literal notranslate"><span class="pre">pdf()</span></code>
+will only save one image (although this could be a multi panel plot), and the last image that is plotted before <code class="docutils literal notranslate"><span class="pre">dev.off()</span></code>
+is called. <code class="docutils literal notranslate"><span class="pre">pdf()</span></code> on the other hand will save multiple images as multiple pages.</p>
+<p>{% highlight r %}</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="saving-a-plot-as-a-jpeg-file">
+<h1>Saving a plot as a jpeg file<a class="headerlink" href="#saving-a-plot-as-a-jpeg-file" title="Link to this heading">#</a></h1>
+<p>jpeg(“exampleplot.jpg”, width = 300, height = 300, units = “mm”, bg = “white”, res = 200)
+plot(iris$Sepal.Length, ylab = “Sepal Length (cm)”)
+dev.off()
+{% endhighlight %}</p>
+<p>{% highlight text %}</p>
+<section id="png">
+<h2>png<a class="headerlink" href="#png" title="Link to this heading">#</a></h2>
+</section>
+<section id="id5">
+<h2>2<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<p>{% endhighlight %}</p>
+</section>
+<section id="activity">
+<h2>Activity:<a class="headerlink" href="#activity" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Make two objects, one object containing values 1-20, and another object containing values 40-21</p>
+<ul class="simple">
+<li><p>Using your objects, create a plot with the object containing 1:20 on the x-axis and the object containing 40-21 on y-axis</p></li>
+<li><p>Change the x-axis label to “Independent Variable” and y-axis label to “Dependent Variable”</p></li>
+<li><p>Expand both axes to show values 1-40</p></li>
+<li><p>Increase the data point size, change their style and make them repeat between five colours</p></li>
+<li><p>Add a legend top the top right of the plot showing the five colours you have chosen and labelling them A, B, C, D, and E</p></li>
+<li><p>Add a horizontal line at 30, choose a colour, weight and style</p></li>
+<li><p>Add a vertical line at 10, choose a different colour, weight and style</p></li>
+<li><p>Add text saying “Cross Point” to the top right of the intersection of the two lines. Adjust the colour and size</p></li>
+</ul>
+</li>
+<li><p>Using “iris”, create a scatter plot with “Sepal.Length” on x-axis, labelled “Sepal length (cm)”, and the other three variables plotted on y-axis, with the label being “Size (cm)”</p>
+<ul class="simple">
+<li><p>Colour the three species differently and make the three measures different style of points</p></li>
+<li><p>Add a legend to show all the groups, and make sure it doesn’t cover any points</p></li>
+<li><p>Make sure the x-axis limits are 0-8 and y-axis limit is 4-8</p></li>
+<li><p>Adjust the margins to give a larger space around the edge of the plot and move the axis labels a little away from the axes</p></li>
+<li><p>Export the image as a pdf</p></li>
+</ul>
+</li>
+<li><p>Create a composite plot with the following panels using “iris”. Make the plots colourful and variable, that all points are visible in plotting window, axes have labels and measurement units. Export the plot as a high resolution (200) jpeg. Make sure the points and text are readable, and all info is visible. You may need to adjust margins</p>
+<ul class="simple">
+<li><p>Box plot of “Petal.Length” by species coloured by species</p></li>
+<li><p>Histogram of “Petal.Length” with 6 breaks, each one coloured differently, with a line added for the mean (hint: mean), coloured and labelled “Mean = X” where “X” is the mean value. Make this panel take more space</p></li>
+<li><p>“Petal.Length” against “Petal.Width” for just “virginica” species, with a line of best fit (hint: subsetting)</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "berrli/CfRR_Courses",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./individual_modules/introduction_to_r"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="control_flow.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Control Flow</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="stats.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Statistical Analysis</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Plots</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setosa-setosa-setosa-setosa-setosa-setosa-setosa-setosa-setosa-setosa">[1] setosa setosa setosa setosa setosa setosa setosa setosa setosa setosa</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#levels-setosa-versicolor-virginica">Levels: setosa versicolor virginica</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">[1] 1 1 1 1 1 1 1 1 1 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#red-red-red-red-red-red-red-red-red-red">[1] “red” “red” “red” “red” “red” “red” “red” “red” “red” “red”</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-sepal-length-with-increased-bins">Plotting “Sepal.Length” with increased bins</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-data-to-an-existing-plot">Adding data to an existing plot</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-sepal-length-on-a-then-add-sepal-width-data-as-points-and-petal-length-as-lines">Plot “Sepal.Length” on a, then add “Sepal.Width” data as points and “Petal.Length” as lines</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-horizontal-line-at-6-and-a-vertical-line-at-60">Adding a horizontal line at 6 and a vertical line at 60</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-sepal-length-against-petal-length-and-adding-a-line-of-best-fit">Plotting “Sepal.Length” against “Petal.Length” and adding a line of best fit</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#further-customisations">Further customisations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-sepal-length-and-colouring-and-using-different-points-by-species-then-adding-a-legend">Plotting “Sepal.Length” and colouring and using different points by “Species”, then adding a legend</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-text-to-a-plot">Adding text to a plot</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-sepal-length-without-axes-and-adding-them-with-adjustment">Plotting “Sepal.Length” without axes and adding them with adjustment</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#adjusting-the-plot-margins">Adjusting the plot margins</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-composite-plots">Creating composite plots</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">[,1] [,2]</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">[1,]    1    1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">[2,]    2    3</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-and-exporting-plots">Saving and exporting plots</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-a-plot-as-a-jpeg-file">Saving a plot as a jpeg file</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#png">png</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activity">Activity:</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Coding For Reproducible Research Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

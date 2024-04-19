@@ -1,0 +1,1376 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Collaborating with Branches &#8212; Coding For Reproducible Research</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'individual_modules/introduction_to_version_control/collaborating_with_branches';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Merge Conflicts" href="merge_conflicts.html" />
+    <link rel="prev" title="Remote Branches with GitHub" href="remote_branches_with_github.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../home_page.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/exeter_logo.png" class="logo__image only-light" alt="Coding For Reproducible Research - Home"/>
+    <script>document.write(`<img src="../../_static/exeter_logo.png" class="logo__image only-dark" alt="Coding For Reproducible Research - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../home_page.html">
+                    What is Coding for Reproducible Research?
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Details and Delivery Dates</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/theortical.html">Theortical</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/computational_thinking.html">Computational Thinking</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/machine_learning.html">Machine Learning</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_machine_learning.html">Introduction to Machine Learning</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/high_performance_computing.html">High Performance Computing</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_hpc_and_isca.html">Introduction to HPC and ISCA</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/julia.html">Julia</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_julia.html">Introduction to Julia</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/unix.html">UNIX</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_unix.html">Introduction to UNIX</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/parallel_computing.html">Parallel Computing</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/intro_parallel_computing.html">Parallel Computing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/R.html">R</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_r.html">Introduction to R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/working_with_data_in_r.html">Working With Data In R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/regression_analysis_with_r.html">Regression Analysis with R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/advanced_regression_analysis.html">Advanced Regression Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/python.html">Python</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_python.html">Introduction to Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/intermediate_python.html">Intermediate Python</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/software_development.html">Software Development</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/software_development_best_practice.html">Software Development Best Practices</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/version_control.html">Version Control</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_version_control_with_git_and_github.html">Introduction to Version Control with Git and Github</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/intermediate_version_control.html">Intermediate Version Control</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Self Study Notes</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_python.html">Introduction to Python</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/motivation.html">Motivation and Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/fundamentals.html">Python Fundamentals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/lists.html">Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/control_flow.html">Control Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/additional_exercises.html">Additional Session 1 Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/recap.html">Session 1 Recap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/imports.html">Imports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/analysis_task_intro.html">Data Analysis Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/analysis_task_1.html">Data Analysis Task 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/analysis_task_2.html">Data Analysis Task 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/analysis_task_3.html">Data Analysis Task 3</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_r.html">Introduction to R</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/gettingstarted.html">Getting Up and Running with R</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/basic_commands.html">Running Commands With R</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/data_types.html">Data Types and Structures</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/load_data.html">Loading Data From Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/manipulating_data.html">Manipulating Datasets</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/control_flow.html">Control Flow</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/plots.html">Plots</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/stats.html">Statistical Analysis</a></li>
+
+
+
+
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_hpc.html">Introduction to HPC and ISCA</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/motivation.html">Why might I want to use a HPC Cluster?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/isca.html">Exeter supported HPC facilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/connection.html">How do I connect to a HPC Cluster?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/file_transfer.html">File Transfer Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/schedulers.html">Running a job on a HPC system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/modules.html">Loading software packages on HPC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/example_jobs.html">Running more complex jobs on a HPC system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/exploiting_slurm.html">Harnessing the power of the scheduler</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_version_control.html">Introduction to Version Control</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="motivation.html">Motivation: Why use Version Control Systems?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git_vs_github.html">Git vs Github</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring_git.html">Setting up Git and GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="making_repos.html">Making Repositories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_repo.html">An Example Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recording_changes.html">Recording Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="history_and_changes.html">Viewing History and Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pushing_and_pulling.html">Pushing to and Pulling From the Remote Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="undoing_changes.html">Undoing Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ignoring_files.html">Ignoring Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="local_branches.html">Working with Local Branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="remote_branches_with_github.html">Remote Branches with GitHub</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Collaborating with Branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merge_conflicts.html">Merge Conflicts</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_unix.html">Introduction to UNIX</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/intro.html">Introducing the UNIX shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/filedir.html">File Directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/create.html">Working With Files and Directories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/pipefilter.html">Pipes and Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/loop.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/script.html">Shell Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/find.html">Finding Things</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/computational_thinking.html">Computational Thinking</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/algorithms.html">Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/decomposition.html">Decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/pattern_recognition.html">Pattern recognition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/abstraction.html">Abstraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/alignment.html">Aligning the human solution with the computer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/final_exercise.html">Sudoku Task</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/misc.html">Misc</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_NumPy.html">Python: Numpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_Pandas.html">Python: Pandas</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_Matplotlib.html">Python: Matplotlib</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_ScikitLearn.html">Python: Scikit-Learn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_MachineLearning.html">Python: Machine Learning</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pathways</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../pathways/complete_notebooks/data_scientist.html">Data Scientist</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/berrli/CfRR_Courses" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/berrli/CfRR_Courses/issues/new?title=Issue%20on%20page%20%2Findividual_modules/introduction_to_version_control/collaborating_with_branches.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/individual_modules/introduction_to_version_control/collaborating_with_branches.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Collaborating with Branches</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#collaborating-with-others">Collaborating with others</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-branching">Feature branching</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-feature-branches">Creating feature branches</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#protocol-for-merging-feature-branches-into-main">Protocol for merging feature branches into <code class="docutils literal notranslate"><span class="pre">main</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-joe-bloggs-and-jane-doe">Example: Joe Bloggs and Jane Doe</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-the-branches">Creating the branches</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#joe-s-local-branch">Joe’s local branch</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jane-s-local-branch">Jane’s local branch</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-on-the-feature-branches">Working on the feature branches</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#joe-s-fetching-material-feature-branch">Joe’s <code class="docutils literal notranslate"><span class="pre">fetching-material</span></code> feature branch</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jane-doe-and-her-collaboration-good-practice-feature-branch">Jane Doe and her <code class="docutils literal notranslate"><span class="pre">collaboration-good-practice</span></code> feature branch</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merging">Merging</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-to-the-pass-joe">First to the pass: Joe</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jane-merging-after-changes-to-main">Jane: merging after changes to <code class="docutils literal notranslate"><span class="pre">main</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finishing-up">Finishing up</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-a-graph-of-history">Viewing a graph of history</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning-up">Cleaning up</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="collaborating-with-branches">
+<h1>Collaborating with Branches<a class="headerlink" href="#collaborating-with-branches" title="Link to this heading">#</a></h1>
+<section id="learning-objectives">
+<h2>Learning objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>By the end of this episode you will have learned about a simple strategy
+for using branches to collaborate with others on a shared codebase, called
+feature branching. You will also have worked through an example of how this
+strategy works in practice.</p>
+</section>
+<section id="collaborating-with-others">
+<h2>Collaborating with others<a class="headerlink" href="#collaborating-with-others" title="Link to this heading">#</a></h2>
+<p>So far, we’ve only been using Git and GitHub as a solo developer. But the real
+power of version control systems is realised when collaborating with other
+developers on a shared project. Branching in Git provides the means for multiple
+people in a way that allows them to work concurrently and bring their work together
+in a controlled, transparent way. If you’re using GitHub to host your remote
+repository, then pull requests provide a way to communicate to others about
+your changes.</p>
+<p>The key thing to remember when collaborating with Git is that, while there may
+only be a single remote repository, <em>every developer has their own local repository</em> that
+is linked to the remote repository. The corollary to this is:</p>
+<ul class="simple">
+<li><p>each developer is responsible for pushing the work from their local repository
+to the remote one; and</p></li>
+<li><p>each developer needs to pull in work that others have contributed to the
+remote repository into their local repository.</p></li>
+</ul>
+<p>It’s important that this is done promptly and regularly so that any changes
+are not missed by you or others.</p>
+<p>There are different strategies and philosophies on how branches can be used
+for collaboration. For this course, we’re going to discuss a simple strategy
+called <em>feature branching</em>.</p>
+</section>
+<section id="feature-branching">
+<h2>Feature branching<a class="headerlink" href="#feature-branching" title="Link to this heading">#</a></h2>
+<p>A <strong>feature</strong> in this context is any piece of work that adds to the
+software’s overall development, whether this be a new piece of functionality, a
+bug fix, some documentation, etc. In feature branching, new features are
+developed in their own, dedicated <strong>feature branches</strong> that branch off the
+<code class="docutils literal notranslate"><span class="pre">main</span></code> branch. When the feature is ready to be shared with others, the feature
+branch is merged back into <code class="docutils literal notranslate"><span class="pre">main</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">main</span></code> branch and feature branches take on different roles:</p>
+<ul class="simple">
+<li><p><strong>The <code class="docutils literal notranslate"><span class="pre">main</span></code> branch</strong>: This includes code changes that you want to share with
+each other, or that are ready for release into the world. You should consider
+it the ‘neat’ version of your work. As a general rule, <em>code only makes it into
+<code class="docutils literal notranslate"><span class="pre">main</span></code> through merging a feature branch. You don’t commit directly to <code class="docutils literal notranslate"><span class="pre">main</span></code>.</em></p></li>
+<li><p><strong>Feature branches</strong>: These are branches where you work on code to develop
+features, so will contain ‘work in progress’ until they’re ready to merge
+back into <code class="docutils literal notranslate"><span class="pre">main</span></code>.</p></li>
+</ul>
+<p>A common scenario you will come across when working on a feature branch is
+where <code class="docutils literal notranslate"><span class="pre">main</span></code> gets updated through someone else merging a feature branch they’re
+working on. When it comes to you merging your feature branch into <code class="docutils literal notranslate"><span class="pre">main</span></code>, the
+golden rule is to make sure you merge any changes to <code class="docutils literal notranslate"><span class="pre">main</span></code> <em>into</em> your
+feature branch <em>before</em> merging your feature branch into <code class="docutils literal notranslate"><span class="pre">main</span></code>. This ensures
+you are adding your work to the latest version of the ‘common’ codebase and
+resolve any issues in your feature branch:</p>
+<ul class="simple">
+<li><p>It gives you a chance to check that the changes you are making are consistent
+with other peoples’ work. Some changes made by others may pass under the radar
+when merging e.g. different naming of functions / variables to what your
+code relies on, deletion or moving of code your work relies on, etc.</p></li>
+<li><p>It also gives you a chance to resolve any <em>merge conflicts</em> that may arise
+when you try to merge your work into the common codebase (about which more in
+the [Merge Conflicts](/16_merge_conflicts/index.html) episode).</p></li>
+</ul>
+<p>An example of feature branching is depicted below:</p>
+<p>![Feature branching](/images/feature-branching.svg)</p>
+<section id="creating-feature-branches">
+<h3>Creating feature branches<a class="headerlink" href="#creating-feature-branches" title="Link to this heading">#</a></h3>
+<p>We will be creating feature branches using the workflow described in the previous
+episode, [Remote Branches with GitHub](/14_remote_branches_with_github/index.html):
+feature branches will be created remotely on GitHub and then fetched in for us
+to work on locally.</p>
+</section>
+<section id="protocol-for-merging-feature-branches-into-main">
+<h3>Protocol for merging feature branches into <code class="docutils literal notranslate"><span class="pre">main</span></code><a class="headerlink" href="#protocol-for-merging-feature-branches-into-main" title="Link to this heading">#</a></h3>
+<p>Below we give steps for merging a feature branch <code class="docutils literal notranslate"><span class="pre">foo-feature</span></code> into <code class="docutils literal notranslate"><span class="pre">main</span></code>. We
+assume <code class="docutils literal notranslate"><span class="pre">foo-feature</span></code> exists both as a remote branch in the remote repository and
+also a local tracking branch in our local repository.</p>
+<ol class="arabic">
+<li><p>Create a pull request on GitHub corresponding to the merge of <code class="docutils literal notranslate"><span class="pre">foo-feature</span></code>
+into <code class="docutils literal notranslate"><span class="pre">main</span></code>.</p></li>
+<li><p>Pull any changes to <code class="docutils literal notranslate"><span class="pre">main</span></code> on the remote repository into your local version
+of <code class="docutils literal notranslate"><span class="pre">main</span></code> (using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> on your local <code class="docutils literal notranslate"><span class="pre">main</span></code> branch).</p>
+<p>a) If <code class="docutils literal notranslate"><span class="pre">main</span></code> was unchanged by the pull then go to step 2,
+otherwise go to step b) below.</p>
+<p>b) If <code class="docutils literal notranslate"><span class="pre">main</span></code> got updated by the pull, then merge <code class="docutils literal notranslate"><span class="pre">main</span></code> into <code class="docutils literal notranslate"><span class="pre">foo-feature</span></code>
+in your local repository before continuing, by using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span></code>.
+If there are merge conflicts, these MUST be resolved and the merge into
+<code class="docutils literal notranslate"><span class="pre">foo-feature</span></code> completed before continuing to step c) below (see the later
+episode on [merge conflicts](/16_merge_conflicts/index.html)
+for details on how to do this). Also take the
+opportunity to make sure this merge hasn’t introduced any problems into
+the codebase (e.g. inconsistencies in naming, etc.)</p>
+<p>c) Pull the remote <code class="docutils literal notranslate"><span class="pre">main</span></code> into your local <code class="docutils literal notranslate"><span class="pre">main</span></code> again to be
+sure no further changes were made while you were performing the merge in
+step b). If the branch wasn’t updated then proceed
+to step 3 below, otherwise curse your luck and go back to step b).</p>
+</li>
+<li><p>Push the commits in your local <code class="docutils literal notranslate"><span class="pre">foo-feature</span></code> branch to the corresponding
+remote branch.</p></li>
+<li><p>Complete the pull request on GitHub to merge the <code class="docutils literal notranslate"><span class="pre">foo-feature</span></code> branch
+into <code class="docutils literal notranslate"><span class="pre">main</span></code> on the remote.</p></li>
+<li><p>Pull the changes to <code class="docutils literal notranslate"><span class="pre">main</span></code> from the remote repository into your local repository.
+Optional, but recommended: delete the feature branch <code class="docutils literal notranslate"><span class="pre">foo-feature</span></code> from GitHub
+and from your remote repository (including the reference <code class="docutils literal notranslate"><span class="pre">origin/foo-feature</span></code>
+to the remote branch).</p></li>
+</ol>
+</section>
+</section>
+<section id="example-joe-bloggs-and-jane-doe">
+<h2>Example: Joe Bloggs and Jane Doe<a class="headerlink" href="#example-joe-bloggs-and-jane-doe" title="Link to this heading">#</a></h2>
+<p>We’re now going to assume that Joe Bloggs and Jane Doe are two people collaborating
+on the <code class="docutils literal notranslate"><span class="pre">git-good-practice</span></code> repository. They will work with the same
+remote repository, created under Joe’s account, but will each have their own
+associated local repositories. They’re going to use the <em>feature branch</em>
+strategy, discussed in the previous section, to add:</p>
+<ul class="simple">
+<li><p>Material to the cheatsheet about fetching remote branches from a remote
+repository.</p></li>
+<li><p>A new file documenting good practice when collaborating together.</p></li>
+</ul>
+<p>In order for two people to work on the same remote repository on GitHub, they
+each need to be listed as collaborators on the repository.</p>
+<blockquote>
+<div><h3 class="rubric" id="collaborators-on-a-github-repository">Collaborators on a GitHub repository</h3>
+<p>If you are the owner of a repository on GitHub, you can invite collaborators
+to work on the repository using the
+<a href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository" target="_blank" rel="external noreferrer">instructions in the GitHub documentation</a>.</p>
+</div></blockquote>
+<section id="exercise">
+<h3>Exercise<a class="headerlink" href="#exercise" title="Link to this heading">#</a></h3>
+<p>At this point in the course, we encourage participants to pair up and work
+together on a common repository, taking the roles of Joe and Jane.</p>
+<p>So, find a partner to work with. Have one of you invite the other as a collaborator
+on your repository. The collaborator should then clone the other person’s
+repository using the above instructions, so that you are both working on a
+common remote repository. In what follows, one of you should play the role of
+Joe Bloggs and the other of Jane Doe.</p>
+<blockquote>
+<div><h4 class="rubric" id="solo-work">Solo work</h4>
+<p>If you are working through these course notes by yourself then try imagining
+you are two different developers collaborating on the repository together. We
+suggest you clone a fresh copy of the remote repository to a new local repository
+on your computer, while keeping your original local repository. This will
+help you simulate the scenario of collaborators each having their own local
+repository.</p>
+</div></blockquote>
+</section>
+</section>
+<section id="creating-the-branches">
+<h2>Creating the branches<a class="headerlink" href="#creating-the-branches" title="Link to this heading">#</a></h2>
+<p>Joe and Jane begin by creating remote branches on GitHub for their work, creating
+these at the same time:</p>
+<ul class="simple">
+<li><p><strong>Joe</strong> creates a remote branch called <code class="docutils literal notranslate"><span class="pre">fetching-material</span></code>, which will contain
+material about fetching from a remote repository.</p></li>
+<li><p><strong>Jane</strong> creates a remote branch called <code class="docutils literal notranslate"><span class="pre">collaboration-good-practice</span></code>, which
+will contain work on good practice while collaborating.</p></li>
+</ul>
+<p>Next, Joe and Jane need to each create a local branch
+that will track their remote branch.</p>
+<section id="joe-s-local-branch">
+<h3>Joe’s local branch<a class="headerlink" href="#joe-s-local-branch" title="Link to this heading">#</a></h3>
+<p>Joe fetches references to the new branches in the remote repository, then
+creates a new local branch to track his remote <code class="docutils literal notranslate"><span class="pre">fetching-material</span></code> branch (and
+also checks out this new local branch):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git fetch
+Username for &#39;https://github.com&#39;: jbloggs9999
+Password for &#39;https://jbloggs9999@github.com&#39;:
+From https://github.com/jbloggs9999/git-good-practice
+ * [new branch]      collaboration-good-practice -&gt; origin/collaboration-good-practice
+ * [new branch]      fetching-material -&gt; origin/fetching-material
+
+$ git checkout fetching-material 
+Switched to a new branch &#39;fetching-material&#39;
+branch &#39;fetching-material&#39; set up to track &#39;origin/fetching-material&#39;.
+</pre></div>
+</div>
+<p>Notice that the fetch creates references to <em>both</em> of the new remote branches,
+<code class="docutils literal notranslate"><span class="pre">fetching-material</span></code> and <code class="docutils literal notranslate"><span class="pre">collaboration-good-practice</span></code>, which Joe and Jane created on
+GitHub a moment ago. In contrast, Joe only has a local branch corresponding
+to his remote <code class="docutils literal notranslate"><span class="pre">fetching-material</span></code> branch, since this is the branch he performed
+the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span></code> on:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git branch -a
+* fetching-material
+  main
+  remotes/origin/HEAD -&gt; origin/main
+  remotes/origin/collaboration-good-practice
+  remotes/origin/fetching-material
+  remotes/origin/main
+</pre></div>
+</div>
+</section>
+<section id="jane-s-local-branch">
+<h3>Jane’s local branch<a class="headerlink" href="#jane-s-local-branch" title="Link to this heading">#</a></h3>
+<p>Jane runs the analogous commands in her local repository, in this case creating
+a local tracking branch for her <code class="docutils literal notranslate"><span class="pre">collaboration-good-practice</span></code> remote branch
+instead:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git fetch
+Username for &#39;https://github.com&#39;: janedoe9999
+Password for &#39;https://janedoe9999@github.com&#39;:
+From https://github.com/jbloggs9999/git-good-practice
+ * [new branch]      collaboration-good-practice -&gt; origin/collaboration-good-practice
+ * [new branch]      fetching-material -&gt; origin/fetching-material
+
+$ git checkout collaboration-good-practice 
+Switched to a new branch &#39;collaboration-good-practice&#39;
+branch &#39;collaboration-good-practice&#39; set up to track &#39;origin/collaboration-good-practice&#39;.
+
+$ git branch -a
+* collaboration-good-practice
+  main
+  remotes/origin/HEAD -&gt; origin/main
+  remotes/origin/collaboration-good-practice
+  remotes/origin/fetching-material
+  remotes/origin/main
+</pre></div>
+</div>
+</section>
+</section>
+<section id="working-on-the-feature-branches">
+<h2>Working on the feature branches<a class="headerlink" href="#working-on-the-feature-branches" title="Link to this heading">#</a></h2>
+<section id="joe-s-fetching-material-feature-branch">
+<h3>Joe’s <code class="docutils literal notranslate"><span class="pre">fetching-material</span></code> feature branch<a class="headerlink" href="#joe-s-fetching-material-feature-branch" title="Link to this heading">#</a></h3>
+<p>Joe adds the following content to <code class="docutils literal notranslate"><span class="pre">Git-cheatsheet.md</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+## Syncing with a remote repository
+
+`git fetch origin` — Retrieve references to new remote branches, and/or commits
+                     that are contained in remote branches, from the remote
+                     repository (referred to as `origin`).
+
+</pre></div>
+</div>
+<p>He then commits it on his (local) <code class="docutils literal notranslate"><span class="pre">fetching-material</span></code> branch:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git add Git-cheatsheet.md 
+
+$ git commit -m &quot;Add entry about fetching from a remote&quot;
+[fetching-material 1d026a8] Add entry about fetching from a remote
+ 1 file changed, 7 insertions(+)
+</pre></div>
+</div>
+<p>Checking the status, Joe confirms that his local <code class="docutils literal notranslate"><span class="pre">fetching-material</span></code> branch is 1 commit
+ahead of the associated remote branch:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git status
+On branch fetching-material
+Your branch is ahead of &#39;origin/fetching-material&#39; by 1 commit.
+  (use &quot;git push&quot; to publish your local commits)
+
+nothing to commit, working tree clean
+</pre></div>
+</div>
+<p>In order to back up his work and give Jane a preview of what he’s been doing,
+Joe pushes the changes to his local <code class="docutils literal notranslate"><span class="pre">fetching-material</span></code> branch to the remote
+<code class="docutils literal notranslate"><span class="pre">origin/fetching-material</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git push
+Username for &#39;https://github.com&#39;: jbloggs9999
+Password for &#39;https://jbloggs9999@github.com&#39;:
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 494 bytes | 123.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/jbloggs9999/git-good-practice.git
+   86ebbee..1d026a8  fetching-material -&gt; fetching-material
+</pre></div>
+</div>
+<p>The history on Joe’s <code class="docutils literal notranslate"><span class="pre">fetching-material</span></code> branch now looks like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log --oneline -5
+1d026a8 (HEAD -&gt; fetching-material, origin/fetching-material) Add entry about fetching from a remote
+86ebbee (origin/main, origin/collaboration-good-practice, origin/HEAD, main) Merge pull request #1 from jbloggs9999/remote-branches-material        
+5125372 Add note about creating local tracking branches
+3b918f2 Add entry about merging branches
+51da8da Add entry about checking out a branch
+</pre></div>
+</div>
+</section>
+<section id="jane-doe-and-her-collaboration-good-practice-feature-branch">
+<h3>Jane Doe and her <code class="docutils literal notranslate"><span class="pre">collaboration-good-practice</span></code> feature branch<a class="headerlink" href="#jane-doe-and-her-collaboration-good-practice-feature-branch" title="Link to this heading">#</a></h3>
+<p>Jane creates a new file called <code class="docutils literal notranslate"><span class="pre">Collaboration-good-practice.md</span></code> in the
+<code class="docutils literal notranslate"><span class="pre">Good-practice-guides</span></code> directory (which she includes as a stand-alone commit)
+and adds the following content about the above feature branch strategy:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Best practice for collaboration
+
+## A basic feature branch strategy
+
+A basic way to collaborate on a common repository is to use *feature branching*.
+A *feature* in this context is any piece of work that adds to of the
+software&#39;s overall development, whether this be a new piece of functionality, a
+bug fix, some documentation, etc. In feature branching, new features are
+developed in their own, dedicated *feature branches* that branch off the
+`main` branch. When the feature is ready to be shared with others, the feature
+branch is merged back into `main`.
+
+</pre></div>
+</div>
+<p>Like Joe, she then also pushes the new commits on her local
+<code class="docutils literal notranslate"><span class="pre">collaboration-good-practice</span></code> to the associated remote branch,
+<code class="docutils literal notranslate"><span class="pre">origin/collaboration-good-practice</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git push origin
+Username for &#39;https://github.com&#39;: janedoe9999
+Password for &#39;https://janedoe9999@github.com&#39;:
+Enumerating objects: 10, done.
+Counting objects: 100% (10/10), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (8/8), 1.04 KiB | 353.00 KiB/s, done.
+Total 8 (delta 2), reused 1 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 1 local object.
+To https://github.com/jbloggs9999/git-good-practice.git
+   86ebbee..b9df491  collaboration-good-practice -&gt; collaboration-good-practice
+</pre></div>
+</div>
+<p>Having done this, her <code class="docutils literal notranslate"><span class="pre">collaboration-good-practice</span></code> history looks as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log --oneline -5
+b9df491 (HEAD -&gt; collaboration-good-practice, origin/collaboration-good-practice) Add material on feature branching
+687cf02 Start good practice guide on collaboration
+86ebbee (origin/main, origin/fetching-material, origin/HEAD, main) Merge pull request #1 from jbloggs9999/remote-branches-material
+5125372 Add note about creating local tracking branches
+3b918f2 Add entry about merging branches
+</pre></div>
+</div>
+<p>Let us take a moment to point out that, at this point, <code class="docutils literal notranslate"><span class="pre">origin/fetching-material</span></code>
+hasn’t been updated in Jane’s local repository, and neither has
+<code class="docutils literal notranslate"><span class="pre">origin/collaboration-good-practice</span></code> been updated in Joe’s local repository.
+This is because they haven’t yet fetched updates to the corresponding remote
+branches from the remote repository. This underlines the
+fact that the information about remote branches only
+gets updated in local repositories when you tell Git to retrieve updates from
+the remote, via <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span></code> or <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code>.</p>
+</section>
+</section>
+<section id="merging">
+<h2>Merging<a class="headerlink" href="#merging" title="Link to this heading">#</a></h2>
+</section>
+<section id="first-to-the-pass-joe">
+<h2>First to the pass: Joe<a class="headerlink" href="#first-to-the-pass-joe" title="Link to this heading">#</a></h2>
+<p>Joe finishes his work before Jane does and so gets to work on merging his
+feature branch into the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch. Following the strategy that was discussed
+in the episode [Remote Branches with GitHub](/14_remote_branches_with_github/index.html),
+he creates a pull request associated to the merge.</p>
+<p>Having done this, he checks that Jane hasn’t
+merged any work into the remote <code class="docutils literal notranslate"><span class="pre">main</span></code> branch. He could do this by examining
+the history of <code class="docutils literal notranslate"><span class="pre">main</span></code> on GitHub, or by checking out <code class="docutils literal notranslate"><span class="pre">main</span></code> and
+pulling in any changes from the remote:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout main
+Switched to branch &#39;main&#39;
+Your branch is up to date with &#39;origin/main&#39;.
+
+$ git pull
+Username for &#39;https://github.com&#39;: jbloggs9999
+Password for &#39;https://jbloggs9999@github.com&#39;:
+remote: Enumerating objects: 10, done.
+remote: Counting objects: 100% (10/10), done.
+remote: Compressing objects: 100% (5/5), done.
+remote: Total 8 (delta 2), reused 8 (delta 2), pack-reused 0
+Unpacking objects: 100% (8/8), 1.02 KiB | 17.00 KiB/s, done.
+From https://github.com/jbloggs9999/git-good-practice
+   86ebbee..b9df491  collaboration-good-practice -&gt; origin/collaboration-good-practice
+Already up to date.
+</pre></div>
+</div>
+<p>Recall that <code class="docutils literal notranslate"><span class="pre">Your</span> <span class="pre">branch</span> <span class="pre">is</span> <span class="pre">up</span> <span class="pre">to</span> <span class="pre">date</span> <span class="pre">with</span> <span class="pre">'origin/main'.</span></code> after the
+checkout in the above output only means that Git is not aware of any extra commits in
+<code class="docutils literal notranslate"><span class="pre">origin/main</span></code> compared to <code class="docutils literal notranslate"><span class="pre">main</span></code> since the last <code class="docutils literal notranslate"><span class="pre">fetch</span></code> or <code class="docutils literal notranslate"><span class="pre">pull</span></code>. In this
+case, the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> command confirms that the local <code class="docutils literal notranslate"><span class="pre">main</span></code> branch was already up to date with
+the remote repository’s <code class="docutils literal notranslate"><span class="pre">main</span></code> branch. It also shows that then new commits in the
+<code class="docutils literal notranslate"><span class="pre">origin/collaboration-good-practice</span></code> that Jane’s working on have been fetched.</p>
+<p>Since his <code class="docutils literal notranslate"><span class="pre">main</span></code> branch is fully up to date with
+the remote version, Joe goes ahead and performs the merge of his feature branch
+into <code class="docutils literal notranslate"><span class="pre">main</span></code> on GitHub, by completing the pull request. He then updates his local
+<code class="docutils literal notranslate"><span class="pre">main</span></code> branch with the merged changes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git pull
+Username for &#39;https://github.com&#39;: jbloggs9999
+Password for &#39;https://jbloggs9999@github.com&#39;:
+remote: Enumerating objects: 1, done.
+remote: Counting objects: 100% (1/1), done.
+remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (1/1), 654 bytes | 93.00 KiB/s, done.
+From https://github.com/jbloggs9999/git-good-practice
+   86ebbee..4e209e9  main       -&gt; origin/main
+Updating 86ebbee..4e209e9
+Fast-forward
+ Git-cheatsheet.md | 7 +++++++
+ 1 file changed, 7 insertions(+)
+</pre></div>
+</div>
+<section id="jane-merging-after-changes-to-main">
+<h3>Jane: merging after changes to <code class="docutils literal notranslate"><span class="pre">main</span></code><a class="headerlink" href="#jane-merging-after-changes-to-main" title="Link to this heading">#</a></h3>
+<p>Jane is ready to merge her <code class="docutils literal notranslate"><span class="pre">collaboration-good-practice</span></code> feature branch into
+<code class="docutils literal notranslate"><span class="pre">main</span></code>, so she creates a pull request linked to the remote feature branch.</p>
+<p>As the feature branch protocol recommends, she checks to see whether her local
+<code class="docutils literal notranslate"><span class="pre">main</span></code> branch is up-to-date with the remote repository:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout main
+Switched to branch &#39;main&#39;
+Your branch is up to date with &#39;origin/main&#39;.
+
+$ git pull origin
+Username for &#39;https://github.com&#39;: janedoe9999
+Password for &#39;https://janedoe9999@github.com&#39;:
+remote: Enumerating objects: 4, done.
+remote: Counting objects: 100% (4/4), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 4 (delta 3), reused 2 (delta 2), pack-reused 0
+Unpacking objects: 100% (4/4), 974 bytes | 27.00 KiB/s, done.
+From https://github.com/jbloggs9999/git-good-practice
+   86ebbee..4e209e9  main              -&gt; origin/main
+   86ebbee..1d026a8  fetching-material -&gt; origin/fetching-material
+Updating 86ebbee..4e209e9
+Fast-forward
+ Git-cheatsheet.md | 7 +++++++
+ 1 file changed, 7 insertions(+)
+</pre></div>
+</div>
+<p>(Again, she could also have done this by looking at the history of <code class="docutils literal notranslate"><span class="pre">main</span></code> on
+GitHub.) Jane finds that there have been changes made to the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch while
+she was working on her feature branch, as indicated by the line</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="mi">86</span><span class="n">ebbee</span><span class="o">.</span><span class="mf">.4e209</span><span class="n">e9</span>  <span class="n">main</span>              <span class="o">-&gt;</span> <span class="n">origin</span><span class="o">/</span><span class="n">main</span>
+</pre></div>
+</div>
+<p>Therefore, she merges her now updated <code class="docutils literal notranslate"><span class="pre">main</span></code> branch into her feature branch, to
+ensure her feature branch includes the latest changes. (Note that she does
+this <em>locally</em>, rather than on GitHub.)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout collaboration-good-practice 
+Switched to branch &#39;collaboration-good-practice&#39;
+Your branch is up to date with &#39;origin/collaboration-good-practice&#39;.
+
+$ git merge main
+Merge made by the &#39;ort&#39; strategy.
+ Git-cheatsheet.md | 7 +++++++
+ 1 file changed, 7 insertions(+)
+</pre></div>
+</div>
+<p>She also then pushes her updated feature branch to the
+remote repository, so that her local and remote branches are synchronised.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git push
+Username for &#39;https://github.com&#39;: janedoe9999
+Password for &#39;https://janedoe9999@github.com&#39;:
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 325 bytes | 325.00 KiB/s, done.
+Total 2 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/jbloggs9999/git-good-practice.git
+   b9df491..ee1617c  collaboration-good-practice -&gt; collaboration-good-practice
+</pre></div>
+</div>
+<p>Having done this, she now effectively starts the protocol for merging a feature
+branch into <code class="docutils literal notranslate"><span class="pre">main</span></code> again. First she checks there haven’t been any further updates
+to <code class="docutils literal notranslate"><span class="pre">main</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout main
+Switched to branch &#39;main&#39;
+Your branch is up to date with &#39;origin/main&#39;.
+
+$ git pull
+Username for &#39;https://github.com&#39;: janedoe9999
+Password for &#39;https://janedoe9999@github.com&#39;:
+Already up to date.
+</pre></div>
+</div>
+<p>Having seen there are no further updates, she goes to GitHub and completes
+the associated pull request, thus merging her remote
+<code class="docutils literal notranslate"><span class="pre">collaboration-good-practice</span></code> feature branch into <code class="docutils literal notranslate"><span class="pre">main</span></code> in the remote
+repository. Then she pulls down the new, merged changes from <code class="docutils literal notranslate"><span class="pre">origin/main</span></code> into
+her local <code class="docutils literal notranslate"><span class="pre">main</span></code> branch:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git pull
+Username for &#39;https://github.com&#39;: janedoe9999
+Password for &#39;https://janedoe9999@github.com&#39;:
+remote: Enumerating objects: 1, done.
+remote: Counting objects: 100% (1/1), done.
+remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (1/1), 648 bytes | 108.00 KiB/s, done.
+From https://github.com/jbloggs9999/git-good-practice
+   4e209e9..785f6f8  main       -&gt; origin/main
+Updating 4e209e9..785f6f8
+Fast-forward
+ Good-practice-guides/Collaboration-good-practice.md | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+ create mode 100644 Good-practice-guides/Collaboration-good-practice.md
+</pre></div>
+</div>
+</section>
+</section>
+<section id="finishing-up">
+<h2>Finishing up<a class="headerlink" href="#finishing-up" title="Link to this heading">#</a></h2>
+<p>The merged changes added to <code class="docutils literal notranslate"><span class="pre">main</span></code> by Jane won’t feature in Joe’s local
+repository until he pulls them into his local <code class="docutils literal notranslate"><span class="pre">main</span></code> branch. Having seen on
+GitHub that Jane has completed her pull request, he duly makes sure his local
+repository has these changes (making sure he’s on <code class="docutils literal notranslate"><span class="pre">main</span></code> to begin with):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git status
+On branch main
+Your branch is up to date with &#39;origin/main&#39;.
+
+nothing to commit, working tree clean
+
+$ git pull
+Username for &#39;https://github.com&#39;: jbloggs9999
+Password for &#39;https://jbloggs9999@github.com&#39;:
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 2), reused 1 (delta 1), pack-reused 0
+Unpacking objects: 100% (3/3), 829 bytes | 48.00 KiB/s, done.
+From https://github.com/jbloggs9999/git-good-practice
+   4e209e9..785f6f8  main       -&gt; origin/main
+   b9df491..ee1617c  collaboration-good-practice -&gt; origin/collaboration-good-practice
+Updating 4e209e9..785f6f8
+Fast-forward
+ Good-practice-guides/Collaboration-good-practice.md | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+ create mode 100644 Good-practice-guides/Collaboration-good-practice.md
+</pre></div>
+</div>
+<p>Both Joe and Jane now have completely up-to-date local repositories.</p>
+</section>
+<section id="viewing-a-graph-of-history">
+<h2>Viewing a graph of history<a class="headerlink" href="#viewing-a-graph-of-history" title="Link to this heading">#</a></h2>
+<p>Feeling satisfied about a successful collaboration, Joe and Jane decide to take
+a look at what they’ve just accomplished. One nice way to view history in the
+repository when multiple branches are involved is to use the <code class="docutils literal notranslate"><span class="pre">--graph</span></code> option with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code>.
+This will pictorially represent the inter-relationships of the branches that
+are involved in the commit history:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">log</span> <span class="p">[</span><span class="n">options</span><span class="p">]</span> <span class="o">--</span><span class="n">graph</span>
+</pre></div>
+</div>
+<p>Note: you may find it clearest to use this with the <code class="docutils literal notranslate"><span class="pre">--oneline</span></code> option.</p>
+<p>From within Joe’s repository, the output of the graph looks like the following
+(viewing only the last 7 commits):</p>
+<!-- 
+```
+$ git log --oneline -7 --graph
+*   785f6f8 (HEAD -> main, origin/main, origin/HEAD) Merge pull request #3 from jbloggs9999/collaboration-good-practice
+|\
+| *   ee1617c (origin/collaboration-good-practice) Merge branch 'main' into collaboration-good-practice
+| |\
+| |/
+|/|
+* |   4e209e9 Merge pull request #2 from jbloggs9999/fetching-material
+|\ \
+| * | 1d026a8 (origin/fetching-material, fetching-material) Add entry about fetching from a remote
+|/ /  
+| * b9df491 Add material on feature branching
+| * 687cf02 Start good practice guide on collaboration
+|/  
+*   86ebbee Merge pull request #1 from jbloggs9999/remote-branches-material
+|\ 
+```
+-->
+<p>![Git log as a graph](/images/git-log-as-graph.png)</p>
+<p>Let’s go through this output in more detail:</p>
+<ul class="simple">
+<li><p>The commit <code class="docutils literal notranslate"><span class="pre">86ebbee</span></code> (“Merge pull request #1 …”) is where Joe and Jane
+started their work.</p></li>
+<li><p>The vertical line represents the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch, that we’re currently on. After
+the starting commit, there are two more commits, <code class="docutils literal notranslate"><span class="pre">4e209e9</span></code> and <code class="docutils literal notranslate"><span class="pre">785f6f8</span></code>, that
+show where the feature branches where merged into <code class="docutils literal notranslate"><span class="pre">main</span></code> on the remote.</p></li>
+<li><p>We can see the commit on Joe’s feature branch by following the purple line:
+the commit is <code class="docutils literal notranslate"><span class="pre">1d026a8</span></code>, where <code class="docutils literal notranslate"><span class="pre">origin/fetching-material</span></code> currently points. (It’s
+also where the local branch <code class="docutils literal notranslate"><span class="pre">fetching-material</span></code> points, which we see because we
+are viewing Joe’s local repository.) The feature branch got merged into main
+at commit <code class="docutils literal notranslate"><span class="pre">4e209e9</span></code> (“Merge pull request #2 from jbloggs9999/fetching-material”)</p></li>
+<li><p>Jane’s feature branch commits start at <code class="docutils literal notranslate"><span class="pre">687cf02</span></code> (“Start good practice guide on
+collaboration”) and continue along the yellow line. Note that commit
+<code class="docutils literal notranslate"><span class="pre">ee1617c</span></code> (where <code class="docutils literal notranslate"><span class="pre">origin/collaboration-good-practice</span></code> currently points) is
+where Jane merged her <code class="docutils literal notranslate"><span class="pre">main</span></code> branch into <code class="docutils literal notranslate"><span class="pre">collaboration-good-practice</span></code> locally,
+after pulling in Joe’s merged changes to <code class="docutils literal notranslate"><span class="pre">main</span></code>. Note also the red line connecting
+<code class="docutils literal notranslate"><span class="pre">main</span></code> to this commit, indicating Jane’s merge.</p></li>
+<li><p>Finally, the latest commit <code class="docutils literal notranslate"><span class="pre">785f6f8</span></code> (“Merge pull request #3 from jbloggs9999/collaboration-good-practice”)
+is the commit where Jane’s feature branch got merged into main on the remote.</p></li>
+</ul>
+</section>
+<section id="cleaning-up">
+<h2>Cleaning up<a class="headerlink" href="#cleaning-up" title="Link to this heading">#</a></h2>
+<p>At this point, Joe and Jane can delete their feature branches, both from the
+local repository and the remote repository. There is no risk of losing work,
+because everything has been merged into <code class="docutils literal notranslate"><span class="pre">main</span></code>, both locally and on the
+remote repository. After doing this, the log of recent history looks
+like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log --oneline -7
+785f6f8 (HEAD -&gt; main, origin/main, origin/HEAD) Merge pull request #3 from jbloggs9999/collaboration-good-practice
+ee1617c Merge branch &#39;main&#39; into collaboration-good-practice
+4e209e9 Merge pull request #2 from jbloggs9999/fetching-material
+b9df491 Add material on feature branching
+687cf02 Start good practice guide on collaboration
+1d026a8 Add entry about fetching from a remote
+86ebbee Merge pull request #1 from jbloggs9999/remote-branches-material
+</pre></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "berrli/CfRR_Courses",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./individual_modules/introduction_to_version_control"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="remote_branches_with_github.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Remote Branches with GitHub</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="merge_conflicts.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Merge Conflicts</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#collaborating-with-others">Collaborating with others</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-branching">Feature branching</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-feature-branches">Creating feature branches</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#protocol-for-merging-feature-branches-into-main">Protocol for merging feature branches into <code class="docutils literal notranslate"><span class="pre">main</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-joe-bloggs-and-jane-doe">Example: Joe Bloggs and Jane Doe</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-the-branches">Creating the branches</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#joe-s-local-branch">Joe’s local branch</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jane-s-local-branch">Jane’s local branch</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-on-the-feature-branches">Working on the feature branches</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#joe-s-fetching-material-feature-branch">Joe’s <code class="docutils literal notranslate"><span class="pre">fetching-material</span></code> feature branch</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jane-doe-and-her-collaboration-good-practice-feature-branch">Jane Doe and her <code class="docutils literal notranslate"><span class="pre">collaboration-good-practice</span></code> feature branch</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merging">Merging</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-to-the-pass-joe">First to the pass: Joe</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jane-merging-after-changes-to-main">Jane: merging after changes to <code class="docutils literal notranslate"><span class="pre">main</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finishing-up">Finishing up</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-a-graph-of-history">Viewing a graph of history</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning-up">Cleaning up</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Coding For Reproducible Research Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

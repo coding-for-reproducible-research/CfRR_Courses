@@ -1,0 +1,1080 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Running Commands With R &#8212; Coding For Reproducible Research</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'individual_modules/introduction_to_r/basic_commands';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Data Types and Structures" href="data_types.html" />
+    <link rel="prev" title="Getting Up and Running with R" href="gettingstarted.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../home_page.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/exeter_logo.png" class="logo__image only-light" alt="Coding For Reproducible Research - Home"/>
+    <script>document.write(`<img src="../../_static/exeter_logo.png" class="logo__image only-dark" alt="Coding For Reproducible Research - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../home_page.html">
+                    What is Coding for Reproducible Research?
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Details and Delivery Dates</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/theortical.html">Theortical</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/computational_thinking.html">Computational Thinking</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/machine_learning.html">Machine Learning</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_machine_learning.html">Introduction to Machine Learning</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/high_performance_computing.html">High Performance Computing</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_hpc_and_isca.html">Introduction to HPC and ISCA</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/julia.html">Julia</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_julia.html">Introduction to Julia</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/unix.html">UNIX</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_unix.html">Introduction to UNIX</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/parallel_computing.html">Parallel Computing</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/intro_parallel_computing.html">Parallel Computing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/R.html">R</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_r.html">Introduction to R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/working_with_data_in_r.html">Working With Data In R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/regression_analysis_with_r.html">Regression Analysis with R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/advanced_regression_analysis.html">Advanced Regression Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/python.html">Python</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_python.html">Introduction to Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/intermediate_python.html">Intermediate Python</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/software_development.html">Software Development</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/software_development_best_practice.html">Software Development Best Practices</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/version_control.html">Version Control</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_version_control_with_git_and_github.html">Introduction to Version Control with Git and Github</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/intermediate_version_control.html">Intermediate Version Control</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Self Study Notes</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_python.html">Introduction to Python</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/motivation.html">Motivation and Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/fundamentals.html">Python Fundamentals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/lists.html">Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/control_flow.html">Control Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/additional_exercises.html">Additional Session 1 Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/recap.html">Session 1 Recap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/imports.html">Imports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/analysis_task_intro.html">Data Analysis Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/analysis_task_1.html">Data Analysis Task 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/analysis_task_2.html">Data Analysis Task 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/analysis_task_3.html">Data Analysis Task 3</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_r.html">Introduction to R</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="gettingstarted.html">Getting Up and Running with R</a></li>
+
+
+
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Running Commands With R</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="data_types.html">Data Types and Structures</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="load_data.html">Loading Data From Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manipulating_data.html">Manipulating Datasets</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="control_flow.html">Control Flow</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="plots.html">Plots</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="stats.html">Statistical Analysis</a></li>
+
+
+
+
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_hpc.html">Introduction to HPC and ISCA</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/motivation.html">Why might I want to use a HPC Cluster?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/isca.html">Exeter supported HPC facilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/connection.html">How do I connect to a HPC Cluster?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/file_transfer.html">File Transfer Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/schedulers.html">Running a job on a HPC system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/modules.html">Loading software packages on HPC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/example_jobs.html">Running more complex jobs on a HPC system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/exploiting_slurm.html">Harnessing the power of the scheduler</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_version_control.html">Introduction to Version Control</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/motivation.html">Motivation: Why use Version Control Systems?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/git_vs_github.html">Git vs Github</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/configuring_git.html">Setting up Git and GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/making_repos.html">Making Repositories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/example_repo.html">An Example Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/recording_changes.html">Recording Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/history_and_changes.html">Viewing History and Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/pushing_and_pulling.html">Pushing to and Pulling From the Remote Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/undoing_changes.html">Undoing Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/ignoring_files.html">Ignoring Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/local_branches.html">Working with Local Branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/remote_branches_with_github.html">Remote Branches with GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/collaborating_with_branches.html">Collaborating with Branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/merge_conflicts.html">Merge Conflicts</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_unix.html">Introduction to UNIX</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/intro.html">Introducing the UNIX shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/filedir.html">File Directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/create.html">Working With Files and Directories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/pipefilter.html">Pipes and Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/loop.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/script.html">Shell Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/find.html">Finding Things</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/computational_thinking.html">Computational Thinking</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/algorithms.html">Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/decomposition.html">Decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/pattern_recognition.html">Pattern recognition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/abstraction.html">Abstraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/alignment.html">Aligning the human solution with the computer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/final_exercise.html">Sudoku Task</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/misc.html">Misc</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_NumPy.html">Python: Numpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_Pandas.html">Python: Pandas</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_Matplotlib.html">Python: Matplotlib</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_ScikitLearn.html">Python: Scikit-Learn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_MachineLearning.html">Python: Machine Learning</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pathways</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../pathways/complete_notebooks/data_scientist.html">Data Scientist</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/berrli/CfRR_Courses" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/berrli/CfRR_Courses/issues/new?title=Issue%20on%20page%20%2Findividual_modules/introduction_to_r/basic_commands.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/individual_modules/introduction_to_r/basic_commands.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Running Commands With R</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Running Commands With R</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#executing-commands-in-r">Executing Commands in R</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">[1] 4</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#interacting-with-r">Interacting with R</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#set-the-working-directory">Set the Working Directory</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#home-runner-work-intro-to-r-intro-to-r-rmarkdown">[1] “/home/runner/work/intro-to-r/intro-to-r/_rmarkdown”</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-variables">Defining Variables</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">[1] 55</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#weight-in-pounds">weight in pounds:</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">[1] 121</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#weight-in-kilograms-is-now">weight in kilograms is now</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">[1] 57.5</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#weight-in-kg">weight in kg…</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">[1] 57.5</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#and-in-pounds">…and in pounds</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">[1] 126.5</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#weight-in-kg-now">weight in kg now…</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">[1] 100</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#and-weight-in-pounds-still">…and weight in pounds still</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">[1] 126.5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-assigning-values-to-variables">Activity: Assigning Values to Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#naming-objects-in-r">Naming objects in R</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="running-commands-with-r">
+<h1>Running Commands With R<a class="headerlink" href="#running-commands-with-r" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="executing-commands-in-r">
+<h1>Executing Commands in R<a class="headerlink" href="#executing-commands-in-r" title="Link to this heading">#</a></h1>
+<p>The console pane (in RStudio, the bottom left panel) is the place where R is
+waiting for you to tell it what to do, and where it will show the results of a
+command that has been executed. This console is the fundamental component of R and is available
+outside of RStudio. It is recognisable due to the blurb of text at the top (which provides details
+on which R version you are using) and the arrowhead cursor (&gt;).</p>
+<p><img alt="Alt Text" src="individual_modules/images/r_console.png" /></p>
+<p>You can type commands directly into the console
+and press <code class="docutils literal notranslate"><span class="pre">Enter</span></code> to execute those commands. For example we can use R as a calculator:</p>
+<p>{% highlight r %}
+2+2
+{% endhighlight %}</p>
+<p>{% highlight text %}</p>
+<section id="id1">
+<h2>[1] 4<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>{% endhighlight %}</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="interacting-with-r">
+<h1>Interacting with R<a class="headerlink" href="#interacting-with-r" title="Link to this heading">#</a></h1>
+<p>There are two main ways of interacting with R: using the console or by using
+a script. A script is a text file that contains your code. R scripts are often saved with the file extension .r or .R.</p>
+<p>We want our code and workflow to be reproducible. In other words, we want to write code in a way that
+anyone (including ou future selves) can easily replicate, such they will obtain the same results from our code
+on their computer. If we type our commands directly into the Console, they will be forgotten when you close the session.
+It is preferable to type the commands you want to run directly into the script editor, so that you can save the script. This way,
+you have a complete record of what you did,
+you can easily show others how you did it and you can do it again later on if needed.</p>
+<p>RStudio allows you to execute commands directly from the script editor by using
+the <kbd><code class="docutils literal notranslate"><span class="pre">Ctrl</span></code></kbd> + <kbd><code class="docutils literal notranslate"><span class="pre">Enter</span></code></kbd> shortcut. If no text is highlighted, the command on the current
+line in the script (i.e. where the line containing the cursor) will be
+sent to the console and executed. Alternatively you can select multiple lines to
+send to the console for execution when you press <kbd><code class="docutils literal notranslate"><span class="pre">Ctrl</span></code></kbd> +
+<kbd><code class="docutils literal notranslate"><span class="pre">Enter</span></code></kbd>.</p>
+<p>There may be times when you want to type directly in the console, for example a quick calcuation.
+RStudio provides the <kbd><code class="docutils literal notranslate"><span class="pre">Ctrl</span></code></kbd> + <kbd><code class="docutils literal notranslate"><span class="pre">1</span></code></kbd> and <kbd><code class="docutils literal notranslate"><span class="pre">Ctrl</span></code></kbd> +
+<kbd><code class="docutils literal notranslate"><span class="pre">2</span></code></kbd> shortcuts allow you to jump between the script and the console
+windows.</p>
+<p>If R is ready to accept commands, the R console shows a <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> prompt. If it
+receives a command (by typing, copy-pasting or sent from the script editor using
+<kbd><code class="docutils literal notranslate"><span class="pre">Ctrl</span></code></kbd> + <kbd><code class="docutils literal notranslate"><span class="pre">Enter</span></code></kbd>), R will try to execute it, and when
+ready, show the results and come back with a new <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>prompt to indicate it is ready for
+the next command.</p>
+<p>If R is still waiting for you to enter more text to complete the current command
+the console will show a <code class="docutils literal notranslate"><span class="pre">+</span></code> prompt. It means that you haven’t finished entering
+a complete command. This is because it is expecting a specific character, that
+finishes a command you have already started. For example, if you open a parenthesis or
+quotation,  it needs to be closed before the command can be processed. Another way of thinking about this
+is R expects for every left-parentheses you include, a right-parentheses to accompany it. Similarly, it expects an even
+number of quotation marks. This can be quite frustrating, as it might not be obvious what R is waiting for, but if
+you’re in RStudio and this happens, click inside the console window and press
+<code class="docutils literal notranslate"><span class="pre">Esc</span></code>; this will cancel the incomplete command and return you to the <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> prompt.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="set-the-working-directory">
+<h1>Set the Working Directory<a class="headerlink" href="#set-the-working-directory" title="Link to this heading">#</a></h1>
+<p>When using R, often we want to analyse data stored in files on our computer and potentially save some output.</p>
+<p>It is important to note that we are always working in a folder or directory on our computer. There are times when this may not be
+important (for example running a simulation from given parameters).
+But if we want a specific file, we need to tell R where to find it. We do using by specifying the filepath. One common issue, when
+starting out with programming is understanding where a program (in this case R/Rstudio) is looking for the file(s).</p>
+<p>Theoretically, we can find any file from any location given the correct filepath. However, to make our code simpler, it can be helpful
+to change location, and move to a folder where the files we want to work on are located. The folder we are currently in is called the working directory.</p>
+<p>Let’s create a folder on our computer, to store all the files we will work on for this series of workshops. On your computer, open up a
+file explorer window (outside of Rstudio) and create a folder called <strong>R-workshop</strong> somewhere memorable. For example on the Desktop.</p>
+<p>In Rstudio, we can change the working directory through the drop down menus by selecting options</p>
+<p><code class="docutils literal notranslate"><span class="pre">Session</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Set</span> <span class="pre">Working</span> <span class="pre">Directory</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Choose</span> <span class="pre">Directory...</span></code></p>
+<p>We then search for and select the folder we want.</p>
+<p><img alt="Alt Text" src="individual_modules/images/rstudio_workdirectory.png" /></p>
+<p>You will note that in the R console a line of code has appeared.</p>
+<p><img alt="Alt Text" src="individual_modules/images/rstudio_setwd.png" /></p>
+<p>This is the R command that is required to change the current working directory using the function <code class="docutils literal notranslate"><span class="pre">setwd()</span></code>.
+The text string inside the “()” is the filepath to the folder we want to change to. If you save this to your script,
+next time you won’t need to click through the menus, you can execute this line of code instead.</p>
+<p>You should also see that in the File Pane (bottom-right), this has also changed to this new directory. We need to
+know where we are such that we can navigate R to find files and locations appropriately.  If we ever get lost we can use <code class="docutils literal notranslate"><span class="pre">getwd()</span></code> to get the path
+of our current location.</p>
+<p>{% highlight r %}
+getwd()
+{% endhighlight %}</p>
+<p>{% highlight text %}</p>
+<section id="home-runner-work-intro-to-r-intro-to-r-rmarkdown">
+<h2>[1] “/home/runner/work/intro-to-r/intro-to-r/_rmarkdown”<a class="headerlink" href="#home-runner-work-intro-to-r-intro-to-r-rmarkdown" title="Link to this heading">#</a></h2>
+<p>{% endhighlight %}</p>
+<br>
+<details>
+	<summary> Absolute vs Relative Filepaths </summary>
+	<pre>
+    <p>
+<p>We can specify filepaths in two ways:</p>
+<ol class="arabic simple">
+<li><p>Absolute - this is where we direct R how to get there from the root folder, which is the uppermost folder in the system and is denoted “/”.
+Any file path that starts with “/” is an absolute filepath.</p></li>
+<li><p>Relative - this is where we direct R how to get to the new folder from where we currently are. For example to get to a sub-folder of the current
+folder we can just provide the name of the current folder. We can use shortcuts to go up a folder (“..”). Relative file paths do not start with “/”</p></li>
+</ol>
+</p>
+</pre>
+</details>
+<br>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="defining-variables">
+<h1>Defining Variables<a class="headerlink" href="#defining-variables" title="Link to this heading">#</a></h1>
+<p>A key concept in any programming language is that of a variable. A variable is just a name, such as <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">current_temperature</span></code>, or <code class="docutils literal notranslate"><span class="pre">subject_id</span></code> which
+represents some value. We use the word value here loosely as it could be a singular number, a matrix, or a more complex numerical structure. It also
+does not have to even be a number it could be a string of text. The idea though is it’s value might change and we want to simplify how we process the value.</p>
+<p>In R, we can create a new variable simply by assigning a value to it using <code class="docutils literal notranslate"><span class="pre">&lt;-</span></code></p>
+<p>{% highlight r %}
+weight_kg &lt;- 55
+{% endhighlight %}</p>
+<p>Once a variable has a value, we can print it by typing the name of the variable and hitting <code class="docutils literal notranslate"><span class="pre">Enter</span></code> (or <code class="docutils literal notranslate"><span class="pre">return</span></code>).
+In general, R will print to the console any object returned by a function or operation <em>unless</em> we assign it to a variable.</p>
+<p>{% highlight r %}
+weight_kg
+{% endhighlight %}</p>
+<p>{% highlight text %}</p>
+<section id="id2">
+<h2>[1] 55<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>{% endhighlight %}</p>
+<p>We can do arithmetic with the variable:</p>
+<p>{% highlight r %}</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="weight-in-pounds">
+<h1>weight in pounds:<a class="headerlink" href="#weight-in-pounds" title="Link to this heading">#</a></h1>
+<p>2.2 * weight_kg
+{% endhighlight %}</p>
+<p>{% highlight text %}</p>
+<section id="id3">
+<h2>[1] 121<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<p>{% endhighlight %}</p>
+<p>We can also change an object’s value by assigning it a new value:</p>
+<p>{% highlight r %}
+weight_kg &lt;- 57.5</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="weight-in-kilograms-is-now">
+<h1>weight in kilograms is now<a class="headerlink" href="#weight-in-kilograms-is-now" title="Link to this heading">#</a></h1>
+<p>weight_kg
+{% endhighlight %}</p>
+<p>{% highlight text %}</p>
+<section id="id4">
+<h2>[1] 57.5<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<p>{% endhighlight %}</p>
+<p>If we imagine the variable as a sticky note with a name written on it,
+assignment is like putting the sticky note on a particular value:</p>
+<img src="../images/python-sticky-note-variables-01.svg" alt="Variables as Sticky Notes" />
+<p>This means that assigning a value to one object does not change the values of other variables.
+For example, let’s store the subject’s weight in pounds in a variable:</p>
+<p>{% highlight r %}
+weight_lb &lt;- 2.2 * weight_kg</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="weight-in-kg">
+<h1>weight in kg…<a class="headerlink" href="#weight-in-kg" title="Link to this heading">#</a></h1>
+<p>weight_kg
+{% endhighlight %}</p>
+<p>{% highlight text %}</p>
+<section id="id5">
+<h2>[1] 57.5<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<p>{% endhighlight %}</p>
+<p>{% highlight r %}</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="and-in-pounds">
+<h1>…and in pounds<a class="headerlink" href="#and-in-pounds" title="Link to this heading">#</a></h1>
+<p>weight_lb
+{% endhighlight %}</p>
+<p>{% highlight text %}</p>
+<section id="id6">
+<h2>[1] 126.5<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<p>{% endhighlight %}</p>
+<img src="../images/python-sticky-note-variables-02.svg" alt="Creating Another Variable" />
+<p>and then change <code class="docutils literal notranslate"><span class="pre">weight_kg</span></code>:</p>
+<p>{% highlight r %}
+weight_kg &lt;- 100.0</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="weight-in-kg-now">
+<h1>weight in kg now…<a class="headerlink" href="#weight-in-kg-now" title="Link to this heading">#</a></h1>
+<p>weight_kg
+{% endhighlight %}</p>
+<p>{% highlight text %}</p>
+<section id="id7">
+<h2>[1] 100<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<p>{% endhighlight %}</p>
+<p>{% highlight r %}</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="and-weight-in-pounds-still">
+<h1>…and weight in pounds still<a class="headerlink" href="#and-weight-in-pounds-still" title="Link to this heading">#</a></h1>
+<p>weight_lb
+{% endhighlight %}</p>
+<p>{% highlight text %}</p>
+<section id="id8">
+<h2>[1] 126.5<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
+<p>{% endhighlight %}</p>
+<img src="../images/python-sticky-note-variables-03.svg" alt="Updating a Variable" />
+<p>Since <code class="docutils literal notranslate"><span class="pre">weight_lb</span></code> doesn’t “remember” where its value came from, it isn’t automatically updated when <code class="docutils literal notranslate"><span class="pre">weight_kg</span></code> changes.
+This is different from the way spreadsheets work.</p>
+<details>
+	<summary> Assignment operator </summary>
+	<pre>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>`&lt;-` is the assignment operator. It assigns values on the right to objects on
+the left. So, after executing `x &lt;- 3`, the value of `x` is `3`. The arrow can
+be read as 3 **goes into** `x`.  For historical reasons, you can also use `=` for assignments,
+but not in every context. Because of the [slight](http://blog.revolutionanalytics.com/2008/12/use-equals-or-arrow-for-assignment.html) 
+[differences](https://web.archive.org/web/20130610005305/https://stat.ethz.ch/pipermail/r-help/2009-March/191462.html) in syntax,
+it is good practice to use always `&lt;-` for assignments, except when specifying the values of
+arguments in functions, when only `=` should be used, see below.
+
+In RStudio, typing &lt;kbd&gt;Alt&lt;/kbd&gt; + &lt;kbd&gt;-&lt;/kbd&gt; (push &lt;kbd&gt;Alt&lt;/kbd&gt; at the
+same time as the &lt;kbd&gt;-&lt;/kbd&gt; key) will write ` &lt;- ` in a single keystroke.
+&lt;/pre&gt;
+</pre></div>
+</div>
+</details>
+</section>
+<section id="activity-assigning-values-to-variables">
+<h2>Activity: Assigning Values to Variables<a class="headerlink" href="#activity-assigning-values-to-variables" title="Link to this heading">#</a></h2>
+<p>Draw diagrams showing what variables refer to what values after each statement in the following program:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mass</span> <span class="o">&lt;-</span> <span class="mf">47.5</span>
+<span class="n">age</span> <span class="o">&lt;-</span> <span class="mi">122</span>
+<span class="n">mass</span> <span class="o">&lt;-</span> <span class="n">mass</span> <span class="o">*</span> <span class="mf">2.0</span>
+<span class="n">age</span> <span class="o">&lt;-</span> <span class="n">age</span> <span class="o">-</span> <span class="mi">20</span>
+</pre></div>
+</div>
+<details>
+	<summary> Printing with Parentheses </summary>
+	<pre>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An alternative way to print the value of a variable is to use () around the 
+assignment statement.
+
+As an example: 
+
+`(total_weight &lt;- weight_kg + weight_lb)` 
+
+adds the values of `weight_kg` and `weight_lb`,
+assigns the result to the `total_weight`,
+and finally prints the assigned value of the variable `total_weight`.
+&lt;/pre&gt;
+</pre></div>
+</div>
+</details>
+</section>
+<section id="naming-objects-in-r">
+<h2>Naming objects in R<a class="headerlink" href="#naming-objects-in-r" title="Link to this heading">#</a></h2>
+<p>You can use any combination of alphanumeric characters, along with dots and underscores, to name an R object. But there are a few <em><strong>exceptions</strong></em>:</p>
+<ul class="simple">
+<li><p>Names cannot start with a number;</p></li>
+<li><p>Names cannot have spaces;</p></li>
+<li><p>Names cannot be a standalone number such as <code class="docutils literal notranslate"><span class="pre">12</span></code> or <code class="docutils literal notranslate"><span class="pre">0.34</span></code>;</p></li>
+<li><p>Names cannot be a reserved word such as <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code>, <code class="docutils literal notranslate"><span class="pre">function</span></code>, <code class="docutils literal notranslate"><span class="pre">TRUE</span></code>, <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> and <code class="docutils literal notranslate"><span class="pre">NULL</span></code> just to name a few
+(to see the full list of reserved words, type <code class="docutils literal notranslate"><span class="pre">?Reserved</span></code>).</p></li>
+</ul>
+<p>Examples of <strong><em>valid names</em></strong> include <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">dat2</span></code>, <code class="docutils literal notranslate"><span class="pre">cpi_index</span></code>, <code class="docutils literal notranslate"><span class="pre">.tmp</span></code>, and even a standalone dot <code class="docutils literal notranslate"><span class="pre">.</span></code> (though a dot can
+make reading code difficult under certain circumstances).</p>
+<p>Examples of <strong><em>invalid names</em></strong> include <code class="docutils literal notranslate"><span class="pre">1dat</span></code>,<code class="docutils literal notranslate"> <span class="pre">dat</span> <span class="pre">2</span></code> (note the space between <code class="docutils literal notranslate"><span class="pre">dat</span></code> and <code class="docutils literal notranslate"><span class="pre">2</span></code>), <code class="docutils literal notranslate"><span class="pre">df-ver2</span></code> (the dash is
+treated as a mathematical operator), and <code class="docutils literal notranslate"><span class="pre">Inf</span></code> (the latter is a reserved word listed in the <code class="docutils literal notranslate"><span class="pre">?Reserved</span></code> help document).</p>
+<p>You can mix cases, but use upper cases with caution since some letters look very much the same in both lower and upper cases (e.g. s and S).</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="functions">
+<h1>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h1>
+<p>Functions are a core concept in programming, they are commands which tells R to perform a particular task. The utility of a function is that it
+will perform its given action again and again. R identifies functions by the presence of “()” following their name. You can customise how the function behaves
+by the use of arguments, this is additional information provide to the function to allow it to run).</p>
+<p>We have already used two functions in this workshop. First we used <code class="docutils literal notranslate"><span class="pre">setwd()</span></code>. We used this function with an argument, which was the path to the folder we
+wanted to change to. We can reuse this function to change to an unlimited number of different folders on our computer. Then we used <code class="docutils literal notranslate"><span class="pre">getwd()</span></code>, this is an example
+of a function that doesn’t require any arguments.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "berrli/CfRR_Courses",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./individual_modules/introduction_to_r"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="gettingstarted.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Getting Up and Running with R</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="data_types.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Data Types and Structures</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Running Commands With R</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#executing-commands-in-r">Executing Commands in R</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">[1] 4</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#interacting-with-r">Interacting with R</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#set-the-working-directory">Set the Working Directory</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#home-runner-work-intro-to-r-intro-to-r-rmarkdown">[1] “/home/runner/work/intro-to-r/intro-to-r/_rmarkdown”</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-variables">Defining Variables</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">[1] 55</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#weight-in-pounds">weight in pounds:</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">[1] 121</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#weight-in-kilograms-is-now">weight in kilograms is now</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">[1] 57.5</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#weight-in-kg">weight in kg…</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">[1] 57.5</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#and-in-pounds">…and in pounds</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">[1] 126.5</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#weight-in-kg-now">weight in kg now…</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">[1] 100</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#and-weight-in-pounds-still">…and weight in pounds still</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">[1] 126.5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-assigning-values-to-variables">Activity: Assigning Values to Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#naming-objects-in-r">Naming objects in R</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Coding For Reproducible Research Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

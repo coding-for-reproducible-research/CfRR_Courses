@@ -1,0 +1,1260 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Functions &#8212; Coding For Reproducible Research</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'individual_modules/introduction_to_python/functions';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Imports" href="imports.html" />
+    <link rel="prev" title="Session 1 Recap" href="recap.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../home_page.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/exeter_logo.png" class="logo__image only-light" alt="Coding For Reproducible Research - Home"/>
+    <script>document.write(`<img src="../../_static/exeter_logo.png" class="logo__image only-dark" alt="Coding For Reproducible Research - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../home_page.html">
+                    What is Coding for Reproducible Research?
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Details and Delivery Dates</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/theortical.html">Theortical</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/computational_thinking.html">Computational Thinking</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/machine_learning.html">Machine Learning</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_machine_learning.html">Introduction to Machine Learning</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/high_performance_computing.html">High Performance Computing</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_hpc_and_isca.html">Introduction to HPC and ISCA</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/julia.html">Julia</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_julia.html">Introduction to Julia</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/unix.html">UNIX</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_unix.html">Introduction to UNIX</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/parallel_computing.html">Parallel Computing</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/intro_parallel_computing.html">Parallel Computing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/R.html">R</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_r.html">Introduction to R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/working_with_data_in_r.html">Working With Data In R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/regression_analysis_with_r.html">Regression Analysis with R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/advanced_regression_analysis.html">Advanced Regression Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/python.html">Python</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_python.html">Introduction to Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/intermediate_python.html">Intermediate Python</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/software_development.html">Software Development</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/software_development_best_practice.html">Software Development Best Practices</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/version_control.html">Version Control</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_version_control_with_git_and_github.html">Introduction to Version Control with Git and Github</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/intermediate_version_control.html">Intermediate Version Control</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Self Study Notes</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_python.html">Introduction to Python</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="motivation.html">Motivation and Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fundamentals.html">Python Fundamentals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lists.html">Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="control_flow.html">Control Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="additional_exercises.html">Additional Session 1 Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recap.html">Session 1 Recap</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imports.html">Imports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analysis_task_intro.html">Data Analysis Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analysis_task_1.html">Data Analysis Task 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analysis_task_2.html">Data Analysis Task 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analysis_task_3.html">Data Analysis Task 3</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_r.html">Introduction to R</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/gettingstarted.html">Getting Up and Running with R</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/basic_commands.html">Running Commands With R</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/data_types.html">Data Types and Structures</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/load_data.html">Loading Data From Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/manipulating_data.html">Manipulating Datasets</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/control_flow.html">Control Flow</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/plots.html">Plots</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/stats.html">Statistical Analysis</a></li>
+
+
+
+
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_hpc.html">Introduction to HPC and ISCA</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/motivation.html">Why might I want to use a HPC Cluster?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/isca.html">Exeter supported HPC facilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/connection.html">How do I connect to a HPC Cluster?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/file_transfer.html">File Transfer Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/schedulers.html">Running a job on a HPC system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/modules.html">Loading software packages on HPC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/example_jobs.html">Running more complex jobs on a HPC system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/exploiting_slurm.html">Harnessing the power of the scheduler</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_version_control.html">Introduction to Version Control</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/motivation.html">Motivation: Why use Version Control Systems?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/git_vs_github.html">Git vs Github</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/configuring_git.html">Setting up Git and GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/making_repos.html">Making Repositories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/example_repo.html">An Example Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/recording_changes.html">Recording Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/history_and_changes.html">Viewing History and Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/pushing_and_pulling.html">Pushing to and Pulling From the Remote Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/undoing_changes.html">Undoing Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/ignoring_files.html">Ignoring Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/local_branches.html">Working with Local Branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/remote_branches_with_github.html">Remote Branches with GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/collaborating_with_branches.html">Collaborating with Branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/merge_conflicts.html">Merge Conflicts</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_unix.html">Introduction to UNIX</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/intro.html">Introducing the UNIX shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/filedir.html">File Directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/create.html">Working With Files and Directories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/pipefilter.html">Pipes and Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/loop.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/script.html">Shell Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/find.html">Finding Things</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/computational_thinking.html">Computational Thinking</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/algorithms.html">Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/decomposition.html">Decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/pattern_recognition.html">Pattern recognition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/abstraction.html">Abstraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/alignment.html">Aligning the human solution with the computer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/final_exercise.html">Sudoku Task</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/misc.html">Misc</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_NumPy.html">Python: Numpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_Pandas.html">Python: Pandas</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_Matplotlib.html">Python: Matplotlib</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_ScikitLearn.html">Python: Scikit-Learn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_MachineLearning.html">Python: Machine Learning</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pathways</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../pathways/complete_notebooks/data_scientist.html">Data Scientist</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/berrli/CfRR_Courses" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/berrli/CfRR_Courses/issues/new?title=Issue%20on%20page%20%2Findividual_modules/introduction_to_python/functions.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/individual_modules/introduction_to_python/functions.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Functions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key points</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-functions">Why use functions?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#built-in-functions">Built in functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-functions">Defining functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#composing-functions">Composing Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-scope">Variable Scope</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readable-functions">Readable functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-strings">Combining Strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#return-versus-print">Return versus print</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-characters-from-strings">Selecting Characters From Strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rescaling-a-list">Rescaling a list</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#improving-our-function-with-docstrings">Improving our function with docstrings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-defaults">Defining Defaults</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-inside-and-outside-functions">Variables Inside and Outside Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mixing-default-and-non-default-parameters">Mixing Default and Non-Default Parameters</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="functions">
+<h1>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h1>
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>At the end of this lesson you will be able to:</p>
+<ul class="simple">
+<li><p>Identify the built-in functions that we have used previously.</p></li>
+<li><p>Define a function that takes parameters.</p></li>
+<li><p>Return a value from a function.</p></li>
+<li><p>Test and debug a function.</p></li>
+<li><p>Set default values for function parameters.</p></li>
+<li><p>Explain why we should divide programs into small, single-purpose functions.</p></li>
+</ul>
+</section>
+<section id="key-points">
+<h2>Key points<a class="headerlink" href="#key-points" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>“Define a function using <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">function_name(parameter)</span></code>.”</p></li>
+<li><p>“The body of a function must be indented.”</p></li>
+<li><p>“Call a function using <code class="docutils literal notranslate"><span class="pre">function_name(value)</span></code>.”</p></li>
+<li><p>“Numbers are stored as integers or floating-point numbers.”</p></li>
+<li><p>“Variables defined within a function can only be seen and used within the body of the function.”</p></li>
+<li><p>“Variables created outside of any function are called global variables.”</p></li>
+<li><p>“Within a function, we can access global variables.”</p></li>
+<li><p>“Variables created within a function override global variables if their names match.”</p></li>
+<li><p>“Use <code class="docutils literal notranslate"><span class="pre">help(thing)</span></code> to view help for something.”</p></li>
+<li><p>“Put docstrings in functions to provide help for that function.”</p></li>
+<li><p>“Specify default values for parameters when defining a function using <code class="docutils literal notranslate"><span class="pre">name=value</span></code>
+in the parameter list.”</p></li>
+<li><p>“Parameters can be passed by matching based on name, by position,
+or by omitting them (in which case the default value is used).”</p></li>
+<li><p>“Put code whose parameters change frequently in a function,
+then call it with different parameter values to customize its behavior.”</p></li>
+</ul>
+</section>
+<section id="why-use-functions">
+<h2>Why use functions?<a class="headerlink" href="#why-use-functions" title="Link to this heading">#</a></h2>
+<p>We are starting to write some more complex code, and things could get quite complicated. When we want to repeat a programming task, or check that everything is working correctly, we should use functions.</p>
+<p>A function is a shorthand way of allowing us to re-execute longer pieces of code. We can test and verify these smaller blocks individually, and call them whenever we want.</p>
+</section>
+<section id="built-in-functions">
+<h2>Built in functions<a class="headerlink" href="#built-in-functions" title="Link to this heading">#</a></h2>
+<p>We have already used some built-in functions: <code class="docutils literal notranslate"><span class="pre">print()</span></code>, <code class="docutils literal notranslate"><span class="pre">type()</span></code>, <code class="docutils literal notranslate"><span class="pre">range()</span></code> and so on. We have also used functions that are associated with objects, such as <code class="docutils literal notranslate"><span class="pre">.append()</span></code>, <code class="docutils literal notranslate"><span class="pre">.keys()</span></code>, <code class="docutils literal notranslate"><span class="pre">.strip()</span></code>, and more.</p>
+<p>Using these functions allows us to create much more concise, readable code. Imagine if we had to write all the code that goes on behind the scenes each time we wanted to use <code class="docutils literal notranslate"><span class="pre">print()</span></code>! We will do the same with our own functions.</p>
+</section>
+<section id="defining-functions">
+<h2>Defining functions<a class="headerlink" href="#defining-functions" title="Link to this heading">#</a></h2>
+<p>Let’s start by defining a function <code class="docutils literal notranslate"><span class="pre">fahr_to_celsius</span></code> that converts temperatures
+from Fahrenheit to Celsius:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fahr_to_celsius</span><span class="p">(</span><span class="n">temp</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">((</span><span class="n">temp</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">5</span><span class="o">/</span><span class="mi">9</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>{: .language-python}</p>
+<p>The function definition opens with the keyword <code class="docutils literal notranslate"><span class="pre">def</span></code> followed by the
+name of the function (<code class="docutils literal notranslate"><span class="pre">fahr_to_celsius</span></code>) and a parenthesized list of parameter names (<code class="docutils literal notranslate"><span class="pre">temp</span></code>). The
+body of the function — the
+statements that are executed when it runs — is indented below the
+definition line.  The body concludes with a <code class="docutils literal notranslate"><span class="pre">return</span></code> keyword followed by the return value.</p>
+<p><img alt="Labeled parts of a Python function definition" src="individual_modules/fig/python-function.svg" /></p>
+<p>When we call the function,
+the values we pass to it are assigned to those variables
+so that we can use them inside the function.
+Inside the function,
+we use a return statement to send a result
+back to whoever asked for it.</p>
+<p>Let’s try running our function.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fahr_to_celsius</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>{: .language-python}</p>
+<p>This command should call our function, using “32” as the input and return the function value.</p>
+<p>In fact, calling our own function is no different from calling any other function:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;freezing point of water:&#39;</span><span class="p">,</span> <span class="n">fahr_to_celsius</span><span class="p">(</span><span class="mi">32</span><span class="p">),</span> <span class="s1">&#39;C&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;boiling point of water:&#39;</span><span class="p">,</span> <span class="n">fahr_to_celsius</span><span class="p">(</span><span class="mi">212</span><span class="p">),</span> <span class="s1">&#39;C&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>{: .language-python}</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">freezing</span> <span class="n">point</span> <span class="n">of</span> <span class="n">water</span><span class="p">:</span> <span class="mf">0.0</span> <span class="n">C</span>
+<span class="n">boiling</span> <span class="n">point</span> <span class="n">of</span> <span class="n">water</span><span class="p">:</span> <span class="mf">100.0</span> <span class="n">C</span>
+</pre></div>
+</div>
+<p>{: .output}</p>
+<p>We’ve successfully called the function that we defined,
+and we have access to the value that we returned.</p>
+</section>
+<section id="composing-functions">
+<h2>Composing Functions<a class="headerlink" href="#composing-functions" title="Link to this heading">#</a></h2>
+<p>Now that we’ve seen how to turn Fahrenheit into Celsius,
+we can also write the function to turn Celsius into Kelvin:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">celsius_to_kelvin</span><span class="p">(</span><span class="n">temp_c</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">temp_c</span> <span class="o">+</span> <span class="mf">273.15</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;freezing point of water in Kelvin:&#39;</span><span class="p">,</span> <span class="n">celsius_to_kelvin</span><span class="p">(</span><span class="mf">0.</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>{: .language-python}</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">freezing</span> <span class="n">point</span> <span class="n">of</span> <span class="n">water</span> <span class="ow">in</span> <span class="n">Kelvin</span><span class="p">:</span> <span class="mf">273.15</span>
+</pre></div>
+</div>
+<p>{: .output}</p>
+<p>What about converting Fahrenheit to Kelvin?
+We could write out the formula,
+but we don’t need to.
+Instead,
+we can compose the two functions we have already created:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fahr_to_kelvin</span><span class="p">(</span><span class="n">temp_f</span><span class="p">):</span>
+    <span class="n">temp_c</span> <span class="o">=</span> <span class="n">fahr_to_celsius</span><span class="p">(</span><span class="n">temp_f</span><span class="p">)</span>
+    <span class="n">temp_k</span> <span class="o">=</span> <span class="n">celsius_to_kelvin</span><span class="p">(</span><span class="n">temp_c</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">temp_k</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;boiling point of water in Kelvin:&#39;</span><span class="p">,</span> <span class="n">fahr_to_kelvin</span><span class="p">(</span><span class="mf">212.0</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>{: .language-python}</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">boiling</span> <span class="n">point</span> <span class="n">of</span> <span class="n">water</span> <span class="ow">in</span> <span class="n">Kelvin</span><span class="p">:</span> <span class="mf">373.15</span>
+</pre></div>
+</div>
+<p>{: .output}</p>
+<p>This is our first taste of how larger programs are built:
+we define basic operations,
+then combine them in ever-larger chunks to get the effect we want.
+Real-life functions will usually be larger than the ones shown here — typically half a dozen
+to a few dozen lines — but they shouldn’t ever be much longer than that,
+or the next person who reads it won’t be able to understand what’s going on.</p>
+</section>
+<section id="variable-scope">
+<h2>Variable Scope<a class="headerlink" href="#variable-scope" title="Link to this heading">#</a></h2>
+<p>In composing our temperature conversion functions, we created variables inside of those functions,
+<code class="docutils literal notranslate"><span class="pre">temp</span></code>, <code class="docutils literal notranslate"><span class="pre">temp_c</span></code>, <code class="docutils literal notranslate"><span class="pre">temp_f</span></code>, and <code class="docutils literal notranslate"><span class="pre">temp_k</span></code>.
+We refer to these variables as local variables
+because they no longer exist once the function is done executing.
+If we try to access their values outside of the function, we will encounter an error:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Again, temperature in Kelvin was:&#39;</span><span class="p">,</span> <span class="n">temp_k</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>{: .language-python}</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span>                                 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">eed2471d229b</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">----&gt;</span> <span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Again, temperature in Kelvin was:&#39;</span><span class="p">,</span> <span class="n">temp_k</span><span class="p">)</span>
+
+<span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">&#39;temp_k&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
+</pre></div>
+</div>
+<p>{: .error}</p>
+<p>If you want to reuse the temperature in Kelvin after you have calculated it with <code class="docutils literal notranslate"><span class="pre">fahr_to_kelvin</span></code>,
+you can store the result of the function call in a variable:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">temp_kelvin</span> <span class="o">=</span> <span class="n">fahr_to_kelvin</span><span class="p">(</span><span class="mf">212.0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;temperature in Kelvin was:&#39;</span><span class="p">,</span> <span class="n">temp_kelvin</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>{: .language-python}</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">temperature</span> <span class="ow">in</span> <span class="n">Kelvin</span> <span class="n">was</span><span class="p">:</span> <span class="mf">373.15</span>
+</pre></div>
+</div>
+<p>{: .output}</p>
+<p>The variable <code class="docutils literal notranslate"><span class="pre">temp_kelvin</span></code>, being defined outside any function,
+is said to be global.</p>
+<p>Inside a function, one can read the value of such global variables:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_temperatures</span><span class="p">():</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;temperature in Fahrenheit was:&#39;</span><span class="p">,</span> <span class="n">temp_fahr</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;temperature in Kelvin was:&#39;</span><span class="p">,</span> <span class="n">temp_kelvin</span><span class="p">)</span>
+
+<span class="n">temp_fahr</span> <span class="o">=</span> <span class="mf">212.0</span>
+<span class="n">temp_kelvin</span> <span class="o">=</span> <span class="n">fahr_to_kelvin</span><span class="p">(</span><span class="n">temp_fahr</span><span class="p">)</span>
+
+<span class="n">print_temperatures</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>{: .language-python}</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">temperature</span> <span class="ow">in</span> <span class="n">Fahrenheit</span> <span class="n">was</span><span class="p">:</span> <span class="mf">212.0</span>
+<span class="n">temperature</span> <span class="ow">in</span> <span class="n">Kelvin</span> <span class="n">was</span><span class="p">:</span> <span class="mf">373.15</span>
+</pre></div>
+</div>
+<p>{: .output}</p>
+</section>
+<section id="readable-functions">
+<h2>Readable functions<a class="headerlink" href="#readable-functions" title="Link to this heading">#</a></h2>
+<p>Consider these two functions:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">s</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">p</span><span class="p">:</span>
+        <span class="n">a</span> <span class="o">+=</span> <span class="n">v</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">p</span><span class="p">:</span>
+        <span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">v</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">v</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">d</span> <span class="o">/</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>{: .language-python}</p>
+<p>and:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">std_dev</span><span class="p">(</span><span class="n">sample</span><span class="p">):</span>
+    <span class="n">sample_sum</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">sample</span><span class="p">:</span>
+        <span class="n">sample_sum</span> <span class="o">+=</span> <span class="n">value</span>
+
+    <span class="n">sample_mean</span> <span class="o">=</span> <span class="n">sample_sum</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+
+    <span class="n">sum_squared_devs</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">sample</span><span class="p">:</span>
+        <span class="n">sum_squared_devs</span> <span class="o">+=</span> <span class="p">(</span><span class="n">value</span> <span class="o">-</span> <span class="n">sample_mean</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">value</span> <span class="o">-</span> <span class="n">sample_mean</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sum_squared_devs</span> <span class="o">/</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>{: .language-python}</p>
+<p>The functions <code class="docutils literal notranslate"><span class="pre">s</span></code> and <code class="docutils literal notranslate"><span class="pre">std_dev</span></code> are computationally equivalent (they
+both calculate the sample standard deviation), but to a human reader,
+they look very different. You probably found <code class="docutils literal notranslate"><span class="pre">std_dev</span></code> much easier to
+read and understand than <code class="docutils literal notranslate"><span class="pre">s</span></code>.</p>
+<p>As this example illustrates, both documentation and a programmer’s
+<em>coding style</em> combine to determine how easy it is for others to read
+and understand the programmer’s code. Choosing meaningful variable
+names and using blank spaces to break the code into logical “chunks”
+are helpful techniques for producing <em>readable code</em>. This is useful
+not only for sharing code with others, but also for the original
+programmer. If you need to revisit code that you wrote months ago and
+haven’t thought about since then, you will appreciate the value of
+readable code!</p>
+</section>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+</section>
+<section id="combining-strings">
+<h2>Combining Strings<a class="headerlink" href="#combining-strings" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>“Adding” two strings produces their concatenation:
+<code class="docutils literal notranslate"><span class="pre">'a'</span> <span class="pre">+</span> <span class="pre">'b'</span></code> is <code class="docutils literal notranslate"><span class="pre">'ab'</span></code>.
+Write a function called <code class="docutils literal notranslate"><span class="pre">fence</span></code> that takes two parameters called <code class="docutils literal notranslate"><span class="pre">original</span></code> and <code class="docutils literal notranslate"><span class="pre">wrapper</span></code>
+and returns a new string that has the wrapper character at the beginning and end of the original.
+A call to your function should look like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">fence</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>{: .language-python}</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span><span class="n">name</span><span class="o">*</span>
+</pre></div>
+</div>
+<p>{: .output}</p>
+<blockquote>
+<div><h2 class="rubric" id="solution">Solution</h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fence</span><span class="p">(</span><span class="n">original</span><span class="p">,</span> <span class="n">wrapper</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">wrapper</span> <span class="o">+</span> <span class="n">original</span> <span class="o">+</span> <span class="n">wrapper</span>
+</pre></div>
+</div>
+<p>{: .language-python}
+{: .solution}
+{: .challenge}</p>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="return-versus-print">
+<h2>Return versus print<a class="headerlink" href="#return-versus-print" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>Note that <code class="docutils literal notranslate"><span class="pre">return</span></code> and <code class="docutils literal notranslate"><span class="pre">print</span></code> are not interchangeable.
+<code class="docutils literal notranslate"><span class="pre">print</span></code> is a Python function that <em>prints</em> data to the screen.
+It enables us, <em>users</em>, see the data.
+<code class="docutils literal notranslate"><span class="pre">return</span></code> statement, on the other hand, makes data visible to the program.
+Let’s have a look at the following function:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>{: .language-python}</p>
+<p>What will we see if we execute the following commands?</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>{: .language-python}</p>
+<blockquote>
+<div><h2 class="rubric" id="id1">Solution</h2>
+<p>Python will first execute the function <code class="docutils literal notranslate"><span class="pre">add</span></code> with <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">7</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">3</span></code>,
+and, therefore, print <code class="docutils literal notranslate"><span class="pre">10</span></code>. However, because function <code class="docutils literal notranslate"><span class="pre">add</span></code> does not have a
+line that starts with <code class="docutils literal notranslate"><span class="pre">return</span></code> (no <code class="docutils literal notranslate"><span class="pre">return</span></code> “statement”), it will, by default, return
+nothing which, in Python world, is called <code class="docutils literal notranslate"><span class="pre">None</span></code>. Therefore, <code class="docutils literal notranslate"><span class="pre">A</span></code> will be assigned to <code class="docutils literal notranslate"><span class="pre">None</span></code>
+and the last line (<code class="docutils literal notranslate"><span class="pre">print(A)</span></code>) will print <code class="docutils literal notranslate"><span class="pre">None</span></code>. As a result, we will see:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span>
+<span class="kc">None</span>
+</pre></div>
+</div>
+<p>{: .output}
+{: .solution}
+{: .challenge}</p>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="selecting-characters-from-strings">
+<h2>Selecting Characters From Strings<a class="headerlink" href="#selecting-characters-from-strings" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>If the variable <code class="docutils literal notranslate"><span class="pre">s</span></code> refers to a string,
+then <code class="docutils literal notranslate"><span class="pre">s[0]</span></code> is the string’s first character
+and <code class="docutils literal notranslate"><span class="pre">s[-1]</span></code> is its last.
+Write a function called <code class="docutils literal notranslate"><span class="pre">outer</span></code>
+that returns a string made up of just the first and last characters of its input.
+A call to your function should look like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">outer</span><span class="p">(</span><span class="s1">&#39;helium&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>{: .language-python}</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hm</span>
+</pre></div>
+</div>
+<p>{: .output}</p>
+<blockquote>
+<div><h2 class="rubric" id="id2">Solution</h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">outer</span><span class="p">(</span><span class="n">input_string</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">input_string</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">input_string</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>{: .language-python}
+{: .solution}
+{: .challenge}</p>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="rescaling-a-list">
+<h2>Rescaling a list<a class="headerlink" href="#rescaling-a-list" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>Write a function <code class="docutils literal notranslate"><span class="pre">rescale</span></code> that takes a list as input
+and returns a corresponding list of values scaled to lie in the range 0.0 to 1.0.</p>
+<blockquote>
+<div><h2 class="rubric" id="hint">Hint</h2>
+<p>If <code class="docutils literal notranslate"><span class="pre">L</span></code> and <code class="docutils literal notranslate"><span class="pre">H</span></code> are the lowest and highest values in the original list,
+then the replacement for a value <code class="docutils literal notranslate"><span class="pre">v</span></code> should be <code class="docutils literal notranslate"><span class="pre">(v-L)</span> <span class="pre">/</span> <span class="pre">(H-L)</span></code>.
+{: .solution}</p>
+<h2 class="rubric" id="id3">Solution</h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rescale</span><span class="p">(</span><span class="n">input_list</span><span class="p">):</span>
+    <span class="n">list_min</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">input_list</span><span class="p">)</span>
+    <span class="n">list_max</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">input_list</span><span class="p">)</span>
+    
+    <span class="n">output_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">input_list</span><span class="p">:</span>
+        <span class="n">scaled_i</span> <span class="o">=</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">-</span> <span class="n">list_min</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">list_max</span> <span class="o">-</span> <span class="n">list_min</span><span class="p">)</span>
+        <span class="n">output_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scaled_i</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">output_list</span>
+</pre></div>
+</div>
+<p>{: .language-python}
+{: .solution}
+{: .challenge}</p>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="improving-our-function-with-docstrings">
+<h2>Improving our function with docstrings<a class="headerlink" href="#improving-our-function-with-docstrings" title="Link to this heading">#</a></h2>
+<p>Now that we have written a few functions, we should add  some docstrings. A docstring is a small explanation of the expected functionality of the function, as well as descriptions of the function parameters, and any returns. There are lots of styles of docstrings. See here for the Google style.</p>
+<p>It is good habit to write a docstring for every single function you create. Even if noone reads your code, you will forget why you wrote this function in a years time. Dont be that person with no docstrings!</p>
+<blockquote>
+<div><p>Add a Google-style docstring to your rescale function. Include the expected types of the function parameters.</p>
+<blockquote>
+<div><h2 class="rubric" id="id4">Solution</h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rescale</span><span class="p">(</span><span class="n">input_list</span><span class="p">):</span>
+<span class="w">       </span><span class="sd">&quot;&quot;&quot;Rescales a list between 0 and 1.</span>
+
+<span class="sd">       Given an input list, this function rescales each element between 0</span>
+<span class="sd">       and 1. Please only provide lists containing numeric values. </span>
+
+<span class="sd">       Args:</span>
+<span class="sd">           input_list: A list containing numeric values</span>
+
+<span class="sd">       Returns:</span>
+<span class="sd">           output_list: The input list, with all elements scaled</span>
+<span class="sd">       &quot;&quot;&quot;</span>
+
+    <span class="n">list_min</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">input_list</span><span class="p">)</span>
+    <span class="n">list_max</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">input_list</span><span class="p">)</span>
+    
+    <span class="n">output_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">input_list</span><span class="p">:</span>
+        <span class="n">scaled_i</span> <span class="o">=</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">-</span> <span class="n">list_min</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">list_max</span> <span class="o">-</span> <span class="n">list_min</span><span class="p">)</span>
+        <span class="n">output_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scaled_i</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">output_list</span>
+</pre></div>
+</div>
+<p>{: .language-python}
+{: .solution}
+{: .challenge}</p>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="defining-defaults">
+<h2>Defining Defaults<a class="headerlink" href="#defining-defaults" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>Rewrite the <code class="docutils literal notranslate"><span class="pre">rescale</span></code> function so that it scales data to lie between <code class="docutils literal notranslate"><span class="pre">0.0</span></code> and <code class="docutils literal notranslate"><span class="pre">1.0</span></code> by default,
+but will allow the caller to specify lower and upper bounds if they want.
+Compare your implementation to your neighbor’s:
+do the two functions always behave the same way?</p>
+<blockquote>
+<div><h2 class="rubric" id="id5">Solution</h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rescale</span><span class="p">(</span><span class="n">input_list</span><span class="p">,</span> <span class="n">low_val</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">high_val</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">list_min</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">input_list</span><span class="p">)</span>
+    <span class="n">list_max</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">input_list</span><span class="p">)</span>
+    
+    <span class="n">output_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">input_list</span><span class="p">:</span>
+        <span class="n">intermediate_i</span> <span class="o">=</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">-</span> <span class="n">list_min</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">list_max</span> <span class="o">-</span> <span class="n">list_min</span><span class="p">)</span>
+        <span class="n">scaled_i</span> <span class="o">=</span> <span class="n">intermediate_i</span> <span class="o">*</span> <span class="p">(</span><span class="n">high_val</span> <span class="o">-</span> <span class="n">low_val</span><span class="p">)</span> <span class="o">+</span> <span class="n">low_val</span>
+        <span class="n">output_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scaled_i</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">output_list</span>
+</pre></div>
+</div>
+<p>{: .language-python}
+{: .solution}
+{: .challenge}</p>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="variables-inside-and-outside-functions">
+<h2>Variables Inside and Outside Functions<a class="headerlink" href="#variables-inside-and-outside-functions" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>What does the following piece of code display when run — and why?</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">def</span> <span class="nf">f2k</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="p">((</span><span class="n">f</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mf">5.0</span> <span class="o">/</span> <span class="mf">9.0</span><span class="p">))</span> <span class="o">+</span> <span class="mf">273.15</span>
+    <span class="k">return</span> <span class="n">k</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">f2k</span><span class="p">(</span><span class="mi">8</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f2k</span><span class="p">(</span><span class="mi">41</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f2k</span><span class="p">(</span><span class="mi">32</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>{: .language-python}</p>
+<blockquote>
+<div><h2 class="rubric" id="id6">Solution</h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">259.81666666666666</span>
+<span class="mf">278.15</span>
+<span class="mf">273.15</span>
+<span class="mi">0</span>
+</pre></div>
+</div>
+<p>{: .output}
+<code class="docutils literal notranslate"><span class="pre">k</span></code> is 0 because the <code class="docutils literal notranslate"><span class="pre">k</span></code> inside the function <code class="docutils literal notranslate"><span class="pre">f2k</span></code> doesn’t know
+about the <code class="docutils literal notranslate"><span class="pre">k</span></code> defined outside the function. When the <code class="docutils literal notranslate"><span class="pre">f2k</span></code> function is called,
+it creates a [local variable](/reference.html#local-variable)
+<code class="docutils literal notranslate"><span class="pre">k</span></code>. The function does not return any values
+and does not alter <code class="docutils literal notranslate"><span class="pre">k</span></code> outside of its local copy.
+Therefore the original value of <code class="docutils literal notranslate"><span class="pre">k</span></code> remains unchanged.
+Beware that a local <code class="docutils literal notranslate"><span class="pre">k</span></code> is created because <code class="docutils literal notranslate"><span class="pre">f2k</span></code> internal statements
+<em>affect</em> a new value to it. If <code class="docutils literal notranslate"><span class="pre">k</span></code> was only <code class="docutils literal notranslate"><span class="pre">read</span></code>, it would simply retrieve the
+global <code class="docutils literal notranslate"><span class="pre">k</span></code> value.
+{: .solution}
+{: .challenge}</p>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="mixing-default-and-non-default-parameters">
+<h2>Mixing Default and Non-Default Parameters<a class="headerlink" href="#mixing-default-and-non-default-parameters" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>Given the following code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">numbers</span><span class="p">(</span><span class="n">one</span><span class="p">,</span> <span class="n">two</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">three</span><span class="p">,</span> <span class="n">four</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">one</span><span class="p">)</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">two</span><span class="p">)</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">three</span><span class="p">)</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">four</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">n</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">three</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>{: .language-python}</p>
+<p>what do you expect will be printed?  What is actually printed?
+What rule do you think Python is following?</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">1234</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">one2three4</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1239</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code></p></li>
+</ol>
+<p>Given that, what does the following piece of code display when run?</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">6</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a: &#39;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="s1">&#39;b: &#39;</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="s1">&#39;c:&#39;</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+
+<span class="n">func</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>{: .language-python}</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">a:</span> <span class="pre">b:</span> <span class="pre">3</span> <span class="pre">c:</span> <span class="pre">6</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">a:</span> <span class="pre">-1</span> <span class="pre">b:</span> <span class="pre">3</span> <span class="pre">c:</span> <span class="pre">6</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">a:</span> <span class="pre">-1</span> <span class="pre">b:</span> <span class="pre">2</span> <span class="pre">c:</span> <span class="pre">6</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">a:</span> <span class="pre">b:</span> <span class="pre">-1</span> <span class="pre">c:</span> <span class="pre">2</span></code></p></li>
+</ol>
+<blockquote>
+<div><h2 class="rubric" id="id7">Solution</h2>
+<p>Attempting to define the <code class="docutils literal notranslate"><span class="pre">numbers</span></code> function results in <code class="docutils literal notranslate"><span class="pre">4.</span> <span class="pre">SyntaxError</span></code>.
+The defined parameters <code class="docutils literal notranslate"><span class="pre">two</span></code> and <code class="docutils literal notranslate"><span class="pre">four</span></code> are given default values. Because
+<code class="docutils literal notranslate"><span class="pre">one</span></code> and <code class="docutils literal notranslate"><span class="pre">three</span></code> are not given default values, they are required to be
+included as arguments when the function is called and must be placed
+before any parameters that have default values in the function definition.</p>
+<p>The given call to <code class="docutils literal notranslate"><span class="pre">func</span></code> displays <code class="docutils literal notranslate"><span class="pre">a:</span> <span class="pre">-1</span> <span class="pre">b:</span> <span class="pre">2</span> <span class="pre">c:</span> <span class="pre">6</span></code>. -1 is assigned to
+the first parameter <code class="docutils literal notranslate"><span class="pre">a</span></code>, 2 is assigned to the next parameter <code class="docutils literal notranslate"><span class="pre">b</span></code>, and <code class="docutils literal notranslate"><span class="pre">c</span></code> is
+not passed a value, so it uses its default value 6.
+{: .solution}
+{: .challenge}</p>
+</div></blockquote>
+</div></blockquote>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "berrli/CfRR_Courses",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./individual_modules/introduction_to_python"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="recap.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Session 1 Recap</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="imports.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Imports</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key points</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-functions">Why use functions?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#built-in-functions">Built in functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-functions">Defining functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#composing-functions">Composing Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-scope">Variable Scope</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readable-functions">Readable functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-strings">Combining Strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#return-versus-print">Return versus print</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-characters-from-strings">Selecting Characters From Strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rescaling-a-list">Rescaling a list</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#improving-our-function-with-docstrings">Improving our function with docstrings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-defaults">Defining Defaults</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-inside-and-outside-functions">Variables Inside and Outside Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mixing-default-and-non-default-parameters">Mixing Default and Non-Default Parameters</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Coding For Reproducible Research Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

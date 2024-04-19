@@ -1,0 +1,1019 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Working with Local Branches &#8212; Coding For Reproducible Research</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'individual_modules/introduction_to_version_control/local_branches';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Remote Branches with GitHub" href="remote_branches_with_github.html" />
+    <link rel="prev" title="Ignoring Files" href="ignoring_files.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../home_page.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/exeter_logo.png" class="logo__image only-light" alt="Coding For Reproducible Research - Home"/>
+    <script>document.write(`<img src="../../_static/exeter_logo.png" class="logo__image only-dark" alt="Coding For Reproducible Research - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../home_page.html">
+                    What is Coding for Reproducible Research?
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Details and Delivery Dates</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/theortical.html">Theortical</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/computational_thinking.html">Computational Thinking</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/machine_learning.html">Machine Learning</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_machine_learning.html">Introduction to Machine Learning</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/high_performance_computing.html">High Performance Computing</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_hpc_and_isca.html">Introduction to HPC and ISCA</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/julia.html">Julia</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_julia.html">Introduction to Julia</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/unix.html">UNIX</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_unix.html">Introduction to UNIX</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/parallel_computing.html">Parallel Computing</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/intro_parallel_computing.html">Parallel Computing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/R.html">R</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_r.html">Introduction to R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/working_with_data_in_r.html">Working With Data In R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/regression_analysis_with_r.html">Regression Analysis with R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/advanced_regression_analysis.html">Advanced Regression Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/python.html">Python</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_python.html">Introduction to Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/intermediate_python.html">Intermediate Python</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/software_development.html">Software Development</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/software_development_best_practice.html">Software Development Best Practices</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/version_control.html">Version Control</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_version_control_with_git_and_github.html">Introduction to Version Control with Git and Github</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/intermediate_version_control.html">Intermediate Version Control</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Self Study Notes</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_python.html">Introduction to Python</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/motivation.html">Motivation and Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/fundamentals.html">Python Fundamentals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/lists.html">Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/control_flow.html">Control Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/additional_exercises.html">Additional Session 1 Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/recap.html">Session 1 Recap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/imports.html">Imports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/analysis_task_intro.html">Data Analysis Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/analysis_task_1.html">Data Analysis Task 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/analysis_task_2.html">Data Analysis Task 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/analysis_task_3.html">Data Analysis Task 3</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_r.html">Introduction to R</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/gettingstarted.html">Getting Up and Running with R</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/basic_commands.html">Running Commands With R</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/data_types.html">Data Types and Structures</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/load_data.html">Loading Data From Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/manipulating_data.html">Manipulating Datasets</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/control_flow.html">Control Flow</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/plots.html">Plots</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/stats.html">Statistical Analysis</a></li>
+
+
+
+
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_hpc.html">Introduction to HPC and ISCA</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/motivation.html">Why might I want to use a HPC Cluster?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/isca.html">Exeter supported HPC facilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/connection.html">How do I connect to a HPC Cluster?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/file_transfer.html">File Transfer Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/schedulers.html">Running a job on a HPC system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/modules.html">Loading software packages on HPC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/example_jobs.html">Running more complex jobs on a HPC system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/exploiting_slurm.html">Harnessing the power of the scheduler</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_version_control.html">Introduction to Version Control</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="motivation.html">Motivation: Why use Version Control Systems?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git_vs_github.html">Git vs Github</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring_git.html">Setting up Git and GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="making_repos.html">Making Repositories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_repo.html">An Example Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recording_changes.html">Recording Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="history_and_changes.html">Viewing History and Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pushing_and_pulling.html">Pushing to and Pulling From the Remote Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="undoing_changes.html">Undoing Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ignoring_files.html">Ignoring Files</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Working with Local Branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="remote_branches_with_github.html">Remote Branches with GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collaborating_with_branches.html">Collaborating with Branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merge_conflicts.html">Merge Conflicts</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_unix.html">Introduction to UNIX</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/intro.html">Introducing the UNIX shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/filedir.html">File Directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/create.html">Working With Files and Directories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/pipefilter.html">Pipes and Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/loop.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/script.html">Shell Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/find.html">Finding Things</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/computational_thinking.html">Computational Thinking</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/algorithms.html">Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/decomposition.html">Decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/pattern_recognition.html">Pattern recognition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/abstraction.html">Abstraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/alignment.html">Aligning the human solution with the computer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/final_exercise.html">Sudoku Task</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/misc.html">Misc</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_NumPy.html">Python: Numpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_Pandas.html">Python: Pandas</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_Matplotlib.html">Python: Matplotlib</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_ScikitLearn.html">Python: Scikit-Learn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_MachineLearning.html">Python: Machine Learning</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pathways</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../pathways/complete_notebooks/data_scientist.html">Data Scientist</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/berrli/CfRR_Courses" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/berrli/CfRR_Courses/issues/new?title=Issue%20on%20page%20%2Findividual_modules/introduction_to_version_control/local_branches.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/individual_modules/introduction_to_version_control/local_branches.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Working with Local Branches</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repository-files">Repository files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concept-of-branches">Concept of branches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Working with local branches</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-branches">Creating branches</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-branches">Viewing branches</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-commits-to-a-branch">Adding commits to a branch</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merging-branches">Merging branches</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="working-with-local-branches">
+<h1>Working with Local Branches<a class="headerlink" href="#working-with-local-branches" title="Link to this heading">#</a></h1>
+<section id="learning-objectives">
+<h2>Learning objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>At the end of this episode you will be able to explain what branches are and how you might use them.
+You will also be able to demonstrate how to create an experimental branch and merge it back into the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch.</p>
+</section>
+<section id="repository-files">
+<h2>Repository files<a class="headerlink" href="#repository-files" title="Link to this heading">#</a></h2>
+<p>We’ve had quite a lot of episodes working on our <code class="docutils literal notranslate"><span class="pre">git-good-practice</span></code> repository.
+We’ve included here copies of the files that we will build on from this episode
+onwards. If you haven’t been following along with all the examples or exercises,
+we suggest updating the files in your repository with the contents of one of
+the following archives:</p>
+<ul class="simple">
+<li><p>As a Zip archive: <a href="{{ site.url }}/downloads/episode-13-start/git-good-practice.zip" download="">git-good-practice.zip</a>.</p></li>
+<li><p>As a Tar archive: <a href="{{ site.url }}/downloads/episode-13-start/git-good-practice.tar" download="">git-good-practice.tar</a>.</p></li>
+</ul>
+<p>You should place the archive contents in your own <code class="docutils literal notranslate"><span class="pre">git-good-practice</span></code> repository
+(note: make sure to preserve the directory structure: the file
+<code class="docutils literal notranslate"><span class="pre">Commit-good-practice.md</span></code> should be placed in the subdirectory
+<code class="docutils literal notranslate"><span class="pre">Good-practice-guides</span></code> of the repository root folder). Then commit the changes
+to <code class="docutils literal notranslate"><span class="pre">main</span></code> and use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code> to update your remote repository.</p>
+</section>
+<section id="concept-of-branches">
+<h2>Concept of branches<a class="headerlink" href="#concept-of-branches" title="Link to this heading">#</a></h2>
+<p>Git branches are a core feature of the Git version control system. They allow you to create multiple lines of
+development within a single repository, allowing you to work on multiple features or fixes simultaneously, without
+affecting the main codebase.</p>
+<p>In simple terms, a branch is a separate series of commits of the codebase that diverges from the main codebase. You can think of
+it as a separate timeline of changes that runs in parallel with the main timeline. Each branch contains a copy of the
+entire codebase, with its own set of changes.</p>
+<p>![A Git branch](/images/branch.svg)</p>
+<p>Git branches are incredibly useful for collaborative development, as they allow multiple developers to work on
+different features or fixes simultaneously, without stepping on each other’s toes. They also provide a way to
+experiment with new features or ideas without affecting the stability of the main codebase.</p>
+</section>
+<section id="id1">
+<h2>Working with local branches<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>We’re going to add some new content to the cheatsheet, doing this in a new, dedicated
+branch. The content we’ll add will be about using branches, so we’ll be recording
+what we learn as we go. The material on branches in this episode concerns working
+with <em>local</em> branches: branches that are created in our local repository, rather
+than remotely on GitHub. The next episode will look at remote branches in more
+detail.</p>
+<section id="creating-branches">
+<h3>Creating branches<a class="headerlink" href="#creating-branches" title="Link to this heading">#</a></h3>
+<p>The general way to create a new branch in our local repository is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">branch</span> <span class="o">&lt;</span><span class="n">new</span><span class="o">-</span><span class="n">branch</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">&lt;new-branch-name&gt;</span></code> is the name of the branch we wish to work on.</p>
+<p>When you create a new branch, you can specify the starting point. By default, if you do not specify a
+starting point, Git will create the new branch at the <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> commit.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> is a reference to the current commit in the branch you are currently working on. It is essentially a pointer
+to the tip of the branch you have checked out, which can be moved to any commits in the branch.</p>
+<p>When you create a new branch at the current commit, Git creates a new branch pointer that points to the same commit as
+the <code class="docutils literal notranslate"><span class="pre">HEAD</span></code>. This means that the new branch initially has the same code as the current branch, but it is a separate branch
+that can be modified independently.</p>
+<p>It can be helpful to have a dual picture in your mind when it comes to branches,
+thinking of them both as a series of commits and also a pointer to a particular
+commit.</p>
+<blockquote>
+<div><h4 class="rubric" id="branching-off-a-commit">Branching off a commit</h4>
+<p>You can create a new branch at any commit in the repository’s history. This can be useful if you want to create a new
+branch based on a specific version of your code, or if you want to experiment with changes from a previous commit
+without affecting the current branch. Here’s how you can create a new branch at any commit:</p>
+<ol class="arabic simple">
+<li><p>Identify the commit you want to create the branch at: Use the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> command to view the commit history of the
+repository and find the commit identifier of the commit you want to create the new branch at.</p></li>
+<li><p>Create a new branch: Use the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span></code> command with the commit identifier to create a new branch at that commit:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">branch</span> <span class="o">&lt;</span><span class="n">new</span><span class="o">-</span><span class="n">branch</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">commit</span><span class="o">-</span><span class="n">identifier</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>For example, to create a new branch called <code class="docutils literal notranslate"><span class="pre">experimental-branch</span></code> based on a commit with the identifier <code class="docutils literal notranslate"><span class="pre">abc1234</span></code>, you would
+run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">branch</span> <span class="n">experimental</span><span class="o">-</span><span class="n">branch</span> <span class="n">abc1234</span>
+</pre></div>
+</div>
+<p>This creates a new branch called experimental-branch at the specified commit.</p>
+</div></blockquote>
+<p>In our example, we create a new branch
+off of our most recent commit, called <code class="docutils literal notranslate"><span class="pre">branches-material</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git branch branches-material
+</pre></div>
+</div>
+<p>This will shortly be the branch in which we add new content to the cheatsheet.</p>
+</section>
+<section id="viewing-branches">
+<h3>Viewing branches<a class="headerlink" href="#viewing-branches" title="Link to this heading">#</a></h3>
+<p>We can view all the local branches we have in our local repository by running:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">branch</span> <span class="o">--</span><span class="nb">list</span>
+</pre></div>
+</div>
+<p>(Equivalently, we could use the short form <code class="docutils literal notranslate"><span class="pre">-l</span></code> for <code class="docutils literal notranslate"><span class="pre">--list</span></code>.)</p>
+<p>In our <code class="docutils literal notranslate"><span class="pre">git-good-practice</span></code> repository, this would show us:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git branch --list
+  branches-material
+* main
+</pre></div>
+</div>
+<p>The asterisk (*) preceding “main” is used to indicate the currently checked out branch in your local repository.
+Another way to find out which branch you have checked out is to run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code>.</p>
+<blockquote>
+<div><h4 class="rubric" id="main-is-just-a-branch"><code class="docutils literal notranslate"><span class="pre">main</span></code> is just a branch</h4>
+<p>The main branch in Git is simply a branch like any other branch in your repository, created automatically
+to hold the initial commit of the repository’s history.</p>
+<p>Because the main branch is created automatically and is the default branch, it is often used as the primary branch
+for a project’s development. However, you can choose to rename the main branch or use a different branch as the
+primary branch if you prefer.</p>
+</div></blockquote>
+</section>
+<section id="adding-commits-to-a-branch">
+<h3>Adding commits to a branch<a class="headerlink" href="#adding-commits-to-a-branch" title="Link to this heading">#</a></h3>
+<p>In order to work on a branch, we need to <strong>checkout</strong> the branch so that any
+new commits we make are added to the branch. The general command for doing this
+is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="o">&lt;</span><span class="n">branch</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<blockquote>
+<div><h4 class="rubric" id="branching-off-a-branch">Branching off a branch</h4>
+<p>There is nothing stopping us from creating a new branch that starts on a different
+branch to <code class="docutils literal notranslate"><span class="pre">main</span></code>. For example, suppose you have checked out a branch called <code class="docutils literal notranslate"><span class="pre">feature-branch</span></code>,
+and you want to create a new branch called <code class="docutils literal notranslate"><span class="pre">bugfix-branch</span></code> on top of <code class="docutils literal notranslate"><span class="pre">feature-branch</span></code>. If
+you do not specify a starting point for the new branch, Git will create it at the current commit on
+<code class="docutils literal notranslate"><span class="pre">feature-branch</span></code>, i.e. the commit that <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> is pointing to.</p>
+</div></blockquote>
+<p>We now switch to our new branch <code class="docutils literal notranslate"><span class="pre">branches-material</span></code> so that
+our new cheatsheet content will feature in this branch, rather than the branch
+<code class="docutils literal notranslate"><span class="pre">main</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout branches-material 
+Switched to branch &#39;branches-material&#39;
+</pre></div>
+</div>
+<p>We’re now ready to get to work in the branch <code class="docutils literal notranslate"><span class="pre">branches-material</span></code>. We add the
+following content to <code class="docutils literal notranslate"><span class="pre">Git-cheatsheet.md</span></code> on what we just learned about creating
+a branch.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+## Branches
+
+`git branch &lt;branch&gt;` — Create a new local branch called `&lt;branch&gt;` based at the
+                        current commit (i.e. at `HEAD`).
+
+</pre></div>
+</div>
+<p>We make a commit with the new change:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git add Git-cheatsheet.md
+
+$ git commit -m &quot;Add entry about creating branches&quot;
+[branches-material 8124186] Add entry about creating branches
+ 1 file changed, 6 insertions(+)
+</pre></div>
+</div>
+<p>We next add an entry to our cheatsheet about checking out a branch:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>`git checkout &lt;branch&gt;` — Check out the branch `&lt;branch&gt;`, so that new commits
+                          are added to `&lt;branch&gt;`.
+
+</pre></div>
+</div>
+<p>Having committed this change, we now view the log to see our new commits:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log --oneline -5
+51da8da (HEAD -&gt; branches-material) Add entry about checking out a branch
+8124186 Add entry about creating branches
+42a9a32 (origin/main, origin/HEAD, main) Ignore TODO list file
+0984d2b Add material on basic pathspec usage (directories)
+92b2ac2 Create general good practice guides directory
+</pre></div>
+</div>
+<p>We can see that the new commits have been added to the branch <code class="docutils literal notranslate"><span class="pre">branches-material</span></code>
+and that we are now working on <code class="docutils literal notranslate"><span class="pre">branches-material</span></code> as indicated by
+<code class="docutils literal notranslate"><span class="pre">HEAD</span> <span class="pre">-&gt;</span> <span class="pre">branches-material</span></code>. We can also see that commits to <code class="docutils literal notranslate"><span class="pre">main</span></code> stop at
+commit <code class="docutils literal notranslate"><span class="pre">42a9a32</span></code> shown by <code class="docutils literal notranslate"><span class="pre">origin/main,</span> <span class="pre">origin/HEAD,</span> <span class="pre">main</span></code>.</p>
+<p>We can verify that these new commits are not on the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch by examining
+the log of <code class="docutils literal notranslate"><span class="pre">main</span></code> directly. In general, we can run</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">log</span> <span class="p">[</span><span class="n">options</span><span class="p">]</span> <span class="o">&lt;</span><span class="n">branch</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>to view the commit history contained in a specific branch <code class="docutils literal notranslate"><span class="pre">&lt;branch&gt;</span></code>, where
+<code class="docutils literal notranslate"><span class="pre">[options]</span></code> are any optional arguments we want to include e.g <code class="docutils literal notranslate"><span class="pre">--oneline</span></code>. In
+our example, we get the following history for the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log --oneline -5 main
+42a9a32 (origin/main, origin/HEAD, main) Ignore TODO list file
+0984d2b Add material on basic pathspec usage (directories)
+92b2ac2 Create general good practice guides directory
+5cf8321 Remove rubbish.txt
+d26a698 Add some rubbish to try out &#39;git rm&#39;
+</pre></div>
+</div>
+<p>This confirms that the new commits are not on the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch.</p>
+</section>
+</section>
+<section id="merging-branches">
+<h2>Merging branches<a class="headerlink" href="#merging-branches" title="Link to this heading">#</a></h2>
+<p>Let’s now look at how we can incorporate the changes we’ve made in the
+<code class="docutils literal notranslate"><span class="pre">branches-material</span></code> branch into our <code class="docutils literal notranslate"><span class="pre">main</span></code> branch. In Git parlance, we want
+to <strong>merge</strong> the commit history in <code class="docutils literal notranslate"><span class="pre">branches-material</span></code> into the history of
+the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch.</p>
+<p>Merging is a way to bring together different streams of development and integrate
+them into a cohesive whole. This is the key to using Git for collaboration, as
+it allows multiple developers to work on different
+aspects of a project simultaneously <em>and then collate their changes</em>.</p>
+<p>We do this with the <code class="docutils literal notranslate"><span class="pre">merge</span></code> command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">merge</span> <span class="o">&lt;</span><span class="n">branch</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">bring</span><span class="o">-</span><span class="ow">in</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Here, <code class="docutils literal notranslate"><span class="pre">&lt;branch-to-merge-in&gt;</span></code> is the name of the branch whose commits we want
+to bring <em>into</em> the branch we’re currently on.</p>
+<p>![Merging branches](/images/merge.svg)</p>
+<p>In our example, we need to merge the branch <code class="docutils literal notranslate"><span class="pre">branches-material</span></code> into <code class="docutils literal notranslate"><span class="pre">main</span></code>.
+To do this, we need to checkout the branch we want to merge <em>into</em>, i.e.
+<code class="docutils literal notranslate"><span class="pre">main</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout main
+Switched to branch &#39;main&#39;
+Your branch is up to date with &#39;origin/main&#39;.
+</pre></div>
+</div>
+<p>Now we can merge <code class="docutils literal notranslate"><span class="pre">branches-material</span></code> into <code class="docutils literal notranslate"><span class="pre">main</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git merge branches-material 
+Updating 42a9a32..51da8da
+Fast-forward
+ Git-cheatsheet.md | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+</pre></div>
+</div>
+<p>Let’s take another look at the log of <code class="docutils literal notranslate"><span class="pre">main</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log --oneline -5
+51da8da (HEAD -&gt; main, branches-material) Add entry about checking out a branch
+8124186 Add entry about creating branches
+42a9a32 (origin/main, origin/HEAD) Ignore TODO list file
+0984d2b Add material on basic pathspec usage (directories)
+92b2ac2 Create general good practice guides directory
+</pre></div>
+</div>
+<p>We can see that the commits from <code class="docutils literal notranslate"><span class="pre">branches-material</span></code> have been added to
+<code class="docutils literal notranslate"><span class="pre">main</span></code>. In fact, Git has just moved <code class="docutils literal notranslate"><span class="pre">main</span></code> to now point to the same commit
+as at the end of the <code class="docutils literal notranslate"><span class="pre">branches-material</span></code>, as seen by the line</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">51</span><span class="n">da8da</span> <span class="p">(</span><span class="n">HEAD</span> <span class="o">-&gt;</span> <span class="n">main</span><span class="p">,</span> <span class="n">branches</span><span class="o">-</span><span class="n">material</span><span class="p">)</span> <span class="n">Add</span> <span class="n">entry</span> <span class="n">about</span> <span class="n">checking</span> <span class="n">out</span> <span class="n">a</span> <span class="n">branch</span>
+</pre></div>
+</div>
+<p>Our <code class="docutils literal notranslate"><span class="pre">main</span></code> branch now has some commits that have not been pushed to the remote
+repository, so we will now rectify that:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git push
+Username for &#39;https://github.com&#39;: jbloggs9999
+Password for &#39;https://jbloggs9999@github.com&#39;:
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 765 bytes | 255.00 KiB/s, done.
+Total 6 (delta 4), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (4/4), completed with 2 local objects.
+To https://github.com/jbloggs9999/git-good-practice.git
+   42a9a32..51da8da  main -&gt; main
+</pre></div>
+</div>
+<section id="exercise">
+<h3>Exercise<a class="headerlink" href="#exercise" title="Link to this heading">#</a></h3>
+<p>Add another commit to the <code class="docutils literal notranslate"><span class="pre">branches-material</span></code> branch about merging branches.
+You may wish to use the following text:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>`git merge &lt;branch-to-merge-in&gt;` — Combine the commit history of `&lt;branch-to-merge-in&gt;`
+                                   with that of the branch currently checked out.
+                                   
+</pre></div>
+</div>
+<p>Once you’ve done that, bring the changes into <code class="docutils literal notranslate"><span class="pre">main</span></code> by merging the branch
+<code class="docutils literal notranslate"><span class="pre">branches-material</span></code> into <code class="docutils literal notranslate"><span class="pre">main</span></code>. Finally, push the new commits on <code class="docutils literal notranslate"><span class="pre">main</span></code> to the
+remote repository.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "berrli/CfRR_Courses",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./individual_modules/introduction_to_version_control"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ignoring_files.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Ignoring Files</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="remote_branches_with_github.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Remote Branches with GitHub</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repository-files">Repository files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concept-of-branches">Concept of branches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Working with local branches</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-branches">Creating branches</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-branches">Viewing branches</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-commits-to-a-branch">Adding commits to a branch</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merging-branches">Merging branches</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Coding For Reproducible Research Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

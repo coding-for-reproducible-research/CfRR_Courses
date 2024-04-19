@@ -1,0 +1,1053 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Undoing Changes &#8212; Coding For Reproducible Research</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'individual_modules/introduction_to_version_control/undoing_changes';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Ignoring Files" href="ignoring_files.html" />
+    <link rel="prev" title="Pushing to and Pulling From the Remote Repository" href="pushing_and_pulling.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../home_page.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/exeter_logo.png" class="logo__image only-light" alt="Coding For Reproducible Research - Home"/>
+    <script>document.write(`<img src="../../_static/exeter_logo.png" class="logo__image only-dark" alt="Coding For Reproducible Research - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../home_page.html">
+                    What is Coding for Reproducible Research?
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Details and Delivery Dates</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/theortical.html">Theortical</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/computational_thinking.html">Computational Thinking</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/machine_learning.html">Machine Learning</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_machine_learning.html">Introduction to Machine Learning</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/high_performance_computing.html">High Performance Computing</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_hpc_and_isca.html">Introduction to HPC and ISCA</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/julia.html">Julia</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_julia.html">Introduction to Julia</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/unix.html">UNIX</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_unix.html">Introduction to UNIX</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/parallel_computing.html">Parallel Computing</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/intro_parallel_computing.html">Parallel Computing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/R.html">R</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_r.html">Introduction to R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/working_with_data_in_r.html">Working With Data In R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/regression_analysis_with_r.html">Regression Analysis with R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/advanced_regression_analysis.html">Advanced Regression Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/python.html">Python</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_python.html">Introduction to Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/intermediate_python.html">Intermediate Python</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/software_development.html">Software Development</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/software_development_best_practice.html">Software Development Best Practices</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/version_control.html">Version Control</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_version_control_with_git_and_github.html">Introduction to Version Control with Git and Github</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/intermediate_version_control.html">Intermediate Version Control</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Self Study Notes</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_python.html">Introduction to Python</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/motivation.html">Motivation and Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/fundamentals.html">Python Fundamentals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/lists.html">Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/control_flow.html">Control Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/additional_exercises.html">Additional Session 1 Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/recap.html">Session 1 Recap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/imports.html">Imports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/analysis_task_intro.html">Data Analysis Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/analysis_task_1.html">Data Analysis Task 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/analysis_task_2.html">Data Analysis Task 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/analysis_task_3.html">Data Analysis Task 3</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_r.html">Introduction to R</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/gettingstarted.html">Getting Up and Running with R</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/basic_commands.html">Running Commands With R</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/data_types.html">Data Types and Structures</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/load_data.html">Loading Data From Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/manipulating_data.html">Manipulating Datasets</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/control_flow.html">Control Flow</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/plots.html">Plots</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/stats.html">Statistical Analysis</a></li>
+
+
+
+
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_hpc.html">Introduction to HPC and ISCA</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/motivation.html">Why might I want to use a HPC Cluster?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/isca.html">Exeter supported HPC facilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/connection.html">How do I connect to a HPC Cluster?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/file_transfer.html">File Transfer Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/schedulers.html">Running a job on a HPC system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/modules.html">Loading software packages on HPC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/example_jobs.html">Running more complex jobs on a HPC system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/exploiting_slurm.html">Harnessing the power of the scheduler</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_version_control.html">Introduction to Version Control</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="motivation.html">Motivation: Why use Version Control Systems?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git_vs_github.html">Git vs Github</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring_git.html">Setting up Git and GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="making_repos.html">Making Repositories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_repo.html">An Example Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recording_changes.html">Recording Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="history_and_changes.html">Viewing History and Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pushing_and_pulling.html">Pushing to and Pulling From the Remote Repository</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Undoing Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ignoring_files.html">Ignoring Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="local_branches.html">Working with Local Branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="remote_branches_with_github.html">Remote Branches with GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collaborating_with_branches.html">Collaborating with Branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merge_conflicts.html">Merge Conflicts</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_unix.html">Introduction to UNIX</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/intro.html">Introducing the UNIX shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/filedir.html">File Directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/create.html">Working With Files and Directories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/pipefilter.html">Pipes and Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/loop.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/script.html">Shell Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/find.html">Finding Things</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/computational_thinking.html">Computational Thinking</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/algorithms.html">Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/decomposition.html">Decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/pattern_recognition.html">Pattern recognition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/abstraction.html">Abstraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/alignment.html">Aligning the human solution with the computer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/final_exercise.html">Sudoku Task</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/misc.html">Misc</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_NumPy.html">Python: Numpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_Pandas.html">Python: Pandas</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_Matplotlib.html">Python: Matplotlib</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_ScikitLearn.html">Python: Scikit-Learn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_MachineLearning.html">Python: Machine Learning</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pathways</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../pathways/complete_notebooks/data_scientist.html">Data Scientist</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/berrli/CfRR_Courses" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/berrli/CfRR_Courses/issues/new?title=Issue%20on%20page%20%2Findividual_modules/introduction_to_version_control/undoing_changes.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/individual_modules/introduction_to_version_control/undoing_changes.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Undoing Changes</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#episode-objectives">Episode objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-files-from-the-staging-area">Removing files from the staging area</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#undoing-commits">Undoing commits</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reverting-undo-a-commit-by-making-a-new-one">Reverting (undo a commit by making a new one)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resetting-move-back-to-a-previous-commit-and-lose-later-ones">Resetting (move back to a previous commit and lose later ones)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warning-pushing-after-a-reset">Warning: pushing after a reset</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-note-sensitive-data">Important note: sensitive data</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="undoing-changes">
+<h1>Undoing Changes<a class="headerlink" href="#undoing-changes" title="Link to this heading">#</a></h1>
+<section id="episode-objectives">
+<h2>Episode objectives<a class="headerlink" href="#episode-objectives" title="Link to this heading">#</a></h2>
+<p>At the end of this episode you will know how to unstage file changes you didn’t
+mean to stage and how to undo accidental commits.</p>
+</section>
+<section id="removing-files-from-the-staging-area">
+<h2>Removing files from the staging area<a class="headerlink" href="#removing-files-from-the-staging-area" title="Link to this heading">#</a></h2>
+<p>We’ve got quite a bit of outstanding stuff we could add to our cheatsheet
+and good practice guide. Let’s make a note of these things in a <code class="docutils literal notranslate"><span class="pre">TODO.txt</span></code>
+file, which we’ll put in the root folder of our repository:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>TODO:
+
+Add note about staging multiple files with `git add` and `git diff`
+
+Add note to commit good practice about perils of `git add .`
+
+Add cheatsheet entries for `git rm` and `git mv`
+
+Add cheatsheet entries for pushing and pulling
+</pre></div>
+</div>
+<p>We might as well tick off the first two items, so let’s add the following content
+to <code class="docutils literal notranslate"><span class="pre">Git-cheatsheet.md</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+## Specifying multiple files
+
+`git &lt;command&gt; path/to/directory` — Apply `&lt;command&gt;` to all files in and descended
+                                    from `path/to/directory`
+
+Examples:
+
+`git add .` — Stage all changes to files in current directory or descended from
+              current directory.
+
+`git diff foo/` — Show diffs of all files in directory `foo` or descended from
+                  `foo`.
+
+</pre></div>
+</div>
+<p>And we add the following to <code class="docutils literal notranslate"><span class="pre">Good-practice-guides/Commit-good-practice.md</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+## Make sure you know what you&#39;re committing
+
+Take care when staging multiple files with e.g. `git add .` that you don&#39;t
+stage changes you didn&#39;t mean to. Always check what you&#39;re committing with
+`git diff` or `git status`.
+
+</pre></div>
+</div>
+<p>We go ahead and stage these, using our recently learnt syntax for staging
+changes to multiple files (our working directory is the repository root
+folder, as usual):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git add .
+</pre></div>
+</div>
+<p>Wait! Something doesn’t feel right… Let’s check the status:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git status
+On branch main
+Your branch is up to date with &#39;origin/main&#39;.
+
+Changes to be committed:
+  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)
+        modified:   Git-cheatsheet.md
+        modified:   Good-practice-guides/Commit-good-practice.md
+        new file:   TODO.txt
+
+</pre></div>
+</div>
+<p>Ah, no! We don’t want to commit our <code class="docutils literal notranslate"><span class="pre">TODO.txt</span></code> file. This was just to help us
+keep track of our work and it doesn’t belong in the repository. Fortunately
+we can remove changes to a file from the staging area. In fact,
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> tells us how to do this. The general command to use is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">restore</span> <span class="o">--</span><span class="n">staged</span> <span class="o">&lt;</span><span class="n">files</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>So let’s use this on our <code class="docutils literal notranslate"><span class="pre">TODO.txt</span></code> file. We run the command, then check that
+the only differences staged are for the cheatsheet and good practice guide</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git restore --staged TODO.txt
+
+$ git diff --name-only --staged
+Git-cheatsheet.md
+Good-practice-guides/Commit-good-practice.md
+</pre></div>
+</div>
+<p>That’s better, now we can go ahead and commit. (Good thing we checked before
+committing the first time round!)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git commit -m &quot;Add material on basic pathspec usage (directories)&quot;
+[main 0984d2b] Add material on basic pathspec usage (directories)
+ 2 files changed, 21 insertions(+)
+</pre></div>
+</div>
+</section>
+<section id="undoing-commits">
+<h2>Undoing commits<a class="headerlink" href="#undoing-commits" title="Link to this heading">#</a></h2>
+<p>What if we’d gone ahead and actually committed our <code class="docutils literal notranslate"><span class="pre">TODO.txt</span></code> file by accident?
+Git offers a couple of ways to address this:</p>
+<ul class="simple">
+<li><p><em>Reverting</em>: Create a new commit that undoes the old commit</p></li>
+<li><p><em>Resetting</em>: Move <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> back to a previous commit, so that all the later commits are
+removed from the commit history.</p></li>
+</ul>
+<section id="reverting-undo-a-commit-by-making-a-new-one">
+<h3>Reverting (undo a commit by making a new one)<a class="headerlink" href="#reverting-undo-a-commit-by-making-a-new-one" title="Link to this heading">#</a></h3>
+<p>Let’s suppose we’ve ‘accidentally’ made a new commit which puts <code class="docutils literal notranslate"><span class="pre">TODO.txt</span></code> under
+version control, which we want to undo:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log --oneline -3
+cc01bda (HEAD -&gt; main) Add TODO.txt
+0984d2b Add material on basic pathspec usage (directories)
+92b2ac2 (origin/main, origin/HEAD) Create general good practice guides directory
+</pre></div>
+</div>
+<p>The command</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">revert</span> <span class="o">&lt;</span><span class="n">commit</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>can be used to create a new commit that undoes a previous <code class="docutils literal notranslate"><span class="pre">&lt;commit&gt;</span></code>. In our
+case, we want to undo the commit where we added <code class="docutils literal notranslate"><span class="pre">TODO.txt</span></code>, i.e. commit
+<code class="docutils literal notranslate"><span class="pre">cc01bda</span></code>. We’ll run that shortly, but first we need to make sure to make
+a temporary copy of <code class="docutils literal notranslate"><span class="pre">TODO.txt</span></code> and store it outside the repository. This is
+because the revert will return the repository to the state before we’d added
+<code class="docutils literal notranslate"><span class="pre">TODO.txt</span></code>, which will involve deleting the file. Having done this, we now
+perform the reversion:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git revert cc01bda
+</pre></div>
+</div>
+<p>Because <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">revert</span></code> is actually making a new commit, our text editor pops into
+life for us to write a commit message. It’s been pre-populated with a
+helpful message, telling us which commit is being reverted:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Revert</span> <span class="s2">&quot;Add TODO.txt&quot;</span>
+
+<span class="n">This</span> <span class="n">reverts</span> <span class="n">commit</span> <span class="n">cc01bdaf30a98d5bfaf5e43838d90522695f251e</span><span class="o">.</span>
+
+<span class="c1"># Please enter the commit message for your changes. Lines starting</span>
+<span class="c1"># with &#39;#&#39; will be ignored, and an empty message aborts the commit.</span>
+<span class="c1">#</span>
+<span class="c1"># On branch main</span>
+<span class="c1"># Your branch is ahead of &#39;origin/main&#39; by 2 commits.</span>
+<span class="c1">#   (use &quot;git push&quot; to publish your local commits)</span>
+<span class="c1">#</span>
+<span class="c1"># Changes to be committed:</span>
+<span class="c1">#       deleted:    TODO.txt</span>
+<span class="c1">#</span>
+</pre></div>
+</div>
+<p>We could edit this if we wanted to, but the default is fine, so we just close
+the file to complete the commit.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git revert cc01bda
+[main bc9d190] Revert &quot;Add TODO.txt&quot;
+ 1 file changed, 9 deletions(-)
+ delete mode 100644 TODO.txt
+</pre></div>
+</div>
+<p>Now our commit history includes our new ‘reverting’ commit. Note also that
+<code class="docutils literal notranslate"><span class="pre">TODO.txt</span></code> has been deleted.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log --oneline -4
+bc9d190 (HEAD -&gt; main) Revert &quot;Add TODO.txt&quot;
+cc01bda Add TODO.txt
+0984d2b Add material on basic pathspec usage (directories)
+92b2ac2 (origin/main, origin/HEAD) Create general good practice guides directory
+
+$ ls
+Git-cheatsheet.md  Good-practice-guides/  README.md
+</pre></div>
+</div>
+<blockquote>
+<div><h4 class="rubric" id="note-on-git-revert">Note on <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">revert</span></code></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">revert</span></code> command will only work if the working tree and staging area have
+no changes in them.</p>
+</div></blockquote>
+</section>
+<section id="resetting-move-back-to-a-previous-commit-and-lose-later-ones">
+<h3>Resetting (move back to a previous commit and lose later ones)<a class="headerlink" href="#resetting-move-back-to-a-previous-commit-and-lose-later-ones" title="Link to this heading">#</a></h3>
+<p>Reverting a commit is often considered a ‘safe’ way to undo a commit, because
+the original, offending commit is not actually lost. This way, if we decide we
+<em>did</em> in fact want to make that commit, we can easily recover it (by doing
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">revert</span></code> on it). There is a
+more destructive way to undo commit history that will get rid of the commits.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span></code> command is used to move back our <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> to an earlier commit.
+The default form of the command is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">reset</span> <span class="o">&lt;</span><span class="n">commit</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>In effect, this will ‘rewind’ the commit history back to finish at the given
+<code class="docutils literal notranslate"><span class="pre">&lt;commit&gt;</span></code>, dropping later commits as if they’d never happened. However, it will
+put all changes since <code class="docutils literal notranslate"><span class="pre">&lt;commit&gt;</span></code> in the working tree, giving us a chance to
+work with the files as they currently are before the reset.</p>
+<p>For example, let’s create an empty file <code class="docutils literal notranslate"><span class="pre">foo.txt</span></code>. We can do this using
+the <code class="docutils literal notranslate"><span class="pre">touch</span></code> command within the root folder of our repository:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ touch foo.txt
+</pre></div>
+</div>
+<p>We’ll make a commit of this new file and remove it via a reset. First, we make
+the commit:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git add foo.txt
+
+$ git commit -m &quot;Add foo.txt to practice resetting&quot;
+[main fcecec0] Add foo.txt to practice resetting
+ 1 file changed, 1 insertion(+)
+ create mode 100644 foo.txt
+
+$ ls
+foo.txt  Git-cheatsheet.md  Good-practice-guides/  README.md
+</pre></div>
+</div>
+<p>Let’s now reset the commit history back to how it was before
+we committed <code class="docutils literal notranslate"><span class="pre">TODO.txt</span></code>. We check the log to get the commit identifier,
+perform our reset, then check the status of the repository:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log --oneline -5
+fcecec0 (HEAD -&gt; main) Add foo.txt to practice resetting
+bc9d190 Revert &quot;Add TODO.txt&quot;
+cc01bda Add TODO.txt
+0984d2b Add material on basic pathspec usage (directories)
+92b2ac2 (origin/main, origin/HEAD) Create general good practice guides directory
+
+$ git reset 0984d2b
+
+$ git log --oneline -5
+0984d2b (HEAD -&gt; main) Add material on basic pathspec usage (directories)
+92b2ac2 (origin/main, origin/HEAD) Create general good practice guides directory
+5cf8321 Remove rubbish.txt
+d26a698 Add some rubbish to try out &#39;git rm&#39;
+910bb79 Add note about &#39;--name-only&#39; option to &#39;git diff&#39;
+</pre></div>
+</div>
+<p>We can see that our new <code class="docutils literal notranslate"><span class="pre">HEAD</span></code>, i.e. our new ‘current commit’, is what we reset
+to, namely <code class="docutils literal notranslate"><span class="pre">0984d2b</span></code>. What state will our working tree be in? The answer is that it
+will contain the changes that would need to be made to recover the state of
+the repository as it was at <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> just before the reset (at the
+now-removed commit <code class="docutils literal notranslate"><span class="pre">fcecec0</span></code>). In other words, we expect to see just the change
+that adds <code class="docutils literal notranslate"><span class="pre">foo.txt</span></code>. We can verify this with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git status
+On branch main
+Your branch is ahead of &#39;origin/main&#39; by 1 commit.
+  (use &quot;git push&quot; to publish your local commits)
+
+Untracked files:
+  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+        foo.txt
+
+nothing added to commit but untracked files present (use &quot;git add&quot; to track)
+</pre></div>
+</div>
+<p>We don’t want to keep this <code class="docutils literal notranslate"><span class="pre">foo.txt</span></code> file, so let’s just delete it with the
+usual Unix command <code class="docutils literal notranslate"><span class="pre">rm</span></code> to get a nice, clean working tree again.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rm foo.txt
+</pre></div>
+</div>
+<p>After all that, we can move that TODO list back into the repository. We’ll
+finish by removing the tasks we’ve completed and add some new tasks, leaving our
+list like so:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>TODO:
+
+Add cheatsheet entries for `git rm` and `git mv`
+
+Add cheatsheet entries for pushing and pulling
+
+Add cheatsheet entries about undoing changes
+
+</pre></div>
+</div>
+<blockquote>
+<div><h4 class="rubric" id="hard-reset">Hard reset</h4>
+<p>If you’re really sure you don’t need to keep the changes from later commits when
+resetting, then you can automatically discard them by using the <code class="docutils literal notranslate"><span class="pre">--hard</span></code> option:
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span> <span class="pre">--hard</span> <span class="pre">&lt;commit&gt;</span></code>. This will set your working tree to the exact same state as
+the commit you’re resetting to. It thus deletes the work you did after
+<code class="docutils literal notranslate"><span class="pre">&lt;commit&gt;</span></code>; be sure that this is what you want before running a hard reset!</p>
+</div></blockquote>
+</section>
+<section id="warning-pushing-after-a-reset">
+<h3>Warning: pushing after a reset<a class="headerlink" href="#warning-pushing-after-a-reset" title="Link to this heading">#</a></h3>
+<p>Something to be aware of when using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span></code> is that you can’t by default push to a
+remote repository if the tip of your local <code class="docutils literal notranslate"><span class="pre">main</span></code> branch is pointing to a commit
+that is behind where the remote repository (<code class="docutils literal notranslate"><span class="pre">origin/main</span></code>) is.</p>
+<p>For example, suppose we had reset our local repository to the commit <em>before</em>
+<code class="docutils literal notranslate"><span class="pre">origin/main</span></code>, i.e. commit <code class="docutils literal notranslate"><span class="pre">5cf8321</span></code>, “Remove rubbish.txt”. If we then tried to push
+our local repository to the remote one, Git would not complete the request and
+complain to us with the following message:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git push origin
+To https://github.com/jbloggs9999/git-good-practice.git
+ ! [rejected]        main -&gt; main (non-fast-forward)
+error: failed to push some refs to &#39;https://github.com/jbloggs9999/git-good-practice.git&#39;
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: &#39;git pull ...&#39;) before pushing again.
+hint: See the &#39;Note about fast-forwards&#39; in &#39;git push --help&#39; for details.
+</pre></div>
+</div>
+<p>The main reason for this is to avoid a situation where commit history in the
+remote repository gets lost. This is especially important when collaborating
+with others, which we’ll cover in later episodes in this course.</p>
+<p>You can read more on the topic of resetting on
+<a href="https://www.atlassian.com/git/tutorials/undoing-changes/git-reset" target="_blank" rel="external noreferrer">Atlassian’s tutorial</a>.</p>
+</section>
+</section>
+<section id="important-note-sensitive-data">
+<h2>Important note: sensitive data<a class="headerlink" href="#important-note-sensitive-data" title="Link to this heading">#</a></h2>
+<p>The methods for undoing commits discussed here are appropriate when the commit
+you made in error contains changes you didn’t want, but don’t fundamentally matter
+if they’ve been recorded in the repository. In fact, even with a reset, it is
+possible to recover the commit, with some advanced Git use that involves
+something called the
+<a href="https://www.atlassian.com/git/tutorials/rewriting-history" target="_blank" rel="external noreferrer">reflog</a>.</p>
+<p>This means that, if you accidentally commit <em>sensitive data</em>, such as passwords
+or confidential information, you cannot work on the basis that <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span></code> or
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">revert</span></code> has removed the data from the repository. Moreover, if you
+pushed the commits to a remote repository, the information will be stored there.</p>
+<p>In these cases, you need to use specialist tools to remove all traces of the
+sensitive data from the repository. See
+<a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository" target="_blank" rel="external noreferrer">the GitHub documentation</a> for information on this topic.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "berrli/CfRR_Courses",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./individual_modules/introduction_to_version_control"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="pushing_and_pulling.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Pushing to and Pulling From the Remote Repository</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="ignoring_files.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Ignoring Files</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#episode-objectives">Episode objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-files-from-the-staging-area">Removing files from the staging area</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#undoing-commits">Undoing commits</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reverting-undo-a-commit-by-making-a-new-one">Reverting (undo a commit by making a new one)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resetting-move-back-to-a-previous-commit-and-lose-later-ones">Resetting (move back to a previous commit and lose later ones)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warning-pushing-after-a-reset">Warning: pushing after a reset</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-note-sensitive-data">Important note: sensitive data</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Coding For Reproducible Research Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

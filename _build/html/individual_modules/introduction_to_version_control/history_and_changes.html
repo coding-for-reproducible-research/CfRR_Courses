@@ -1,0 +1,1158 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Viewing History and Changes &#8212; Coding For Reproducible Research</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'individual_modules/introduction_to_version_control/history_and_changes';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Pushing to and Pulling From the Remote Repository" href="pushing_and_pulling.html" />
+    <link rel="prev" title="Recording Changes" href="recording_changes.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../home_page.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/exeter_logo.png" class="logo__image only-light" alt="Coding For Reproducible Research - Home"/>
+    <script>document.write(`<img src="../../_static/exeter_logo.png" class="logo__image only-dark" alt="Coding For Reproducible Research - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../home_page.html">
+                    What is Coding for Reproducible Research?
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Details and Delivery Dates</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/theortical.html">Theortical</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/computational_thinking.html">Computational Thinking</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/machine_learning.html">Machine Learning</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_machine_learning.html">Introduction to Machine Learning</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/high_performance_computing.html">High Performance Computing</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_hpc_and_isca.html">Introduction to HPC and ISCA</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/julia.html">Julia</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_julia.html">Introduction to Julia</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/unix.html">UNIX</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_unix.html">Introduction to UNIX</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/parallel_computing.html">Parallel Computing</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/intro_parallel_computing.html">Parallel Computing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/R.html">R</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_r.html">Introduction to R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/working_with_data_in_r.html">Working With Data In R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/regression_analysis_with_r.html">Regression Analysis with R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/advanced_regression_analysis.html">Advanced Regression Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/python.html">Python</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_python.html">Introduction to Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/intermediate_python.html">Intermediate Python</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/software_development.html">Software Development</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/software_development_best_practice.html">Software Development Best Practices</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/version_control.html">Version Control</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_version_control_with_git_and_github.html">Introduction to Version Control with Git and Github</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/intermediate_version_control.html">Intermediate Version Control</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Self Study Notes</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_python.html">Introduction to Python</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/motivation.html">Motivation and Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/fundamentals.html">Python Fundamentals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/lists.html">Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/control_flow.html">Control Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/additional_exercises.html">Additional Session 1 Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/recap.html">Session 1 Recap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/imports.html">Imports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/analysis_task_intro.html">Data Analysis Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/analysis_task_1.html">Data Analysis Task 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/analysis_task_2.html">Data Analysis Task 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/analysis_task_3.html">Data Analysis Task 3</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_r.html">Introduction to R</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/gettingstarted.html">Getting Up and Running with R</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/basic_commands.html">Running Commands With R</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/data_types.html">Data Types and Structures</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/load_data.html">Loading Data From Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/manipulating_data.html">Manipulating Datasets</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/control_flow.html">Control Flow</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/plots.html">Plots</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/stats.html">Statistical Analysis</a></li>
+
+
+
+
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_hpc.html">Introduction to HPC and ISCA</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/motivation.html">Why might I want to use a HPC Cluster?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/isca.html">Exeter supported HPC facilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/connection.html">How do I connect to a HPC Cluster?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/file_transfer.html">File Transfer Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/schedulers.html">Running a job on a HPC system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/modules.html">Loading software packages on HPC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/example_jobs.html">Running more complex jobs on a HPC system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/exploiting_slurm.html">Harnessing the power of the scheduler</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_version_control.html">Introduction to Version Control</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="motivation.html">Motivation: Why use Version Control Systems?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git_vs_github.html">Git vs Github</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring_git.html">Setting up Git and GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="making_repos.html">Making Repositories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_repo.html">An Example Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recording_changes.html">Recording Changes</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Viewing History and Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pushing_and_pulling.html">Pushing to and Pulling From the Remote Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="undoing_changes.html">Undoing Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ignoring_files.html">Ignoring Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="local_branches.html">Working with Local Branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="remote_branches_with_github.html">Remote Branches with GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collaborating_with_branches.html">Collaborating with Branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merge_conflicts.html">Merge Conflicts</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_unix.html">Introduction to UNIX</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/intro.html">Introducing the UNIX shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/filedir.html">File Directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/create.html">Working With Files and Directories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/pipefilter.html">Pipes and Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/loop.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/script.html">Shell Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/find.html">Finding Things</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/computational_thinking.html">Computational Thinking</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/algorithms.html">Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/decomposition.html">Decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/pattern_recognition.html">Pattern recognition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/abstraction.html">Abstraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/alignment.html">Aligning the human solution with the computer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/final_exercise.html">Sudoku Task</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/misc.html">Misc</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_NumPy.html">Python: Numpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_Pandas.html">Python: Pandas</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_Matplotlib.html">Python: Matplotlib</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_ScikitLearn.html">Python: Scikit-Learn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_MachineLearning.html">Python: Machine Learning</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pathways</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../pathways/complete_notebooks/data_scientist.html">Data Scientist</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/berrli/CfRR_Courses" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/berrli/CfRR_Courses/issues/new?title=Issue%20on%20page%20%2Findividual_modules/introduction_to_version_control/history_and_changes.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/individual_modules/introduction_to_version_control/history_and_changes.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Viewing History and Changes</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-repository-history">Viewing repository history</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limiting-log-output">Limiting log output</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git-diff-viewing-changes"><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code>: viewing changes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differences-between-commits">Differences between commits</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-your-head">Using your <code class="docutils literal notranslate"><span class="pre">HEAD</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-tree-and-staging-area-diffs">Working tree and staging area diffs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changes-that-have-not-been-staged">Changes that have not been staged</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changes-staged-but-not-committed">Changes staged, but not committed</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-diffs-with-guis">Viewing diffs with GUIs</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="viewing-history-and-changes">
+<h1>Viewing History and Changes<a class="headerlink" href="#viewing-history-and-changes" title="Link to this heading">#</a></h1>
+<section id="learning-objectives">
+<h2>Learning objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>By the end of this episode, you will know how to view a history of the commits
+that have been made to a repository. You will also be able to examine the exact
+changes that were made to files between different commits in a repository, as
+well as changes that have yet to be committed.</p>
+</section>
+<section id="viewing-repository-history">
+<h2>Viewing repository history<a class="headerlink" href="#viewing-repository-history" title="Link to this heading">#</a></h2>
+<p>There’s little point in keeping a history of changes to files in a repository if
+we can’t view it. We can view a record of the commits made in a repository using
+the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> command. If you completed the exercise at the end of the last
+episode, [Recording Changes](/07_recording_changes/index.html), then
+running <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> from within the <code class="docutils literal notranslate"><span class="pre">git-good-practice</span></code> repository should look
+something like the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">commit</span> <span class="mi">46</span><span class="n">b11e612128e68a9d558be1bcaa82bbdaac34ab</span> <span class="p">(</span><span class="n">HEAD</span> <span class="o">-&gt;</span> <span class="n">main</span><span class="p">)</span>
+<span class="n">Author</span><span class="p">:</span> <span class="n">Joe</span> <span class="n">Bloggs</span> <span class="o">&lt;</span><span class="n">joe</span><span class="o">.</span><span class="n">bloggs</span><span class="nd">@example</span><span class="o">.</span><span class="n">net</span><span class="o">&gt;</span>
+<span class="n">Date</span><span class="p">:</span>   <span class="n">Tue</span> <span class="n">Feb</span> <span class="mi">7</span> <span class="mi">16</span><span class="p">:</span><span class="mi">47</span><span class="p">:</span><span class="mi">21</span> <span class="mi">2023</span> <span class="o">+</span><span class="mi">0000</span>
+
+    <span class="n">Add</span> <span class="n">advice</span> <span class="n">on</span> <span class="n">committing</span> <span class="n">little</span> <span class="ow">and</span> <span class="n">often</span>
+
+<span class="n">commit</span> <span class="n">ecbf67e161e805a3183ebc84eb7d39c229a78451</span>
+<span class="n">Author</span><span class="p">:</span> <span class="n">Joe</span> <span class="n">Bloggs</span> <span class="o">&lt;</span><span class="n">joe</span><span class="o">.</span><span class="n">bloggs</span><span class="nd">@example</span><span class="o">.</span><span class="n">net</span><span class="o">&gt;</span>
+<span class="n">Date</span><span class="p">:</span>   <span class="n">Tue</span> <span class="n">Feb</span> <span class="mi">7</span> <span class="mi">16</span><span class="p">:</span><span class="mi">46</span><span class="p">:</span><span class="mi">54</span> <span class="mi">2023</span> <span class="o">+</span><span class="mi">0000</span>
+
+    <span class="n">Add</span> <span class="n">entry</span> <span class="k">for</span> <span class="s1">&#39;git commit&#39;</span> <span class="k">with</span> <span class="s1">&#39;-m&#39;</span> <span class="n">option</span>
+
+<span class="n">commit</span> <span class="mi">34</span><span class="n">c19f2dd01c42fa2981520ca436bde5378979cb</span>
+<span class="n">Author</span><span class="p">:</span> <span class="n">Joe</span> <span class="n">Bloggs</span> <span class="o">&lt;</span><span class="n">joe</span><span class="o">.</span><span class="n">bloggs</span><span class="nd">@example</span><span class="o">.</span><span class="n">net</span><span class="o">&gt;</span>
+<span class="n">Date</span><span class="p">:</span>   <span class="n">Tue</span> <span class="n">Feb</span> <span class="mi">7</span> <span class="mi">16</span><span class="p">:</span><span class="mi">14</span><span class="p">:</span><span class="mi">14</span> <span class="mi">2023</span> <span class="o">+</span><span class="mi">0000</span>
+
+    <span class="n">Add</span> <span class="n">material</span> <span class="n">on</span> <span class="n">committing</span>
+
+    <span class="n">This</span> <span class="n">includes</span> <span class="n">both</span> <span class="n">an</span> <span class="n">entry</span> <span class="k">for</span> <span class="s1">&#39;git commit&#39;</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">cheatsheet</span>
+    <span class="ow">and</span> <span class="n">also</span> <span class="n">material</span> <span class="n">on</span> <span class="n">good</span> <span class="n">practice</span> <span class="k">for</span> <span class="n">commit</span> <span class="n">messages</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">new</span>
+    <span class="s1">&#39;good practice&#39;</span> <span class="n">document</span><span class="o">.</span>
+
+<span class="n">commit</span> <span class="n">ad56194133fcac4f65d236260f372665fbec605b</span>
+<span class="n">Author</span><span class="p">:</span> <span class="n">Joe</span> <span class="n">Bloggs</span> <span class="o">&lt;</span><span class="n">joe</span><span class="o">.</span><span class="n">bloggs</span><span class="nd">@example</span><span class="o">.</span><span class="n">net</span><span class="o">&gt;</span>
+<span class="p">:</span>
+</pre></div>
+</div>
+<blockquote>
+<div><h3 class="rubric" id="paging-the-log">Paging the Log</h3>
+<p>When the output of <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> is too long to fit in your screen,
+Git uses a program called a <em>pager</em> to split it into pages of the size of your screen.
+When this pager is called, you will notice that the last line in your
+screen is a <code class="docutils literal notranslate"><span class="pre">:</span></code>, instead of your usual prompt.</p>
+<ul class="simple">
+<li><p>To get out of the pager, press <kbd>Q</kbd>.</p></li>
+<li><p>To move to the next page, press <kbd>Spacebar</kbd>.</p></li>
+<li><p>To search for <code class="docutils literal notranslate"><span class="pre">some_word</span></code> in all pages,
+press <kbd>/</kbd>
+and type <code class="docutils literal notranslate"><span class="pre">some_word</span></code>.
+Navigate through matches pressing <kbd>N</kbd>.</p></li>
+</ul>
+</div></blockquote>
+<p>The log contains one entry for each commit. The commit messages for the
+commits are included, as well as details of who made the commit. The name and email address
+are those that were given when configuring Git (see the episode
+[Setting up Git and GitHub](/04_configuring_git/index.html)).</p>
+<p>In addition, each commit has a unique <strong>identifier</strong> associated to it, which is the long
+random-looking string next to each commit. (The identifiers for your
+commits may differ from those above.) We can refer to commits by their
+identifiers within Git. As we’ll shortly see, commits can also be identified via
+their <strong>short identifier</strong>, which is just the first 7 characters of the usual
+identifier.</p>
+<p>Git also has a way of referring to the current, or most recent, commit: this is
+called <code class="docutils literal notranslate"><span class="pre">HEAD</span></code>. In the above output, <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> refers to the commit with message
+“Add advice on committing little and often” (as indicated by <code class="docutils literal notranslate"><span class="pre">(HEAD</span> <span class="pre">-&gt;</span> <span class="pre">main)</span></code>).</p>
+<section id="limiting-log-output">
+<h3>Limiting log output<a class="headerlink" href="#limiting-log-output" title="Link to this heading">#</a></h3>
+<p>To avoid having <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> cover your entire terminal screen, you can limit the
+number of commits that Git lists by using <code class="docutils literal notranslate"><span class="pre">-n</span></code>, where <code class="docutils literal notranslate"><span class="pre">n</span></code> is the number of
+commits that you want to view. For example, if you only want information from
+the last commit you can use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span> <span class="pre">-1</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log -1
+commit 46b11e612128e68a9d558be1bcaa82bbdaac34ab (HEAD -&gt; main)
+Author: Joe Bloggs &lt;joe.bloggs@example.net&gt;
+Date:   Tue Feb 7 16:47:21 2023 +0000
+
+    Add advice on committing little and often
+</pre></div>
+</div>
+<p>You can also reduce the quantity of information using the <code class="docutils literal notranslate"><span class="pre">--oneline</span></code> option:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log --oneline
+46b11e6 (HEAD -&gt; main) Add advice on committing little and often
+ecbf67e Add entry for &#39;git commit&#39; with &#39;-m&#39; option
+34c19f2 Add material on committing
+ad56194 Add entry about staging files with &#39;git add&#39;
+17912ce Create a cheatsheet document
+3917168 (origin/main, origin/HEAD) Initial commit
+</pre></div>
+</div>
+<p>Note that, in this format, each commit has its short identifier displayed.
+You can also combine the <code class="docutils literal notranslate"><span class="pre">--oneline</span></code> option with others. For example, to view
+just the last 3 log entries on single lines:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log --oneline -3
+46b11e6 (HEAD -&gt; main) Add advice on committing little and often
+ecbf67e Add entry for &#39;git commit&#39; with &#39;-m&#39; option
+34c19f2 Add material on committing
+</pre></div>
+</div>
+</section>
+</section>
+<section id="git-diff-viewing-changes">
+<h2><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code>: viewing changes<a class="headerlink" href="#git-diff-viewing-changes" title="Link to this heading">#</a></h2>
+<p>One of the key features of Git is being able to see the changes that
+have been made to files when working in a Git repository, not just a record of
+the commits. The <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code> command gives us access to this information.
+Like many Git commands, <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code> can take arguments in several different
+formats, depending on things like the optional arguments used. We’ll focus on
+two basic use cases of <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code>, considering various shortcut forms along the
+way:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span> <span class="pre">&lt;commit1&gt;</span> <span class="pre">&lt;commit2&gt;</span> <span class="pre">&lt;files&gt;</span></code> for viewing differences in files between
+particular commits.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span> <span class="pre">&lt;files&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span> <span class="pre">--staged</span> <span class="pre">&lt;files&gt;</span></code> for viewing changes to
+files that have yet to be staged or, in the second form, yet to be committed.</p></li>
+</ul>
+</section>
+<section id="differences-between-commits">
+<h2>Differences between commits<a class="headerlink" href="#differences-between-commits" title="Link to this heading">#</a></h2>
+<p>Let’s first look at how to examine file changes
+that have been made to go from one commit to another. The general form of
+the command to do this is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">diff</span> <span class="o">&lt;</span><span class="n">commit1</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">commit2</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">files</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Commits should be referred to by their identifiers (either their normal or short
+formats). The order that the commits are specified matters: in the above, the
+output will describe the changes that need to be applied to <code class="docutils literal notranslate"><span class="pre">&lt;commit1&gt;</span></code> to get
+<code class="docutils literal notranslate"><span class="pre">&lt;commit2&gt;</span></code>. The <code class="docutils literal notranslate"><span class="pre">&lt;files&gt;</span></code> argument can be a single file or list of multiple
+files.</p>
+<p>As an example, based on the full one-line log given above, let’s look at the
+changes required to go from commit
+<code class="docutils literal notranslate"><span class="pre">ad56194</span></code> (with message “Add entry about staging files with ‘git add’”) to commit
+<code class="docutils literal notranslate"><span class="pre">34c19f2</span></code> (with message “Add material on committing”), for each of the files
+<code class="docutils literal notranslate"><span class="pre">Git-cheatsheet.md</span></code> and <code class="docutils literal notranslate"><span class="pre">Commit-good-practice.md</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git diff ad56194 34c19f2 Git-cheatsheet.md Commit-good-practice.md
+diff --git a/Commit-good-practice.md b/Commit-good-practice.md
+new file mode 100644
+index 0000000..9610409
+--- /dev/null
++++ b/Commit-good-practice.md
+@@ -0,0 +1,12 @@
++# Best practice when committing
++
++## Commit messages
++
++[Good commit messages](https://chris.beams.io/posts/git-commit/)
++start with a brief (usually &lt; 50 characters) summary statement about the
++changes made in the commit, with more explanation given in a new paragraph if
++required. Generally, the summary should complete the sentence &quot;If applied, this
++commit will [_commit message here_]&quot;.
++
++Avoid uninformative messages such as &quot;small tweaks&quot; or &quot;updates&quot; — write what
++will be useful for others to read.
+diff --git a/Git-cheatsheet.md b/Git-cheatsheet.md
+index c2409dd..26bcb5c 100644
+--- a/Git-cheatsheet.md
++++ b/Git-cheatsheet.md
+@@ -11,3 +11,6 @@
+ ## Adding / committing changes
+
+ `git add &lt;files&gt;` — Stages changes in the `&lt;files&gt;`, ready for committing.
++
++`git commit` — Commit changes to the repository that have been staged with
++               `git add`.
+</pre></div>
+</div>
+<p>The output describes the <strong>differences</strong> (or <strong>diffs</strong>) of each file between the
+versions in the specified commits.</p>
+<blockquote>
+<div><h3 class="rubric" id="understanding-the-output-of-git-diff">Understanding the output of <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code></h3>
+<p>The output of <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code>, as shown above, is cryptic because
+it is actually a series of commands for tools like editors and <code class="docutils literal notranslate"><span class="pre">patch</span></code>
+telling them how to reconstruct one file given the other.
+If we break it down into pieces:</p>
+<ol class="arabic simple">
+<li><p>The ‘diff’ for each file begins with a line like
+<code class="docutils literal notranslate"><span class="pre">diff</span> <span class="pre">--git</span> <span class="pre">a/&lt;filename&gt;</span> <span class="pre">b/&lt;filename&gt;</span></code>. It tells us that Git is producing output
+similar to the Unix <code class="docutils literal notranslate"><span class="pre">diff</span></code> command, comparing the old and new versions of the
+file <code class="docutils literal notranslate"><span class="pre">&lt;filename&gt;</span></code>. In the example above, the output starts
+with the diff for
+<code class="docutils literal notranslate"><span class="pre">Commit-good-practice.md</span></code> until just before the line
+<code class="docutils literal notranslate"><span class="pre">diff</span> <span class="pre">--git</span> <span class="pre">a/Git-cheatsheet.md</span> <span class="pre">b/Git-cheatsheet.md</span></code>, at which point it switches
+to the diff for <code class="docutils literal notranslate"><span class="pre">Git-cheatsheet.md</span></code>.</p></li>
+<li><p>The next few lines in each file’s diff tell exactly which versions of the file
+Git is comparing. Confusingly, it looks like it contains commit identifiers,
+but these are in face different, computer-generated labels for the
+versions of the files.</p></li>
+<li><p>The remaining lines, beginning <code class="docutils literal notranslate"><span class="pre">&#64;&#64;</span></code>, are the most interesting: they show us the actual differences
+and the lines on which they occur. In particular,
+the <code class="docutils literal notranslate"><span class="pre">+</span></code> marker in the first column shows where we added a line. If we had
+lines that were removed, these would be marked with <code class="docutils literal notranslate"><span class="pre">-</span></code>.</p></li>
+</ol>
+</div></blockquote>
+<p>If we wanted to view just the diff for the file <code class="docutils literal notranslate"><span class="pre">Git-cheatsheet.md</span></code> we would
+supply that as the only file argument, like so:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git diff ad56194 34c19f2 Git-cheatsheet.md
+</pre></div>
+</div>
+<p>If we leave out <code class="docutils literal notranslate"><span class="pre">&lt;files&gt;</span></code> altogether, then Git will show the diffs for all files
+that were changed in the given commits. With the commits <code class="docutils literal notranslate"><span class="pre">ad56194</span></code> and <code class="docutils literal notranslate"><span class="pre">34c19f2</span></code>
+above we only have the two files, so in this case</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">diff</span> <span class="n">ad56194</span> <span class="mi">34</span><span class="n">c19f2</span>
+</pre></div>
+</div>
+<p>would give the same output as <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span> <span class="pre">ad56194</span> <span class="pre">34c19f2</span> <span class="pre">Git-cheatsheet.md</span> <span class="pre">Commit-good-practice.md</span></code>.</p>
+<p>Sometimes you only want to see which files have changed between commits. This
+can be achieved with the <code class="docutils literal notranslate"><span class="pre">--name-only</span></code> option:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git diff --name-only ad56194 34c19f2
+Commit-good-practice.md
+Git-cheatsheet.md
+</pre></div>
+</div>
+<p>If we just want to compare the <em>latest</em> commit — that is, the commit referred to
+by <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> — with a previous commit, we just provide an identifier for the
+commit to compare to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">diff</span> <span class="o">&lt;</span><span class="n">commit</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">files</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>The rules for <code class="docutils literal notranslate"><span class="pre">&lt;files&gt;</span></code> are the same as before. For example, to view the changes
+to the file <code class="docutils literal notranslate"><span class="pre">Commit-good-practice.md</span></code> from commit <code class="docutils literal notranslate"><span class="pre">34c19f2</span></code>
+(“Add material on committing”) to the latest commit:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git diff 34c19f2 Commit-good-practice.md
+diff --git a/Commit-good-practice.md b/Commit-good-practice.md
+index 9610409..524d4ec 100644
+--- a/Commit-good-practice.md
++++ b/Commit-good-practice.md
+@@ -10,3 +10,14 @@ commit will [_commit message here_]&quot;.
+
+ Avoid uninformative messages such as &quot;small tweaks&quot; or &quot;updates&quot; — write what
+ will be useful for others to read.
++
++
++## Commit little and often
++
++Aim for each commit to capture one conceptual change to your work that
++can stand alone. This will make the history of your files&#39; development much easier
++to follow.
++
++A good rule of thumb: a commit should capture a change that
++you can describe in about 50 characters or fewer, potentially with extra
++explanation in the commit message if needed.
+</pre></div>
+</div>
+<section id="using-your-head">
+<h3>Using your <code class="docutils literal notranslate"><span class="pre">HEAD</span></code><a class="headerlink" href="#using-your-head" title="Link to this heading">#</a></h3>
+<p>The case where you want to compare the most recent commit to an earlier one in
+the history especially common. Git provides some syntax to refer
+to commits relative to the current <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> commit. We can refer to the commit that is
+<code class="docutils literal notranslate"><span class="pre">n</span></code> commits before <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> with <code class="docutils literal notranslate"><span class="pre">HEAD~n</span></code> (think <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> minus <code class="docutils literal notranslate"><span class="pre">n</span></code> steps). These
+are just more convenient ways to refer to commits and so can be used instead of
+the identifiers we’ve been using so far. Let’s look at some concrete examples,
+using our <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span> <span class="pre">--oneline</span></code> output from earlier:</p>
+<ul class="simple">
+<li><p>The command <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span> <span class="pre">HEAD~1</span></code> would give the file changes applied in the most
+recent commit (i.e. to go from <code class="docutils literal notranslate"><span class="pre">HEAD~1</span></code> to <code class="docutils literal notranslate"><span class="pre">HEAD</span></code>). This is just the changes
+made in commit <code class="docutils literal notranslate"><span class="pre">46b11e6</span></code> (with message “Add advice on committing little and often”).</p></li>
+<li><p>The command <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span> <span class="pre">HEAD~3</span> <span class="pre">Git-cheatsheet.md</span></code> would give the aggregate
+changes that have been made to <code class="docutils literal notranslate"><span class="pre">Git-cheatsheet.md</span></code> since commit <code class="docutils literal notranslate"><span class="pre">ad56194</span></code>
+i.e. the changes required to go from 3 commits earlier to the current commit.</p></li>
+<li><p>The command <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span> <span class="pre">HEAD~3</span> <span class="pre">HEAD~2</span></code> would give the changes required to fo
+from commit <code class="docutils literal notranslate"><span class="pre">HEAD~3</span></code> (<code class="docutils literal notranslate"><span class="pre">ad56194</span></code>) to <code class="docutils literal notranslate"><span class="pre">HEAD~2</span></code> (<code class="docutils literal notranslate"><span class="pre">34c19f2</span></code>). In other words, it
+just gives the changes applied back when we did commit <code class="docutils literal notranslate"><span class="pre">34c19f2</span></code>.</p></li>
+</ul>
+<blockquote>
+<div><h3 class="rubric" id="exercise">Exercise</h3>
+<p>Verify the claims in the three bullet point examples given above, checking
+the outputs of <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code> agree for the <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> versions and the regular
+commit identifier versions. <em>Note: make sure to use the commit identifiers
+found in your own log, not the ones that feature in the example output above!</em></p>
+</div></blockquote>
+</section>
+</section>
+<section id="working-tree-and-staging-area-diffs">
+<h2>Working tree and staging area diffs<a class="headerlink" href="#working-tree-and-staging-area-diffs" title="Link to this heading">#</a></h2>
+<p>It is good practice to check exactly what you are going to commit before you
+do so, especially if you have been working on multiple files simultaneously.
+We can use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code> to examine changes to files that have yet to be staged
+or committed.</p>
+<section id="changes-that-have-not-been-staged">
+<h3>Changes that have not been staged<a class="headerlink" href="#changes-that-have-not-been-staged" title="Link to this heading">#</a></h3>
+<p>Let’s suppose we add some new content to our cheatsheet about <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+
+## Viewing repository history
+
+`git log` — Shows the history of commits that have been made.
+
+`git log --oneline` — Show summary commit information, one commit per line.
+
+</pre></div>
+</div>
+<p>This will add changes to the working tree for our repository. We can view the
+diff for changes that are in the working tree, but have not yet been staged,
+by using <code class="docutils literal notranslate"><span class="pre">diff</span></code> without reference to any commits:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">diff</span> <span class="o">&lt;</span><span class="n">files</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>As usual, we can leave <code class="docutils literal notranslate"><span class="pre">&lt;files&gt;</span></code> empty and Git will return the diffs for all
+files that have changed.</p>
+<p>Running this in our <code class="docutils literal notranslate"><span class="pre">git-good-practice</span></code> repository now yields</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git diff
+diff --git a/Git-cheatsheet.md b/Git-cheatsheet.md
+index 135822a..86e679f 100644
+--- a/Git-cheatsheet.md
++++ b/Git-cheatsheet.md
+@@ -17,3 +17,10 @@
+
+ `git commit -m &quot;commit message here&quot; — Commit changes to the repository, using
+                                        the given commit message
++
++
++## Viewing repository history
++
++`git log` — Shows the history of commits that have been made.
++
++`git log --oneline` — Show summary commit information, one commit per line.
+
+</pre></div>
+</div>
+<p>as we would expect.</p>
+</section>
+<section id="changes-staged-but-not-committed">
+<h3>Changes staged, but not committed<a class="headerlink" href="#changes-staged-but-not-committed" title="Link to this heading">#</a></h3>
+<p>Suppose we now stage the changes above made in the previous section and run
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code> again:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git add Git-cheatsheet.md
+
+$ git diff
+
+$
+</pre></div>
+</div>
+<p>No output is returned because the default
+behaviour of <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code> is to show changes that are <em>in the working tree</em> but
+have not been staged. We can use the <code class="docutils literal notranslate"><span class="pre">--staged</span></code> option to view the changes that
+have been staged, but not yet committed:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git diff --staged
+diff --git a/Git-cheatsheet.md b/Git-cheatsheet.md
+index 135822a..86e679f 100644
+--- a/Git-cheatsheet.md
++++ b/Git-cheatsheet.md
+@@ -17,3 +17,10 @@
+
+ `git commit -m &quot;commit message here&quot; — Commit changes to the repository, using
+                                        the given commit message
++
++
++## Viewing repository history
++
++`git log` — Shows the history of commits that have been made.
++
++`git log --oneline` — Show summary commit information, one commit per line.
+
+</pre></div>
+</div>
+<blockquote>
+<div><h3 class="rubric" id="id1">Exercise</h3>
+<p>First follow the steps above, so that you end up with entries about <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> and
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span> <span class="pre">--oneline</span></code> in <code class="docutils literal notranslate"><span class="pre">Git-cheatsheet.md</span></code> that are staged but not committed.
+Now add a new entry to the cheatsheet about <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span> <span class="pre">-n</span></code>, but don’t stage it.
+Now do the following:</p>
+<ul class="simple">
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span> <span class="pre">Git-cheatsheet.md</span></code></p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code></p></li>
+</ul>
+<p>Can you explain what the output from these commands is saying, and why we get
+it? Once you’re happy you understand what’s going on, complete
+the task of adding the material about <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> to the cheatsheet by making
+an appropriate commit, making sure to include the entry about <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span> <span class="pre">-n</span></code>.</p>
+</div></blockquote>
+</section>
+</section>
+<section id="viewing-diffs-with-guis">
+<h2>Viewing diffs with GUIs<a class="headerlink" href="#viewing-diffs-with-guis" title="Link to this heading">#</a></h2>
+<p>We appreciate that the output of <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code> is not the most intuitive
+way to view differences between file versions. Fortunately, many text editors
+and IDEs support ways of visually depicting differences, either ‘out of the box’
+or through the installation of a plug-in / extension. Do a search online
+to see if this is the case for your preferred text editor / IDE.</p>
+<blockquote>
+<div><h3 class="rubric" id="vs-code">VS Code</h3>
+<p>For VS Code users, the following links may be of help:</p>
+<ul class="simple">
+<li><p>View the diffs for files that have not been staged, or have been staged but
+not committed <a class="reference external" href="https://code.visualstudio.com/docs/sourcecontrol/overview#_working-in-a-git-repository">https://code.visualstudio.com/docs/sourcecontrol/overview#_working-in-a-git-repository</a>.</p></li>
+<li><p>View the commit history of a file:
+<a class="reference external" href="https://code.visualstudio.com/docs/sourcecontrol/overview#_timeline-view">https://code.visualstudio.com/docs/sourcecontrol/overview#_timeline-view</a>.
+This also suggests some extensions for VS Code to make working with Git more
+graphical.</p></li>
+<li><p>Displaying diffs by selecting files to compare:
+<a class="reference external" href="https://code.visualstudio.com/docs/sourcecontrol/overview#_viewing-diffs">https://code.visualstudio.com/docs/sourcecontrol/overview#_viewing-diffs</a>.
+Note that the method described in this link can be used on the ‘timeline’
+described in the previous link: simply right-click on different commits in
+the timeline for a given file to see the changes between the commits.</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "berrli/CfRR_Courses",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./individual_modules/introduction_to_version_control"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="recording_changes.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Recording Changes</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="pushing_and_pulling.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Pushing to and Pulling From the Remote Repository</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-repository-history">Viewing repository history</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limiting-log-output">Limiting log output</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git-diff-viewing-changes"><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code>: viewing changes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differences-between-commits">Differences between commits</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-your-head">Using your <code class="docutils literal notranslate"><span class="pre">HEAD</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-tree-and-staging-area-diffs">Working tree and staging area diffs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changes-that-have-not-been-staged">Changes that have not been staged</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changes-staged-but-not-committed">Changes staged, but not committed</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-diffs-with-guis">Viewing diffs with GUIs</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Coding For Reproducible Research Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
