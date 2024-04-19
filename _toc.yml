@@ -4,49 +4,74 @@
 format: jb-book
 root: home_page
 parts:
-  - caption: What is Coding for Reproducible Research?
+  - caption: Course Details and Delivery Dates
     chapters:
-    - file: section_landing_pages/workshops
+    - file: course_homepages/connected_course_homepages/theortical
       sections:
-      - file: course_homepages/computational_thinking
-      - file: course_homepages/advanced_regression_analysis
-      - file: course_homepages/intermediate_python
-      - file: course_homepages/intermediate_version_control
-      - file: course_homepages/introduction_to_hpc_and_isca
-      - file: course_homepages/introduction_to_julia
-      - file: course_homepages/introduction_to_machine_learning
-      - file: course_homepages/introduction_to_python
-      - file: course_homepages/introduction_to_r
-      - file: course_homepages/introduction_to_unix
-      - file: course_homepages/introduction_to_version_control_with_git_and_github
-      - file: course_homepages/parallel_computing
-      - file: course_homepages/regression_analysis_with_r
-      - file: course_homepages/software_development_best_practice
-      - file: course_homepages/working_with_data_in_r
+      - file: course_homepages/standalone_courses/computational_thinking
+    - file: course_homepages/connected_course_homepages/machine_learning
+      sections:
+      - file: course_homepages/standalone_courses/introduction_to_machine_learning
+    - file: course_homepages/connected_course_homepages/high_performance_computing
+      sections:
+      - file: course_homepages/standalone_courses/introduction_to_hpc_and_isca
+    - file: course_homepages/connected_course_homepages/julia
+      sections:
+      - file: course_homepages/standalone_courses/introduction_to_julia
+    - file: course_homepages/connected_course_homepages/unix
+      sections:
+      - file: course_homepages/standalone_courses/introduction_to_unix
+    - file: course_homepages/connected_course_homepages/parallel_computing
+      sections:
+      - file: course_homepages/standalone_courses/intro_parallel_computing
+    - file: course_homepages/connected_course_homepages/R
+      sections:
+      - file: course_homepages/standalone_courses/introduction_to_r
+      - file: course_homepages/standalone_courses/working_with_data_in_r
+      - file: course_homepages/standalone_courses/regression_analysis_with_r
+      - file: course_homepages/standalone_courses/advanced_regression_analysis
+    - file: course_homepages/connected_course_homepages/python
+      sections:
+      - file: course_homepages/standalone_courses/introduction_to_python
+      - file: course_homepages/standalone_courses/intermediate_python
+    - file: course_homepages/connected_course_homepages/software_development
+      sections:
+      - file: course_homepages/standalone_courses/software_development_best_practice
+    - file: course_homepages/connected_course_homepages/version_control
+      sections:
+      - file: course_homepages/standalone_courses/introduction_to_version_control_with_git_and_github
+      - file: course_homepages/standalone_courses/intermediate_version_control
   - caption: Self Study Notes
     chapters:
+    - file: section_landing_pages/introduction_to_unix
+      sections:
+      - file: individual_modules/introduction_to_unix/intro
+      - file: individual_modules/introduction_to_unix/filedir
+      - file: individual_modules/introduction_to_unix/create
+      - file: individual_modules/introduction_to_unix/pipefilter
+      - file: individual_modules/introduction_to_unix/loop
+      - file: individual_modules/introduction_to_unix/script
+      - file: individual_modules/introduction_to_unix/find
     - file: section_landing_pages/computational_thinking
       sections:
-      - file: individual_modules/computational_thinking/01_welcome
-      - file: individual_modules/computational_thinking/02_introduction
-      - file: individual_modules/computational_thinking/03_algorithms
-      - file: individual_modules/computational_thinking/04_decomposition
-      - file: individual_modules/computational_thinking/05_pattern_recognition
-      - file: individual_modules/computational_thinking/06_abstraction
-      - file: individual_modules/computational_thinking/07_alignment
-      - file: individual_modules/computational_thinking/08_sudoku_task
-      - file: individual_modules/computational_thinking/09_wrapup
+      - file: individual_modules/computational_thinking/introduction
+      - file: individual_modules/computational_thinking/algorithms
+      - file: individual_modules/computational_thinking/decomposition
+      - file: individual_modules/computational_thinking/pattern_recognition
+      - file: individual_modules/computational_thinking/abstraction
+      - file: individual_modules/computational_thinking/alignment
+      - file: individual_modules/computational_thinking/sudoku_task
+      - file: individual_modules/computational_thinking/final_exercise
     - file: section_landing_pages/misc
       sections:
-      - file: individual_modules/Python_NumPy
-      - file: individual_modules/Python_Pandas
-      - file: individual_modules/Python_Matplotlib
-      - file: individual_modules/Python_ScikitLearn
-      - file: individual_modules/Python_MachineLearning
+      - file: individual_modules/misc/Python_NumPy
+      - file: individual_modules/misc/Python_Pandas
+      - file: individual_modules/misc/Python_Matplotlib
+      - file: individual_modules/misc/Python_ScikitLearn
+      - file: individual_modules/misc/Python_MachineLearning
   - caption: Pathways
     chapters:
-    - file: pathways/data_scientist
-    - file: pathways/software_engineer
+    - file: pathways/complete_notebooks/data_scientist
       
 
 

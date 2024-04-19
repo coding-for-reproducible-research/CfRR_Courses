@@ -1,0 +1,1594 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Working With Files and Directories &#8212; Coding For Reproducible Research</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'individual_modules/introduction_to_unix/create';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Pipes and Filters" href="pipefilter.html" />
+    <link rel="prev" title="File Directory" href="filedir.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../home_page.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/exeter_logo.png" class="logo__image only-light" alt="Coding For Reproducible Research - Home"/>
+    <script>document.write(`<img src="../../_static/exeter_logo.png" class="logo__image only-dark" alt="Coding For Reproducible Research - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../home_page.html">
+                    What is Coding for Reproducible Research?
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Details and Delivery Dates</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/theortical.html">Theortical</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/computational_thinking.html">Computational Thinking</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/machine_learning.html">Machine Learning</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_machine_learning.html">Introduction to Machine Learning</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/high_performance_computing.html">High Performance Computing</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_hpc_and_isca.html">Introduction to HPC and ISCA</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/julia.html">Julia</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_julia.html">Introduction to Julia</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/unix.html">UNIX</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_unix.html">Introduction to UNIX</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/parallel_computing.html">Parallel Computing</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/intro_parallel_computing.html">Parallel Computing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/R.html">R</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_r.html">Introduction to R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/working_with_data_in_r.html">Working With Data In R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/regression_analysis_with_r.html">Regression Analysis with R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/advanced_regression_analysis.html">Advanced Regression Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/python.html">Python</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_python.html">Introduction to Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/intermediate_python.html">Intermediate Python</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/software_development.html">Software Development</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/software_development_best_practice.html">Software Development Best Practices</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/version_control.html">Version Control</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_version_control_with_git_and_github.html">Introduction to Version Control with Git and Github</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/intermediate_version_control.html">Intermediate Version Control</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Self Study Notes</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_unix.html">Introduction to UNIX</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro.html">Introducing the UNIX shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filedir.html">File Directory</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Working With Files and Directories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipefilter.html">Pipes and Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loop.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="script.html">Shell Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="find.html">Finding Things</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/computational_thinking.html">Computational Thinking</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/algorithms.html">Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/decomposition.html">Decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/pattern_recognition.html">Pattern recognition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/abstraction.html">Abstraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/alignment.html">Aligning the human solution with the computer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/final_exercise.html">Sudoku Task</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/misc.html">Misc</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_NumPy.html">Python: Numpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_Pandas.html">Python: Pandas</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_Matplotlib.html">Python: Matplotlib</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_ScikitLearn.html">Python: Scikit-Learn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../misc/Python_MachineLearning.html">Python: Machine Learning</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pathways</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../pathways/complete_notebooks/data_scientist.html">Data Scientist</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/berrli/CfRR_Courses" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/berrli/CfRR_Courses/issues/new?title=Issue%20on%20page%20%2Findividual_modules/introduction_to_unix/create.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/individual_modules/introduction_to_unix/create.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Working With Files and Directories</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions">Questions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keypoints">Keypoints</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-directories">Creating directories</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-one-see-where-we-are-and-what-we-already-have">Step one: see where we are and what we already have</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-directory">Create a directory</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-ways-of-doing-the-same-thing">Two ways of doing the same thing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#good-names-for-files-and-directories">Good names for files and directories</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-text-file">Create a text file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#which-editor">Which Editor?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control-ctrl-or-key">Control, Ctrl, or ^ Key</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-files-a-different-way">Creating Files a Different Way</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-in-a-name">What’s In A Name?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#moving-files-and-directories">Moving files and directories</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#moving-files-to-a-new-folder">Moving Files to a new folder</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#copying-files-and-directories">Copying files and directories</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#renaming-files">Renaming Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#moving-and-copying">Moving and Copying</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-files-and-directories">Removing files and directories</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deleting-is-forever">Deleting Is Forever</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-rm-safely">Using <code class="docutils literal notranslate"><span class="pre">rm</span></code> Safely</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operations-with-multiple-files-and-directories">Operations with multiple files and directories</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-with-multiple-filenames">Copy with Multiple Filenames</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-wildcards-for-accessing-multiple-files-at-once">Using wildcards for accessing multiple files at once</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wildcards">Wildcards</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list-filenames-matching-a-pattern">List filenames matching a pattern</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-on-wildcards">More on Wildcards</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#organizing-directories-and-files">Organizing Directories and Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reproduce-a-folder-structure">Reproduce a folder structure</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="working-with-files-and-directories">
+<h1>Working With Files and Directories<a class="headerlink" href="#working-with-files-and-directories" title="Link to this heading">#</a></h1>
+<section id="questions">
+<h2>Questions<a class="headerlink" href="#questions" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>“How can I create, copy, and delete files and directories?”</p></li>
+<li><p>“How can I edit files?”</p></li>
+</ul>
+</section>
+<section id="objectives">
+<h2>Objectives<a class="headerlink" href="#objectives" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>“Create a directory hierarchy that matches a given diagram.”</p></li>
+<li><p>“Create files in that hierarchy using an editor or by copying and renaming existing files.”</p></li>
+<li><p>“Delete, copy and move specified files and/or directories.”</p></li>
+</ul>
+</section>
+<section id="keypoints">
+<h2>Keypoints<a class="headerlink" href="#keypoints" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>“<code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">[old]</span> <span class="pre">[new]</span></code> copies a file.”</p></li>
+<li><p>“<code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">[path]</span></code> creates a new directory.”</p></li>
+<li><p>“<code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">[old]</span> <span class="pre">[new]</span></code> moves (renames) a file or directory.”</p></li>
+<li><p>“<code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">[path]</span></code> removes (deletes) a file.”</p></li>
+<li><p>“<code class="docutils literal notranslate"><span class="pre">*</span></code> matches zero or more characters in a filename, so <code class="docutils literal notranslate"><span class="pre">*.txt</span></code> matches all files ending in <code class="docutils literal notranslate"><span class="pre">.txt</span></code>.”</p></li>
+<li><p>“<code class="docutils literal notranslate"><span class="pre">?</span></code> matches any single character in a filename, so <code class="docutils literal notranslate"><span class="pre">?.txt</span></code> matches <code class="docutils literal notranslate"><span class="pre">a.txt</span></code> but not <code class="docutils literal notranslate"><span class="pre">any.txt</span></code>.”</p></li>
+<li><p>“Use of the Control key may be described in many ways, including <code class="docutils literal notranslate"><span class="pre">Ctrl-X</span></code>, <code class="docutils literal notranslate"><span class="pre">Control-X</span></code>, and <code class="docutils literal notranslate"><span class="pre">^X</span></code>.”</p></li>
+<li><p>“The shell does not have a trash bin: once something is deleted, it’s really gone.”</p></li>
+<li><p>“Most files’ names are <code class="docutils literal notranslate"><span class="pre">something.extension</span></code>. The extension isn’t required, and doesn’t guarantee anything, but is normally used to indicate the type of data in the file.”</p></li>
+<li><p>“Depending on the type of work you do, you may need a more powerful text editor than Nano.”</p></li>
+</ul>
+</section>
+<section id="creating-directories">
+<h2>Creating directories<a class="headerlink" href="#creating-directories" title="Link to this heading">#</a></h2>
+<p>We now know how to explore files and directories,
+but how do we create them in the first place?</p>
+<p>In this episode we will learn about creating and moving files and directories,
+using the <code class="docutils literal notranslate"><span class="pre">exercise-data/writing</span></code> directory as an example.</p>
+<section id="step-one-see-where-we-are-and-what-we-already-have">
+<h3>Step one: see where we are and what we already have<a class="headerlink" href="#step-one-see-where-we-are-and-what-we-already-have" title="Link to this heading">#</a></h3>
+<p>We should still be in the <code class="docutils literal notranslate"><span class="pre">shell-lesson-data</span></code> directory on the Desktop,
+which we can check using:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pwd
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">nelle</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">shell</span><span class="o">-</span><span class="n">lesson</span><span class="o">-</span><span class="n">data</span>
+</pre></div>
+</div>
+<p>{: .output}</p>
+<p>Next we’ll move to the <code class="docutils literal notranslate"><span class="pre">exercise-data/writing</span></code> directory and see what it contains:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd exercise-data/writing/
+</pre></div>
+</div>
+<p>{:  .language-bash}</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls -F
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">haiku</span><span class="o">.</span><span class="n">txt</span>  <span class="n">LittleWomen</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>{: .output}</p>
+</section>
+<section id="create-a-directory">
+<h3>Create a directory<a class="headerlink" href="#create-a-directory" title="Link to this heading">#</a></h3>
+<p>Let’s create a new directory called <code class="docutils literal notranslate"><span class="pre">thesis</span></code> using the command <code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">thesis</span></code>
+(which has no output):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mkdir thesis
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+<p>As you might guess from its name,
+<code class="docutils literal notranslate"><span class="pre">mkdir</span></code> means ‘make directory’.
+Since <code class="docutils literal notranslate"><span class="pre">thesis</span></code> is a relative path
+(i.e., does not have a leading slash, like <code class="docutils literal notranslate"><span class="pre">/what/ever/thesis</span></code>),
+the new directory is created in the current working directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls -F
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">haiku</span><span class="o">.</span><span class="n">txt</span>  <span class="n">LittleWomen</span><span class="o">.</span><span class="n">txt</span>  <span class="n">thesis</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>{: .output}</p>
+<p>Since we’ve just created the <code class="docutils literal notranslate"><span class="pre">thesis</span></code> directory, there’s nothing in it yet:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls -F thesis
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> is not limited to creating single directories one at a time.
+The <code class="docutils literal notranslate"><span class="pre">-p</span></code> option allows <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> to create a directory with nested subdirectories
+in a single operation:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mkdir -p ../project/data ../project/results
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">-R</span></code> option to the <code class="docutils literal notranslate"><span class="pre">ls</span></code> command will list all nested subdirectories within a directory.
+Let’s use <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-FR</span></code> to recursively list the new directory hierarchy we just created in the
+<code class="docutils literal notranslate"><span class="pre">project</span></code> directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls -FR ../project
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">../</span><span class="n">project</span><span class="o">/</span><span class="p">:</span>
+<span class="n">data</span><span class="o">/</span>  <span class="n">results</span><span class="o">/</span>
+
+<span class="o">../</span><span class="n">project</span><span class="o">/</span><span class="n">data</span><span class="p">:</span>
+
+<span class="o">../</span><span class="n">project</span><span class="o">/</span><span class="n">results</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>{: .output}</p>
+</section>
+</section>
+<section id="two-ways-of-doing-the-same-thing">
+<h2>Two ways of doing the same thing<a class="headerlink" href="#two-ways-of-doing-the-same-thing" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>Using the shell to create a directory is no different than using a file explorer.
+If you open the current directory using your operating system’s graphical file explorer,
+the <code class="docutils literal notranslate"><span class="pre">thesis</span></code> directory will appear there too.
+While the shell and the file explorer are two different ways of interacting with the files,
+the files and directories themselves are the same.
+{: .callout}</p>
+</div></blockquote>
+</section>
+<section id="good-names-for-files-and-directories">
+<h2>Good names for files and directories<a class="headerlink" href="#good-names-for-files-and-directories" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>Complicated names of files and directories can make your life painful
+when working on the command line. Here we provide a few useful
+tips for the names of your files and directories.</p>
+<ol class="arabic">
+<li><p>Don’t use spaces.</p>
+<p>Spaces can make a name more meaningful,
+but since spaces are used to separate arguments on the command line
+it is better to avoid them in names of files and directories.
+You can use <code class="docutils literal notranslate"><span class="pre">-</span></code> or <code class="docutils literal notranslate"><span class="pre">_</span></code> instead (e.g. <code class="docutils literal notranslate"><span class="pre">north-pacific-gyre/</span></code> rather than <code class="docutils literal notranslate"><span class="pre">north</span> <span class="pre">pacific</span> <span class="pre">gyre/</span></code>).
+To test this out, try typing <code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">north</span> <span class="pre">pacific</span> <span class="pre">gyre</span></code>and see what directory (or directories!)
+are made when you check with <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-F</span></code>.</p>
+</li>
+<li><p>Don’t begin the name with <code class="docutils literal notranslate"><span class="pre">-</span></code> (dash).</p>
+<p>Commands treat names starting with <code class="docutils literal notranslate"><span class="pre">-</span></code> as options.</p>
+</li>
+<li><p>Stick with letters, numbers, <code class="docutils literal notranslate"><span class="pre">.</span></code> (period or ‘full stop’), <code class="docutils literal notranslate"><span class="pre">-</span></code> (dash) and <code class="docutils literal notranslate"><span class="pre">_</span></code> (underscore).</p>
+<p>Many other characters have special meanings on the command line.
+We will learn about some of these during this lesson.
+There are special characters that can cause your command to not work as
+expected and can even result in data loss.</p>
+</li>
+</ol>
+<p>If you need to refer to names of files or directories that have spaces
+or other special characters, you should surround the name in quotes (<code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>).
+{: .callout}</p>
+</div></blockquote>
+</section>
+<section id="create-a-text-file">
+<h2>Create a text file<a class="headerlink" href="#create-a-text-file" title="Link to this heading">#</a></h2>
+<p>Let’s change our working directory to <code class="docutils literal notranslate"><span class="pre">thesis</span></code> using <code class="docutils literal notranslate"><span class="pre">cd</span></code>,
+then run a text editor called Nano to create a file called <code class="docutils literal notranslate"><span class="pre">draft.txt</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd thesis
+$ nano draft.txt
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+</section>
+<section id="which-editor">
+<h2>Which Editor?<a class="headerlink" href="#which-editor" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>When we say, ‘<code class="docutils literal notranslate"><span class="pre">nano</span></code> is a text editor’ we really do mean ‘text’: it can
+only work with plain character data, not tables, images, or any other
+human-friendly media. We use it in examples because it is one of the
+least complex text editors. However, because of this trait, it may
+not be powerful enough or flexible enough for the work you need to do
+after this workshop. On Unix systems (such as Linux and macOS),
+many programmers use <a class="reference external" href="http://www.gnu.org/software/emacs/">Emacs</a> or
+<a class="reference external" href="http://www.vim.org/">Vim</a> (both of which require more time to learn),
+or a graphical editor such as
+<a class="reference external" href="http://projects.gnome.org/gedit/">Gedit</a>. On Windows, you may wish to
+use <a class="reference external" href="http://notepad-plus-plus.org/">Notepad++</a>.  Windows also has a built-in
+editor called <code class="docutils literal notranslate"><span class="pre">notepad</span></code> that can be run from the command line in the same
+way as <code class="docutils literal notranslate"><span class="pre">nano</span></code> for the purposes of this lesson.</p>
+<p>No matter what editor you use, you will need to know where it searches
+for and saves files. If you start it from the shell, it will (probably)
+use your current working directory as its default location. If you use
+your computer’s start menu, it may want to save files in your desktop or
+documents directory instead. You can change this by navigating to
+another directory the first time you ‘Save As…’
+{: .callout}</p>
+</div></blockquote>
+<p>Let’s type in a few lines of text.
+Once we’re happy with our text, we can press <kbd>Ctrl</kbd>+<kbd>O</kbd>
+(press the <kbd>Ctrl</kbd> or <kbd>Control</kbd> key and, while
+holding it down, press the <kbd>O</kbd> key) to write our data to disk
+(we’ll be asked what file we want to save this to:
+press <kbd>Return</kbd> to accept the suggested default of <code class="docutils literal notranslate"><span class="pre">draft.txt</span></code>).</p>
+<div style="width:80%; margin: auto;"><img alt="screenshot of nano text editor in action"
+src="../fig/nano-screenshot.png"></div>
+<p>Once our file is saved, we can use <kbd>Ctrl</kbd>+<kbd>X</kbd> to quit the editor and
+return to the shell.</p>
+</section>
+<section id="control-ctrl-or-key">
+<h2>Control, Ctrl, or ^ Key<a class="headerlink" href="#control-ctrl-or-key" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>The Control key is also called the ‘Ctrl’ key. There are various ways
+in which using the Control key may be described. For example, you may
+see an instruction to press the <kbd>Control</kbd> key and, while holding it down,
+press the <kbd>X</kbd> key, described as any of:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Control-X</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Control+X</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ctrl-X</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ctrl+X</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">^X</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">C-x</span></code></p></li>
+</ul>
+<p>In nano, along the bottom of the screen you’ll see <code class="docutils literal notranslate"><span class="pre">^G</span> <span class="pre">Get</span> <span class="pre">Help</span> <span class="pre">^O</span> <span class="pre">WriteOut</span></code>.
+This means that you can use <code class="docutils literal notranslate"><span class="pre">Control-G</span></code> to get help and <code class="docutils literal notranslate"><span class="pre">Control-O</span></code> to save your
+file.
+{: .callout}</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">nano</span></code> doesn’t leave any output on the screen after it exits,
+but <code class="docutils literal notranslate"><span class="pre">ls</span></code> now shows that we have created a file called <code class="docutils literal notranslate"><span class="pre">draft.txt</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">draft</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>{: .output}</p>
+</section>
+<section id="creating-files-a-different-way">
+<h2>Creating Files a Different Way<a class="headerlink" href="#creating-files-a-different-way" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>We have seen how to create text files using the <code class="docutils literal notranslate"><span class="pre">nano</span></code> editor.
+Now, try the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ touch my_file.txt
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+<ol class="arabic simple">
+<li><p>What did the <code class="docutils literal notranslate"><span class="pre">touch</span></code> command do?
+When you look at your current directory using the GUI file explorer,
+does the file show up?</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code> to inspect the files.  How large is <code class="docutils literal notranslate"><span class="pre">my_file.txt</span></code>?</p></li>
+<li><p>When might you want to create a file this way?</p></li>
+</ol>
+<blockquote>
+<div><h2 class="rubric" id="solution">Solution</h2>
+<ol class="arabic simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">touch</span></code> command generates a new file called <code class="docutils literal notranslate"><span class="pre">my_file.txt</span></code> in
+your current directory.  You
+can observe this newly generated file by typing <code class="docutils literal notranslate"><span class="pre">ls</span></code> at the
+command line prompt.  <code class="docutils literal notranslate"><span class="pre">my_file.txt</span></code> can also be viewed in your
+GUI file explorer.</p></li>
+<li><p>When you inspect the file with <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code>, note that the size of
+<code class="docutils literal notranslate"><span class="pre">my_file.txt</span></code> is 0 bytes.  In other words, it contains no data.
+If you open <code class="docutils literal notranslate"><span class="pre">my_file.txt</span></code> using your text editor it is blank.</p></li>
+<li><p>Some programs do not generate output files themselves, but
+instead require that empty files have already been generated.
+When the program is run, it searches for an existing file to
+populate with its output.  The touch command allows you to
+efficiently generate a blank text file to be used by such
+programs.
+{: .solution}</p></li>
+</ol>
+</div></blockquote>
+</div></blockquote>
+<p>To avoid confusion later on,
+we suggest removing the file you’ve just created before proceeding with the rest
+of the episode, otherwise future outputs may vary from those given in the lesson.
+To do this, use the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rm my_file.txt
+</pre></div>
+</div>
+<p>{: .language-bash}
+{: .challenge}</p>
+</section>
+<section id="what-s-in-a-name">
+<h2>What’s In A Name?<a class="headerlink" href="#what-s-in-a-name" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>You may have noticed that all of Nelle’s files are named ‘something dot
+something’, and in this part of the lesson, we always used the extension
+<code class="docutils literal notranslate"><span class="pre">.txt</span></code>.  This is just a convention: we can call a file <code class="docutils literal notranslate"><span class="pre">mythesis</span></code> or
+almost anything else we want. However, most people use two-part names
+most of the time to help them (and their programs) tell different kinds
+of files apart. The second part of such a name is called the
+<strong>filename extension</strong> and indicates
+what type of data the file holds: <code class="docutils literal notranslate"><span class="pre">.txt</span></code> signals a plain text file, <code class="docutils literal notranslate"><span class="pre">.pdf</span></code>
+indicates a PDF document, <code class="docutils literal notranslate"><span class="pre">.cfg</span></code> is a configuration file full of parameters
+for some program or other, <code class="docutils literal notranslate"><span class="pre">.png</span></code> is a PNG image, and so on.</p>
+<p>This is just a convention, albeit an important one. Files contain
+bytes: it’s up to us and our programs to interpret those bytes
+according to the rules for plain text files, PDF documents, configuration
+files, images, and so on.</p>
+<p>Naming a PNG image of a whale as <code class="docutils literal notranslate"><span class="pre">whale.mp3</span></code> doesn’t somehow
+magically turn it into a recording of whale song, though it <em>might</em>
+cause the operating system to try to open it with a music player
+when someone double-clicks it.
+{: .callout}</p>
+</div></blockquote>
+</section>
+<section id="moving-files-and-directories">
+<h2>Moving files and directories<a class="headerlink" href="#moving-files-and-directories" title="Link to this heading">#</a></h2>
+<p>Returning to the <code class="docutils literal notranslate"><span class="pre">shell-lesson-data/exercise-data/writing</span></code> directory,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd ~/Desktop/shell-lesson-data/exercise-data/writing
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+<p>In our <code class="docutils literal notranslate"><span class="pre">thesis</span></code> directory we have a file <code class="docutils literal notranslate"><span class="pre">draft.txt</span></code>
+which isn’t a particularly informative name,
+so let’s change the file’s name using <code class="docutils literal notranslate"><span class="pre">mv</span></code>,
+which is short for ‘move’:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mv thesis/draft.txt thesis/quotes.txt
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+<p>The first argument tells <code class="docutils literal notranslate"><span class="pre">mv</span></code> what we’re ‘moving’,
+while the second is where it’s to go.
+In this case,
+we’re moving <code class="docutils literal notranslate"><span class="pre">thesis/draft.txt</span></code> to <code class="docutils literal notranslate"><span class="pre">thesis/quotes.txt</span></code>,
+which has the same effect as renaming the file.
+Sure enough,
+<code class="docutils literal notranslate"><span class="pre">ls</span></code> shows us that <code class="docutils literal notranslate"><span class="pre">thesis</span></code> now contains one file called <code class="docutils literal notranslate"><span class="pre">quotes.txt</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls thesis
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">quotes</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>{: .output}</p>
+<p>One must be careful when specifying the target file name, since <code class="docutils literal notranslate"><span class="pre">mv</span></code> will
+silently overwrite any existing file with the same name, which could
+lead to data loss. An additional option, <code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">-i</span></code> (or <code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">--interactive</span></code>),
+can be used to make <code class="docutils literal notranslate"><span class="pre">mv</span></code> ask you for confirmation before overwriting.</p>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">mv</span></code> also works on directories.</p>
+<p>Let’s move <code class="docutils literal notranslate"><span class="pre">quotes.txt</span></code> into the current working directory.
+We use <code class="docutils literal notranslate"><span class="pre">mv</span></code> once again,
+but this time we’ll use just the name of a directory as the second argument
+to tell <code class="docutils literal notranslate"><span class="pre">mv</span></code> that we want to keep the filename
+but put the file somewhere new.
+(This is why the command is called ‘move’.)
+In this case,
+the directory name we use is the special directory name <code class="docutils literal notranslate"><span class="pre">.</span></code> that we mentioned earlier.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mv thesis/quotes.txt .
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+<p>The effect is to move the file from the directory it was in to the current working directory.
+<code class="docutils literal notranslate"><span class="pre">ls</span></code> now shows us that <code class="docutils literal notranslate"><span class="pre">thesis</span></code> is empty:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls thesis
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$
+</pre></div>
+</div>
+<p>{: .output}</p>
+<p>Alternatively, we can confirm the file <code class="docutils literal notranslate"><span class="pre">quotes.txt</span></code> is no longer present in the <code class="docutils literal notranslate"><span class="pre">thesis</span></code> directory
+by explicitly trying to list it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls thesis/quotes.txt
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span><span class="p">:</span> <span class="n">cannot</span> <span class="n">access</span> <span class="s1">&#39;thesis/quotes.txt&#39;</span><span class="p">:</span> <span class="n">No</span> <span class="n">such</span> <span class="n">file</span> <span class="ow">or</span> <span class="n">directory</span>
+</pre></div>
+</div>
+<p>{: .error}</p>
+<p><code class="docutils literal notranslate"><span class="pre">ls</span></code> with a filename or directory as an argument only lists the requested file or directory.
+If the file given as the argument doesn’t exist, the shell returns an error as we saw above.
+We can use this to see that <code class="docutils literal notranslate"><span class="pre">quotes.txt</span></code> is now present in our current directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls quotes.txt
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">quotes</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>{: .output}</p>
+</section>
+<section id="moving-files-to-a-new-folder">
+<h2>Moving Files to a new folder<a class="headerlink" href="#moving-files-to-a-new-folder" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>After running the following commands,
+Jamie realizes that she put the files <code class="docutils literal notranslate"><span class="pre">sucrose.dat</span></code> and <code class="docutils literal notranslate"><span class="pre">maltose.dat</span></code> into the wrong folder.
+The files should have been placed in the <code class="docutils literal notranslate"><span class="pre">raw</span></code> folder.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls -F
+ analyzed/ raw/
+$ ls -F analyzed
+fructose.dat glucose.dat maltose.dat sucrose.dat
+$ cd analyzed
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+<p>Fill in the blanks to move these files to the <code class="docutils literal notranslate"><span class="pre">raw/</span></code> folder
+(i.e. the one she forgot to put them in)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mv sucrose.dat maltose.dat ____/____
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+<blockquote>
+<div><h2 class="rubric" id="id1">Solution</h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mv sucrose.dat maltose.dat ../raw
+</pre></div>
+</div>
+<p>{: .language-bash}
+Recall that <code class="docutils literal notranslate"><span class="pre">..</span></code> refers to the parent directory (i.e. one above the current directory)
+and that <code class="docutils literal notranslate"><span class="pre">.</span></code> refers to the current directory.
+{: .solution}
+{: .challenge}</p>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="copying-files-and-directories">
+<h2>Copying files and directories<a class="headerlink" href="#copying-files-and-directories" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">cp</span></code> command works very much like <code class="docutils literal notranslate"><span class="pre">mv</span></code>,
+except it copies a file instead of moving it.
+We can check that it did the right thing using <code class="docutils literal notranslate"><span class="pre">ls</span></code>
+with two paths as arguments — like most Unix commands,
+<code class="docutils literal notranslate"><span class="pre">ls</span></code> can be given multiple paths at once:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cp quotes.txt thesis/quotations.txt
+$ ls quotes.txt thesis/quotations.txt
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">quotes</span><span class="o">.</span><span class="n">txt</span>   <span class="n">thesis</span><span class="o">/</span><span class="n">quotations</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>{: .output}</p>
+<p>We can also copy a directory and all its contents by using the
+<a class="reference external" href="https://en.wikipedia.org/wiki/Recursion">recursive</a> option <code class="docutils literal notranslate"><span class="pre">-r</span></code>,
+e.g. to back up a directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cp -r thesis thesis_backup
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+<p>We can check the result by listing the contents of both the <code class="docutils literal notranslate"><span class="pre">thesis</span></code> and <code class="docutils literal notranslate"><span class="pre">thesis_backup</span></code> directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls thesis thesis_backup
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">thesis</span><span class="p">:</span>
+<span class="n">quotations</span><span class="o">.</span><span class="n">txt</span>
+
+<span class="n">thesis_backup</span><span class="p">:</span>
+<span class="n">quotations</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>{: .output}</p>
+</section>
+<section id="renaming-files">
+<h2>Renaming Files<a class="headerlink" href="#renaming-files" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>Suppose that you created a plain-text file in your current directory to contain a list of the
+statistical tests you will need to do to analyze your data, and named it: <code class="docutils literal notranslate"><span class="pre">statstics.txt</span></code></p>
+<p>After creating and saving this file you realize you misspelled the filename! You want to
+correct the mistake, which of the following commands could you use to do so?</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">statstics.txt</span> <span class="pre">statistics.txt</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">statstics.txt</span> <span class="pre">statistics.txt</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">statstics.txt</span> <span class="pre">.</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">statstics.txt</span> <span class="pre">.</span></code></p></li>
+</ol>
+<blockquote>
+<div><h2 class="rubric" id="id2">Solution</h2>
+<ol class="arabic simple">
+<li><p>No.  While this would create a file with the correct name,
+the incorrectly named file still exists in the directory
+and would need to be deleted.</p></li>
+<li><p>Yes, this would work to rename the file.</p></li>
+<li><p>No, the period(.) indicates where to move the file, but does not provide a new file name;
+identical file names
+cannot be created.</p></li>
+<li><p>No, the period(.) indicates where to copy the file, but does not provide a new file name;
+identical file names cannot be created.
+{: .solution}
+{: .challenge}</p></li>
+</ol>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="moving-and-copying">
+<h2>Moving and Copying<a class="headerlink" href="#moving-and-copying" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>What is the output of the closing <code class="docutils literal notranslate"><span class="pre">ls</span></code> command in the sequence shown below?</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pwd
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">jamie</span><span class="o">/</span><span class="n">data</span>
+</pre></div>
+</div>
+<p>{: .output}</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">proteins</span><span class="o">.</span><span class="n">dat</span>
+</pre></div>
+</div>
+<p>{: .output}</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mkdir recombined
+$ mv proteins.dat recombined/
+$ cp recombined/proteins.dat ../proteins-saved.dat
+$ ls
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">proteins-saved.dat</span> <span class="pre">recombined</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">recombined</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">proteins.dat</span> <span class="pre">recombined</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">proteins-saved.dat</span></code></p></li>
+</ol>
+<blockquote>
+<div><h2 class="rubric" id="id3">Solution</h2>
+<p>We start in the <code class="docutils literal notranslate"><span class="pre">/Users/jamie/data</span></code> directory, and create a new folder called <code class="docutils literal notranslate"><span class="pre">recombined</span></code>.
+The second line moves (<code class="docutils literal notranslate"><span class="pre">mv</span></code>) the file <code class="docutils literal notranslate"><span class="pre">proteins.dat</span></code> to the new folder (<code class="docutils literal notranslate"><span class="pre">recombined</span></code>).
+The third line makes a copy of the file we just moved.
+The tricky part here is where the file was copied to.
+Recall that <code class="docutils literal notranslate"><span class="pre">..</span></code> means ‘go up a level’, so the copied file is now in <code class="docutils literal notranslate"><span class="pre">/Users/jamie</span></code>.
+Notice that <code class="docutils literal notranslate"><span class="pre">..</span></code> is interpreted with respect to the current working
+directory, <strong>not</strong> with respect to the location of the file being copied.
+So, the only thing that will show using ls (in <code class="docutils literal notranslate"><span class="pre">/Users/jamie/data</span></code>) is the recombined folder.</p>
+<ol class="arabic simple">
+<li><p>No, see explanation above.  <code class="docutils literal notranslate"><span class="pre">proteins-saved.dat</span></code> is located at <code class="docutils literal notranslate"><span class="pre">/Users/jamie</span></code></p></li>
+<li><p>Yes</p></li>
+<li><p>No, see explanation above.  <code class="docutils literal notranslate"><span class="pre">proteins.dat</span></code> is located at <code class="docutils literal notranslate"><span class="pre">/Users/jamie/data/recombined</span></code></p></li>
+<li><p>No, see explanation above.  <code class="docutils literal notranslate"><span class="pre">proteins-saved.dat</span></code> is located at <code class="docutils literal notranslate"><span class="pre">/Users/jamie</span></code>
+{: .solution}
+{: .challenge}</p></li>
+</ol>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="removing-files-and-directories">
+<h2>Removing files and directories<a class="headerlink" href="#removing-files-and-directories" title="Link to this heading">#</a></h2>
+<p>Returning to the <code class="docutils literal notranslate"><span class="pre">shell-lesson-data/exercise-data/writing</span></code> directory,
+let’s tidy up this directory by removing the <code class="docutils literal notranslate"><span class="pre">quotes.txt</span></code> file we created.
+The Unix command we’ll use for this is <code class="docutils literal notranslate"><span class="pre">rm</span></code> (short for ‘remove’):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rm quotes.txt
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+<p>We can confirm the file has gone using <code class="docutils literal notranslate"><span class="pre">ls</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls quotes.txt
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span><span class="p">:</span> <span class="n">cannot</span> <span class="n">access</span> <span class="s1">&#39;quotes.txt&#39;</span><span class="p">:</span> <span class="n">No</span> <span class="n">such</span> <span class="n">file</span> <span class="ow">or</span> <span class="n">directory</span>
+</pre></div>
+</div>
+<p>{: .error}</p>
+</section>
+<section id="deleting-is-forever">
+<h2>Deleting Is Forever<a class="headerlink" href="#deleting-is-forever" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>The Unix shell doesn’t have a trash bin that we can recover deleted
+files from (though most graphical interfaces to Unix do).  Instead,
+when we delete files, they are unlinked from the file system so that
+their storage space on disk can be recycled. Tools for finding and
+recovering deleted files do exist, but there’s no guarantee they’ll
+work in any particular situation, since the computer may recycle the
+file’s disk space right away.
+{: .callout}</p>
+</div></blockquote>
+</section>
+<section id="using-rm-safely">
+<h2>Using <code class="docutils literal notranslate"><span class="pre">rm</span></code> Safely<a class="headerlink" href="#using-rm-safely" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>What happens when we execute <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-i</span> <span class="pre">thesis_backup/quotations.txt</span></code>?
+Why would we want this protection when using <code class="docutils literal notranslate"><span class="pre">rm</span></code>?</p>
+<blockquote>
+<div><h2 class="rubric" id="id4">Solution</h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>rm: remove regular file &#39;thesis_backup/quotations.txt&#39;? y
+</pre></div>
+</div>
+<p>{: .output}
+The <code class="docutils literal notranslate"><span class="pre">-i</span></code> option will prompt before (every) removal (use <kbd>Y</kbd> to confirm deletion
+or <kbd>N</kbd> to keep the file).
+The Unix shell doesn’t have a trash bin, so all the files removed will disappear forever.
+By using the <code class="docutils literal notranslate"><span class="pre">-i</span></code> option, we have the chance to check that we are deleting only the files
+that we want to remove.
+{: .solution}
+{: .challenge}</p>
+</div></blockquote>
+</div></blockquote>
+<p>If we try to remove the <code class="docutils literal notranslate"><span class="pre">thesis</span></code> directory using <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">thesis</span></code>,
+we get an error message:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rm thesis
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>rm: cannot remove `thesis&#39;: Is a directory
+</pre></div>
+</div>
+<p>{: .error}</p>
+<p>This happens because <code class="docutils literal notranslate"><span class="pre">rm</span></code> by default only works on files, not directories.</p>
+<p><code class="docutils literal notranslate"><span class="pre">rm</span></code> can remove a directory <em>and all its contents</em> if we use the
+recursive option <code class="docutils literal notranslate"><span class="pre">-r</span></code>, and it will do so <em>without any confirmation prompts</em>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rm -r thesis
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+<p>Given that there is no way to retrieve files deleted using the shell,
+<code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-r</span></code> <em>should be used with great caution</em>
+(you might consider adding the interactive option <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-r</span> <span class="pre">-i</span></code>).</p>
+</section>
+<section id="operations-with-multiple-files-and-directories">
+<h2>Operations with multiple files and directories<a class="headerlink" href="#operations-with-multiple-files-and-directories" title="Link to this heading">#</a></h2>
+<p>Oftentimes one needs to copy or move several files at once.
+This can be done by providing a list of individual filenames,
+or specifying a naming pattern using wildcards.</p>
+</section>
+<section id="copy-with-multiple-filenames">
+<h2>Copy with Multiple Filenames<a class="headerlink" href="#copy-with-multiple-filenames" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>For this exercise, you can test the commands in the <code class="docutils literal notranslate"><span class="pre">shell-lesson-data/exercise-data</span></code> directory.</p>
+<p>In the example below, what does <code class="docutils literal notranslate"><span class="pre">cp</span></code> do when given several filenames and a directory name?</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mkdir backup
+$ cp creatures/minotaur.dat creatures/unicorn.dat backup/
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+<p>In the example below, what does <code class="docutils literal notranslate"><span class="pre">cp</span></code> do when given three or more file names?</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd creatures
+$ ls -F
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">basilisk</span><span class="o">.</span><span class="n">dat</span>  <span class="n">minotaur</span><span class="o">.</span><span class="n">dat</span>  <span class="n">unicorn</span><span class="o">.</span><span class="n">dat</span>
+</pre></div>
+</div>
+<p>{: .output}</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cp minotaur.dat unicorn.dat basilisk.dat
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+<blockquote>
+<div><h2 class="rubric" id="id5">Solution</h2>
+<p>If given more than one file name followed by a directory name
+(i.e. the destination directory must be the last argument),
+<code class="docutils literal notranslate"><span class="pre">cp</span></code> copies the files to the named directory.</p>
+<p>If given three file names, <code class="docutils literal notranslate"><span class="pre">cp</span></code> throws an error such as the one below,
+because it is expecting a directory name as the last argument.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cp</span><span class="p">:</span> <span class="n">target</span> <span class="s1">&#39;basilisk.dat&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">a</span> <span class="n">directory</span>
+</pre></div>
+</div>
+<p>{: .error}
+{: .solution}
+{: .challenge}</p>
+</div></blockquote>
+</div></blockquote>
+<section id="using-wildcards-for-accessing-multiple-files-at-once">
+<h3>Using wildcards for accessing multiple files at once<a class="headerlink" href="#using-wildcards-for-accessing-multiple-files-at-once" title="Link to this heading">#</a></h3>
+</section>
+</section>
+<section id="wildcards">
+<h2>Wildcards<a class="headerlink" href="#wildcards" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">*</span></code> is a <strong>wildcard</strong>, which matches zero or more  characters.
+Let’s consider the <code class="docutils literal notranslate"><span class="pre">shell-lesson-data/exercise-data/proteins</span></code> directory:
+<code class="docutils literal notranslate"><span class="pre">*.pdb</span></code> matches <code class="docutils literal notranslate"><span class="pre">ethane.pdb</span></code>, <code class="docutils literal notranslate"><span class="pre">propane.pdb</span></code>, and every
+file that ends with ‘.pdb’. On the other hand, <code class="docutils literal notranslate"><span class="pre">p*.pdb</span></code> only matches
+<code class="docutils literal notranslate"><span class="pre">pentane.pdb</span></code> and <code class="docutils literal notranslate"><span class="pre">propane.pdb</span></code>, because the ‘p’ at the front only
+matches filenames that begin with the letter ‘p’.</p>
+<p><code class="docutils literal notranslate"><span class="pre">?</span></code> is also a wildcard, but it matches exactly one character.
+So <code class="docutils literal notranslate"><span class="pre">?ethane.pdb</span></code> would match <code class="docutils literal notranslate"><span class="pre">methane.pdb</span></code> whereas
+<code class="docutils literal notranslate"><span class="pre">*ethane.pdb</span></code> matches both <code class="docutils literal notranslate"><span class="pre">ethane.pdb</span></code>, and <code class="docutils literal notranslate"><span class="pre">methane.pdb</span></code>.</p>
+<p>Wildcards can be used in combination with each other
+e.g. <code class="docutils literal notranslate"><span class="pre">???ane.pdb</span></code> matches three characters followed by <code class="docutils literal notranslate"><span class="pre">ane.pdb</span></code>,
+giving <code class="docutils literal notranslate"><span class="pre">cubane.pdb</span>&#160; <span class="pre">ethane.pdb</span>&#160; <span class="pre">octane.pdb</span></code>.</p>
+<p>When the shell sees a wildcard, it expands the wildcard to create a
+list of matching filenames <em>before</em> running the command that was
+asked for. As an exception, if a wildcard expression does not match
+any file, Bash will pass the expression as an argument to the command
+as it is. For example, typing <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">*.pdf</span></code> in the <code class="docutils literal notranslate"><span class="pre">proteins</span></code> directory
+(which contains only files with names ending with <code class="docutils literal notranslate"><span class="pre">.pdb</span></code>) results in
+an error message that there is no file called <code class="docutils literal notranslate"><span class="pre">*.pdf</span></code>.
+However, generally commands like <code class="docutils literal notranslate"><span class="pre">wc</span></code> and <code class="docutils literal notranslate"><span class="pre">ls</span></code> see the lists of
+file names matching these expressions, but not the wildcards
+themselves. It is the shell, not the other programs, that deals with
+expanding wildcards.
+{: .callout}</p>
+</div></blockquote>
+</section>
+<section id="list-filenames-matching-a-pattern">
+<h2>List filenames matching a pattern<a class="headerlink" href="#list-filenames-matching-a-pattern" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>When run in the <code class="docutils literal notranslate"><span class="pre">proteins</span></code> directory, which <code class="docutils literal notranslate"><span class="pre">ls</span></code> command(s) will
+produce this output?</p>
+<p><code class="docutils literal notranslate"><span class="pre">ethane.pdb</span>&#160;&#160; <span class="pre">methane.pdb</span></code></p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">*t*ane.pdb</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">*t?ne.*</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">*t??ne.pdb</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">ethane.*</span></code></p></li>
+</ol>
+<blockquote>
+<div><h2 class="rubric" id="id6">Solution</h2>
+<p>The solution is <code class="docutils literal notranslate"><span class="pre">3.</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">1.</span></code> shows all files whose names contain zero or more characters (<code class="docutils literal notranslate"><span class="pre">*</span></code>)
+followed by the letter <code class="docutils literal notranslate"><span class="pre">t</span></code>,
+then zero or more characters (<code class="docutils literal notranslate"><span class="pre">*</span></code>) followed by <code class="docutils literal notranslate"><span class="pre">ane.pdb</span></code>.
+This gives <code class="docutils literal notranslate"><span class="pre">ethane.pdb</span>&#160; <span class="pre">methane.pdb</span>&#160; <span class="pre">octane.pdb</span>&#160; <span class="pre">pentane.pdb</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">2.</span></code> shows all files whose names start with zero or more characters (<code class="docutils literal notranslate"><span class="pre">*</span></code>) followed by
+the letter <code class="docutils literal notranslate"><span class="pre">t</span></code>,
+then a single character (<code class="docutils literal notranslate"><span class="pre">?</span></code>), then <code class="docutils literal notranslate"><span class="pre">ne.</span></code> followed by zero or more characters (<code class="docutils literal notranslate"><span class="pre">*</span></code>).
+This will give us <code class="docutils literal notranslate"><span class="pre">octane.pdb</span></code> and <code class="docutils literal notranslate"><span class="pre">pentane.pdb</span></code> but doesn’t match anything
+which ends in <code class="docutils literal notranslate"><span class="pre">thane.pdb</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">3.</span></code> fixes the problems of option 2 by matching two characters (<code class="docutils literal notranslate"><span class="pre">??</span></code>) between <code class="docutils literal notranslate"><span class="pre">t</span></code> and <code class="docutils literal notranslate"><span class="pre">ne</span></code>.
+This is the solution.</p>
+<p><code class="docutils literal notranslate"><span class="pre">4.</span></code> only shows files starting with <code class="docutils literal notranslate"><span class="pre">ethane.</span></code>.
+{: .solution}
+{: .challenge}</p>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="more-on-wildcards">
+<h2>More on Wildcards<a class="headerlink" href="#more-on-wildcards" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>Sam has a directory containing calibration data, datasets, and descriptions of
+the datasets:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.
+├── 2015-10-23-calibration.txt
+├── 2015-10-23-dataset1.txt
+├── 2015-10-23-dataset2.txt
+├── 2015-10-23-dataset_overview.txt
+├── 2015-10-26-calibration.txt
+├── 2015-10-26-dataset1.txt
+├── 2015-10-26-dataset2.txt
+├── 2015-10-26-dataset_overview.txt
+├── 2015-11-23-calibration.txt
+├── 2015-11-23-dataset1.txt
+├── 2015-11-23-dataset2.txt
+├── 2015-11-23-dataset_overview.txt
+├── backup
+│   ├── calibration
+│   └── datasets
+└── send_to_bob
+    ├── all_datasets_created_on_a_23rd
+    └── all_november_files
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+<p>Before heading off to another field trip, she wants to back up her data and
+send some datasets to her colleague Bob. Sam uses the following commands
+to get the job done:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cp *dataset* backup/datasets
+$ cp ____calibration____ backup/calibration
+$ cp 2015-____-____ send_to_bob/all_november_files/
+$ cp ____ send_to_bob/all_datasets_created_on_a_23rd/
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+<p>Help Sam by filling in the blanks.</p>
+<p>The resulting directory structure should look like this</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.
+├── 2015-10-23-calibration.txt
+├── 2015-10-23-dataset1.txt
+├── 2015-10-23-dataset2.txt
+├── 2015-10-23-dataset_overview.txt
+├── 2015-10-26-calibration.txt
+├── 2015-10-26-dataset1.txt
+├── 2015-10-26-dataset2.txt
+├── 2015-10-26-dataset_overview.txt
+├── 2015-11-23-calibration.txt
+├── 2015-11-23-dataset1.txt
+├── 2015-11-23-dataset2.txt
+├── 2015-11-23-dataset_overview.txt
+├── backup
+│   ├── calibration
+│   │   ├── 2015-10-23-calibration.txt
+│   │   ├── 2015-10-26-calibration.txt
+│   │   └── 2015-11-23-calibration.txt
+│   └── datasets
+│       ├── 2015-10-23-dataset1.txt
+│       ├── 2015-10-23-dataset2.txt
+│       ├── 2015-10-23-dataset_overview.txt
+│       ├── 2015-10-26-dataset1.txt
+│       ├── 2015-10-26-dataset2.txt
+│       ├── 2015-10-26-dataset_overview.txt
+│       ├── 2015-11-23-dataset1.txt
+│       ├── 2015-11-23-dataset2.txt
+│       └── 2015-11-23-dataset_overview.txt
+└── send_to_bob
+    ├── all_datasets_created_on_a_23rd
+    │   ├── 2015-10-23-dataset1.txt
+    │   ├── 2015-10-23-dataset2.txt
+    │   ├── 2015-10-23-dataset_overview.txt
+    │   ├── 2015-11-23-dataset1.txt
+    │   ├── 2015-11-23-dataset2.txt
+    │   └── 2015-11-23-dataset_overview.txt
+    └── all_november_files
+        ├── 2015-11-23-calibration.txt
+        ├── 2015-11-23-dataset1.txt
+        ├── 2015-11-23-dataset2.txt
+        └── 2015-11-23-dataset_overview.txt
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+<blockquote>
+<div><h2 class="rubric" id="id7">Solution</h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cp *calibration.txt backup/calibration
+$ cp 2015-11-* send_to_bob/all_november_files/
+$ cp *-23-dataset* send_to_bob/all_datasets_created_on_a_23rd/
+</pre></div>
+</div>
+<p>{: .language-bash}
+{: .solution}
+{: .challenge}</p>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="organizing-directories-and-files">
+<h2>Organizing Directories and Files<a class="headerlink" href="#organizing-directories-and-files" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>Jamie is working on a project and she sees that her files aren’t very well
+organized:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls -F
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">analyzed</span><span class="o">/</span>  <span class="n">fructose</span><span class="o">.</span><span class="n">dat</span>    <span class="n">raw</span><span class="o">/</span>   <span class="n">sucrose</span><span class="o">.</span><span class="n">dat</span>
+</pre></div>
+</div>
+<p>{: .output}</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">fructose.dat</span></code> and <code class="docutils literal notranslate"><span class="pre">sucrose.dat</span></code> files contain output from her data
+analysis. What command(s) covered in this lesson does she need to run
+so that the commands below will produce the output shown?</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls -F
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">analyzed</span><span class="o">/</span>   <span class="n">raw</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>{: .output}</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls analyzed
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fructose</span><span class="o">.</span><span class="n">dat</span>    <span class="n">sucrose</span><span class="o">.</span><span class="n">dat</span>
+</pre></div>
+</div>
+<p>{: .output}</p>
+<blockquote>
+<div><h2 class="rubric" id="id8">Solution</h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mv</span> <span class="o">*.</span><span class="n">dat</span> <span class="n">analyzed</span>
+</pre></div>
+</div>
+<p>{: .language-bash}
+Jamie needs to move her files <code class="docutils literal notranslate"><span class="pre">fructose.dat</span></code> and <code class="docutils literal notranslate"><span class="pre">sucrose.dat</span></code> to the <code class="docutils literal notranslate"><span class="pre">analyzed</span></code> directory.
+The shell will expand *.dat to match all .dat files in the current directory.
+The <code class="docutils literal notranslate"><span class="pre">mv</span></code> command then moves the list of .dat files to the ‘analyzed’ directory.
+{: .solution}
+{: .challenge}</p>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="reproduce-a-folder-structure">
+<h2>Reproduce a folder structure<a class="headerlink" href="#reproduce-a-folder-structure" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>You’re starting a new experiment and would like to duplicate the directory
+structure from your previous experiment so you can add new data.</p>
+<p>Assume that the previous experiment is in a folder called <code class="docutils literal notranslate"><span class="pre">2016-05-18</span></code>,
+which contains a <code class="docutils literal notranslate"><span class="pre">data</span></code> folder that in turn contains folders named <code class="docutils literal notranslate"><span class="pre">raw</span></code> and
+<code class="docutils literal notranslate"><span class="pre">processed</span></code> that contain data files.  The goal is to copy the folder structure
+of the <code class="docutils literal notranslate"><span class="pre">2016-05-18</span></code> folder into a folder called <code class="docutils literal notranslate"><span class="pre">2016-05-20</span></code>
+so that your final directory structure looks like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>2016-05-20/
+└── data
+   ├── processed
+   └── raw
+</pre></div>
+</div>
+<p>{: .output}</p>
+<p>Which of the following set of commands would achieve this objective?
+What would the other commands do?</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mkdir 2016-05-20
+$ mkdir 2016-05-20/data
+$ mkdir 2016-05-20/data/processed
+$ mkdir 2016-05-20/data/raw
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mkdir 2016-05-20
+$ cd 2016-05-20
+$ mkdir data
+$ cd data
+$ mkdir raw processed
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mkdir 2016-05-20/data/raw
+$ mkdir 2016-05-20/data/processed
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mkdir -p 2016-05-20/data/raw
+$ mkdir -p 2016-05-20/data/processed
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mkdir 2016-05-20
+$ cd 2016-05-20
+$ mkdir data
+$ mkdir raw processed
+</pre></div>
+</div>
+<p>{: .language-bash}</p>
+<blockquote>
+<div><h2 class="rubric" id="id9">Solution</h2>
+<p>The first two sets of commands achieve this objective.
+The first set uses relative paths to create the top-level directory before
+the subdirectories.</p>
+<p>The third set of commands will give an error because the default behaviour of <code class="docutils literal notranslate"><span class="pre">mkdir</span></code>
+won’t create a subdirectory of a non-existent directory:
+the intermediate level folders must be created first.</p>
+<p>The fourth set of commands achieve this objective. Remember, the <code class="docutils literal notranslate"><span class="pre">-p</span></code> option,
+followed by a path of one or more
+directories, will cause <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> to create any intermediate subdirectories as required.</p>
+<p>The final set of commands generates the ‘raw’ and ‘processed’ directories at the same level
+as the ‘data’ directory.
+{: .solution}
+{: .challenge}</p>
+</div></blockquote>
+</div></blockquote>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "berrli/CfRR_Courses",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./individual_modules/introduction_to_unix"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="filedir.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">File Directory</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="pipefilter.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Pipes and Filters</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions">Questions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keypoints">Keypoints</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-directories">Creating directories</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-one-see-where-we-are-and-what-we-already-have">Step one: see where we are and what we already have</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-directory">Create a directory</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-ways-of-doing-the-same-thing">Two ways of doing the same thing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#good-names-for-files-and-directories">Good names for files and directories</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-text-file">Create a text file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#which-editor">Which Editor?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control-ctrl-or-key">Control, Ctrl, or ^ Key</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-files-a-different-way">Creating Files a Different Way</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-in-a-name">What’s In A Name?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#moving-files-and-directories">Moving files and directories</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#moving-files-to-a-new-folder">Moving Files to a new folder</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#copying-files-and-directories">Copying files and directories</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#renaming-files">Renaming Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#moving-and-copying">Moving and Copying</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-files-and-directories">Removing files and directories</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deleting-is-forever">Deleting Is Forever</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-rm-safely">Using <code class="docutils literal notranslate"><span class="pre">rm</span></code> Safely</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operations-with-multiple-files-and-directories">Operations with multiple files and directories</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-with-multiple-filenames">Copy with Multiple Filenames</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-wildcards-for-accessing-multiple-files-at-once">Using wildcards for accessing multiple files at once</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wildcards">Wildcards</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list-filenames-matching-a-pattern">List filenames matching a pattern</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-on-wildcards">More on Wildcards</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#organizing-directories-and-files">Organizing Directories and Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reproduce-a-folder-structure">Reproduce a folder structure</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Coding For Reproducible Research Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

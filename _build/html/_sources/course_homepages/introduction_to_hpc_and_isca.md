@@ -1,1 +1,0 @@
-# Introduction to HPC and ISCA
