@@ -636,21 +636,15 @@ document.write(`
 <section id="course-skip-quiz">
 <h2>Course Skip Quiz<a class="headerlink" href="#course-skip-quiz" title="Link to this heading">#</a></h2>
 <p>The following questions are aimed at testing your understanding of the content that is covered within this course. There is no defined threshold where we believe you should attend the course if you score below. Rather it is aimed to make you engage with the content and reflect for yourself if you feel you would benefit from attending the course. Of note, is that the quiz is intended for you to use google throuhgout and engage with documentation. Even if you get all of the questions right, you are ofcourse more than welcome to still attend the course and use it as a refresher!</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jupyterquiz</span> <span class="kn">import</span> <span class="n">display_quiz</span>
-<span class="n">display_quiz</span><span class="p">(</span><span class="s2">&quot;../../questions/numpy_course_skip_quiz.json&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="mesnxBWUdAFV" data-shufflequestions="False"
+<div class="output text_html"><div id="NWReTwxrgDIz" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#mesnxBWUdAFV {
+#NWReTwxrgDIz {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -820,7 +814,7 @@ document.write(`
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsmesnxBWUdAFV=[
+</style></div><script type="application/javascript">var questionsNWReTwxrgDIz=[
     {
         "question": "Which function is used to create an array in NumPy?",
         "type": "many_choice",
@@ -1830,8 +1824,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("mesnxBWUdAFV")) {
-            show_questions(questionsmesnxBWUdAFV,  mesnxBWUdAFV); 
+          if(document.getElementById("NWReTwxrgDIz")) {
+            show_questions(questionsNWReTwxrgDIz,  NWReTwxrgDIz); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -1840,8 +1834,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("mesnxBWUdAFV");
-        // console.log(document.getElementById("mesnxBWUdAFV"));
+        //console.log("NWReTwxrgDIz");
+        // console.log(document.getElementById("NWReTwxrgDIz"));
 
         try_show();
         }
