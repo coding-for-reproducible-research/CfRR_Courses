@@ -1,0 +1,77 @@
+Traceback (most recent call last):
+  File "/Users/lb788/miniconda3/envs/CfRR/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/lb788/miniconda3/envs/CfRR/lib/python3.12/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lb788/miniconda3/envs/CfRR/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 173, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lb788/miniconda3/envs/CfRR/lib/python3.12/asyncio/base_events.py", line 685, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/lb788/miniconda3/envs/CfRR/lib/python3.12/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/Users/lb788/miniconda3/envs/CfRR/lib/python3.12/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/lb788/miniconda3/envs/CfRR/lib/python3.12/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# Functions
+## Learning Objectives
+
+At the end of this lesson you will be able to:
+
+- Identify the built-in functions that we have used previously.
+- Define a function that takes parameters.
+- Return a value from a function.
+- Test and debug a function.
+- Set default values for function parameters.
+- Explain why we should divide programs into small, single-purpose functions.
+
+## Key points
+
+
+- "Define a function using `def function_name(parameter)`."
+- "The body of a function must be indented."
+- "Call a function using `function_name(value)`."
+- "Numbers are stored as integers or floating-point numbers."
+- "Variables defined within a function can only be seen and used within the body of the function."
+- "Variables created outside of any function are called global variables."
+- "Within a function, we can access global variables."
+- "Variables created within a function override global variables if their names match."
+- "Use `help(thing)` to view help for something."
+- "Put docstrings in functions to provide help for that function."
+- "Specify default values for parameters when defining a function using `name=value`
+   in the parameter list."
+- "Parameters can be passed by matching based on name, by position,
+   or by omitting them (in which case the default value is used)."
+- "Put code whose parameters change frequently in a function,
+   then call it with different parameter values to customize its behavior."
+
+## Why use functions?
+
+We are starting to write some more complex code, and things could get quite complicated. When we want to repeat a programming task, or check that everything is working correctly, we should use functions.
+
+A function is a shorthand way of allowing us to re-execute longer pieces of code. We can test and verify these smaller blocks individually, and call them whenever we want.
+
+## Built in functions
+
+We have already used some built-in functions: `print()`, `type()`, `range()` and so on. We have also used functions that are associated with objects, such as `.append()`, `.keys()`, `.strip()`, and more. 
+
+Using these functions allows us to create much more concise, readable code. Imagine if we had to write all the code that goes on behind the scenes each time we wanted to use `print()`! We will do the same with our own functions.
+
+## Defining functions
+
+Let's start by defining a function `fahr_to_celsius` that converts temperatures
+from Fahrenheit to Celsius:
+------------------
+
+
+[0;36m  Cell [0;32mIn[1], line 26[0;36m[0m
+[0;31m    - "Specify default values for parameters when defining a function using `name=value`[0m
+[0m      ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m unterminated string literal (detected at line 26)
+
+

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Functions &#8212; Coding For Reproducible Research</title>
+    <title>Composing Functions &#8212; Coding For Reproducible Research</title>
   
   
   
@@ -235,7 +235,19 @@
 <li class="toctree-l2"><a class="reference internal" href="loops.html">Loops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="additional_exercises.html">Additional Session 1 Exercises</a></li>
 <li class="toctree-l2"><a class="reference internal" href="recap.html">Session 1 Recap</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Functions</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Composing Functions</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
 <li class="toctree-l2"><a class="reference internal" href="imports.html">Imports</a></li>
 <li class="toctree-l2"><a class="reference internal" href="analysis_task_intro.html">Data Analysis Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="analysis_task_1.html">Data Analysis Task 1</a></li>
@@ -424,6 +436,37 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -479,7 +522,7 @@
       
       
       
-      <li><a href="../../_sources/individual_modules/introduction_to_python/functions.md" target="_blank"
+      <li><a href="../../_sources/individual_modules/introduction_to_python/functions.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -489,7 +532,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -563,7 +606,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Functions</h1>
+    <h1>Composing Functions</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -573,24 +616,21 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key points</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-functions">Why use functions?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#built-in-functions">Built in functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-functions">Defining functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#composing-functions">Composing Functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-scope">Variable Scope</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readable-functions">Readable functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-strings">Combining Strings</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#return-versus-print">Return versus print</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-characters-from-strings">Selecting Characters From Strings</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rescaling-a-list">Rescaling a list</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#improving-our-function-with-docstrings">Improving our function with docstrings</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-defaults">Defining Defaults</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-inside-and-outside-functions">Variables Inside and Outside Functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mixing-default-and-non-default-parameters">Mixing Default and Non-Default Parameters</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Composing Functions</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-scope">Variable Scope</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#readable-functions">Readable functions</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-strings">Combining Strings</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#return-versus-print">Return versus print</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-characters-from-string">Selecting Characters From String</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#rescaling-a-list">Rescaling a list</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hint">Hint</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#improving-our-function-with-docstrings">Improving our function with docstrings</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-defaults">Defining Defaults</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-inside-and-outside-functions">Variables Inside and Outside Functions</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mixing-default-and-non-default-parameters">Mixing Default and Non-Default Parameters</a></li>
 </ul>
+
             </nav>
         </div>
     </div>
@@ -601,113 +641,115 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="functions">
-<h1>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h1>
-<section id="learning-objectives">
-<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
-<p>At the end of this lesson you will be able to:</p>
-<ul class="simple">
-<li><p>Identify the built-in functions that we have used previously.</p></li>
-<li><p>Define a function that takes parameters.</p></li>
-<li><p>Return a value from a function.</p></li>
-<li><p>Test and debug a function.</p></li>
-<li><p>Set default values for function parameters.</p></li>
-<li><p>Explain why we should divide programs into small, single-purpose functions.</p></li>
-</ul>
-</section>
-<section id="key-points">
-<h2>Key points<a class="headerlink" href="#key-points" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>“Define a function using <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">function_name(parameter)</span></code>.”</p></li>
-<li><p>“The body of a function must be indented.”</p></li>
-<li><p>“Call a function using <code class="docutils literal notranslate"><span class="pre">function_name(value)</span></code>.”</p></li>
-<li><p>“Numbers are stored as integers or floating-point numbers.”</p></li>
-<li><p>“Variables defined within a function can only be seen and used within the body of the function.”</p></li>
-<li><p>“Variables created outside of any function are called global variables.”</p></li>
-<li><p>“Within a function, we can access global variables.”</p></li>
-<li><p>“Variables created within a function override global variables if their names match.”</p></li>
-<li><p>“Use <code class="docutils literal notranslate"><span class="pre">help(thing)</span></code> to view help for something.”</p></li>
-<li><p>“Put docstrings in functions to provide help for that function.”</p></li>
-<li><p>“Specify default values for parameters when defining a function using <code class="docutils literal notranslate"><span class="pre">name=value</span></code>
-in the parameter list.”</p></li>
-<li><p>“Parameters can be passed by matching based on name, by position,
-or by omitting them (in which case the default value is used).”</p></li>
-<li><p>“Put code whose parameters change frequently in a function,
-then call it with different parameter values to customize its behavior.”</p></li>
-</ul>
-</section>
-<section id="why-use-functions">
-<h2>Why use functions?<a class="headerlink" href="#why-use-functions" title="Link to this heading">#</a></h2>
-<p>We are starting to write some more complex code, and things could get quite complicated. When we want to repeat a programming task, or check that everything is working correctly, we should use functions.</p>
-<p>A function is a shorthand way of allowing us to re-execute longer pieces of code. We can test and verify these smaller blocks individually, and call them whenever we want.</p>
-</section>
-<section id="built-in-functions">
-<h2>Built in functions<a class="headerlink" href="#built-in-functions" title="Link to this heading">#</a></h2>
-<p>We have already used some built-in functions: <code class="docutils literal notranslate"><span class="pre">print()</span></code>, <code class="docutils literal notranslate"><span class="pre">type()</span></code>, <code class="docutils literal notranslate"><span class="pre">range()</span></code> and so on. We have also used functions that are associated with objects, such as <code class="docutils literal notranslate"><span class="pre">.append()</span></code>, <code class="docutils literal notranslate"><span class="pre">.keys()</span></code>, <code class="docutils literal notranslate"><span class="pre">.strip()</span></code>, and more.</p>
-<p>Using these functions allows us to create much more concise, readable code. Imagine if we had to write all the code that goes on behind the scenes each time we wanted to use <code class="docutils literal notranslate"><span class="pre">print()</span></code>! We will do the same with our own functions.</p>
-</section>
-<section id="defining-functions">
-<h2>Defining functions<a class="headerlink" href="#defining-functions" title="Link to this heading">#</a></h2>
-<p>Let’s start by defining a function <code class="docutils literal notranslate"><span class="pre">fahr_to_celsius</span></code> that converts temperatures
-from Fahrenheit to Celsius:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fahr_to_celsius</span><span class="p">(</span><span class="n">temp</span><span class="p">):</span>
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Functions</span>
+<span class="c1">## Learning Objectives</span>
+
+<span class="n">At</span> <span class="n">the</span> <span class="n">end</span> <span class="n">of</span> <span class="n">this</span> <span class="n">lesson</span> <span class="n">you</span> <span class="n">will</span> <span class="n">be</span> <span class="n">able</span> <span class="n">to</span><span class="p">:</span>
+
+<span class="o">-</span> <span class="n">Identify</span> <span class="n">the</span> <span class="n">built</span><span class="o">-</span><span class="ow">in</span> <span class="n">functions</span> <span class="n">that</span> <span class="n">we</span> <span class="n">have</span> <span class="n">used</span> <span class="n">previously</span><span class="o">.</span>
+<span class="o">-</span> <span class="n">Define</span> <span class="n">a</span> <span class="n">function</span> <span class="n">that</span> <span class="n">takes</span> <span class="n">parameters</span><span class="o">.</span>
+<span class="o">-</span> <span class="n">Return</span> <span class="n">a</span> <span class="n">value</span> <span class="kn">from</span> <span class="nn">a</span> <span class="n">function</span><span class="o">.</span>
+<span class="o">-</span> <span class="n">Test</span> <span class="ow">and</span> <span class="n">debug</span> <span class="n">a</span> <span class="n">function</span><span class="o">.</span>
+<span class="o">-</span> <span class="n">Set</span> <span class="n">default</span> <span class="n">values</span> <span class="k">for</span> <span class="n">function</span> <span class="n">parameters</span><span class="o">.</span>
+<span class="o">-</span> <span class="n">Explain</span> <span class="n">why</span> <span class="n">we</span> <span class="n">should</span> <span class="n">divide</span> <span class="n">programs</span> <span class="n">into</span> <span class="n">small</span><span class="p">,</span> <span class="n">single</span><span class="o">-</span><span class="n">purpose</span> <span class="n">functions</span><span class="o">.</span>
+
+<span class="c1">## Key points</span>
+
+
+<span class="o">-</span> <span class="s2">&quot;Define a function using `def function_name(parameter)`.&quot;</span>
+<span class="o">-</span> <span class="s2">&quot;The body of a function must be indented.&quot;</span>
+<span class="o">-</span> <span class="s2">&quot;Call a function using `function_name(value)`.&quot;</span>
+<span class="o">-</span> <span class="s2">&quot;Numbers are stored as integers or floating-point numbers.&quot;</span>
+<span class="o">-</span> <span class="s2">&quot;Variables defined within a function can only be seen and used within the body of the function.&quot;</span>
+<span class="o">-</span> <span class="s2">&quot;Variables created outside of any function are called global variables.&quot;</span>
+<span class="o">-</span> <span class="s2">&quot;Within a function, we can access global variables.&quot;</span>
+<span class="o">-</span> <span class="s2">&quot;Variables created within a function override global variables if their names match.&quot;</span>
+<span class="o">-</span> <span class="s2">&quot;Use `help(thing)` to view help for something.&quot;</span>
+<span class="o">-</span> <span class="s2">&quot;Put docstrings in functions to provide help for that function.&quot;</span>
+<span class="o">-</span> <span class="s2">&quot;Specify default values for parameters when defining a function using `name=value`</span>
+   <span class="ow">in</span> <span class="n">the</span> <span class="n">parameter</span> <span class="nb">list</span><span class="o">.</span><span class="s2">&quot;</span>
+<span class="o">-</span> <span class="s2">&quot;Parameters can be passed by matching based on name, by position,</span>
+   <span class="ow">or</span> <span class="n">by</span> <span class="n">omitting</span> <span class="n">them</span> <span class="p">(</span><span class="ow">in</span> <span class="n">which</span> <span class="n">case</span> <span class="n">the</span> <span class="n">default</span> <span class="n">value</span> <span class="ow">is</span> <span class="n">used</span><span class="p">)</span><span class="o">.</span><span class="s2">&quot;</span>
+<span class="o">-</span> <span class="s2">&quot;Put code whose parameters change frequently in a function,</span>
+   <span class="n">then</span> <span class="n">call</span> <span class="n">it</span> <span class="k">with</span> <span class="n">different</span> <span class="n">parameter</span> <span class="n">values</span> <span class="n">to</span> <span class="n">customize</span> <span class="n">its</span> <span class="n">behavior</span><span class="o">.</span><span class="s2">&quot;</span>
+
+<span class="c1">## Why use functions?</span>
+
+<span class="n">We</span> <span class="n">are</span> <span class="n">starting</span> <span class="n">to</span> <span class="n">write</span> <span class="n">some</span> <span class="n">more</span> <span class="nb">complex</span> <span class="n">code</span><span class="p">,</span> <span class="ow">and</span> <span class="n">things</span> <span class="n">could</span> <span class="n">get</span> <span class="n">quite</span> <span class="n">complicated</span><span class="o">.</span> <span class="n">When</span> <span class="n">we</span> <span class="n">want</span> <span class="n">to</span> <span class="n">repeat</span> <span class="n">a</span> <span class="n">programming</span> <span class="n">task</span><span class="p">,</span> <span class="ow">or</span> <span class="n">check</span> <span class="n">that</span> <span class="n">everything</span> <span class="ow">is</span> <span class="n">working</span> <span class="n">correctly</span><span class="p">,</span> <span class="n">we</span> <span class="n">should</span> <span class="n">use</span> <span class="n">functions</span><span class="o">.</span>
+
+<span class="n">A</span> <span class="n">function</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">shorthand</span> <span class="n">way</span> <span class="n">of</span> <span class="n">allowing</span> <span class="n">us</span> <span class="n">to</span> <span class="n">re</span><span class="o">-</span><span class="n">execute</span> <span class="n">longer</span> <span class="n">pieces</span> <span class="n">of</span> <span class="n">code</span><span class="o">.</span> <span class="n">We</span> <span class="n">can</span> <span class="n">test</span> <span class="ow">and</span> <span class="n">verify</span> <span class="n">these</span> <span class="n">smaller</span> <span class="n">blocks</span> <span class="n">individually</span><span class="p">,</span> <span class="ow">and</span> <span class="n">call</span> <span class="n">them</span> <span class="n">whenever</span> <span class="n">we</span> <span class="n">want</span><span class="o">.</span>
+
+<span class="c1">## Built in functions</span>
+
+<span class="n">We</span> <span class="n">have</span> <span class="n">already</span> <span class="n">used</span> <span class="n">some</span> <span class="n">built</span><span class="o">-</span><span class="ow">in</span> <span class="n">functions</span><span class="p">:</span> <span class="err">`</span><span class="nb">print</span><span class="p">()</span><span class="err">`</span><span class="p">,</span> <span class="err">`</span><span class="nb">type</span><span class="p">()</span><span class="err">`</span><span class="p">,</span> <span class="err">`</span><span class="nb">range</span><span class="p">()</span><span class="err">`</span> <span class="ow">and</span> <span class="n">so</span> <span class="n">on</span><span class="o">.</span> <span class="n">We</span> <span class="n">have</span> <span class="n">also</span> <span class="n">used</span> <span class="n">functions</span> <span class="n">that</span> <span class="n">are</span> <span class="n">associated</span> <span class="k">with</span> <span class="n">objects</span><span class="p">,</span> <span class="n">such</span> <span class="k">as</span> <span class="err">`</span><span class="o">.</span><span class="n">append</span><span class="p">()</span><span class="err">`</span><span class="p">,</span> <span class="err">`</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span><span class="err">`</span><span class="p">,</span> <span class="err">`</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="err">`</span><span class="p">,</span> <span class="ow">and</span> <span class="n">more</span><span class="o">.</span> 
+
+<span class="n">Using</span> <span class="n">these</span> <span class="n">functions</span> <span class="n">allows</span> <span class="n">us</span> <span class="n">to</span> <span class="n">create</span> <span class="n">much</span> <span class="n">more</span> <span class="n">concise</span><span class="p">,</span> <span class="n">readable</span> <span class="n">code</span><span class="o">.</span> <span class="n">Imagine</span> <span class="k">if</span> <span class="n">we</span> <span class="n">had</span> <span class="n">to</span> <span class="n">write</span> <span class="nb">all</span> <span class="n">the</span> <span class="n">code</span> <span class="n">that</span> <span class="n">goes</span> <span class="n">on</span> <span class="n">behind</span> <span class="n">the</span> <span class="n">scenes</span> <span class="n">each</span> <span class="n">time</span> <span class="n">we</span> <span class="n">wanted</span> <span class="n">to</span> <span class="n">use</span> <span class="err">`</span><span class="nb">print</span><span class="p">()</span><span class="err">`</span><span class="o">!</span><span class="w"> </span>We<span class="w"> </span>will<span class="w"> </span><span class="k">do</span><span class="w"> </span>the<span class="w"> </span>same<span class="w"> </span>with<span class="w"> </span>our<span class="w"> </span>own<span class="w"> </span>functions.
+
+<span class="c1">## Defining functions</span>
+
+<span class="n">Let</span><span class="s1">&#39;s start by defining a function `fahr_to_celsius` that converts temperatures</span>
+<span class="kn">from</span> <span class="nn">Fahrenheit</span> <span class="n">to</span> <span class="n">Celsius</span><span class="p">:</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">26</span>
+    <span class="o">-</span> <span class="s2">&quot;Specify default values for parameters when defining a function using `name=value`</span>
+      <span class="o">^</span>
+<span class="ne">SyntaxError</span>: unterminated string literal (detected at line 26)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fahr_to_celsius</span><span class="p">(</span><span class="n">temp</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">((</span><span class="n">temp</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">5</span><span class="o">/</span><span class="mi">9</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<p>The function definition opens with the keyword <code class="docutils literal notranslate"><span class="pre">def</span></code> followed by the
-name of the function (<code class="docutils literal notranslate"><span class="pre">fahr_to_celsius</span></code>) and a parenthesized list of parameter names (<code class="docutils literal notranslate"><span class="pre">temp</span></code>). The
-body of the function — the
-statements that are executed when it runs — is indented below the
-definition line.  The body concludes with a <code class="docutils literal notranslate"><span class="pre">return</span></code> keyword followed by the return value.</p>
-<p><img alt="Labeled parts of a Python function definition" src="individual_modules/fig/python-function.svg" /></p>
-<p>When we call the function,
-the values we pass to it are assigned to those variables
-so that we can use them inside the function.
-Inside the function,
-we use a return statement to send a result
-back to whoever asked for it.</p>
+</div>
+</div>
+<p>The function definition opens with the keyword <code class="docutils literal notranslate"><span class="pre">def</span></code> followed by the name of the function (<code class="docutils literal notranslate"><span class="pre">fahr_to_celsius</span></code>) and a parenthesized list of parameter names (<code class="docutils literal notranslate"><span class="pre">temp</span></code>). The body of the function — the statements that are executed when it runs — is indented below the definition line.  The body concludes with a <code class="docutils literal notranslate"><span class="pre">return</span></code> keyword followed by the return value.</p>
+<p><img alt="Labeled parts of a Python function definition" src="../../_images/python-function.svg" /></p>
+<p>When we call the function, the values we pass to it are assigned to those variables so that we can use them inside the function. Inside the function, we use a return statement to send a result back to whoever asked for it.</p>
 <p>Let’s try running our function.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fahr_to_celsius</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fahr_to_celsius</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
+</div>
+</div>
 <p>This command should call our function, using “32” as the input and return the function value.</p>
 <p>In fact, calling our own function is no different from calling any other function:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;freezing point of water:&#39;</span><span class="p">,</span> <span class="n">fahr_to_celsius</span><span class="p">(</span><span class="mi">32</span><span class="p">),</span> <span class="s1">&#39;C&#39;</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;freezing point of water:&#39;</span><span class="p">,</span> <span class="n">fahr_to_celsius</span><span class="p">(</span><span class="mi">32</span><span class="p">),</span> <span class="s1">&#39;C&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;boiling point of water:&#39;</span><span class="p">,</span> <span class="n">fahr_to_celsius</span><span class="p">(</span><span class="mi">212</span><span class="p">),</span> <span class="s1">&#39;C&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">freezing</span> <span class="n">point</span> <span class="n">of</span> <span class="n">water</span><span class="p">:</span> <span class="mf">0.0</span> <span class="n">C</span>
-<span class="n">boiling</span> <span class="n">point</span> <span class="n">of</span> <span class="n">water</span><span class="p">:</span> <span class="mf">100.0</span> <span class="n">C</span>
-</pre></div>
 </div>
-<p>{: .output}</p>
-<p>We’ve successfully called the function that we defined,
-and we have access to the value that we returned.</p>
-</section>
+</div>
+<p>We’ve successfully called the function that we defined, and we have access to the value that we returned.</p>
 <section id="composing-functions">
-<h2>Composing Functions<a class="headerlink" href="#composing-functions" title="Link to this heading">#</a></h2>
-<p>Now that we’ve seen how to turn Fahrenheit into Celsius,
-we can also write the function to turn Celsius into Kelvin:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">celsius_to_kelvin</span><span class="p">(</span><span class="n">temp_c</span><span class="p">):</span>
+<h1>Composing Functions<a class="headerlink" href="#composing-functions" title="Link to this heading">#</a></h1>
+<p>Now that we’ve seen how to turn Fahrenheit into Celsius, we can also write the function to turn Celsius into Kelvin:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">celsius_to_kelvin</span><span class="p">(</span><span class="n">temp_c</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">temp_c</span> <span class="o">+</span> <span class="mf">273.15</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;freezing point of water in Kelvin:&#39;</span><span class="p">,</span> <span class="n">celsius_to_kelvin</span><span class="p">(</span><span class="mf">0.</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">freezing</span> <span class="n">point</span> <span class="n">of</span> <span class="n">water</span> <span class="ow">in</span> <span class="n">Kelvin</span><span class="p">:</span> <span class="mf">273.15</span>
-</pre></div>
 </div>
-<p>{: .output}</p>
-<p>What about converting Fahrenheit to Kelvin?
-We could write out the formula,
-but we don’t need to.
-Instead,
-we can compose the two functions we have already created:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fahr_to_kelvin</span><span class="p">(</span><span class="n">temp_f</span><span class="p">):</span>
+</div>
+<p>What about converting Fahrenheit to Kelvin? We could write out the formula, but we don’t need to. Instead, we can compose the two functions we have already created:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fahr_to_kelvin</span><span class="p">(</span><span class="n">temp_f</span><span class="p">):</span>
     <span class="n">temp_c</span> <span class="o">=</span> <span class="n">fahr_to_celsius</span><span class="p">(</span><span class="n">temp_f</span><span class="p">)</span>
     <span class="n">temp_k</span> <span class="o">=</span> <span class="n">celsius_to_kelvin</span><span class="p">(</span><span class="n">temp_c</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">temp_k</span>
@@ -715,53 +757,35 @@ we can compose the two functions we have already created:</p>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;boiling point of water in Kelvin:&#39;</span><span class="p">,</span> <span class="n">fahr_to_kelvin</span><span class="p">(</span><span class="mf">212.0</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">boiling</span> <span class="n">point</span> <span class="n">of</span> <span class="n">water</span> <span class="ow">in</span> <span class="n">Kelvin</span><span class="p">:</span> <span class="mf">373.15</span>
-</pre></div>
 </div>
-<p>{: .output}</p>
-<p>This is our first taste of how larger programs are built:
-we define basic operations,
-then combine them in ever-larger chunks to get the effect we want.
-Real-life functions will usually be larger than the ones shown here — typically half a dozen
-to a few dozen lines — but they shouldn’t ever be much longer than that,
-or the next person who reads it won’t be able to understand what’s going on.</p>
+</div>
+<p>This is our first taste of how larger programs are built: we define basic operations, then combine them in ever-larger chunks to get the effect we want. Real-life functions will usually be larger than the ones shown here — typically half a dozen to a few dozen lines — but they shouldn’t ever be much longer than that, or the next person who reads it won’t be able to understand what’s going on.</p>
 </section>
 <section id="variable-scope">
-<h2>Variable Scope<a class="headerlink" href="#variable-scope" title="Link to this heading">#</a></h2>
-<p>In composing our temperature conversion functions, we created variables inside of those functions,
-<code class="docutils literal notranslate"><span class="pre">temp</span></code>, <code class="docutils literal notranslate"><span class="pre">temp_c</span></code>, <code class="docutils literal notranslate"><span class="pre">temp_f</span></code>, and <code class="docutils literal notranslate"><span class="pre">temp_k</span></code>.
-We refer to these variables as local variables
-because they no longer exist once the function is done executing.
-If we try to access their values outside of the function, we will encounter an error:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Again, temperature in Kelvin was:&#39;</span><span class="p">,</span> <span class="n">temp_k</span><span class="p">)</span>
+<h1>Variable Scope<a class="headerlink" href="#variable-scope" title="Link to this heading">#</a></h1>
+<p>In composing our temperature conversion functions, we created variables inside of those functions, <code class="docutils literal notranslate"><span class="pre">temp</span></code>, <code class="docutils literal notranslate"><span class="pre">temp_c</span></code>, <code class="docutils literal notranslate"><span class="pre">temp_f</span></code>, and <code class="docutils literal notranslate"><span class="pre">temp_k</span></code>. We refer to these variables as local variables because they no longer exist once the function is done executing. If we try to access their values outside of the function, we will encounter an error:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#print(&#39;Again, temperature in Kelvin was:&#39;, temp_k)</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span>                                 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">eed2471d229b</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="o">----&gt;</span> <span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Again, temperature in Kelvin was:&#39;</span><span class="p">,</span> <span class="n">temp_k</span><span class="p">)</span>
-
-<span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">&#39;temp_k&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
-</pre></div>
 </div>
-<p>{: .error}</p>
+</div>
 <p>If you want to reuse the temperature in Kelvin after you have calculated it with <code class="docutils literal notranslate"><span class="pre">fahr_to_kelvin</span></code>,
 you can store the result of the function call in a variable:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">temp_kelvin</span> <span class="o">=</span> <span class="n">fahr_to_kelvin</span><span class="p">(</span><span class="mf">212.0</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temp_kelvin</span> <span class="o">=</span> <span class="n">fahr_to_kelvin</span><span class="p">(</span><span class="mf">212.0</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;temperature in Kelvin was:&#39;</span><span class="p">,</span> <span class="n">temp_kelvin</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">temperature</span> <span class="ow">in</span> <span class="n">Kelvin</span> <span class="n">was</span><span class="p">:</span> <span class="mf">373.15</span>
-</pre></div>
 </div>
-<p>{: .output}</p>
-<p>The variable <code class="docutils literal notranslate"><span class="pre">temp_kelvin</span></code>, being defined outside any function,
-is said to be global.</p>
-<p>Inside a function, one can read the value of such global variables:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_temperatures</span><span class="p">():</span>
+</div>
+<p>The variable <code class="docutils literal notranslate"><span class="pre">temp_kelvin</span></code>, being defined outside any function, is said to be global.
+Inside a function, one can read the value of such global variables:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_temperatures</span><span class="p">():</span>
   <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;temperature in Fahrenheit was:&#39;</span><span class="p">,</span> <span class="n">temp_fahr</span><span class="p">)</span>
   <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;temperature in Kelvin was:&#39;</span><span class="p">,</span> <span class="n">temp_kelvin</span><span class="p">)</span>
 
@@ -771,17 +795,15 @@ is said to be global.</p>
 <span class="n">print_temperatures</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">temperature</span> <span class="ow">in</span> <span class="n">Fahrenheit</span> <span class="n">was</span><span class="p">:</span> <span class="mf">212.0</span>
-<span class="n">temperature</span> <span class="ow">in</span> <span class="n">Kelvin</span> <span class="n">was</span><span class="p">:</span> <span class="mf">373.15</span>
-</pre></div>
 </div>
-<p>{: .output}</p>
+</div>
 </section>
 <section id="readable-functions">
-<h2>Readable functions<a class="headerlink" href="#readable-functions" title="Link to this heading">#</a></h2>
+<h1>Readable functions<a class="headerlink" href="#readable-functions" title="Link to this heading">#</a></h1>
 <p>Consider these two functions:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">s</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">s</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
     <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">p</span><span class="p">:</span>
         <span class="n">a</span> <span class="o">+=</span> <span class="n">v</span>
@@ -790,11 +812,8 @@ is said to be global.</p>
     <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">p</span><span class="p">:</span>
         <span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">v</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">v</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">d</span> <span class="o">/</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
-</pre></div>
-</div>
-<p>{: .language-python}</p>
-<p>and:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">std_dev</span><span class="p">(</span><span class="n">sample</span><span class="p">):</span>
+
+<span class="k">def</span> <span class="nf">std_dev</span><span class="p">(</span><span class="n">sample</span><span class="p">):</span>
     <span class="n">sample_sum</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">sample</span><span class="p">:</span>
         <span class="n">sample_sum</span> <span class="o">+=</span> <span class="n">value</span>
@@ -808,303 +827,240 @@ is said to be global.</p>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sum_squared_devs</span> <span class="o">/</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<p>The functions <code class="docutils literal notranslate"><span class="pre">s</span></code> and <code class="docutils literal notranslate"><span class="pre">std_dev</span></code> are computationally equivalent (they
-both calculate the sample standard deviation), but to a human reader,
-they look very different. You probably found <code class="docutils literal notranslate"><span class="pre">std_dev</span></code> much easier to
-read and understand than <code class="docutils literal notranslate"><span class="pre">s</span></code>.</p>
-<p>As this example illustrates, both documentation and a programmer’s
-<em>coding style</em> combine to determine how easy it is for others to read
-and understand the programmer’s code. Choosing meaningful variable
-names and using blank spaces to break the code into logical “chunks”
-are helpful techniques for producing <em>readable code</em>. This is useful
-not only for sharing code with others, but also for the original
-programmer. If you need to revisit code that you wrote months ago and
-haven’t thought about since then, you will appreciate the value of
-readable code!</p>
+</div>
+</div>
+<p>The functions <code class="docutils literal notranslate"><span class="pre">s</span></code> and <code class="docutils literal notranslate"><span class="pre">std_dev</span></code> are computationally equivalent (they both calculate the sample standard deviation), but to a human reader, they look very different. You probably found <code class="docutils literal notranslate"><span class="pre">std_dev</span></code> much easier to read and understand than <code class="docutils literal notranslate"><span class="pre">s</span></code>.
+As this example illustrates, both documentation and a programmer’s <em>coding style</em> combine to determine how easy it is for others to read and understand the programmer’s code. Choosing meaningful variable names and using blank spaces to break the code into logical “chunks” are helpful techniques for producing <em>readable code</em>. This is useful not only for sharing code with others, but also for the original programmer. If you need to revisit code that you wrote months ago and haven’t thought about since then, you will appreciate the value of readable code!</p>
 </section>
 <section id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<h1>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h1>
 </section>
 <section id="combining-strings">
-<h2>Combining Strings<a class="headerlink" href="#combining-strings" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>“Adding” two strings produces their concatenation:
-<code class="docutils literal notranslate"><span class="pre">'a'</span> <span class="pre">+</span> <span class="pre">'b'</span></code> is <code class="docutils literal notranslate"><span class="pre">'ab'</span></code>.
-Write a function called <code class="docutils literal notranslate"><span class="pre">fence</span></code> that takes two parameters called <code class="docutils literal notranslate"><span class="pre">original</span></code> and <code class="docutils literal notranslate"><span class="pre">wrapper</span></code>
-and returns a new string that has the wrapper character at the beginning and end of the original.
-A call to your function should look like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">fence</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">))</span>
+<h1>Combining Strings<a class="headerlink" href="#combining-strings" title="Link to this heading">#</a></h1>
+<p>“Adding” two strings produces their concatenation: <code class="docutils literal notranslate"><span class="pre">'a'</span> <span class="pre">+</span> <span class="pre">'b'</span></code> is <code class="docutils literal notranslate"><span class="pre">'ab'</span></code>. Write a function called <code class="docutils literal notranslate"><span class="pre">fence</span></code> that takes two parameters called <code class="docutils literal notranslate"><span class="pre">original</span></code> and <code class="docutils literal notranslate"><span class="pre">wrapper</span></code> and returns a new string that has the wrapper character at the beginning and end of the original. A call to your function should look like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">fence</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span><span class="n">name</span><span class="o">*</span>
-</pre></div>
 </div>
-<p>{: .output}</p>
-<blockquote>
-<div><h2 class="rubric" id="solution">Solution</h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fence</span><span class="p">(</span><span class="n">original</span><span class="p">,</span> <span class="n">wrapper</span><span class="p">):</span>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fence</span><span class="p">(</span><span class="n">original</span><span class="p">,</span> <span class="n">wrapper</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">wrapper</span> <span class="o">+</span> <span class="n">original</span> <span class="o">+</span> <span class="n">wrapper</span>
 </pre></div>
 </div>
-<p>{: .language-python}
-{: .solution}
-{: .challenge}</p>
-</div></blockquote>
-</div></blockquote>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </section>
 <section id="return-versus-print">
-<h2>Return versus print<a class="headerlink" href="#return-versus-print" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>Note that <code class="docutils literal notranslate"><span class="pre">return</span></code> and <code class="docutils literal notranslate"><span class="pre">print</span></code> are not interchangeable.
-<code class="docutils literal notranslate"><span class="pre">print</span></code> is a Python function that <em>prints</em> data to the screen.
-It enables us, <em>users</em>, see the data.
-<code class="docutils literal notranslate"><span class="pre">return</span></code> statement, on the other hand, makes data visible to the program.
-Let’s have a look at the following function:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<h1>Return versus print<a class="headerlink" href="#return-versus-print" title="Link to this heading">#</a></h1>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">return</span></code> and <code class="docutils literal notranslate"><span class="pre">print</span></code> are not interchangeable. <code class="docutils literal notranslate"><span class="pre">print</span></code> is a Python function that <em>prints</em> data to the screen. It enables us, <em>users</em>, see the data. <code class="docutils literal notranslate"><span class="pre">return</span></code> statement, on the other hand, makes data visible to the program. Let’s have a look at the following function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
+</div>
+</div>
 <p>What will we see if we execute the following commands?</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<blockquote>
-<div><h2 class="rubric" id="id1">Solution</h2>
-<p>Python will first execute the function <code class="docutils literal notranslate"><span class="pre">add</span></code> with <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">7</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">3</span></code>,
-and, therefore, print <code class="docutils literal notranslate"><span class="pre">10</span></code>. However, because function <code class="docutils literal notranslate"><span class="pre">add</span></code> does not have a
-line that starts with <code class="docutils literal notranslate"><span class="pre">return</span></code> (no <code class="docutils literal notranslate"><span class="pre">return</span></code> “statement”), it will, by default, return
-nothing which, in Python world, is called <code class="docutils literal notranslate"><span class="pre">None</span></code>. Therefore, <code class="docutils literal notranslate"><span class="pre">A</span></code> will be assigned to <code class="docutils literal notranslate"><span class="pre">None</span></code>
-and the last line (<code class="docutils literal notranslate"><span class="pre">print(A)</span></code>) will print <code class="docutils literal notranslate"><span class="pre">None</span></code>. As a result, we will see:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span>
+</div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>Python will first execute the function <code class="docutils literal notranslate"><span class="pre">add</span></code> with <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">7</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">3</span></code>, and, therefore, print <code class="docutils literal notranslate"><span class="pre">10</span></code>. However, because function <code class="docutils literal notranslate"><span class="pre">add</span></code> does not have a line that starts with <code class="docutils literal notranslate"><span class="pre">return</span></code> (no <code class="docutils literal notranslate"><span class="pre">return</span></code> “statement”), it will, by default, return nothing which, in Python world, is called <code class="docutils literal notranslate"><span class="pre">None</span></code>. Therefore, <code class="docutils literal notranslate"><span class="pre">A</span></code> will be assigned to <code class="docutils literal notranslate"><span class="pre">None</span></code> and the last line (<code class="docutils literal notranslate"><span class="pre">print(A)</span></code>) will print <code class="docutils literal notranslate"><span class="pre">None</span></code>. As a result, we will see:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span>
 <span class="kc">None</span>
 </pre></div>
 </div>
-<p>{: .output}
-{: .solution}
-{: .challenge}</p>
-</div></blockquote>
-</div></blockquote>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </section>
-<section id="selecting-characters-from-strings">
-<h2>Selecting Characters From Strings<a class="headerlink" href="#selecting-characters-from-strings" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>If the variable <code class="docutils literal notranslate"><span class="pre">s</span></code> refers to a string,
-then <code class="docutils literal notranslate"><span class="pre">s[0]</span></code> is the string’s first character
-and <code class="docutils literal notranslate"><span class="pre">s[-1]</span></code> is its last.
-Write a function called <code class="docutils literal notranslate"><span class="pre">outer</span></code>
-that returns a string made up of just the first and last characters of its input.
-A call to your function should look like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">outer</span><span class="p">(</span><span class="s1">&#39;helium&#39;</span><span class="p">))</span>
-</pre></div>
-</div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hm</span>
-</pre></div>
-</div>
-<p>{: .output}</p>
-<blockquote>
-<div><h2 class="rubric" id="id2">Solution</h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">outer</span><span class="p">(</span><span class="n">input_string</span><span class="p">):</span>
+<section id="selecting-characters-from-string">
+<h1>Selecting Characters From String<a class="headerlink" href="#selecting-characters-from-string" title="Link to this heading">#</a></h1>
+<p>If the variable <code class="docutils literal notranslate"><span class="pre">s</span></code> refers to a string, then <code class="docutils literal notranslate"><span class="pre">s[0]</span></code> is the string’s first character and <code class="docutils literal notranslate"><span class="pre">s[-1]</span></code> is its last. Write a function called <code class="docutils literal notranslate"><span class="pre">outer</span></code> that returns a string made up of just the first and last characters of its input. A call to your function should look like this:</p>
+<p>print(outer(‘helium’))</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">outer</span><span class="p">(</span><span class="n">input_string</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">input_string</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">input_string</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>{: .language-python}
-{: .solution}
-{: .challenge}</p>
-</div></blockquote>
-</div></blockquote>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </section>
 <section id="rescaling-a-list">
-<h2>Rescaling a list<a class="headerlink" href="#rescaling-a-list" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>Write a function <code class="docutils literal notranslate"><span class="pre">rescale</span></code> that takes a list as input
-and returns a corresponding list of values scaled to lie in the range 0.0 to 1.0.</p>
-<blockquote>
-<div><h2 class="rubric" id="hint">Hint</h2>
+<h1>Rescaling a list<a class="headerlink" href="#rescaling-a-list" title="Link to this heading">#</a></h1>
+<p>Write a function <code class="docutils literal notranslate"><span class="pre">rescale</span></code> that takes a list as input and returns a corresponding list of values scaled to lie in the range 0.0 to 1.0.</p>
+</section>
+<section id="hint">
+<h1>Hint<a class="headerlink" href="#hint" title="Link to this heading">#</a></h1>
 <p>If <code class="docutils literal notranslate"><span class="pre">L</span></code> and <code class="docutils literal notranslate"><span class="pre">H</span></code> are the lowest and highest values in the original list,
-then the replacement for a value <code class="docutils literal notranslate"><span class="pre">v</span></code> should be <code class="docutils literal notranslate"><span class="pre">(v-L)</span> <span class="pre">/</span> <span class="pre">(H-L)</span></code>.
-{: .solution}</p>
-<h2 class="rubric" id="id3">Solution</h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rescale</span><span class="p">(</span><span class="n">input_list</span><span class="p">):</span>
+then the replacement for a value <code class="docutils literal notranslate"><span class="pre">v</span></code> should be <code class="docutils literal notranslate"><span class="pre">(v-L)</span> <span class="pre">/</span> <span class="pre">(H-L)</span></code>.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rescale</span><span class="p">(</span><span class="n">input_list</span><span class="p">):</span>
     <span class="n">list_min</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">input_list</span><span class="p">)</span>
-    <span class="n">list_max</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">input_list</span><span class="p">)</span>
-    
+    <span class="n">list_max</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">input_list</span><span class="p">)</span>    
     <span class="n">output_list</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">input_list</span><span class="p">:</span>
         <span class="n">scaled_i</span> <span class="o">=</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">-</span> <span class="n">list_min</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">list_max</span> <span class="o">-</span> <span class="n">list_min</span><span class="p">)</span>
         <span class="n">output_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scaled_i</span><span class="p">)</span>
-    
     <span class="k">return</span> <span class="n">output_list</span>
 </pre></div>
 </div>
-<p>{: .language-python}
-{: .solution}
-{: .challenge}</p>
-</div></blockquote>
-</div></blockquote>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </section>
 <section id="improving-our-function-with-docstrings">
-<h2>Improving our function with docstrings<a class="headerlink" href="#improving-our-function-with-docstrings" title="Link to this heading">#</a></h2>
+<h1>Improving our function with docstrings<a class="headerlink" href="#improving-our-function-with-docstrings" title="Link to this heading">#</a></h1>
 <p>Now that we have written a few functions, we should add  some docstrings. A docstring is a small explanation of the expected functionality of the function, as well as descriptions of the function parameters, and any returns. There are lots of styles of docstrings. See here for the Google style.</p>
-<p>It is good habit to write a docstring for every single function you create. Even if noone reads your code, you will forget why you wrote this function in a years time. Dont be that person with no docstrings!</p>
-<blockquote>
-<div><p>Add a Google-style docstring to your rescale function. Include the expected types of the function parameters.</p>
-<blockquote>
-<div><h2 class="rubric" id="id4">Solution</h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rescale</span><span class="p">(</span><span class="n">input_list</span><span class="p">):</span>
-<span class="w">       </span><span class="sd">&quot;&quot;&quot;Rescales a list between 0 and 1.</span>
-
-<span class="sd">       Given an input list, this function rescales each element between 0</span>
-<span class="sd">       and 1. Please only provide lists containing numeric values. </span>
-
-<span class="sd">       Args:</span>
-<span class="sd">           input_list: A list containing numeric values</span>
-
-<span class="sd">       Returns:</span>
-<span class="sd">           output_list: The input list, with all elements scaled</span>
-<span class="sd">       &quot;&quot;&quot;</span>
-
+<p>It is good habit to write a docstring for every single function you create. Even if noone reads your code, you will forget why you wrote this function in a years time. Dont be that person with no docstrings!
+Add a Google-style docstring to your rescale function. Include the expected types of the function parameters.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rescale</span><span class="p">(</span><span class="n">input_list</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Rescales a list between 0 and 1.</span>
+<span class="sd">    Given an input list, this function rescales each element between 0 and 1. Please only provide lists containing numeric values. </span>
+<span class="sd">    Args:</span>
+<span class="sd">    input_list: A list containing numeric values</span>
+<span class="sd">    Returns:</span>
+<span class="sd">    output_list: The input list, with all elements scaled</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">list_min</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">input_list</span><span class="p">)</span>
-    <span class="n">list_max</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">input_list</span><span class="p">)</span>
-    
+    <span class="n">list_max</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">input_list</span><span class="p">)</span>    
     <span class="n">output_list</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">input_list</span><span class="p">:</span>
         <span class="n">scaled_i</span> <span class="o">=</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">-</span> <span class="n">list_min</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">list_max</span> <span class="o">-</span> <span class="n">list_min</span><span class="p">)</span>
         <span class="n">output_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scaled_i</span><span class="p">)</span>
-    
     <span class="k">return</span> <span class="n">output_list</span>
 </pre></div>
 </div>
-<p>{: .language-python}
-{: .solution}
-{: .challenge}</p>
-</div></blockquote>
-</div></blockquote>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </section>
 <section id="defining-defaults">
-<h2>Defining Defaults<a class="headerlink" href="#defining-defaults" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>Rewrite the <code class="docutils literal notranslate"><span class="pre">rescale</span></code> function so that it scales data to lie between <code class="docutils literal notranslate"><span class="pre">0.0</span></code> and <code class="docutils literal notranslate"><span class="pre">1.0</span></code> by default,
-but will allow the caller to specify lower and upper bounds if they want.
-Compare your implementation to your neighbor’s:
-do the two functions always behave the same way?</p>
-<blockquote>
-<div><h2 class="rubric" id="id5">Solution</h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rescale</span><span class="p">(</span><span class="n">input_list</span><span class="p">,</span> <span class="n">low_val</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">high_val</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+<h1>Defining Defaults<a class="headerlink" href="#defining-defaults" title="Link to this heading">#</a></h1>
+<p>Rewrite the <code class="docutils literal notranslate"><span class="pre">rescale</span></code> function so that it scales data to lie between <code class="docutils literal notranslate"><span class="pre">0.0</span></code> and <code class="docutils literal notranslate"><span class="pre">1.0</span></code> by default,but will allow the caller to specify lower and upper bounds if they want. Compare your implementation to your neighbor’s: do the two functions always behave the same way?</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rescale</span><span class="p">(</span><span class="n">input_list</span><span class="p">,</span> <span class="n">low_val</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">high_val</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
     <span class="n">list_min</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">input_list</span><span class="p">)</span>
     <span class="n">list_max</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">input_list</span><span class="p">)</span>
-    
     <span class="n">output_list</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">input_list</span><span class="p">:</span>
         <span class="n">intermediate_i</span> <span class="o">=</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">-</span> <span class="n">list_min</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">list_max</span> <span class="o">-</span> <span class="n">list_min</span><span class="p">)</span>
         <span class="n">scaled_i</span> <span class="o">=</span> <span class="n">intermediate_i</span> <span class="o">*</span> <span class="p">(</span><span class="n">high_val</span> <span class="o">-</span> <span class="n">low_val</span><span class="p">)</span> <span class="o">+</span> <span class="n">low_val</span>
         <span class="n">output_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scaled_i</span><span class="p">)</span>
-
     <span class="k">return</span> <span class="n">output_list</span>
 </pre></div>
 </div>
-<p>{: .language-python}
-{: .solution}
-{: .challenge}</p>
-</div></blockquote>
-</div></blockquote>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </section>
 <section id="variables-inside-and-outside-functions">
-<h2>Variables Inside and Outside Functions<a class="headerlink" href="#variables-inside-and-outside-functions" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>What does the following piece of code display when run — and why?</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="mi">0</span>
+<h1>Variables Inside and Outside Functions<a class="headerlink" href="#variables-inside-and-outside-functions" title="Link to this heading">#</a></h1>
+<p>What does the following piece of code display when run — and why?</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="n">f</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
-
 <span class="k">def</span> <span class="nf">f2k</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
     <span class="n">k</span> <span class="o">=</span> <span class="p">((</span><span class="n">f</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mf">5.0</span> <span class="o">/</span> <span class="mf">9.0</span><span class="p">))</span> <span class="o">+</span> <span class="mf">273.15</span>
     <span class="k">return</span> <span class="n">k</span>
-
 <span class="nb">print</span><span class="p">(</span><span class="n">f2k</span><span class="p">(</span><span class="mi">8</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">f2k</span><span class="p">(</span><span class="mi">41</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">f2k</span><span class="p">(</span><span class="mi">32</span><span class="p">))</span>
-
 <span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<blockquote>
-<div><h2 class="rubric" id="id6">Solution</h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">259.81666666666666</span>
-<span class="mf">278.15</span>
-<span class="mf">273.15</span>
-<span class="mi">0</span>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">k</span></code> is 0 because the <code class="docutils literal notranslate"><span class="pre">k</span></code> inside the function <code class="docutils literal notranslate"><span class="pre">f2k</span></code> doesn’t know about the <code class="docutils literal notranslate"><span class="pre">k</span></code> defined outside the function. When the <code class="docutils literal notranslate"><span class="pre">f2k</span></code> function is called, it creates a [local variable](/reference.html#local-variable) <code class="docutils literal notranslate"><span class="pre">k</span></code>. The function does not return any values  and does not alter <code class="docutils literal notranslate"><span class="pre">k</span></code> outside of its local copy.  Therefore the original value of <code class="docutils literal notranslate"><span class="pre">k</span></code> remains unchanged. Beware that a local <code class="docutils literal notranslate"><span class="pre">k</span></code> is created because <code class="docutils literal notranslate"><span class="pre">f2k</span></code> internal statements <em>affect</em> a new value to it. If <code class="docutils literal notranslate"><span class="pre">k</span></code> was only <code class="docutils literal notranslate"><span class="pre">read</span></code>, it would simply retrieve the global <code class="docutils literal notranslate"><span class="pre">k</span></code> value.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<p>{: .output}
-<code class="docutils literal notranslate"><span class="pre">k</span></code> is 0 because the <code class="docutils literal notranslate"><span class="pre">k</span></code> inside the function <code class="docutils literal notranslate"><span class="pre">f2k</span></code> doesn’t know
-about the <code class="docutils literal notranslate"><span class="pre">k</span></code> defined outside the function. When the <code class="docutils literal notranslate"><span class="pre">f2k</span></code> function is called,
-it creates a [local variable](/reference.html#local-variable)
-<code class="docutils literal notranslate"><span class="pre">k</span></code>. The function does not return any values
-and does not alter <code class="docutils literal notranslate"><span class="pre">k</span></code> outside of its local copy.
-Therefore the original value of <code class="docutils literal notranslate"><span class="pre">k</span></code> remains unchanged.
-Beware that a local <code class="docutils literal notranslate"><span class="pre">k</span></code> is created because <code class="docutils literal notranslate"><span class="pre">f2k</span></code> internal statements
-<em>affect</em> a new value to it. If <code class="docutils literal notranslate"><span class="pre">k</span></code> was only <code class="docutils literal notranslate"><span class="pre">read</span></code>, it would simply retrieve the
-global <code class="docutils literal notranslate"><span class="pre">k</span></code> value.
-{: .solution}
-{: .challenge}</p>
-</div></blockquote>
-</div></blockquote>
 </section>
 <section id="mixing-default-and-non-default-parameters">
-<h2>Mixing Default and Non-Default Parameters<a class="headerlink" href="#mixing-default-and-non-default-parameters" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>Given the following code:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">numbers</span><span class="p">(</span><span class="n">one</span><span class="p">,</span> <span class="n">two</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">three</span><span class="p">,</span> <span class="n">four</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+<h1>Mixing Default and Non-Default Parameters<a class="headerlink" href="#mixing-default-and-non-default-parameters" title="Link to this heading">#</a></h1>
+<p>Given the following code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">numbers</span><span class="p">(</span><span class="n">one</span><span class="p">,</span> <span class="n">two</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">three</span><span class="p">,</span> <span class="n">four</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">one</span><span class="p">)</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">two</span><span class="p">)</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">three</span><span class="p">)</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">four</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">n</span>
-
 <span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">three</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<p>what do you expect will be printed?  What is actually printed?
-What rule do you think Python is following?</p>
-<ol class="arabic simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">1234</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">one2three4</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">1239</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code></p></li>
-</ol>
-<p>Given that, what does the following piece of code display when run?</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">6</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a: &#39;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="s1">&#39;b: &#39;</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="s1">&#39;c:&#39;</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
-
-<span class="n">func</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</div>
+</div>
+<p>what do you expect will be printed?  What is actually printed? What rule do you think Python is following?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span>
+<span class="o">&gt;</span> <span class="o">~~~</span>
+<span class="o">&gt;</span> 
+<span class="o">&gt;</span> <span class="o">~~~</span>
+<span class="o">&gt;</span> <span class="p">{:</span> <span class="o">.</span><span class="n">language</span><span class="o">-</span><span class="n">python</span><span class="p">}</span>
+<span class="o">&gt;</span>
+<span class="o">&gt;</span> 
+<span class="o">&gt;</span>
+<span class="o">&gt;</span> <span class="mf">1.</span>  <span class="err">`</span><span class="mi">1234</span><span class="err">`</span>
+<span class="o">&gt;</span> <span class="mf">2.</span>  <span class="err">`</span><span class="n">one2three4</span><span class="err">`</span>
+<span class="o">&gt;</span> <span class="mf">3.</span>  <span class="err">`</span><span class="mi">1239</span><span class="err">`</span>
+<span class="o">&gt;</span> <span class="mf">4.</span>  <span class="err">`</span><span class="ne">SyntaxError</span><span class="err">`</span>
+<span class="o">&gt;</span>
+<span class="o">&gt;</span> <span class="n">Given</span> <span class="n">that</span><span class="p">,</span> <span class="n">what</span> <span class="n">does</span> <span class="n">the</span> <span class="n">following</span> <span class="n">piece</span> <span class="n">of</span> <span class="n">code</span> <span class="n">display</span> <span class="n">when</span> run<span class="o">?</span>
+<span class="o">&gt;</span>
+<span class="o">&gt;</span> <span class="o">~~~</span>
+<span class="o">&gt;</span> <span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">6</span><span class="p">):</span>
+<span class="o">&gt;</span>     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a: &#39;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="s1">&#39;b: &#39;</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="s1">&#39;c:&#39;</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+<span class="o">&gt;</span>
+<span class="o">&gt;</span> <span class="n">func</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="o">~~~</span>
+<span class="o">&gt;</span> <span class="p">{:</span> <span class="o">.</span><span class="n">language</span><span class="o">-</span><span class="n">python</span><span class="p">}</span>
+<span class="o">&gt;</span>
+<span class="o">&gt;</span> <span class="mf">1.</span> <span class="err">`</span><span class="n">a</span><span class="p">:</span> <span class="n">b</span><span class="p">:</span> <span class="mi">3</span> <span class="n">c</span><span class="p">:</span> <span class="mi">6</span><span class="err">`</span>
+<span class="o">&gt;</span> <span class="mf">2.</span> <span class="err">`</span><span class="n">a</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span> <span class="n">b</span><span class="p">:</span> <span class="mi">3</span> <span class="n">c</span><span class="p">:</span> <span class="mi">6</span><span class="err">`</span>
+<span class="o">&gt;</span> <span class="mf">3.</span> <span class="err">`</span><span class="n">a</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span> <span class="n">b</span><span class="p">:</span> <span class="mi">2</span> <span class="n">c</span><span class="p">:</span> <span class="mi">6</span><span class="err">`</span>
+<span class="o">&gt;</span> <span class="mf">4.</span> <span class="err">`</span><span class="n">a</span><span class="p">:</span> <span class="n">b</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span> <span class="n">c</span><span class="p">:</span> <span class="mi">2</span><span class="err">`</span>
+<span class="o">&gt;</span>
+<span class="o">&gt;</span> <span class="o">&gt;</span> <span class="c1">## Solution</span>
+<span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">Attempting</span> <span class="n">to</span> <span class="n">define</span> <span class="n">the</span> <span class="err">`</span><span class="n">numbers</span><span class="err">`</span> <span class="n">function</span> <span class="n">results</span> <span class="ow">in</span> <span class="err">`</span><span class="mf">4.</span> <span class="ne">SyntaxError</span><span class="err">`</span><span class="o">.</span>
+<span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">The</span> <span class="n">defined</span> <span class="n">parameters</span> <span class="err">`</span><span class="n">two</span><span class="err">`</span> <span class="ow">and</span> <span class="err">`</span><span class="n">four</span><span class="err">`</span> <span class="n">are</span> <span class="n">given</span> <span class="n">default</span> <span class="n">values</span><span class="o">.</span> <span class="n">Because</span>
+<span class="o">&gt;</span> <span class="o">&gt;</span> <span class="err">`</span><span class="n">one</span><span class="err">`</span> <span class="ow">and</span> <span class="err">`</span><span class="n">three</span><span class="err">`</span> <span class="n">are</span> <span class="ow">not</span> <span class="n">given</span> <span class="n">default</span> <span class="n">values</span><span class="p">,</span> <span class="n">they</span> <span class="n">are</span> <span class="n">required</span> <span class="n">to</span> <span class="n">be</span>
+<span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">included</span> <span class="k">as</span> <span class="n">arguments</span> <span class="n">when</span> <span class="n">the</span> <span class="n">function</span> <span class="ow">is</span> <span class="n">called</span> <span class="ow">and</span> <span class="n">must</span> <span class="n">be</span> <span class="n">placed</span>
+<span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">before</span> <span class="nb">any</span> <span class="n">parameters</span> <span class="n">that</span> <span class="n">have</span> <span class="n">default</span> <span class="n">values</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">function</span> <span class="n">definition</span><span class="o">.</span>
+<span class="o">&gt;</span> <span class="o">&gt;</span>
+<span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">The</span> <span class="n">given</span> <span class="n">call</span> <span class="n">to</span> <span class="err">`</span><span class="n">func</span><span class="err">`</span> <span class="n">displays</span> <span class="err">`</span><span class="n">a</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span> <span class="n">b</span><span class="p">:</span> <span class="mi">2</span> <span class="n">c</span><span class="p">:</span> <span class="mi">6</span><span class="err">`</span><span class="o">.</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">is</span> <span class="n">assigned</span> <span class="n">to</span>
+<span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">the</span> <span class="n">first</span> <span class="n">parameter</span> <span class="err">`</span><span class="n">a</span><span class="err">`</span><span class="p">,</span> <span class="mi">2</span> <span class="ow">is</span> <span class="n">assigned</span> <span class="n">to</span> <span class="n">the</span> <span class="nb">next</span> <span class="n">parameter</span> <span class="err">`</span><span class="n">b</span><span class="err">`</span><span class="p">,</span> <span class="ow">and</span> <span class="err">`</span><span class="n">c</span><span class="err">`</span> <span class="ow">is</span>
+<span class="o">&gt;</span> <span class="o">&gt;</span> <span class="ow">not</span> <span class="n">passed</span> <span class="n">a</span> <span class="n">value</span><span class="p">,</span> <span class="n">so</span> <span class="n">it</span> <span class="n">uses</span> <span class="n">its</span> <span class="n">default</span> <span class="n">value</span> <span class="mf">6.</span>
+<span class="o">&gt;</span> <span class="p">{:</span> <span class="o">.</span><span class="n">solution</span><span class="p">}</span>
+<span class="p">{:</span> <span class="o">.</span><span class="n">challenge</span><span class="p">}</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<ol class="arabic simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">a:</span> <span class="pre">b:</span> <span class="pre">3</span> <span class="pre">c:</span> <span class="pre">6</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">a:</span> <span class="pre">-1</span> <span class="pre">b:</span> <span class="pre">3</span> <span class="pre">c:</span> <span class="pre">6</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">a:</span> <span class="pre">-1</span> <span class="pre">b:</span> <span class="pre">2</span> <span class="pre">c:</span> <span class="pre">6</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">a:</span> <span class="pre">b:</span> <span class="pre">-1</span> <span class="pre">c:</span> <span class="pre">2</span></code></p></li>
-</ol>
-<blockquote>
-<div><h2 class="rubric" id="id7">Solution</h2>
-<p>Attempting to define the <code class="docutils literal notranslate"><span class="pre">numbers</span></code> function results in <code class="docutils literal notranslate"><span class="pre">4.</span> <span class="pre">SyntaxError</span></code>.
-The defined parameters <code class="docutils literal notranslate"><span class="pre">two</span></code> and <code class="docutils literal notranslate"><span class="pre">four</span></code> are given default values. Because
-<code class="docutils literal notranslate"><span class="pre">one</span></code> and <code class="docutils literal notranslate"><span class="pre">three</span></code> are not given default values, they are required to be
-included as arguments when the function is called and must be placed
-before any parameters that have default values in the function definition.</p>
-<p>The given call to <code class="docutils literal notranslate"><span class="pre">func</span></code> displays <code class="docutils literal notranslate"><span class="pre">a:</span> <span class="pre">-1</span> <span class="pre">b:</span> <span class="pre">2</span> <span class="pre">c:</span> <span class="pre">6</span></code>. -1 is assigned to
-the first parameter <code class="docutils literal notranslate"><span class="pre">a</span></code>, 2 is assigned to the next parameter <code class="docutils literal notranslate"><span class="pre">b</span></code>, and <code class="docutils literal notranslate"><span class="pre">c</span></code> is
-not passed a value, so it uses its default value 6.
-{: .solution}
-{: .challenge}</p>
-</div></blockquote>
-</div></blockquote>
-</section>
+</div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1171,24 +1127,21 @@ not passed a value, so it uses its default value 6.
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key points</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-functions">Why use functions?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#built-in-functions">Built in functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-functions">Defining functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#composing-functions">Composing Functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-scope">Variable Scope</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readable-functions">Readable functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-strings">Combining Strings</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#return-versus-print">Return versus print</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-characters-from-strings">Selecting Characters From Strings</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rescaling-a-list">Rescaling a list</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#improving-our-function-with-docstrings">Improving our function with docstrings</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-defaults">Defining Defaults</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-inside-and-outside-functions">Variables Inside and Outside Functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mixing-default-and-non-default-parameters">Mixing Default and Non-Default Parameters</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Composing Functions</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-scope">Variable Scope</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#readable-functions">Readable functions</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-strings">Combining Strings</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#return-versus-print">Return versus print</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-characters-from-string">Selecting Characters From String</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#rescaling-a-list">Rescaling a list</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hint">Hint</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#improving-our-function-with-docstrings">Improving our function with docstrings</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-defaults">Defining Defaults</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-inside-and-outside-functions">Variables Inside and Outside Functions</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mixing-default-and-non-default-parameters">Mixing Default and Non-Default Parameters</a></li>
 </ul>
+
   </nav></div>
 
 </div></div>

@@ -235,7 +235,19 @@
 <li class="toctree-l2"><a class="reference internal" href="loops.html">Loops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="additional_exercises.html">Additional Session 1 Exercises</a></li>
 <li class="toctree-l2"><a class="reference internal" href="recap.html">Session 1 Recap</a></li>
-<li class="toctree-l2"><a class="reference internal" href="functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html">Composing Functions</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
 <li class="toctree-l2"><a class="reference internal" href="imports.html">Imports</a></li>
 <li class="toctree-l2"><a class="reference internal" href="analysis_task_intro.html">Data Analysis Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="analysis_task_1.html">Data Analysis Task 1</a></li>
@@ -673,8 +685,10 @@ document.write(`
 <p>Retrieve the birth year for Isaac Newton from the dictionary of birth years.</p>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution</p>
-<p><code class="docutils literal notranslate"><span class="pre">birth_years</span> <span class="pre">=</span> <span class="pre">{'Newton':</span> <span class="pre">1642,</span> <span class="pre">'Darwin':</span> <span class="pre">1809,</span> <span class="pre">'Einstein':</span> <span class="pre">1979,</span> <span class="pre">'Nobel':</span> <span class="pre">1833}</span></code><br>
-`birth_years[‘Newton’]<br></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">birth_years</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Newton&#39;</span><span class="p">:</span> <span class="mi">1642</span><span class="p">,</span> <span class="s1">&#39;Darwin&#39;</span><span class="p">:</span> <span class="mi">1809</span><span class="p">,</span> <span class="s1">&#39;Einstein&#39;</span><span class="p">:</span> <span class="mi">1979</span><span class="p">,</span> <span class="s1">&#39;Nobel&#39;</span><span class="p">:</span> <span class="mi">1833</span><span class="p">}</span>
+<span class="n">birth_years</span><span class="p">[</span><span class="s1">&#39;Newton&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
@@ -718,10 +732,12 @@ document.write(`
 <p>Add two more scientist’s birth years to our dictionary of birth years.</p>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution</p>
-<p><code class="docutils literal notranslate"><span class="pre">birth_years</span> <span class="pre">=</span> <span class="pre">{'Newton':</span> <span class="pre">1642,</span> <span class="pre">'Darwin':</span> <span class="pre">1809,</span> <span class="pre">'Einstein':</span> <span class="pre">1979,</span> <span class="pre">'Nobel':</span> <span class="pre">1833,</span> <span class="pre">'Turing':</span> <span class="pre">1612}</span></code><br>
-<code class="docutils literal notranslate"><span class="pre">birth_years['Curie']</span> <span class="pre">=</span> <span class="pre">1867</span></code><br>
-<code class="docutils literal notranslate"><span class="pre">birth_years['Franklin']</span> <span class="pre">=</span> <span class="pre">1920</span></code><br>
-<code class="docutils literal notranslate"><span class="pre">print(birth_years)</span></code><br></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">birth_years</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Newton&#39;</span><span class="p">:</span> <span class="mi">1642</span><span class="p">,</span> <span class="s1">&#39;Darwin&#39;</span><span class="p">:</span> <span class="mi">1809</span><span class="p">,</span> <span class="s1">&#39;Einstein&#39;</span><span class="p">:</span> <span class="mi">1979</span><span class="p">,</span> <span class="s1">&#39;Nobel&#39;</span><span class="p">:</span> <span class="mi">1833</span><span class="p">,</span> <span class="s1">&#39;Turing&#39;</span><span class="p">:</span> <span class="mi">1612</span><span class="p">}</span>
+<span class="n">birth_years</span><span class="p">[</span><span class="s1">&#39;Curie&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1867</span>
+<span class="n">birth_years</span><span class="p">[</span><span class="s1">&#39;Franklin&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1920</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">birth_years</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>

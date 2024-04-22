@@ -235,7 +235,19 @@
 <li class="toctree-l2"><a class="reference internal" href="loops.html">Loops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="additional_exercises.html">Additional Session 1 Exercises</a></li>
 <li class="toctree-l2"><a class="reference internal" href="recap.html">Session 1 Recap</a></li>
-<li class="toctree-l2"><a class="reference internal" href="functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html">Composing Functions</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
 <li class="toctree-l2"><a class="reference internal" href="imports.html">Imports</a></li>
 <li class="toctree-l2"><a class="reference internal" href="analysis_task_intro.html">Data Analysis Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="analysis_task_1.html">Data Analysis Task 1</a></li>
@@ -802,13 +814,13 @@ Python simply does nothing if the test is false:</p>
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="qkZGQVRQkjyX" data-shufflequestions="False"
+<div class="output text_html"><div id="fwQDiHtViUwt" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#qkZGQVRQkjyX {
+#fwQDiHtViUwt {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -978,7 +990,7 @@ Python simply does nothing if the test is false:</p>
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsqkZGQVRQkjyX=[
+</style></div><script type="application/javascript">var questionsfwQDiHtViUwt=[
     {
         "question": "Which of the following would be printed if you were to run this code? Why did you pick this answer?",
         "type": "many_choice",
@@ -1754,8 +1766,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("qkZGQVRQkjyX")) {
-            show_questions(questionsqkZGQVRQkjyX,  qkZGQVRQkjyX); 
+          if(document.getElementById("fwQDiHtViUwt")) {
+            show_questions(questionsfwQDiHtViUwt,  fwQDiHtViUwt); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -1764,8 +1776,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("qkZGQVRQkjyX");
-        // console.log(document.getElementById("qkZGQVRQkjyX"));
+        //console.log("fwQDiHtViUwt");
+        // console.log(document.getElementById("fwQDiHtViUwt"));
 
         try_show();
         }
@@ -1813,16 +1825,27 @@ not not True is true
 </div>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution 1</p>
-<p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">5</span></code><br>
-<code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">5.1</span></code><br></p>
-<p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">abs(a</span> <span class="pre">-</span> <span class="pre">b)</span> <span class="pre">&lt;=</span> <span class="pre">0.1</span> <span class="pre">*</span> <span class="pre">abs(b):</span></code><br>
-<code class="docutils literal notranslate">&#160;&#160;&#160; <span class="pre">print('True')</span></code><br>
-<code class="docutils literal notranslate"><span class="pre">else:</span></code><br>
-<code class="docutils literal notranslate">&#160;&#160;&#160; <span class="pre">print('False')</span></code><br></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">5.1</span>
+
+<span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="nb">abs</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;True&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;False&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
 </div>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution 2</p>
-<p><code class="docutils literal notranslate"><span class="pre">print(abs(a</span> <span class="pre">-</span> <span class="pre">b)</span> <span class="pre">&lt;=</span> <span class="pre">0.1</span> <span class="pre">*</span> <span class="pre">abs(b))</span></code><br></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="nb">abs</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
 </div>
 <p>This works because the Booleans <code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code> have string representations which can be printed.</p>
 </section>

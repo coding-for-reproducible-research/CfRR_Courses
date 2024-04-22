@@ -235,7 +235,19 @@
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Loops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="additional_exercises.html">Additional Session 1 Exercises</a></li>
 <li class="toctree-l2"><a class="reference internal" href="recap.html">Session 1 Recap</a></li>
-<li class="toctree-l2"><a class="reference internal" href="functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html">Composing Functions</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
 <li class="toctree-l2"><a class="reference internal" href="imports.html">Imports</a></li>
 <li class="toctree-l2"><a class="reference internal" href="analysis_task_intro.html">Data Analysis Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="analysis_task_1.html">Data Analysis Task 1</a></li>
@@ -852,13 +864,13 @@ n
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="uicOwyUXghFC" data-shufflequestions="False"
+<div class="output text_html"><div id="gGXRIrbLqIny" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#uicOwyUXghFC {
+#gGXRIrbLqIny {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1028,7 +1040,7 @@ n
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsuicOwyUXghFC=[
+</style></div><script type="application/javascript">var questionsgGXRIrbLqIny=[
     {
         "question": "How many times is the body of the loop executed??",
         "type": "many_choice",
@@ -1804,8 +1816,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("uicOwyUXghFC")) {
-            show_questions(questionsuicOwyUXghFC,  uicOwyUXghFC); 
+          if(document.getElementById("gGXRIrbLqIny")) {
+            show_questions(questionsgGXRIrbLqIny,  gGXRIrbLqIny); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -1814,8 +1826,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("uicOwyUXghFC");
-        // console.log(document.getElementById("uicOwyUXghFC"));
+        //console.log("gGXRIrbLqIny");
+        // console.log(document.getElementById("gGXRIrbLqIny"));
 
         try_show();
         }
@@ -1888,9 +1900,14 @@ print(summed)</p>
 <p>Write a loop using <code class="docutils literal notranslate"><span class="pre">enumerate(coefs)</span></code> which computes the value <code class="docutils literal notranslate"><span class="pre">y</span></code> of any polynomial, given <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">coefs</span></code>.</p>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution</p>
-<p>y = 0
-for idx, coef in enumerate(coefs):
-y = y + coef * x**idx</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">coef</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">coefs</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">coef</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="n">idx</span>
+</pre></div>
+</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
 </div>
 </section>
 <section id="counting-vowels">
