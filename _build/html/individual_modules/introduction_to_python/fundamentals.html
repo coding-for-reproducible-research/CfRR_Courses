@@ -385,7 +385,6 @@
 
 
 <li class="toctree-l2"><a class="reference internal" href="../misc/Python_ScikitLearn.html">Python: Scikit-Learn</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../misc/Python_MachineLearning.html">Python: Machine Learning</a></li>
 </ul>
 </li>
 </ul>
@@ -434,6 +433,37 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
 
 
 
@@ -494,7 +524,7 @@
       
       
       
-      <li><a href="../../_sources/individual_modules/introduction_to_python/fundamentals.md" target="_blank"
+      <li><a href="../../_sources/individual_modules/introduction_to_python/fundamentals.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -504,7 +534,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -635,23 +665,30 @@ document.write(`
 <section id="variables">
 <h2>Variables<a class="headerlink" href="#variables" title="Link to this heading">#</a></h2>
 <p>Any Python interpreter can be used as a calculator:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">*</span> <span class="mi">4</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">*</span> <span class="mi">4</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">23</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23
 </pre></div>
 </div>
-<p>{: .output}</p>
+</div>
+</div>
 <p>This is great but not very interesting.
 To do anything useful with data, we need to assign its value to a <em>variable</em>.
 In Python, we can assign a value to a variable, using the equals sign <code class="docutils literal notranslate"><span class="pre">=</span></code>.
 For example, we can track the weight of a patient who weighs 60 kilograms by
 assigning the value <code class="docutils literal notranslate"><span class="pre">60</span></code> to a variable <code class="docutils literal notranslate"><span class="pre">weight_kg</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">weight_kg</span> <span class="o">=</span> <span class="mi">60</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weight_kg</span> <span class="o">=</span> <span class="mi">60</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
+</div>
+</div>
 <p>From now on, whenever we use <code class="docutils literal notranslate"><span class="pre">weight_kg</span></code>, Python will substitute the value we assigned to
 it. In layperson’s terms, <strong>a variable is a name for a value</strong>.</p>
 <p>In Python, variable names:</p>
@@ -677,221 +714,239 @@ it. In layperson’s terms, <strong>a variable is a name for a value</strong>.</
 <p>In the example above, variable <code class="docutils literal notranslate"><span class="pre">weight_kg</span></code> has an integer value of <code class="docutils literal notranslate"><span class="pre">60</span></code>.
 If we want to more precisely track the weight of our patient,
 we can use a floating point value by executing:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">weight_kg</span> <span class="o">=</span> <span class="mf">60.3</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weight_kg</span> <span class="o">=</span> <span class="mf">60.3</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
+</div>
+</div>
 <p>To create a string, we add single or double quotes around some text.
 To identify and track a patient throughout our study,
 we can assign each person a unique identifier by storing it in a string:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">patient_id</span> <span class="o">=</span> <span class="s1">&#39;001&#39;</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">patient_id</span> <span class="o">=</span> <span class="s1">&#39;001&#39;</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
+</div>
+</div>
 </section>
 <section id="using-variables-in-python">
 <h2>Using Variables in Python<a class="headerlink" href="#using-variables-in-python" title="Link to this heading">#</a></h2>
 <p>Once we have data stored with variable names, we can make use of it in calculations.
 We may want to store our patient’s weight in pounds as well as kilograms:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">weight_lb</span> <span class="o">=</span> <span class="mf">2.2</span> <span class="o">*</span> <span class="n">weight_kg</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weight_lb</span> <span class="o">=</span> <span class="mf">2.2</span> <span class="o">*</span> <span class="n">weight_kg</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
+</div>
+</div>
 <p>We might decide to add a prefix to our patient identifier:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">patient_id</span> <span class="o">=</span> <span class="s1">&#39;inflam_&#39;</span> <span class="o">+</span> <span class="n">patient_id</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">patient_id</span> <span class="o">=</span> <span class="s1">&#39;inflam_&#39;</span> <span class="o">+</span> <span class="n">patient_id</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
+</div>
+</div>
 </section>
 <section id="built-in-python-functions">
 <h2>Built-in Python functions<a class="headerlink" href="#built-in-python-functions" title="Link to this heading">#</a></h2>
 <p>To carry out common tasks with data and variables in Python,
 the language provides us with several built-in functions.
 To display information to the screen, we use the <code class="docutils literal notranslate"><span class="pre">print</span></code> function:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">weight_lb</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">weight_lb</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">patient_id</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">132.66</span>
-<span class="n">inflam_001</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>132.66
+inflam_001
 </pre></div>
 </div>
-<p>{: .output}</p>
-<p>When we want to make use of a function, referred to as calling the function,
-we follow its name by parentheses. The parentheses are important:
-if you leave them off, the function doesn’t actually run!
-Sometimes you will include values or variables inside the parentheses for the function to use.
-In the case of <code class="docutils literal notranslate"><span class="pre">print</span></code>,
-we use the parentheses to tell the function what value we want to display.
-We will learn more about how functions work and how to create our own in later episodes.</p>
+</div>
+</div>
+<p>When we want to make use of a function, referred to as calling the function, we follow its name by parentheses. The parentheses are important: if you leave them off, the function doesn’t actually run! Sometimes you will include values or variables inside the parentheses for the function to use. In the case of <code class="docutils literal notranslate"><span class="pre">print</span></code>, we use the parentheses to tell the function what value we want to display. We will learn more about how functions work and how to create our own in later episodes.</p>
 <p>We can display multiple things at once using only one <code class="docutils literal notranslate"><span class="pre">print</span></code> call:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">patient_id</span><span class="p">,</span> <span class="s1">&#39;weight in kilograms:&#39;</span><span class="p">,</span> <span class="n">weight_kg</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">patient_id</span><span class="p">,</span> <span class="s1">&#39;weight in kilograms:&#39;</span><span class="p">,</span> <span class="n">weight_kg</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">inflam_001</span> <span class="n">weight</span> <span class="ow">in</span> <span class="n">kilograms</span><span class="p">:</span> <span class="mf">60.3</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>inflam_001 weight in kilograms: 60.3
 </pre></div>
 </div>
-<p>{: .output}</p>
-<p>We can also call a function inside of another
-function call. For example, Python has a built-in function called <code class="docutils literal notranslate"><span class="pre">type</span></code> that tells you a value’s data type:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="mf">60.3</span><span class="p">))</span>
+</div>
+</div>
+<p>We can also call a function inside of another function call. For example, Python has a built-in function called <code class="docutils literal notranslate"><span class="pre">type</span></code> that tells you a value’s data type:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="mf">60.3</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">patient_id</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;float&#39;&gt;
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;float&#39;&gt;
 &lt;class &#39;str&#39;&gt;
 </pre></div>
 </div>
-<p>{: .output}</p>
+</div>
+</div>
 <p>Moreover, we can do arithmetic with variables right inside the <code class="docutils literal notranslate"><span class="pre">print</span></code> function:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;weight in pounds:&#39;</span><span class="p">,</span> <span class="mf">2.2</span> <span class="o">*</span> <span class="n">weight_kg</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;weight in pounds:&#39;</span><span class="p">,</span> <span class="mf">2.2</span> <span class="o">*</span> <span class="n">weight_kg</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">weight</span> <span class="ow">in</span> <span class="n">pounds</span><span class="p">:</span> <span class="mf">132.66</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>weight in pounds: 132.66
 </pre></div>
 </div>
-<p>{: .output}</p>
+</div>
+</div>
 <p>The above command, however, did not change the value of <code class="docutils literal notranslate"><span class="pre">weight_kg</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">weight_kg</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">weight_kg</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">60.3</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>60.3
 </pre></div>
 </div>
-<p>{: .output}</p>
-<p>To change the value of the <code class="docutils literal notranslate"><span class="pre">weight_kg</span></code> variable, we have to
-<strong>assign</strong> <code class="docutils literal notranslate"><span class="pre">weight_kg</span></code> a new value using the equals <code class="docutils literal notranslate"><span class="pre">=</span></code> sign:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">weight_kg</span> <span class="o">=</span> <span class="mf">65.0</span>
+</div>
+</div>
+<p>To change the value of the <code class="docutils literal notranslate"><span class="pre">weight_kg</span></code> variable, we have to <strong>assign</strong> <code class="docutils literal notranslate"><span class="pre">weight_kg</span></code> a new value using the equals <code class="docutils literal notranslate"><span class="pre">=</span></code> sign:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weight_kg</span> <span class="o">=</span> <span class="mf">65.0</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;weight in kilograms is now:&#39;</span><span class="p">,</span> <span class="n">weight_kg</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">weight</span> <span class="ow">in</span> <span class="n">kilograms</span> <span class="ow">is</span> <span class="n">now</span><span class="p">:</span> <span class="mf">65.0</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>weight in kilograms is now: 65.0
 </pre></div>
 </div>
-<p>{: .output}</p>
+</div>
+</div>
 </section>
 <section id="variables-as-sticky-notes">
 <h2>Variables as Sticky Notes<a class="headerlink" href="#variables-as-sticky-notes" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>A variable in Python is analogous to a sticky note with a name written on it:
+<p>A variable in Python is analogous to a sticky note with a name written on it:
 assigning a value to a variable is like putting that sticky note on a particular value.</p>
-<p><img alt="Value of 65.0 with weight_kg label stuck on it" src="individual_modules/fig/python-sticky-note-variables-01.svg" /></p>
+<p><img alt="Value of 65.0 with weight_kg label stuck on it" src="../../_images/python-sticky-note-variables-01.svg" /></p>
 <p>Using this analogy, we can investigate how assigning a value to one variable
 does <strong>not</strong> change values of other, seemingly related, variables.  For
 example, let’s store the subject’s weight in pounds in its own variable:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># There are 2.2 pounds per kilogram</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># There are 2.2 pounds per kilogram</span>
 <span class="n">weight_lb</span> <span class="o">=</span> <span class="mf">2.2</span> <span class="o">*</span> <span class="n">weight_kg</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;weight in kilograms:&#39;</span><span class="p">,</span> <span class="n">weight_kg</span><span class="p">,</span> <span class="s1">&#39;and in pounds:&#39;</span><span class="p">,</span> <span class="n">weight_lb</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">weight</span> <span class="ow">in</span> <span class="n">kilograms</span><span class="p">:</span> <span class="mf">65.0</span> <span class="ow">and</span> <span class="ow">in</span> <span class="n">pounds</span><span class="p">:</span> <span class="mf">143.0</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>weight in kilograms: 65.0 and in pounds: 143.0
 </pre></div>
 </div>
-<p>{: .output}</p>
-<p><img alt="Value of 65.0 with weight_kg label stuck on it, and value of 143.0 with weight_lb labelstuck on it" src="individual_modules/fig/python-sticky-note-variables-02.svg" /></p>
-<p>Similar to above, the expression <code class="docutils literal notranslate"><span class="pre">2.2</span> <span class="pre">*</span> <span class="pre">weight_kg</span></code> is evaluated to <code class="docutils literal notranslate"><span class="pre">143.0</span></code>,
-and then this value is assigned to the variable <code class="docutils literal notranslate"><span class="pre">weight_lb</span></code> (i.e. the sticky
-note <code class="docutils literal notranslate"><span class="pre">weight_lb</span></code> is placed on <code class="docutils literal notranslate"><span class="pre">143.0</span></code>). At this point, each variable is
-“stuck” to completely distinct and unrelated values.</p>
+</div>
+</div>
+<p><img alt="Value of 65.0 with weight_kg label stuck on it, and value of 143.0 with weight_lb labelstuck on it" src="../../_images/python-sticky-note-variables-02.svg" /></p>
+<p>Similar to above, the expression <code class="docutils literal notranslate"><span class="pre">2.2</span> <span class="pre">*</span> <span class="pre">weight_kg</span></code> is evaluated to <code class="docutils literal notranslate"><span class="pre">143.0</span></code>, and then this value is assigned to the variable <code class="docutils literal notranslate"><span class="pre">weight_lb</span></code> (i.e. the sticky note <code class="docutils literal notranslate"><span class="pre">weight_lb</span></code> is placed on <code class="docutils literal notranslate"><span class="pre">143.0</span></code>). At this point, each variable is “stuck” to completely distinct and unrelated values.</p>
 <p>Let’s now change <code class="docutils literal notranslate"><span class="pre">weight_kg</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">weight_kg</span> <span class="o">=</span> <span class="mf">100.0</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weight_kg</span> <span class="o">=</span> <span class="mf">100.0</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;weight in kilograms is now:&#39;</span><span class="p">,</span> <span class="n">weight_kg</span><span class="p">,</span> <span class="s1">&#39;and weight in pounds is still:&#39;</span><span class="p">,</span> <span class="n">weight_lb</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">weight</span> <span class="ow">in</span> <span class="n">kilograms</span> <span class="ow">is</span> <span class="n">now</span><span class="p">:</span> <span class="mf">100.0</span> <span class="ow">and</span> <span class="n">weight</span> <span class="ow">in</span> <span class="n">pounds</span> <span class="ow">is</span> <span class="n">still</span><span class="p">:</span> <span class="mf">143.0</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>weight in kilograms is now: 100.0 and weight in pounds is still: 143.0
 </pre></div>
 </div>
-<p>{: .output}</p>
-<p><img alt="Value of 100.0 with label weight_kg stuck on it, and value of 143.0 with label weight_lbstuck on it" src="individual_modules/fig/python-sticky-note-variables-03.svg" /></p>
-<p>Since <code class="docutils literal notranslate"><span class="pre">weight_lb</span></code> doesn’t “remember” where its value comes from,
-it is not updated when we change <code class="docutils literal notranslate"><span class="pre">weight_kg</span></code>.
-{: .callout}</p>
-</div></blockquote>
+</div>
+</div>
+<p><img alt="Value of 100.0 with label weight_kg stuck on it, and value of 143.0 with label weight_lbstuck on it" src="../../_images/python-sticky-note-variables-03.svg" /></p>
+<p>Since <code class="docutils literal notranslate"><span class="pre">weight_lb</span></code> doesn’t “remember” where its value comes from, it is not updated when we change <code class="docutils literal notranslate"><span class="pre">weight_kg</span></code>.</p>
 </section>
 <section id="check-your-understanding">
 <h2>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>What values do the variables <code class="docutils literal notranslate"><span class="pre">mass</span></code> and <code class="docutils literal notranslate"><span class="pre">age</span></code> have after each of the following statements?
-Test your answer by executing the lines.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mass</span> <span class="o">=</span> <span class="mf">47.5</span>
+<p>What values do the variables <code class="docutils literal notranslate"><span class="pre">mass</span></code> and <code class="docutils literal notranslate"><span class="pre">age</span></code> have after each of the following statements? Test your answer by executing the lines.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mass</span> <span class="o">=</span> <span class="mf">47.5</span>
 <span class="n">age</span> <span class="o">=</span> <span class="mi">122</span>
 <span class="n">mass</span> <span class="o">=</span> <span class="n">mass</span> <span class="o">*</span> <span class="mf">2.0</span>
 <span class="n">age</span> <span class="o">=</span> <span class="n">age</span> <span class="o">-</span> <span class="mi">20</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<blockquote>
-<div><h2 class="rubric" id="solution">Solution</h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>`mass` holds a value of 47.5, `age` does not exist
-`mass` still holds a value of 47.5, `age` holds a value of 122
-`mass` now has a value of 95.0, `age`&#39;s value is still 122
-`mass` still has a value of 95.0, `age` now holds 102
-</pre></div>
 </div>
-<p>{: .output}
-{: .solution}
-{: .challenge}</p>
-</div></blockquote>
-</div></blockquote>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mass</span></code> holds a value of 47.5, <code class="docutils literal notranslate"><span class="pre">age</span></code> does not exist</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mass</span></code> still holds a value of 47.5, <code class="docutils literal notranslate"><span class="pre">age</span></code> holds a value of 122</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mass</span></code> now has a value of 95.0, <code class="docutils literal notranslate"><span class="pre">age</span></code>’s value is still 122</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mass</span></code> still has a value of 95.0, <code class="docutils literal notranslate"><span class="pre">age</span></code> now holds 102</p></li>
+</ol>
+</div>
 </section>
 <section id="sorting-out-references">
 <h2>Sorting Out References<a class="headerlink" href="#sorting-out-references" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>Python allows you to assign multiple values to multiple variables in one line by separating
-the variables and values with commas. What does the following program print out?</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">first</span><span class="p">,</span> <span class="n">second</span> <span class="o">=</span> <span class="s1">&#39;Grace&#39;</span><span class="p">,</span> <span class="s1">&#39;Hopper&#39;</span>
+<p>Python allows you to assign multiple values to multiple variables in one line by separatingthe variables and values with commas. What does the following program print out?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first</span><span class="p">,</span> <span class="n">second</span> <span class="o">=</span> <span class="s1">&#39;Grace&#39;</span><span class="p">,</span> <span class="s1">&#39;Hopper&#39;</span>
 <span class="n">third</span><span class="p">,</span> <span class="n">fourth</span> <span class="o">=</span> <span class="n">second</span><span class="p">,</span> <span class="n">first</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">third</span><span class="p">,</span> <span class="n">fourth</span><span class="p">)</span>
+
+<span class="c1"># Solution Code</span>
+<span class="c1">#print(third, fourth)</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<blockquote>
-<div><h2 class="rubric" id="id1">Solution</h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Hopper</span> <span class="n">Grace</span>
-</pre></div>
 </div>
-<p>{: .output}
-{: .solution}
-{: .challenge}</p>
-</div></blockquote>
-</div></blockquote>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>Hopper Grace</p>
+</div>
 </section>
 <section id="seeing-data-types">
 <h2>Seeing Data Types<a class="headerlink" href="#seeing-data-types" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>What are the data types of the following variables?</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">planet</span> <span class="o">=</span> <span class="s1">&#39;Earth&#39;</span>
+<p>What are the data types of the following variables?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">planet</span> <span class="o">=</span> <span class="s1">&#39;Earth&#39;</span>
 <span class="n">apples</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">distance</span> <span class="o">=</span> <span class="mf">10.5</span>
+
+<span class="c1"># Solution Code</span>
+<span class="c1">#print(type(planet))</span>
+<span class="c1">#print(type(apples))</span>
+<span class="c1">#print(type(distance))</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<blockquote>
-<div><h2 class="rubric" id="id2">Solution</h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">planet</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">apples</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">distance</span><span class="p">))</span>
-</pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;str&#39;&gt;
-&lt;class &#39;int&#39;&gt;
-&lt;class &#39;float&#39;&gt;
-</pre></div>
 </div>
-<p>{: .output}
-{: .solution}
-{: .challenge}</p>
-</div></blockquote>
-</div></blockquote>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>&lt;class ‘str’&gt;</p>
+<p>&lt;class ‘int’&gt;</p>
+<p>&lt;class ‘float’&gt;</p>
+</div>
 </section>
 </section>
 

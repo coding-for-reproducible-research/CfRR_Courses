@@ -385,7 +385,6 @@
 
 
 <li class="toctree-l2"><a class="reference internal" href="Python_ScikitLearn.html">Python: Scikit-Learn</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Python_MachineLearning.html">Python: Machine Learning</a></li>
 </ul>
 </li>
 </ul>
@@ -669,131 +668,18 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jupyterquiz</span> <span class="kn">import</span> <span class="n">display_quiz</span>
-<span class="n">display_quiz</span><span class="p">(</span><span class="s2">&quot;../questions/course_skip_quizes/pandas_course_skip_quiz.json&quot;</span><span class="p">)</span>
+<span class="n">display_quiz</span><span class="p">(</span><span class="s2">&quot;../../questions/course_skip_quizes/pandas_course_skip_quiz.json&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">jupyterquiz</span> <span class="kn">import</span> <span class="n">display_quiz</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">display_quiz</span><span class="p">(</span><span class="s2">&quot;../questions/course_skip_quizes/pandas_course_skip_quiz.json&quot;</span><span class="p">)</span>
-
-<span class="nn">File ~/miniconda3/envs/CfRR/lib/python3.12/site-packages/jupyterquiz/dynamic.py:176,</span> in <span class="ni">display_quiz</span><span class="nt">(ref, num, shuffle_questions, shuffle_answers, preserve_responses, border_radius, question_alignment, max_width, colors)</span>
-<span class="g g-Whitespace">    </span><span class="mi">173</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">174</span>     <span class="c1">#print(&quot;File detected&quot;)</span>
-<span class="g g-Whitespace">    </span><span class="mi">175</span>     <span class="n">script</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;var questions</span><span class="si">{</span><span class="n">div_id</span><span class="si">}</span><span class="s2">=&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">176</span>     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">ref</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">177</span>         <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">178</span>             <span class="n">script</span> <span class="o">+=</span> <span class="n">line</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;../questions/course_skip_quizes/pandas_course_skip_quiz.json&#39;
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="course">
-<h2>Course<a class="headerlink" href="#course" title="Link to this heading">#</a></h2>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="problem-setup">
-<h1>Problem Setup<a class="headerlink" href="#problem-setup" title="Link to this heading">#</a></h1>
-<p>Within Leeds centre there is an air pollution monitoring station. We are going to use the real data from the station to guide you through building and analysing a simple machine learning algorithm, using three popular python packages.</p>
-<section id="leeds-air-pollution-monitoring-station">
-<h2>Leeds Air Pollution Monitoring Station<a class="headerlink" href="#leeds-air-pollution-monitoring-station" title="Link to this heading">#</a></h2>
-<p><img alt="LEEDS Air Pollution Monitoring Station" src="individual_modules/images/LEEDS_air_pollution_monitoring_station.png" /></p>
-</section>
-<section id="google-maps-locations-of-leeds-air-pollution-monitoring-station">
-<h2>Google Maps Locations of Leeds Air Pollution Monitoring Station<a class="headerlink" href="#google-maps-locations-of-leeds-air-pollution-monitoring-station" title="Link to this heading">#</a></h2>
-<p><img alt="LEEDS Air Pollution Monitoring Station" src="individual_modules/images/LEED_air_pollution_monitoring_station_google_maps.png" /></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##########</span>
-<span class="c1">##########</span>
-<span class="c1">########## Stage 1: Pandas</span>
-<span class="c1">##########</span>
-<span class="c1">##########</span>
-
-<span class="c1"># The first step that needs to be taken is to import the pandas package into the notebook.</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="pandas-the-python-package">
-<h1>Pandas the Python Package<a class="headerlink" href="#pandas-the-python-package" title="Link to this heading">#</a></h1>
-<p>Pandas has become Python’s de facto standard for data manipulation and analysis in Python, with a particular focus on tabular data.
-As you saw in the previous workshop Python has a range of data structures but if you were given a .csv with air pollution data which data structure would you use?</p>
-<section id="csv-file-within-microsoft-excel">
-<h2>.csv File Within Microsoft Excel<a class="headerlink" href="#csv-file-within-microsoft-excel" title="Link to this heading">#</a></h2>
-<p><img alt=".csv File Within Microsoft Excel" src="individual_modules/misc/images/CSV_File_in_Microsoft_Excel.png" /></p>
-</section>
-<section id="a-dictionary-with-a-list">
-<h2>A dictionary with a list?<a class="headerlink" href="#a-dictionary-with-a-list" title="Link to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">air_pollution_data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;Date&quot;</span><span class="p">:[</span><span class="s2">&quot;01/01/2020 00:00&quot;</span><span class="p">,</span> <span class="s2">&quot;01/01/2020 01:00&quot;</span><span class="p">,</span> <span class="s2">&quot;01/01/2020 02:00&quot;</span><span class="p">,</span> <span class="s2">&quot;01/01/2020 03:00&quot;</span><span class="p">,</span> <span class="s2">&quot;01/01/2020 04:00&quot;</span><span class="p">],</span>
-    <span class="s2">&quot;Air Pollutant NO2&quot;</span><span class="p">:[</span><span class="mf">40.9705</span><span class="p">,</span> <span class="mf">42.53576</span><span class="p">,</span> <span class="mf">41.91247</span><span class="p">,</span> <span class="mf">38.86094</span><span class="p">,</span> <span class="mf">40.12936</span><span class="p">],</span>
-    <span class="s2">&quot;Temperature&quot;</span><span class="p">:[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.9</span><span class="p">,</span> <span class="mf">2.6</span><span class="p">]</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Issues:</p>
-<ul class="simple">
-<li><p>Getting the data into the lists of the dictionary, do we copy and paste from an excel spreadsheet or .txt file and then add commas?</p></li>
-<li><p>How do we perform restructure? E.g. order the dates in reverse order?</p></li>
-<li><p>How do we perform analysis? E.g. get the air pollution on Mondays to find the average air pollution at rush hour?</p></li>
-</ul>
-<p>Pandas helps with all these issues!</p>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="reading-in-data">
-<h1>Reading in Data<a class="headerlink" href="#reading-in-data" title="Link to this heading">#</a></h1>
-<p>Pandas has a range of different methods to read data from files such as .csv, .json, .feather, .pickle and many more. The numerous options for input file types is discussed extensively on the <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/io.html">Pandas IO Tools Page</a></p>
-<ul class="simple">
-<li><p>Depending on the data that you want to read in you will need a different function.</p></li>
-<li><p>All of the functions that pandas offers are available via the documentation online</p></li>
-<li><p>What is documentation?</p>
-<ul>
-<li><p>Documentation in the context of Python packages refers to the collection of descriptive and explanatory materials accompanying the package. This documentation is essential for understanding the package’s functionality, how to use it effectively, and its various features and limitations.</p></li>
-</ul>
-</li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">######</span>
-<span class="c1">###### Exercise 1 - Read and display the data</span>
-<span class="c1">######</span>
-</pre></div>
-</div>
-</div>
-</div>
-<ul class="simple">
-<li><p>Navigate to the Pandas documentation for .read_csv() (<a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html">https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html</a>)</p></li>
-<li><p>Use the python function read_csv() to read in the .csv file “LEED_air_pollution_monitoring_station.csv”</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jupyterquiz</span> <span class="kn">import</span> <span class="n">display_quiz</span>
-<span class="n">display_quiz</span><span class="p">(</span><span class="s2">&quot;../questions/pandas_question_reading_data.json&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div id="dgcWXmtcDJIF" data-shufflequestions="False"
+<div class="output text_html"><div id="OVMFhnTTiGmF" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#dgcWXmtcDJIF {
+#OVMFhnTTiGmF {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -963,13 +849,13 @@ As you saw in the previous workshop Python has a range of data structures but if
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsdgcWXmtcDJIF=[
+</style></div><script type="application/javascript">var questionsOVMFhnTTiGmF=[
     {
         "question": "Which function is used to read a .csv file in Pandas",
         "type": "many_choice",
         "answers": [
             {
-                "answer": ".open_csv()",
+                "answer": "open_csv()",
                 "correct": false,
                 "feedback": "Incorrect."
             },
@@ -985,6 +871,240 @@ As you saw in the previous workshop Python has a range of data structures but if
             },
             {
                 "answer": "load_csv()",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "How can you select the 'Age' columns from a dataframe named 'df'?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "df('Age')",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "df[Age]",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "df['Age']",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "df.Age()",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "Which function would you use to get a quick statistical summary of a DataFrame df?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "df.describe()",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "df.summary()",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "df.info()",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "df.details()",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What is the purpose of the dropna() method in Pandas?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Add new NaN values to the DataFrame",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Drop columns that contain any NaN values",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Drop rows that contain any NaN values",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Both rop columns that contain any NaN values and Drop rows that contain any NaN values are correct",
+                "correct": true,
+                "feedback": "Correct."
+            }
+        ]
+    },
+    {
+        "question": "If you want to change the index of a DataFrame df to be the values from the 'email' column, which method should you use?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "df.set_index('email')",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "df.index('email')",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "df.reset_index('email')",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "df.reindex('email')",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What does the groupby() function allow you to do in Pandas?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Combine several similar rows into one",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Sort the DataFrame based on a specific column",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Split the data into groups based on some criteria",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Merge multiple DataFrames into one",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "How can you handle missing data in a DataFrame df by replacing NaN values with 0?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "df.fillna(0)",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "df.replace_nan(0)",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "df.dropna(0)",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "df.nan_to_num(0)",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What is the output of df.iloc[0] if df is a DataFrame?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "It returns the first row as a Series",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "It returns the first column as a Series",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "It returns the first element of the DataFrame",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "It returns the first index label",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "Which Pandas function would you use to concatenate two DataFrames vertically?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "pd.concat() with parameter axis=0",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "pd.join()",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "pd.merge()",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "pd.append()",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "How do you slice rows 10 through 20 from a DataFrame df?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "df[10:21]",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "df.iloc[10:20]",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "df.loc[10:20]",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "df.rows[10:20]",
                 "correct": false,
                 "feedback": "Incorrect."
             }
@@ -1739,8 +1859,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("dgcWXmtcDJIF")) {
-            show_questions(questionsdgcWXmtcDJIF,  dgcWXmtcDJIF); 
+          if(document.getElementById("OVMFhnTTiGmF")) {
+            show_questions(questionsOVMFhnTTiGmF,  OVMFhnTTiGmF); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -1749,12 +1869,125 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("dgcWXmtcDJIF");
-        // console.log(document.getElementById("dgcWXmtcDJIF"));
+        //console.log("OVMFhnTTiGmF");
+        // console.log(document.getElementById("OVMFhnTTiGmF"));
 
         try_show();
         }
         </script></div>
+</div>
+</section>
+<section id="course">
+<h2>Course<a class="headerlink" href="#course" title="Link to this heading">#</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="problem-setup">
+<h1>Problem Setup<a class="headerlink" href="#problem-setup" title="Link to this heading">#</a></h1>
+<p>Within Leeds centre there is an air pollution monitoring station. We are going to use the real data from the station to guide you through building and analysing a simple machine learning algorithm, using three popular python packages.</p>
+<section id="leeds-air-pollution-monitoring-station">
+<h2>Leeds Air Pollution Monitoring Station<a class="headerlink" href="#leeds-air-pollution-monitoring-station" title="Link to this heading">#</a></h2>
+<p><img alt="LEEDS Air Pollution Monitoring Station" src="individual_modules/images/LEEDS_air_pollution_monitoring_station.png" /></p>
+</section>
+<section id="google-maps-locations-of-leeds-air-pollution-monitoring-station">
+<h2>Google Maps Locations of Leeds Air Pollution Monitoring Station<a class="headerlink" href="#google-maps-locations-of-leeds-air-pollution-monitoring-station" title="Link to this heading">#</a></h2>
+<p><img alt="LEEDS Air Pollution Monitoring Station" src="individual_modules/images/LEED_air_pollution_monitoring_station_google_maps.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##########</span>
+<span class="c1">##########</span>
+<span class="c1">########## Stage 1: Pandas</span>
+<span class="c1">##########</span>
+<span class="c1">##########</span>
+
+<span class="c1"># The first step that needs to be taken is to import the pandas package into the notebook.</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="pandas-the-python-package">
+<h1>Pandas the Python Package<a class="headerlink" href="#pandas-the-python-package" title="Link to this heading">#</a></h1>
+<p>Pandas has become Python’s de facto standard for data manipulation and analysis in Python, with a particular focus on tabular data.
+As you saw in the previous workshop Python has a range of data structures but if you were given a .csv with air pollution data which data structure would you use?</p>
+<section id="csv-file-within-microsoft-excel">
+<h2>.csv File Within Microsoft Excel<a class="headerlink" href="#csv-file-within-microsoft-excel" title="Link to this heading">#</a></h2>
+<p><img alt=".csv File Within Microsoft Excel" src="individual_modules/misc/images/CSV_File_in_Microsoft_Excel.png" /></p>
+</section>
+<section id="a-dictionary-with-a-list">
+<h2>A dictionary with a list?<a class="headerlink" href="#a-dictionary-with-a-list" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">air_pollution_data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Date&quot;</span><span class="p">:[</span><span class="s2">&quot;01/01/2020 00:00&quot;</span><span class="p">,</span> <span class="s2">&quot;01/01/2020 01:00&quot;</span><span class="p">,</span> <span class="s2">&quot;01/01/2020 02:00&quot;</span><span class="p">,</span> <span class="s2">&quot;01/01/2020 03:00&quot;</span><span class="p">,</span> <span class="s2">&quot;01/01/2020 04:00&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;Air Pollutant NO2&quot;</span><span class="p">:[</span><span class="mf">40.9705</span><span class="p">,</span> <span class="mf">42.53576</span><span class="p">,</span> <span class="mf">41.91247</span><span class="p">,</span> <span class="mf">38.86094</span><span class="p">,</span> <span class="mf">40.12936</span><span class="p">],</span>
+    <span class="s2">&quot;Temperature&quot;</span><span class="p">:[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.9</span><span class="p">,</span> <span class="mf">2.6</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Issues:</p>
+<ul class="simple">
+<li><p>Getting the data into the lists of the dictionary, do we copy and paste from an excel spreadsheet or .txt file and then add commas?</p></li>
+<li><p>How do we perform restructure? E.g. order the dates in reverse order?</p></li>
+<li><p>How do we perform analysis? E.g. get the air pollution on Mondays to find the average air pollution at rush hour?</p></li>
+</ul>
+<p>Pandas helps with all these issues!</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="reading-in-data">
+<h1>Reading in Data<a class="headerlink" href="#reading-in-data" title="Link to this heading">#</a></h1>
+<p>Pandas has a range of different methods to read data from files such as .csv, .json, .feather, .pickle and many more. The numerous options for input file types is discussed extensively on the <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/io.html">Pandas IO Tools Page</a></p>
+<ul class="simple">
+<li><p>Depending on the data that you want to read in you will need a different function.</p></li>
+<li><p>All of the functions that pandas offers are available via the documentation online</p></li>
+<li><p>What is documentation?</p>
+<ul>
+<li><p>Documentation in the context of Python packages refers to the collection of descriptive and explanatory materials accompanying the package. This documentation is essential for understanding the package’s functionality, how to use it effectively, and its various features and limitations.</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">######</span>
+<span class="c1">###### Exercise 1 - Read and display the data</span>
+<span class="c1">######</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Navigate to the Pandas documentation for .read_csv() (<a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html">https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html</a>)</p></li>
+<li><p>Use the python function read_csv() to read in the .csv file “LEED_air_pollution_monitoring_station.csv”</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jupyterquiz</span> <span class="kn">import</span> <span class="n">display_quiz</span>
+<span class="n">display_quiz</span><span class="p">(</span><span class="s2">&quot;../questions/pandas_question_reading_data.json&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">jupyterquiz</span> <span class="kn">import</span> <span class="n">display_quiz</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">display_quiz</span><span class="p">(</span><span class="s2">&quot;../questions/pandas_question_reading_data.json&quot;</span><span class="p">)</span>
+
+<span class="nn">File ~/miniconda3/envs/CfRR/lib/python3.12/site-packages/jupyterquiz/dynamic.py:176,</span> in <span class="ni">display_quiz</span><span class="nt">(ref, num, shuffle_questions, shuffle_answers, preserve_responses, border_radius, question_alignment, max_width, colors)</span>
+<span class="g g-Whitespace">    </span><span class="mi">173</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">174</span>     <span class="c1">#print(&quot;File detected&quot;)</span>
+<span class="g g-Whitespace">    </span><span class="mi">175</span>     <span class="n">script</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;var questions</span><span class="si">{</span><span class="n">div_id</span><span class="si">}</span><span class="s2">=&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">176</span>     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">ref</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">177</span>         <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">178</span>             <span class="n">script</span> <span class="o">+=</span> <span class="n">line</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;../questions/pandas_question_reading_data.json&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
