@@ -11,9 +11,15 @@ def display_row_in_markdown(df, workshop_name):
     # Retrieve the first row of the filtered DataFrame
     row_data = filtered_df.iloc[0]
 
+    # Determine the next session date using either 'NextSession' or 'VerboseNextSession'
+    if pd.isna(row_data['NextSession']):
+        next_session = row_data['VerboseNextSession'] if pd.notna(row_data['VerboseNextSession']) else "TBD"
+    else:
+        next_session = row_data['NextSession']
+
     # Start constructing the Markdown content with a header and session information
     markdown_output = f"## Welcome to the {row_data['Workshop']} Workshop\n"
-    markdown_output += f"**Next Session Date:** {row_data['NextSession']}\n\n"
+    markdown_output += f"**Next Session Date:** {next_session}\n\n"
     markdown_output += f"**What to Expect:**\n{row_data['Overview']}\n\n"
 
     # Explain whether registration is currently open or closed in a full sentence
@@ -24,7 +30,7 @@ def display_row_in_markdown(df, workshop_name):
     markdown_output += f"**Registration Status:** {registration_status}\n"
     
     # Provide registration closing date in a friendly format
-    markdown_output += f"**Please register by:** {row_data['ClosingDate']}\n"
+    markdown_output += f"**Please register by:** {row_data['ClosingDate'] if pd.notna(row_data['ClosingDate']) else 'No deadline specified'}\n"
     markdown_output += f"**Installation Instructions:** [Click here to install]({row_data['InstallationLink']})\n"
 
     return markdown_output

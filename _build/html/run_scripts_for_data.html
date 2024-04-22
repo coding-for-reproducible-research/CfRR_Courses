@@ -725,48 +725,12 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">combine_markdown_files</span><span class="p">(</span><span class="n">file_list</span><span class="p">,</span> <span class="n">output_file</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Combine multiple Markdown files into a single file.</span>
-
-<span class="sd">    :param file_list: List of paths to Markdown files to be combined</span>
-<span class="sd">    :param output_file: Path to the output file where combined Markdown will be saved</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">file_path</span> <span class="ow">in</span> <span class="n">file_list</span><span class="p">:</span>
-            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">infile</span><span class="p">:</span>
-                <span class="c1"># Read the content of the file</span>
-                <span class="n">content</span> <span class="o">=</span> <span class="n">infile</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-                
-                <span class="c1"># Write the content to the output file</span>
-                <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
-                
-                <span class="c1"># Optionally, add a newline between files to ensure proper formatting</span>
-                <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">)</span>
-
-<span class="c1"># Example usage:</span>
-
-<span class="n">course_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Introduction to Version Control with Git and GitHub&#39;</span><span class="p">,</span>
- <span class="s1">&#39;Computational Thinking&#39;</span><span class="p">,</span>
- <span class="s1">&#39;Introduction to R&#39;</span><span class="p">,</span>
- <span class="s1">&#39;Regression analysis with R&#39;</span><span class="p">,</span>
- <span class="s1">&#39;Introduction to Unix&#39;</span><span class="p">,</span>
- <span class="s1">&#39;Introduction to Python&#39;</span><span class="p">,</span>
- <span class="s1">&#39;Introduction to HPC at Exeter&#39;</span><span class="p">,</span>
- <span class="s1">&#39;Software development best practice&#39;</span><span class="p">,</span>
- <span class="s1">&#39;Introduction to Julia&#39;</span><span class="p">,</span>
- <span class="s1">&#39;Advanced Regression Analysis&#39;</span><span class="p">,</span>
- <span class="s1">&#39;Intermediate Python&#39;</span><span class="p">,</span>
- <span class="s1">&#39;Intermediate Version Control&#39;</span><span class="p">,</span>
- <span class="s1">&#39;Parallel Computing&#39;</span><span class="p">,</span>
- <span class="s1">&#39;Introduction to Machine Learning&#39;</span><span class="p">,</span>
- <span class="s1">&#39;Working With Data in R&#39;</span><span class="p">]</span>
-<span class="n">file_paths</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">course_name</span> <span class="ow">in</span> <span class="n">course_names</span><span class="p">:</span>
-    <span class="n">output_markdown_file</span> <span class="o">=</span> <span class="s2">&quot;course_details_markdowns/&quot;</span> <span class="o">+</span> <span class="n">course_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;_&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;.md&quot;</span>
-    <span class="n">file_paths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">output_markdown_file</span><span class="p">)</span>
-
-<span class="n">combine_markdown_files</span><span class="p">(</span><span class="n">file_paths</span><span class="p">,</span> <span class="s1">&#39;course_details_markdowns/combined.md&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python<span class="w"> </span>supporting_scripts/generate_upcoming_workshops.py<span class="w"> </span>data/admin/workshop_details.csv<span class="w"> </span>course_details_markdowns/all_upcoming_workshops.md<span class="w"> </span>course_details_markdowns/upcoming_workshops.md
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The markdown files have been successfully created and saved to course_details_markdowns/all_upcoming_workshops.md and course_details_markdowns/upcoming_workshops.md.
 </pre></div>
 </div>
 </div>

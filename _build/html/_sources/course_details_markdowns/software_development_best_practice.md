@@ -5,5 +5,5 @@
 Over two sessions learn about best practices in software development to improve your workflow and increase the impact of your research.
 
 **Registration Status:** Registration is currently closed.
-**Please register by:** nan
+**Please register by:** No deadline specified
 **Installation Instructions:** [Click here to install](nan)
