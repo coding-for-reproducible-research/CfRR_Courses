@@ -370,21 +370,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../computational_thinking/final_exercise.html">Sudoku Task</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/misc.html">Misc</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../misc/Python_NumPy.html">Python: Numpy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../misc/Python_Pandas.html">Python: Pandas</a></li>
-
-
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="../misc/Python_Matplotlib.html">Python: Matplotlib</a></li>
-
-
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="../misc/Python_ScikitLearn.html">Python: Scikit-Learn</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/python_for_data_analysis.html">Python for Data Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -433,6 +419,37 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
 
 
 
@@ -493,7 +510,7 @@
       
       
       
-      <li><a href="../../_sources/individual_modules/introduction_to_python/additional_exercises.md" target="_blank"
+      <li><a href="../../_sources/individual_modules/introduction_to_python/additional_exercises.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -503,7 +520,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -606,9 +623,10 @@ document.write(`
 <h1>Additional Session 1 Exercises<a class="headerlink" href="#additional-session-1-exercises" title="Link to this heading">#</a></h1>
 <section id="swapping-the-contents-of-variables">
 <h2>Swapping the contents of variables<a class="headerlink" href="#swapping-the-contents-of-variables" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>Explain what the overall effect of this code is:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">left</span> <span class="o">=</span> <span class="s1">&#39;L&#39;</span>
+<p>Explain what the overall effect of this code is:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">left</span> <span class="o">=</span> <span class="s1">&#39;L&#39;</span>
 <span class="n">right</span> <span class="o">=</span> <span class="s1">&#39;R&#39;</span>
 
 <span class="n">temp</span> <span class="o">=</span> <span class="n">left</span>
@@ -616,126 +634,106 @@ document.write(`
 <span class="n">right</span> <span class="o">=</span> <span class="n">temp</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
+</div>
+</div>
 <p>Compare it to:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="n">right</span><span class="p">,</span> <span class="n">left</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="n">right</span><span class="p">,</span> <span class="n">left</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<p>Do they always do the same thing?
-Which do you find easier to read?</p>
-<blockquote>
-<div><h2 class="rubric" id="solution">Solution</h2>
-<p>Both examples exchange the values of <code class="docutils literal notranslate"><span class="pre">left</span></code> and <code class="docutils literal notranslate"><span class="pre">right</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Do</span> <span class="n">they</span> <span class="n">always</span> <span class="n">do</span> <span class="n">the</span> <span class="n">same</span> <span class="n">thing</span><span class="err">?</span> <span class="n">Which</span> <span class="n">do</span> <span class="n">you</span> <span class="n">find</span> <span class="n">easier</span> <span class="n">to</span> read<span class="o">?</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R</span> <span class="n">L</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Object `read` not found.
 </pre></div>
 </div>
-<p>{: .output}</p>
-<p>In the first case we used a temporary variable <code class="docutils literal notranslate"><span class="pre">temp</span></code> to keep the value of <code class="docutils literal notranslate"><span class="pre">left</span></code> before we
-overwrite it with the value of <code class="docutils literal notranslate"><span class="pre">right</span></code>. In the second case, <code class="docutils literal notranslate"><span class="pre">right</span></code> and <code class="docutils literal notranslate"><span class="pre">left</span></code> are packed into a
-tuple and then unpacked into <code class="docutils literal notranslate"><span class="pre">left</span></code> and <code class="docutils literal notranslate"><span class="pre">right</span></code>.
-{: .solution}
-{: .challenge}</p>
-</div></blockquote>
-</div></blockquote>
+</div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>Both examples exchange the values of <code class="docutils literal notranslate"><span class="pre">left</span></code> and <code class="docutils literal notranslate"><span class="pre">right</span></code>. In the first case we used a temporary variable <code class="docutils literal notranslate"><span class="pre">temp</span></code> to keep the value of <code class="docutils literal notranslate"><span class="pre">left</span></code> before we overwrite it with the value of <code class="docutils literal notranslate"><span class="pre">right</span></code>. In the second case, <code class="docutils literal notranslate"><span class="pre">right</span></code> and <code class="docutils literal notranslate"><span class="pre">left</span></code> are packed into a tuple and then unpacked into <code class="docutils literal notranslate"><span class="pre">left</span></code> and <code class="docutils literal notranslate"><span class="pre">right</span></code>.</p>
+</div>
 </section>
 <section id="in-place-operators">
 <h2>In-Place Operators<a class="headerlink" href="#in-place-operators" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>Python (and most other languages in the C family) provides
-in-place operators
-that work like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># original value</span>
+<p>Python (and most other languages in the C family) provides in-place operators that work like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># original value</span>
 <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1"># add one to x, assigning result back to x</span>
 <span class="n">x</span> <span class="o">*=</span> <span class="mi">3</span> <span class="c1"># multiply x by 3</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">6</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
 </pre></div>
 </div>
-<p>{: .output}</p>
-<p>Write some code that sums the positive and negative numbers in a list separately,
-using in-place operators.
-Do you think the result is more or less readable
-than writing the same without in-place operators?</p>
-<blockquote>
-<div><h2 class="rubric" id="id1">Solution</h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">positive_sum</span> <span class="o">=</span> <span class="mi">0</span>
+</div>
+</div>
+<p>Write some code that sums the positive and negative numbers in a list separately, using in-place operators. Do you think the result is more or less readable than writing the same without in-place operators?</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">positive_sum</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">negative_sum</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">test_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">test_list</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">positive_sum</span> <span class="o">+=</span> <span class="n">num</span>
-    <span class="k">elif</span> <span class="n">num</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">pass</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">negative_sum</span> <span class="o">+=</span> <span class="n">num</span>
+<span class="k">if</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">positive_sum</span> <span class="o">+=</span> <span class="n">num</span>
+<span class="k">elif</span> <span class="n">num</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">pass</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">negative_sum</span> <span class="o">+=</span> <span class="n">num</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">positive_sum</span><span class="p">,</span> <span class="n">negative_sum</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<p>Here <code class="docutils literal notranslate"><span class="pre">pass</span></code> means “don’t do anything”.
-In this particular case, it’s not actually needed, since if <code class="docutils literal notranslate"><span class="pre">num</span> <span class="pre">==</span> <span class="pre">0</span></code> neither
-sum needs to change, but it illustrates the use of <code class="docutils literal notranslate"><span class="pre">elif</span></code> and <code class="docutils literal notranslate"><span class="pre">pass</span></code>.
-{: .solution}
-{: .challenge}</p>
-</div></blockquote>
-</div></blockquote>
+</div>
+<p>Here <code class="docutils literal notranslate"><span class="pre">pass</span></code> means “don’t do anything”. In this particular case, it’s not actually needed, since if <code class="docutils literal notranslate"><span class="pre">num</span> <span class="pre">==</span> <span class="pre">0</span></code> neither sum needs to change, but it illustrates the use of <code class="docutils literal notranslate"><span class="pre">elif</span></code> and <code class="docutils literal notranslate"><span class="pre">pass</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </section>
 <section id="turn-a-string-into-a-list">
 <h2>Turn a String into a List<a class="headerlink" href="#turn-a-string-into-a-list" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>Use a for-loop to convert the string “hello” into a list of letters:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s2">&quot;h&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="p">,</span> <span class="s2">&quot;l&quot;</span><span class="p">,</span> <span class="s2">&quot;l&quot;</span><span class="p">,</span> <span class="s2">&quot;o&quot;</span><span class="p">]</span>
-</pre></div>
-</div>
-<p>{: .language-python}</p>
-<p>Hint: You can create an empty list like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[]</span>
-</pre></div>
-</div>
-<p>{: .language-python}</p>
-<blockquote>
-<div><h2 class="rubric" id="id2">Solution</h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[]</span>
+<p>Use a for-loop to convert the string “hello” into a list of letters:
+[“h”, “e”, “l”, “l”, “o”]</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="s2">&quot;hello&quot;</span><span class="p">:</span>
-	<span class="n">my_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
+    <span class="n">my_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>{: .language-python}
-{: .solution}
-{: .challenge}</p>
-</div></blockquote>
-</div></blockquote>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </section>
 <section id="reverse-a-string">
 <h2>Reverse a String<a class="headerlink" href="#reverse-a-string" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>Knowing that two strings can be concatenated using the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator,
-write a loop that takes a string
-and produces a new string with the characters in reverse order,
-so <code class="docutils literal notranslate"><span class="pre">'Newton'</span></code> becomes <code class="docutils literal notranslate"><span class="pre">'notweN'</span></code>.</p>
-<blockquote>
-<div><h2 class="rubric" id="id3">Solution</h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">newstring</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<p>Knowing that two strings can be concatenated using the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator, write a loop that takes a string and produces a new string with the characters in reverse order, so <code class="docutils literal notranslate"><span class="pre">'Newton'</span></code> becomes <code class="docutils literal notranslate"><span class="pre">'notweN'</span></code>.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">newstring</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
 <span class="n">oldstring</span> <span class="o">=</span> <span class="s1">&#39;Newton&#39;</span>
 <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">oldstring</span><span class="p">:</span>
     <span class="n">newstring</span> <span class="o">=</span> <span class="n">char</span> <span class="o">+</span> <span class="n">newstring</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">newstring</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>{: .language-python}
-{: .solution}
-{: .challenge}</p>
-</div></blockquote>
-</div></blockquote>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </section>
 </section>
 

@@ -370,21 +370,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../computational_thinking/final_exercise.html">Sudoku Task</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/misc.html">Misc</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../misc/Python_NumPy.html">Python: Numpy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../misc/Python_Pandas.html">Python: Pandas</a></li>
-
-
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="../misc/Python_Matplotlib.html">Python: Matplotlib</a></li>
-
-
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="../misc/Python_ScikitLearn.html">Python: Scikit-Learn</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/python_for_data_analysis.html">Python for Data Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -433,6 +419,37 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
 
 
 
@@ -493,7 +510,7 @@
       
       
       
-      <li><a href="../../_sources/individual_modules/introduction_to_python/dictionaries.md" target="_blank"
+      <li><a href="../../_sources/individual_modules/introduction_to_python/dictionaries.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -503,7 +520,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -634,130 +651,143 @@ document.write(`
 <section id="create-a-dictionary">
 <h2>Create a dictionary<a class="headerlink" href="#create-a-dictionary" title="Link to this heading">#</a></h2>
 <p>Let’s create and use a simple dictionary of scientist’s birth years to illustrate this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">birth_years</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Newton&#39;</span><span class="p">:</span> <span class="mi">1642</span><span class="p">,</span> <span class="s1">&#39;Darwin&#39;</span><span class="p">:</span> <span class="mi">1809</span><span class="p">,</span> <span class="s1">&#39;Einstein&#39;</span><span class="p">:</span> <span class="mi">1979</span><span class="p">,</span> <span class="s1">&#39;Nobel&#39;</span><span class="p">:</span> <span class="mi">1833</span><span class="p">}</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">birth_years</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Newton&#39;</span><span class="p">:</span> <span class="mi">1642</span><span class="p">,</span> <span class="s1">&#39;Darwin&#39;</span><span class="p">:</span> <span class="mi">1809</span><span class="p">,</span> <span class="s1">&#39;Einstein&#39;</span><span class="p">:</span> <span class="mi">1979</span><span class="p">,</span> <span class="s1">&#39;Nobel&#39;</span><span class="p">:</span> <span class="mi">1833</span><span class="p">}</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">birth_years</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;Newton&#39;</span><span class="p">:</span> <span class="mi">1642</span><span class="p">,</span> <span class="s1">&#39;Darwin&#39;</span><span class="p">:</span> <span class="mi">1809</span><span class="p">,</span> <span class="s1">&#39;Einstein&#39;</span><span class="p">:</span> <span class="mi">1979</span><span class="p">,</span> <span class="s1">&#39;Nobel&#39;</span><span class="p">:</span> <span class="mi">1833</span><span class="p">}</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Newton&#39;: 1642, &#39;Darwin&#39;: 1809, &#39;Einstein&#39;: 1979, &#39;Nobel&#39;: 1833}
 </pre></div>
 </div>
-<p>{: .output}</p>
-<p>Here, ‘Newton’, ‘Darwin’, ‘Einstein’ and ‘Nobel’ are keys, and the years are values. Keys and values form a pairwise mapping, allowing the retrieval of a value via the value’s key.</p>
-<p>We can retrieve a value from a dictionary by entering the correct key for this value. We do this using the following syntax:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">value_we_want</span> <span class="o">=</span> <span class="n">dictionary</span><span class="p">[</span><span class="s1">&#39;key_of_value_we_want&#39;</span><span class="p">]</span>
-</pre></div>
 </div>
-<p>{: .language-python}</p>
+</div>
+<p>Here, ‘Newton’, ‘Darwin’, ‘Einstein’ and ‘Nobel’ are keys, and the years are values. Keys and values form a pairwise mapping, allowing the retrieval of a value via the value’s key. We can retrieve a value from a dictionary by entering the correct key for this value. We do this using the following syntax:</p>
+<p>value_we_want = dictionary[‘key_of_value_we_want’]</p>
 <p>This is similar to accessing a value stored in a list. However, the key does not have to be an integer.</p>
 </section>
 <section id="retrieve-a-value">
 <h2>Retrieve a value<a class="headerlink" href="#retrieve-a-value" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>Retrieve the birth year for Isaac Newton from the dictionary of birth years.</p>
-<blockquote>
-<div><h2 class="rubric" id="solution">Solution</h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">birth_years</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Newton&#39;</span><span class="p">:</span> <span class="mi">1642</span><span class="p">,</span> <span class="s1">&#39;Darwin&#39;</span><span class="p">:</span> <span class="mi">1809</span><span class="p">,</span> <span class="s1">&#39;Einstein&#39;</span><span class="p">:</span> <span class="mi">1979</span><span class="p">,</span> <span class="s1">&#39;Nobel&#39;</span><span class="p">:</span> <span class="mi">1833</span><span class="p">}</span>
-<span class="n">birth_years</span><span class="p">[</span><span class="s1">&#39;Newton&#39;</span><span class="p">]</span>
+<p>Retrieve the birth year for Isaac Newton from the dictionary of birth years.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p><code class="docutils literal notranslate"><span class="pre">birth_years</span> <span class="pre">=</span> <span class="pre">{'Newton':</span> <span class="pre">1642,</span> <span class="pre">'Darwin':</span> <span class="pre">1809,</span> <span class="pre">'Einstein':</span> <span class="pre">1979,</span> <span class="pre">'Nobel':</span> <span class="pre">1833}</span></code><br>
+`birth_years[‘Newton’]<br></p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1642</span>
-</pre></div>
-</div>
-<p>{: .output}
-{: .solution}
-{: .challenge}</p>
-</div></blockquote>
-</div></blockquote>
 </section>
 <section id="altering-a-dictionary">
 <h2>Altering a dictionary<a class="headerlink" href="#altering-a-dictionary" title="Link to this heading">#</a></h2>
 <p>Similar to lists, dictionaries are mutable. We can add a value to a dictionary, using a key:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">birth_years</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Newton&#39;</span><span class="p">:</span> <span class="mi">1642</span><span class="p">,</span> <span class="s1">&#39;Darwin&#39;</span><span class="p">:</span> <span class="mi">1809</span><span class="p">,</span> <span class="s1">&#39;Einstein&#39;</span><span class="p">:</span> <span class="mi">1979</span><span class="p">,</span> <span class="s1">&#39;Nobel&#39;</span><span class="p">:</span> <span class="mi">1833</span><span class="p">}</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">birth_years</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Newton&#39;</span><span class="p">:</span> <span class="mi">1642</span><span class="p">,</span> <span class="s1">&#39;Darwin&#39;</span><span class="p">:</span> <span class="mi">1809</span><span class="p">,</span> <span class="s1">&#39;Einstein&#39;</span><span class="p">:</span> <span class="mi">1979</span><span class="p">,</span> <span class="s1">&#39;Nobel&#39;</span><span class="p">:</span> <span class="mi">1833</span><span class="p">}</span>
 <span class="n">birth_years</span><span class="p">[</span><span class="s1">&#39;Turing&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1612</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">birth_years</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;Newton&#39;</span><span class="p">:</span> <span class="mi">1642</span><span class="p">,</span> <span class="s1">&#39;Darwin&#39;</span><span class="p">:</span> <span class="mi">1809</span><span class="p">,</span> <span class="s1">&#39;Einstein&#39;</span><span class="p">:</span> <span class="mi">1979</span><span class="p">,</span> <span class="s1">&#39;Nobel&#39;</span><span class="p">:</span> <span class="mi">1833</span><span class="p">,</span> <span class="s1">&#39;Turing&#39;</span><span class="p">:</span> <span class="mi">1612</span><span class="p">}</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Newton&#39;: 1642, &#39;Darwin&#39;: 1809, &#39;Einstein&#39;: 1979, &#39;Nobel&#39;: 1833, &#39;Turing&#39;: 1612}
 </pre></div>
 </div>
-<p>{: .output}</p>
-<p>Oops, we made a mistake there. Turing was actually born in 1912. We can update a value using a key.</p>
-<p>Turing’s birthdate above is actual incorrect. Values may be overwritten by re-assignment:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">birth_years</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Newton&#39;</span><span class="p">:</span> <span class="mi">1642</span><span class="p">,</span> <span class="s1">&#39;Darwin&#39;</span><span class="p">:</span> <span class="mi">1809</span><span class="p">,</span> <span class="s1">&#39;Einstein&#39;</span><span class="p">:</span> <span class="mi">1979</span><span class="p">,</span> <span class="s1">&#39;Nobel&#39;</span><span class="p">:</span> <span class="mi">1833</span><span class="p">,</span> <span class="s1">&#39;Turing&#39;</span><span class="p">:</span> <span class="mi">1612</span><span class="p">}</span>
+</div>
+</div>
+<p>Oops, we made a mistake there. Turing was actually born in 1912. We can update a value using a key. Turing’s birthdate above is actual incorrect. Values may be overwritten by re-assignment:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">birth_years</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Newton&#39;</span><span class="p">:</span> <span class="mi">1642</span><span class="p">,</span> <span class="s1">&#39;Darwin&#39;</span><span class="p">:</span> <span class="mi">1809</span><span class="p">,</span> <span class="s1">&#39;Einstein&#39;</span><span class="p">:</span> <span class="mi">1979</span><span class="p">,</span> <span class="s1">&#39;Nobel&#39;</span><span class="p">:</span> <span class="mi">1833</span><span class="p">,</span> <span class="s1">&#39;Turing&#39;</span><span class="p">:</span> <span class="mi">1612</span><span class="p">}</span>
 <span class="n">birth_years</span><span class="p">[</span><span class="s1">&#39;Turing&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1912</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">birth_years</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;Newton&#39;</span><span class="p">:</span> <span class="mi">1642</span><span class="p">,</span> <span class="s1">&#39;Darwin&#39;</span><span class="p">:</span> <span class="mi">1809</span><span class="p">,</span> <span class="s1">&#39;Einstein&#39;</span><span class="p">:</span> <span class="mi">1979</span><span class="p">,</span> <span class="s1">&#39;Nobel&#39;</span><span class="p">:</span> <span class="mi">1833</span><span class="p">,</span> <span class="s1">&#39;Turing&#39;</span><span class="p">:</span> <span class="mi">1912</span><span class="p">}</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Newton&#39;: 1642, &#39;Darwin&#39;: 1809, &#39;Einstein&#39;: 1979, &#39;Nobel&#39;: 1833, &#39;Turing&#39;: 1912}
 </pre></div>
 </div>
-<p>{: .output}</p>
+</div>
+</div>
 </section>
 <section id="add-your-own-scientists-to-a-dictionary">
 <h2>Add your own scientists to a dictionary<a class="headerlink" href="#add-your-own-scientists-to-a-dictionary" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>Add two more scientist’s birth years to our dictionary of birth years.</p>
-<blockquote>
-<div><h2 class="rubric" id="id1">Solution</h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">birth_years</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Newton&#39;</span><span class="p">:</span> <span class="mi">1642</span><span class="p">,</span> <span class="s1">&#39;Darwin&#39;</span><span class="p">:</span> <span class="mi">1809</span><span class="p">,</span> <span class="s1">&#39;Einstein&#39;</span><span class="p">:</span> <span class="mi">1979</span><span class="p">,</span> <span class="s1">&#39;Nobel&#39;</span><span class="p">:</span> <span class="mi">1833</span><span class="p">,</span> <span class="s1">&#39;Turing&#39;</span><span class="p">:</span> <span class="mi">1612</span><span class="p">}</span>
-<span class="n">birth_years</span><span class="p">[</span><span class="s1">&#39;Curie&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1867</span>
-<span class="n">birth_years</span><span class="p">[</span><span class="s1">&#39;Franklin&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1920</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">birth_years</span><span class="p">)</span>
+<p>Add two more scientist’s birth years to our dictionary of birth years.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p><code class="docutils literal notranslate"><span class="pre">birth_years</span> <span class="pre">=</span> <span class="pre">{'Newton':</span> <span class="pre">1642,</span> <span class="pre">'Darwin':</span> <span class="pre">1809,</span> <span class="pre">'Einstein':</span> <span class="pre">1979,</span> <span class="pre">'Nobel':</span> <span class="pre">1833,</span> <span class="pre">'Turing':</span> <span class="pre">1612}</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">birth_years['Curie']</span> <span class="pre">=</span> <span class="pre">1867</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">birth_years['Franklin']</span> <span class="pre">=</span> <span class="pre">1920</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">print(birth_years)</span></code><br></p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;Newton&#39;</span><span class="p">:</span> <span class="mi">1642</span><span class="p">,</span> <span class="s1">&#39;Darwin&#39;</span><span class="p">:</span> <span class="mi">1809</span><span class="p">,</span> <span class="s1">&#39;Einstein&#39;</span><span class="p">:</span> <span class="mi">1979</span><span class="p">,</span> <span class="s1">&#39;Nobel&#39;</span><span class="p">:</span> <span class="mi">1833</span><span class="p">,</span> <span class="s1">&#39;Turing&#39;</span><span class="p">:</span> <span class="mi">1612</span><span class="p">,</span> <span class="s1">&#39;Curie&#39;</span><span class="p">:</span> <span class="mi">1867</span><span class="p">,</span> <span class="s1">&#39;Franklin&#39;</span><span class="p">:</span> <span class="mi">1920</span><span class="p">}</span>
-</pre></div>
-</div>
-<p>{: .output}
-{: .solution}
-{: .challenge}</p>
-</div></blockquote>
-</div></blockquote>
 </section>
 <section id="retrieve-all-keys-and-values">
 <h2>Retrieve all keys and values<a class="headerlink" href="#retrieve-all-keys-and-values" title="Link to this heading">#</a></h2>
 <p>Dictionaries contain a number of in-built methods that allow you to easily access the data contained within. These methods are automatically attached to every dictionary.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">birth_years</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Newton&#39;</span><span class="p">:</span> <span class="mi">1642</span><span class="p">,</span> <span class="s1">&#39;Darwin&#39;</span><span class="p">:</span> <span class="mi">1809</span><span class="p">,</span> <span class="s1">&#39;Einstein&#39;</span><span class="p">:</span> <span class="mi">1979</span><span class="p">,</span> <span class="s1">&#39;Nobel&#39;</span><span class="p">:</span> <span class="mi">1833</span><span class="p">,</span> <span class="s1">&#39;Turing&#39;</span><span class="p">:</span> <span class="mi">1612</span><span class="p">,</span> <span class="s1">&#39;Curie&#39;</span><span class="p">:</span> <span class="mi">1867</span><span class="p">,</span> <span class="s1">&#39;Franklin&#39;</span><span class="p">:</span> <span class="mi">1920</span><span class="p">}</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">birth_years</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Newton&#39;</span><span class="p">:</span> <span class="mi">1642</span><span class="p">,</span> <span class="s1">&#39;Darwin&#39;</span><span class="p">:</span> <span class="mi">1809</span><span class="p">,</span> <span class="s1">&#39;Einstein&#39;</span><span class="p">:</span> <span class="mi">1979</span><span class="p">,</span> <span class="s1">&#39;Nobel&#39;</span><span class="p">:</span> <span class="mi">1833</span><span class="p">,</span> <span class="s1">&#39;Turing&#39;</span><span class="p">:</span> <span class="mi">1612</span><span class="p">,</span> <span class="s1">&#39;Curie&#39;</span><span class="p">:</span> <span class="mi">1867</span><span class="p">,</span> <span class="s1">&#39;Franklin&#39;</span><span class="p">:</span> <span class="mi">1920</span><span class="p">}</span>
 <span class="n">birth_years</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dict_keys</span><span class="p">([</span><span class="s1">&#39;Newton&#39;</span><span class="p">,</span> <span class="s1">&#39;Darwin&#39;</span><span class="p">,</span> <span class="s1">&#39;Einstein&#39;</span><span class="p">,</span> <span class="s1">&#39;Nobel&#39;</span><span class="p">,</span> <span class="s1">&#39;Turing&#39;</span><span class="p">,</span> <span class="s1">&#39;Curie&#39;</span><span class="p">,</span> <span class="s1">&#39;Franklin&#39;</span><span class="p">])</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;Newton&#39;, &#39;Darwin&#39;, &#39;Einstein&#39;, &#39;Nobel&#39;, &#39;Turing&#39;, &#39;Curie&#39;, &#39;Franklin&#39;])
 </pre></div>
 </div>
-<p>{: .output}</p>
+</div>
+</div>
 <p>Similarly for values:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">birth_years</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">birth_years</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dict_values</span><span class="p">([</span><span class="mi">1642</span><span class="p">,</span> <span class="mi">1809</span><span class="p">,</span> <span class="mi">1979</span><span class="p">,</span> <span class="mi">1833</span><span class="p">,</span> <span class="mi">1612</span><span class="p">,</span> <span class="mi">1867</span><span class="p">,</span> <span class="mi">1920</span><span class="p">])</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_values([1642, 1809, 1979, 1833, 1612, 1867, 1920])
 </pre></div>
 </div>
-<p>{: .output}</p>
+</div>
+</div>
 <p>We can convert these to lists:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">birth_years</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">birth_years</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1642</span><span class="p">,</span> <span class="mi">1809</span><span class="p">,</span> <span class="mi">1979</span><span class="p">,</span> <span class="mi">1833</span><span class="p">,</span> <span class="mi">1612</span><span class="p">,</span> <span class="mi">1867</span><span class="p">,</span> <span class="mi">1920</span><span class="p">]</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1642, 1809, 1979, 1833, 1612, 1867, 1920]
 </pre></div>
 </div>
-<p>{: .output}</p>
+</div>
+</div>
 <p>And finally, retrieve the key, value pairs together, forming a list of tuples:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">birth_years</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">birth_years</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[(</span><span class="s1">&#39;Newton&#39;</span><span class="p">,</span> <span class="mi">1642</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Darwin&#39;</span><span class="p">,</span> <span class="mi">1809</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Einstein&#39;</span><span class="p">,</span> <span class="mi">1979</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Nobel&#39;</span><span class="p">,</span> <span class="mi">1833</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Turing&#39;</span><span class="p">,</span> <span class="mi">1612</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Curie&#39;</span><span class="p">,</span> <span class="mi">1867</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Franklin&#39;</span><span class="p">,</span> <span class="mi">1920</span><span class="p">)]</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;Newton&#39;, 1642),
+ (&#39;Darwin&#39;, 1809),
+ (&#39;Einstein&#39;, 1979),
+ (&#39;Nobel&#39;, 1833),
+ (&#39;Turing&#39;, 1612),
+ (&#39;Curie&#39;, 1867),
+ (&#39;Franklin&#39;, 1920)]
 </pre></div>
 </div>
-<p>{: .output}</p>
+</div>
+</div>
 </section>
 </section>
 
