@@ -424,6 +424,37 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -479,7 +510,7 @@
       
       
       
-      <li><a href="../../_sources/individual_modules/introduction_to_python/imports.md" target="_blank"
+      <li><a href="../../_sources/individual_modules/introduction_to_python/imports.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -489,7 +520,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -611,22 +642,22 @@ document.write(`
 <section id="importing-a-module">
 <h2>Importing a module<a class="headerlink" href="#importing-a-module" title="Link to this heading">#</a></h2>
 <p>We can import modules included with the standard library immediately. For example, the <code class="docutils literal notranslate"><span class="pre">math</span></code> module gives access to the underlying C library functions for floating point math. Lets import it using the <code class="docutils literal notranslate"><span class="pre">import</span></code> function.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
+</div>
+</div>
 <p>For standard library modules, you do not need to get the package from an external repository. As such, you shouldnt get an error when importing them.</p>
 <p>Try importing a module with an incorrect name:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">thisisanincorrectmodulename</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#import thisisanincorrectmodulename</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">ModuleNotFoundError</span><span class="p">:</span> <span class="n">No</span> <span class="n">module</span> <span class="n">named</span> <span class="s1">&#39;thisisanincorrectmodulename&#39;</span>
-</pre></div>
 </div>
-<p>{: .output}</p>
+</div>
 <p>We might run into a few of these errors when we try to install from external repositories. But dont panic! Usually it means that something has been placed in a strange location, and cant be found.</p>
 </section>
 <section id="using-a-module">
@@ -635,41 +666,40 @@ document.write(`
 <p>But how do we know what is there for us to use?</p>
 <p>The first thing to do is to check the documentation. For the <code class="docutils literal notranslate"><span class="pre">math</span></code> module, this can be found <a class="reference external" href="https://docs.python.org/3/library/math.html">here</a>.</p>
 <p>Lets do a quick calculation with the cosine function and the <code class="docutils literal notranslate"><span class="pre">pi</span></code> constant.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">0.70710678118654757</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7071067811865476
 </pre></div>
 </div>
-<p>{: .output}</p>
+</div>
+</div>
 <p>In addition to reading the documentation, you can type <code class="docutils literal notranslate"><span class="pre">math.</span></code> and then hit the tab key. This should give you a list of everything available to use.</p>
 </section>
 <section id="exercise-generate-random-numbers">
 <h2>Exercise: generate random numbers<a class="headerlink" href="#exercise-generate-random-numbers" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>Write a function that returns a list of n random integers between 0 and 100.
-n should be a function parameter, and you should use the standard library module <code class="docutils literal notranslate"><span class="pre">random</span></code>. The <code class="docutils literal notranslate"><span class="pre">random</span></code> documentation can be found <a class="reference external" href="https://docs.python.org/3/library/random.html">here</a>.</p>
-<blockquote>
-<div><h2 class="rubric" id="solution">Solution</h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<p>Write a function that returns a list of n random integers between 0 and 100. n should be a function parameter, and you should use the standard library module <code class="docutils literal notranslate"><span class="pre">random</span></code>. The <code class="docutils literal notranslate"><span class="pre">random</span></code> documentation can be found <a class="reference external" href="https://docs.python.org/3/library/random.html">here</a>.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
 
 <span class="k">def</span> <span class="nf">generate_random</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Generates n random numbers between 0 and 100, and places them in a list.&quot;&quot;&quot;</span>
-    
     <span class="n">output_list</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
         <span class="n">rand_int</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
         <span class="n">output_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rand_int</span><span class="p">)</span>
-        
     <span class="k">return</span> <span class="n">output_list</span>
 </pre></div>
 </div>
-<p>{: .language-python}
-{: .solution}
-{: .challenge}</p>
-</div></blockquote>
-</div></blockquote>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </section>
 <section id="external-python-libraries">
 <h2>External Python libraries<a class="headerlink" href="#external-python-libraries" title="Link to this heading">#</a></h2>
@@ -693,15 +723,21 @@ n should be a function parameter, and you should use the standard library module
 <p>We have asked you to install Anaconda because it contains many packages commonly used for data science and visualisation, including those above. If you have problems importing these (receive error messages when trying to import them), we will do our best to help you out here. However, this troubleshooting will involve reading error messages: please be patient with us!</p>
 <p>If you want to install these packages manually, we can use various installers.</p>
 <p>The most common is <code class="docutils literal notranslate"><span class="pre">pip</span></code>. For example, to install <code class="docutils literal notranslate"><span class="pre">numpy</span></code> using <code class="docutils literal notranslate"><span class="pre">pip</span></code>, we type in the shell/terminal/command prompt:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">numpy</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pip install numpy</span>
 </pre></div>
 </div>
-<p>{: .language-shell}</p>
+</div>
+</div>
 <p>If we have installed Anaconda, this contains an installer as well. We can use the following. Note that <code class="docutils literal notranslate"><span class="pre">numpy</span></code> is included with <code class="docutils literal notranslate"><span class="pre">conda</span></code>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">numpy</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># conda install numpy</span>
 </pre></div>
 </div>
-<p>{: .language-shell}</p>
+</div>
+</div>
 </section>
 <section id="virtual-environments">
 <h2>Virtual environments<a class="headerlink" href="#virtual-environments" title="Link to this heading">#</a></h2>

@@ -424,6 +424,37 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -479,7 +510,7 @@
       
       
       
-      <li><a href="../../_sources/individual_modules/introduction_to_python/analysis_task_1.md" target="_blank"
+      <li><a href="../../_sources/individual_modules/introduction_to_python/analysis_task_1.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -489,7 +520,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -583,6 +614,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#not-all-functions-have-input">Not All Functions Have Input</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mystery-functions-in-ipython">Mystery Functions in IPython</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing-strings">Slicing Strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thin-slices">Thin Slices</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stacking-arrays">Stacking Arrays</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#change-in-inflammation">Change In Inflammation</a></li>
 </ul>
@@ -629,450 +661,390 @@ We can do that using a library called
 In general, you should use this library when you want to do fancy things with lots of numbers,
 especially if you have matrices or arrays. To tell Python that we’d like to start using NumPy,
 we need to import it:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
+</div>
+</div>
 <p>Importing a library is like getting a piece of lab equipment out of a storage locker and setting it
 up on the bench. Libraries provide additional functionality to the basic Python package, much like
 a new piece of equipment adds functionality to a lab space. Just like in the lab, importing too
 many libraries can sometimes complicate and slow down your programs - so we only import what we
 need for each program.</p>
 <p>Once we’ve imported the library, we can ask the library to read our data file for us:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">fname</span><span class="o">=</span><span class="s1">&#39;data/inflammation-01.csv&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">fname</span><span class="o">=</span><span class="s1">&#39;data/inflammation-01.csv&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span>  <span class="mf">3.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">],</span>
-       <span class="p">[</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>  <span class="mf">2.</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">],</span>
-       <span class="p">[</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span>  <span class="mf">2.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">],</span>
-       <span class="o">...</span><span class="p">,</span>
-       <span class="p">[</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">],</span>
-       <span class="p">[</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">2.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">],</span>
-       <span class="p">[</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">]])</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0., 0., 1., ..., 3., 0., 0.],
+       [0., 1., 2., ..., 1., 0., 1.],
+       [0., 1., 1., ..., 2., 1., 1.],
+       ...,
+       [0., 1., 1., ..., 1., 1., 1.],
+       [0., 0., 0., ..., 0., 2., 0.],
+       [0., 0., 1., ..., 1., 1., 0.]])
 </pre></div>
 </div>
-<p>{: .output}</p>
-<p>The expression <code class="docutils literal notranslate"><span class="pre">np.loadtxt(...)</span></code> is a
-function call
-that asks Python to run the function <code class="docutils literal notranslate"><span class="pre">loadtxt</span></code> which
-belongs to the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> library.
-The dot notation in Python is used most of all as an object attribute/property specifier or for invoking its method. <code class="docutils literal notranslate"><span class="pre">object.property</span></code> will give you the object.property value,
-<code class="docutils literal notranslate"><span class="pre">object_name.method()</span></code> will invoke on object_name method.</p>
-<p>As an example, John Smith is the John that belongs to the Smith family.
-We could use the dot notation to write his name <code class="docutils literal notranslate"><span class="pre">smith.john</span></code>,
-just as <code class="docutils literal notranslate"><span class="pre">loadtxt</span></code> is a function that belongs to the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> library.</p>
-<p><code class="docutils literal notranslate"><span class="pre">np.loadtxt</span></code> has two parameters: the name of the file
-we want to read and the delimiter that separates values
-on a line. These both need to be character strings
-(or strings for short), so we put them in quotes.</p>
-<p>Since we haven’t told it to do anything else with the function’s output,
-the notebook displays it.
-In this case,
-that output is the data we just loaded.
-By default,
-only a few rows and columns are shown
-(with <code class="docutils literal notranslate"><span class="pre">...</span></code> to omit elements when displaying big arrays).
-Note that, to save space when displaying NumPy arrays, Python does not show us trailing zeros,
-so <code class="docutils literal notranslate"><span class="pre">1.0</span></code> becomes <code class="docutils literal notranslate"><span class="pre">1.</span></code>.</p>
-<p>Our call to <code class="docutils literal notranslate"><span class="pre">np.loadtxt</span></code> read our file
-but didn’t save the data in memory.
-To do that,
-we need to assign the array to a variable. In a similar manner to how we assign a single
-value to a variable, we can also assign an array of values to a variable using the same syntax.
-Let’s re-run <code class="docutils literal notranslate"><span class="pre">np.loadtxt</span></code> and save the returned data:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">fname</span><span class="o">=</span><span class="s1">&#39;data/inflammation-01.csv&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+</div>
+</div>
+<p>The expression <code class="docutils literal notranslate"><span class="pre">np.loadtxt(...)</span></code> is a function call that asks Python to run the function <code class="docutils literal notranslate"><span class="pre">loadtxt</span></code> which belongs to the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> library. The dot notation in Python is used most of all as an object attribute/property specifier or for invoking its method. <code class="docutils literal notranslate"><span class="pre">object.property</span></code> will give you the object.property value, <code class="docutils literal notranslate"><span class="pre">object_name.method()</span></code> will invoke on object_name method.</p>
+<p>As an example, John Smith is the John that belongs to the Smith family. We could use the dot notation to write his name <code class="docutils literal notranslate"><span class="pre">smith.john</span></code>, just as <code class="docutils literal notranslate"><span class="pre">loadtxt</span></code> is a function that belongs to the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> library.</p>
+<p><code class="docutils literal notranslate"><span class="pre">np.loadtxt</span></code> has two parameters: the name of the file we want to read and the delimiter that separates values on a line. These both need to be character strings (or strings for short), so we put them in quotes.</p>
+<p>Since we haven’t told it to do anything else with the function’s output, the notebook displays it. In this case, that output is the data we just loaded. By default, only a few rows and columns are shown (with <code class="docutils literal notranslate"><span class="pre">...</span></code> to omit elements when displaying big arrays). Note that, to save space when displaying NumPy arrays, Python does not show us trailing zeros, so <code class="docutils literal notranslate"><span class="pre">1.0</span></code> becomes <code class="docutils literal notranslate"><span class="pre">1.</span></code>.</p>
+<p>Our call to <code class="docutils literal notranslate"><span class="pre">np.loadtxt</span></code> read our file but didn’t save the data in memory. To do that, we need to assign the array to a variable. In a similar manner to how we assign a single value to a variable, we can also assign an array of values to a variable using the same syntax. Let’s re-run <code class="docutils literal notranslate"><span class="pre">np.loadtxt</span></code> and save the returned data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">fname</span><span class="o">=</span><span class="s1">&#39;data/inflammation-01.csv&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
+</div>
+</div>
 <p>This statement doesn’t produce any output because we’ve assigned the output to the variable <code class="docutils literal notranslate"><span class="pre">data</span></code>.
 If we want to check that the data have been loaded,
 we can print the variable’s value:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span> <span class="mf">0.</span>  <span class="mf">0.</span>  <span class="mf">1.</span> <span class="o">...</span><span class="p">,</span>  <span class="mf">3.</span>  <span class="mf">0.</span>  <span class="mf">0.</span><span class="p">]</span>
- <span class="p">[</span> <span class="mf">0.</span>  <span class="mf">1.</span>  <span class="mf">2.</span> <span class="o">...</span><span class="p">,</span>  <span class="mf">1.</span>  <span class="mf">0.</span>  <span class="mf">1.</span><span class="p">]</span>
- <span class="p">[</span> <span class="mf">0.</span>  <span class="mf">1.</span>  <span class="mf">1.</span> <span class="o">...</span><span class="p">,</span>  <span class="mf">2.</span>  <span class="mf">1.</span>  <span class="mf">1.</span><span class="p">]</span>
- <span class="o">...</span><span class="p">,</span>
- <span class="p">[</span> <span class="mf">0.</span>  <span class="mf">1.</span>  <span class="mf">1.</span> <span class="o">...</span><span class="p">,</span>  <span class="mf">1.</span>  <span class="mf">1.</span>  <span class="mf">1.</span><span class="p">]</span>
- <span class="p">[</span> <span class="mf">0.</span>  <span class="mf">0.</span>  <span class="mf">0.</span> <span class="o">...</span><span class="p">,</span>  <span class="mf">0.</span>  <span class="mf">2.</span>  <span class="mf">0.</span><span class="p">]</span>
- <span class="p">[</span> <span class="mf">0.</span>  <span class="mf">0.</span>  <span class="mf">1.</span> <span class="o">...</span><span class="p">,</span>  <span class="mf">1.</span>  <span class="mf">1.</span>  <span class="mf">0.</span><span class="p">]]</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0. 0. 1. ... 3. 0. 0.]
+ [0. 1. 2. ... 1. 0. 1.]
+ [0. 1. 1. ... 2. 1. 1.]
+ ...
+ [0. 1. 1. ... 1. 1. 1.]
+ [0. 0. 0. ... 0. 2. 0.]
+ [0. 0. 1. ... 1. 1. 0.]]
 </pre></div>
 </div>
-<p>{: .output}</p>
-<p>Now that the data are in memory,
-we can manipulate them.
-First,
-let’s ask what type of thing <code class="docutils literal notranslate"><span class="pre">data</span></code> refers to:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</div>
+</div>
+<p>Now that the data are in memory, we can manipulate them. First, let’s ask what type of thing <code class="docutils literal notranslate"><span class="pre">data</span></code> refers to:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;numpy.ndarray&#39;&gt;
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;numpy.ndarray&#39;&gt;
 </pre></div>
 </div>
-<p>{: .output}</p>
-<p>The output tells us that <code class="docutils literal notranslate"><span class="pre">data</span></code> currently refers to
-an N-dimensional array, the functionality for which is provided by the NumPy library.
-These data correspond to arthritis patients’ inflammation.
-The rows are the individual patients, and the columns
-are their daily inflammation measurements.</p>
+</div>
+</div>
+<p>The output tells us that <code class="docutils literal notranslate"><span class="pre">data</span></code> currently refers to an N-dimensional array, the functionality for which is provided by the NumPy library. These data correspond to arthritis patients’ inflammation. The rows are the individual patients, and the columns are their daily inflammation measurements.</p>
 </section>
 <section id="data-type">
 <h2>Data Type<a class="headerlink" href="#data-type" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>A Numpy array contains one or more elements
-of the same type. The <code class="docutils literal notranslate"><span class="pre">type</span></code> function will only tell you that
-a variable is a NumPy array but won’t tell you the type of
-thing inside the array.
-We can find out the type
-of the data contained in the NumPy array.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<p>A Numpy array contains one or more elements of the same type. The <code class="docutils literal notranslate"><span class="pre">type</span></code> function will only tell you that a variable is a NumPy array but won’t tell you the type of thing inside the array. We can find out the type of the data contained in the NumPy array.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">float64</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>float64
 </pre></div>
 </div>
-<p>{: .output}</p>
-<p>This tells us that the NumPy array’s elements are
-floating point numbers.
-{: .callout}</p>
-</div></blockquote>
+</div>
+</div>
+<p>This tells us that the NumPy array’s elements are floating point numbers.</p>
 <p>With the following command, we can see the array’s shape:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(60, 40)
 </pre></div>
 </div>
-<p>{: .output}</p>
-<p>The output tells us that the <code class="docutils literal notranslate"><span class="pre">data</span></code> array variable contains 60 rows and 40 columns. When we
-created the variable <code class="docutils literal notranslate"><span class="pre">data</span></code> to store our arthritis data, we did not only create the array; we also
-created information about the array, called members or
-attributes. This extra information describes <code class="docutils literal notranslate"><span class="pre">data</span></code> in the same way an adjective describes a noun.
-<code class="docutils literal notranslate"><span class="pre">data.shape</span></code> is an attribute of <code class="docutils literal notranslate"><span class="pre">data</span></code> which describes the dimensions of <code class="docutils literal notranslate"><span class="pre">data</span></code>. We use the same
-dotted notation for the attributes of variables that we use for the functions in libraries because
-they have the same part-and-whole relationship.</p>
-<p>If we want to get a single number from the array, we must provide an
-index in square brackets after the variable name, just as we
-do in math when referring to an element of a matrix.  Our inflammation data has two dimensions, so
-we will need to use two indices to refer to one specific value:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;first value in data:&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+</div>
+</div>
+<p>The output tells us that the <code class="docutils literal notranslate"><span class="pre">data</span></code> array variable contains 60 rows and 40 columns. When we created the variable <code class="docutils literal notranslate"><span class="pre">data</span></code> to store our arthritis data, we did not only create the array; we also created information about the array, called members or attributes. This extra information describes <code class="docutils literal notranslate"><span class="pre">data</span></code> in the same way an adjective describes a noun. <code class="docutils literal notranslate"><span class="pre">data.shape</span></code> is an attribute of <code class="docutils literal notranslate"><span class="pre">data</span></code> which describes the dimensions of <code class="docutils literal notranslate"><span class="pre">data</span></code>. We use the same dotted notation for the attributes of variables that we use for the functions in libraries because they have the same part-and-whole relationship.</p>
+<p>If we want to get a single number from the array, we must provide an index in square brackets after the variable name, just as we do in math when referring to an element of a matrix.  Our inflammation data has two dimensions, so we will need to use two indices to refer to one specific value:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;first value in data:&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">first</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span> <span class="mf">0.0</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>first value in data: 0.0
 </pre></div>
 </div>
-<p>{: .output}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;middle value in data:&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;middle value in data:&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">middle</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span> <span class="mf">13.0</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>middle value in data: 13.0
 </pre></div>
 </div>
-<p>{: .output}</p>
-<p>The expression <code class="docutils literal notranslate"><span class="pre">data[30,</span> <span class="pre">20]</span></code> accesses the element at row 30, column 20. While this expression may
-not surprise you,
-<code class="docutils literal notranslate"><span class="pre">data[0,</span> <span class="pre">0]</span></code> might.
-Programming languages like Fortran, MATLAB and R start counting at 1
-because that’s what human beings have done for thousands of years.
-Languages in the C family (including C++, Java, Perl, and Python) count from 0
-because it represents an offset from the first value in the array (the second
-value is offset by one index from the first value). This is closer to the way
-that computers represent arrays (if you are interested in the historical
-reasons behind counting indices from zero, you can read
-<a class="reference external" href="http://exple.tive.org/blarg/2013/10/22/citation-needed/">Mike Hoye’s blog post</a>).
-As a result,
-if we have an M×N array in Python,
-its indices go from 0 to M-1 on the first axis
-and 0 to N-1 on the second.
-It takes a bit of getting used to,
-but one way to remember the rule is that
-the index is how many steps we have to take from the start to get the item we want.</p>
-<p><img alt="&quot;data&quot; is a 3 by 3 numpy array containing row 0: ['A', 'B', 'C'], row 1: ['D', 'E', 'F'], androw 2: ['G', 'H', 'I']. Starting in the upper left hand corner, data[0, 0] = 'A', data[0, 1] = 'B',data[0, 2] = 'C', data[1, 0] = 'D', data[1, 1] = 'E', data[1, 2] = 'F', data[2, 0] = 'G',data[2, 1] = 'H', and data[2, 2] = 'I',in the bottom right hand corner." src="individual_modules/fig/python-zero-index.svg" /></p>
+</div>
+</div>
+<p>The expression <code class="docutils literal notranslate"><span class="pre">data[30,</span> <span class="pre">20]</span></code> accesses the element at row 30, column 20. While this expression may not surprise you, <code class="docutils literal notranslate"><span class="pre">data[0,</span> <span class="pre">0]</span></code> might. Programming languages like Fortran, MATLAB and R start counting at 1 because that’s what human beings have done for thousands of years. Languages in the C family (including C++, Java, Perl, and Python) count from 0 because it represents an offset from the first value in the array (the second value is offset by one index from the first value). This is closer to the way that computers represent arrays (if you are interested in the historical reasons behind counting indices from zero, you can read <a class="reference external" href="http://exple.tive.org/blarg/2013/10/22/citation-needed/">Mike Hoye’s blog post</a>).
+As a result, if we have an M×N array in Python, its indices go from 0 to M-1 on the first axis and 0 to N-1 on the second. It takes a bit of getting used to, but one way to remember the rule is that the index is how many steps we have to take from the start to get the item we want.</p>
+<p><img alt="&quot;data&quot; is a 3 by 3 numpy array containing row 0: ['A', 'B', 'C'], row 1: ['D', 'E', 'F'], androw 2: ['G', 'H', 'I']. Starting in the upper left hand corner, data[0, 0] = 'A', data[0, 1] = 'B',data[0, 2] = 'C', data[1, 0] = 'D', data[1, 1] = 'E', data[1, 2] = 'F', data[2, 0] = 'G',data[2, 1] = 'H', and data[2, 2] = 'I',in the bottom right hand corner." src="../../_images/python-zero-index.svg" /></p>
 </section>
 <section id="in-the-corner">
 <h2>In the Corner<a class="headerlink" href="#in-the-corner" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>What may also surprise you is that when Python displays an array,
-it shows the element with index <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">0]</span></code> in the upper left corner
-rather than the lower left.
-This is consistent with the way mathematicians draw matrices
-but different from the Cartesian coordinates.
-The indices are (row, column) instead of (column, row) for the same reason,
-which can be confusing when plotting data.
-{: .callout}</p>
-</div></blockquote>
+<p>What may also surprise you is that when Python displays an array, it shows the element with index <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">0]</span></code> in the upper left corner rather than the lower left. This is consistent with the way mathematicians draw matrices but different from the Cartesian coordinates. The indices are (row, column) instead of (column, row) for the same reason, which can be confusing when plotting data.</p>
 </section>
 <section id="slicing-data">
 <h2>Slicing data<a class="headerlink" href="#slicing-data" title="Link to this heading">#</a></h2>
-<p>An index like <code class="docutils literal notranslate"><span class="pre">[30,</span> <span class="pre">20]</span></code> selects a single element of an array,
-but we can select whole sections as well.
-For example,
-we can select the first ten days (columns) of values
-for the first four patients (rows) like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span>
+<p>An index like <code class="docutils literal notranslate"><span class="pre">[30,</span> <span class="pre">20]</span></code> selects a single element of an array, but we can select whole sections as well. For example, we can select the first ten days (columns) of values for the first four patients (rows) like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span> <span class="mf">0.</span>  <span class="mf">0.</span>  <span class="mf">1.</span>  <span class="mf">3.</span>  <span class="mf">1.</span>  <span class="mf">2.</span>  <span class="mf">4.</span>  <span class="mf">7.</span>  <span class="mf">8.</span>  <span class="mf">3.</span><span class="p">]</span>
- <span class="p">[</span> <span class="mf">0.</span>  <span class="mf">1.</span>  <span class="mf">2.</span>  <span class="mf">1.</span>  <span class="mf">2.</span>  <span class="mf">1.</span>  <span class="mf">3.</span>  <span class="mf">2.</span>  <span class="mf">2.</span>  <span class="mf">6.</span><span class="p">]</span>
- <span class="p">[</span> <span class="mf">0.</span>  <span class="mf">1.</span>  <span class="mf">1.</span>  <span class="mf">3.</span>  <span class="mf">3.</span>  <span class="mf">2.</span>  <span class="mf">6.</span>  <span class="mf">2.</span>  <span class="mf">5.</span>  <span class="mf">9.</span><span class="p">]</span>
- <span class="p">[</span> <span class="mf">0.</span>  <span class="mf">0.</span>  <span class="mf">2.</span>  <span class="mf">0.</span>  <span class="mf">4.</span>  <span class="mf">2.</span>  <span class="mf">2.</span>  <span class="mf">1.</span>  <span class="mf">6.</span>  <span class="mf">7.</span><span class="p">]]</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0. 0. 1. 3. 1. 2. 4. 7. 8. 3.]
+ [0. 1. 2. 1. 2. 1. 3. 2. 2. 6.]
+ [0. 1. 1. 3. 3. 2. 6. 2. 5. 9.]
+ [0. 0. 2. 0. 4. 2. 2. 1. 6. 7.]]
 </pre></div>
 </div>
-<p>{: .output}</p>
-<p>The slice <code class="docutils literal notranslate"><span class="pre">0:4</span></code> means, “Start at index 0 and go up to,
-but not including, index 4”. Again, the up-to-but-not-including takes a bit of getting used to,
-but the rule is that the difference between the upper and lower bounds is the number of values in
-the slice.</p>
+</div>
+</div>
+<p>The slice <code class="docutils literal notranslate"><span class="pre">0:4</span></code> means, “Start at index 0 and go up to, but not including, index 4”. Again, the up-to-but-not including takes a bit of getting used to, but the rule is that the difference between the upper and lower bounds is the number of values in the slice.</p>
 <p>We don’t have to start slices at 0:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span> <span class="mf">0.</span>  <span class="mf">0.</span>  <span class="mf">1.</span>  <span class="mf">2.</span>  <span class="mf">2.</span>  <span class="mf">4.</span>  <span class="mf">2.</span>  <span class="mf">1.</span>  <span class="mf">6.</span>  <span class="mf">4.</span><span class="p">]</span>
- <span class="p">[</span> <span class="mf">0.</span>  <span class="mf">0.</span>  <span class="mf">2.</span>  <span class="mf">2.</span>  <span class="mf">4.</span>  <span class="mf">2.</span>  <span class="mf">2.</span>  <span class="mf">5.</span>  <span class="mf">5.</span>  <span class="mf">8.</span><span class="p">]</span>
- <span class="p">[</span> <span class="mf">0.</span>  <span class="mf">0.</span>  <span class="mf">1.</span>  <span class="mf">2.</span>  <span class="mf">3.</span>  <span class="mf">1.</span>  <span class="mf">2.</span>  <span class="mf">3.</span>  <span class="mf">5.</span>  <span class="mf">3.</span><span class="p">]</span>
- <span class="p">[</span> <span class="mf">0.</span>  <span class="mf">0.</span>  <span class="mf">0.</span>  <span class="mf">3.</span>  <span class="mf">1.</span>  <span class="mf">5.</span>  <span class="mf">6.</span>  <span class="mf">5.</span>  <span class="mf">5.</span>  <span class="mf">8.</span><span class="p">]</span>
- <span class="p">[</span> <span class="mf">0.</span>  <span class="mf">1.</span>  <span class="mf">1.</span>  <span class="mf">2.</span>  <span class="mf">1.</span>  <span class="mf">3.</span>  <span class="mf">5.</span>  <span class="mf">3.</span>  <span class="mf">5.</span>  <span class="mf">8.</span><span class="p">]]</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0. 0. 1. 2. 2. 4. 2. 1. 6. 4.]
+ [0. 0. 2. 2. 4. 2. 2. 5. 5. 8.]
+ [0. 0. 1. 2. 3. 1. 2. 3. 5. 3.]
+ [0. 0. 0. 3. 1. 5. 6. 5. 5. 8.]
+ [0. 1. 1. 2. 1. 3. 5. 3. 5. 8.]]
 </pre></div>
 </div>
-<p>{: .output}</p>
+</div>
+</div>
 <p>We also don’t have to include the upper and lower bound on the slice.  If we don’t include the lower
 bound, Python uses 0 by default; if we don’t include the upper, the slice runs to the end of the
 axis, and if we don’t include either (i.e., if we use ‘:’ on its own), the slice includes
 everything:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">small</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">36</span><span class="p">:]</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">small</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">36</span><span class="p">:]</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;small is:&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">small</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>{: .language-python}
-The above example selects rows 0 through 2 and columns 36 through to the end of the array.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">small</span> <span class="ow">is</span><span class="p">:</span>
-<span class="p">[[</span> <span class="mf">2.</span>  <span class="mf">3.</span>  <span class="mf">0.</span>  <span class="mf">0.</span><span class="p">]</span>
- <span class="p">[</span> <span class="mf">1.</span>  <span class="mf">1.</span>  <span class="mf">0.</span>  <span class="mf">1.</span><span class="p">]</span>
- <span class="p">[</span> <span class="mf">2.</span>  <span class="mf">2.</span>  <span class="mf">1.</span>  <span class="mf">1.</span><span class="p">]]</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>small is:
+[[2. 3. 0. 0.]
+ [1. 1. 0. 1.]
+ [2. 2. 1. 1.]]
 </pre></div>
 </div>
-<p>{: .output}</p>
+</div>
+</div>
+<p>The above example selects rows 0 through 2 and columns 36 through to the end of the array.</p>
 </section>
 <section id="analyzing-data">
 <h2>Analyzing data<a class="headerlink" href="#analyzing-data" title="Link to this heading">#</a></h2>
-<p>NumPy has several useful functions that take an array as input to perform operations on its values.
-If we want to find the average inflammation for all patients on
-all days, for example, we can ask NumPy to compute <code class="docutils literal notranslate"><span class="pre">data</span></code>’s mean value:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<p>NumPy has several useful functions that take an array as input to perform operations on its values. If we want to find the average inflammation for all patients on all days, for example, we can ask NumPy to compute <code class="docutils literal notranslate"><span class="pre">data</span></code>’s mean value:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">6.14875</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.14875
 </pre></div>
 </div>
-<p>{: .output}</p>
-<p><code class="docutils literal notranslate"><span class="pre">mean</span></code> is a function that takes
-an array as an argument.</p>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">mean</span></code> is a function that takes an array as an argument.</p>
 </section>
 <section id="not-all-functions-have-input">
 <h2>Not All Functions Have Input<a class="headerlink" href="#not-all-functions-have-input" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>Generally, a function uses inputs to produce outputs.
-However, some functions produce outputs without
-needing any input. For example, checking the current time
-doesn’t require any input.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<p>Generally, a function uses inputs to produce outputs.However, some functions produce outputs without
+needing any input. For example, checking the current time doesn’t require any input.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">())</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Sat</span> <span class="n">Mar</span> <span class="mi">26</span> <span class="mi">13</span><span class="p">:</span><span class="mi">07</span><span class="p">:</span><span class="mi">33</span> <span class="mi">2016</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tue Apr 23 09:53:23 2024
 </pre></div>
 </div>
-<p>{: .output}</p>
-<p>For functions that don’t take in any arguments,
-we still need parentheses (<code class="docutils literal notranslate"><span class="pre">()</span></code>)
-to tell Python to go and do something for us.
-{: .callout}</p>
-</div></blockquote>
-<p>Let’s use three other NumPy functions to get some descriptive values about the dataset.
-We’ll also use multiple assignment,
-a convenient Python feature that will enable us to do this all in one line.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">maxval</span><span class="p">,</span> <span class="n">minval</span><span class="p">,</span> <span class="n">stdval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</div>
+</div>
+<p>For functions that don’t take in any arguments, we still need parentheses (<code class="docutils literal notranslate"><span class="pre">()</span></code>) to tell Python to go and do something for us.</p>
+<p>Let’s use three other NumPy functions to get some descriptive values about the dataset. We’ll also use multiple assignment, a convenient Python feature that will enable us to do this all in one line.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">maxval</span><span class="p">,</span> <span class="n">minval</span><span class="p">,</span> <span class="n">stdval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;maximum inflammation:&#39;</span><span class="p">,</span> <span class="n">maxval</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;minimum inflammation:&#39;</span><span class="p">,</span> <span class="n">minval</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;standard deviation:&#39;</span><span class="p">,</span> <span class="n">stdval</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<p>Here we’ve assigned the return value from <code class="docutils literal notranslate"><span class="pre">np.max(data)</span></code> to the variable <code class="docutils literal notranslate"><span class="pre">maxval</span></code>, the value
-from <code class="docutils literal notranslate"><span class="pre">np.min(data)</span></code> to <code class="docutils literal notranslate"><span class="pre">minval</span></code>, and so on.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">maximum</span> <span class="n">inflammation</span><span class="p">:</span> <span class="mf">20.0</span>
-<span class="n">minimum</span> <span class="n">inflammation</span><span class="p">:</span> <span class="mf">0.0</span>
-<span class="n">standard</span> <span class="n">deviation</span><span class="p">:</span> <span class="mf">4.61383319712</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>maximum inflammation: 20.0
+minimum inflammation: 0.0
+standard deviation: 4.613833197118566
 </pre></div>
 </div>
-<p>{: .output}</p>
+</div>
+</div>
+<p>Here we’ve assigned the return value from <code class="docutils literal notranslate"><span class="pre">np.max(data)</span></code> to the variable <code class="docutils literal notranslate"><span class="pre">maxval</span></code>, the value from <code class="docutils literal notranslate"><span class="pre">np.min(data)</span></code> to <code class="docutils literal notranslate"><span class="pre">minval</span></code>, and so on.</p>
 </section>
 <section id="mystery-functions-in-ipython">
 <h2>Mystery Functions in IPython<a class="headerlink" href="#mystery-functions-in-ipython" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>How did we know what functions NumPy has and how to use them?
-If you are working in IPython or in a Jupyter Notebook, there is an easy way to find out.
-If you type the name of something followed by a dot, then you can use
-tab completion
-(e.g. type <code class="docutils literal notranslate"><span class="pre">np.</span></code> and then press <kbd>Tab</kbd>)
-to see a list of all functions and attributes that you can use. After selecting one, you
-can also add a question mark (e.g. <code class="docutils literal notranslate"><span class="pre">np.cumprod?</span></code>), and IPython will return an
-explanation of the method! This is the same as doing <code class="docutils literal notranslate"><span class="pre">help(np.cumprod)</span></code>.
-Similarly, if you are using the “plain vanilla” Python interpreter, you can type <code class="docutils literal notranslate"><span class="pre">np.</span></code>
-and press the <kbd>Tab</kbd> key twice for a listing of what is available. You can then use the
-<code class="docutils literal notranslate"><span class="pre">help()</span></code> function to see an explanation of the function you’re interested in,
-for example: <code class="docutils literal notranslate"><span class="pre">help(np.cumprod)</span></code>.
-{: .callout}</p>
-</div></blockquote>
-<p>When analyzing data, though,
-we often want to look at variations in statistical values,
-such as the maximum inflammation per patient
-or the average inflammation per day.
-One way to do this is to create a new temporary array of the data we want,
-then ask it to do the calculation:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">patient_0</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> <span class="c1"># 0 on the first axis (rows), everything on the second (columns)</span>
+<p>How did we know what functions NumPy has and how to use them? If you are working in IPython or in a Jupyter Notebook, there is an easy way to find out. If you type the name of something followed by a dot, then you can use tab completion (e.g. type <code class="docutils literal notranslate"><span class="pre">np.</span></code> and then press <kbd>Tab</kbd>) to see a list of all functions and attributes that you can use. After selecting one, you can also add a question mark (e.g. <code class="docutils literal notranslate"><span class="pre">np.cumprod?</span></code>), and IPython will return an explanation of the method! This is the same as doing <code class="docutils literal notranslate"><span class="pre">help(np.cumprod)</span></code>. Similarly, if you are using the “plain vanilla” Python interpreter, you can type <code class="docutils literal notranslate"><span class="pre">np.</span></code> and press the <kbd>Tab</kbd> key twice for a listing of what is available. You can then use the <code class="docutils literal notranslate"><span class="pre">help()</span></code> function to see an explanation of the function you’re interested in, for example: <code class="docutils literal notranslate"><span class="pre">help(np.cumprod)</span></code>.</p>
+<p>When analyzing data, though, we often want to look at variations in statistical values, such as the maximum inflammation per patient or the average inflammation per day. One way to do this is to create a new temporary array of the data we want, then ask it to do the calculation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">patient_0</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> <span class="c1"># 0 on the first axis (rows), everything on the second (columns)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;maximum inflammation for patient 0:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">patient_0</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">maximum</span> <span class="n">inflammation</span> <span class="k">for</span> <span class="n">patient</span> <span class="mi">0</span><span class="p">:</span> <span class="mf">18.0</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>maximum inflammation for patient 0: 18.0
 </pre></div>
 </div>
-<p>{: .output}</p>
-<p>Everything in a line of code following the ‘#’ symbol is a
-comment that is ignored by Python.
-Comments allow programmers to leave explanatory notes for other
-programmers or their future selves.</p>
-<p>We don’t actually need to store the row in a variable of its own.
-Instead, we can combine the selection and the function call:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;maximum inflammation for patient 2:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">:]))</span>
+</div>
+</div>
+<p>Everything in a line of code following the ‘#’ symbol is a comment that is ignored by Python. Comments allow programmers to leave explanatory notes for other programmers or their future selves.</p>
+<p>We don’t actually need to store the row in a variable of its own. Instead, we can combine the selection and the function call:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;maximum inflammation for patient 2:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">:]))</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">maximum</span> <span class="n">inflammation</span> <span class="k">for</span> <span class="n">patient</span> <span class="mi">2</span><span class="p">:</span> <span class="mf">19.0</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>maximum inflammation for patient 2: 19.0
 </pre></div>
 </div>
-<p>{: .output}</p>
-<p>What if we need the maximum inflammation for each patient over all days (as in the
-next diagram on the left) or the average for each day (as in the
-diagram on the right)? As the diagram below shows, we want to perform the
-operation across an axis:</p>
-<p><img alt="Per-patient maximum inflammation is computed row-wise across all columns usingnp.max(data, axis=1). Per-day average inflammation is computed column-wise across all rows usingnp.mean(data, axis=0)." src="individual_modules/fig/python-operations-across-axes.png" /></p>
-<p>To support this functionality,
-most array functions allow us to specify the axis we want to work on.
-If we ask for the average across axis 0 (rows in our 2D example),
-we get:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+</div>
+</div>
+<p>What if we need the maximum inflammation for each patient over all days (as in the next diagram on the left) or the average for each day (as in the diagram on the right)? As the diagram below shows, we want to perform the operation across an axis:</p>
+<p><img alt="Per-patient maximum inflammation is computed row-wise across all columns usingnp.max(data, axis=1). Per-day average inflammation is computed column-wise across all rows usingnp.mean(data, axis=0)." src="../../_images/python-operations-across-axes.png" /></p>
+<p>To support this functionality, most array functions allow us to specify the axis we want to work on. If we ask for the average across axis 0 (rows in our 2D example), we get:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>  <span class="mf">0.</span>           <span class="mf">0.45</span>         <span class="mf">1.11666667</span>   <span class="mf">1.75</span>         <span class="mf">2.43333333</span>   <span class="mf">3.15</span>
-   <span class="mf">3.8</span>          <span class="mf">3.88333333</span>   <span class="mf">5.23333333</span>   <span class="mf">5.51666667</span>   <span class="mf">5.95</span>         <span class="mf">5.9</span>
-   <span class="mf">8.35</span>         <span class="mf">7.73333333</span>   <span class="mf">8.36666667</span>   <span class="mf">9.5</span>          <span class="mf">9.58333333</span>
-  <span class="mf">10.63333333</span>  <span class="mf">11.56666667</span>  <span class="mf">12.35</span>        <span class="mf">13.25</span>        <span class="mf">11.96666667</span>
-  <span class="mf">11.03333333</span>  <span class="mf">10.16666667</span>  <span class="mf">10.</span>           <span class="mf">8.66666667</span>   <span class="mf">9.15</span>         <span class="mf">7.25</span>
-   <span class="mf">7.33333333</span>   <span class="mf">6.58333333</span>   <span class="mf">6.06666667</span>   <span class="mf">5.95</span>         <span class="mf">5.11666667</span>   <span class="mf">3.6</span>
-   <span class="mf">3.3</span>          <span class="mf">3.56666667</span>   <span class="mf">2.48333333</span>   <span class="mf">1.5</span>          <span class="mf">1.13333333</span>
-   <span class="mf">0.56666667</span><span class="p">]</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 0.          0.45        1.11666667  1.75        2.43333333  3.15
+  3.8         3.88333333  5.23333333  5.51666667  5.95        5.9
+  8.35        7.73333333  8.36666667  9.5         9.58333333 10.63333333
+ 11.56666667 12.35       13.25       11.96666667 11.03333333 10.16666667
+ 10.          8.66666667  9.15        7.25        7.33333333  6.58333333
+  6.06666667  5.95        5.11666667  3.6         3.3         3.56666667
+  2.48333333  1.5         1.13333333  0.56666667]
 </pre></div>
 </div>
-<p>{: .output}</p>
-<p>As a quick check,
-we can ask this array what its shape is:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</div>
+</div>
+<p>As a quick check, we can ask this array what its shape is:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">40</span><span class="p">,)</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(40,)
 </pre></div>
 </div>
-<p>{: .output}</p>
-<p>The expression <code class="docutils literal notranslate"><span class="pre">(40,)</span></code> tells us we have an N×1 vector,
-so this is the average inflammation per day for all patients.
-If we average across axis 1 (columns in our 2D example), we get:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</div>
+</div>
+<p>The expression <code class="docutils literal notranslate"><span class="pre">(40,)</span></code> tells us we have an N×1 vector, so this is the average inflammation per day for all patients. If we average across axis 1 (columns in our 2D example), we get:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span> <span class="mf">5.45</span>   <span class="mf">5.425</span>  <span class="mf">6.1</span>    <span class="mf">5.9</span>    <span class="mf">5.55</span>   <span class="mf">6.225</span>  <span class="mf">5.975</span>  <span class="mf">6.65</span>   <span class="mf">6.625</span>  <span class="mf">6.525</span>
-  <span class="mf">6.775</span>  <span class="mf">5.8</span>    <span class="mf">6.225</span>  <span class="mf">5.75</span>   <span class="mf">5.225</span>  <span class="mf">6.3</span>    <span class="mf">6.55</span>   <span class="mf">5.7</span>    <span class="mf">5.85</span>   <span class="mf">6.55</span>
-  <span class="mf">5.775</span>  <span class="mf">5.825</span>  <span class="mf">6.175</span>  <span class="mf">6.1</span>    <span class="mf">5.8</span>    <span class="mf">6.425</span>  <span class="mf">6.05</span>   <span class="mf">6.025</span>  <span class="mf">6.175</span>  <span class="mf">6.55</span>
-  <span class="mf">6.175</span>  <span class="mf">6.35</span>   <span class="mf">6.725</span>  <span class="mf">6.125</span>  <span class="mf">7.075</span>  <span class="mf">5.725</span>  <span class="mf">5.925</span>  <span class="mf">6.15</span>   <span class="mf">6.075</span>  <span class="mf">5.75</span>
-  <span class="mf">5.975</span>  <span class="mf">5.725</span>  <span class="mf">6.3</span>    <span class="mf">5.9</span>    <span class="mf">6.75</span>   <span class="mf">5.925</span>  <span class="mf">7.225</span>  <span class="mf">6.15</span>   <span class="mf">5.95</span>   <span class="mf">6.275</span>  <span class="mf">5.7</span>
-  <span class="mf">6.1</span>    <span class="mf">6.825</span>  <span class="mf">5.975</span>  <span class="mf">6.725</span>  <span class="mf">5.7</span>    <span class="mf">6.25</span>   <span class="mf">6.4</span>    <span class="mf">7.05</span>   <span class="mf">5.9</span>  <span class="p">]</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[5.45  5.425 6.1   5.9   5.55  6.225 5.975 6.65  6.625 6.525 6.775 5.8
+ 6.225 5.75  5.225 6.3   6.55  5.7   5.85  6.55  5.775 5.825 6.175 6.1
+ 5.8   6.425 6.05  6.025 6.175 6.55  6.175 6.35  6.725 6.125 7.075 5.725
+ 5.925 6.15  6.075 5.75  5.975 5.725 6.3   5.9   6.75  5.925 7.225 6.15
+ 5.95  6.275 5.7   6.1   6.825 5.975 6.725 5.7   6.25  6.4   7.05  5.9  ]
 </pre></div>
 </div>
-<p>{: .output}</p>
+</div>
+</div>
 <p>which is the average inflammation per patient across all days.</p>
 </section>
 <section id="slicing-strings">
 <h2>Slicing Strings<a class="headerlink" href="#slicing-strings" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>A section of an array is called a slice.
-We can take slices of character strings as well:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">element</span> <span class="o">=</span> <span class="s1">&#39;oxygen&#39;</span>
+<p>A section of an array is called a slice. We can take slices of character strings as well:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">element</span> <span class="o">=</span> <span class="s1">&#39;oxygen&#39;</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;first three characters:&#39;</span><span class="p">,</span> <span class="n">element</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;last three characters:&#39;</span><span class="p">,</span> <span class="n">element</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">first</span> <span class="n">three</span> <span class="n">characters</span><span class="p">:</span> <span class="n">oxy</span>
-<span class="n">last</span> <span class="n">three</span> <span class="n">characters</span><span class="p">:</span> <span class="n">gen</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>first three characters: oxy
+last three characters: gen
 </pre></div>
 </div>
-<p>{: .output}</p>
+</div>
+</div>
 <p>What is the value of <code class="docutils literal notranslate"><span class="pre">element[:4]</span></code>?
 What about <code class="docutils literal notranslate"><span class="pre">element[4:]</span></code>?
 Or <code class="docutils literal notranslate"><span class="pre">element[:]</span></code>?</p>
-<blockquote>
-<div><h2 class="rubric" id="solution">Solution</h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oxyg</span>
-<span class="n">en</span>
-<span class="n">oxygen</span>
-</pre></div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>oxyg
+en
+oxygen</p>
 </div>
-<p>{: .output}
-{: .solution}</p>
-</div></blockquote>
 <p>What is <code class="docutils literal notranslate"><span class="pre">element[-1]</span></code>?
 What is <code class="docutils literal notranslate"><span class="pre">element[-2]</span></code>?</p>
-<blockquote>
-<div><h2 class="rubric" id="id1">Solution</h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n</span>
-<span class="n">e</span>
-</pre></div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>n
+e</p>
 </div>
-<p>{: .output}
-{: .solution}</p>
-</div></blockquote>
-<p>Given those answers,
-explain what <code class="docutils literal notranslate"><span class="pre">element[1:-1]</span></code> does.</p>
-<blockquote>
-<div><h2 class="rubric" id="id2">Solution</h2>
-<p>Creates a substring from index 1 up to (not including) the final index,
-effectively removing the first and last letters from ‘oxygen’
-{: .solution}</p>
-</div></blockquote>
-<p>How can we rewrite the slice for getting the last three characters of <code class="docutils literal notranslate"><span class="pre">element</span></code>,
-so that it works even if we assign a different string to <code class="docutils literal notranslate"><span class="pre">element</span></code>?
-Test your solution with the following strings: <code class="docutils literal notranslate"><span class="pre">carpentry</span></code>, <code class="docutils literal notranslate"><span class="pre">clone</span></code>, <code class="docutils literal notranslate"><span class="pre">hi</span></code>.</p>
-<blockquote>
-<div><h2 class="rubric" id="id3">Solution</h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">element</span> <span class="o">=</span> <span class="s1">&#39;oxygen&#39;</span>
+<p>Given those answers, explain what <code class="docutils literal notranslate"><span class="pre">element[1:-1]</span></code> does.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>Creates a substring from index 1 up to (not including) the final index, effectively removing the first and last letters from ‘oxygen’</p>
+</div>
+<p>How can we rewrite the slice for getting the last three characters of <code class="docutils literal notranslate"><span class="pre">element</span></code>, so that it works even if we assign a different string to <code class="docutils literal notranslate"><span class="pre">element</span></code>? Test your solution with the following strings: <code class="docutils literal notranslate"><span class="pre">carpentry</span></code>, <code class="docutils literal notranslate"><span class="pre">clone</span></code>, <code class="docutils literal notranslate"><span class="pre">hi</span></code>.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">element</span> <span class="o">=</span> <span class="s1">&#39;oxygen&#39;</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;last three characters:&#39;</span><span class="p">,</span> <span class="n">element</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:])</span>
 <span class="n">element</span> <span class="o">=</span> <span class="s1">&#39;carpentry&#39;</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;last three characters:&#39;</span><span class="p">,</span> <span class="n">element</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:])</span>
@@ -1082,44 +1054,31 @@ Test your solution with the following strings: <code class="docutils literal not
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;last three characters:&#39;</span><span class="p">,</span> <span class="n">element</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:])</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">last</span> <span class="n">three</span> <span class="n">characters</span><span class="p">:</span> <span class="n">gen</span>
-<span class="n">last</span> <span class="n">three</span> <span class="n">characters</span><span class="p">:</span> <span class="k">try</span>
-<span class="n">last</span> <span class="n">three</span> <span class="n">characters</span><span class="p">:</span> <span class="n">one</span>
-<span class="n">last</span> <span class="n">three</span> <span class="n">characters</span><span class="p">:</span> <span class="n">hi</span>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<p>{: .output}
-{: .solution}
-{: .challenge}</p>
-</div></blockquote>
-</div></blockquote>
-<blockquote>
-<div><h2 class="rubric" id="thin-slices">Thin Slices</h2>
-<p>The expression <code class="docutils literal notranslate"><span class="pre">element[3:3]</span></code> produces an
-empty string,
-i.e., a string that contains no characters.
-If <code class="docutils literal notranslate"><span class="pre">data</span></code> holds our array of patient data,
-what does <code class="docutils literal notranslate"><span class="pre">data[3:3,</span> <span class="pre">4:4]</span></code> produce?
-What about <code class="docutils literal notranslate"><span class="pre">data[3:3,</span> <span class="pre">:]</span></code>?</p>
-<blockquote>
-<div><h2 class="rubric" id="id4">Solution</h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([],</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float64</span><span class="p">)</span>
+</section>
+<section id="thin-slices">
+<h2>Thin Slices<a class="headerlink" href="#thin-slices" title="Link to this heading">#</a></h2>
+<p>The expression <code class="docutils literal notranslate"><span class="pre">element[3:3]</span></code> produces an empty string, i.e., a string that contains no characters. If <code class="docutils literal notranslate"><span class="pre">data</span></code> holds our array of patient data, what does <code class="docutils literal notranslate"><span class="pre">data[3:3,</span> <span class="pre">4:4]</span></code> produce?What about <code class="docutils literal notranslate"><span class="pre">data[3:3,</span> <span class="pre">:]</span></code>?</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([],</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float64</span><span class="p">)</span>
 <span class="n">array</span><span class="p">([],</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float64</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>{: .output}
-{: .solution}
-{: .challenge}</p>
-</div></blockquote>
-</div></blockquote>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </section>
 <section id="stacking-arrays">
 <h2>Stacking Arrays<a class="headerlink" href="#stacking-arrays" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>Arrays can be concatenated and stacked on top of one another,
-using NumPy’s <code class="docutils literal notranslate"><span class="pre">vstack</span></code> and <code class="docutils literal notranslate"><span class="pre">hstack</span></code> functions for vertical and horizontal stacking, respectively.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<p>Arrays can be concatenated and stacked on top of one another, using NumPy’s <code class="docutils literal notranslate"><span class="pre">vstack</span></code> and <code class="docutils literal notranslate"><span class="pre">hstack</span></code> functions for vertical and horizontal stacking, respectively.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A = &#39;</span><span class="p">)</span>
@@ -1134,174 +1093,128 @@ using NumPy’s <code class="docutils literal notranslate"><span class="pre">vst
 <span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span>
-<span class="p">[[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">]</span>
- <span class="p">[</span><span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span><span class="p">]</span>
- <span class="p">[</span><span class="mi">7</span> <span class="mi">8</span> <span class="mi">9</span><span class="p">]]</span>
-<span class="n">B</span> <span class="o">=</span>
-<span class="p">[[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">]</span>
- <span class="p">[</span><span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span> <span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span><span class="p">]</span>
- <span class="p">[</span><span class="mi">7</span> <span class="mi">8</span> <span class="mi">9</span> <span class="mi">7</span> <span class="mi">8</span> <span class="mi">9</span><span class="p">]]</span>
-<span class="n">C</span> <span class="o">=</span>
-<span class="p">[[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">]</span>
- <span class="p">[</span><span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span><span class="p">]</span>
- <span class="p">[</span><span class="mi">7</span> <span class="mi">8</span> <span class="mi">9</span><span class="p">]</span>
- <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">]</span>
- <span class="p">[</span><span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span><span class="p">]</span>
- <span class="p">[</span><span class="mi">7</span> <span class="mi">8</span> <span class="mi">9</span><span class="p">]]</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A = 
+[[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+B = 
+[[1 2 3 1 2 3]
+ [4 5 6 4 5 6]
+ [7 8 9 7 8 9]]
+C = 
+[[1 2 3]
+ [4 5 6]
+ [7 8 9]
+ [1 2 3]
+ [4 5 6]
+ [7 8 9]]
 </pre></div>
 </div>
-<p>{: .output}</p>
-<p>Write some additional code that slices the first and last columns of <code class="docutils literal notranslate"><span class="pre">A</span></code>,
-and stacks them into a 3x2 array.
-Make sure to <code class="docutils literal notranslate"><span class="pre">print</span></code> the results to verify your solution.</p>
-<blockquote>
-<div><h2 class="rubric" id="id5">Solution</h2>
-<p>A ‘gotcha’ with array indexing is that singleton dimensions
-are dropped by default. That means <code class="docutils literal notranslate"><span class="pre">A[:,</span> <span class="pre">0]</span></code> is a one dimensional
-array, which won’t stack as desired. To preserve singleton dimensions,
-the index itself can be a slice or array. For example, <code class="docutils literal notranslate"><span class="pre">A[:,</span> <span class="pre">:1]</span></code> returns
-a two dimensional array with one singleton dimension (i.e. a column
-vector).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">A</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">1</span><span class="p">],</span> <span class="n">A</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">:]))</span>
+</div>
+</div>
+<p>Write some additional code that slices the first and last columns of <code class="docutils literal notranslate"><span class="pre">A</span></code>, and stacks them into a 3x2 array. Make sure to <code class="docutils literal notranslate"><span class="pre">print</span></code> the results to verify your solution.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>A ‘gotcha’ with array indexing is that singleton dimensions are dropped by default. That means <code class="docutils literal notranslate"><span class="pre">A[:,</span> <span class="pre">0]</span></code> is a one dimensional array, which won’t stack as desired. To preserve singleton dimensions, the index itself can be a slice or array. For example, <code class="docutils literal notranslate"><span class="pre">A[:,</span> <span class="pre">:1]</span></code> returns a two dimensional array with one singleton dimension (i.e. a column vector).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">A</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">1</span><span class="p">],</span> <span class="n">A</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">:]))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;D = &#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">D</span> <span class="o">=</span>
-<span class="p">[[</span><span class="mi">1</span> <span class="mi">3</span><span class="p">]</span>
- <span class="p">[</span><span class="mi">4</span> <span class="mi">6</span><span class="p">]</span>
- <span class="p">[</span><span class="mi">7</span> <span class="mi">9</span><span class="p">]]</span>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<p>{: .output}
-{: .solution}</p>
-</div></blockquote>
-<blockquote>
-<div><h2 class="rubric" id="id6">Solution</h2>
-<p>An alternative way to achieve the same result is to use Numpy’s
-delete function to remove the second column of A.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>An alternative way to achieve the same result is to use Numpy’s delete function to remove the second column of A.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;D = &#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">D</span> <span class="o">=</span>
-<span class="p">[[</span><span class="mi">1</span> <span class="mi">3</span><span class="p">]</span>
- <span class="p">[</span><span class="mi">4</span> <span class="mi">6</span><span class="p">]</span>
- <span class="p">[</span><span class="mi">7</span> <span class="mi">9</span><span class="p">]]</span>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<p>{: .output}
-{: .solution}
-{: .challenge}</p>
-</div></blockquote>
-</div></blockquote>
 </section>
 <section id="change-in-inflammation">
 <h2>Change In Inflammation<a class="headerlink" href="#change-in-inflammation" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>The patient data is <em>longitudinal</em> in the sense that each row represents a
-series of observations relating to one individual.  This means that
-the change in inflammation over time is a meaningful concept.
-Let’s find out how to calculate changes in the data contained in an array
-with NumPy.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">np.diff()</span></code> function takes an array and returns the differences
-between two successive values. Let’s use it to examine the changes
-each day across the first week of patient 3 from our inflammation dataset.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">patient3_week1</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="p">:</span><span class="mi">7</span><span class="p">]</span>
+<p>The patient data is <em>longitudinal</em> in the sense that each row represents a series of observations relating to one individual.  This means that the change in inflammation over time is a meaningful concept. Let’s find out how to calculate changes in the data contained in an array with NumPy.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">np.diff()</span></code> function takes an array and returns the differences between two successive values. Let’s use it to examine the changes each day across the first week of patient 3 from our inflammation dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">patient3_week1</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="p">:</span><span class="mi">7</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">patient3_week1</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="p">[</span><span class="mf">0.</span> <span class="mf">0.</span> <span class="mf">2.</span> <span class="mf">0.</span> <span class="mf">4.</span> <span class="mf">2.</span> <span class="mf">2.</span><span class="p">]</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0. 0. 2. 0. 4. 2. 2.]
 </pre></div>
 </div>
-<p>{: .output}</p>
-<p>Calling <code class="docutils literal notranslate"><span class="pre">np.diff(patient3_week1)</span></code> would do the following calculations</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span> <span class="mi">0</span> <span class="o">-</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span> <span class="o">-</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span> <span class="p">]</span>
+</div>
+</div>
+<p>alling <code class="docutils literal notranslate"><span class="pre">np.diff(patient3_week1)</span></code> would do the following calculations and return the 6 difference values in a new array.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">patient3_week1</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<p>and return the 6 difference values in a new array.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">patient3_week1</span><span class="p">)</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.,  2., -2.,  4., -2.,  0.])
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">2.</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.</span><span class="p">,</span>  <span class="mf">4.</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">])</span>
+</div>
+</div>
+<p>Note that the array of differences is shorter by one element (length 6). When calling <code class="docutils literal notranslate"><span class="pre">np.diff</span></code> with a multi-dimensional array, an <code class="docutils literal notranslate"><span class="pre">axis</span></code> argument may be passed to the function to specify which axis to process. When applying <code class="docutils literal notranslate"><span class="pre">np.diff</span></code> to our 2D inflammation array <code class="docutils literal notranslate"><span class="pre">data</span></code>, which axis would we specify?</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>Since the row axis (0) is patients, it does not make sense to get the difference between two arbitrary patients. The column axis (1) is in days, so the difference is the change in inflammation – a meaningful concept.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
-<p>Note that the array of differences is shorter by one element (length 6).</p>
-<p>When calling <code class="docutils literal notranslate"><span class="pre">np.diff</span></code> with a multi-dimensional array, an <code class="docutils literal notranslate"><span class="pre">axis</span></code> argument may
-be passed to the function to specify which axis to process. When applying
-<code class="docutils literal notranslate"><span class="pre">np.diff</span></code> to our 2D inflammation array <code class="docutils literal notranslate"><span class="pre">data</span></code>, which axis would we specify?</p>
-<blockquote>
-<div><h2 class="rubric" id="id7">Solution</h2>
-<p>Since the row axis (0) is patients, it does not make sense to get the
-difference between two arbitrary patients. The column axis (1) is in
-days, so the difference is the change in inflammation – a meaningful
-concept.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<p>{: .language-python}
-{: .solution}</p>
-</div></blockquote>
-<p>If the shape of an individual data file is <code class="docutils literal notranslate"><span class="pre">(60,</span> <span class="pre">40)</span></code> (60 rows and 40
-columns), what would the shape of the array be after you run the <code class="docutils literal notranslate"><span class="pre">diff()</span></code>
-function and why?</p>
-<blockquote>
-<div><h2 class="rubric" id="id8">Solution</h2>
-<p>The shape will be <code class="docutils literal notranslate"><span class="pre">(60,</span> <span class="pre">39)</span></code> because there is one fewer difference between
-columns than there are columns in the data.
-{: .solution}</p>
-</div></blockquote>
-<p>How would you find the largest change in inflammation for each patient? Does
-it matter if the change in inflammation is an increase or a decrease?</p>
-<blockquote>
-<div><h2 class="rubric" id="id9">Solution</h2>
-<p>By using the <code class="docutils literal notranslate"><span class="pre">np.max()</span></code> function after you apply the <code class="docutils literal notranslate"><span class="pre">np.diff()</span></code>
-function, you will get the largest difference between days.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<p>If the shape of an individual data file is <code class="docutils literal notranslate"><span class="pre">(60,</span> <span class="pre">40)</span></code> (60 rows and 40 columns), what would the shape of the array be after you run the <code class="docutils literal notranslate"><span class="pre">diff()</span></code> function and why?</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>The shape will be <code class="docutils literal notranslate"><span class="pre">(60,</span> <span class="pre">39)</span></code> because there is one fewer difference between columns than there are columns in the data.</p>
+</div>
+<p>How would you find the largest change in inflammation for each patient? Does it matter if the change in inflammation is an increase or a decrease?</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>By using the <code class="docutils literal notranslate"><span class="pre">np.max()</span></code> function after you apply the <code class="docutils literal notranslate"><span class="pre">np.diff()</span></code> function, you will get the largest difference between days.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([</span>  <span class="mf">7.</span><span class="p">,</span>  <span class="mf">12.</span><span class="p">,</span>  <span class="mf">11.</span><span class="p">,</span>  <span class="mf">10.</span><span class="p">,</span>  <span class="mf">11.</span><span class="p">,</span>  <span class="mf">13.</span><span class="p">,</span>  <span class="mf">10.</span><span class="p">,</span>   <span class="mf">8.</span><span class="p">,</span>  <span class="mf">10.</span><span class="p">,</span>  <span class="mf">10.</span><span class="p">,</span>   <span class="mf">7.</span><span class="p">,</span>
-         <span class="mf">7.</span><span class="p">,</span>  <span class="mf">13.</span><span class="p">,</span>   <span class="mf">7.</span><span class="p">,</span>  <span class="mf">10.</span><span class="p">,</span>  <span class="mf">10.</span><span class="p">,</span>   <span class="mf">8.</span><span class="p">,</span>  <span class="mf">10.</span><span class="p">,</span>   <span class="mf">9.</span><span class="p">,</span>  <span class="mf">10.</span><span class="p">,</span>  <span class="mf">13.</span><span class="p">,</span>   <span class="mf">7.</span><span class="p">,</span>
-        <span class="mf">12.</span><span class="p">,</span>   <span class="mf">9.</span><span class="p">,</span>  <span class="mf">12.</span><span class="p">,</span>  <span class="mf">11.</span><span class="p">,</span>  <span class="mf">10.</span><span class="p">,</span>  <span class="mf">10.</span><span class="p">,</span>   <span class="mf">7.</span><span class="p">,</span>  <span class="mf">10.</span><span class="p">,</span>  <span class="mf">11.</span><span class="p">,</span>  <span class="mf">10.</span><span class="p">,</span>   <span class="mf">8.</span><span class="p">,</span>
-        <span class="mf">11.</span><span class="p">,</span>  <span class="mf">12.</span><span class="p">,</span>  <span class="mf">10.</span><span class="p">,</span>   <span class="mf">9.</span><span class="p">,</span>  <span class="mf">10.</span><span class="p">,</span>  <span class="mf">13.</span><span class="p">,</span>  <span class="mf">10.</span><span class="p">,</span>   <span class="mf">7.</span><span class="p">,</span>   <span class="mf">7.</span><span class="p">,</span>  <span class="mf">10.</span><span class="p">,</span>  <span class="mf">13.</span><span class="p">,</span>
-        <span class="mf">12.</span><span class="p">,</span>   <span class="mf">8.</span><span class="p">,</span>   <span class="mf">8.</span><span class="p">,</span>  <span class="mf">10.</span><span class="p">,</span>  <span class="mf">10.</span><span class="p">,</span>   <span class="mf">9.</span><span class="p">,</span>   <span class="mf">8.</span><span class="p">,</span>  <span class="mf">13.</span><span class="p">,</span>  <span class="mf">10.</span><span class="p">,</span>   <span class="mf">7.</span><span class="p">,</span>  <span class="mf">10.</span><span class="p">,</span>
-         <span class="mf">8.</span><span class="p">,</span>  <span class="mf">12.</span><span class="p">,</span>  <span class="mf">10.</span><span class="p">,</span>   <span class="mf">7.</span><span class="p">,</span>  <span class="mf">12.</span><span class="p">])</span>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<p>If inflammation values <em>decrease</em> along an axis, then the difference from
-one element to the next will be negative. If
-you are interested in the <strong>magnitude</strong> of the change and not the
-direction, the <code class="docutils literal notranslate"><span class="pre">np.absolute()</span></code> function will provide that.</p>
-<p>Notice the difference if you get the largest <em>absolute</em> difference
-between readings.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<p>If inflammation values <em>decrease</em> along an axis, then the difference from one element to the next will be negative. If you are interested in the <strong>magnitude</strong> of the change and not the direction, the <code class="docutils literal notranslate"><span class="pre">np.absolute()</span></code> function will provide that.
+Notice the difference if you get the largest <em>absolute</em> difference between readings.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([</span> <span class="mf">12.</span><span class="p">,</span>  <span class="mf">14.</span><span class="p">,</span>  <span class="mf">11.</span><span class="p">,</span>  <span class="mf">13.</span><span class="p">,</span>  <span class="mf">11.</span><span class="p">,</span>  <span class="mf">13.</span><span class="p">,</span>  <span class="mf">10.</span><span class="p">,</span>  <span class="mf">12.</span><span class="p">,</span>  <span class="mf">10.</span><span class="p">,</span>  <span class="mf">10.</span><span class="p">,</span>  <span class="mf">10.</span><span class="p">,</span>
-        <span class="mf">12.</span><span class="p">,</span>  <span class="mf">13.</span><span class="p">,</span>  <span class="mf">10.</span><span class="p">,</span>  <span class="mf">11.</span><span class="p">,</span>  <span class="mf">10.</span><span class="p">,</span>  <span class="mf">12.</span><span class="p">,</span>  <span class="mf">13.</span><span class="p">,</span>   <span class="mf">9.</span><span class="p">,</span>  <span class="mf">10.</span><span class="p">,</span>  <span class="mf">13.</span><span class="p">,</span>   <span class="mf">9.</span><span class="p">,</span>
-        <span class="mf">12.</span><span class="p">,</span>   <span class="mf">9.</span><span class="p">,</span>  <span class="mf">12.</span><span class="p">,</span>  <span class="mf">11.</span><span class="p">,</span>  <span class="mf">10.</span><span class="p">,</span>  <span class="mf">13.</span><span class="p">,</span>   <span class="mf">9.</span><span class="p">,</span>  <span class="mf">13.</span><span class="p">,</span>  <span class="mf">11.</span><span class="p">,</span>  <span class="mf">11.</span><span class="p">,</span>   <span class="mf">8.</span><span class="p">,</span>
-        <span class="mf">11.</span><span class="p">,</span>  <span class="mf">12.</span><span class="p">,</span>  <span class="mf">13.</span><span class="p">,</span>   <span class="mf">9.</span><span class="p">,</span>  <span class="mf">10.</span><span class="p">,</span>  <span class="mf">13.</span><span class="p">,</span>  <span class="mf">11.</span><span class="p">,</span>  <span class="mf">11.</span><span class="p">,</span>  <span class="mf">13.</span><span class="p">,</span>  <span class="mf">11.</span><span class="p">,</span>  <span class="mf">13.</span><span class="p">,</span>
-        <span class="mf">13.</span><span class="p">,</span>  <span class="mf">10.</span><span class="p">,</span>   <span class="mf">9.</span><span class="p">,</span>  <span class="mf">10.</span><span class="p">,</span>  <span class="mf">10.</span><span class="p">,</span>   <span class="mf">9.</span><span class="p">,</span>   <span class="mf">9.</span><span class="p">,</span>  <span class="mf">13.</span><span class="p">,</span>  <span class="mf">10.</span><span class="p">,</span>   <span class="mf">9.</span><span class="p">,</span>  <span class="mf">10.</span><span class="p">,</span>
-        <span class="mf">11.</span><span class="p">,</span>  <span class="mf">13.</span><span class="p">,</span>  <span class="mf">10.</span><span class="p">,</span>  <span class="mf">10.</span><span class="p">,</span>  <span class="mf">12.</span><span class="p">])</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([12., 14., 11., 13., 11., 13., 10., 12., 10., 10., 10., 12., 13.,
+       10., 11., 10., 12., 13.,  9., 10., 13.,  9., 12.,  9., 12., 11.,
+       10., 13.,  9., 13., 11., 11.,  8., 11., 12., 13.,  9., 10., 13.,
+       11., 11., 13., 11., 13., 13., 10.,  9., 10., 10.,  9.,  9., 13.,
+       10.,  9., 10., 11., 13., 10., 10., 12.])
 </pre></div>
 </div>
-<p>{: .language-python}</p>
-</div></blockquote>
-<p>{: .solution}
-{: .challenge}</p>
-</div></blockquote>
+</div>
+</div>
 </section>
 </section>
 
@@ -1379,6 +1292,7 @@ between readings.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#not-all-functions-have-input">Not All Functions Have Input</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mystery-functions-in-ipython">Mystery Functions in IPython</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing-strings">Slicing Strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thin-slices">Thin Slices</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stacking-arrays">Stacking Arrays</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#change-in-inflammation">Change In Inflammation</a></li>
 </ul>
