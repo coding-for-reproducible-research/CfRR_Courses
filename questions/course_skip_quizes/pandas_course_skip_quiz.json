@@ -1,6 +1,6 @@
 [
     {
-        "question": "Which function is used to read a .csv file in Pandas",
+        "question": "Which function is used to read a .csv file in Pandas?",
         "type": "many_choice",
         "answers": [
             {
@@ -130,26 +130,26 @@
         ]
     },
     {
-        "question": "What does the groupby() function allow you to do in Pandas?",
+        "question": "In the dataframe 'df' with the column 'date_string' containing date information in the format '2023-04-25', which of the following correctly converts the column to a datetime format?",
         "type": "many_choice",
         "answers": [
             {
-                "answer": "Combine several similar rows into one",
+                "answer": "df['date_string'] = pd.to_datetime(df['date_string'], format='%Y-%d-%m')",
                 "correct": false,
                 "feedback": "Incorrect."
             },
             {
-                "answer": "Sort the DataFrame based on a specific column",
+                "answer": "df['date_string'].datetime('%Y-%m-%d')",
                 "correct": false,
                 "feedback": "Incorrect."
             },
             {
-                "answer": "Split the data into groups based on some criteria",
+                "answer": "df['date_string'] = pd.to_datetime(df['date_string'], format='%Y-%m-%d')",
                 "correct": true,
                 "feedback": "Correct."
             },
             {
-                "answer": "Merge multiple DataFrames into one",
+                "answer": "df['date_string'].convert('datetime', '%Y-%m-%d')",
                 "correct": false,
                 "feedback": "Incorrect."
             }

@@ -60,6 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'individual_modules/python_for_data_analysis/Python_Pandas';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Python: Matplotlib" href="Python_Matplotlib.html" />
+    <link rel="prev" title="Python: Numpy" href="Python_NumPy.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -121,8 +123,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -145,14 +145,8 @@
   
   
   
-    
-    
-      
-    
-    
-    <img src="../../_static/exeter_logo.png" class="logo__image only-light" alt="Coding For Reproducible Research - Home"/>
-    <script>document.write(`<img src="../../_static/exeter_logo.png" class="logo__image only-dark" alt="Coding For Reproducible Research - Home"/>`);</script>
   
+    <p class="title logo__title">Coding For Reproducible Research</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -225,7 +219,7 @@
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Self Study Notes</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_python.html">Introduction to Python</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/motivation.html">Motivation and Background</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/fundamentals.html">Python Fundamentals</a></li>
@@ -370,7 +364,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../computational_thinking/final_exercise.html">Sudoku Task</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_landing_pages/python_for_data_analysis.html">Python for Data Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../section_landing_pages/python_for_data_analysis.html">Python for Data Analysis</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Python_NumPy.html">Python: Numpy</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Python: Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Python_Matplotlib.html">Python: Matplotlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Python_ScikitLearn.html">Python: Scikit-Learn</a></li>
 </ul>
 </li>
 </ul>
@@ -604,38 +602,41 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Python: Pandas</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-skip-quiz">Course Skip Quiz</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course">Course</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course">Course</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-setup">Problem Setup</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#leeds-air-pollution-monitoring-station">Leeds Air Pollution Monitoring Station</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#google-maps-locations-of-leeds-air-pollution-monitoring-station">Google Maps Locations of Leeds Air Pollution Monitoring Station</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-setup">Problem Setup</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leeds-air-pollution-monitoring-station">Leeds Air Pollution Monitoring Station</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#google-maps-locations-of-leeds-air-pollution-monitoring-station">Google Maps Locations of Leeds Air Pollution Monitoring Station</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">Pandas</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#csv-file-within-microsoft-excel">.csv File Within Microsoft Excel</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-dictionary-with-a-list">A dictionary with a list?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-in-data">Reading in Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-read-and-display-the-data">Exercise 1 - Read and display the data</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-the-python-package">Pandas the Python Package</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#csv-file-within-microsoft-excel">.csv File Within Microsoft Excel</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-dictionary-with-a-list">A dictionary with a list?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-dataframe">What is a dataframe?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-data-about-the-dataframe">Accessing Data about the dataframe</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#improving-readability">Improving Readability</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-improving-readability">Exercise 2 - Improving Readability</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-in-data">Reading in Data</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-answer-read-and-display-the-data">Exercise 1 Answer - Read and Display the Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-dataframe">What is a dataframe?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-data-about-the-dataframe">Accessing Data about the dataframe</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#improving-readability">Improving Readability</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-answer-improving-readability">Exercise 2 Answer - Improving Readability</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#performing-analysis">Performing Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-subsetting-data">Exercise 3 - Subsetting Data</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing">Indexing</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4">Exercise 4</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#datetimes">Datetimes</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-data">Removing Data</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#performing-analysis">Performing Analysis</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-answer-subsetting-data">Exercise 3 Answer - Subsetting Data</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-data">Removing Data</a></li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -653,13 +654,13 @@ document.write(`
 <p>The following questions are aimed at testing your understanding of the content that is covered within this course. There is no defined threshold where we believe you should attend the course if you score below. Rather it is aimed to make you engage with the content and reflect for yourself if you feel you would benefit from attending the course. Of note, is that the quiz is intended for you to use google throuhgout and engage with documentation. Even if you get all of the questions right, you are ofcourse more than welcome to still attend the course and use it as a refresher!</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="bEWrSScBmMSM" data-shufflequestions="False"
+<div class="output text_html"><div id="HROWMuSMEcwg" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#bEWrSScBmMSM {
+#HROWMuSMEcwg {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -829,7 +830,7 @@ document.write(`
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsbEWrSScBmMSM=[
+</style></div><script type="application/javascript">var questionsHROWMuSMEcwg=[
     {
         "question": "Which function is used to read a .csv file in Pandas",
         "type": "many_choice",
@@ -961,26 +962,26 @@ document.write(`
         ]
     },
     {
-        "question": "What does the groupby() function allow you to do in Pandas?",
+        "question": "In the dataframe 'df' with the column 'date_string' containing date information in the format '2023-04-01', which of the following correctly converts the column to a datetime format?",
         "type": "many_choice",
         "answers": [
             {
-                "answer": "Combine several similar rows into one",
+                "answer": "df['date_string'] = pd.to_datetime(df['date_string'], format='%Y-%d-%m')",
                 "correct": false,
                 "feedback": "Incorrect."
             },
             {
-                "answer": "Sort the DataFrame based on a specific column",
+                "answer": "df['date_string'].datetime('%Y-%m-%d')",
                 "correct": false,
                 "feedback": "Incorrect."
             },
             {
-                "answer": "Split the data into groups based on some criteria",
+                "answer": "df['date_string'] = pd.to_datetime(df['date_string'], format='%Y-%m-%d')",
                 "correct": true,
                 "feedback": "Correct."
             },
             {
-                "answer": "Merge multiple DataFrames into one",
+                "answer": "df['date_string'].convert('datetime', '%Y-%m-%d')",
                 "correct": false,
                 "feedback": "Incorrect."
             }
@@ -1839,8 +1840,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("bEWrSScBmMSM")) {
-            show_questions(questionsbEWrSScBmMSM,  bEWrSScBmMSM); 
+          if(document.getElementById("HROWMuSMEcwg")) {
+            show_questions(questionsHROWMuSMEcwg,  HROWMuSMEcwg); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -1849,8 +1850,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("bEWrSScBmMSM");
-        // console.log(document.getElementById("bEWrSScBmMSM"));
+        //console.log("HROWMuSMEcwg");
+        // console.log(document.getElementById("HROWMuSMEcwg"));
 
         try_show();
         }
@@ -1859,44 +1860,36 @@ if (typeof version == 'undefined') {
 </section>
 <section id="course">
 <h2>Course<a class="headerlink" href="#course" title="Link to this heading">#</a></h2>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="problem-setup">
-<h1>Problem Setup<a class="headerlink" href="#problem-setup" title="Link to this heading">#</a></h1>
+<section id="problem-setup">
+<h3>Problem Setup<a class="headerlink" href="#problem-setup" title="Link to this heading">#</a></h3>
 <p>Within Leeds centre there is an air pollution monitoring station. We are going to use the real data from the station to guide you through building and analysing a simple machine learning algorithm, using three popular python packages.</p>
 <section id="leeds-air-pollution-monitoring-station">
-<h2>Leeds Air Pollution Monitoring Station<a class="headerlink" href="#leeds-air-pollution-monitoring-station" title="Link to this heading">#</a></h2>
-<p><img alt="LEEDS Air Pollution Monitoring Station" src="individual_modules/images/LEEDS_air_pollution_monitoring_station.png" /></p>
+<h4>Leeds Air Pollution Monitoring Station<a class="headerlink" href="#leeds-air-pollution-monitoring-station" title="Link to this heading">#</a></h4>
+<p><img alt="LEEDS Air Pollution Monitoring Station" src="../../_images/LEEDS_air_pollution_monitoring_station.png" /></p>
 </section>
 <section id="google-maps-locations-of-leeds-air-pollution-monitoring-station">
-<h2>Google Maps Locations of Leeds Air Pollution Monitoring Station<a class="headerlink" href="#google-maps-locations-of-leeds-air-pollution-monitoring-station" title="Link to this heading">#</a></h2>
-<p><img alt="LEEDS Air Pollution Monitoring Station" src="individual_modules/images/LEED_air_pollution_monitoring_station_google_maps.png" /></p>
+<h4>Google Maps Locations of Leeds Air Pollution Monitoring Station<a class="headerlink" href="#google-maps-locations-of-leeds-air-pollution-monitoring-station" title="Link to this heading">#</a></h4>
+<p><img alt="LEEDS Air Pollution Monitoring Station" src="../../_images/LEED_air_pollution_monitoring_station_google_maps.png" /></p>
+</section>
+</section>
+<section id="pandas">
+<h3>Pandas<a class="headerlink" href="#pandas" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##########</span>
-<span class="c1">##########</span>
-<span class="c1">########## Stage 1: Pandas</span>
-<span class="c1">##########</span>
-<span class="c1">##########</span>
-
-<span class="c1"># The first step that needs to be taken is to import the pandas package into the notebook.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The first step that needs to be taken is to import the pandas package into the notebook.</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="pandas-the-python-package">
-<h1>Pandas the Python Package<a class="headerlink" href="#pandas-the-python-package" title="Link to this heading">#</a></h1>
 <p>Pandas has become Python’s de facto standard for data manipulation and analysis in Python, with a particular focus on tabular data.
 As you saw in the previous workshop Python has a range of data structures but if you were given a .csv with air pollution data which data structure would you use?</p>
 <section id="csv-file-within-microsoft-excel">
-<h2>.csv File Within Microsoft Excel<a class="headerlink" href="#csv-file-within-microsoft-excel" title="Link to this heading">#</a></h2>
-<p><img alt=".csv File Within Microsoft Excel" src="individual_modules/python_for_data_analysis/images/CSV_File_in_Microsoft_Excel.png" /></p>
+<h4>.csv File Within Microsoft Excel<a class="headerlink" href="#csv-file-within-microsoft-excel" title="Link to this heading">#</a></h4>
+<p><img alt=".csv File Within Microsoft Excel" src="../../_images/CSV_File_in_Microsoft_Excel.png" /></p>
 </section>
 <section id="a-dictionary-with-a-list">
-<h2>A dictionary with a list?<a class="headerlink" href="#a-dictionary-with-a-list" title="Link to this heading">#</a></h2>
+<h4>A dictionary with a list?<a class="headerlink" href="#a-dictionary-with-a-list" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">air_pollution_data</span> <span class="o">=</span> <span class="p">{</span>
@@ -1916,9 +1909,8 @@ As you saw in the previous workshop Python has a range of data structures but if
 </ul>
 <p>Pandas helps with all these issues!</p>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="reading-in-data">
-<h1>Reading in Data<a class="headerlink" href="#reading-in-data" title="Link to this heading">#</a></h1>
+<section id="reading-in-data">
+<h4>Reading in Data<a class="headerlink" href="#reading-in-data" title="Link to this heading">#</a></h4>
 <p>Pandas has a range of different methods to read data from files such as .csv, .json, .feather, .pickle and many more. The numerous options for input file types is discussed extensively on the <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/io.html">Pandas IO Tools Page</a></p>
 <ul class="simple">
 <li><p>Depending on the data that you want to read in you will need a different function.</p></li>
@@ -1929,15 +1921,8 @@ As you saw in the previous workshop Python has a range of data structures but if
 </ul>
 </li>
 </ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">######</span>
-<span class="c1">###### Exercise 1 - Read and display the data</span>
-<span class="c1">######</span>
-</pre></div>
-</div>
-</div>
-</div>
+<section id="exercise-1-read-and-display-the-data">
+<h5>Exercise 1 - Read and display the data<a class="headerlink" href="#exercise-1-read-and-display-the-data" title="Link to this heading">#</a></h5>
 <ul class="simple">
 <li><p>Navigate to the Pandas documentation for .read_csv() (<a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html">https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html</a>)</p></li>
 <li><p>Use the python function read_csv() to read in the .csv file “LEED_air_pollution_monitoring_station.csv”</p></li>
@@ -1945,306 +1930,18 @@ As you saw in the previous workshop Python has a range of data structures but if
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jupyterquiz</span> <span class="kn">import</span> <span class="n">display_quiz</span>
-<span class="n">display_quiz</span><span class="p">(</span><span class="s2">&quot;../questions/pandas_question_reading_data.json&quot;</span><span class="p">)</span>
+<span class="n">display_quiz</span><span class="p">(</span><span class="s2">&quot;../../questions/pandas_question_reading_data.json&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">jupyterquiz</span> <span class="kn">import</span> <span class="n">display_quiz</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">display_quiz</span><span class="p">(</span><span class="s2">&quot;../questions/pandas_question_reading_data.json&quot;</span><span class="p">)</span>
-
-<span class="nn">File ~/miniconda3/envs/CfRR/lib/python3.12/site-packages/jupyterquiz/dynamic.py:176,</span> in <span class="ni">display_quiz</span><span class="nt">(ref, num, shuffle_questions, shuffle_answers, preserve_responses, border_radius, question_alignment, max_width, colors)</span>
-<span class="g g-Whitespace">    </span><span class="mi">173</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">174</span>     <span class="c1">#print(&quot;File detected&quot;)</span>
-<span class="g g-Whitespace">    </span><span class="mi">175</span>     <span class="n">script</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;var questions</span><span class="si">{</span><span class="n">div_id</span><span class="si">}</span><span class="s2">=&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">176</span>     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">ref</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">177</span>         <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">178</span>             <span class="n">script</span> <span class="o">+=</span> <span class="n">line</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;../questions/pandas_question_reading_data.json&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write some code to read in the .csv file within the .csv file at &quot;data/LEED_air_pollution_monitoring_station.csv&quot;</span>
-<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;../data/LEED_air_pollution_monitoring_station.csv&quot;</span>
-<span class="c1">#air_pollution_data = *Your code here*</span>
-</pre></div>
-</div>
-</div>
-</div>
-<section id="exercise-1-answer-read-and-display-the-data">
-<h2>Exercise 1 Answer - Read and Display the Data<a class="headerlink" href="#exercise-1-answer-read-and-display-the-data" title="Link to this heading">#</a></h2>
-<div class="toggle docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">air_pollution_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/LEED_air_pollution_monitoring_station.csv&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;../data/LEED_air_pollution_monitoring_station.csv&quot;</span>
-<span class="n">air_pollution_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</details>
-</div>
-<p>Breakdown of the Display Function Output
-If using jupyter lab you can pass the dataframe that has been read in to display() to visualize the dataframe
-<img alt="Breakdown of the Display Function Output" src="individual_modules/images/display_dataframe_breakdown.png" /></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualise the dataframe </span>
-<span class="n">display</span><span class="p">(</span><span class="n">air_pollution_data</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>date</th>
-      <th>NO2</th>
-      <th>O3</th>
-      <th>NO</th>
-      <th>ws</th>
-      <th>temp</th>
-      <th>site</th>
-      <th>Year</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>01/01/2020 00:00</td>
-      <td>40.97050</td>
-      <td>12.04072</td>
-      <td>5.77062</td>
-      <td>0.0</td>
-      <td>-0.5</td>
-      <td>NaN</td>
-      <td>2020.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>01/01/2020 01:00</td>
-      <td>42.53576</td>
-      <td>10.77678</td>
-      <td>8.32555</td>
-      <td>0.7</td>
-      <td>0.6</td>
-      <td>Leeds Centre</td>
-      <td>2020.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>01/01/2020 02:00</td>
-      <td>41.91247</td>
-      <td>10.97635</td>
-      <td>9.18453</td>
-      <td>1.3</td>
-      <td>1.2</td>
-      <td>Leeds Centre</td>
-      <td>2020.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>01/01/2020 03:00</td>
-      <td>38.86094</td>
-      <td>10.57721</td>
-      <td>7.49960</td>
-      <td>0.7</td>
-      <td>1.9</td>
-      <td>Leeds Centre</td>
-      <td>2020.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>01/01/2020 04:00</td>
-      <td>40.13936</td>
-      <td>8.23226</td>
-      <td>10.30782</td>
-      <td>1.7</td>
-      <td>2.6</td>
-      <td>Leeds Centre</td>
-      <td>2020.0</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>32827</th>
-      <td>31/12/2023 19:00</td>
-      <td>16.62005</td>
-      <td>NaN</td>
-      <td>1.41302</td>
-      <td>5.5</td>
-      <td>7.1</td>
-      <td>Leeds Centre</td>
-      <td>2023.0</td>
-    </tr>
-    <tr>
-      <th>32828</th>
-      <td>31/12/2023 20:00</td>
-      <td>17.25982</td>
-      <td>50.59100</td>
-      <td>1.18822</td>
-      <td>5.0</td>
-      <td>7.3</td>
-      <td>Leeds Centre</td>
-      <td>2023.0</td>
-    </tr>
-    <tr>
-      <th>32829</th>
-      <td>31/12/2023 21:00</td>
-      <td>11.86560</td>
-      <td>57.22670</td>
-      <td>1.62712</td>
-      <td>5.6</td>
-      <td>6.8</td>
-      <td>Leeds Centre</td>
-      <td>2023.0</td>
-    </tr>
-    <tr>
-      <th>32830</th>
-      <td>31/12/2023 22:00</td>
-      <td>15.93160</td>
-      <td>57.22670</td>
-      <td>1.38091</td>
-      <td>NaN</td>
-      <td>7.2</td>
-      <td>Leeds Centre</td>
-      <td>2023.0</td>
-    </tr>
-    <tr>
-      <th>32831</th>
-      <td>31/12/2023 23:00</td>
-      <td>23.55329</td>
-      <td>57.42627</td>
-      <td>1.99108</td>
-      <td>6.8</td>
-      <td>7.3</td>
-      <td>Leeds Centre</td>
-      <td>2023.0</td>
-    </tr>
-  </tbody>
-</table>
-<p>32832 rows × 8 columns</p>
-</div></div></div>
-</div>
-</section>
-<section id="what-is-a-dataframe">
-<h2>What is a dataframe?<a class="headerlink" href="#what-is-a-dataframe" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>A dataframe is the key data structure within Pandas. Dataframes are two-dimensional, size-mutable and potentially hererogeneous tabular data structure with labeled axes (rows and columns).</p></li>
-<li><p>A dataframe is built ontop of another data structure called a pandas Series. These are one dimensional labelled array capable of holding any data type. Each column in a dataframe is a pandas series.</p></li>
-</ul>
-<p>For now we will leave these data structures and focus on the analysis and usage of data frames</p>
-</section>
-<section id="accessing-data-about-the-dataframe">
-<h2>Accessing Data about the dataframe<a class="headerlink" href="#accessing-data-about-the-dataframe" title="Link to this heading">#</a></h2>
-<p>A range of different methods exist within pandas to access attributes of the dataframe, some of note are:</p>
-<ul class="simple">
-<li><p>.info(): provides a concise summary of the dataframe, including the number of non-null entries in each column, data type, memory usage, and more</p></li>
-<li><p>.shape: Returns a tuple representing the dimensions of the dataframe (rows by columns)</p></li>
-<li><p>.dtypes: Returns the data types of each column in the dataframe</p></li>
-<li><p>.columns: Returns the column labels of the dataframe</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Access details about the dataframe </span>
-<span class="n">display</span><span class="p">(</span><span class="n">air_pollution_data</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-RangeIndex: 32832 entries, 0 to 32831
-Data columns (total 8 columns):
- #   Column  Non-Null Count  Dtype  
----  ------  --------------  -----  
- 0   date    30849 non-null  object 
- 1   NO2     30889 non-null  float64
- 2   O3      30870 non-null  float64
- 3   NO      30884 non-null  float64
- 4   ws      30851 non-null  float64
- 5   temp    30870 non-null  float64
- 6   site    30855 non-null  object 
- 7   Year    30829 non-null  float64
-dtypes: float64(6), object(2)
-memory usage: 2.0+ MB
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>None
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Access details about the columns and rows of the dataframe </span>
-<span class="n">display</span><span class="p">(</span><span class="s2">&quot;The shape of the dataframe, in the form of the rows by columns is: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">air_pollution_data</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
-<span class="n">display</span><span class="p">(</span><span class="s2">&quot;The columns of the dataframe are: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">air_pollution_data</span><span class="o">.</span><span class="n">columns</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;The shape of the dataframe, in the form of the rows by columns is: (32832, 8)&#39;
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;The columns of the dataframe are: Index([&#39;date&#39;, &#39;NO2&#39;, &#39;O3&#39;, &#39;NO&#39;, &#39;ws&#39;, &#39;temp&#39;, &#39;site&#39;, &#39;Year&#39;], dtype=&#39;object&#39;)&quot;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jupyterquiz</span> <span class="kn">import</span> <span class="n">display_quiz</span>
-<span class="n">display_quiz</span><span class="p">(</span><span class="s2">&quot;../questions/pandas_question_reading_data.json&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div id="TddaWvhfUPXs" data-shufflequestions="False"
+<div class="output text_html"><div id="DuMRZrsFeUHA" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#TddaWvhfUPXs {
+#DuMRZrsFeUHA {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -2414,7 +2111,7 @@ memory usage: 2.0+ MB
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsTddaWvhfUPXs=[
+</style></div><script type="application/javascript">var questionsDuMRZrsFeUHA=[
     {
         "question": "Which function is used to read a .csv file in Pandas",
         "type": "many_choice",
@@ -3190,8 +2887,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("TddaWvhfUPXs")) {
-            show_questions(questionsTddaWvhfUPXs,  TddaWvhfUPXs); 
+          if(document.getElementById("DuMRZrsFeUHA")) {
+            show_questions(questionsDuMRZrsFeUHA,  DuMRZrsFeUHA); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -3200,8 +2897,1249 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("TddaWvhfUPXs");
-        // console.log(document.getElementById("TddaWvhfUPXs"));
+        //console.log("DuMRZrsFeUHA");
+        // console.log(document.getElementById("DuMRZrsFeUHA"));
+
+        try_show();
+        }
+        </script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write some code to read in the .csv file within the .csv file at &quot;data/LEED_air_pollution_monitoring_station.csv&quot;</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;data/LEED_air_pollution_monitoring_station.csv&quot;</span>
+<span class="c1">#air_pollution_data = *Your code here*</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Exercise 1 Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">air_pollution_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/LEED_air_pollution_monitoring_station.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;data/LEED_air_pollution_monitoring_station.csv&quot;</span>
+<span class="n">air_pollution_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>Breakdown of the Display Function Output
+If using jupyter lab you can pass the dataframe that has been read in to display() to visualize the dataframe
+<img alt="Breakdown of the Display Function Output" src="individual_modules/images/display_dataframe_breakdown.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualise the dataframe </span>
+<span class="n">display</span><span class="p">(</span><span class="n">air_pollution_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date</th>
+      <th>NO2</th>
+      <th>O3</th>
+      <th>NO</th>
+      <th>ws</th>
+      <th>temp</th>
+      <th>site</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>01/01/2020 00:00</td>
+      <td>40.97050</td>
+      <td>12.04072</td>
+      <td>5.77062</td>
+      <td>0.0</td>
+      <td>-0.5</td>
+      <td>NaN</td>
+      <td>2020.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>01/01/2020 01:00</td>
+      <td>42.53576</td>
+      <td>10.77678</td>
+      <td>8.32555</td>
+      <td>0.7</td>
+      <td>0.6</td>
+      <td>Leeds Centre</td>
+      <td>2020.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>01/01/2020 02:00</td>
+      <td>41.91247</td>
+      <td>10.97635</td>
+      <td>9.18453</td>
+      <td>1.3</td>
+      <td>1.2</td>
+      <td>Leeds Centre</td>
+      <td>2020.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>01/01/2020 03:00</td>
+      <td>38.86094</td>
+      <td>10.57721</td>
+      <td>7.49960</td>
+      <td>0.7</td>
+      <td>1.9</td>
+      <td>Leeds Centre</td>
+      <td>2020.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>01/01/2020 04:00</td>
+      <td>40.13936</td>
+      <td>8.23226</td>
+      <td>10.30782</td>
+      <td>1.7</td>
+      <td>2.6</td>
+      <td>Leeds Centre</td>
+      <td>2020.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>32827</th>
+      <td>31/12/2023 19:00</td>
+      <td>16.62005</td>
+      <td>NaN</td>
+      <td>1.41302</td>
+      <td>5.5</td>
+      <td>7.1</td>
+      <td>Leeds Centre</td>
+      <td>2023.0</td>
+    </tr>
+    <tr>
+      <th>32828</th>
+      <td>31/12/2023 20:00</td>
+      <td>17.25982</td>
+      <td>50.59100</td>
+      <td>1.18822</td>
+      <td>5.0</td>
+      <td>7.3</td>
+      <td>Leeds Centre</td>
+      <td>2023.0</td>
+    </tr>
+    <tr>
+      <th>32829</th>
+      <td>31/12/2023 21:00</td>
+      <td>11.86560</td>
+      <td>57.22670</td>
+      <td>1.62712</td>
+      <td>5.6</td>
+      <td>6.8</td>
+      <td>Leeds Centre</td>
+      <td>2023.0</td>
+    </tr>
+    <tr>
+      <th>32830</th>
+      <td>31/12/2023 22:00</td>
+      <td>15.93160</td>
+      <td>57.22670</td>
+      <td>1.38091</td>
+      <td>NaN</td>
+      <td>7.2</td>
+      <td>Leeds Centre</td>
+      <td>2023.0</td>
+    </tr>
+    <tr>
+      <th>32831</th>
+      <td>31/12/2023 23:00</td>
+      <td>23.55329</td>
+      <td>57.42627</td>
+      <td>1.99108</td>
+      <td>6.8</td>
+      <td>7.3</td>
+      <td>Leeds Centre</td>
+      <td>2023.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>32832 rows × 8 columns</p>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="what-is-a-dataframe">
+<h4>What is a dataframe?<a class="headerlink" href="#what-is-a-dataframe" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>A dataframe is the key data structure within Pandas. Dataframes are two-dimensional, size-mutable and potentially hererogeneous tabular data structure with labeled axes (rows and columns).</p></li>
+<li><p>A dataframe is built ontop of another data structure called a pandas Series. These are one dimensional labelled array capable of holding any data type. Each column in a dataframe is a pandas series.</p></li>
+</ul>
+<p>For now we will leave these data structures and focus on the analysis and usage of data frames</p>
+</section>
+<section id="accessing-data-about-the-dataframe">
+<h4>Accessing Data about the dataframe<a class="headerlink" href="#accessing-data-about-the-dataframe" title="Link to this heading">#</a></h4>
+<p>A range of different methods exist within pandas to access attributes of the dataframe, some of note are:</p>
+<ul class="simple">
+<li><p>.info(): provides a concise summary of the dataframe, including the number of non-null entries in each column, data type, memory usage, and more</p></li>
+<li><p>.shape: Returns a tuple representing the dimensions of the dataframe (rows by columns)</p></li>
+<li><p>.dtypes: Returns the data types of each column in the dataframe</p></li>
+<li><p>.columns: Returns the column labels of the dataframe</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Access details about the dataframe </span>
+<span class="n">display</span><span class="p">(</span><span class="n">air_pollution_data</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 32832 entries, 0 to 32831
+Data columns (total 8 columns):
+ #   Column  Non-Null Count  Dtype  
+---  ------  --------------  -----  
+ 0   date    30849 non-null  object 
+ 1   NO2     30889 non-null  float64
+ 2   O3      30870 non-null  float64
+ 3   NO      30884 non-null  float64
+ 4   ws      30851 non-null  float64
+ 5   temp    30870 non-null  float64
+ 6   site    30855 non-null  object 
+ 7   Year    30829 non-null  float64
+dtypes: float64(6), object(2)
+memory usage: 2.0+ MB
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>None
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Access details about the columns and rows of the dataframe </span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;The shape of the dataframe, in the form of the rows by columns is: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">air_pollution_data</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;The columns of the dataframe are: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">air_pollution_data</span><span class="o">.</span><span class="n">columns</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;The shape of the dataframe, in the form of the rows by columns is: (32832, 8)&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;The columns of the dataframe are: Index([&#39;date&#39;, &#39;NO2&#39;, &#39;O3&#39;, &#39;NO&#39;, &#39;ws&#39;, &#39;temp&#39;, &#39;site&#39;, &#39;Year&#39;], dtype=&#39;object&#39;)&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jupyterquiz</span> <span class="kn">import</span> <span class="n">display_quiz</span>
+<span class="n">display_quiz</span><span class="p">(</span><span class="s2">&quot;../../questions/pandas_question_reading_data.json&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="gnwZjvFCGYVs" data-shufflequestions="False"
+               data-shuffleanswers="True"
+               data-preserveresponses="false"
+               data-numquestions="1000000"
+               data-maxwidth="600"
+               style="border-radius: 10px; text-align: left"> <style>
+#gnwZjvFCGYVs {
+   --jq-multiple-choice-bg: #6f78ffff;
+   --jq-mc-button-bg: #fafafa;
+   --jq-mc-button-border: #e0e0e0e0;
+   --jq-mc-button-inset-shadow: #555555;
+   --jq-many-choice-bg: #f75c03ff;
+   --jq-numeric-bg: #392061ff;
+   --jq-numeric-input-bg: #c0c0c0;
+   --jq-numeric-input-label: #101010;
+   --jq-numeric-input-shadow: #999999;
+   --jq-incorrect-color: #c80202;
+   --jq-correct-color: #009113;
+   --jq-text-color: #fafafa;
+}
+
+.Quiz {
+    max-width: 600px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    line-height: 1.1;
+    font-size: 16pt;
+    border-radius: inherit;
+}
+
+.QuizCode {
+    font-size: 14pt;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.QuizCode>pre {
+    padding: 4px;
+}
+
+.Answer {
+    margin: 10px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    border-radius: inherit;
+}
+
+.Feedback {
+    font-size: 16pt;
+    text-align: center;
+    min-height: 2em;
+}
+
+.Input {
+    align: left;
+    font-size: 20pt;
+}
+
+.Input-text {
+    display: block;
+    margin: 10px;
+    color: inherit;
+    width: 140px;
+    background-color: var(--jq-numeric-input-bg);
+    color: var(--jq-text-color);
+    padding: 5px;
+    padding-left: 10px;
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: inherit;
+    line-height: 20pt;
+    border: none;
+    border-radius: 0.2rem;
+    transition: box-shadow 0.1s);
+}
+
+.Input-text:focus {
+    outline: none;
+    background-color: var(--jq-numeric-input-bg);
+    box-shadow: 0.6rem 0.8rem 1.4rem -0.5rem var(--jq-numeric-input-shadow);
+}
+
+.MCButton {
+    background: var(--jq-mc-button-bg);
+    border: 1px solid var(--jq-mc-button-border);
+    border-radius: inherit;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.MCButton p {
+    color: inherit;
+}
+
+.MultipleChoiceQn {
+    padding: 10px;
+    background: var(--jq-multiple-choice-bg);
+    color: var(--jq-text-color);
+    border-radius: inherit;
+}
+
+.ManyChoiceQn {
+    padding: 10px;
+    background: var(--jq-many-choice-bg);
+    color: var(--jq-text-color);
+    border-radius: inherit;
+}
+
+.NumericQn {
+    padding: 10px;
+    background: var(--jq-numeric-bg);
+    color: var(--jq-text-color);
+    border-radius: inherit;
+}
+
+.NumericQn p {
+    color: inherit;
+}
+
+.InpLabel {
+    line-height: 34px;
+    float: left;
+    margin-right: 10px;
+    color: var(--jq-numeric-input-label);
+    font-size: 15pt;
+}
+
+.incorrect {
+    color: var(--jq-incorrect-color);
+}
+
+.correct {
+    color: var(--jq-correct-color);
+}
+
+.correctButton {
+    /*
+    background: var(--jq-correct-color);
+   */
+    animation: correct-anim 0.6s ease;
+    animation-fill-mode: forwards;
+    color: var(--jq-text-color);
+    box-shadow: inset 0px 0px 5px var(--jq-mc-button-inset-shadow);
+    outline: none;
+}
+
+.incorrectButton {
+    animation: incorrect-anim 0.8s ease;
+    animation-fill-mode: forwards;
+    color: var(--jq-text-color);
+    box-shadow: inset 0px 0px 5px var(--jq-mc-button-inset-shadow);
+    outline: none;
+}
+
+@keyframes incorrect-anim {
+    100% {
+        background-color: var(--jq-incorrect-color);
+    }
+}
+
+@keyframes correct-anim {
+    100% {
+        background-color: var(--jq-correct-color);
+    }
+}
+</style></div><script type="application/javascript">var questionsgnwZjvFCGYVs=[
+    {
+        "question": "Which function is used to read a .csv file in Pandas",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": ".open_csv()",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "csv_read()",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "read_csv()",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "load_csv()",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    }
+];
+    // Make a random ID
+function makeid(length) {
+    var result = [];
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+        result.push(characters.charAt(Math.floor(Math.random() * charactersLength)));
+    }
+    return result.join('');
+}
+
+// Choose a random subset of an array. Can also be used to shuffle the array
+function getRandomSubarray(arr, size) {
+    var shuffled = arr.slice(0), i = arr.length, temp, index;
+    while (i--) {
+        index = Math.floor((i + 1) * Math.random());
+        temp = shuffled[index];
+        shuffled[index] = shuffled[i];
+        shuffled[i] = temp;
+    }
+    return shuffled.slice(0, size);
+}
+
+function printResponses(responsesContainer) {
+    var responses=JSON.parse(responsesContainer.dataset.responses);
+    var stringResponses='<B>IMPORTANT!</B>To preserve this answer sequence for submission, when you have finalized your answers: <ol> <li> Copy the text in this cell below "Answer String"</li> <li> Double click on the cell directly below the Answer String, labeled "Replace Me"</li> <li> Select the whole "Replace Me" text</li> <li> Paste in your answer string and press shift-Enter.</li><li>Save the notebook using the save icon or File->Save Notebook menu item</li></ul><br><br><br><b>Answer String:</b><br> ';
+    console.log(responses);
+    responses.forEach((response, index) => {
+        if (response) {
+            console.log(index + ': ' + response);
+            stringResponses+= index + ': ' + response +"<BR>";
+        }
+    });
+    responsesContainer.innerHTML=stringResponses;
+}
+function check_mc() {
+    var id = this.id.split('-')[0];
+    //var response = this.id.split('-')[1];
+    //console.log(response);
+    //console.log("In check_mc(), id="+id);
+    //console.log(event.srcElement.id)           
+    //console.log(event.srcElement.dataset.correct)   
+    //console.log(event.srcElement.dataset.feedback)
+
+    var label = event.srcElement;
+    //console.log(label, label.nodeName);
+    var depth = 0;
+    while ((label.nodeName != "LABEL") && (depth < 20)) {
+        label = label.parentElement;
+        console.log(depth, label);
+        depth++;
+    }
+
+
+
+    var answers = label.parentElement.children;
+
+    //console.log(answers);
+
+
+    // Split behavior based on multiple choice vs many choice:
+    var fb = document.getElementById("fb" + id);
+
+
+
+
+    if (fb.dataset.numcorrect == 1) {
+        // What follows is for the saved responses stuff
+        var outerContainer = fb.parentElement.parentElement;
+        var responsesContainer = document.getElementById("responses" + outerContainer.id);
+        if (responsesContainer) {
+            //console.log(responsesContainer);
+            var response = label.firstChild.innerText;
+            if (label.querySelector(".QuizCode")){
+                response+= label.querySelector(".QuizCode").firstChild.innerText;
+            }
+            console.log(response);
+            //console.log(document.getElementById("quizWrap"+id));
+            var qnum = document.getElementById("quizWrap"+id).dataset.qnum;
+            console.log("Question " + qnum);
+            //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
+            var responses=JSON.parse(responsesContainer.dataset.responses);
+            console.log(responses);
+            responses[qnum]= response;
+            responsesContainer.setAttribute('data-responses', JSON.stringify(responses));
+            printResponses(responsesContainer);
+        }
+        // End code to preserve responses
+        
+        for (var i = 0; i < answers.length; i++) {
+            var child = answers[i];
+            //console.log(child);
+            child.className = "MCButton";
+        }
+
+
+
+        if (label.dataset.correct == "true") {
+            // console.log("Correct action");
+            if ("feedback" in label.dataset) {
+                fb.textContent = jaxify(label.dataset.feedback);
+            } else {
+                fb.textContent = "Correct!";
+            }
+            label.classList.add("correctButton");
+
+            fb.className = "Feedback";
+            fb.classList.add("correct");
+
+        } else {
+            if ("feedback" in label.dataset) {
+                fb.textContent = jaxify(label.dataset.feedback);
+            } else {
+                fb.textContent = "Incorrect -- try again.";
+            }
+            //console.log("Error action");
+            label.classList.add("incorrectButton");
+            fb.className = "Feedback";
+            fb.classList.add("incorrect");
+        }
+    }
+    else {
+        var reset = false;
+        var feedback;
+         if (label.dataset.correct == "true") {
+            if ("feedback" in label.dataset) {
+                feedback = jaxify(label.dataset.feedback);
+            } else {
+                feedback = "Correct!";
+            }
+            if (label.dataset.answered <= 0) {
+                if (fb.dataset.answeredcorrect < 0) {
+                    fb.dataset.answeredcorrect = 1;
+                    reset = true;
+                } else {
+                    fb.dataset.answeredcorrect++;
+                }
+                if (reset) {
+                    for (var i = 0; i < answers.length; i++) {
+                        var child = answers[i];
+                        child.className = "MCButton";
+                        child.dataset.answered = 0;
+                    }
+                }
+                label.classList.add("correctButton");
+                label.dataset.answered = 1;
+                fb.className = "Feedback";
+                fb.classList.add("correct");
+
+            }
+        } else {
+            if ("feedback" in label.dataset) {
+                feedback = jaxify(label.dataset.feedback);
+            } else {
+                feedback = "Incorrect -- try again.";
+            }
+            if (fb.dataset.answeredcorrect > 0) {
+                fb.dataset.answeredcorrect = -1;
+                reset = true;
+            } else {
+                fb.dataset.answeredcorrect--;
+            }
+
+            if (reset) {
+                for (var i = 0; i < answers.length; i++) {
+                    var child = answers[i];
+                    child.className = "MCButton";
+                    child.dataset.answered = 0;
+                }
+            }
+            label.classList.add("incorrectButton");
+            fb.className = "Feedback";
+            fb.classList.add("incorrect");
+        }
+        // What follows is for the saved responses stuff
+        var outerContainer = fb.parentElement.parentElement;
+        var responsesContainer = document.getElementById("responses" + outerContainer.id);
+        if (responsesContainer) {
+            //console.log(responsesContainer);
+            var response = label.firstChild.innerText;
+            if (label.querySelector(".QuizCode")){
+                response+= label.querySelector(".QuizCode").firstChild.innerText;
+            }
+            console.log(response);
+            //console.log(document.getElementById("quizWrap"+id));
+            var qnum = document.getElementById("quizWrap"+id).dataset.qnum;
+            console.log("Question " + qnum);
+            //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
+            var responses=JSON.parse(responsesContainer.dataset.responses);
+            if (label.dataset.correct == "true") {
+                if (typeof(responses[qnum]) == "object"){
+                    if (!responses[qnum].includes(response))
+                        responses[qnum].push(response);
+                } else{
+                    responses[qnum]= [ response ];
+                }
+            } else {
+                responses[qnum]= response;
+            }
+            console.log(responses);
+            responsesContainer.setAttribute('data-responses', JSON.stringify(responses));
+            printResponses(responsesContainer);
+        }
+        // End save responses stuff
+
+
+
+        var numcorrect = fb.dataset.numcorrect;
+        var answeredcorrect = fb.dataset.answeredcorrect;
+        if (answeredcorrect >= 0) {
+            fb.textContent = feedback + " [" + answeredcorrect + "/" + numcorrect + "]";
+        } else {
+            fb.textContent = feedback + " [" + 0 + "/" + numcorrect + "]";
+        }
+
+
+    }
+
+    if (typeof MathJax != 'undefined') {
+        var version = MathJax.version;
+        console.log('MathJax version', version);
+        if (version[0] == "2") {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        } else if (version[0] == "3") {
+            MathJax.typeset([fb]);
+        }
+    } else {
+        console.log('MathJax not detected');
+    }
+
+}
+
+function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
+    var shuffled;
+    if (shuffle_answers == "True") {
+        //console.log(shuffle_answers+" read as true");
+        shuffled = getRandomSubarray(qa.answers, qa.answers.length);
+    } else {
+        //console.log(shuffle_answers+" read as false");
+        shuffled = qa.answers;
+    }
+
+
+    var num_correct = 0;
+
+
+
+    shuffled.forEach((item, index, ans_array) => {
+        //console.log(answer);
+
+        // Make input element
+        var inp = document.createElement("input");
+        inp.type = "radio";
+        inp.id = "quizo" + id + index;
+        inp.style = "display:none;";
+        aDiv.append(inp);
+
+        //Make label for input element
+        var lab = document.createElement("label");
+        lab.className = "MCButton";
+        lab.id = id + '-' + index;
+        lab.onclick = check_mc;
+        var aSpan = document.createElement('span');
+        aSpan.classsName = "";
+        //qDiv.id="quizQn"+id+index;
+        if ("answer" in item) {
+            aSpan.innerHTML = jaxify(item.answer);
+            //aSpan.innerHTML=item.answer;
+        }
+        lab.append(aSpan);
+
+        // Create div for code inside question
+        var codeSpan;
+        if ("code" in item) {
+            codeSpan = document.createElement('span');
+            codeSpan.id = "code" + id + index;
+            codeSpan.className = "QuizCode";
+            var codePre = document.createElement('pre');
+            codeSpan.append(codePre);
+            var codeCode = document.createElement('code');
+            codePre.append(codeCode);
+            codeCode.innerHTML = item.code;
+            lab.append(codeSpan);
+            //console.log(codeSpan);
+        }
+
+        //lab.textContent=item.answer;
+
+        // Set the data attributes for the answer
+        lab.setAttribute('data-correct', item.correct);
+        if (item.correct) {
+            num_correct++;
+        }
+        if ("feedback" in item) {
+            lab.setAttribute('data-feedback', item.feedback);
+        }
+        lab.setAttribute('data-answered', 0);
+
+        aDiv.append(lab);
+
+    });
+
+    if (num_correct > 1) {
+        outerqDiv.className = "ManyChoiceQn";
+    } else {
+        outerqDiv.className = "MultipleChoiceQn";
+    }
+
+    return num_correct;
+
+}
+function check_numeric(ths, event) {
+
+    if (event.keyCode === 13) {
+        ths.blur();
+
+        var id = ths.id.split('-')[0];
+
+        var submission = ths.value;
+        if (submission.indexOf('/') != -1) {
+            var sub_parts = submission.split('/');
+            //console.log(sub_parts);
+            submission = sub_parts[0] / sub_parts[1];
+        }
+        //console.log("Reader entered", submission);
+
+        if ("precision" in ths.dataset) {
+            var precision = ths.dataset.precision;
+            // console.log("1:", submission)
+            submission = Math.round((1 * submission + Number.EPSILON) * 10 ** precision) / 10 ** precision;
+            // console.log("Rounded to ", submission, " precision=", precision  );
+        }
+
+
+        //console.log("In check_numeric(), id="+id);
+        //console.log(event.srcElement.id)           
+        //console.log(event.srcElement.dataset.feedback)
+
+        var fb = document.getElementById("fb" + id);
+        fb.style.display = "none";
+        fb.textContent = "Incorrect -- try again.";
+
+        var answers = JSON.parse(ths.dataset.answers);
+        //console.log(answers);
+
+        var defaultFB = "";
+        var correct;
+        var done = false;
+        answers.every(answer => {
+            //console.log(answer.type);
+
+            correct = false;
+            // if (answer.type=="value"){
+            if ('value' in answer) {
+                if (submission == answer.value) {
+                    if ("feedback" in answer) {
+                        fb.textContent = jaxify(answer.feedback);
+                    } else {
+                        fb.textContent = jaxify("Correct");
+                    }
+                    correct = answer.correct;
+                    //console.log(answer.correct);
+                    done = true;
+                }
+                // } else if (answer.type=="range") {
+            } else if ('range' in answer) {
+                //console.log(answer.range);
+                if ((submission >= answer.range[0]) && (submission < answer.range[1])) {
+                    fb.textContent = jaxify(answer.feedback);
+                    correct = answer.correct;
+                    //console.log(answer.correct);
+                    done = true;
+                }
+            } else if (answer.type == "default") {
+                defaultFB = answer.feedback;
+            }
+            if (done) {
+                return false; // Break out of loop if this has been marked correct
+            } else {
+                return true; // Keep looking for case that includes this as a correct answer
+            }
+        });
+
+        if ((!done) && (defaultFB != "")) {
+            fb.innerHTML = jaxify(defaultFB);
+            //console.log("Default feedback", defaultFB);
+        }
+
+        fb.style.display = "block";
+        if (correct) {
+            ths.className = "Input-text";
+            ths.classList.add("correctButton");
+            fb.className = "Feedback";
+            fb.classList.add("correct");
+        } else {
+            ths.className = "Input-text";
+            ths.classList.add("incorrectButton");
+            fb.className = "Feedback";
+            fb.classList.add("incorrect");
+        }
+
+        // What follows is for the saved responses stuff
+        var outerContainer = fb.parentElement.parentElement;
+        var responsesContainer = document.getElementById("responses" + outerContainer.id);
+        if (responsesContainer) {
+            console.log(submission);
+            var qnum = document.getElementById("quizWrap"+id).dataset.qnum;
+            //console.log("Question " + qnum);
+            //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
+            var responses=JSON.parse(responsesContainer.dataset.responses);
+            console.log(responses);
+            if (submission == ths.value){
+                responses[qnum]= submission;
+            } else {
+                responses[qnum]= ths.value + "(" + submission +")";
+            }
+            responsesContainer.setAttribute('data-responses', JSON.stringify(responses));
+            printResponses(responsesContainer);
+        }
+        // End code to preserve responses
+
+        if (typeof MathJax != 'undefined') {
+            var version = MathJax.version;
+            console.log('MathJax version', version);
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([fb]);
+            }
+        } else {
+            console.log('MathJax not detected');
+        }
+        return false;
+    }
+
+}
+
+function isValid(el, charC) {
+    //console.log("Input char: ", charC);
+    if (charC == 46) {
+        if (el.value.indexOf('.') === -1) {
+            return true;
+        } else if (el.value.indexOf('/') != -1) {
+            var parts = el.value.split('/');
+            if (parts[1].indexOf('.') === -1) {
+                return true;
+            }
+        }
+        else {
+            return false;
+        }
+    } else if (charC == 47) {
+        if (el.value.indexOf('/') === -1) {
+            if ((el.value != "") && (el.value != ".")) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    } else if (charC == 45) {
+        var edex = el.value.indexOf('e');
+        if (edex == -1) {
+            edex = el.value.indexOf('E');
+        }
+
+        if (el.value == "") {
+            return true;
+        } else if (edex == (el.value.length - 1)) { // If just after e or E
+            return true;
+        } else {
+            return false;
+        }
+    } else if (charC == 101) { // "e"
+        if ((el.value.indexOf('e') === -1) && (el.value.indexOf('E') === -1) && (el.value.indexOf('/') == -1)) {
+            // Prev symbol must be digit or decimal point:
+            if (el.value.slice(-1).search(/\d/) >= 0) {
+                return true;
+            } else if (el.value.slice(-1).search(/\./) >= 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    } else {
+        if (charC > 31 && (charC < 48 || charC > 57))
+            return false;
+    }
+    return true;
+}
+
+function numeric_keypress(evnt) {
+    var charC = (evnt.which) ? evnt.which : evnt.keyCode;
+
+    if (charC == 13) {
+        check_numeric(this, evnt);
+    } else {
+        return isValid(this, charC);
+    }
+}
+
+
+
+
+
+function make_numeric(qa, outerqDiv, qDiv, aDiv, id) {
+
+
+
+    //console.log(answer);
+
+
+    outerqDiv.className = "NumericQn";
+    aDiv.style.display = 'block';
+
+    var lab = document.createElement("label");
+    lab.className = "InpLabel";
+    lab.textContent = "Type numeric answer here:";
+    aDiv.append(lab);
+
+    var inp = document.createElement("input");
+    inp.type = "text";
+    //inp.id="input-"+id;
+    inp.id = id + "-0";
+    inp.className = "Input-text";
+    inp.setAttribute('data-answers', JSON.stringify(qa.answers));
+    if ("precision" in qa) {
+        inp.setAttribute('data-precision', qa.precision);
+    }
+    aDiv.append(inp);
+    //console.log(inp);
+
+    //inp.addEventListener("keypress", check_numeric);
+    //inp.addEventListener("keypress", numeric_keypress);
+    /*
+    inp.addEventListener("keypress", function(event) {
+        return numeric_keypress(this, event);
+    }
+                        );
+                        */
+    //inp.onkeypress="return numeric_keypress(this, event)";
+    inp.onkeypress = numeric_keypress;
+    inp.onpaste = event => false;
+
+    inp.addEventListener("focus", function (event) {
+        this.value = "";
+        return false;
+    }
+    );
+
+
+}
+function jaxify(string) {
+    var mystring = string;
+
+    var count = 0;
+    var loc = mystring.search(/([^\\]|^)(\$)/);
+
+    var count2 = 0;
+    var loc2 = mystring.search(/([^\\]|^)(\$\$)/);
+
+    //console.log(loc);
+
+    while ((loc >= 0) || (loc2 >= 0)) {
+
+        /* Have to replace all the double $$ first with current implementation */
+        if (loc2 >= 0) {
+            if (count2 % 2 == 0) {
+                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\[");
+            } else {
+                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\]");
+            }
+            count2++;
+        } else {
+            if (count % 2 == 0) {
+                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\(");
+            } else {
+                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\)");
+            }
+            count++;
+        }
+        loc = mystring.search(/([^\\]|^)(\$)/);
+        loc2 = mystring.search(/([^\\]|^)(\$\$)/);
+        //console.log(mystring,", loc:",loc,", loc2:",loc2);
+    }
+
+    //console.log(mystring);
+    return mystring;
+}
+
+
+function show_questions(json, mydiv) {
+    console.log('show_questions');
+    //var mydiv=document.getElementById(myid);
+    var shuffle_questions = mydiv.dataset.shufflequestions;
+    var num_questions = mydiv.dataset.numquestions;
+    var shuffle_answers = mydiv.dataset.shuffleanswers;
+    var max_width = mydiv.dataset.maxwidth;
+
+    if (num_questions > json.length) {
+        num_questions = json.length;
+    }
+
+    var questions;
+    if ((num_questions < json.length) || (shuffle_questions == "True")) {
+        //console.log(num_questions+","+json.length);
+        questions = getRandomSubarray(json, num_questions);
+    } else {
+        questions = json;
+    }
+
+    //console.log("SQ: "+shuffle_questions+", NQ: " + num_questions + ", SA: ", shuffle_answers);
+
+    // Iterate over questions
+    questions.forEach((qa, index, array) => {
+        //console.log(qa.question); 
+
+        var id = makeid(8);
+        //console.log(id);
+
+
+        // Create Div to contain question and answers
+        var iDiv = document.createElement('div');
+        //iDiv.id = 'quizWrap' + id + index;
+        iDiv.id = 'quizWrap' + id;
+        iDiv.className = 'Quiz';
+        iDiv.setAttribute('data-qnum', index);
+        iDiv.style.maxWidth  =max_width+"px";
+        mydiv.appendChild(iDiv);
+        // iDiv.innerHTML=qa.question;
+        
+        var outerqDiv = document.createElement('div');
+        outerqDiv.id = "OuterquizQn" + id + index;
+        // Create div to contain question part
+        var qDiv = document.createElement('div');
+        qDiv.id = "quizQn" + id + index;
+        
+        if (qa.question) {
+            iDiv.append(outerqDiv);
+
+            //qDiv.textContent=qa.question;
+            qDiv.innerHTML = jaxify(qa.question);
+            outerqDiv.append(qDiv);
+        }
+
+        // Create div for code inside question
+        var codeDiv;
+        if ("code" in qa) {
+            codeDiv = document.createElement('div');
+            codeDiv.id = "code" + id + index;
+            codeDiv.className = "QuizCode";
+            var codePre = document.createElement('pre');
+            codeDiv.append(codePre);
+            var codeCode = document.createElement('code');
+            codePre.append(codeCode);
+            codeCode.innerHTML = qa.code;
+            outerqDiv.append(codeDiv);
+            //console.log(codeDiv);
+        }
+
+
+        // Create div to contain answer part
+        var aDiv = document.createElement('div');
+        aDiv.id = "quizAns" + id + index;
+        aDiv.className = 'Answer';
+        iDiv.append(aDiv);
+
+        //console.log(qa.type);
+
+        var num_correct;
+        if ((qa.type == "multiple_choice") || (qa.type == "many_choice") ) {
+            num_correct = make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
+            if ("answer_cols" in qa) {
+                //aDiv.style.gridTemplateColumns = 'auto '.repeat(qa.answer_cols);
+                aDiv.style.gridTemplateColumns = 'repeat(' + qa.answer_cols + ', 1fr)';
+            }
+        } else if (qa.type == "numeric") {
+            //console.log("numeric");
+            make_numeric(qa, outerqDiv, qDiv, aDiv, id);
+        }
+
+
+        //Make div for feedback
+        var fb = document.createElement("div");
+        fb.id = "fb" + id;
+        //fb.style="font-size: 20px;text-align:center;";
+        fb.className = "Feedback";
+        fb.setAttribute("data-answeredcorrect", 0);
+        fb.setAttribute("data-numcorrect", num_correct);
+        iDiv.append(fb);
+
+
+    });
+    var preserveResponses = mydiv.dataset.preserveresponses;
+    console.log(preserveResponses);
+    console.log(preserveResponses == "true");
+    if (preserveResponses == "true") {
+        console.log(preserveResponses);
+        // Create Div to contain record of answers
+        var iDiv = document.createElement('div');
+        iDiv.id = 'responses' + mydiv.id;
+        iDiv.className = 'JCResponses';
+        // Create a place to store responses as an empty array
+        iDiv.setAttribute('data-responses', '[]');
+
+        // Dummy Text
+        iDiv.innerHTML="<b>Select your answers and then follow the directions that will appear here.</b>"
+        //iDiv.className = 'Quiz';
+        mydiv.appendChild(iDiv);
+    }
+//console.log("At end of show_questions");
+    if (typeof MathJax != 'undefined') {
+        console.log("MathJax version", MathJax.version);
+        var version = MathJax.version;
+        setTimeout(function(){
+            var version = MathJax.version;
+            console.log('After sleep, MathJax version', version);
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([mydiv]);
+            }
+        }, 500);
+if (typeof version == 'undefined') {
+        } else
+        {
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([mydiv]);
+            } else {
+                console.log("MathJax not found");
+            }
+        }
+    }
+    return false;
+}
+/* This is to handle asynchrony issues in loading Jupyter notebooks
+           where the quiz has been previously run. The Javascript was generally
+           being run before the div was added to the DOM. I tried to do this
+           more elegantly using Mutation Observer, but I didn't get it to work.
+
+           Someone more knowledgeable could make this better ;-) */
+
+        function try_show() {
+          if(document.getElementById("gnwZjvFCGYVs")) {
+            show_questions(questionsgnwZjvFCGYVs,  gnwZjvFCGYVs); 
+          } else {
+             setTimeout(try_show, 200);
+          }
+        };
+    
+        {
+        // console.log(element);
+
+        //console.log("gnwZjvFCGYVs");
+        // console.log(document.getElementById("gnwZjvFCGYVs"));
 
         try_show();
         }
@@ -3230,28 +4168,26 @@ dtype: object
 </div>
 </section>
 <section id="improving-readability">
-<h2>Improving Readability<a class="headerlink" href="#improving-readability" title="Link to this heading">#</a></h2>
+<h4>Improving Readability<a class="headerlink" href="#improving-readability" title="Link to this heading">#</a></h4>
 <p>Change the name of the two column names for “ws” and “temp” into something more readable such as “Wind Speed” and “Temperature”</p>
+<section id="exercise-2-improving-readability">
+<h5>Exercise 2 - Improving Readability<a class="headerlink" href="#exercise-2-improving-readability" title="Link to this heading">#</a></h5>
+<p>You will want to use the pandas .rename() functions and so will need to google for the documentation. It should be the first results when googling “Pandas rename”. It might also be helpful to look at the examples at the bottom of the page!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">######</span>
-<span class="c1">###### Exercise 2 - Improving Readability </span>
-<span class="c1">######</span>
-
-<span class="c1"># You will want to use the pandas .rename() functions and so will need to google for the documentation. It should be the first results when googling &quot;Pandas rename&quot;</span>
-<span class="c1"># It might also be helpful to look at the examples at the bottom of the page!</span>
-
-<span class="c1"># air_pollution_data = *Your code here*</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># air_pollution_data = *Your code here*</span>
 </pre></div>
 </div>
 </div>
 </div>
-<section id="exercise-2-answer-improving-readability">
-<h3>Exercise 2 Answer - Improving Readability<a class="headerlink" href="#exercise-2-answer-improving-readability" title="Link to this heading">#</a></h3>
-<div class="toggle docutils container">
+<div class="dropdown admonition">
+<p class="admonition-title">Exercise 2 Answer</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">air_pollution_data</span> <span class="o">=</span> <span class="n">air_pollution_data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;ws&quot;</span><span class="p">:</span><span class="s2">&quot;Wind Speed&quot;</span><span class="p">,</span> <span class="s2">&quot;temp&quot;</span><span class="p">:</span><span class="s2">&quot;Temperature&quot;</span><span class="p">})</span>
 </pre></div>
 </div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3424,9 +4360,8 @@ dtype: object
 </div>
 </section>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="performing-analysis">
-<h1>Performing Analysis<a class="headerlink" href="#performing-analysis" title="Link to this heading">#</a></h1>
+<section id="performing-analysis">
+<h4>Performing Analysis<a class="headerlink" href="#performing-analysis" title="Link to this heading">#</a></h4>
 <ul class="simple">
 <li><p>A good overview of all the data can be retrieved using .describe()</p></li>
 <li><p>We are able to answer the questions such as</p>
@@ -3547,15 +4482,8 @@ dtype: object
 </table>
 </div></div></div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">######</span>
-<span class="c1">###### Exercise 3 - Subsetting Data</span>
-<span class="c1">######</span>
-</pre></div>
-</div>
-</div>
-</div>
+<section id="exercise-3-subsetting-data">
+<h5>Exercise 3 - Subsetting Data<a class="headerlink" href="#exercise-3-subsetting-data" title="Link to this heading">#</a></h5>
 <ul class="simple">
 <li><p>The analysis that was performed before was on the complete dataset.</p></li>
 <li><p>You have been given code to filter the dataset to retrieve the data that was measured in 2022.</p></li>
@@ -3576,12 +4504,14 @@ dtype: object
 </div>
 </div>
 </div>
-<section id="exercise-3-answer-subsetting-data">
-<h2>Exercise 3 Answer - Subsetting Data<a class="headerlink" href="#exercise-3-answer-subsetting-data" title="Link to this heading">#</a></h2>
-<div class="toggle docutils container">
+<div class="dropdown admonition">
+<p class="admonition-title">Exercise 3 Answer - Subsetting Data</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">air_pollution_data_2023</span> <span class="o">=</span> <span class="n">air_pollution_data</span><span class="p">[</span><span class="n">air_pollution_data</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2023</span><span class="p">]</span>
 </pre></div>
 </div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3592,22 +4522,23 @@ dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">######</span>
-<span class="c1">###### Exercise 3 Extra </span>
-<span class="c1">######</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##### Exercise 3 Extra </span>
+<span class="o">*</span> <span class="n">What</span> <span class="n">do</span> <span class="n">you</span> <span class="n">think</span> <span class="ow">is</span> <span class="n">happening</span> <span class="k">with</span> <span class="n">the</span> <span class="n">filtering</span> code<span class="o">?</span>
+<span class="o">*</span> <span class="n">What</span> <span class="n">do</span> <span class="n">you</span> <span class="n">get</span> <span class="k">if</span> <span class="n">you</span> <span class="nb">print</span> <span class="n">the</span> <span class="n">output</span> <span class="k">for</span><span class="p">:</span>
+    <span class="o">*</span> <span class="n">air_pollution_data</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span>
+    <span class="o">*</span> <span class="n">air_pollution_data</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2022</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">18</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+    <span class="o">*</span> <span class="n">What</span> <span class="n">do</span> <span class="n">you</span> <span class="n">get</span> <span class="k">if</span> <span class="n">you</span> <span class="nb">print</span> <span class="n">the</span> <span class="n">output</span> <span class="k">for</span><span class="p">:</span>
+           <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
 </pre></div>
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>What do you think is happening with the filtering code?</p></li>
-<li><p>What do you get if you print the output for:</p>
-<ul>
-<li><p>air_pollution_data[“Year”]</p></li>
-<li><p>air_pollution_data[“Year”] == 2022</p></li>
-</ul>
-</li>
-</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">air_pollution_data</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">])</span>
@@ -3802,8 +4733,571 @@ Name: Year, Length: 32832, dtype: bool
 </div>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="removing-data">
-<h1>Removing Data<a class="headerlink" href="#removing-data" title="Link to this heading">#</a></h1>
+<section id="indexing">
+<h4>Indexing<a class="headerlink" href="#indexing" title="Link to this heading">#</a></h4>
+<p>Indexing can be very helpful for selecting, modifying, and summarizing data in Pandas Dataframes. Each dataframe has a dedicated index within it, and in most display formats is shown on the left most side of the table. The index can be retrieved with the <code class="docutils literal notranslate"><span class="pre">index</span></code> attribute of the dataframe as shown below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">air_pollution_data</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RangeIndex(start=0, stop=32832, step=1)
+</pre></div>
+</div>
+</div>
+</div>
+<p>However any column can be set as the index of the dataframe with the use of the <code class="docutils literal notranslate"><span class="pre">set_index</span></code> method. For example we could set the index to be the datetime column within the dataframe.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">air_pollution_data</span> <span class="o">=</span> <span class="n">air_pollution_data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">air_pollution_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>NO2</th>
+      <th>O3</th>
+      <th>NO</th>
+      <th>Wind Speed</th>
+      <th>Temperature</th>
+      <th>site</th>
+      <th>Year</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>01/01/2020 00:00</th>
+      <td>40.97050</td>
+      <td>12.04072</td>
+      <td>5.77062</td>
+      <td>0.0</td>
+      <td>-0.5</td>
+      <td>NaN</td>
+      <td>2020.0</td>
+    </tr>
+    <tr>
+      <th>01/01/2020 01:00</th>
+      <td>42.53576</td>
+      <td>10.77678</td>
+      <td>8.32555</td>
+      <td>0.7</td>
+      <td>0.6</td>
+      <td>Leeds Centre</td>
+      <td>2020.0</td>
+    </tr>
+    <tr>
+      <th>01/01/2020 02:00</th>
+      <td>41.91247</td>
+      <td>10.97635</td>
+      <td>9.18453</td>
+      <td>1.3</td>
+      <td>1.2</td>
+      <td>Leeds Centre</td>
+      <td>2020.0</td>
+    </tr>
+    <tr>
+      <th>01/01/2020 03:00</th>
+      <td>38.86094</td>
+      <td>10.57721</td>
+      <td>7.49960</td>
+      <td>0.7</td>
+      <td>1.9</td>
+      <td>Leeds Centre</td>
+      <td>2020.0</td>
+    </tr>
+    <tr>
+      <th>01/01/2020 04:00</th>
+      <td>40.13936</td>
+      <td>8.23226</td>
+      <td>10.30782</td>
+      <td>1.7</td>
+      <td>2.6</td>
+      <td>Leeds Centre</td>
+      <td>2020.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>31/12/2023 19:00</th>
+      <td>16.62005</td>
+      <td>NaN</td>
+      <td>1.41302</td>
+      <td>5.5</td>
+      <td>7.1</td>
+      <td>Leeds Centre</td>
+      <td>2023.0</td>
+    </tr>
+    <tr>
+      <th>31/12/2023 20:00</th>
+      <td>17.25982</td>
+      <td>50.59100</td>
+      <td>1.18822</td>
+      <td>5.0</td>
+      <td>7.3</td>
+      <td>Leeds Centre</td>
+      <td>2023.0</td>
+    </tr>
+    <tr>
+      <th>31/12/2023 21:00</th>
+      <td>11.86560</td>
+      <td>57.22670</td>
+      <td>1.62712</td>
+      <td>5.6</td>
+      <td>6.8</td>
+      <td>Leeds Centre</td>
+      <td>2023.0</td>
+    </tr>
+    <tr>
+      <th>31/12/2023 22:00</th>
+      <td>15.93160</td>
+      <td>57.22670</td>
+      <td>1.38091</td>
+      <td>NaN</td>
+      <td>7.2</td>
+      <td>Leeds Centre</td>
+      <td>2023.0</td>
+    </tr>
+    <tr>
+      <th>31/12/2023 23:00</th>
+      <td>23.55329</td>
+      <td>57.42627</td>
+      <td>1.99108</td>
+      <td>6.8</td>
+      <td>7.3</td>
+      <td>Leeds Centre</td>
+      <td>2023.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>32832 rows × 7 columns</p>
+</div></div></div>
+</div>
+<p>It is then also possible to reset the index and put the current index column into the main dataframe with the `reset_index()’ method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">air_pollution_data</span> <span class="o">=</span> <span class="n">air_pollution_data</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">display</span><span class="p">(</span><span class="n">air_pollution_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date</th>
+      <th>NO2</th>
+      <th>O3</th>
+      <th>NO</th>
+      <th>Wind Speed</th>
+      <th>Temperature</th>
+      <th>site</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>01/01/2020 00:00</td>
+      <td>40.97050</td>
+      <td>12.04072</td>
+      <td>5.77062</td>
+      <td>0.0</td>
+      <td>-0.5</td>
+      <td>NaN</td>
+      <td>2020.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>01/01/2020 01:00</td>
+      <td>42.53576</td>
+      <td>10.77678</td>
+      <td>8.32555</td>
+      <td>0.7</td>
+      <td>0.6</td>
+      <td>Leeds Centre</td>
+      <td>2020.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>01/01/2020 02:00</td>
+      <td>41.91247</td>
+      <td>10.97635</td>
+      <td>9.18453</td>
+      <td>1.3</td>
+      <td>1.2</td>
+      <td>Leeds Centre</td>
+      <td>2020.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>01/01/2020 03:00</td>
+      <td>38.86094</td>
+      <td>10.57721</td>
+      <td>7.49960</td>
+      <td>0.7</td>
+      <td>1.9</td>
+      <td>Leeds Centre</td>
+      <td>2020.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>01/01/2020 04:00</td>
+      <td>40.13936</td>
+      <td>8.23226</td>
+      <td>10.30782</td>
+      <td>1.7</td>
+      <td>2.6</td>
+      <td>Leeds Centre</td>
+      <td>2020.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>32827</th>
+      <td>31/12/2023 19:00</td>
+      <td>16.62005</td>
+      <td>NaN</td>
+      <td>1.41302</td>
+      <td>5.5</td>
+      <td>7.1</td>
+      <td>Leeds Centre</td>
+      <td>2023.0</td>
+    </tr>
+    <tr>
+      <th>32828</th>
+      <td>31/12/2023 20:00</td>
+      <td>17.25982</td>
+      <td>50.59100</td>
+      <td>1.18822</td>
+      <td>5.0</td>
+      <td>7.3</td>
+      <td>Leeds Centre</td>
+      <td>2023.0</td>
+    </tr>
+    <tr>
+      <th>32829</th>
+      <td>31/12/2023 21:00</td>
+      <td>11.86560</td>
+      <td>57.22670</td>
+      <td>1.62712</td>
+      <td>5.6</td>
+      <td>6.8</td>
+      <td>Leeds Centre</td>
+      <td>2023.0</td>
+    </tr>
+    <tr>
+      <th>32830</th>
+      <td>31/12/2023 22:00</td>
+      <td>15.93160</td>
+      <td>57.22670</td>
+      <td>1.38091</td>
+      <td>NaN</td>
+      <td>7.2</td>
+      <td>Leeds Centre</td>
+      <td>2023.0</td>
+    </tr>
+    <tr>
+      <th>32831</th>
+      <td>31/12/2023 23:00</td>
+      <td>23.55329</td>
+      <td>57.42627</td>
+      <td>1.99108</td>
+      <td>6.8</td>
+      <td>7.3</td>
+      <td>Leeds Centre</td>
+      <td>2023.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>32832 rows × 8 columns</p>
+</div></div></div>
+</div>
+<p>It is also possible to make use of the indexes to select different rows within the dataframe. For example it is possible to use <code class="docutils literal notranslate"><span class="pre">loc</span></code> which makes use to the actual labels within the dataframe, and <code class="docutils literal notranslate"><span class="pre">iloc</span></code> to refer based on the integer position values as is regularly done for lists within python.</p>
+<section id="exercise-4">
+<h5>Exercise 4<a class="headerlink" href="#exercise-4" title="Link to this heading">#</a></h5>
+<p>Using either <code class="docutils literal notranslate"><span class="pre">loc</span></code> or <code class="docutils literal notranslate"><span class="pre">iloc</span></code> retrieve the data from the dataframe <code class="docutils literal notranslate"><span class="pre">air_pollution_data</span></code> which describes the timestep 01/01/2020 04:00.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Exercise 3 Answer - Subsetting Data</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">air_pollution_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="datetimes">
+<h4>Datetimes<a class="headerlink" href="#datetimes" title="Link to this heading">#</a></h4>
+<p>In pandas, datetimes are extremely useful for working on time series data analysis. When reading in your data, you will want to confirm that the date column in the dataframe is of the correct data type, you can check this with the column attribute of <code class="docutils literal notranslate"><span class="pre">.dtype</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">air_pollution_data</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dtype(&#39;O&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>If the column is not currently in a datetime format, then you can convert it using the <code class="docutils literal notranslate"><span class="pre">pd.to_datetime()</span></code> function. The main arguement to the method is the format arguement that lets the method know the ordering of the data. In our case the data should be of the format <code class="docutils literal notranslate"><span class="pre">%d/%m/%Y</span> <span class="pre">%H:%M</span></code>, which denotes, Day/Month/Year Hour:Minutes. Once we have converted the data format we can check its new data type in the same manner, and should this time get</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">air_pollution_data</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">air_pollution_data</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">],</span> <span class="nb">format</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">/%m/%Y %H:%M&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">air_pollution_data</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dtype(&#39;&lt;M8[ns]&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The datetime object then allows you to get access to a range of additional data such the year, month, minute of the date object. The month for each observation can be retrieve used the <code class="docutils literal notranslate"><span class="pre">.month</span></code> attribute of the data as shown below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">air_pollution_data</span><span class="p">[</span><span class="s2">&quot;Month&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">air_pollution_data</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span>
+<span class="n">display</span><span class="p">(</span><span class="n">air_pollution_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date</th>
+      <th>NO2</th>
+      <th>O3</th>
+      <th>NO</th>
+      <th>Wind Speed</th>
+      <th>Temperature</th>
+      <th>site</th>
+      <th>Year</th>
+      <th>Month</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2020-01-01 00:00:00</td>
+      <td>40.97050</td>
+      <td>12.04072</td>
+      <td>5.77062</td>
+      <td>0.0</td>
+      <td>-0.5</td>
+      <td>NaN</td>
+      <td>2020.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2020-01-01 01:00:00</td>
+      <td>42.53576</td>
+      <td>10.77678</td>
+      <td>8.32555</td>
+      <td>0.7</td>
+      <td>0.6</td>
+      <td>Leeds Centre</td>
+      <td>2020.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2020-01-01 02:00:00</td>
+      <td>41.91247</td>
+      <td>10.97635</td>
+      <td>9.18453</td>
+      <td>1.3</td>
+      <td>1.2</td>
+      <td>Leeds Centre</td>
+      <td>2020.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2020-01-01 03:00:00</td>
+      <td>38.86094</td>
+      <td>10.57721</td>
+      <td>7.49960</td>
+      <td>0.7</td>
+      <td>1.9</td>
+      <td>Leeds Centre</td>
+      <td>2020.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2020-01-01 04:00:00</td>
+      <td>40.13936</td>
+      <td>8.23226</td>
+      <td>10.30782</td>
+      <td>1.7</td>
+      <td>2.6</td>
+      <td>Leeds Centre</td>
+      <td>2020.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>32827</th>
+      <td>2023-12-31 19:00:00</td>
+      <td>16.62005</td>
+      <td>NaN</td>
+      <td>1.41302</td>
+      <td>5.5</td>
+      <td>7.1</td>
+      <td>Leeds Centre</td>
+      <td>2023.0</td>
+      <td>12.0</td>
+    </tr>
+    <tr>
+      <th>32828</th>
+      <td>2023-12-31 20:00:00</td>
+      <td>17.25982</td>
+      <td>50.59100</td>
+      <td>1.18822</td>
+      <td>5.0</td>
+      <td>7.3</td>
+      <td>Leeds Centre</td>
+      <td>2023.0</td>
+      <td>12.0</td>
+    </tr>
+    <tr>
+      <th>32829</th>
+      <td>2023-12-31 21:00:00</td>
+      <td>11.86560</td>
+      <td>57.22670</td>
+      <td>1.62712</td>
+      <td>5.6</td>
+      <td>6.8</td>
+      <td>Leeds Centre</td>
+      <td>2023.0</td>
+      <td>12.0</td>
+    </tr>
+    <tr>
+      <th>32830</th>
+      <td>2023-12-31 22:00:00</td>
+      <td>15.93160</td>
+      <td>57.22670</td>
+      <td>1.38091</td>
+      <td>NaN</td>
+      <td>7.2</td>
+      <td>Leeds Centre</td>
+      <td>2023.0</td>
+      <td>12.0</td>
+    </tr>
+    <tr>
+      <th>32831</th>
+      <td>2023-12-31 23:00:00</td>
+      <td>23.55329</td>
+      <td>57.42627</td>
+      <td>1.99108</td>
+      <td>6.8</td>
+      <td>7.3</td>
+      <td>Leeds Centre</td>
+      <td>2023.0</td>
+      <td>12.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>32832 rows × 9 columns</p>
+</div></div></div>
+</div>
+<p>The use of datetimes also allows a range of other functionality such as <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.resample.html">resampling</a>, <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.shift.html">shifting</a>, and <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.rolling.html">rolling windows</a> which can all be seen more of in the documentation linked.</p>
+</section>
+<section id="removing-data">
+<h4>Removing Data<a class="headerlink" href="#removing-data" title="Link to this heading">#</a></h4>
 <ul class="simple">
 <li><p>In the dataset you have you might have noticed the entry of NaN</p></li>
 <li><p>This represents missing data within the air pollution dataset.</p></li>
@@ -3990,11 +5484,14 @@ Name: Year, Length: 32832, dtype: bool
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">air_pollution_data_2023_complete_dataset</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;../data/LEED_air_pollution_monitoring_station_2023_complete_dataset.csv&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">air_pollution_data_2023_complete_dataset</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;data/LEED_air_pollution_monitoring_station_2023_complete_dataset.csv&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -4027,6 +5524,24 @@ Name: Year, Length: 32832, dtype: bool
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="Python_NumPy.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Python: Numpy</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Python_Matplotlib.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Python: Matplotlib</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -4043,38 +5558,41 @@ Name: Year, Length: 32832, dtype: bool
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Python: Pandas</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-skip-quiz">Course Skip Quiz</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course">Course</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course">Course</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-setup">Problem Setup</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#leeds-air-pollution-monitoring-station">Leeds Air Pollution Monitoring Station</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#google-maps-locations-of-leeds-air-pollution-monitoring-station">Google Maps Locations of Leeds Air Pollution Monitoring Station</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-setup">Problem Setup</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leeds-air-pollution-monitoring-station">Leeds Air Pollution Monitoring Station</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#google-maps-locations-of-leeds-air-pollution-monitoring-station">Google Maps Locations of Leeds Air Pollution Monitoring Station</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">Pandas</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#csv-file-within-microsoft-excel">.csv File Within Microsoft Excel</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-dictionary-with-a-list">A dictionary with a list?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-in-data">Reading in Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-read-and-display-the-data">Exercise 1 - Read and display the data</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-the-python-package">Pandas the Python Package</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#csv-file-within-microsoft-excel">.csv File Within Microsoft Excel</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-dictionary-with-a-list">A dictionary with a list?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-dataframe">What is a dataframe?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-data-about-the-dataframe">Accessing Data about the dataframe</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#improving-readability">Improving Readability</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-improving-readability">Exercise 2 - Improving Readability</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-in-data">Reading in Data</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-answer-read-and-display-the-data">Exercise 1 Answer - Read and Display the Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-dataframe">What is a dataframe?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-data-about-the-dataframe">Accessing Data about the dataframe</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#improving-readability">Improving Readability</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-answer-improving-readability">Exercise 2 Answer - Improving Readability</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#performing-analysis">Performing Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-subsetting-data">Exercise 3 - Subsetting Data</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing">Indexing</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4">Exercise 4</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#datetimes">Datetimes</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-data">Removing Data</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#performing-analysis">Performing Analysis</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-answer-subsetting-data">Exercise 3 Answer - Subsetting Data</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-data">Removing Data</a></li>
-</ul>
-
   </nav></div>
 
 </div></div>
