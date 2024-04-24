@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Python: Pandas &#8212; Coding For Reproducible Research</title>
+    <title>Pandas &#8212; Coding For Reproducible Research</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -60,8 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'individual_modules/python_for_data_analysis/Python_Pandas';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Python: Matplotlib" href="Python_Matplotlib.html" />
-    <link rel="prev" title="Python: Numpy" href="Python_NumPy.html" />
+    <link rel="next" title="Matplotlib" href="Python_Matplotlib.html" />
+    <link rel="prev" title="Numpy" href="Python_NumPy.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -365,10 +365,10 @@
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../../section_landing_pages/python_for_data_analysis.html">Python for Data Analysis</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="Python_NumPy.html">Python: Numpy</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Python: Pandas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Python_Matplotlib.html">Python: Matplotlib</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Python_ScikitLearn.html">Python: Scikit-Learn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Python_NumPy.html">Numpy</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Python_Matplotlib.html">Matplotlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Python_ScikitLearn.html">Scikit-Learn</a></li>
 </ul>
 </li>
 </ul>
@@ -592,7 +592,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Python: Pandas</h1>
+    <h1>Pandas</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -609,7 +609,7 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#google-maps-locations-of-leeds-air-pollution-monitoring-station">Google Maps Locations of Leeds Air Pollution Monitoring Station</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">Pandas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Pandas</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#csv-file-within-microsoft-excel">.csv File Within Microsoft Excel</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-dictionary-with-a-list">A dictionary with a list?</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-in-data">Reading in Data</a><ul class="nav section-nav flex-column">
@@ -647,20 +647,20 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="python-pandas">
-<h1>Python: Pandas<a class="headerlink" href="#python-pandas" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="pandas">
+<h1>Pandas<a class="headerlink" href="#pandas" title="Link to this heading">#</a></h1>
 <section id="course-skip-quiz">
 <h2>Course Skip Quiz<a class="headerlink" href="#course-skip-quiz" title="Link to this heading">#</a></h2>
 <p>The following questions are aimed at testing your understanding of the content that is covered within this course. There is no defined threshold where we believe you should attend the course if you score below. Rather it is aimed to make you engage with the content and reflect for yourself if you feel you would benefit from attending the course. Of note, is that the quiz is intended for you to use google throuhgout and engage with documentation. Even if you get all of the questions right, you are ofcourse more than welcome to still attend the course and use it as a refresher!</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="HROWMuSMEcwg" data-shufflequestions="False"
+<div class="output text_html"><div id="vdBalBfktIUx" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#HROWMuSMEcwg {
+#vdBalBfktIUx {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -830,9 +830,9 @@ document.write(`
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsHROWMuSMEcwg=[
+</style></div><script type="application/javascript">var questionsvdBalBfktIUx=[
     {
-        "question": "Which function is used to read a .csv file in Pandas",
+        "question": "Which function is used to read a .csv file in Pandas?",
         "type": "many_choice",
         "answers": [
             {
@@ -962,7 +962,7 @@ document.write(`
         ]
     },
     {
-        "question": "In the dataframe 'df' with the column 'date_string' containing date information in the format '2023-04-01', which of the following correctly converts the column to a datetime format?",
+        "question": "In the dataframe 'df' with the column 'date_string' containing date information in the format '2023-04-25', which of the following correctly converts the column to a datetime format?",
         "type": "many_choice",
         "answers": [
             {
@@ -1840,8 +1840,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("HROWMuSMEcwg")) {
-            show_questions(questionsHROWMuSMEcwg,  HROWMuSMEcwg); 
+          if(document.getElementById("vdBalBfktIUx")) {
+            show_questions(questionsvdBalBfktIUx,  vdBalBfktIUx); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -1850,8 +1850,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("HROWMuSMEcwg");
-        // console.log(document.getElementById("HROWMuSMEcwg"));
+        //console.log("vdBalBfktIUx");
+        // console.log(document.getElementById("vdBalBfktIUx"));
 
         try_show();
         }
@@ -1872,8 +1872,8 @@ if (typeof version == 'undefined') {
 <p><img alt="LEEDS Air Pollution Monitoring Station" src="../../_images/LEED_air_pollution_monitoring_station_google_maps.png" /></p>
 </section>
 </section>
-<section id="pandas">
-<h3>Pandas<a class="headerlink" href="#pandas" title="Link to this heading">#</a></h3>
+<section id="id1">
+<h3>Pandas<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The first step that needs to be taken is to import the pandas package into the notebook.</span>
@@ -1935,13 +1935,13 @@ As you saw in the previous workshop Python has a range of data structures but if
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="DuMRZrsFeUHA" data-shufflequestions="False"
+<div class="output text_html"><div id="HNOMveWVikiV" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#DuMRZrsFeUHA {
+#HNOMveWVikiV {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -2111,7 +2111,7 @@ As you saw in the previous workshop Python has a range of data structures but if
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsDuMRZrsFeUHA=[
+</style></div><script type="application/javascript">var questionsHNOMveWVikiV=[
     {
         "question": "Which function is used to read a .csv file in Pandas",
         "type": "many_choice",
@@ -2887,8 +2887,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("DuMRZrsFeUHA")) {
-            show_questions(questionsDuMRZrsFeUHA,  DuMRZrsFeUHA); 
+          if(document.getElementById("HNOMveWVikiV")) {
+            show_questions(questionsHNOMveWVikiV,  HNOMveWVikiV); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -2897,8 +2897,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("DuMRZrsFeUHA");
-        // console.log(document.getElementById("DuMRZrsFeUHA"));
+        //console.log("HNOMveWVikiV");
+        // console.log(document.getElementById("HNOMveWVikiV"));
 
         try_show();
         }
@@ -3176,13 +3176,13 @@ memory usage: 2.0+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="gnwZjvFCGYVs" data-shufflequestions="False"
+<div class="output text_html"><div id="hUCdqAMGQmbp" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#gnwZjvFCGYVs {
+#hUCdqAMGQmbp {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -3352,7 +3352,7 @@ memory usage: 2.0+ MB
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsgnwZjvFCGYVs=[
+</style></div><script type="application/javascript">var questionshUCdqAMGQmbp=[
     {
         "question": "Which function is used to read a .csv file in Pandas",
         "type": "many_choice",
@@ -4128,8 +4128,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("gnwZjvFCGYVs")) {
-            show_questions(questionsgnwZjvFCGYVs,  gnwZjvFCGYVs); 
+          if(document.getElementById("hUCdqAMGQmbp")) {
+            show_questions(questionshUCdqAMGQmbp,  hUCdqAMGQmbp); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -4138,8 +4138,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("gnwZjvFCGYVs");
-        // console.log(document.getElementById("gnwZjvFCGYVs"));
+        //console.log("hUCdqAMGQmbp");
+        // console.log(document.getElementById("hUCdqAMGQmbp"));
 
         try_show();
         }
@@ -5530,7 +5530,7 @@ Name: Year, Length: 32832, dtype: bool
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Python: Numpy</p>
+        <p class="prev-next-title">Numpy</p>
       </div>
     </a>
     <a class="right-next"
@@ -5538,7 +5538,7 @@ Name: Year, Length: 32832, dtype: bool
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Python: Matplotlib</p>
+        <p class="prev-next-title">Matplotlib</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -5565,7 +5565,7 @@ Name: Year, Length: 32832, dtype: bool
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#google-maps-locations-of-leeds-air-pollution-monitoring-station">Google Maps Locations of Leeds Air Pollution Monitoring Station</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">Pandas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Pandas</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#csv-file-within-microsoft-excel">.csv File Within Microsoft Excel</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-dictionary-with-a-list">A dictionary with a list?</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-in-data">Reading in Data</a><ul class="nav section-nav flex-column">

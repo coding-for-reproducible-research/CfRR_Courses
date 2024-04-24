@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Python: Numpy &#8212; Coding For Reproducible Research</title>
+    <title>Numpy &#8212; Coding For Reproducible Research</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'individual_modules/python_for_data_analysis/Python_NumPy';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Python: Pandas" href="Python_Pandas.html" />
+    <link rel="next" title="Pandas" href="Python_Pandas.html" />
     <link rel="prev" title="Python for Data Analysis" href="../../section_landing_pages/python_for_data_analysis.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -365,10 +365,10 @@
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../../section_landing_pages/python_for_data_analysis.html">Python for Data Analysis</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Python: Numpy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Python_Pandas.html">Python: Pandas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Python_Matplotlib.html">Python: Matplotlib</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Python_ScikitLearn.html">Python: Scikit-Learn</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Numpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Python_Pandas.html">Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Python_Matplotlib.html">Matplotlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Python_ScikitLearn.html">Scikit-Learn</a></li>
 </ul>
 </li>
 </ul>
@@ -592,7 +592,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Python: Numpy</h1>
+    <h1>Numpy</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -603,7 +603,37 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-skip-quiz">Course Skip Quiz</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course">Course</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course">Course</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-numpy">What is Numpy?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-numpy">Importing Numpy</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-data-types-and-arrays">Understanding Data Types and Arrays</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#array-creation">Array Creation</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#from-a-list">From a list</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#zeros-and-ones">Zeros and Ones</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#a-range">A Range</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-creating-an-array">Exercise 1 - Creating an array</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#other-methods">Other Methods</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#array-attributes">Array Attributes</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#array-indexing-and-slicing">Array Indexing and Slicing</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-indexing">Basic Indexing</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reshaping-and-transposing">Reshaping and Transposing</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#array-operations-and-computations">Array Operations and Computations</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#array-arithmetic">Array arithmetic</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#broadcasting">Broadcasting</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregations">Aggregations</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -615,20 +645,20 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="python-numpy">
-<h1>Python: Numpy<a class="headerlink" href="#python-numpy" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="numpy">
+<h1>Numpy<a class="headerlink" href="#numpy" title="Link to this heading">#</a></h1>
 <section id="course-skip-quiz">
 <h2>Course Skip Quiz<a class="headerlink" href="#course-skip-quiz" title="Link to this heading">#</a></h2>
 <p>The following questions are aimed at testing your understanding of the content that is covered within this course. There is no defined threshold where we believe you should attend the course if you score below. Rather it is aimed to make you engage with the content and reflect for yourself if you feel you would benefit from attending the course. Of note, is that the quiz is intended for you to use google throuhgout and engage with documentation. Even if you get all of the questions right, you are ofcourse more than welcome to still attend the course and use it as a refresher!</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="mfOnwMwWHEEG" data-shufflequestions="False"
+<div class="output text_html"><div id="vRsyZfSpYePw" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#mfOnwMwWHEEG {
+#vRsyZfSpYePw {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -798,7 +828,7 @@ document.write(`
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsmfOnwMwWHEEG=[
+</style></div><script type="application/javascript">var questionsvRsyZfSpYePw=[
     {
         "question": "Which function is used to create an array in NumPy?",
         "type": "many_choice",
@@ -1808,8 +1838,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("mfOnwMwWHEEG")) {
-            show_questions(questionsmfOnwMwWHEEG,  mfOnwMwWHEEG); 
+          if(document.getElementById("vRsyZfSpYePw")) {
+            show_questions(questionsvRsyZfSpYePw,  vRsyZfSpYePw); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -1818,8 +1848,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("mfOnwMwWHEEG");
-        // console.log(document.getElementById("mfOnwMwWHEEG"));
+        //console.log("vRsyZfSpYePw");
+        // console.log(document.getElementById("vRsyZfSpYePw"));
 
         try_show();
         }
@@ -1828,6 +1858,137 @@ if (typeof version == 'undefined') {
 </section>
 <section id="course">
 <h2>Course<a class="headerlink" href="#course" title="Link to this heading">#</a></h2>
+<section id="what-is-numpy">
+<h3>What is Numpy?<a class="headerlink" href="#what-is-numpy" title="Link to this heading">#</a></h3>
+<p>Numpy is a key Python package for scientific computing. Numpy provides support for large, multi-dimensional arrays and matrices, alongside mathematical functions to operate on these arrays, with applications across numerical analysis, linear algebra, Fourier transform and random number capabilities.</p>
+<section id="importing-numpy">
+<h4>Importing Numpy<a class="headerlink" href="#importing-numpy" title="Link to this heading">#</a></h4>
+<p>The first step is to import the package into the current environment.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="understanding-data-types-and-arrays">
+<h3>Understanding Data Types and Arrays<a class="headerlink" href="#understanding-data-types-and-arrays" title="Link to this heading">#</a></h3>
+<section id="array-creation">
+<h4>Array Creation<a class="headerlink" href="#array-creation" title="Link to this heading">#</a></h4>
+<p>The main data structure within numpy is an array, providing efficient storage and manipulation for large numerical datasets.</p>
+<section id="from-a-list">
+<h5>From a list<a class="headerlink" href="#from-a-list" title="Link to this heading">#</a></h5>
+<p>A simple way of creating a numpy array is by passing a list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array_from_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+<span class="n">display</span><span class="p">(</span><span class="n">array_from_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 2, 3, 4, 5])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="zeros-and-ones">
+<h5>Zeros and Ones<a class="headerlink" href="#zeros-and-ones" title="Link to this heading">#</a></h5>
+<p>However there are also a range of different ways to create arrays with the same value such as having a numpy array of ones (<code class="docutils literal notranslate"><span class="pre">np.ones</span></code>), array of zeros (<code class="docutils literal notranslate"><span class="pre">np.zeros</span></code>). In this case we pass an arguement with the number of elements that are desired.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zeros_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">zeros_array</span><span class="p">)</span>
+
+<span class="n">ones_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">ones_array</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.])
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="a-range">
+<h5>A Range<a class="headerlink" href="#a-range" title="Link to this heading">#</a></h5>
+<p>It is also possible to create more complex arrays without having to manually input the values via a list. For example it is possible to create a range of values with the use of <code class="docutils literal notranslate"><span class="pre">np.arange()</span></code>. Of note is that by default the array will start from zero.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">range_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">range_array</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-1-creating-an-array">
+<h5>Exercise 1 - Creating an array<a class="headerlink" href="#exercise-1-creating-an-array" title="Link to this heading">#</a></h5>
+<p>Usin the .arange function, create this numpy array: [5,8,11,14,17,20]. It may be helpful to refer to the numpy .arange() documentation, avaliable <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.arange.html">here</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#custom_range_array = *your code here*</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Exercise 1 Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">custom_range_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</section>
+<section id="other-methods">
+<h5>Other Methods<a class="headerlink" href="#other-methods" title="Link to this heading">#</a></h5>
+<p>There are also a range of other methods that can be used to create numpy arrays that will most likely be benefical depending on the particular task you are working on. All of the details for each function are contained in the documentation, but arrays can be based on <a class="reference external" href="https://numpy.org/doc/stable/reference/random/index.html">random numbers</a> or  <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.identity.html">identity matrix</a> as two of the many that are avaliable.</p>
+</section>
+</section>
+<section id="array-attributes">
+<h4>Array Attributes<a class="headerlink" href="#array-attributes" title="Link to this heading">#</a></h4>
+</section>
+<section id="data-types">
+<h4>Data Types<a class="headerlink" href="#data-types" title="Link to this heading">#</a></h4>
+<p>Within numpy there are a range of different data types</p>
+</section>
+</section>
+<section id="array-indexing-and-slicing">
+<h3>Array Indexing and Slicing<a class="headerlink" href="#array-indexing-and-slicing" title="Link to this heading">#</a></h3>
+<section id="basic-indexing">
+<h4>Basic Indexing<a class="headerlink" href="#basic-indexing" title="Link to this heading">#</a></h4>
+</section>
+<section id="reshaping-and-transposing">
+<h4>Reshaping and Transposing<a class="headerlink" href="#reshaping-and-transposing" title="Link to this heading">#</a></h4>
+</section>
+</section>
+<section id="array-operations-and-computations">
+<h3>Array Operations and Computations<a class="headerlink" href="#array-operations-and-computations" title="Link to this heading">#</a></h3>
+<section id="array-arithmetic">
+<h4>Array arithmetic<a class="headerlink" href="#array-arithmetic" title="Link to this heading">#</a></h4>
+</section>
+<section id="broadcasting">
+<h4>Broadcasting<a class="headerlink" href="#broadcasting" title="Link to this heading">#</a></h4>
+</section>
+<section id="aggregations">
+<h4>Aggregations<a class="headerlink" href="#aggregations" title="Link to this heading">#</a></h4>
+</section>
+</section>
 </section>
 </section>
 
@@ -1875,7 +2036,7 @@ if (typeof version == 'undefined') {
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Python: Pandas</p>
+        <p class="prev-next-title">Pandas</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1896,7 +2057,37 @@ if (typeof version == 'undefined') {
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-skip-quiz">Course Skip Quiz</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course">Course</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course">Course</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-numpy">What is Numpy?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-numpy">Importing Numpy</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-data-types-and-arrays">Understanding Data Types and Arrays</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#array-creation">Array Creation</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#from-a-list">From a list</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#zeros-and-ones">Zeros and Ones</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#a-range">A Range</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-creating-an-array">Exercise 1 - Creating an array</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#other-methods">Other Methods</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#array-attributes">Array Attributes</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#array-indexing-and-slicing">Array Indexing and Slicing</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-indexing">Basic Indexing</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reshaping-and-transposing">Reshaping and Transposing</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#array-operations-and-computations">Array Operations and Computations</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#array-arithmetic">Array arithmetic</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#broadcasting">Broadcasting</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregations">Aggregations</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
