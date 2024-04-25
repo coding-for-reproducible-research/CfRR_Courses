@@ -548,12 +548,10 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions">Questions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">Objectives</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#keypoints">Keypoints</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#background">Background</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-shell">The Shell</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keypoints">Keypoints</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">Background</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-shell">The Shell</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#command-not-found">Command not found</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nelle-s-pipeline-a-typical-problem">Nelle’s Pipeline: A Typical Problem</a></li>
 </ul>
@@ -581,8 +579,9 @@ document.write(`
 <li><p>“Explain how the shell relates to the keyboard, the screen, the operating system, and users’ programs.”</p></li>
 <li><p>“Explain when and why command-line interfaces should be used instead of graphical interfaces.”</p></li>
 </ul>
+</section>
 <section id="keypoints">
-<h3>Keypoints<a class="headerlink" href="#keypoints" title="Link to this heading">#</a></h3>
+<h2>Keypoints<a class="headerlink" href="#keypoints" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>“A shell is a program whose primary purpose is to read commands and run other programs.”</p></li>
 <li><p>“This lesson uses Bash, the default shell in many implementations of Unix.”</p></li>
@@ -594,7 +593,7 @@ cryptic its commands and operation can be.”</p></li>
 </ul>
 </section>
 <section id="background">
-<h3>Background<a class="headerlink" href="#background" title="Link to this heading">#</a></h3>
+<h2>Background<a class="headerlink" href="#background" title="Link to this heading">#</a></h2>
 <p>Humans and computers commonly interact in many different ways, such as through a keyboard and mouse,
 touch screen interfaces, or using speech recognition systems.
 The most widely used way to interact with personal computers is called a
@@ -615,7 +614,7 @@ as many times as we want.
 Using the shell, the task in the literature example can be accomplished in seconds.</p>
 </section>
 <section id="the-shell">
-<h3>The Shell<a class="headerlink" href="#the-shell" title="Link to this heading">#</a></h3>
+<h2>The Shell<a class="headerlink" href="#the-shell" title="Link to this heading">#</a></h2>
 <p>The shell is a program where users can type commands.
 With the shell, it’s possible to invoke complicated programs like climate modelling software
 or simple commands that create an empty directory with only one line of code.
@@ -643,10 +642,9 @@ to tackle a wide range of scientific questions and computational challenges.</p>
 <p>Let’s get started.</p>
 <p>When the shell is first opened, you are presented with a <strong>prompt</strong>,
 indicating that the shell is waiting for input.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ 
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <p>The shell typically uses <code class="docutils literal notranslate"><span class="pre">$</span> </code> as the prompt, but may use a different symbol.
 In the examples for this lesson, we’ll show the prompt as <code class="docutils literal notranslate"><span class="pre">$</span> </code>.
 Most importantly:
@@ -659,34 +657,24 @@ The cursor is usually a flashing or solid block, but it can also be an underscor
 You may have seen it in a text editor program, for example.</p>
 <p>So let’s try our first command, <code class="docutils literal notranslate"><span class="pre">ls</span></code> which is short for listing.
 This command will list the contents of the current directory:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Desktop</span>     <span class="n">Downloads</span>   <span class="n">Movies</span>      <span class="n">Pictures</span>
 <span class="n">Documents</span>   <span class="n">Library</span>     <span class="n">Music</span>       <span class="n">Public</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
-</section>
 </section>
 <section id="command-not-found">
 <h2>Command not found<a class="headerlink" href="#command-not-found" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>If the shell can’t find a program whose name is the command you typed, it
-will print an error message such as:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ks
+<p>If the shell can’t find a program whose name is the command you typed, it will print an error message such as:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ks
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ks</span><span class="p">:</span> <span class="n">command</span> <span class="ow">not</span> <span class="n">found</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
-<p>This might happen if the command was mis-typed or if the program corresponding to that command
-is not installed.
-{: .callout}</p>
-</div></blockquote>
+<p>This might happen if the command was mis-typed or if the program corresponding to that command is not installed.</p>
 </section>
 <section id="nelle-s-pipeline-a-typical-problem">
 <h2>Nelle’s Pipeline: A Typical Problem<a class="headerlink" href="#nelle-s-pipeline-a-typical-problem" title="Link to this heading">#</a></h2>
@@ -792,12 +780,10 @@ she will be able to use it again whenever she collects more data.</p>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions">Questions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">Objectives</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#keypoints">Keypoints</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#background">Background</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-shell">The Shell</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keypoints">Keypoints</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">Background</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-shell">The Shell</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#command-not-found">Command not found</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nelle-s-pipeline-a-typical-problem">Nelle’s Pipeline: A Typical Problem</a></li>
 </ul>

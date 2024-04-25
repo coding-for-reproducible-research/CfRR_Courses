@@ -1,6 +1,6 @@
 # Introducing the UNIX shell
 
-### Questions
+## Questions
 
 - "What is a command shell and why would I use one?"
 
@@ -9,7 +9,7 @@
 - "Explain how the shell relates to the keyboard, the screen, the operating system, and users' programs."
 - "Explain when and why command-line interfaces should be used instead of graphical interfaces."
 
-### Keypoints
+## Keypoints
 
 - "A shell is a program whose primary purpose is to read commands and run other programs."
 - "This lesson uses Bash, the default shell in many implementations of Unix."
@@ -19,7 +19,7 @@ automating repetitive tasks, and its capacity to access networked machines."
 - "The shell's main disadvantages are its primarily textual nature and how
 cryptic its commands and operation can be."
 
-### Background
+## Background
 
 Humans and computers commonly interact in many different ways, such as through a keyboard and mouse,
 touch screen interfaces, or using speech recognition systems.
@@ -41,7 +41,7 @@ With the proper commands, the shell can repeat tasks with or without some modifi
 as many times as we want.
 Using the shell, the task in the literature example can be accomplished in seconds.
 
-### The Shell
+## The Shell
 
 The shell is a program where users can type commands.
 With the shell, it's possible to invoke complicated programs like climate modelling software
@@ -76,10 +76,9 @@ Let's get started.
 When the shell is first opened, you are presented with a **prompt**,
 indicating that the shell is waiting for input.
 
-~~~
+``` bash
 $ 
-~~~
-{: .language-bash}
+```
 
 The shell typically uses `$ ` as the prompt, but may use a different symbol.
 In the examples for this lesson, we'll show the prompt as `$ `.
@@ -96,34 +95,27 @@ You may have seen it in a text editor program, for example.
 So let's try our first command, `ls` which is short for listing.
 This command will list the contents of the current directory:
 
-~~~
+``` bash
 $ ls
-~~~
-{: .language-bash}
+```
 
-~~~
+```
 Desktop     Downloads   Movies      Pictures
 Documents   Library     Music       Public
-~~~
-{: .output}
+```
 
 ## Command not found
 
-> If the shell can't find a program whose name is the command you typed, it
-> will print an error message such as:
->
-> ~~~
-> $ ks
-> ~~~
-> {: .language-bash}
-> ~~~
-> ks: command not found
-> ~~~
-> {: .output}
->
-> This might happen if the command was mis-typed or if the program corresponding to that command
-> is not installed.
-{: .callout}
+If the shell can't find a program whose name is the command you typed, it will print an error message such as:
+``` bash
+$ ks
+```
+
+```
+ks: command not found
+```
+
+This might happen if the command was mis-typed or if the program corresponding to that command is not installed.
 
 ## Nelle's Pipeline: A Typical Problem
 

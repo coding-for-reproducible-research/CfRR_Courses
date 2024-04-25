@@ -102,7 +102,7 @@ where `user-name` is your GitHub username and `repo-name` is the name you gave
 the repository.
 
 
-> #### Further options for GitHub repositories
+#### Further options for GitHub repositories
 Let's take a moment mention a few extra things about creating repositories on GitHub. None of these points are essential for moving forward, but you'll likely come into contact with them as you use GitHub more:
 * When creating the repository, there was the option to initialise the repository with some extra files:
   - A `.gitignore` file. This is a particular file that can be used to tell Git about files that it should _not_ keep a version history for. We will see this later in the course.
