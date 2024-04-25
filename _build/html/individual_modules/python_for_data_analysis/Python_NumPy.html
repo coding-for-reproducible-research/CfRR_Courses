@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -145,8 +145,14 @@
   
   
   
+    
+    
+      
+    
+    
+    <img src="../../_static/exeter_logo.png" class="logo__image only-light" alt="Coding For Reproducible Research - Home"/>
+    <script>document.write(`<img src="../../_static/exeter_logo.png" class="logo__image only-dark" alt="Coding For Reproducible Research - Home"/>`);</script>
   
-    <p class="title logo__title">Coding For Reproducible Research</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -617,19 +623,27 @@ document.write(`
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#other-methods">Other Methods</a></li>
 </ul>
 </li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#file-output">File Output</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-saving-to-a-text-file">Exercise 2 - Saving to a text file</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#file-input">File Input</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#array-attributes">Array Attributes</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">Data Types</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#array-indexing-and-slicing">Array Indexing and Slicing</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-indexing">Basic Indexing</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reshaping-and-transposing">Reshaping and Transposing</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#array-operations-and-computations">Array Operations and Computations</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#array-arithmetic">Array arithmetic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#array-indexing">Array Indexing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#array-slicing">Array Slicing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#array-operations">Array Operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetic-operations">Arithmetic Operations</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-operations">Matrix Operations</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dot-product">Dot Product</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-operations">Statistical Operations</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-operations">Logical Operations</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#shape-manipulations">Shape Manipulations</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#set-operations">Set Operations</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#broadcasting">Broadcasting</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregations">Aggregations</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-performing-analysis">Exercise 3 - Performing Analysis</a></li>
 </ul>
 </li>
 </ul>
@@ -652,13 +666,13 @@ document.write(`
 <p>The following questions are aimed at testing your understanding of the content that is covered within this course. There is no defined threshold where we believe you should attend the course if you score below. Rather it is aimed to make you engage with the content and reflect for yourself if you feel you would benefit from attending the course. Of note, is that the quiz is intended for you to use google throuhgout and engage with documentation. Even if you get all of the questions right, you are ofcourse more than welcome to still attend the course and use it as a refresher!</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="vRsyZfSpYePw" data-shufflequestions="False"
+<div class="output text_html"><div id="qIWJybTaZMtO" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#vRsyZfSpYePw {
+#qIWJybTaZMtO {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -828,7 +842,7 @@ document.write(`
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsvRsyZfSpYePw=[
+</style></div><script type="application/javascript">var questionsqIWJybTaZMtO=[
     {
         "question": "Which function is used to create an array in NumPy?",
         "type": "many_choice",
@@ -1838,8 +1852,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("vRsyZfSpYePw")) {
-            show_questions(questionsvRsyZfSpYePw,  vRsyZfSpYePw); 
+          if(document.getElementById("qIWJybTaZMtO")) {
+            show_questions(questionsqIWJybTaZMtO,  qIWJybTaZMtO); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -1848,8 +1862,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("vRsyZfSpYePw");
-        // console.log(document.getElementById("vRsyZfSpYePw"));
+        //console.log("qIWJybTaZMtO");
+        // console.log(document.getElementById("qIWJybTaZMtO"));
 
         try_show();
         }
@@ -1960,33 +1974,561 @@ if (typeof version == 'undefined') {
 <p>There are also a range of other methods that can be used to create numpy arrays that will most likely be benefical depending on the particular task you are working on. All of the details for each function are contained in the documentation, but arrays can be based on <a class="reference external" href="https://numpy.org/doc/stable/reference/random/index.html">random numbers</a> or  <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.identity.html">identity matrix</a> as two of the many that are avaliable.</p>
 </section>
 </section>
+<section id="file-output">
+<h4>File Output<a class="headerlink" href="#file-output" title="Link to this heading">#</a></h4>
+<p>If we wanted to save the data that we have created so far, then we could make use of <code class="docutils literal notranslate"><span class="pre">np.save</span></code>, which will save an array to a binary file with the .npy extension.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">range_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;data/example_range_array.npy&#39;</span><span class="p">,</span> <span class="n">range_array</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="exercise-2-saving-to-a-text-file">
+<h5>Exercise 2 - Saving to a text file<a class="headerlink" href="#exercise-2-saving-to-a-text-file" title="Link to this heading">#</a></h5>
+<p>There are also a range of other file formats that can be used for storing numpy arrays. Engage with the documentation for numpy and save the numpy array to another file format, potentially a .txt file.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Exercise 2 Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s1">&#39;data/example_range_array.txt&#39;</span><span class="p">,</span> <span class="n">range_array</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="file-input">
+<h4>File Input<a class="headerlink" href="#file-input" title="Link to this heading">#</a></h4>
+<p>It is also possible to use <code class="docutils literal notranslate"><span class="pre">np.load</span></code> to read in an array from another .npy file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">downloaded_numpy_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;data/multidimensional_array.npy&#39;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">downloaded_numpy_array</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1, 2, 3],
+       [4, 5, 6],
+       [7, 8, 9]])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 <section id="array-attributes">
 <h4>Array Attributes<a class="headerlink" href="#array-attributes" title="Link to this heading">#</a></h4>
+<p>It is a common occurence that you will be sent data that you want to analyse, such as in the case above of loading in just the data file itself. In this situation one of the first things you may wish to do is to get an idea of the data by accessing the arrays attributes.
+The number of dimensions of an array can be found with the use of <code class="docutils literal notranslate"><span class="pre">.ndim</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="s2">&quot;The number of dimensions in the array is: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">downloaded_numpy_array</span><span class="o">.</span><span class="n">ndim</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;The number of dimensions in the array is: 2&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>The overall shape of the array can be found with the use of <code class="docutils literal notranslate"><span class="pre">.shape</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="s2">&quot;The overall shape of the array is: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">downloaded_numpy_array</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;The overall shape of the array is: (3, 3)&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>The number of values of the array can be found with the use of <code class="docutils literal notranslate"><span class="pre">.size</span></code>, giving an overview of the raw number of values within the array.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="s2">&quot;The overall size of the array is: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">downloaded_numpy_array</span><span class="o">.</span><span class="n">size</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;The overall size of the array is: 9&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>As arrays can have a range of different data types it is key to ensure that the data is in the form that you desire it to be, which can be found with the use of <code class="docutils literal notranslate"><span class="pre">.dtype</span></code>. One of the reasons you may wish to know the data type itself is to understand the number of bytes each element in the array takes, found via <code class="docutils literal notranslate"><span class="pre">.itemsize</span></code>. As the dataset grows larger and larger the amount of memory used will become of key importance with the whole data structure memory footprint being found via <code class="docutils literal notranslate"><span class="pre">.nbytes</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="s2">&quot;The datatype within the array is: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">downloaded_numpy_array</span><span class="o">.</span><span class="n">dtype</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;The memory footprint for each of the elements of the array is: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">downloaded_numpy_array</span><span class="o">.</span><span class="n">itemsize</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;The overall memory footprint of the array is: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">downloaded_numpy_array</span><span class="o">.</span><span class="n">nbytes</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;The datatype within the array is: int64&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;The memory footprint for each of the elements of the array is: 8&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;The overall memory footprint of the array is: 72&#39;
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="data-types">
 <h4>Data Types<a class="headerlink" href="#data-types" title="Link to this heading">#</a></h4>
-<p>Within numpy there are a range of different data types</p>
+<p>Within numpy there are a range of different data types that elements within an array can be, including:</p>
+<ul class="simple">
+<li><p>Boolean (<code class="docutils literal notranslate"><span class="pre">bool_</span></code>): Used for storing <code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code> values.</p></li>
+<li><p>Integer (<code class="docutils literal notranslate"><span class="pre">int_</span></code>, <code class="docutils literal notranslate"><span class="pre">int8</span></code>, <code class="docutils literal notranslate"><span class="pre">int16</span></code>, <code class="docutils literal notranslate"><span class="pre">int32</span></code>, <code class="docutils literal notranslate"><span class="pre">int64</span></code>): Signed integer types of various sizes</p></li>
+<li><p>Unsigned Integer (<code class="docutils literal notranslate"><span class="pre">uint8</span></code>, <code class="docutils literal notranslate"><span class="pre">uint16</span></code>, <code class="docutils literal notranslate"><span class="pre">uint32</span></code>, <code class="docutils literal notranslate"><span class="pre">uint64</span></code>): Unsigned integer types of various sizes.</p></li>
+<li><p>Floating Point (<code class="docutils literal notranslate"><span class="pre">float16</span></code>, <code class="docutils literal notranslate"><span class="pre">float32</span></code>, <code class="docutils literal notranslate"><span class="pre">float64</span></code>): Floating point numbers of various precisions.</p></li>
+<li><p>Complex Numbers (<code class="docutils literal notranslate"><span class="pre">complex64</span></code>, <code class="docutils literal notranslate"><span class="pre">complex128</span></code>): Complex numbers with floating point real and imaginary parts.</p></li>
+<li><p>Fized length strings (<code class="docutils literal notranslate"><span class="pre">sring_</span></code>): Used for text data.</p></li>
+<li><p>Object (<code class="docutils literal notranslate"><span class="pre">object_</span></code>): Used for arrays of python objects.</p></li>
+</ul>
+<p>Examples for each of these different types can be seen below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Boolean array</span>
+<span class="n">bool_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">bool_</span><span class="p">)</span>
+
+<span class="c1"># Integer array</span>
+<span class="n">int_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+
+<span class="c1"># Floating point array</span>
+<span class="n">float_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+
+<span class="c1"># Complex number array</span>
+<span class="n">complex_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="n">j</span><span class="p">,</span> <span class="mi">3</span><span class="o">+</span><span class="mi">4</span><span class="n">j</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">)</span>
+
+<span class="c1"># String array</span>
+<span class="n">string_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;cherry&quot;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">string_</span><span class="p">)</span>
+
+<span class="c1"># Object array</span>
+<span class="n">object_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;two&quot;</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">object_</span><span class="p">)</span>
+
+<span class="c1"># Print the arrays and their data types</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Boolean Array:&quot;</span><span class="p">,</span> <span class="n">bool_arr</span><span class="p">,</span> <span class="s2">&quot;Data Type:&quot;</span><span class="p">,</span> <span class="n">bool_arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Integer Array:&quot;</span><span class="p">,</span> <span class="n">int_arr</span><span class="p">,</span> <span class="s2">&quot;Data Type:&quot;</span><span class="p">,</span> <span class="n">int_arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Floating Point Array:&quot;</span><span class="p">,</span> <span class="n">float_arr</span><span class="p">,</span> <span class="s2">&quot;Data Type:&quot;</span><span class="p">,</span> <span class="n">float_arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Complex Number Array:&quot;</span><span class="p">,</span> <span class="n">complex_arr</span><span class="p">,</span> <span class="s2">&quot;Data Type:&quot;</span><span class="p">,</span> <span class="n">complex_arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;String Array:&quot;</span><span class="p">,</span> <span class="n">string_arr</span><span class="p">,</span> <span class="s2">&quot;Data Type:&quot;</span><span class="p">,</span> <span class="n">string_arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Object Array:&quot;</span><span class="p">,</span> <span class="n">object_arr</span><span class="p">,</span> <span class="s2">&quot;Data Type:&quot;</span><span class="p">,</span> <span class="n">object_arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Boolean Array: [ True False  True] Data Type: bool
+Integer Array: [1 2 3] Data Type: int32
+Floating Point Array: [1. 2. 3.] Data Type: float64
+Complex Number Array: [1.+2.j 3.+4.j] Data Type: complex128
+String Array: [b&#39;apple&#39; b&#39;banana&#39; b&#39;cherry&#39;] Data Type: |S6
+Object Array: [1 &#39;two&#39; 3.0] Data Type: object
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
-<section id="array-indexing-and-slicing">
-<h3>Array Indexing and Slicing<a class="headerlink" href="#array-indexing-and-slicing" title="Link to this heading">#</a></h3>
-<section id="basic-indexing">
-<h4>Basic Indexing<a class="headerlink" href="#basic-indexing" title="Link to this heading">#</a></h4>
+<section id="array-indexing">
+<h3>Array Indexing<a class="headerlink" href="#array-indexing" title="Link to this heading">#</a></h3>
+<p>Array indexing is the process of accessing individual or groups of elements from an array. Within numpy there are a range of different methods of indexing elemnts, as shown below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="s2">&quot;The complete array is: &quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">downloaded_numpy_array</span><span class="p">)</span>
+<span class="c1"># Single element indexing </span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Single element indexing: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">downloaded_numpy_array</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+<span class="c1"># Multi-dimensional indexing </span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Multi-dimensional element indexing: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">downloaded_numpy_array</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]))</span>
+<span class="c1"># Boolean indexing </span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Boolean conditions: &quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">downloaded_numpy_array</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Boolean indexing: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">downloaded_numpy_array</span><span class="p">[</span><span class="n">downloaded_numpy_array</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">]))</span>
+<span class="c1"># Complex Indexing </span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Complex indexing: &quot;</span> <span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">downloaded_numpy_array</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;The complete array is: &#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1, 2, 3],
+       [4, 5, 6],
+       [7, 8, 9]])
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Single element indexing: [7 8 9]&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Multi-dimensional element indexing: 8&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Boolean conditions: &#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[False, False, False],
+       [False,  True,  True],
+       [ True,  True,  True]])
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Boolean indexing: [5 6 7 8 9]&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Complex indexing: &#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[4, 5, 6],
+       [7, 8, 9]])
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-<section id="reshaping-and-transposing">
-<h4>Reshaping and Transposing<a class="headerlink" href="#reshaping-and-transposing" title="Link to this heading">#</a></h4>
+<section id="array-slicing">
+<h3>Array Slicing<a class="headerlink" href="#array-slicing" title="Link to this heading">#</a></h3>
+<p>Array slicing works in a similar way to slicing for python lists, with some additional capabilities. Some examples of slicing can be seen below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="s2">&quot;Simple slicing: &quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">downloaded_numpy_array</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Multi-dimensional slicing: &quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">downloaded_numpy_array</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:])</span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Step slicing: &quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">downloaded_numpy_array</span><span class="p">[::</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Negative slicing:&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">downloaded_numpy_array</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Simple slicing: &#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[4, 5, 6],
+       [7, 8, 9]])
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Multi-dimensional slicing: &#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[2, 3],
+       [5, 6],
+       [8, 9]])
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Step slicing: &#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1, 2, 3],
+       [7, 8, 9]])
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Negative slicing:&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[7, 8, 9]])
+</pre></div>
+</div>
+</div>
+</div>
 </section>
+<section id="array-operations">
+<h3>Array Operations<a class="headerlink" href="#array-operations" title="Link to this heading">#</a></h3>
+<section id="arithmetic-operations">
+<h4>Arithmetic Operations<a class="headerlink" href="#arithmetic-operations" title="Link to this heading">#</a></h4>
+<p>Numpy has the ability to perform a range of element wise arithmetic operations on arrays, such as addition, subtraction, multiplications and division as seen below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+<span class="n">array_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Array 1: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">array_1</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Array 2: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">array_2</span><span class="p">))</span>
+
+<span class="c1"># Addition </span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Adding Array 1 to Array 2: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">array_1</span> <span class="o">+</span> <span class="n">array_2</span><span class="p">))</span>
+
+<span class="c1"># Subtraction </span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Subtracting Array 2 from Array 1: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">array_1</span> <span class="o">-</span> <span class="n">array_2</span><span class="p">))</span>
+
+<span class="c1"># Multiplication</span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Multiplying Array 1 and 2 together: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">array_1</span> <span class="o">*</span> <span class="n">array_2</span><span class="p">))</span>
+
+<span class="c1"># Division </span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Dividing Array 1 by Array 2: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">array_1</span> <span class="o">/</span> <span class="n">array_2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Array 1: [1 2 3 4 5]&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Array 2: [3 3 3 3 3]&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Adding Array 1 to Array 2: [4 5 6 7 8]&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Subtracting Array 2 from Array 1: [-2 -1  0  1  2]&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Multiplying Array 1 and 2 together: [ 3  6  9 12 15]&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Dividing Array 1 by Array 2: [0.33333333 0.66666667 1.         1.33333333 1.66666667]&#39;
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-<section id="array-operations-and-computations">
-<h3>Array Operations and Computations<a class="headerlink" href="#array-operations-and-computations" title="Link to this heading">#</a></h3>
-<section id="array-arithmetic">
-<h4>Array arithmetic<a class="headerlink" href="#array-arithmetic" title="Link to this heading">#</a></h4>
+<section id="matrix-operations">
+<h4>Matrix Operations<a class="headerlink" href="#matrix-operations" title="Link to this heading">#</a></h4>
+<p>Further to operations on simple arrays, Numpy offers support for operations on more complex data structure such as matricies.</p>
+</section>
+<section id="dot-product">
+<h4>Dot Product<a class="headerlink" href="#dot-product" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="s2">&quot;Dot product of array 1 and array 2:&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">array_1</span><span class="p">,</span> <span class="n">array_2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Dot product of array 1 and array 2:&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>45
+</pre></div>
+</div>
+</div>
+</div>
+<p>The dot product can then also be computed for two-dimensional arrays.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dot for two-dimensional arrays</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">))</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 4 10]
+ [16 36]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="statistical-operations">
+<h4>Statistical Operations<a class="headerlink" href="#statistical-operations" title="Link to this heading">#</a></h4>
+<p>Numpy provides a range of different functions that can perform statistics on a given array, with some key ones seen below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">input_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">21</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">47</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">])</span>
+
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Mean: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">input_array</span><span class="p">)))</span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Median: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">input_array</span><span class="p">)))</span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Standard Deviation: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">input_array</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Mean: 19.625&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Median: 10.0&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Standard Deviation: 20.6212117733173&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="logical-operations">
+<h4>Logical Operations<a class="headerlink" href="#logical-operations" title="Link to this heading">#</a></h4>
+<p>Numpy also capacity to perform logical operations on arrays that contains boolean elements.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">])</span>
+
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;AND logical operations:&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;OR logical operations:&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">logical_or</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;AND logical operations:&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([False, False, False, False, False])
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;OR logical operations:&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ True,  True,  True, False,  True])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="shape-manipulations">
+<h4>Shape Manipulations<a class="headerlink" href="#shape-manipulations" title="Link to this heading">#</a></h4>
+<p>It is also possible to alter the shape of a given array without modify the data that is within the array. Two keys operations to manipulate the shape of an array are shown below with <code class="docutils literal notranslate"><span class="pre">.reshape</span></code> and <code class="docutils literal notranslate"><span class="pre">.flatten</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reshape_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]])</span>
+<span class="n">display</span><span class="p">(</span><span class="n">reshape_array</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Reshape the array from 3x2 to 2x3:&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">reshape_array</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Convert from 2D to 1D:&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">reshape_array</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1,  5,  2],
+       [ 7,  9, 10]])
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Reshape the array from 3x2 to 2x3:&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1,  5],
+       [ 2,  7],
+       [ 9, 10]])
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Convert from 2D to 1D:&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1,  5,  2,  7,  9, 10])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="set-operations">
+<h4>Set Operations<a class="headerlink" href="#set-operations" title="Link to this heading">#</a></h4>
+<p>Numpy also offers support for set operations, such as getting both the union and the intersection of elements for different arrays as shown below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+<span class="n">array_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Union of array 1 and array 2: &quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">union1d</span><span class="p">(</span><span class="n">array_1</span><span class="p">,</span> <span class="n">array_2</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Intersection of array 1 and array 2: &quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">intersect1d</span><span class="p">(</span><span class="n">array_1</span><span class="p">,</span> <span class="n">array_2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Union of array 1 and array 2: &#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 2, 3, 4, 5])
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Intersection of array 1 and array 2: &#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2, 3, 5])
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="broadcasting">
 <h4>Broadcasting<a class="headerlink" href="#broadcasting" title="Link to this heading">#</a></h4>
+<p>Broadcasting in numpy allows operations to be performed on arrays of different shapes, sizs and dimensions. Different examples of broadcasting are shown below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Adding a scale to an array </span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Scalar addition to an array: &quot;</span> <span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+
+<span class="c1"># Adding a one dimensional array to a two dimensional array</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">19</span><span class="p">],</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">26</span><span class="p">,</span><span class="mi">27</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">29</span><span class="p">]])</span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Adding a one dimensional array to a two dimensional array: &quot;</span> <span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Scalar addition to an array: &#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([10, 11, 12, 13, 14, 15, 16, 17, 18, 19])
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Adding a one dimensional array to a two dimensional array: &#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[10, 12, 14, 16, 18, 20, 22, 24, 26, 28],
+       [20, 22, 24, 26, 28, 30, 32, 34, 36, 38]])
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-<section id="aggregations">
-<h4>Aggregations<a class="headerlink" href="#aggregations" title="Link to this heading">#</a></h4>
+<section id="exercise-3-performing-analysis">
+<h4>Exercise 3 - Performing Analysis<a class="headerlink" href="#exercise-3-performing-analysis" title="Link to this heading">#</a></h4>
+<p>Given the dataset loaded into the <code class="docutils literal notranslate"><span class="pre">input_data</span></code> below answer the following five questions, some of which may require engaging with the Numpy documentation.</p>
+<ul class="simple">
+<li><p>What is theaverage values of the elements in the array?</p></li>
+<li><p>How many unique numbers are there in the array?</p></li>
+<li><p>What is the standard deviation of the array values?</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">input_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;data/exercise_3_array.npy&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Exercise 3 Solution</p>
+<p>The average value for the dataset is 490.99, with 622 unique numbers and a standard deviation of 287.4. The python code using Numpy to compute the results is shown below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Calculate the average value of the elements</span>
+<span class="n">average_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">input_data</span><span class="p">)</span>
+
+<span class="c1"># 2. Find all unique numbers and their count</span>
+<span class="n">unique_numbers</span><span class="p">,</span> <span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">input_data</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># 5. Compute the standard deviation of the array values</span>
+<span class="n">standard_deviation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">input_data</span><span class="p">)</span>
+
+<span class="c1"># Printing the results</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Average value:&quot;</span><span class="p">,</span> <span class="n">average_value</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Unique numbers count:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">unique_numbers</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Standard deviation:&quot;</span><span class="p">,</span> <span class="n">standard_deviation</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </section>
 </section>
 </section>
@@ -2071,19 +2613,27 @@ if (typeof version == 'undefined') {
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#other-methods">Other Methods</a></li>
 </ul>
 </li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#file-output">File Output</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-saving-to-a-text-file">Exercise 2 - Saving to a text file</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#file-input">File Input</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#array-attributes">Array Attributes</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">Data Types</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#array-indexing-and-slicing">Array Indexing and Slicing</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-indexing">Basic Indexing</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reshaping-and-transposing">Reshaping and Transposing</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#array-operations-and-computations">Array Operations and Computations</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#array-arithmetic">Array arithmetic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#array-indexing">Array Indexing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#array-slicing">Array Slicing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#array-operations">Array Operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetic-operations">Arithmetic Operations</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-operations">Matrix Operations</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dot-product">Dot Product</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-operations">Statistical Operations</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-operations">Logical Operations</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#shape-manipulations">Shape Manipulations</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#set-operations">Set Operations</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#broadcasting">Broadcasting</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregations">Aggregations</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-performing-analysis">Exercise 3 - Performing Analysis</a></li>
 </ul>
 </li>
 </ul>
