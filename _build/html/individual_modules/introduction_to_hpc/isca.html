@@ -398,6 +398,37 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -453,7 +484,7 @@
       
       
       
-      <li><a href="../../_sources/individual_modules/introduction_to_hpc/isca.md" target="_blank"
+      <li><a href="../../_sources/individual_modules/introduction_to_hpc/isca.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -463,7 +494,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -607,7 +638,7 @@ document.write(`
 <li><p>Xeon Phi accelerator nodes and GPU (Tesla K80) compute nodes.</p></li>
 </ul>
 <p>For a total of ~6000 Intel CPU cores in nodes connected with 40Gbps high-speed fiber networking. It is important to stress that the storage on ISCA is <strong>not</strong> backed up, so we recommend you keeping copies off important results &amp; software elsewhere for safe keeping.</p>
-<img src="../fig/IMG20221207130751.jpg" alt="ISCA row A" width="600"/>
+<p><img alt="ISCA row A" src="../../_images/IMG20221207130751.jpg" /></p>
 <section id="hardware-software-wip">
 <h4>Hardware &amp; Software WIP<a class="headerlink" href="#hardware-software-wip" title="Link to this heading">#</a></h4>
 <p><strong>TBC</strong>, none of these features are yet in production but they are worth mentioning anyways.</p>
@@ -629,7 +660,7 @@ document.write(`
 <li><p>Developing in an isolated custom environment</p></li>
 <li><p>Testing tools on custom defined software platforms</p></li>
 </ul>
-<img src="../fig/IMG20221207130813.jpg" alt="OpenStack row B" width="400"/>
+<p><img alt="OpenStack row B" src="../../_images/IMG20221207130813.jpg" /></p>
 </section>
 </section>
 <section id="working-with-projects">

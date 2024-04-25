@@ -577,23 +577,19 @@ document.write(`
 <h1>Running a job on a HPC system<a class="headerlink" href="#running-a-job-on-a-hpc-system" title="Link to this heading">#</a></h1>
 <section id="questions">
 <h2>Questions<a class="headerlink" href="#questions" title="Link to this heading">#</a></h2>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>What is a scheduler and why does a cluster need one?
-
-How do I launch a program to run on a compute node in the cluster?
-
-How do I capture the output of a program that is run on a node in the cluster?
-</pre></div>
-</div>
+<ul class="simple">
+<li><p>What is a scheduler and why does a cluster need one?</p></li>
+<li><p>How do I launch a program to run on a compute node in the cluster?</p></li>
+<li><p>How do I capture the output of a program that is run on a node in the cluster?</p></li>
+</ul>
 </section>
 <section id="objectives">
 <h2>Objectives<a class="headerlink" href="#objectives" title="Link to this heading">#</a></h2>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Submit a simple script to the cluster.
-
-Monitor the execution of jobs using command line tools.
-
-Inspect the output and error files of your jobs.
-</pre></div>
-</div>
+<ul class="simple">
+<li><p>Submit a simple script to the cluster.</p></li>
+<li><p>Monitor the execution of jobs using command line tools.</p></li>
+<li><p>Inspect the output and error files of your jobs.</p></li>
+</ul>
 </section>
 <section id="job-scheduler">
 <h2>Job Scheduler<a class="headerlink" href="#job-scheduler" title="Link to this heading">#</a></h2>
@@ -616,30 +612,29 @@ Inspect the output and error files of your jobs.
 </ul>
 </li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="c1">#!/bin/sh</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
 
 <span class="c1">## print start date and time</span>
-<span class="n">echo</span> <span class="n">Job</span> <span class="n">started</span> <span class="n">on</span><span class="p">:</span>
-<span class="n">date</span> <span class="o">-</span><span class="n">u</span>
+<span class="nb">echo</span><span class="w"> </span>Job<span class="w"> </span>started<span class="w"> </span>on:
+date<span class="w"> </span>-u
 
-<span class="n">echo</span> <span class="s2">&quot;hello-world&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;hello-world&quot;</span>
 
 <span class="c1">## print node job run on</span>
-<span class="n">echo</span> <span class="o">-</span><span class="n">n</span> <span class="s2">&quot;This script is running on &quot;</span>
-<span class="n">hostname</span>
+<span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;This script is running on &quot;</span>
+hostname
 
 <span class="c1">## print end date and time</span>
-<span class="n">echo</span> <span class="n">Job</span> <span class="n">ended</span> <span class="n">on</span><span class="p">:</span>
-<span class="n">date</span> <span class="o">-</span><span class="n">u</span>
+<span class="nb">echo</span><span class="w"> </span>Job<span class="w"> </span>ended<span class="w"> </span>on:
+date<span class="w"> </span>-u
 </pre></div>
 </div>
 <p>We can run this script on ISCA by executing <code class="docutils literal notranslate"><span class="pre">sh</span> <span class="pre">hello-world.sh</span></code>. What output does this give you?</p>
-<p><img alt="" src="individual_modules/fig/hello-world.png" /></p>
+<p><img alt="" src="../../_images/hello-world.png" /></p>
 <p>We can see from the name of the computer that this script ran on the login node, but we want to take advantage of the compute nodes: we need the scheduler to queue up <a class="reference external" href="http://hello-world.sh">hello-world.sh</a> to run on a compute node.</p>
 <p>To submit this task to the scheduler, we use the sbatch command. We also need to give Slurm some instructions on how to run the job. Schedulers like Slurm also have a special comment used to denote special scheduler-specific options. Though these comments differ from scheduler to scheduler, Slurm’s special comment is #SBATCH. Anything following the #SBATCH comment is interpreted as an instruction to the scheduler.</p>
 <p>An example job submission script for our hello world script is shown below.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
 <span class="c1">#SBATCH --export=ALL # export all environment variables to the batch job.</span>
 <span class="c1">#SBATCH -p sq # submit to the serial queue</span>
 <span class="c1">#SBATCH --time=00:10:00 # Maximum wall time for the job.</span>
@@ -652,63 +647,59 @@ Inspect the output and error files of your jobs.
 <span class="c1">#SBATCH --job-name=hello-world</span>
 
 <span class="c1">## print start date and time</span>
-<span class="n">echo</span> <span class="n">Job</span> <span class="n">started</span> <span class="n">on</span><span class="p">:</span>
-<span class="n">date</span> <span class="o">-</span><span class="n">u</span>
+<span class="nb">echo</span><span class="w"> </span>Job<span class="w"> </span>started<span class="w"> </span>on:
+date<span class="w"> </span>-u
 
-<span class="n">echo</span> <span class="s2">&quot;hello-world&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;hello-world&quot;</span>
 
 <span class="c1">## print node job run on</span>
-<span class="n">echo</span> <span class="o">-</span><span class="n">n</span> <span class="s2">&quot;This script is running on &quot;</span>
-<span class="n">hostname</span>
+<span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;This script is running on &quot;</span>
+hostname
 
 <span class="c1">## print end date and time</span>
-<span class="n">echo</span> <span class="n">Job</span> <span class="n">ended</span> <span class="n">on</span><span class="p">:</span>
-<span class="n">date</span> <span class="o">-</span><span class="n">u</span>
+<span class="nb">echo</span><span class="w"> </span>Job<span class="w"> </span>ended<span class="w"> </span>on:
+date<span class="w"> </span>-u
 </pre></div>
 </div>
 <p>We submit this job by running <code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">hello-world-submission.sh</span></code>. This creates a job which will run the script when dispatched to a compute node which the queuing system has identified as being available to perform the work. The output this time is different.</p>
-<p><img alt="" src="individual_modules/fig/job-submission.png" /></p>
+<p><img alt="" src="../../_images/job-submission.png" /></p>
 <p>Rather than provide the output from the script, instead we get a message saying <code class="docutils literal notranslate"><span class="pre">Submitted</span> <span class="pre">batch</span> <span class="pre">job</span></code> followed by a number. This number is the job id and can be used to track the job.</p>
 <section id="troubleshooting">
 <h3>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading">#</a></h3>
 <p>If you didn’t get this output then the job scheduler didn’t recognize your script as a job submission script. You might get an error message to help you debug why.</p>
 <p>Common errors:</p>
 <p><strong>1. Incorrect line breaks.</strong> As shown in the figure below, a common error if you work on a unix machine is the incorrect <strong>E</strong>nd <strong>o</strong>f <strong>l</strong>ine (EOL) characters.</p>
-<p><img alt="" src="individual_modules/fig/line-breaks-error.png" /></p>
+<p><img alt="" src="../../_images/line-breaks-error.png" /></p>
 <p>As the job scheduler is running on UNIX system, it is expecting your script to be formatted with UNIX characters. If you were to open your script in a text editor you likely wouldn’t be able to see the problem, but the subtle difference between Windows (DOS) and UNIX in how the end of a line is coded causes an issue. It’s ok as there is an easy fix. If you open your script in notepad++ you can change the EOL coding to UNIX through the following menu sequence: “Edit” -&gt; “EOL conversion” -&gt; “Unix”. Then resave your script and resubmit.</p>
-<p><img alt="" src="individual_modules/fig/change-line-breaks.png" /></p>
+<p><img alt="" src="../../_images/change-line-breaks.png" /></p>
 <p><strong>2. Script not recognised as a job submission.</strong> You can’t submit your job to the queue if the scheduler does not recognise the commands in your script as instructions. In this case you will get the error shown in the figure below stating that the job submission has failed.</p>
-<p><img alt="" src="individual_modules/fig/sbatch-error.png" /></p>
+<p><img alt="" src="../../_images/sbatch-error.png" /></p>
 <p>This means that either you did not include the SLURM commands or you did not include commands recognised by the scheduler running on the system you are using. Note that the error message refers to “No partition specified” this is just a alternative term for a queue on the system.</p>
 </section>
 </section>
 <section id="tracking-the-job">
 <h2>Tracking the job<a class="headerlink" href="#tracking-the-job" title="Link to this heading">#</a></h2>
 <p>Once you see the “Job submitted” output you know that your job submission script has been accepted and the scheduler takes over and tries to run the job for us. This is important to note as it helps you debug any other errors you may or may not get. While the job is waiting to run, it goes into a list of jobs called the queue. To check on our job’s status, we check the queue using the command <code class="docutils literal notranslate"><span class="pre">squeue</span> <span class="pre">-u</span> <span class="pre">&lt;yourUsername&gt;</span></code>.</p>
-<p><img alt="" src="individual_modules/fig/squeue.png" /></p>
+<p><img alt="" src="../../_images/squeue.png" /></p>
 <p>We can track our job in the output above, either by it’s name or job ID. We can see here that it’s currently being held in the queue (status = “PD”), once a resource becomes available this will change to an “R” to indicate that it is running. In this example, the job is being held in the queue, because the user already has their max allocation of jobs running on the system. In this case, the fair usage policy is preventing their job from running, rather than other users filling up the system. Now it’s possible that your script has been run before you get a chance to monitor it, you should however receive an e-mail telling you that your job has finished and whether it was COMPLETED (i.e. ran without error) or FAILED (terminated due to an error.)</p>
 <p>If you recall, when we run our script on the login node, the output was printed to the terminal – but now, when <code class="docutils literal notranslate"><span class="pre">squeue</span></code> shows the job has finished, nothing was printed to the terminal.</p>
 <p>When we submitted our job to the cluster we told it where to redirect the output. The relevant SLURM commands were</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#SBATCH --output=hello-world.o</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#SBATCH --output=hello-world.o</span>
 <span class="c1">#SBATCH --error=hello-world.e</span>
 </pre></div>
 </div>
 <p>Let’s look at the content of those files - they should be located in the same folder as you launched the job from.</p>
 <p>First hello-world.o</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Job</span> <span class="n">started</span> <span class="n">on</span><span class="p">:</span>
-<span class="n">Tue</span> <span class="n">Dec</span> <span class="mi">13</span> <span class="mi">20</span><span class="p">:</span><span class="mi">04</span><span class="p">:</span><span class="mi">32</span> <span class="n">UTC</span> <span class="mi">2022</span>
-<span class="n">hello</span><span class="o">-</span><span class="n">world</span>
-<span class="n">This</span> <span class="n">script</span> <span class="ow">is</span> <span class="n">running</span> <span class="n">on</span> <span class="n">comp088</span>
-<span class="n">Job</span> <span class="n">ended</span> <span class="n">on</span><span class="p">:</span>
-<span class="n">Tue</span> <span class="n">Dec</span> <span class="mi">13</span> <span class="mi">20</span><span class="p">:</span><span class="mi">04</span><span class="p">:</span><span class="mi">32</span> <span class="n">UTC</span> <span class="mi">2022</span>
-
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Job<span class="w"> </span>started<span class="w"> </span>on:
+Tue<span class="w"> </span>Dec<span class="w"> </span><span class="m">13</span><span class="w"> </span><span class="m">20</span>:04:32<span class="w"> </span>UTC<span class="w"> </span><span class="m">2022</span>
+hello-world
+This<span class="w"> </span>script<span class="w"> </span>is<span class="w"> </span>running<span class="w"> </span>on<span class="w"> </span>comp088
+Job<span class="w"> </span>ended<span class="w"> </span>on:
+Tue<span class="w"> </span>Dec<span class="w"> </span><span class="m">13</span><span class="w"> </span><span class="m">20</span>:04:32<span class="w"> </span>UTC<span class="w"> </span><span class="m">2022</span>
 </pre></div>
 </div>
 <p>This file contains all the standard output, i.e. the messages that would have been printed to the terminal.</p>
 <p>Next hello-world.e</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 <p>This file is empty. This files contains the standard error i.e. the error messages. Ours is empty as our job submission ran without error.</p>
 <p>The default of the scheduler is to combine this output into a single file with the filename: slurm-%j.out, where %j is the job number. You can change the location of these files by specifying a path to where you want them (using either a relative or absolute path).</p>
 <section id="more-troubleshooting">
@@ -738,7 +729,7 @@ Inspect the output and error files of your jobs.
 <p>–nodes=<nnodes> or -N <nnodes>: How many separate machines does your job need to run on? Note that if you set ntasks to a number greater than what one machine can offer, Slurm will set this value automatically.</p>
 <p>Note that just requesting these resources does not make your job run faster, nor does it necessarily mean that you will consume all of these resources. It only means that these are made available to you. Your job may end up using less memory, or less time, or fewer nodes than you have requested, and it will still run. It’s best if your requests accurately reflect your job’s requirements.</p>
 <p>Resource requests are typically binding. If you exceed them, your job will be killed. Let’s use wall time as an example. We will request 1 minute of wall time, and attempt to run a job for two minutes.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
 <span class="c1">#SBATCH --export=ALL # export all environment variables to the batch job.</span>
 <span class="c1">#SBATCH -p sq # submit to the serial queue</span>
 <span class="c1">#SBATCH --time=00:01:00 # Maximum wall time for the job.</span>
@@ -751,17 +742,17 @@ Inspect the output and error files of your jobs.
 <span class="c1">#SBATCH --job-name=long-job</span>
 
 <span class="c1">## print start date and time</span>
-<span class="n">echo</span> <span class="n">Job</span> <span class="n">started</span> <span class="n">on</span><span class="p">:</span>
-<span class="n">date</span> <span class="o">-</span><span class="n">u</span>
+<span class="nb">echo</span><span class="w"> </span>Job<span class="w"> </span>started<span class="w"> </span>on:
+date<span class="w"> </span>-u
 
 
-<span class="n">echo</span> <span class="s2">&quot;This script is running on ... &quot;</span>
-<span class="n">sleep</span> <span class="mi">240</span> <span class="c1"># time in seconds</span>
-<span class="n">hostname</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;This script is running on ... &quot;</span>
+sleep<span class="w"> </span><span class="m">240</span><span class="w"> </span><span class="c1"># time in seconds</span>
+hostname
 
 <span class="c1">## print end date and time</span>
-<span class="n">echo</span> <span class="n">Job</span> <span class="n">ended</span> <span class="n">on</span><span class="p">:</span>
-<span class="n">date</span> <span class="o">-</span><span class="n">u</span>
+<span class="nb">echo</span><span class="w"> </span>Job<span class="w"> </span>ended<span class="w"> </span>on:
+date<span class="w"> </span>-u
 </pre></div>
 </div>
 <p>Submit the job and wait for it to finish. Once it is has finished, check the log file.</p>

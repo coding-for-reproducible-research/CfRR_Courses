@@ -552,7 +552,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#secure-copy">Secure Copy</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-command-line">The Command Line</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question">Question</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-than-one-file">More than one file</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#larger-files-collections">Larger files &amp; Collections</a></li>
 </ul>
 </li>
@@ -588,15 +587,13 @@ document.write(`
 <section id="from-the-internet">
 <h2>From the Internet<a class="headerlink" href="#from-the-internet" title="Link to this heading">#</a></h2>
 <p>If the data is readily available on the internet, we can use the program <code class="docutils literal notranslate"><span class="pre">wget</span></code> to <em>get</em> files directly from <em>webpages</em>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>username@login02:~$ wget &lt;http-address of file(s)&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>username@login02:~$<span class="w"> </span>wget<span class="w"> </span>&lt;http-address<span class="w"> </span>of<span class="w"> </span>file<span class="o">(</span>s<span class="o">)</span>&gt;
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <p>As an example, let’s download the <a class="reference external" href="http://login02.isca.ex.ac.uk:8080/modules.txt">list</a> of installed software modules on ISCA from the cluster’s webserver directly into our ISCA home directory.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>wget -P $HOME &#39;http://login02.isca.ex.ac.uk:8080/modules.txt&#39;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span>-P<span class="w"> </span><span class="nv">$HOME</span><span class="w"> </span><span class="s1">&#39;http://login02.isca.ex.ac.uk:8080/modules.txt&#39;</span>
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <p>Open up the text file with your preferred text editor and peruse the contents. This info will be valuable in a later session when we talk about managing software libraries with modules and virtual environments.</p>
 </section>
 <section id="secure-copy">
@@ -604,10 +601,9 @@ document.write(`
 <section id="the-command-line">
 <h3>The Command Line<a class="headerlink" href="#the-command-line" title="Link to this heading">#</a></h3>
 <p>When we want to copy files back and forth from the cluster, the standard tool is <code class="docutils literal notranslate"><span class="pre">scp</span></code>, which leverages the same <em>OpenSSH</em> protocol as <code class="docutils literal notranslate"><span class="pre">ssh</span></code>. The syntax of <code class="docutils literal notranslate"><span class="pre">scp</span></code> mirrors that of the shell command <code class="docutils literal notranslate"><span class="pre">cp</span></code></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[you@laptop ~]$ scp &lt;File Source&gt; &lt;Target Destination&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>you@laptop<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>scp<span class="w"> </span>&lt;File<span class="w"> </span>Source&gt;<span class="w"> </span>&lt;Target<span class="w"> </span>Destination&gt;
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <p>The three components of a remote machine path <code class="docutils literal notranslate"><span class="pre">&lt;username&gt;&#64;&lt;hostname&gt;:&lt;filepath&gt;</span></code></p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">username</span></code>: your login ID for that machine</p></li>
@@ -616,48 +612,42 @@ document.write(`
 </ol>
 <p>While one can run <code class="docutils literal notranslate"><span class="pre">scp</span></code> commands from either the source or the target, if one is transfering to/from a personal machine, I would recommend running the commands there rather than on the server. Like when using <code class="docutils literal notranslate"><span class="pre">ssh</span></code>, <code class="docutils literal notranslate"><span class="pre">scp</span></code> will by default prompt you for your login password each time you run the command.</p>
 <p>For example, to copy <em>modules.txt</em> from ISCA to the <em>Downloads</em> folder on your laptop, run this command on your laptop in either a Unix shell or Windows Powershell terminal, making sure to specify your own <code class="docutils literal notranslate"><span class="pre">username</span></code>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[you@laptop ~]$ scp username@login02.isca.ex.ac.uk:~/modules.txt $HOME/Downloads
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>you@laptop<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>scp<span class="w"> </span>username@login02.isca.ex.ac.uk:~/modules.txt<span class="w"> </span><span class="nv">$HOME</span>/Downloads
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 </section>
 <section id="question">
 <h3>Question<a class="headerlink" href="#question" title="Link to this heading">#</a></h3>
-<blockquote>
-<div><p>How would one copy <em>modules.txt</em> back from <em>Downloads</em> to our home directory on ISCA but with the new name <em>modules_copy.txt</em>?</p>
-<blockquote>
-<div><h4 class="rubric" id="solution">Solution</h4>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>scp $HOME/Downloads/modules.txt username@login02.isca.ex.ac.uk:~/modules_copy.txt
+<ul class="simple">
+<li><p>How would one copy <em>modules.txt</em> back from <em>Downloads</em> to our home directory on ISCA but with the new name <em>modules_copy.txt</em>?</p></li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>scp<span class="w"> </span><span class="nv">$HOME</span>/Downloads/modules.txt<span class="w"> </span>username@login02.isca.ex.ac.uk:~/modules_copy.txt
 </pre></div>
 </div>
-<p>{: .language-bash}
-{: .solution}
-{: .challenge}</p>
-</div></blockquote>
-</div></blockquote>
-</section>
-<section id="more-than-one-file">
-<h3>More than one file<a class="headerlink" href="#more-than-one-file" title="Link to this heading">#</a></h3>
-<p>We so far have been focusing on single files, but like <code class="docutils literal notranslate"><span class="pre">cp</span></code>, <code class="docutils literal notranslate"><span class="pre">scp</span></code> can easily handle multiple files by utilizing wildcards.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[you@laptop ~]$ scp $HOME/Downloads/*.txt username@login02.isca.ex.ac.uk:~/
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+### More than one file
+We so far have been focusing on single files, but like `cp`, `scp` can easily handle multiple files by utilizing wildcards.
+
+``` bash
+[you@laptop ~]$ scp $HOME/Downloads/*.txt username@login02.isca.ex.ac.uk:~/
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <p>If you want to copy not just a list of files but a full directory structure, one includes the <code class="docutils literal notranslate"><span class="pre">-r</span></code> (recursion) option in the <code class="docutils literal notranslate"><span class="pre">scp</span></code> command.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[you@laptop ~]$ scp -r username@login02.isca.ex.ac.uk:/lustre/projects/Research_Project-HPC-Training $HOME/Downloads
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>you@laptop<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>scp<span class="w"> </span>-r<span class="w"> </span>username@login02.isca.ex.ac.uk:/lustre/projects/Research_Project-HPC-Training<span class="w"> </span><span class="nv">$HOME</span>/Downloads
 </pre></div>
 </div>
-<p>{: .language-bash}
-The command above copies the entire contents of the <strong>HPC-Training</strong> project directory into your downloads folder.</p>
+<p>The command above copies the entire contents of the <strong>HPC-Training</strong> project directory into your downloads folder.</p>
 </section>
 <section id="larger-files-collections">
 <h3>Larger files &amp; Collections<a class="headerlink" href="#larger-files-collections" title="Link to this heading">#</a></h3>
 <p>As you gain experience with transferring files, you may find the <code class="docutils literal notranslate"><span class="pre">scp</span></code> command limiting. The <code class="docutils literal notranslate"><span class="pre">rsync</span></code> utility provides advanced features for file transfer and is typically faster than scp. It is especially useful for transferring large and/or many files and creating synced backup folders.</p>
 <p>The syntax is similar to <code class="docutils literal notranslate"><span class="pre">scp</span></code>. To transfer files &amp;/or directories to another computer with commonly used options:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[you@laptop ~]$ rsync -avzP &lt;source_filepath&gt; &lt;username&gt;@&lt;hostname&gt;:&lt;target_filepath&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>you@laptop<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>rsync<span class="w"> </span>-avzP<span class="w"> </span>&lt;source_filepath&gt;<span class="w"> </span>&lt;username&gt;@&lt;hostname&gt;:&lt;target_filepath&gt;
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <p>The options are:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">a</span></code> (archive) - to preserve file timestamps and permissions among other things</p></li>
@@ -666,10 +656,9 @@ The command above copies the entire contents of the <strong>HPC-Training</strong
 <li><p><code class="docutils literal notranslate"><span class="pre">P</span></code> (partial/progress) - to preserve partially transferred files in case of an interruption and also displays the progress of the transfer.</p></li>
 </ul>
 <p>To download files, we simply change the source and destination:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[you@laptop ~]$ rsync -avzP &lt;username&gt;@&lt;hostname&gt;:&lt;source_filepath&gt; &lt;target_filepath&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>you@laptop<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>rsync<span class="w"> </span>-avzP<span class="w"> </span>&lt;username&gt;@&lt;hostname&gt;:&lt;source_filepath&gt;<span class="w"> </span>&lt;target_filepath&gt;
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 </section>
 </section>
 <section id="gui-based-tranfer-apps">
@@ -678,20 +667,20 @@ The command above copies the entire contents of the <strong>HPC-Training</strong
 <section id="winscp">
 <h3>WinSCP<a class="headerlink" href="#winscp" title="Link to this heading">#</a></h3>
 <p>When starting up WinSCP, you will be prompted with a login window. The credentials are the same ones we used for Putty and like that program, you can save configuration for future use. Once logged into the remote server, one can navigate both directory structures like one would in Windows Explorer and copy files across with a simple drag &amp; drop.</p>
-<p><img alt="" src="individual_modules/fig/winscp_login.png" /></p>
-<p><img alt="" src="individual_modules/fig/winscp_explorer.png" /></p>
+<p><img alt="" src="../../_images/winscp_login.png" /></p>
+<p><img alt="" src="../../_images/winscp_explorer.png" /></p>
 </section>
 <section id="filezilla">
 <h3>FileZilla<a class="headerlink" href="#filezilla" title="Link to this heading">#</a></h3>
 <p>FileZilla is another cross-platform client for downloading and uploading files to and from a remote computer. To connect to the cluster, enter your credentials at the top of the screen:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Host: sftp://login.isca.ex.ac.uk
-User: Your cluster username
-Password: Your cluster password
-Port: (leave blank to use the default port)
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w">    </span>Host:<span class="w"> </span>sftp://login.isca.ex.ac.uk
+<span class="w">    </span>User:<span class="w"> </span>Your<span class="w"> </span>cluster<span class="w"> </span>username
+<span class="w">    </span>Password:<span class="w"> </span>Your<span class="w"> </span>cluster<span class="w"> </span>password
+<span class="w">    </span>Port:<span class="w"> </span><span class="o">(</span>leave<span class="w"> </span>blank<span class="w"> </span>to<span class="w"> </span>use<span class="w"> </span>the<span class="w"> </span>default<span class="w"> </span>port<span class="o">)</span>
 </pre></div>
 </div>
 <p>Hit “Quickconnect” to connect. You should see your remote files appear on the right hand side of the screen. You can drag-and-drop files between the left (local) and right (remote) sides of the screen to transfer files.</p>
-<p><img alt="" src="individual_modules/fig/filezilla_explorer.png" /></p>
+<p><img alt="" src="../../_images/filezilla_explorer.png" /></p>
 </section>
 </section>
 <section id="very-large-transfers">
@@ -770,7 +759,6 @@ Port: (leave blank to use the default port)
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#secure-copy">Secure Copy</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-command-line">The Command Line</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question">Question</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-than-one-file">More than one file</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#larger-files-collections">Larger files &amp; Collections</a></li>
 </ul>
 </li>

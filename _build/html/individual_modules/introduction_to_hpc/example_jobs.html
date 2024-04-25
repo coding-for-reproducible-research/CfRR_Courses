@@ -547,6 +547,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions">Questions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#command-line-programmes">Command line programmes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#r-example">R example</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-example">Python example</a></li>
@@ -564,20 +566,21 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="running-more-complex-jobs-on-a-hpc-system">
 <h1>Running more complex jobs on a HPC system<a class="headerlink" href="#running-more-complex-jobs-on-a-hpc-system" title="Link to this heading">#</a></h1>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> Questions
-
-    How do we run a job not written in bash?
-
-Objectives
-
-    Write a job submission script to use preinstalled software
-
-    Submit a python script to the scheduler
-
-    Submit an R script to the scheduler
-</pre></div>
-</div>
+<section id="questions">
+<h2>Questions<a class="headerlink" href="#questions" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>How do we run a job not written in bash?</p></li>
+</ul>
+</section>
+<section id="objectives">
+<h2>Objectives<a class="headerlink" href="#objectives" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Write a job submission script to use preinstalled software</p></li>
+<li><p>Submit a python script to the scheduler</p></li>
+<li><p>Submit an R script to the scheduler</p></li>
+</ul>
 <p>In the job we submitted to the cluster so far only included bash/UNIX commands. It is highly likely that most of what we want to do on the command line involves using other software or programming languages. In this lesson we are going to look at how we run a variety of different scripts or use a range of different software on the system. Ultimately we need to use UNIX commands to call/execute/run our script.</p>
+</section>
 <section id="command-line-programmes">
 <h2>Command line programmes<a class="headerlink" href="#command-line-programmes" title="Link to this heading">#</a></h2>
 <p>The first extension we will cover is how to use command line tools. If you use these frequently in your work, you will be aware that these are executables you call from a shell terminal possible with some flags or arguments.</p>
@@ -588,7 +591,7 @@ Objectives
 <li><p>Load the relevant modules. When the job gets transferred to the compute nodes, the environment is empty. As part of your job you need to load all the relevant software via the module loading system.</p></li>
 <li><p>The command(s). In this example we are just asking the plink programme to print the help pages.</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
 <span class="c1">#SBATCH -p training # submit to the serial queue</span>
 <span class="c1">#SBATCH --time=00:10:00 # Maximum wall time for the job.</span>
 <span class="c1">#SBATCH -A Research_Project-HPC-Training # research project to submit under. </span>
@@ -601,17 +604,16 @@ Objectives
 
 
 <span class="c1">## print start date and time</span>
-<span class="n">echo</span> <span class="n">Job</span> <span class="n">started</span> <span class="n">on</span><span class="p">:</span>
-<span class="n">date</span> <span class="o">-</span><span class="n">u</span>
+<span class="nb">echo</span><span class="w"> </span>Job<span class="w"> </span>started<span class="w"> </span>on:
+date<span class="w"> </span>-u
 
-<span class="n">module</span> <span class="n">load</span> <span class="n">PLINK</span>
+module<span class="w"> </span>load<span class="w"> </span>PLINK
 
-<span class="n">plink2</span> <span class="o">--</span><span class="n">help</span>
+plink2<span class="w"> </span>--help
 
 <span class="c1">## print end date and time</span>
-<span class="n">echo</span> <span class="n">Job</span> <span class="n">ended</span> <span class="n">on</span><span class="p">:</span>
-<span class="n">date</span> <span class="o">-</span><span class="n">u</span>
-
+<span class="nb">echo</span><span class="w"> </span>Job<span class="w"> </span>ended<span class="w"> </span>on:
+date<span class="w"> </span>-u
 </pre></div>
 </div>
 <p>Essentially whatever software/programme/script we want to run we have to be able to do so from the command line or via a UNIX command. Therefore if we want to use another language e.g. R, python, C, perl etc we need to write a script in that language and run it from our job submission script. Here we will look at an R and Python example</p>
@@ -628,7 +630,7 @@ Objectives
 <li><p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">R</span></code> We need this to load R from the list of modules. Without it there is no R programme to interpret our R script.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Rscript</span> <span class="pre">calc-squares.R</span></code> This is our bash command saying execute the commands in our script with R.</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
 <span class="c1">#SBATCH -p training # submit to the serial queue</span>
 <span class="c1">#SBATCH --time=00:10:00 # Maximum wall time for the job.</span>
 <span class="c1">#SBATCH -A Research_Project-HPC-Training # research project to submit under. </span>
@@ -641,16 +643,16 @@ Objectives
 
 
 <span class="c1">## print start date and time</span>
-<span class="n">echo</span> <span class="n">Job</span> <span class="n">started</span> <span class="n">on</span><span class="p">:</span>
-<span class="n">date</span> <span class="o">-</span><span class="n">u</span>
+<span class="nb">echo</span><span class="w"> </span>Job<span class="w"> </span>started<span class="w"> </span>on:
+date<span class="w"> </span>-u
 
-<span class="n">module</span> <span class="n">load</span> <span class="n">R</span>
+module<span class="w"> </span>load<span class="w"> </span>R
 
-<span class="n">Rscript</span> <span class="n">calc</span><span class="o">-</span><span class="n">squares</span><span class="o">.</span><span class="n">R</span>
+Rscript<span class="w"> </span>calc-squares.R
 
 <span class="c1">## print end date and time</span>
-<span class="n">echo</span> <span class="n">Job</span> <span class="n">ended</span> <span class="n">on</span><span class="p">:</span>
-<span class="n">date</span> <span class="o">-</span><span class="n">u</span>
+<span class="nb">echo</span><span class="w"> </span>Job<span class="w"> </span>ended<span class="w"> </span>on:
+date<span class="w"> </span>-u
 </pre></div>
 </div>
 <p>Note that by just using <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">R</span></code> we are not specifying a particular version of R. Often this command will load the most up-to-date version as the default, but this of course can change and might not be very reproducible.</p>
@@ -667,7 +669,7 @@ Objectives
 <li><p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">Python/3.10.4-GCCcore-11.3.0</span></code> We need this to load Python and specifically version 3 from the list of modules. Without it there is no Python programme to interpret our Python script.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">calc-squares.py</span></code> This is our bash command saying execute the commands in our script with python.</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
 <span class="c1">#SBATCH -p training # submit to the serial queue</span>
 <span class="c1">#SBATCH --time=00:10:00 # Maximum wall time for the job.</span>
 <span class="c1">#SBATCH -A Research_Project-HPC-Training # research project to submit under. </span>
@@ -680,16 +682,16 @@ Objectives
 
 
 <span class="c1">## print start date and time</span>
-<span class="n">echo</span> <span class="n">Job</span> <span class="n">started</span> <span class="n">on</span><span class="p">:</span>
-<span class="n">date</span> <span class="o">-</span><span class="n">u</span>
+<span class="nb">echo</span><span class="w"> </span>Job<span class="w"> </span>started<span class="w"> </span>on:
+date<span class="w"> </span>-u
 
-<span class="n">module</span> <span class="n">load</span> <span class="n">Python</span><span class="o">/</span><span class="mf">3.10.4</span><span class="o">-</span><span class="n">GCCcore</span><span class="o">-</span><span class="mf">11.3.0</span>
+module<span class="w"> </span>load<span class="w"> </span>Python/3.10.4-GCCcore-11.3.0
 
-<span class="n">python</span> <span class="n">calc</span><span class="o">-</span><span class="n">squares</span><span class="o">.</span><span class="n">py</span>
+python<span class="w"> </span>calc-squares.py
 
 <span class="c1">## print end date and time</span>
-<span class="n">echo</span> <span class="n">Job</span> <span class="n">ended</span> <span class="n">on</span><span class="p">:</span>
-<span class="n">date</span> <span class="o">-</span><span class="n">u</span>
+<span class="nb">echo</span><span class="w"> </span>Job<span class="w"> </span>ended<span class="w"> </span>on:
+date<span class="w"> </span>-u
 </pre></div>
 </div>
 </section>
@@ -763,6 +765,8 @@ Objectives
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions">Questions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#command-line-programmes">Command line programmes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#r-example">R example</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-example">Python example</a></li>

@@ -2,19 +2,14 @@
 
 ## Questions
 
-    What is a scheduler and why does a cluster need one?
-
-    How do I launch a program to run on a compute node in the cluster?
-
-    How do I capture the output of a program that is run on a node in the cluster?
+- What is a scheduler and why does a cluster need one?
+- How do I launch a program to run on a compute node in the cluster?
+- How do I capture the output of a program that is run on a node in the cluster?
 
 ## Objectives
-
-    Submit a simple script to the cluster.
-
-    Monitor the execution of jobs using command line tools.
-
-    Inspect the output and error files of your jobs.
+- Submit a simple script to the cluster.
+- Monitor the execution of jobs using command line tools.
+- Inspect the output and error files of your jobs.
 
 ## Job Scheduler
 
@@ -37,8 +32,7 @@ In this case, the job we want to run is a shell script – essentially a text fi
     + we finish using `echo` command and `date` to print the time and date that the script finished running.
 
 
-```
-
+``` bash
 #!/bin/sh
 
 ## print start date and time
@@ -58,7 +52,7 @@ date -u
 
 We can run this script on ISCA by executing `sh hello-world.sh`. What output does this give you?
 
-![](../fig/hello-world.png)
+![](fig/hello-world.png)
 
 We can see from the name of the computer that this script ran on the login node, but we want to take advantage of the compute nodes: we need the scheduler to queue up hello-world.sh to run on a compute node.
 
@@ -66,7 +60,7 @@ To submit this task to the scheduler, we use the sbatch command. We also need to
 
 An example job submission script for our hello world script is shown below.
 
-```
+``` bash
 #!/bin/sh
 #SBATCH --export=ALL # export all environment variables to the batch job.
 #SBATCH -p sq # submit to the serial queue
@@ -96,7 +90,7 @@ date -u
 
 We submit this job by running `sbatch hello-world-submission.sh`. This creates a job which will run the script when dispatched to a compute node which the queuing system has identified as being available to perform the work. The output this time is different. 
 
-![](../fig/job-submission.png)
+![](fig/job-submission.png)
 
 Rather than provide the output from the script, instead we get a message saying `Submitted batch job` followed by a number. This number is the job id and can be used to track the job. 
 
@@ -108,15 +102,15 @@ Common errors:
 
 **1. Incorrect line breaks.** As shown in the figure below, a common error if you work on a unix machine is the incorrect **E**nd **o**f **l**ine (EOL) characters. 
 
-![](../fig/line-breaks-error.png)
+![](fig/line-breaks-error.png)
 
 As the job scheduler is running on UNIX system, it is expecting your script to be formatted with UNIX characters. If you were to open your script in a text editor you likely wouldn't be able to see the problem, but the subtle difference between Windows (DOS) and UNIX in how the end of a line is coded causes an issue. It's ok as there is an easy fix. If you open your script in notepad++ you can change the EOL coding to UNIX through the following menu sequence: "Edit" -> "EOL conversion" -> "Unix". Then resave your script and resubmit.
 
-![](../fig/change-line-breaks.png)
+![](fig/change-line-breaks.png)
 
 **2. Script not recognised as a job submission.** You can't submit your job to the queue if the scheduler does not recognise the commands in your script as instructions. In this case you will get the error shown in the figure below stating that the job submission has failed. 
 
-![](../fig/sbatch-error.png)
+![](fig/sbatch-error.png)
 
 This means that either you did not include the SLURM commands or you did not include commands recognised by the scheduler running on the system you are using. Note that the error message refers to "No partition specified" this is just a alternative term for a queue on the system.
 
@@ -124,7 +118,7 @@ This means that either you did not include the SLURM commands or you did not inc
 
 Once you see the "Job submitted" output you know that your job submission script has been accepted and the scheduler takes over and tries to run the job for us. This is important to note as it helps you debug any other errors you may or may not get. While the job is waiting to run, it goes into a list of jobs called the queue. To check on our job’s status, we check the queue using the command `squeue -u <yourUsername>`.
 
-![](../fig/squeue.png)
+![](fig/squeue.png)
 
 We can track our job in the output above, either by it's name or job ID. We can see here that it's currently being held in the queue (status = "PD"), once a resource becomes available this will change to an "R" to indicate that it is running. In this example, the job is being held in the queue, because the user already has their max allocation of jobs running on the system. In this case, the fair usage policy is preventing their job from running, rather than other users filling up the system. Now it's possible that your script has been run before you get a chance to monitor it, you should however receive an e-mail telling you that your job has finished and whether it was COMPLETED (i.e. ran without error) or FAILED (terminated due to an error.)
 
@@ -132,7 +126,7 @@ If you recall, when we run our script on the login node, the output was printed 
 
 When we submitted our job to the cluster we told it where to redirect the output. The relevant SLURM commands were 
 
-```
+``` bash
 #SBATCH --output=hello-world.o
 #SBATCH --error=hello-world.e
 ```
@@ -141,7 +135,7 @@ Let's look at the content of those files - they should be located in the same fo
 
 First hello-world.o
 
-```
+``` bash 
 Job started on:
 Tue Dec 13 20:04:32 UTC 2022
 hello-world
@@ -154,10 +148,6 @@ Tue Dec 13 20:04:32 UTC 2022
 This file contains all the standard output, i.e. the messages that would have been printed to the terminal.
 
 Next hello-world.e
-
-```
-
-```
 
 This file is empty. This files contains the standard error i.e. the error messages. Ours is empty as our job submission ran without error. 
 
@@ -205,7 +195,7 @@ Note that just requesting these resources does not make your job run faster, nor
 
 Resource requests are typically binding. If you exceed them, your job will be killed. Let’s use wall time as an example. We will request 1 minute of wall time, and attempt to run a job for two minutes.
 
-```
+``` bash
 #!/bin/sh
 #SBATCH --export=ALL # export all environment variables to the batch job.
 #SBATCH -p sq # submit to the serial queue

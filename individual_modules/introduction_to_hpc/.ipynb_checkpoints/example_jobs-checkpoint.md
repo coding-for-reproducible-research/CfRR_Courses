@@ -1,17 +1,14 @@
 # Running more complex jobs on a HPC system 
 
-     Questions
+## Questions
 
-        How do we run a job not written in bash?
+- How do we run a job not written in bash?
 
-    Objectives
+## Objectives
 
-        Write a job submission script to use preinstalled software
-
-        Submit a python script to the scheduler
-
-        Submit an R script to the scheduler
-
+- Write a job submission script to use preinstalled software
+- Submit a python script to the scheduler
+- Submit an R script to the scheduler
 
 In the job we submitted to the cluster so far only included bash/UNIX commands. It is highly likely that most of what we want to do on the command line involves using other software or programming languages. In this lesson we are going to look at how we run a variety of different scripts or use a range of different software on the system. Ultimately we need to use UNIX commands to call/execute/run our script.
 
@@ -29,7 +26,7 @@ The components are the script are
 
 3. The command(s). In this example we are just asking the plink programme to print the help pages.
 
-```
+``` bash
 #!/bin/sh
 #SBATCH -p training # submit to the serial queue
 #SBATCH --time=00:10:00 # Maximum wall time for the job.
@@ -71,7 +68,7 @@ We are going to use a short R script that runs a for loop to calculate the squar
 2. `Rscript calc-squares.R` This is our bash command saying execute the commands in our script with R.
 
 
-```
+``` bash
 #!/bin/sh
 #SBATCH -p training # submit to the serial queue
 #SBATCH --time=00:10:00 # Maximum wall time for the job.
@@ -111,7 +108,7 @@ We are going to use a short R script that runs a for loop to calculate the squar
 1. `module load Python/3.10.4-GCCcore-11.3.0` We need this to load Python and specifically version 3 from the list of modules. Without it there is no Python programme to interpret our Python script.
 2. `python calc-squares.py` This is our bash command saying execute the commands in our script with python.
 
-```
+``` bash
 #!/bin/sh
 #SBATCH -p training # submit to the serial queue
 #SBATCH --time=00:10:00 # Maximum wall time for the job.

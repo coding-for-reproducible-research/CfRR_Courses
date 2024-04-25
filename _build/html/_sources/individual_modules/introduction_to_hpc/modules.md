@@ -1,13 +1,11 @@
 # Loading software packages on HPC
-     Questions
 
-        How do we load and unload software packages?
+## Questions
+- How do we load and unload software packages?
 
-    Objectives
-
-        Load and use a software package.
-
-        Explain how the shell environment changes when the module mechanism loads or unloads packages.
+## Objectives
+- Load and use a software package.
+- Explain how the shell environment changes when the module mechanism loads or unloads packages.
 
 On a high-performance computing system, it is seldom the case that the software we want to use is available when we log in. It is installed, but we will need to “load” it before it can run.
 
@@ -35,7 +33,7 @@ On login you may start out with a default set of modules loaded or you may start
 
 To see available software modules, use `module avail`:
 
-![](../fig/module-avail.png)
+![](fig/module-avail.png)
 
 This is will give you a very long list of all software, and all versions, available to load and use. You can scroll through this list to find what you need. You can restrict this list by providing the first few characters of the software you are insterested in e.g. `module avail Py`
 
@@ -43,7 +41,7 @@ This is will give you a very long list of all software, and all versions, availa
 
 You can use the module list command to see which modules you currently have loaded in your environment. If you have no modules loaded, you will see a message telling you so
 
-![](../fig/module-list.png)
+![](fig/module-list.png)
 
 ## Loading and Unloading Software
 
@@ -55,15 +53,15 @@ First, we will use the command `python --version`, which is a python specific co
 
 Second, we will use the command `module list`, which lists the specific name (and therefore version) of the software we installed. We can see in the image below, that our module load command has in fact loaded 12(!) modules including Python3.9.6. When you load a module it additionally installs any other modules on which it depends.
 
-![](../fig/module-python.png)
+![](fig/module-python.png)
 
 Let’s try unloading the python package with the command `module unload Python`. We can see in this case we have only removed the specific packages we stated in the command, the other 11 modules that were loaded at the same as dependencies are still loaded.
 
-![](../fig/module-unload.png)
+![](fig/module-unload.png)
 
 If we wanted to unload everything at once, we could run `module purge` (unloads everything).
 
-![](../fig/module-purge.png)
+![](fig/module-purge.png)
 
 Note that this module loading process happens principally through the manipulation of environment variables like $PATH. There is usually little or no data transfer involved.
 
@@ -77,7 +75,7 @@ So far, we’ve learned how to load and unload software packages. This is very u
 
 Let’s examine the output of `module avail` more closely. We can restrict the output by specifying which software we are interested in at the end of the command, for example `module avail Python`.
 
-![](../fig/module-avail-python.png)
+![](fig/module-avail-python.png)
 
 You should notice at that there are multiple different versions of Python available, denoted after a `/` including major versions (2 vs 3) and subversion (X.X).
 

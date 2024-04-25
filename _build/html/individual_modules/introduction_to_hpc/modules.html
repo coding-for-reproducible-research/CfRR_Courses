@@ -547,6 +547,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions">Questions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-modules">Environment Modules</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#listing-available-modules">Listing Available Modules</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#listing-currently-loaded-modules">Listing Currently Loaded Modules</a></li>
@@ -566,17 +567,16 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="loading-software-packages-on-hpc">
 <h1>Loading software packages on HPC<a class="headerlink" href="#loading-software-packages-on-hpc" title="Link to this heading">#</a></h1>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> Questions
-
-    How do we load and unload software packages?
-
-Objectives
-
-    Load and use a software package.
-
-    Explain how the shell environment changes when the module mechanism loads or unloads packages.
-</pre></div>
-</div>
+<section id="questions">
+<h2>Questions<a class="headerlink" href="#questions" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>How do we load and unload software packages?</p></li>
+</ul>
+<p>## Objectives</p>
+<ul class="simple">
+<li><p>Load and use a software package.</p></li>
+<li><p>Explain how the shell environment changes when the module mechanism loads or unloads packages.</p></li>
+</ul>
 <p>On a high-performance computing system, it is seldom the case that the software we want to use is available when we log in. It is installed, but we will need to “load” it before it can run.</p>
 <p>Before we start using individual software packages, however, we should understand the reasoning behind this approach. The three biggest factors are:</p>
 <ul class="simple">
@@ -587,6 +587,7 @@ Objectives
 <p>Software incompatibility is a major headache for programmers. Sometimes the presence (or absence) of a software package will break others that depend on it. Two of the most famous examples are Python 2 and 3 and C compiler versions. Python 3 famously provides a python command that conflicts with that provided by Python 2. Software compiled against a newer version of the C libraries and then used when they are not present will result in a nasty ‘GLIBCXX_3.4.20’ not found error, for instance.</p>
 <p>Software versioning is another common issue. A team might depend on a certain package version for their research project - if the software version was to change (for instance, if a package was updated), it might affect their results. Having access to multiple software versions allow a set of researchers to prevent software versioning issues from affecting their results.</p>
 <p>Dependencies are where a particular software package (or even a particular version) depends on having access to another software package (or even a particular version of another software package). For example, the VASP materials science software may depend on having a particular version of the FFTW (Fastest Fourier Transform in the West) software library available for it to work.</p>
+</section>
 <section id="environment-modules">
 <h2>Environment Modules<a class="headerlink" href="#environment-modules" title="Link to this heading">#</a></h2>
 <p>Environment modules are the solution to these problems. A module is a self-contained description of a software package – it contains the settings required to run a software package and, usually, encodes required dependencies on other software packages.</p>
@@ -596,13 +597,13 @@ Objectives
 <section id="listing-available-modules">
 <h2>Listing Available Modules<a class="headerlink" href="#listing-available-modules" title="Link to this heading">#</a></h2>
 <p>To see available software modules, use <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">avail</span></code>:</p>
-<p><img alt="" src="individual_modules/fig/module-avail.png" /></p>
+<p><img alt="" src="../../_images/module-avail.png" /></p>
 <p>This is will give you a very long list of all software, and all versions, available to load and use. You can scroll through this list to find what you need. You can restrict this list by providing the first few characters of the software you are insterested in e.g. <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">avail</span> <span class="pre">Py</span></code></p>
 </section>
 <section id="listing-currently-loaded-modules">
 <h2>Listing Currently Loaded Modules<a class="headerlink" href="#listing-currently-loaded-modules" title="Link to this heading">#</a></h2>
 <p>You can use the module list command to see which modules you currently have loaded in your environment. If you have no modules loaded, you will see a message telling you so</p>
-<p><img alt="" src="individual_modules/fig/module-list.png" /></p>
+<p><img alt="" src="../../_images/module-list.png" /></p>
 </section>
 <section id="loading-and-unloading-software">
 <h2>Loading and Unloading Software<a class="headerlink" href="#loading-and-unloading-software" title="Link to this heading">#</a></h2>
@@ -610,11 +611,11 @@ Objectives
 <p>In this instance we haven’t specified a specific version so let’s check which one we have loaded. We can do this is two ways.</p>
 <p>First, we will use the command <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">--version</span></code>, which is a python specific command that can be used on any UNIX system to find out which version of python is used by the command python. We can see in the image below that we have loaded Python3.9.</p>
 <p>Second, we will use the command <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">list</span></code>, which lists the specific name (and therefore version) of the software we installed. We can see in the image below, that our module load command has in fact loaded 12(!) modules including Python3.9.6. When you load a module it additionally installs any other modules on which it depends.</p>
-<p><img alt="" src="individual_modules/fig/module-python.png" /></p>
+<p><img alt="" src="../../_images/module-python.png" /></p>
 <p>Let’s try unloading the python package with the command <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">unload</span> <span class="pre">Python</span></code>. We can see in this case we have only removed the specific packages we stated in the command, the other 11 modules that were loaded at the same as dependencies are still loaded.</p>
-<p><img alt="" src="individual_modules/fig/module-unload.png" /></p>
+<p><img alt="" src="../../_images/module-unload.png" /></p>
 <p>If we wanted to unload everything at once, we could run <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">purge</span></code> (unloads everything).</p>
-<p><img alt="" src="individual_modules/fig/module-purge.png" /></p>
+<p><img alt="" src="../../_images/module-purge.png" /></p>
 <p>Note that this module loading process happens principally through the manipulation of environment variables like $PATH. There is usually little or no data transfer involved.</p>
 <p>The module loading process manipulates other special environment variables as well, including variables that influence where the system looks for software libraries, and sometimes variables which tell commercial software packages where to find license servers.</p>
 <p>The module command also restores these shell environment variables to their previous state when a module is unloaded.</p>
@@ -623,7 +624,7 @@ Objectives
 <h2>Software Versioning<a class="headerlink" href="#software-versioning" title="Link to this heading">#</a></h2>
 <p>So far, we’ve learned how to load and unload software packages. This is very useful. However, we have not yet addressed the issue of software versioning. At some point or other, you will run into issues where only one particular version of some software will be suitable. Perhaps a key bugfix only happened in a certain version, or version X broke compatibility with a file format you use. In either of these example cases, it helps to be very specific about what software is loaded.</p>
 <p>Let’s examine the output of <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">avail</span></code> more closely. We can restrict the output by specifying which software we are interested in at the end of the command, for example <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">avail</span> <span class="pre">Python</span></code>.</p>
-<p><img alt="" src="individual_modules/fig/module-avail-python.png" /></p>
+<p><img alt="" src="../../_images/module-avail-python.png" /></p>
 <p>You should notice at that there are multiple different versions of Python available, denoted after a <code class="docutils literal notranslate"><span class="pre">/</span></code> including major versions (2 vs 3) and subversion (X.X).</p>
 <p>We can load the specific version of a software by specifying it when we run <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span></code>  For example to load Python2 we could run <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">Python/2.7.18-GCCcore-9.3.0</span></code></p>
 </section>
@@ -711,6 +712,7 @@ you can then create environments as described on the <a class="reference externa
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions">Questions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-modules">Environment Modules</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#listing-available-modules">Listing Available Modules</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#listing-currently-loaded-modules">Listing Currently Loaded Modules</a></li>

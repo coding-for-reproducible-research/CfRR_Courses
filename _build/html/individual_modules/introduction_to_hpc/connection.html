@@ -398,6 +398,37 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -453,7 +484,7 @@
       
       
       
-      <li><a href="../../_sources/individual_modules/introduction_to_hpc/connection.md" target="_blank"
+      <li><a href="../../_sources/individual_modules/introduction_to_hpc/connection.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -463,7 +494,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -582,72 +613,64 @@ document.write(`
 <section id="checking">
 <h3>Checking<a class="headerlink" href="#checking" title="Link to this heading">#</a></h3>
 <p>The most common way to connect to a remove HPC server is via a command line shell program <code class="docutils literal notranslate"><span class="pre">ssh</span></code>. This application uses the Secure SHell protocol (or SSH) to open an encrypted network connection between two machines, allowing you to send &amp; receive text and data without having to worry about prying eyes. It should be available in all terminal apps (Windows, Linux, &amp; Mac), but to doublecheck type <code class="docutils literal notranslate"><span class="pre">ssh</span></code> into your terminal of choice and press enter. If it is installed properly, you should get output like that below.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>you@laptop:~$ ssh
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>you@laptop:~$<span class="w"> </span>ssh
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">ssh</span> <span class="p">[</span><span class="o">-</span><span class="mi">46</span><span class="n">AaCfGgKkMNnqsTtVvXxYy</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">B</span> <span class="n">bind_interface</span><span class="p">]</span>
-           <span class="p">[</span><span class="o">-</span><span class="n">b</span> <span class="n">bind_address</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">c</span> <span class="n">cipher_spec</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">D</span> <span class="p">[</span><span class="n">bind_address</span><span class="p">:]</span><span class="n">port</span><span class="p">]</span>
-           <span class="p">[</span><span class="o">-</span><span class="n">E</span> <span class="n">log_file</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">e</span> <span class="n">escape_char</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">F</span> <span class="n">configfile</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">I</span> <span class="n">pkcs11</span><span class="p">]</span>
-           <span class="p">[</span><span class="o">-</span><span class="n">i</span> <span class="n">identity_file</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">J</span> <span class="p">[</span><span class="n">user</span><span class="o">@</span><span class="p">]</span><span class="n">host</span><span class="p">[:</span><span class="n">port</span><span class="p">]]</span> <span class="p">[</span><span class="o">-</span><span class="n">L</span> <span class="n">address</span><span class="p">]</span>
-           <span class="p">[</span><span class="o">-</span><span class="n">l</span> <span class="n">login_name</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">m</span> <span class="n">mac_spec</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">O</span> <span class="n">ctl_cmd</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">o</span> <span class="n">option</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">p</span> <span class="n">port</span><span class="p">]</span>
-           <span class="p">[</span><span class="o">-</span><span class="n">Q</span> <span class="n">query_option</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">R</span> <span class="n">address</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">S</span> <span class="n">ctl_path</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">W</span> <span class="n">host</span><span class="p">:</span><span class="n">port</span><span class="p">]</span>
-           <span class="p">[</span><span class="o">-</span><span class="n">w</span> <span class="n">local_tun</span><span class="p">[:</span><span class="n">remote_tun</span><span class="p">]]</span> <span class="n">destination</span> <span class="p">[</span><span class="n">command</span> <span class="p">[</span><span class="n">argument</span> <span class="o">...</span><span class="p">]]</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>usage:<span class="w"> </span>ssh<span class="w"> </span><span class="o">[</span>-46AaCfGgKkMNnqsTtVvXxYy<span class="o">]</span><span class="w"> </span><span class="o">[</span>-B<span class="w"> </span>bind_interface<span class="o">]</span>
+<span class="w">           </span><span class="o">[</span>-b<span class="w"> </span>bind_address<span class="o">]</span><span class="w"> </span><span class="o">[</span>-c<span class="w"> </span>cipher_spec<span class="o">]</span><span class="w"> </span><span class="o">[</span>-D<span class="w"> </span><span class="o">[</span>bind_address:<span class="o">]</span>port<span class="o">]</span>
+<span class="w">           </span><span class="o">[</span>-E<span class="w"> </span>log_file<span class="o">]</span><span class="w"> </span><span class="o">[</span>-e<span class="w"> </span>escape_char<span class="o">]</span><span class="w"> </span><span class="o">[</span>-F<span class="w"> </span>configfile<span class="o">]</span><span class="w"> </span><span class="o">[</span>-I<span class="w"> </span>pkcs11<span class="o">]</span>
+<span class="w">           </span><span class="o">[</span>-i<span class="w"> </span>identity_file<span class="o">]</span><span class="w"> </span><span class="o">[</span>-J<span class="w"> </span><span class="o">[</span>user@<span class="o">]</span>host<span class="o">[</span>:port<span class="o">]]</span><span class="w"> </span><span class="o">[</span>-L<span class="w"> </span>address<span class="o">]</span>
+<span class="w">           </span><span class="o">[</span>-l<span class="w"> </span>login_name<span class="o">]</span><span class="w"> </span><span class="o">[</span>-m<span class="w"> </span>mac_spec<span class="o">]</span><span class="w"> </span><span class="o">[</span>-O<span class="w"> </span>ctl_cmd<span class="o">]</span><span class="w"> </span><span class="o">[</span>-o<span class="w"> </span>option<span class="o">]</span><span class="w"> </span><span class="o">[</span>-p<span class="w"> </span>port<span class="o">]</span>
+<span class="w">           </span><span class="o">[</span>-Q<span class="w"> </span>query_option<span class="o">]</span><span class="w"> </span><span class="o">[</span>-R<span class="w"> </span>address<span class="o">]</span><span class="w"> </span><span class="o">[</span>-S<span class="w"> </span>ctl_path<span class="o">]</span><span class="w"> </span><span class="o">[</span>-W<span class="w"> </span>host:port<span class="o">]</span>
+<span class="w">           </span><span class="o">[</span>-w<span class="w"> </span>local_tun<span class="o">[</span>:remote_tun<span class="o">]]</span><span class="w"> </span>destination<span class="w"> </span><span class="o">[</span><span class="nb">command</span><span class="w"> </span><span class="o">[</span>argument<span class="w"> </span>...<span class="o">]]</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <p>If you do <em>not</em> get this output, please let the instructor know. But don’t worry, there are other means of connecting to the system and well will cover those in a moment.</p>
 </section>
 <section id="logging-in">
 <h3>Logging In<a class="headerlink" href="#logging-in" title="Link to this heading">#</a></h3>
 <p>Assuming you were given access to the system by an administrator, you should be able to login with your standard university credentials. The syntax for logging into a machine with <code class="docutils literal notranslate"><span class="pre">ssh</span></code> is</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>you@laptop:~$ ssh username@hostname
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>you@laptop:~$<span class="w"> </span>ssh<span class="w"> </span>username@hostname
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <p>where <code class="docutils literal notranslate"><span class="pre">username</span></code> is your standard login and the <code class="docutils literal notranslate"><span class="pre">hostname</span></code> is address of the server you wish to log into. For this workshop the <code class="docutils literal notranslate"><span class="pre">hostname</span></code> will be <code class="docutils literal notranslate"><span class="pre">login02.isca.ex.ac.uk</span></code>. Don’t forget the <strong>&#64;</strong> symbol, like you would see in an email address. You will then be prompted for your university password.</p>
 </section>
 <section id="first-time-warning">
 <h3>First Time Warning<a class="headerlink" href="#first-time-warning" title="Link to this heading">#</a></h3>
 <p>An important security warning will occur whenever you attempt to log into another machine for the first time.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>The authenticity of host &#39;login02.isca.ex.ac.uk (144.173.114.23)&#39; can&#39;t be established.
-ED25519 key fingerprint is SHA256:rPqlD8myIfJUQBINKPYCp47oIQm3sGVMUPSAWT26E/M.
-ECDSA key fingerprint is SHA256:ah29tkixxl7NW/zdJM6TSbASY3UyLsKZEKUMMZSD3X0.
-This key is not known by any other names
-Are you sure you want to continue connecting (yes/no/[fingerprint])?
-
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>The<span class="w"> </span>authenticity<span class="w"> </span>of<span class="w"> </span>host<span class="w"> </span><span class="s1">&#39;login02.isca.ex.ac.uk (144.173.114.23)&#39;</span><span class="w"> </span>can<span class="err">&#39;</span>t<span class="w"> </span>be<span class="w"> </span>established.
+ED25519<span class="w"> </span>key<span class="w"> </span>fingerprint<span class="w"> </span>is<span class="w"> </span>SHA256:rPqlD8myIfJUQBINKPYCp47oIQm3sGVMUPSAWT26E/M.
+ECDSA<span class="w"> </span>key<span class="w"> </span>fingerprint<span class="w"> </span>is<span class="w"> </span>SHA256:ah29tkixxl7NW/zdJM6TSbASY3UyLsKZEKUMMZSD3X0.
+This<span class="w"> </span>key<span class="w"> </span>is<span class="w"> </span>not<span class="w"> </span>known<span class="w"> </span>by<span class="w"> </span>any<span class="w"> </span>other<span class="w"> </span>names
+Are<span class="w"> </span>you<span class="w"> </span>sure<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span><span class="k">continue</span><span class="w"> </span>connecting<span class="w"> </span><span class="o">(</span>yes/no/<span class="o">[</span>fingerprint<span class="o">])</span>?
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <p>Make sure that the IP address (i.e. <code class="docutils literal notranslate"><span class="pre">144.173.114.23</span></code>) and the appropriate key fingerprint that you get match the information found above. Any subsequent time you log into that same server, you should <strong>not</strong> see this message, as this server’s fingerprint is saved in a list of <code class="docutils literal notranslate"><span class="pre">known_hosts</span></code>. If you do get this message while connecting to a server you have logged into previously, please contact a system administrator <strong>immediately</strong>.</p>
 </section>
 <section id="config-file">
 <h3>Config File<a class="headerlink" href="#config-file" title="Link to this heading">#</a></h3>
 <p>Remembering the long hostnames can be a pain. We can create a config file that allows us to use shorter and more memorable ones for machines we use regularly using an ssh <code class="docutils literal notranslate"><span class="pre">config</span></code> file. For those using a Unix terminal, the two commands below will create a file with access restricted to just the current user.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">touch</span> <span class="o">~/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">config</span>
-<span class="n">chmod</span> <span class="mi">600</span> <span class="o">~/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">config</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>touch<span class="w"> </span>~/.ssh/config
+chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>~/.ssh/config
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <p>Open up that file in your preferred text editor and copy the following example into it. <strong>Remember</strong> to swap your specific <code class="docutils literal notranslate"><span class="pre">username</span></code> for the placeholder.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Configuration file for simplifying SSH logins</span>
-<span class="n">Host</span> <span class="n">login</span><span class="o">.</span><span class="n">isca</span>
-    <span class="n">User</span> <span class="n">your_username</span>
-    <span class="n">Hostname</span> <span class="n">login02</span><span class="o">.</span><span class="n">isca</span><span class="o">.</span><span class="n">ex</span><span class="o">.</span><span class="n">ac</span><span class="o">.</span><span class="n">uk</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Configuration file for simplifying SSH logins</span>
+Host<span class="w"> </span>login.isca
+<span class="w">    </span>User<span class="w"> </span>your_username
+<span class="w">    </span>Hostname<span class="w"> </span>login02.isca.ex.ac.uk
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <p>Now you can log in with a far shorter and easier to remember command. But you still will be prompted for your password.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>you@laptop:~$ ssh login.isca
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>you@laptop:~$<span class="w"> </span>ssh<span class="w"> </span>login.isca
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 </section>
 </section>
 <section id="graphical-interfaces">
 <h2>Graphical Interfaces<a class="headerlink" href="#graphical-interfaces" title="Link to this heading">#</a></h2>
 <p>An alternative means of connecting to a remote host server is via an application like the <a class="reference external" href="https://putty.org/">Putty</a> SSH Client. It provides nice app-based way to save host connection configs so one need not input them again each time. Like the command line option, if you haven’t logged in before, it will raise a <em>warning</em> message.</p>
-<p><img alt="" src="individual_modules/fig/windows_putty.png" /></p>
+<p><img alt="" src="../../_images/windows_putty.png" /></p>
 <p>You will be prompted in a new terminal session for your username and password.</p>
 </section>
 </section>
