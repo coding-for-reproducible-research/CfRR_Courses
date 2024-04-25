@@ -548,7 +548,10 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning objectives</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ignoring files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ignoring files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gitignore-comments"><code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> comments</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ignore-similar-files-with-pathspecs">Ignore similar files with pathspecs</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-kind-of-files-should-be-ignored">What kind of files should be ignored?</a></li>
 </ul>
@@ -574,16 +577,16 @@ be stored in a repository.</p>
 <section id="id1">
 <h2>Ignoring files<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p>Currently we still have our <code class="docutils literal notranslate"><span class="pre">TODO.txt</span></code> file hanging around in the working tree:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git status
-On branch main
-Your branch is ahead of &#39;origin/main&#39; by 1 commit.
-  (use &quot;git push&quot; to publish your local commits)
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>status
+On<span class="w"> </span>branch<span class="w"> </span>main
+Your<span class="w"> </span>branch<span class="w"> </span>is<span class="w"> </span>ahead<span class="w"> </span>of<span class="w"> </span><span class="s1">&#39;origin/main&#39;</span><span class="w"> </span>by<span class="w"> </span><span class="m">1</span><span class="w"> </span>commit.
+<span class="w">  </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git push&quot;</span><span class="w"> </span>to<span class="w"> </span>publish<span class="w"> </span>your<span class="w"> </span><span class="nb">local</span><span class="w"> </span>commits<span class="o">)</span>
 
-Untracked files:
-  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
-        TODO.txt
+Untracked<span class="w"> </span>files:
+<span class="w">  </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git add &lt;file&gt;...&quot;</span><span class="w"> </span>to<span class="w"> </span>include<span class="w"> </span><span class="k">in</span><span class="w"> </span>what<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>committed<span class="o">)</span>
+<span class="w">        </span>TODO.txt
 
-nothing added to commit but untracked files present (use &quot;git add&quot; to track)
+nothing<span class="w"> </span>added<span class="w"> </span>to<span class="w"> </span>commit<span class="w"> </span>but<span class="w"> </span>untracked<span class="w"> </span>files<span class="w"> </span>present<span class="w"> </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git add&quot;</span><span class="w"> </span>to<span class="w"> </span>track<span class="o">)</span>
 </pre></div>
 </div>
 <p>While this file is recognised by Git, there’s always a risk we might accidentally
@@ -594,74 +597,70 @@ repository. In this file we specify which files Git should ignore; when doing
 this, we need to specify paths relative to the root directory of the repository.</p>
 <p>We therefore create a <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file in the root folder of <code class="docutils literal notranslate"><span class="pre">git-good-practice</span></code>
 and add the following content to it to ensure the <code class="docutils literal notranslate"><span class="pre">TODO.txt</span></code> file is ignored:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TODO</span><span class="o">.</span><span class="n">txt</span>
-
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>TODO.txt
 </pre></div>
 </div>
-<blockquote>
-<div><h3 class="rubric" id="gitignore-comments"><code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> comments</h3>
-<p>Any line that begins with a hash (<code class="docutils literal notranslate"><span class="pre">#</span></code>) in a <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file is treated
-as a comment and thus not processed by Git. Note
-that the line must have <code class="docutils literal notranslate"><span class="pre">#</span></code> as the first character to be considered a
-comment e.g. a comment line cannot begin with whitespace followed by <code class="docutils literal notranslate"><span class="pre">#</span></code>.</p>
-</div></blockquote>
+<section id="gitignore-comments">
+<h3><code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> comments<a class="headerlink" href="#gitignore-comments" title="Link to this heading">#</a></h3>
+<p>Any line that begins with a hash (<code class="docutils literal notranslate"><span class="pre">#</span></code>) in a <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file is treated as a comment and thus not processed by Git. Note that the line must have <code class="docutils literal notranslate"><span class="pre">#</span></code> as the first character to be considered a comment e.g. a comment line cannot begin with whitespace followed by <code class="docutils literal notranslate"><span class="pre">#</span></code>.</p>
 <p>Now we check the state of the working tree again:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git status
-On branch main
-Your branch is ahead of &#39;origin/main&#39; by 1 commit.
-  (use &quot;git push&quot; to publish your local commits)
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>status
+On<span class="w"> </span>branch<span class="w"> </span>main
+Your<span class="w"> </span>branch<span class="w"> </span>is<span class="w"> </span>ahead<span class="w"> </span>of<span class="w"> </span><span class="s1">&#39;origin/main&#39;</span><span class="w"> </span>by<span class="w"> </span><span class="m">1</span><span class="w"> </span>commit.
+<span class="w">  </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git push&quot;</span><span class="w"> </span>to<span class="w"> </span>publish<span class="w"> </span>your<span class="w"> </span><span class="nb">local</span><span class="w"> </span>commits<span class="o">)</span>
 
-Untracked files:
-  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
-        .gitignore
+Untracked<span class="w"> </span>files:
+<span class="w">  </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git add &lt;file&gt;...&quot;</span><span class="w"> </span>to<span class="w"> </span>include<span class="w"> </span><span class="k">in</span><span class="w"> </span>what<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>committed<span class="o">)</span>
+<span class="w">        </span>.gitignore
 
-nothing added to commit but untracked files present (use &quot;git add&quot; to track)
+nothing<span class="w"> </span>added<span class="w"> </span>to<span class="w"> </span>commit<span class="w"> </span>but<span class="w"> </span>untracked<span class="w"> </span>files<span class="w"> </span>present<span class="w"> </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git add&quot;</span><span class="w"> </span>to<span class="w"> </span>track<span class="o">)</span>
 </pre></div>
 </div>
 <p>The only thing Git notices now is the newly-created <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file.
 In general, it’s useful to keep the <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file under version control, so
 that other users of the repository can also have the same things ignored as we
 do. Let’s add and commit <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git add .gitignore
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>.gitignore
 
-$ git commit -m &quot;Ignore TODO list file&quot;
-[main 42a9a32] Ignore TODO list file
- 1 file changed, 1 insertion(+)
- create mode 100644 .gitignore
+$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Ignore TODO list file&quot;</span>
+<span class="o">[</span>main<span class="w"> </span>42a9a32<span class="o">]</span><span class="w"> </span>Ignore<span class="w"> </span>TODO<span class="w"> </span>list<span class="w"> </span>file
+<span class="w"> </span><span class="m">1</span><span class="w"> </span>file<span class="w"> </span>changed,<span class="w"> </span><span class="m">1</span><span class="w"> </span>insertion<span class="o">(</span>+<span class="o">)</span>
+<span class="w"> </span>create<span class="w"> </span>mode<span class="w"> </span><span class="m">100644</span><span class="w"> </span>.gitignore
 
-$ git status
-On branch main
-Your branch is ahead of &#39;origin/main&#39; by 2 commits.
-  (use &quot;git push&quot; to publish your local commits)
+$<span class="w"> </span>git<span class="w"> </span>status
+On<span class="w"> </span>branch<span class="w"> </span>main
+Your<span class="w"> </span>branch<span class="w"> </span>is<span class="w"> </span>ahead<span class="w"> </span>of<span class="w"> </span><span class="s1">&#39;origin/main&#39;</span><span class="w"> </span>by<span class="w"> </span><span class="m">2</span><span class="w"> </span>commits.
+<span class="w">  </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git push&quot;</span><span class="w"> </span>to<span class="w"> </span>publish<span class="w"> </span>your<span class="w"> </span><span class="nb">local</span><span class="w"> </span>commits<span class="o">)</span>
 
-nothing to commit, working tree clean
+nothing<span class="w"> </span>to<span class="w"> </span>commit,<span class="w"> </span>working<span class="w"> </span>tree<span class="w"> </span>clean
 </pre></div>
 </div>
 <p>As a bonus, using <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> helps us avoid accidentally adding files
 to the repository that we don’t want to track:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git add TODO.txt
-The following paths are ignored by one of your .gitignore files:
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>TODO.txt
+The<span class="w"> </span>following<span class="w"> </span>paths<span class="w"> </span>are<span class="w"> </span>ignored<span class="w"> </span>by<span class="w"> </span>one<span class="w"> </span>of<span class="w"> </span>your<span class="w"> </span>.gitignore<span class="w"> </span>files:
 TODO.txt
-hint: Use -f if you really want to add them.
-hint: Turn this message off by running
-hint: &quot;git config advice.addIgnoredFile false&quot;
+hint:<span class="w"> </span>Use<span class="w"> </span>-f<span class="w"> </span><span class="k">if</span><span class="w"> </span>you<span class="w"> </span>really<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>add<span class="w"> </span>them.
+hint:<span class="w"> </span>Turn<span class="w"> </span>this<span class="w"> </span>message<span class="w"> </span>off<span class="w"> </span>by<span class="w"> </span>running
+hint:<span class="w"> </span><span class="s2">&quot;git config advice.addIgnoredFile false&quot;</span>
 </pre></div>
 </div>
 <p>As the message says, if we really want to override our ignore settings,
 we can use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">-f</span></code> to force Git to add something. We can also always see
 the status of ignored files if we want:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git status --ignored
-On branch main
-Your branch is ahead of &#39;origin/main&#39; by 2 commits.
-  (use &quot;git push&quot; to publish your local commits)
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>status<span class="w"> </span>--ignored
+On<span class="w"> </span>branch<span class="w"> </span>main
+Your<span class="w"> </span>branch<span class="w"> </span>is<span class="w"> </span>ahead<span class="w"> </span>of<span class="w"> </span><span class="s1">&#39;origin/main&#39;</span><span class="w"> </span>by<span class="w"> </span><span class="m">2</span><span class="w"> </span>commits.
+<span class="w">  </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git push&quot;</span><span class="w"> </span>to<span class="w"> </span>publish<span class="w"> </span>your<span class="w"> </span><span class="nb">local</span><span class="w"> </span>commits<span class="o">)</span>
 
-Ignored files:
-  (use &quot;git add -f &lt;file&gt;...&quot; to include in what will be committed)
-        TODO.txt
+Ignored<span class="w"> </span>files:
+<span class="w">  </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git add -f &lt;file&gt;...&quot;</span><span class="w"> </span>to<span class="w"> </span>include<span class="w"> </span><span class="k">in</span><span class="w"> </span>what<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>committed<span class="o">)</span>
+<span class="w">        </span>TODO.txt
 
-nothing to commit, working tree clean
+nothing<span class="w"> </span>to<span class="w"> </span>commit,<span class="w"> </span>working<span class="w"> </span>tree<span class="w"> </span>clean
 </pre></div>
 </div>
+</section>
 </section>
 <section id="ignore-similar-files-with-pathspecs">
 <h2>Ignore similar files with pathspecs<a class="headerlink" href="#ignore-similar-files-with-pathspecs" title="Link to this heading">#</a></h2>
@@ -690,115 +689,113 @@ for <code class="docutils literal notranslate"><span class="pre">pathspec</span>
 some research code that takes in data files, outputs some results and produces
 a log file of the run. We use the Unix commands <code class="docutils literal notranslate"><span class="pre">mkdir</span></code>
 to create a new <code class="docutils literal notranslate"><span class="pre">data</span></code> directory and <code class="docutils literal notranslate"><span class="pre">touch</span></code> to create new files:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mkdir data
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mkdir<span class="w"> </span>data
 
-$ touch data/a.dat data/b.dat data/c.dat
+$<span class="w"> </span>touch<span class="w"> </span>data/a.dat<span class="w"> </span>data/b.dat<span class="w"> </span>data/c.dat
 
-$ touch a.out b.out c.out
+$<span class="w"> </span>touch<span class="w"> </span>a.out<span class="w"> </span>b.out<span class="w"> </span>c.out
 
-$ touch 2023-02-10-15-36-02_modelRun.log
+$<span class="w"> </span>touch<span class="w"> </span><span class="m">2023</span>-02-10-15-36-02_modelRun.log
 
-$ ls
-2023-02-10-15-36-02_modelRun.log  a.out  b.out  c.out  data/  Git-cheatsheet.md  Good-practice-guides/  README.md  TODO.txt
+$<span class="w"> </span>ls
+<span class="m">2023</span>-02-10-15-36-02_modelRun.log<span class="w">  </span>a.out<span class="w">  </span>b.out<span class="w">  </span>c.out<span class="w">  </span>data/<span class="w">  </span>Git-cheatsheet.md<span class="w">  </span>Good-practice-guides/<span class="w">  </span>README.md<span class="w">  </span>TODO.txt
 
-$ ls data/
-a.dat  b.dat  c.dat
+$<span class="w"> </span>ls<span class="w"> </span>data/
+a.dat<span class="w">  </span>b.dat<span class="w">  </span>c.dat
 </pre></div>
 </div>
 <p>As expected, Git detects all of these as untracked files:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git status
-On branch main
-Your branch is ahead of &#39;origin/main&#39; by 2 commits.
-  (use &quot;git push&quot; to publish your local commits)
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>status
+On<span class="w"> </span>branch<span class="w"> </span>main
+Your<span class="w"> </span>branch<span class="w"> </span>is<span class="w"> </span>ahead<span class="w"> </span>of<span class="w"> </span><span class="s1">&#39;origin/main&#39;</span><span class="w"> </span>by<span class="w"> </span><span class="m">2</span><span class="w"> </span>commits.
+<span class="w">  </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git push&quot;</span><span class="w"> </span>to<span class="w"> </span>publish<span class="w"> </span>your<span class="w"> </span><span class="nb">local</span><span class="w"> </span>commits<span class="o">)</span>
 
-Untracked files:
-  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
-        2023-02-10-15-36-02_modelRun.log
-        a.out
-        b.out
-        c.out
-        data/
+Untracked<span class="w"> </span>files:
+<span class="w">  </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git add &lt;file&gt;...&quot;</span><span class="w"> </span>to<span class="w"> </span>include<span class="w"> </span><span class="k">in</span><span class="w"> </span>what<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>committed<span class="o">)</span>
+<span class="w">        </span><span class="m">2023</span>-02-10-15-36-02_modelRun.log
+<span class="w">        </span>a.out
+<span class="w">        </span>b.out
+<span class="w">        </span>c.out
+<span class="w">        </span>data/
 
-nothing added to commit but untracked files present (use &quot;git add&quot; to track)
+nothing<span class="w"> </span>added<span class="w"> </span>to<span class="w"> </span>commit<span class="w"> </span>but<span class="w"> </span>untracked<span class="w"> </span>files<span class="w"> </span>present<span class="w"> </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git add&quot;</span><span class="w"> </span>to<span class="w"> </span>track<span class="o">)</span>
 </pre></div>
 </div>
 <p>We can succinctly tell Git to ignore these files by adding three different
 pathspecs:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TODO</span><span class="o">.</span><span class="n">txt</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>TODO.txt
 
 <span class="c1"># Ignore files in the data folder and subfolder therein</span>
-<span class="n">data</span><span class="o">/</span>
+data/
 
 <span class="c1"># Ignore .log files in the root folder of the repository</span>
-<span class="o">*.</span><span class="n">log</span>
+*.log
 
 <span class="c1"># Ignore .out files in the root folder of the repository</span>
-<span class="o">*.</span><span class="n">out</span>
-
+*.out
 </pre></div>
 </div>
 <p>Now we can see that all these files have become ignored by Git:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git status --ignored
-On branch main
-Your branch is ahead of &#39;origin/main&#39; by 2 commits.
-  (use &quot;git push&quot; to publish your local commits)
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>status<span class="w"> </span>--ignored
+On<span class="w"> </span>branch<span class="w"> </span>main
+Your<span class="w"> </span>branch<span class="w"> </span>is<span class="w"> </span>ahead<span class="w"> </span>of<span class="w"> </span><span class="s1">&#39;origin/main&#39;</span><span class="w"> </span>by<span class="w"> </span><span class="m">2</span><span class="w"> </span>commits.
+<span class="w">  </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git push&quot;</span><span class="w"> </span>to<span class="w"> </span>publish<span class="w"> </span>your<span class="w"> </span><span class="nb">local</span><span class="w"> </span>commits<span class="o">)</span>
 
-Changes not staged for commit:
-  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
-  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)
-        modified:   .gitignore
+Changes<span class="w"> </span>not<span class="w"> </span>staged<span class="w"> </span><span class="k">for</span><span class="w"> </span>commit:
+<span class="w">  </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git add &lt;file&gt;...&quot;</span><span class="w"> </span>to<span class="w"> </span>update<span class="w"> </span>what<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>committed<span class="o">)</span>
+<span class="w">  </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git restore &lt;file&gt;...&quot;</span><span class="w"> </span>to<span class="w"> </span>discard<span class="w"> </span>changes<span class="w"> </span><span class="k">in</span><span class="w"> </span>working<span class="w"> </span>directory<span class="o">)</span>
+<span class="w">        </span>modified:<span class="w">   </span>.gitignore
 
-Ignored files:
-  (use &quot;git add -f &lt;file&gt;...&quot; to include in what will be committed)
-        2023-02-10-15-36-02_modelRun.log
-        TODO.txt
-        a.out
-        b.out
-        c.out
-        data/
+Ignored<span class="w"> </span>files:
+<span class="w">  </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git add -f &lt;file&gt;...&quot;</span><span class="w"> </span>to<span class="w"> </span>include<span class="w"> </span><span class="k">in</span><span class="w"> </span>what<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>committed<span class="o">)</span>
+<span class="w">        </span><span class="m">2023</span>-02-10-15-36-02_modelRun.log
+<span class="w">        </span>TODO.txt
+<span class="w">        </span>a.out
+<span class="w">        </span>b.out
+<span class="w">        </span>c.out
+<span class="w">        </span>data/
 
-no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
+no<span class="w"> </span>changes<span class="w"> </span>added<span class="w"> </span>to<span class="w"> </span>commit<span class="w"> </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git add&quot;</span><span class="w"> </span>and/or<span class="w"> </span><span class="s2">&quot;git commit -a&quot;</span><span class="o">)</span>
 </pre></div>
 </div>
 <p>Since this was just for experimenting with pathspecs, we’ll clean up by setting
 our <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file back to just containing <code class="docutils literal notranslate"><span class="pre">TODO.txt</span></code> and removing the
 files and <code class="docutils literal notranslate"><span class="pre">data</span></code> directory we created.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rm 2023-02-10-15-36-02_modelRun.log a.out b.out c.out
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>rm<span class="w"> </span><span class="m">2023</span>-02-10-15-36-02_modelRun.log<span class="w"> </span>a.out<span class="w"> </span>b.out<span class="w"> </span>c.out
 
-$ rm -rf data/
+$<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>data/
 </pre></div>
 </div>
 <p>Having done this, we now have a clean working tree again, with the <code class="docutils literal notranslate"><span class="pre">TODO.txt</span></code>
 file still ignored:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git status
-On branch main
-Your branch is ahead of &#39;origin/main&#39; by 2 commits.
-  (use &quot;git push&quot; to publish your local commits)
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>status
+On<span class="w"> </span>branch<span class="w"> </span>main
+Your<span class="w"> </span>branch<span class="w"> </span>is<span class="w"> </span>ahead<span class="w"> </span>of<span class="w"> </span><span class="s1">&#39;origin/main&#39;</span><span class="w"> </span>by<span class="w"> </span><span class="m">2</span><span class="w"> </span>commits.
+<span class="w">  </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git push&quot;</span><span class="w"> </span>to<span class="w"> </span>publish<span class="w"> </span>your<span class="w"> </span><span class="nb">local</span><span class="w"> </span>commits<span class="o">)</span>
 
-nothing to commit, working tree clean
+nothing<span class="w"> </span>to<span class="w"> </span>commit,<span class="w"> </span>working<span class="w"> </span>tree<span class="w"> </span>clean
 </pre></div>
 </div>
 <p>Notice how we still have some commits that have not been pushed to the remote
 repository. We’ll push these commits now, so that our local repository and remote
 repository are up-to-date with each other:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git push origin
-Username for &#39;https://github.com&#39;: jbloggs9999
-Password for &#39;https://jbloggs9999@github.com&#39;:
-Enumerating objects: 12, done.
-Counting objects: 100% (12/12), done.
-Delta compression using up to 8 threads
-Compressing objects: 100% (7/7), done.
-Writing objects: 100% (8/8), 1.11 KiB | 1.11 MiB/s, done.
-Total 8 (delta 3), reused 0 (delta 0), pack-reused 0
-remote: Resolving deltas: 100% (3/3), completed with 2 local objects.
-To https://github.com/jbloggs9999/git-good-practice.git
-   92b2ac2..42a9a32  main -&gt; main
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>push<span class="w"> </span>origin
+Username<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;https://github.com&#39;</span>:<span class="w"> </span>jbloggs9999
+Password<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;https://jbloggs9999@github.com&#39;</span>:
+Enumerating<span class="w"> </span>objects:<span class="w"> </span><span class="m">12</span>,<span class="w"> </span><span class="k">done</span>.
+Counting<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">12</span>/12<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
+Delta<span class="w"> </span>compression<span class="w"> </span>using<span class="w"> </span>up<span class="w"> </span>to<span class="w"> </span><span class="m">8</span><span class="w"> </span>threads
+Compressing<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">7</span>/7<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
+Writing<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">8</span>/8<span class="o">)</span>,<span class="w"> </span><span class="m">1</span>.11<span class="w"> </span>KiB<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">1</span>.11<span class="w"> </span>MiB/s,<span class="w"> </span><span class="k">done</span>.
+Total<span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">3</span><span class="o">)</span>,<span class="w"> </span>reused<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">0</span><span class="o">)</span>,<span class="w"> </span>pack-reused<span class="w"> </span><span class="m">0</span>
+remote:<span class="w"> </span>Resolving<span class="w"> </span>deltas:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">3</span>/3<span class="o">)</span>,<span class="w"> </span>completed<span class="w"> </span>with<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="nb">local</span><span class="w"> </span>objects.
+To<span class="w"> </span>https://github.com/jbloggs9999/git-good-practice.git
+<span class="w">   </span>92b2ac2..42a9a32<span class="w">  </span>main<span class="w"> </span>-&gt;<span class="w"> </span>main
 </pre></div>
 </div>
 <p>Finally, let’s add a note to include some material about ignoring files in our
 <code class="docutils literal notranslate"><span class="pre">TODO.txt</span></code> file:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Add</span> <span class="n">some</span> <span class="n">material</span> <span class="n">about</span> <span class="n">ignoring</span> <span class="n">files</span>
-
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Add<span class="w"> </span>some<span class="w"> </span>material<span class="w"> </span>about<span class="w"> </span>ignoring<span class="w"> </span>files
 </pre></div>
 </div>
 </section>
@@ -905,7 +902,10 @@ control to allow users to obtain software dependencies themselves.</p></li>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning objectives</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ignoring files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ignoring files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gitignore-comments"><code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> comments</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ignore-similar-files-with-pathspecs">Ignore similar files with pathspecs</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-kind-of-files-should-be-ignored">What kind of files should be ignored?</a></li>
 </ul>

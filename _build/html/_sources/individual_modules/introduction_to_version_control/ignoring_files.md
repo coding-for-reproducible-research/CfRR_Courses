@@ -12,7 +12,7 @@ be stored in a repository.
 
 Currently we still have our `TODO.txt` file hanging around in the working tree:
 
-```
+``` bash
 $ git status
 On branch main
 Your branch is ahead of 'origin/main' by 1 commit.
@@ -35,22 +35,18 @@ this, we need to specify paths relative to the root directory of the repository.
 We therefore create a `.gitignore` file in the root folder of `git-good-practice`
 and add the following content to it to ensure the `TODO.txt` file is ignored:
 
-```
+``` bash
 TODO.txt
 
 ```
 
-> ### `.gitignore` comments
-> 
-> Any line that begins with a hash (`#`) in a `.gitignore` file is treated
-> as a comment and thus not processed by Git. Note
-> that the line must have `#` as the first character to be considered a
-> comment e.g. a comment line cannot begin with whitespace followed by `#`.
+### `.gitignore` comments
+Any line that begins with a hash (`#`) in a `.gitignore` file is treated as a comment and thus not processed by Git. Note that the line must have `#` as the first character to be considered a comment e.g. a comment line cannot begin with whitespace followed by `#`.
 
 
 Now we check the state of the working tree again:
 
-```
+``` bash
 $ git status
 On branch main
 Your branch is ahead of 'origin/main' by 1 commit.
@@ -68,7 +64,7 @@ In general, it's useful to keep the `.gitignore` file under version control, so
 that other users of the repository can also have the same things ignored as we
 do. Let's add and commit `.gitignore`:
 
-```
+``` bash
 $ git add .gitignore
 
 $ git commit -m "Ignore TODO list file"
@@ -87,7 +83,7 @@ nothing to commit, working tree clean
 As a bonus, using `.gitignore` helps us avoid accidentally adding files
 to the repository that we don't want to track:
 
-```
+``` bash
 $ git add TODO.txt
 The following paths are ignored by one of your .gitignore files:
 TODO.txt
@@ -100,7 +96,7 @@ As the message says, if we really want to override our ignore settings,
 we can use `git add -f` to force Git to add something. We can also always see
 the status of ignored files if we want:
 
-```
+``` bash
 $ git status --ignored
 On branch main
 Your branch is ahead of 'origin/main' by 2 commits.
@@ -147,7 +143,7 @@ some research code that takes in data files, outputs some results and produces
 a log file of the run. We use the Unix commands `mkdir`
 to create a new `data` directory and `touch` to create new files:
 
-```
+``` bash
 $ mkdir data
 
 $ touch data/a.dat data/b.dat data/c.dat
@@ -165,7 +161,7 @@ a.dat  b.dat  c.dat
 
 As expected, Git detects all of these as untracked files:
 
-```
+``` bash
 $ git status
 On branch main
 Your branch is ahead of 'origin/main' by 2 commits.
@@ -185,7 +181,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 We can succinctly tell Git to ignore these files by adding three different
 pathspecs:
 
-```
+``` bash
 TODO.txt
 
 # Ignore files in the data folder and subfolder therein
@@ -201,7 +197,7 @@ data/
 
 Now we can see that all these files have become ignored by Git:
 
-```
+``` bash
 $ git status --ignored
 On branch main
 Your branch is ahead of 'origin/main' by 2 commits.
@@ -228,7 +224,7 @@ Since this was just for experimenting with pathspecs, we'll clean up by setting
 our `.gitignore` file back to just containing `TODO.txt` and removing the
 files and `data` directory we created.
 
-```
+``` bash
 $ rm 2023-02-10-15-36-02_modelRun.log a.out b.out c.out
 
 $ rm -rf data/
@@ -237,7 +233,7 @@ $ rm -rf data/
 Having done this, we now have a clean working tree again, with the `TODO.txt`
 file still ignored:
 
-```
+``` bash
 $ git status
 On branch main
 Your branch is ahead of 'origin/main' by 2 commits.
@@ -250,7 +246,7 @@ Notice how we still have some commits that have not been pushed to the remote
 repository. We'll push these commits now, so that our local repository and remote
 repository are up-to-date with each other:
 
-```
+``` bash
 $ git push origin
 Username for 'https://github.com': jbloggs9999
 Password for 'https://jbloggs9999@github.com':
@@ -268,7 +264,7 @@ To https://github.com/jbloggs9999/git-good-practice.git
 Finally, let's add a note to include some material about ignoring files in our
 `TODO.txt` file:
 
-```
+``` bash
 Add some material about ignoring files
 
 ```

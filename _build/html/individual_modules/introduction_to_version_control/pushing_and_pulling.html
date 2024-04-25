@@ -548,7 +548,10 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning objectives</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pushing-to-the-remote">Pushing to the remote</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pushing-to-the-remote">Pushing to the remote</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pasting-the-pat">Pasting the PAT</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-the-repository-on-github">Viewing the repository on GitHub</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pulling-changes-from-a-remote-repository">Pulling changes from a remote repository</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-final-note">A final note</a></li>
@@ -578,26 +581,26 @@ the <code class="docutils literal notranslate"><span class="pre">git</span> <spa
 material in our local <code class="docutils literal notranslate"><span class="pre">git-good-practice</span></code> repository. It seems like a good point to
 put this work on the remote repository residing on GitHub.</p>
 <p>Let’s review the status of the repository and view the log:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git status
-On branch main
-Your branch is ahead of &#39;origin/main&#39; by 11 commits.
-  (use &quot;git push&quot; to publish your local commits)
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>status
+On<span class="w"> </span>branch<span class="w"> </span>main
+Your<span class="w"> </span>branch<span class="w"> </span>is<span class="w"> </span>ahead<span class="w"> </span>of<span class="w"> </span><span class="s1">&#39;origin/main&#39;</span><span class="w"> </span>by<span class="w"> </span><span class="m">11</span><span class="w"> </span>commits.
+<span class="w">  </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git push&quot;</span><span class="w"> </span>to<span class="w"> </span>publish<span class="w"> </span>your<span class="w"> </span><span class="nb">local</span><span class="w"> </span>commits<span class="o">)</span>
 
-nothing to commit, working tree clean
+nothing<span class="w"> </span>to<span class="w"> </span>commit,<span class="w"> </span>working<span class="w"> </span>tree<span class="w"> </span>clean
 
-$ git log --oneline
-92b2ac2 (HEAD -&gt; main) Create general good practice guides directory
-5cf8321 Remove rubbish.txt
-d26a698 Add some rubbish to try out &#39;git rm&#39;
-910bb79 Add note about &#39;--name-only&#39; option to &#39;git diff&#39;
-9bb2714 Add entries about &#39;git diff&#39; to cheatsheet
-37be130 Add entry about &#39;git log&#39; to cheatsheet
-46b11e6 Add advice on committing little and often
-ecbf67e Add entry for &#39;git commit&#39; with &#39;-m&#39; option
-34c19f2 Add material on committing
-ad56194 Add entry about staging files with &#39;git add&#39;
-17912ce Create a cheatsheet document
-3917168 (origin/main, origin/HEAD) Initial commit
+$<span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span>--oneline
+92b2ac2<span class="w"> </span><span class="o">(</span>HEAD<span class="w"> </span>-&gt;<span class="w"> </span>main<span class="o">)</span><span class="w"> </span>Create<span class="w"> </span>general<span class="w"> </span>good<span class="w"> </span>practice<span class="w"> </span>guides<span class="w"> </span>directory
+5cf8321<span class="w"> </span>Remove<span class="w"> </span>rubbish.txt
+d26a698<span class="w"> </span>Add<span class="w"> </span>some<span class="w"> </span>rubbish<span class="w"> </span>to<span class="w"> </span>try<span class="w"> </span>out<span class="w"> </span><span class="s1">&#39;git rm&#39;</span>
+910bb79<span class="w"> </span>Add<span class="w"> </span>note<span class="w"> </span>about<span class="w"> </span><span class="s1">&#39;--name-only&#39;</span><span class="w"> </span>option<span class="w"> </span>to<span class="w"> </span><span class="s1">&#39;git diff&#39;</span>
+9bb2714<span class="w"> </span>Add<span class="w"> </span>entries<span class="w"> </span>about<span class="w"> </span><span class="s1">&#39;git diff&#39;</span><span class="w"> </span>to<span class="w"> </span>cheatsheet
+37be130<span class="w"> </span>Add<span class="w"> </span>entry<span class="w"> </span>about<span class="w"> </span><span class="s1">&#39;git log&#39;</span><span class="w"> </span>to<span class="w"> </span>cheatsheet
+46b11e6<span class="w"> </span>Add<span class="w"> </span>advice<span class="w"> </span>on<span class="w"> </span>committing<span class="w"> </span>little<span class="w"> </span>and<span class="w"> </span>often
+ecbf67e<span class="w"> </span>Add<span class="w"> </span>entry<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;git commit&#39;</span><span class="w"> </span>with<span class="w"> </span><span class="s1">&#39;-m&#39;</span><span class="w"> </span>option
+34c19f2<span class="w"> </span>Add<span class="w"> </span>material<span class="w"> </span>on<span class="w"> </span>committing
+ad56194<span class="w"> </span>Add<span class="w"> </span>entry<span class="w"> </span>about<span class="w"> </span>staging<span class="w"> </span>files<span class="w"> </span>with<span class="w"> </span><span class="s1">&#39;git add&#39;</span>
+17912ce<span class="w"> </span>Create<span class="w"> </span>a<span class="w"> </span>cheatsheet<span class="w"> </span>document
+<span class="m">3917168</span><span class="w"> </span><span class="o">(</span>origin/main,<span class="w"> </span>origin/HEAD<span class="o">)</span><span class="w"> </span>Initial<span class="w"> </span>commit
 </pre></div>
 </div>
 <p>The status indicates <code class="docutils literal notranslate"><span class="pre">main</span></code>, our local <em>branch</em>, is ahead of <code class="docutils literal notranslate"><span class="pre">origin/main</span></code>, the
@@ -619,51 +622,51 @@ and a password. Since we set up the repository to work with HTTPs, we use the
 Personal Access Token (PAT) we generated in the
 [Setting up Git and GitHub](/04_configuring_git/index.html)
 episode as said password.</p>
-<blockquote>
-<div><h3 class="rubric" id="pasting-the-pat">Pasting the PAT</h3>
+<section id="pasting-the-pat">
+<h3>Pasting the PAT<a class="headerlink" href="#pasting-the-pat" title="Link to this heading">#</a></h3>
 <p>You can paste the PAT in most terminals by right-clicking at the prompt.</p>
-</div></blockquote>
 <p>We now push the commits to our remote <code class="docutils literal notranslate"><span class="pre">git-good-practice</span></code> repository (note
 that our terminal program doesn’t display the PAT when we paste it in):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git push origin
-Username for &#39;https://github.com&#39;: jbloggs9999
-Password for &#39;https://jbloggs9999@github.com&#39;:
-Enumerating objects: 33, done.
-Counting objects: 100% (33/33), done.
-Delta compression using up to 8 threads
-Compressing objects: 100% (31/31), done.
-Writing objects: 100% (32/32), 4.09 KiB | 1.02 MiB/s, done.
-Total 32 (delta 13), reused 0 (delta 0), pack-reused 0
-remote: Resolving deltas: 100% (13/13), done.
-To https://github.com/jbloggs9999/git-good-practice.git
-   3917168..92b2ac2  main -&gt; main
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>push<span class="w"> </span>origin
+Username<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;https://github.com&#39;</span>:<span class="w"> </span>jbloggs9999
+Password<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;https://jbloggs9999@github.com&#39;</span>:
+Enumerating<span class="w"> </span>objects:<span class="w"> </span><span class="m">33</span>,<span class="w"> </span><span class="k">done</span>.
+Counting<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">33</span>/33<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
+Delta<span class="w"> </span>compression<span class="w"> </span>using<span class="w"> </span>up<span class="w"> </span>to<span class="w"> </span><span class="m">8</span><span class="w"> </span>threads
+Compressing<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">31</span>/31<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
+Writing<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">32</span>/32<span class="o">)</span>,<span class="w"> </span><span class="m">4</span>.09<span class="w"> </span>KiB<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">1</span>.02<span class="w"> </span>MiB/s,<span class="w"> </span><span class="k">done</span>.
+Total<span class="w"> </span><span class="m">32</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">13</span><span class="o">)</span>,<span class="w"> </span>reused<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">0</span><span class="o">)</span>,<span class="w"> </span>pack-reused<span class="w"> </span><span class="m">0</span>
+remote:<span class="w"> </span>Resolving<span class="w"> </span>deltas:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">13</span>/13<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
+To<span class="w"> </span>https://github.com/jbloggs9999/git-good-practice.git
+<span class="w">   </span><span class="m">3917168</span>..92b2ac2<span class="w">  </span>main<span class="w"> </span>-&gt;<span class="w"> </span>main
 </pre></div>
 </div>
 <p>Now we check the status and log again:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git status
-On branch main
-Your branch is up to date with &#39;origin/main&#39;.
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>status
+On<span class="w"> </span>branch<span class="w"> </span>main
+Your<span class="w"> </span>branch<span class="w"> </span>is<span class="w"> </span>up<span class="w"> </span>to<span class="w"> </span>date<span class="w"> </span>with<span class="w"> </span><span class="s1">&#39;origin/main&#39;</span>.
 
-nothing to commit, working tree clean
+nothing<span class="w"> </span>to<span class="w"> </span>commit,<span class="w"> </span>working<span class="w"> </span>tree<span class="w"> </span>clean
 
-$ git log --oneline
-92b2ac2 (HEAD -&gt; main, origin/main, origin/HEAD) Create general good practice guides directory
-5cf8321 Remove rubbish.txt
-d26a698 Add some rubbish to try out &#39;git rm&#39;
-910bb79 Add note about &#39;--name-only&#39; option to &#39;git diff&#39;
-9bb2714 Add entries about &#39;git diff&#39; to cheatsheet
-37be130 Add entry about &#39;git log&#39; to cheatsheet
-46b11e6 Add advice on committing little and often
-ecbf67e Add entry for &#39;git commit&#39; with &#39;-m&#39; option
-34c19f2 Add material on committing
-ad56194 Add entry about staging files with &#39;git add&#39;
-17912ce Create a cheatsheet document
-3917168 Initial commit
+$<span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span>--oneline
+92b2ac2<span class="w"> </span><span class="o">(</span>HEAD<span class="w"> </span>-&gt;<span class="w"> </span>main,<span class="w"> </span>origin/main,<span class="w"> </span>origin/HEAD<span class="o">)</span><span class="w"> </span>Create<span class="w"> </span>general<span class="w"> </span>good<span class="w"> </span>practice<span class="w"> </span>guides<span class="w"> </span>directory
+5cf8321<span class="w"> </span>Remove<span class="w"> </span>rubbish.txt
+d26a698<span class="w"> </span>Add<span class="w"> </span>some<span class="w"> </span>rubbish<span class="w"> </span>to<span class="w"> </span>try<span class="w"> </span>out<span class="w"> </span><span class="s1">&#39;git rm&#39;</span>
+910bb79<span class="w"> </span>Add<span class="w"> </span>note<span class="w"> </span>about<span class="w"> </span><span class="s1">&#39;--name-only&#39;</span><span class="w"> </span>option<span class="w"> </span>to<span class="w"> </span><span class="s1">&#39;git diff&#39;</span>
+9bb2714<span class="w"> </span>Add<span class="w"> </span>entries<span class="w"> </span>about<span class="w"> </span><span class="s1">&#39;git diff&#39;</span><span class="w"> </span>to<span class="w"> </span>cheatsheet
+37be130<span class="w"> </span>Add<span class="w"> </span>entry<span class="w"> </span>about<span class="w"> </span><span class="s1">&#39;git log&#39;</span><span class="w"> </span>to<span class="w"> </span>cheatsheet
+46b11e6<span class="w"> </span>Add<span class="w"> </span>advice<span class="w"> </span>on<span class="w"> </span>committing<span class="w"> </span>little<span class="w"> </span>and<span class="w"> </span>often
+ecbf67e<span class="w"> </span>Add<span class="w"> </span>entry<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;git commit&#39;</span><span class="w"> </span>with<span class="w"> </span><span class="s1">&#39;-m&#39;</span><span class="w"> </span>option
+34c19f2<span class="w"> </span>Add<span class="w"> </span>material<span class="w"> </span>on<span class="w"> </span>committing
+ad56194<span class="w"> </span>Add<span class="w"> </span>entry<span class="w"> </span>about<span class="w"> </span>staging<span class="w"> </span>files<span class="w"> </span>with<span class="w"> </span><span class="s1">&#39;git add&#39;</span>
+17912ce<span class="w"> </span>Create<span class="w"> </span>a<span class="w"> </span>cheatsheet<span class="w"> </span>document
+<span class="m">3917168</span><span class="w"> </span>Initial<span class="w"> </span>commit
 </pre></div>
 </div>
 <p>Once again, the status shows we have no outstanding commits to push, meaning
 <code class="docutils literal notranslate"><span class="pre">main</span></code> and <code class="docutils literal notranslate"><span class="pre">origin/main</span></code> are now pointing at the same commit (i.e. the remote
 repository is now up to date with the local repository).</p>
+</section>
 </section>
 <section id="viewing-the-repository-on-github">
 <h2>Viewing the repository on GitHub<a class="headerlink" href="#viewing-the-repository-on-github" title="Link to this heading">#</a></h2>
@@ -679,7 +682,7 @@ activate a drop-down menu. Select <em>Your repositories</em> from this drop-down
 It should look akin to the following screenshot (the number of commits you have
 may differ if you’ve diverged from our ongoing example, or if you’ve skipped
 some exercises):</p>
-<p>![Link to viewing commits on GitHub](/images/github-commits-link.png)</p>
+<p><img alt="Link to viewing commits on GitHub" src="../../_images/github-commits-link.png" /></p>
 </li>
 </ul>
 </section>
@@ -695,11 +698,11 @@ updates to your local repository by using the <code class="docutils literal notr
 this command more later in the course, when we talk about collaborating with
 others on code. You use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> in the analogous way to <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code>: from
 within the root folder of the repository, just run</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">pull</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>pull
 </pre></div>
 </div>
 <p>or, to be more explicit about the remote repository, you can equivalently run</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">pull</span> <span class="n">origin</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>pull<span class="w"> </span>origin
 </pre></div>
 </div>
 </section>
@@ -780,7 +783,10 @@ this in more detail later in the course.</p>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning objectives</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pushing-to-the-remote">Pushing to the remote</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pushing-to-the-remote">Pushing to the remote</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pasting-the-pat">Pasting the PAT</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-the-repository-on-github">Viewing the repository on GitHub</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pulling-changes-from-a-remote-repository">Pulling changes from a remote repository</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-final-note">A final note</a></li>

@@ -35,7 +35,7 @@ In simple terms, a branch is a separate series of commits of the codebase that d
 it as a separate timeline of changes that runs in parallel with the main timeline. Each branch contains a copy of the 
 entire codebase, with its own set of changes.
 
-![A Git branch]({{ site.url }}/images/branch.svg)
+![A Git branch](images/branch.svg)
 
 Git branches are incredibly useful for collaborative development, as they allow multiple developers to work on 
 different features or fixes simultaneously, without stepping on each other's toes. They also provide a way to 
@@ -56,7 +56,7 @@ detail.
 
 The general way to create a new branch in our local repository is:
 
-```
+``` bash
 git branch <new-branch-name>
 ```
 
@@ -76,34 +76,25 @@ It can be helpful to have a dual picture in your mind when it comes to branches,
 thinking of them both as a series of commits and also a pointer to a particular
 commit.
 
+#### Branching off a commit
+You can create a new branch at any commit in the repository's history. This can be useful if you want to create a new  branch based on a specific version of your code, or if you want to experiment with changes from a previous commit  without affecting the current branch. Here's how you can create a new branch at any commit:
+1. Identify the commit you want to create the branch at: Use the `git log` command to view the commit history of the  repository and find the commit identifier of the commit you want to create the new branch at.
+2. Create a new branch: Use the `git branch` command with the commit identifier to create a new branch at that commit:
 
-> #### Branching off a commit
->
-> You can create a new branch at any commit in the repository's history. This can be useful if you want to create a new 
-> branch based on a specific version of your code, or if you want to experiment with changes from a previous commit 
-> without affecting the current branch. Here's how you can create a new branch at any commit:
->
-> 1. Identify the commit you want to create the branch at: Use the `git log` command to view the commit history of the 
->    repository and find the commit identifier of the commit you want to create the new branch at.
-> 2. Create a new branch: Use the `git branch` command with the commit identifier to create a new branch at that commit:
->
-> ```
-> git branch <new-branch-name> <commit-identifier>
-> ```
->
-> For example, to create a new branch called `experimental-branch` based on a commit with the identifier `abc1234`, you would 
-> run:
->
-> ```
-> git branch experimental-branch abc1234
-> ```
->
-> This creates a new branch called experimental-branch at the specified commit.
+``` bash
+git branch <new-branch-name> <commit-identifier>
+```
+For example, to create a new branch called `experimental-branch` based on a commit with the identifier `abc1234`, you would  run:
+``` bash
+git branch experimental-branch abc1234
+```
+
+This creates a new branch called experimental-branch at the specified commit.
 
 In our example, we create a new branch
 off of our most recent commit, called `branches-material`:
 
-```
+``` bash
 $ git branch branches-material
 ```
 
@@ -114,7 +105,7 @@ This will shortly be the branch in which we add new content to the cheatsheet.
 
 We can view all the local branches we have in our local repository by running:
 
-```
+``` bash
 git branch --list
 ```
 
@@ -122,7 +113,7 @@ git branch --list
 
 In our `git-good-practice` repository, this would show us:
 
-```
+``` bash
 $ git branch --list
   branches-material
 * main
@@ -131,14 +122,9 @@ $ git branch --list
 The asterisk (\*) preceding "main" is used to indicate the currently checked out branch in your local repository.
 Another way to find out which branch you have checked out is to run `git status`.
 
-> #### `main` is just a branch
->
-> The main branch in Git is simply a branch like any other branch in your repository, created automatically 
-> to hold the initial commit of the repository's history.
->
-> Because the main branch is created automatically and is the default branch, it is often used as the primary branch 
-> for a project's development. However, you can choose to rename the main branch or use a different branch as the 
-> primary branch if you prefer.
+#### `main` is just a branch
+The main branch in Git is simply a branch like any other branch in your repository, created automatically  to hold the initial commit of the repository's history.
+Because the main branch is created automatically and is the default branch, it is often used as the primary branch for a project's development. However, you can choose to rename the main branch or use a different branch as the primary branch if you prefer.
 
 
 ### Adding commits to a branch
@@ -147,24 +133,19 @@ In order to work on a branch, we need to **checkout** the branch so that any
 new commits we make are added to the branch. The general command for doing this
 is:
 
-```
+``` bash
 git checkout <branch>
 ```
 
-> #### Branching off a branch
-> 
-> There is nothing stopping us from creating a new branch that starts on a different
-> branch to `main`. For example, suppose you have checked out a branch called `feature-branch`,
-> and you want to create a new branch called `bugfix-branch` on top of `feature-branch`. If
-> you do not specify a starting point for the new branch, Git will create it at the current commit on 
-> `feature-branch`, i.e. the commit that `HEAD` is pointing to.
+#### Branching off a branch
+There is nothing stopping us from creating a new branch that starts on a different branch to `main`. For example, suppose you have checked out a branch called `feature-branch`, and you want to create a new branch called `bugfix-branch` on top of `feature-branch`. If you do not specify a starting point for the new branch, Git will create it at the current commit on  `feature-branch`, i.e. the commit that `HEAD` is pointing to.
 
 
 We now switch to our new branch `branches-material` so that
 our new cheatsheet content will feature in this branch, rather than the branch
 `main`:
 
-```
+``` bash
 $ git checkout branches-material 
 Switched to branch 'branches-material'
 ```
@@ -173,7 +154,7 @@ We're now ready to get to work in the branch `branches-material`. We add the
 following content to `Git-cheatsheet.md` on what we just learned about creating
 a branch.
 
-```
+``` bash
 
 ## Branches
 
@@ -184,7 +165,7 @@ a branch.
 
 We make a commit with the new change:
 
-```
+``` bash
 $ git add Git-cheatsheet.md
 
 $ git commit -m "Add entry about creating branches"
@@ -194,7 +175,7 @@ $ git commit -m "Add entry about creating branches"
 
 We next add an entry to our cheatsheet about checking out a branch:
 
-```
+``` bash
 `git checkout <branch>` — Check out the branch `<branch>`, so that new commits
                           are added to `<branch>`.
 
@@ -202,7 +183,7 @@ We next add an entry to our cheatsheet about checking out a branch:
 
 Having committed this change, we now view the log to see our new commits:
 
-```
+``` bash
 $ git log --oneline -5
 51da8da (HEAD -> branches-material) Add entry about checking out a branch
 8124186 Add entry about creating branches
@@ -219,7 +200,7 @@ commit `42a9a32` shown by `origin/main, origin/HEAD, main`.
 We can verify that these new commits are not on the `main` branch by examining
 the log of `main` directly. In general, we can run
 
-```
+``` bash
 git log [options] <branch>
 ```
 
@@ -227,7 +208,7 @@ to view the commit history contained in a specific branch `<branch>`, where
 `[options]` are any optional arguments we want to include e.g `--oneline`. In
 our example, we get the following history for the `main` branch:
 
-```
+``` bash
 $ git log --oneline -5 main
 42a9a32 (origin/main, origin/HEAD, main) Ignore TODO list file
 0984d2b Add material on basic pathspec usage (directories)
@@ -252,7 +233,7 @@ aspects of a project simultaneously _and then collate their changes_.
 
 We do this with the `merge` command:
 
-```
+``` bash
 git merge <branch-to-bring-in>
 ```
 
@@ -265,7 +246,7 @@ In our example, we need to merge the branch `branches-material` into `main`.
 To do this, we need to checkout the branch we want to merge _into_, i.e.
 `main`:
 
-```
+``` bash
 $ git checkout main
 Switched to branch 'main'
 Your branch is up to date with 'origin/main'.
@@ -273,7 +254,7 @@ Your branch is up to date with 'origin/main'.
 
 Now we can merge `branches-material` into `main`:
 
-```
+``` bash
 $ git merge branches-material 
 Updating 42a9a32..51da8da
 Fast-forward
@@ -283,7 +264,7 @@ Fast-forward
 
 Let's take another look at the log of `main`:
 
-```
+``` bash
 $ git log --oneline -5
 51da8da (HEAD -> main, branches-material) Add entry about checking out a branch
 8124186 Add entry about creating branches
@@ -296,14 +277,14 @@ We can see that the commits from `branches-material` have been added to
 `main`. In fact, Git has just moved `main` to now point to the same commit
 as at the end of the `branches-material`, as seen by the line
 
-```
+``` bash
 51da8da (HEAD -> main, branches-material) Add entry about checking out a branch
 ```
 
 Our `main` branch now has some commits that have not been pushed to the remote
 repository, so we will now rectify that:
 
-```
+``` bash
 $ git push
 Username for 'https://github.com': jbloggs9999
 Password for 'https://jbloggs9999@github.com':
@@ -323,7 +304,7 @@ To https://github.com/jbloggs9999/git-good-practice.git
 Add another commit to the `branches-material` branch about merging branches.
 You may wish to use the following text:
 
-```
+``` bash
 `git merge <branch-to-merge-in>` — Combine the commit history of `<branch-to-merge-in>`
                                    with that of the branch currently checked out.
                                    

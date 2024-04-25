@@ -551,11 +551,22 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-repository">What is a repository?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-repositories">Creating repositories</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-remote-repository-on-github">Creating a remote repository on GitHub</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cloning-a-remote-repository">Cloning a remote repository</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-repository-on-your-computer">Creating a new repository on your computer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cloning-a-remote-repository">Cloning a remote repository</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-github-repositories">Example: GitHub repositories</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#github-authentication">GitHub authentication</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-a-local-repository-look-like">What does a local repository look like?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-repository-on-your-computer">Creating a new repository on your computer</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#renaming-the-default-branch">Renaming the default branch</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-a-local-repository-look-like">What does a local repository look like?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warning">Warning!</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -663,30 +674,17 @@ where <code class="docutils literal notranslate"><span class="pre">user-name</sp
 the repository.</p>
 <blockquote>
 <div><h4 class="rubric" id="further-options-for-github-repositories">Further options for GitHub repositories</h4>
-<p>Let’s take a moment mention a few extra things about creating repositories on
-GitHub. None of these points are essential for moving forward, but you’ll likely
-come into contact with them as you use GitHub more:</p>
+</div></blockquote>
+<p>Let’s take a moment mention a few extra things about creating repositories on GitHub. None of these points are essential for moving forward, but you’ll likely come into contact with them as you use GitHub more:</p>
 <ul class="simple">
-<li><p>When creating the repository, there was the option to initialise the
-repository with some extra files:</p>
+<li><p>When creating the repository, there was the option to initialise the repository with some extra files:</p>
 <ul>
-<li><p>A <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file. This is a particular file that can be used to tell Git
-about files that it should <em>not</em> keep a version history for. We will see
-this later in the course.</p></li>
-<li><p>A licence file. If you intend to make your work publicly available, then
-it’s important to include a licence file which both allows others to use
-your work and specify the terms for their use. You can read more about this
-important topic <a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository" target="_blank" rel="external noreferrer">on GitHub</a>
-and on the <a href="https://www.software.ac.uk/resources/guides/choosing-open-source-licence" target="_blank" rel="external noreferrer">Software Sustainability Institute</a>’s website.</p></li>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file. This is a particular file that can be used to tell Git about files that it should <em>not</em> keep a version history for. We will see this later in the course.</p></li>
+<li><p>A licence file. If you intend to make your work publicly available, then it’s important to include a licence file which both allows others to use your work and specify the terms for their use. You can read more about this important topic <a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository" target="_blank" rel="external noreferrer">on GitHub</a> and on the <a href="https://www.software.ac.uk/resources/guides/choosing-open-source-licence" target="_blank" rel="external noreferrer">Software Sustainability Institute</a>’s website.</p></li>
 </ul>
 </li>
-<li><p>If you belong to an <em>Organisation</em> on GitHub and have the correct
-permissions, then you will be able to create repositories under the
-organisation instead of your own user account. See GitHub’s
-<a href="https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/about-organizations" target="_blank" rel="external noreferrer">overview on organisations</a>
-for more information.</p></li>
+<li><p>If you belong to an <em>Organisation</em> on GitHub and have the correct permissions, then you will be able to create repositories under the organisation instead of your own user account. See GitHub’s <a href="https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/about-organizations" target="_blank" rel="external noreferrer">overview on organisations</a> for more information.</p></li>
 </ul>
-</div></blockquote>
 </section>
 <section id="cloning-a-remote-repository">
 <h3>Cloning a remote repository<a class="headerlink" href="#cloning-a-remote-repository" title="Link to this heading">#</a></h3>
@@ -696,16 +694,9 @@ repository is created by <strong>cloning</strong> the remote repository.</p>
 <p>Any remote repository will have a URL which specifies its location — you can
 recognise them in that they end with <code class="docutils literal notranslate"><span class="pre">.git</span></code>. You need this URL to clone the
 remote repository.</p>
-<blockquote>
-<div><h4 class="rubric" id="example-github-repositories">Example: GitHub repositories</h4>
-<p>The URL for a remote repository on GitHub can be found by going to the
-repository’s main webpage. Under the <em>Code</em> tab, there is a green
-drop-down button, also labelled <em>Code</em>. Click this and copy the HTTPS address
-listed under the <em>Clone</em> section — this is the URL for the remote repository.</p>
-<p>(Strictly speaking, this is the URL that uses the HTTPS protocol; other
-protocols, such as SSH, are available to use instead if you prefer. We’ll
-use HTTPS for this course because it doesn’t require extra set-up.)</p>
-</div></blockquote>
+<section id="example-github-repositories">
+<h4>Example: GitHub repositories<a class="headerlink" href="#example-github-repositories" title="Link to this heading">#</a></h4>
+<p>The URL for a remote repository on GitHub can be found by going to the repository’s main webpage. Under the <em>Code</em> tab, there is a green drop-down button, also labelled <em>Code</em>. Click this and copy the HTTPS address listed under the <em>Clone</em> section — this is the URL for the remote repository. (Strictly speaking, this is the URL that uses the HTTPS protocol; other protocols, such as SSH, are available to use instead if you prefer. We’ll use HTTPS for this course because it doesn’t require extra set-up.)</p>
 <p>To create a local ‘clone’ of the remote repository, navigate in the command-line
 to a folder where you’d like to put your repository. Then run</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>&lt;remote-repo-url&gt;
@@ -713,33 +704,28 @@ to a folder where you’d like to put your repository. Then run</p>
 </div>
 <p>This will create a new folder with the same name as the remote repository and
 download all the repository’s contents into it.</p>
-<blockquote>
-<div><h4 class="rubric" id="github-authentication">GitHub authentication</h4>
-<p>If the remote repository is private, you may be prompted to enter your
-GitHub username and a password. Use your Personal Access Token
-for the password, not your GitHub account password.</p>
-</div></blockquote>
+</section>
+<section id="github-authentication">
+<h4>GitHub authentication<a class="headerlink" href="#github-authentication" title="Link to this heading">#</a></h4>
+<p>If the remote repository is private, you may be prompted to enter yourGitHub username and a password. Use your Personal Access Token for the password, not your GitHub account password.</p>
 <p>If you instead want to put the contents of the repository into a specific
 folder, then use the form</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>&lt;remote-repo-url&gt;<span class="w"> </span>path/to/folder
 </pre></div>
 </div>
-<blockquote>
-<div><h4 class="rubric" id="example">Example</h4>
-<p>Joe Bloggs created a remote repository on GitHub called <code class="docutils literal notranslate"><span class="pre">test-repo</span></code>
-and the remote repository’s URL is <code class="docutils literal notranslate"><span class="pre">https://github.com/jbloggs9999/test-repo.git</span></code>.
-On his Mac, he navigates to the folder <code class="docutils literal notranslate"><span class="pre">~/Documents/Repositories</span></code> and runs</p>
+</section>
+<section id="example">
+<h4>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h4>
+<p>Joe Bloggs created a remote repository on GitHub called <code class="docutils literal notranslate"><span class="pre">test-repo</span></code> and the remote repository’s URL is <code class="docutils literal notranslate"><span class="pre">https://github.com/jbloggs9999/test-repo.git</span></code>. On his Mac, he navigates to the folder <code class="docutils literal notranslate"><span class="pre">~/Documents/Repositories</span></code> and runs</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/jbloggs9999/test-repo.git
 </pre></div>
 </div>
-<p>This creates a new folder called <code class="docutils literal notranslate"><span class="pre">test-repo</span></code> within his <code class="docutils literal notranslate"><span class="pre">Repositories</span></code> folder,
-which contains the local, cloned repository. If he instead had run</p>
+<p>This creates a new folder called <code class="docutils literal notranslate"><span class="pre">test-repo</span></code> within his <code class="docutils literal notranslate"><span class="pre">Repositories</span></code> folder, which contains the local, cloned repository. If he instead had run</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/jbloggs9999/test-repo.git<span class="w"> </span>my-test-repo-clone/
 </pre></div>
 </div>
-<p>then this would have put the contents of the repository into the folder
-<code class="docutils literal notranslate"><span class="pre">~/Documents/Repositories/my-test-repo-clone</span></code>.</p>
-</div></blockquote>
+<p>then this would have put the contents of the repository into the folder <code class="docutils literal notranslate"><span class="pre">~/Documents/Repositories/my-test-repo-clone</span></code>.</p>
+</section>
 </section>
 <section id="creating-a-new-repository-on-your-computer">
 <h3>Creating a new repository on your computer<a class="headerlink" href="#creating-a-new-repository-on-your-computer" title="Link to this heading">#</a></h3>
@@ -759,21 +745,13 @@ departmental server so that the remote repository is contained on the server, fo
 We won’t say more on how to do this in this course, but if you are interested
 then see the section on ‘bare’ repositories on
 <a class="reference external" href="https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-init">Atlassian’s tutorial page for <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span></code></a>.</p>
-<blockquote>
-<div><h4 class="rubric" id="renaming-the-default-branch">Renaming the default branch</h4>
-<p>In the previous episode, we discussed changing the name of the default branch
-from <code class="docutils literal notranslate"><span class="pre">master</span></code> to something else, e.g. <code class="docutils literal notranslate"><span class="pre">main</span></code>. For Git versions 2.28 and later,
-the configuration can be set so that new repositories have this new name by
-default, see the
-[Setting up Git and GitHub](/04_configuring_git/index.html#default-git-branch-naming)
-episode. If the version of Git you are
-using is earlier than 2.28, then this needs to be done for each repository
-individually. After creating the repository with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span></code>, run the following
-command:</p>
+<section id="renaming-the-default-branch">
+<h4>Renaming the default branch<a class="headerlink" href="#renaming-the-default-branch" title="Link to this heading">#</a></h4>
+<p>In the previous episode, we discussed changing the name of the default branch from <code class="docutils literal notranslate"><span class="pre">master</span></code> to something else, e.g. <code class="docutils literal notranslate"><span class="pre">main</span></code>. For Git versions 2.28 and later, the configuration can be set so that new repositories have this new name by default, see the [Setting up Git and GitHub](/04_configuring_git/index.html#default-git-branch-naming) episode. If the version of Git you are using is earlier than 2.28, then this needs to be done for each repository individually. After creating the repository with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span></code>, run the following command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout -b main
 </pre></div>
 </div>
-</div></blockquote>
+</section>
 </section>
 </section>
 <section id="what-does-a-local-repository-look-like">
@@ -785,12 +763,12 @@ introduced in the episode [Git vs GitHub](/03_git_vs_github/index.html).
 Below is a screenshot of the repository on a Windows machine; note that we’ve
 enabled the display of ‘hidden’ files and folders, i.e. those whose names
 begin with a period.</p>
-<p>![A simple Git repository on Windows](/images/basic-repo.png)</p>
+<p><img alt="A simple Git repository on Windows" src="../../_images/basic-repo.png" /></p>
 <p>And here is the same repository displayed on a Linux operating system, using the
 command line; note we are displaying hidden files using the <code class="docutils literal notranslate"><span class="pre">-a</span></code> option
 in the <code class="docutils literal notranslate"><span class="pre">ls</span></code> command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls -a awesome-research-done-right/
-.  ..  .git  data  plot_results.py  process_geo_data.py  run-everything.py  simulate.py  simulation-engine
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls<span class="w"> </span>-a<span class="w"> </span>awesome-research-done-right/
+.<span class="w">  </span>..<span class="w">  </span>.git<span class="w">  </span>data<span class="w">  </span>plot_results.py<span class="w">  </span>process_geo_data.py<span class="w">  </span>run-everything.py<span class="w">  </span>simulate.py<span class="w">  </span>simulation-engine
 </pre></div>
 </div>
 <p>It is common for people to refer to the top level folder of the repository as the
@@ -802,18 +780,11 @@ root folder or subfolders thereof. Where exactly does Git keep all the
 versioning information? Answer: it’s kept in the <code class="docutils literal notranslate"><span class="pre">.git</span></code> folder, which you may
 have spotted in the example outputs above. This is a folder that Git creates
 automatically when the repository is created.</p>
-<blockquote>
-<div><h3 class="rubric" id="warning">Warning!</h3>
-<p>As a general rule, don’t go modifying the files in the <code class="docutils literal notranslate"><span class="pre">.git</span></code>
-folder within a repository. Accidentally modifying a file / subfolder will likely
-mess up the version history of the repository. There are files in the
-<code class="docutils literal notranslate"><span class="pre">.git</span></code> folder that are suitable for direct modification, allowing users to
-customise their interaction with Git, but this
-comes under more advanced use that is beyond the scope of this course.</p>
-<p>Our advice: don’t poke around the <code class="docutils literal notranslate"><span class="pre">.git</span></code> folder, unless you are a confident
-Git user and need to customise Git (even then, follow a reputable tutorial or
-guide the first time).</p>
-</div></blockquote>
+<section id="warning">
+<h3>Warning!<a class="headerlink" href="#warning" title="Link to this heading">#</a></h3>
+<p>As a general rule, don’t go modifying the files in the <code class="docutils literal notranslate"><span class="pre">.git</span></code> folder within a repository. Accidentally modifying a file / subfolder will likely mess up the version history of the repository. There are files in the <code class="docutils literal notranslate"><span class="pre">.git</span></code> folder that are suitable for direct modification, allowing users to customise their interaction with Git, but this comes under more advanced use that is beyond the scope of this course.
+Our advice: don’t poke around the <code class="docutils literal notranslate"><span class="pre">.git</span></code> folder, unless you are a confident Git user and need to customise Git (even then, follow a reputable tutorial or guide the first time).</p>
+</section>
 </section>
 </section>
 
@@ -885,11 +856,22 @@ guide the first time).</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-repository">What is a repository?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-repositories">Creating repositories</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-remote-repository-on-github">Creating a remote repository on GitHub</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cloning-a-remote-repository">Cloning a remote repository</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-repository-on-your-computer">Creating a new repository on your computer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cloning-a-remote-repository">Cloning a remote repository</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-github-repositories">Example: GitHub repositories</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#github-authentication">GitHub authentication</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-a-local-repository-look-like">What does a local repository look like?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-repository-on-your-computer">Creating a new repository on your computer</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#renaming-the-default-branch">Renaming the default branch</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-a-local-repository-look-like">What does a local repository look like?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warning">Warning!</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

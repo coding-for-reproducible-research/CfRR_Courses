@@ -78,7 +78,7 @@ previous versions, so why not just use these?
 Have you ever created a folder of code that ends up looking something like
 this?
 
-![Versioning software with chaotic file names]({{ site.url }}/images/folder-chaos.png)
+![Versioning software with chaotic file names](images/folder-chaos.png)
 
 Sure, you can remember which of these files you need to use as you're in the
 thick of developing your code. But what about when you come back to it a
@@ -96,7 +96,7 @@ Which files would you send?
 
 Wouldn't you rather turn back to that folder and find this?
 
-![A clean folder of software]({{ site.url }}/images/folder-calm.png)
+![A clean folder of software](images/folder-calm.png)
 
 (Note: the `.git` folder is particular to the version control system Git,
 which you'll learn about in this course!)

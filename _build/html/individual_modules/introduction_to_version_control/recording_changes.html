@@ -548,11 +548,27 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning objectives</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-the-status-of-a-repository">Viewing the status of a repository</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-and-committing-files">Adding and committing files</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modify-add-commit">Modify-add-commit</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selective-staging">Selective staging</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#review">Review</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-the-status-of-a-repository">Viewing the status of a repository</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-git-status-often">Run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> often</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-and-committing-files">Adding and committing files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#markdown-syntax">Markdown syntax</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practice-commit-messages">Best practice: commit messages</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modify-add-commit">Modify-add-commit</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practice-commit-little-and-often">Best practice: commit little and often</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selective-staging">Selective staging</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Markdown syntax</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#review">Review</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -585,8 +601,8 @@ when working with a Git repository. Let’s take a look at an example with our r
 in the root folder of the repository. In the example below, this is contained
 within the parent folder <code class="docutils literal notranslate"><span class="pre">~/repositories</span></code>, so we first change directories with
 <code class="docutils literal notranslate"><span class="pre">cd</span></code> and remind ourselves of the contents:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd ~/repositories/git-good-practice
-$ ls
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/repositories/git-good-practice
+$<span class="w"> </span>ls
 README.md
 </pre></div>
 </div>
@@ -594,11 +610,11 @@ README.md
 folder actually also contains the hidden folder <code class="docutils literal notranslate"><span class="pre">.git</span></code>, which we would have also
 seen if we’d used <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-a</span></code> instead of just plain old <code class="docutils literal notranslate"><span class="pre">ls</span></code>. Now we can check the
 status of the repository:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git status
-On branch main
-Your branch is up to date with &#39;origin/main&#39;.
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>status
+On<span class="w"> </span>branch<span class="w"> </span>main
+Your<span class="w"> </span>branch<span class="w"> </span>is<span class="w"> </span>up<span class="w"> </span>to<span class="w"> </span>date<span class="w"> </span>with<span class="w"> </span><span class="s1">&#39;origin/main&#39;</span>.
 
-nothing to commit, working tree clean
+nothing<span class="w"> </span>to<span class="w"> </span>commit,<span class="w"> </span>working<span class="w"> </span>tree<span class="w"> </span>clean
 </pre></div>
 </div>
 <p>Let’s consider what the output means:</p>
@@ -623,117 +639,67 @@ the output of <code class="docutils literal notranslate"><span class="pre">git</
 repository, just like you’re used to thinking of files within a folder or
 subfolders. Git is able to detect changes to files in the working tree, including
 those that are in subfolders of the repository root folder (or sub-subfolders, etc.)</p>
-<blockquote>
-<div><h3 class="rubric" id="run-git-status-often">Run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> often</h3>
-<p>We’re going to flag here that you should get into the habit of running
-<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> often. It’s the primary way of seeing at a glance what state
-your working tree is in and how it differs (or not) with what was last
-recorded in the repository.</p>
-</div></blockquote>
+<section id="run-git-status-often">
+<h3>Run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> often<a class="headerlink" href="#run-git-status-often" title="Link to this heading">#</a></h3>
+<p>We’re going to flag here that you should get into the habit of running <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> often. It’s the primary way of seeing at a glance what state your working tree is in and how it differs (or not) with what was last recorded in the repository.</p>
+</section>
 </section>
 <section id="adding-and-committing-files">
 <h2>Adding and committing files<a class="headerlink" href="#adding-and-committing-files" title="Link to this heading">#</a></h2>
 <p>Let’s make some changes to the repository. First, we’ll create a new Markdown
 file called <code class="docutils literal notranslate"><span class="pre">Git-cheatsheet.md</span></code>, for us to record key Git commands as we go.
 Running <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> now shows us:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git status
-On branch main
-Your branch is up to date with &#39;origin/main&#39;.
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>status
+On<span class="w"> </span>branch<span class="w"> </span>main
+Your<span class="w"> </span>branch<span class="w"> </span>is<span class="w"> </span>up<span class="w"> </span>to<span class="w"> </span>date<span class="w"> </span>with<span class="w"> </span><span class="s1">&#39;origin/main&#39;</span>.
 
-Untracked files:
-  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
-        Git-cheatsheet.md
+Untracked<span class="w"> </span>files:
+<span class="w">  </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git add &lt;file&gt;...&quot;</span><span class="w"> </span>to<span class="w"> </span>include<span class="w"> </span><span class="k">in</span><span class="w"> </span>what<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>committed<span class="o">)</span>
+<span class="w">        </span>Git-cheatsheet.md
 
-nothing added to commit but untracked files present (use &quot;git add&quot; to track)
+nothing<span class="w"> </span>added<span class="w"> </span>to<span class="w"> </span>commit<span class="w"> </span>but<span class="w"> </span>untracked<span class="w"> </span>files<span class="w"> </span>present<span class="w"> </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git add&quot;</span><span class="w"> </span>to<span class="w"> </span>track<span class="o">)</span>
 </pre></div>
 </div>
 <p>The ‘Untracked files:’ bit indicates that Git has spotted a new file which it
 has no record of. Before going further, let’s add some content to the cheatsheet
 about <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Git Cheatsheet
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Git Cheatsheet</span>
 
-*Note: run commands from within a Git repository*
+*Note:<span class="w"> </span>run<span class="w"> </span>commands<span class="w"> </span>from<span class="w"> </span>within<span class="w"> </span>a<span class="w"> </span>Git<span class="w"> </span>repository*
 
 
-## Checking the state of files (do this often!)
+<span class="c1">## Checking the state of files (do this often!)</span>
 
-`git status` — Checks the state of the working tree in a Git repository.
-
+<span class="sb">`</span>git<span class="w"> </span>status<span class="sb">`</span><span class="w"> </span>—<span class="w"> </span>Checks<span class="w"> </span>the<span class="w"> </span>state<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>working<span class="w"> </span>tree<span class="w"> </span><span class="k">in</span><span class="w"> </span>a<span class="w"> </span>Git<span class="w"> </span>repository.
 </pre></div>
 </div>
-<blockquote>
-<div><h3 class="rubric" id="markdown-syntax">Markdown syntax</h3>
-<ul>
-<li><p>Hash symbols (<code class="docutils literal notranslate"><span class="pre">#</span></code>) are used to denote the document title and headings. One
-hash <code class="docutils literal notranslate"><span class="pre">#</span></code> denotes the document title, two hashes <code class="docutils literal notranslate"><span class="pre">##</span></code> indicates a section heading,
-three hashes <code class="docutils literal notranslate"><span class="pre">###</span></code> indicates a sub-heading, etc.</p></li>
-<li><p>Wrapping text with asterisks (<code class="docutils literal notranslate"><span class="pre">*</span></code>) will emphasise text i.e. set it in italics.
-You can also wrap the text in underscores (<code class="docutils literal notranslate"><span class="pre">_</span></code>) e.g. <code class="docutils literal notranslate"><span class="pre">*This*</span> <span class="pre">is</span> <span class="pre">in</span> <span class="pre">italics,</span> <span class="pre">so</span> <span class="pre">is</span> <span class="pre">_this_.</span></code></p></li>
-<li><p>Wrapping text in backticks (<code class="docutils literal notranslate"><span class="pre">`</span></code>) is used to display code. It won’t be
-formatted like regular text. Compare:</p>
+<section id="markdown-syntax">
+<h3>Markdown syntax<a class="headerlink" href="#markdown-syntax" title="Link to this heading">#</a></h3>
 <ul class="simple">
+<li><p>Hash symbols (<code class="docutils literal notranslate"><span class="pre">#</span></code>) are used to denote the document title and headings. One hash <code class="docutils literal notranslate"><span class="pre">#</span></code> denotes the document title, two hashes <code class="docutils literal notranslate"><span class="pre">##</span></code> indicates a section heading, three hashes <code class="docutils literal notranslate"><span class="pre">###</span></code> indicates a sub-heading, etc.</p></li>
+<li><p>Wrapping text with asterisks (<code class="docutils literal notranslate"><span class="pre">*</span></code>) will emphasise text i.e. set it in italics. You can also wrap the text in underscores (<code class="docutils literal notranslate"><span class="pre">_</span></code>) e.g. <code class="docutils literal notranslate"><span class="pre">*This*</span> <span class="pre">is</span> <span class="pre">in</span> <span class="pre">italics,</span> <span class="pre">so</span> <span class="pre">is</span> <span class="pre">_this_.</span></code></p></li>
+<li><p>Wrapping text in backticks (<code class="docutils literal notranslate"><span class="pre">`</span></code>) is used to display code. It won’t be formatted like regular text. Compare:</p>
+<ul>
 <li><p>Wrapped in backticks: <code class="docutils literal notranslate"><span class="pre">`foo</span> <span class="pre">_bar_`</span></code> renders as <code class="docutils literal notranslate"><span class="pre">foo</span> <span class="pre">_bar_</span></code></p></li>
 <li><p>As regular text: <code class="docutils literal notranslate"><span class="pre">foo</span> <span class="pre">_bar_</span></code> renders as foo <em>bar</em></p></li>
 </ul>
 </li>
-<li><p>Extra spaces and tabs are just treated as a single space. Paragraphs must
-have a blank line between them to be rendered on different lines. E.g.</p>
-<table>
-  <tr>
-    <td><strong>Markdown code</strong></td>
-    <td><strong>Rendered output</strong></td>
-  </tr>
-  <tr>
-    <td>
-      <code>No &nbsp; &nbsp; &nbsp; extra spaces here</code>
-    </td>
-    <td>
-      No    extra spaces here
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <code>
-      These lines are in<br>
-      the same paragraph
-      </code>
-    </td>
-    <td>
-      These lines are in
-      the same paragraph
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <code>
-      These lines are in<br>
-      <br>
-      different paragraphs<br>
-      </code>
-    </td>
-    <td>
-      <p>These lines are in</p>
-      <p>different paragraphs</p>
-    </td>
-  </tr>
-</table>
-</li>
+<li><p>Extra spaces and tabs are just treated as a single space. Paragraphs must have a blank line between them to be rendered on different lines.</p></li>
 </ul>
-</div></blockquote>
 <p>After adding the above text to <code class="docutils literal notranslate"><span class="pre">Git-cheatsheet.md</span></code> file and saving our changes,
 we now tell Git to start tracking changes to this file by using the <code class="docutils literal notranslate"><span class="pre">add</span></code>
 command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git add Git-cheatsheet.md
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>Git-cheatsheet.md
 </pre></div>
 </div>
 <p>Let’s see what <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> now tells us:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git status
-On branch main
-Your branch is up to date with &#39;origin/main&#39;.
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>status
+On<span class="w"> </span>branch<span class="w"> </span>main
+Your<span class="w"> </span>branch<span class="w"> </span>is<span class="w"> </span>up<span class="w"> </span>to<span class="w"> </span>date<span class="w"> </span>with<span class="w"> </span><span class="s1">&#39;origin/main&#39;</span>.
 
-Changes to be committed:
-  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)
-        new file:   Git-cheatsheet.md
+Changes<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>committed:
+<span class="w">  </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git restore --staged &lt;file&gt;...&quot;</span><span class="w"> </span>to<span class="w"> </span>unstage<span class="o">)</span>
+<span class="w">        </span>new<span class="w"> </span>file:<span class="w">   </span>Git-cheatsheet.md
 </pre></div>
 </div>
 <p>The difference between this status and the status before we did <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> on our
@@ -742,13 +708,12 @@ it has a new file, called <code class="docutils literal notranslate"><span class
 <code class="docutils literal notranslate"><span class="pre">Git-cheatsheet.md</span></code> has become a <strong>tracked</strong> file. But it hasn’t
 yet stored the new version of the file as part of its history. To do that, we
 need to run another Git command, called <code class="docutils literal notranslate"><span class="pre">commit</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git commit
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>commit
 </pre></div>
 </div>
 <p>Upon entering this command, the text editor we configured for Git earlier springs into life, opening up a file with some pre-defined text and leaving space at the top for us
 to write in. (The lines preceded by hashes are comments that are ignored by Git.)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># Please enter the commit message for your changes. Lines starting</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Please enter the commit message for your changes. Lines starting</span>
 <span class="c1"># with &#39;#&#39; will be ignored, and an empty message aborts the commit.</span>
 <span class="c1">#</span>
 <span class="c1"># On branch main</span>
@@ -763,12 +728,12 @@ to write in. (The lines preceded by hashes are comments that are ignored by Git.
 that tells people about changes that are being committed to the repository.
 It should briefly, but clearly, describe the main changes that have been made. We
 add our commit message at the top of the opened file:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Create</span> <span class="n">a</span> <span class="n">cheatsheet</span> <span class="n">document</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Create<span class="w"> </span>a<span class="w"> </span>cheatsheet<span class="w"> </span>document
 
-<span class="n">Start</span> <span class="n">the</span> <span class="n">document</span> <span class="n">by</span> <span class="n">adding</span> <span class="n">an</span> <span class="n">entry</span> <span class="k">for</span> <span class="n">Git</span><span class="s1">&#39;s status command.</span>
+Start<span class="w"> </span>the<span class="w"> </span>document<span class="w"> </span>by<span class="w"> </span>adding<span class="w"> </span>an<span class="w"> </span>entry<span class="w"> </span><span class="k">for</span><span class="w"> </span>Git<span class="s1">&#39;s status command.</span>
 
-<span class="c1"># Please enter the commit message for your changes. Lines starting</span>
-<span class="c1"># with &#39;#&#39; will be ignored, and an empty message aborts the commit.</span>
+<span class="s1"># Please enter the commit message for your changes. Lines starting</span>
+<span class="s1"># with &#39;</span><span class="c1">#&#39; will be ignored, and an empty message aborts the commit.</span>
 <span class="c1">#</span>
 <span class="c1"># On branch main</span>
 <span class="c1"># Your branch is up to date with &#39;origin/main&#39;.</span>
@@ -782,35 +747,27 @@ add our commit message at the top of the opened file:</p>
 name!) and close it. The <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code> command finishes and we get a little
 summary message about what was just committed (note the first line of our
 commit message is included):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git commit
-[main 17912ce] Create a cheatsheet document
- 1 file changed, 8 insertions(+)
- create mode 100644 Git-cheatsheet.md
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>commit
+<span class="o">[</span>main<span class="w"> </span>17912ce<span class="o">]</span><span class="w"> </span>Create<span class="w"> </span>a<span class="w"> </span>cheatsheet<span class="w"> </span>document
+<span class="w"> </span><span class="m">1</span><span class="w"> </span>file<span class="w"> </span>changed,<span class="w"> </span><span class="m">8</span><span class="w"> </span>insertions<span class="o">(</span>+<span class="o">)</span>
+<span class="w"> </span>create<span class="w"> </span>mode<span class="w"> </span><span class="m">100644</span><span class="w"> </span>Git-cheatsheet.md
 </pre></div>
 </div>
 <p>When we run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code>,
 Git takes everything we have told it to save by using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code>
 and stores a copy permanently inside the special <code class="docutils literal notranslate"><span class="pre">.git</span></code> directory.
 This permanent copy is called a <strong>commit</strong> (or <strong>revision</strong>).</p>
-<blockquote>
-<div><h3 class="rubric" id="best-practice-commit-messages">Best practice: commit messages</h3>
-<p><a href="https://chris.beams.io/posts/git-commit/" target="_blank" rel="external noreferrer">Good commit messages</a>
-start with a brief (usually &lt; 50 characters) statement about the
-changes made in the commit. Generally, the message should complete the sentence
-“If applied, this commit will [<em>commit message here</em>]”.
-If you want to go into more detail, add a blank line between the summary line
-and your additional notes. Use this additional space to explain why you made
-changes and/or what their impact will be. Avoid uninformative messages such as
-“small tweaks” or “updates” — write what will be useful for others to read
-(which includes yourself in one year’s time).</p>
-</div></blockquote>
+</section>
+<section id="best-practice-commit-messages">
+<h3>Best practice: commit messages<a class="headerlink" href="#best-practice-commit-messages" title="Link to this heading">#</a></h3>
+<p><a href="https://chris.beams.io/posts/git-commit/" target="_blank" rel="external noreferrer">Good commit messages</a> start with a brief (usually &lt; 50 characters) statement about the changes made in the commit. Generally, the message should complete the sentence “If applied, this commit will [<em>commit message here</em>]”. If you want to go into more detail, add a blank line between the summary line and your additional notes. Use this additional space to explain why you made changes and/or what their impact will be. Avoid uninformative messages such as “small tweaks” or “updates” — write what will be useful for others to read (which includes yourself in one year’s time).</p>
 <p>If we now run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> again, we get the following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git status
-On branch main
-Your branch is ahead of &#39;origin/main&#39; by 1 commit.
-  (use &quot;git push&quot; to publish your local commits)
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>status
+On<span class="w"> </span>branch<span class="w"> </span>main
+Your<span class="w"> </span>branch<span class="w"> </span>is<span class="w"> </span>ahead<span class="w"> </span>of<span class="w"> </span><span class="s1">&#39;origin/main&#39;</span><span class="w"> </span>by<span class="w"> </span><span class="m">1</span><span class="w"> </span>commit.
+<span class="w">  </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git push&quot;</span><span class="w"> </span>to<span class="w"> </span>publish<span class="w"> </span>your<span class="w"> </span><span class="nb">local</span><span class="w"> </span>commits<span class="o">)</span>
 
-nothing to commit, working tree clean
+nothing<span class="w"> </span>to<span class="w"> </span>commit,<span class="w"> </span>working<span class="w"> </span>tree<span class="w"> </span>clean
 </pre></div>
 </div>
 <p>Git is now telling us that:</p>
@@ -823,6 +780,7 @@ is ahead of ‘origin/main’ by 1 commit.”) The “ahead of
 that aren’t recorded in the remote repository. We’ll discuss this in a later
 episode, so just focus on the “1 commit” bit for now.</p></li>
 </ul>
+</section>
 </section>
 <section id="modify-add-commit">
 <h2>Modify-add-commit<a class="headerlink" href="#modify-add-commit" title="Link to this heading">#</a></h2>
@@ -841,28 +799,17 @@ the <code class="docutils literal notranslate"><span class="pre">add</span></cod
 Git has a special <strong>staging area</strong> (also called the <strong>index</strong>) where it keeps
 track of things that should go into the next commit. It might help to remember
 these terms by thinking of <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> as ‘setting the stage’ for the next commit.</p>
-<blockquote>
-<div><h3 class="rubric" id="best-practice-commit-little-and-often">Best practice: commit little and often</h3>
-<p>A commit is much easier to digest if it contains few changes. In fact, you
-should aim for each commit to capture one conceptual change to your work that
-can stand alone. This will make the history of your files’ development much easier
-to follow. A good rule of thumb: a commit should capture a change that
-you can describe in about 50 characters or fewer, potentially with extra
-explanation in the commit message if needed. Examples (with commit message):</p>
+<section id="best-practice-commit-little-and-often">
+<h3>Best practice: commit little and often<a class="headerlink" href="#best-practice-commit-little-and-often" title="Link to this heading">#</a></h3>
+<p>A commit is much easier to digest if it contains few changes. In fact, you should aim for each commit to capture one conceptual change to your work that can stand alone. This will make the history of your files’ development much easier to follow. A good rule of thumb: a commit should capture a change that you can describe in about 50 characters or fewer, potentially with extra explanation in the commit message if needed. Examples (with commit message):</p>
 <ul class="simple">
-<li><p>Adding a new function to read in some sequencing data (’<em>Add a function to
-read in sequencing data</em>’).</p></li>
-<li><p>Updating a configuration file to include the setting required for a particular
-experiment (’<em>Change settings for experiment A simulation</em>’ — the rest of the commit
-message may then give more detail on what these settings are).</p></li>
-<li><p>Giving a variable a better name, which may be done across multiple files in
-the same commit (’<em>Rename input variable to a more descriptive name</em>’).</p></li>
-<li><p>Adding this box about best practice for commit (’<em>Add content about best
-practice for commits</em>’).</p></li>
+<li><p>Adding a new function to read in some sequencing data (’<em>Add a function to read in sequencing data</em>’).</p></li>
+<li><p>Updating a configuration file to include the setting required for a particular experiment (’<em>Change settings for experiment A simulation</em>’ — the rest of the commit message may then give more detail on what these settings are).</p></li>
+<li><p>Giving a variable a better name, which may be done across multiple files in the same commit (’<em>Rename input variable to a more descriptive name</em>’).</p></li>
+<li><p>Adding this box about best practice for commit (’<em>Add content about best practice for commits</em>’).
+This is something you gain a feel for as you use Git more and study other developers’ work.</p></li>
 </ul>
-<p>This is something you gain a feel for as you use Git more and study other
-developers’ work.</p>
-</div></blockquote>
+</section>
 </section>
 <section id="selective-staging">
 <h2>Selective staging<a class="headerlink" href="#selective-staging" title="Link to this heading">#</a></h2>
@@ -874,64 +821,55 @@ steps.</p>
 Note that, although we’ve only seen an example of adding changes to a single file, we
 can actually add changes to multiple files by listing them out when running
 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code>, like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">add</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">file1</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">file2</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">file3</span> <span class="o">...</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>path/to/file1<span class="w"> </span>path/to/file2<span class="w"> </span>path/to/file3<span class="w"> </span>...
 </pre></div>
 </div>
 <p>So we add the following lines to <code class="docutils literal notranslate"><span class="pre">Git-cheatsheet.md</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>## Adding / committing changes
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">## Adding / committing changes</span>
 
-`git add &lt;files&gt;` — Stages changes in the `&lt;files&gt;`, ready for committing.
-
+<span class="sb">`</span>git<span class="w"> </span>add<span class="w"> </span>&lt;files&gt;<span class="sb">`</span><span class="w"> </span>—<span class="w"> </span>Stages<span class="w"> </span>changes<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span><span class="sb">`</span>&lt;files&gt;<span class="sb">`</span>,<span class="w"> </span>ready<span class="w"> </span><span class="k">for</span><span class="w"> </span>committing.
 </pre></div>
 </div>
 <p>However, we’ve also seen some tips on good practice about commits and commit
 messages. So let’s create a new file, called <code class="docutils literal notranslate"><span class="pre">Commit-good-practice.md</span></code> and record
 what we learnt about commit messages:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Best practice when committing
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Best practice when committing</span>
 
-## Commit messages
+<span class="c1">## Commit messages</span>
 
-[Good commit messages](https://chris.beams.io/posts/git-commit/)
-start with a brief (usually &lt; 50 characters) summary statement about the
-changes made in the commit, with more explanation given in a new paragraph if
-required. Generally, the summary should complete the sentence &quot;If applied, this
-commit will [_commit message here_]&quot;.
+<span class="o">[</span>Good<span class="w"> </span>commit<span class="w"> </span>messages<span class="o">](</span>https://chris.beams.io/posts/git-commit/<span class="o">)</span>
+start<span class="w"> </span>with<span class="w"> </span>a<span class="w"> </span>brief<span class="w"> </span><span class="o">(</span>usually<span class="w"> </span>&lt;<span class="w"> </span><span class="m">50</span><span class="w"> </span>characters<span class="o">)</span><span class="w"> </span>summary<span class="w"> </span>statement<span class="w"> </span>about<span class="w"> </span>the
+changes<span class="w"> </span>made<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>commit,<span class="w"> </span>with<span class="w"> </span>more<span class="w"> </span>explanation<span class="w"> </span>given<span class="w"> </span><span class="k">in</span><span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>paragraph<span class="w"> </span><span class="k">if</span>
+required.<span class="w"> </span>Generally,<span class="w"> </span>the<span class="w"> </span>summary<span class="w"> </span>should<span class="w"> </span><span class="nb">complete</span><span class="w"> </span>the<span class="w"> </span>sentence<span class="w"> </span><span class="s2">&quot;If applied, this</span>
+<span class="s2">commit will [_commit message here_]&quot;</span>.
 
-Avoid uninformative messages such as &quot;small tweaks&quot; or &quot;updates&quot; — write what
-will be useful for others to read.
-
+Avoid<span class="w"> </span>uninformative<span class="w"> </span>messages<span class="w"> </span>such<span class="w"> </span>as<span class="w"> </span><span class="s2">&quot;small tweaks&quot;</span><span class="w"> </span>or<span class="w"> </span><span class="s2">&quot;updates&quot;</span><span class="w"> </span>—<span class="w"> </span>write<span class="w"> </span>what
+will<span class="w"> </span>be<span class="w"> </span>useful<span class="w"> </span><span class="k">for</span><span class="w"> </span>others<span class="w"> </span>to<span class="w"> </span>read.
 </pre></div>
 </div>
-<blockquote>
-<div><h3 class="rubric" id="id1">Markdown syntax</h3>
-<p>Hyperlinks to external URLs are included by putting the text of the hyperlink
-in square brackets, immediately followed by the URL of the link in parentheses
-(with no space between the square brackets and parentheses). To just include
-a URL as its own hyperlink, just place it between angle brackets. Examples:</p>
+<section id="id1">
+<h3>Markdown syntax<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Hyperlinks to external URLs are included by putting the text of the hyperlink in square brackets, immediately followed by the URL of the link in parentheses (with no space between the square brackets and parentheses). To just include a URL as its own hyperlink, just place it between angle brackets. Examples:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">[Good</span> <span class="pre">commit</span> <span class="pre">messages](https://chris.beams.io/posts/git-commit/)</span></code> renders
-as the hyperlinked text
-<a class="reference external" href="https://chris.beams.io/posts/git-commit/">Good commit messages</a>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;https://chris.beams.io/posts/git-commit/&gt;</span></code> renders as
-<a class="reference external" href="https://chris.beams.io/posts/git-commit/">https://chris.beams.io/posts/git-commit/</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[Good</span> <span class="pre">commit</span> <span class="pre">messages](https://chris.beams.io/posts/git-commit/)</span></code> renders as the hyperlinked text <a class="reference external" href="https://chris.beams.io/posts/git-commit/">Good commit messages</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;https://chris.beams.io/posts/git-commit/&gt;</span></code> renders as <a class="reference external" href="https://chris.beams.io/posts/git-commit/">https://chris.beams.io/posts/git-commit/</a>.</p></li>
 </ul>
-</div></blockquote>
 <p>Let’s now check the state of the working tree:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git status
-On branch main
-Your branch is ahead of &#39;origin/main&#39; by 1 commit.
-  (use &quot;git push&quot; to publish your local commits)
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>status
+On<span class="w"> </span>branch<span class="w"> </span>main
+Your<span class="w"> </span>branch<span class="w"> </span>is<span class="w"> </span>ahead<span class="w"> </span>of<span class="w"> </span><span class="s1">&#39;origin/main&#39;</span><span class="w"> </span>by<span class="w"> </span><span class="m">1</span><span class="w"> </span>commit.
+<span class="w">  </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git push&quot;</span><span class="w"> </span>to<span class="w"> </span>publish<span class="w"> </span>your<span class="w"> </span><span class="nb">local</span><span class="w"> </span>commits<span class="o">)</span>
 
-Changes not staged for commit:
-  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
-  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)
-        modified:   Git-cheatsheet.md
+Changes<span class="w"> </span>not<span class="w"> </span>staged<span class="w"> </span><span class="k">for</span><span class="w"> </span>commit:
+<span class="w">  </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git add &lt;file&gt;...&quot;</span><span class="w"> </span>to<span class="w"> </span>update<span class="w"> </span>what<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>committed<span class="o">)</span>
+<span class="w">  </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git restore &lt;file&gt;...&quot;</span><span class="w"> </span>to<span class="w"> </span>discard<span class="w"> </span>changes<span class="w"> </span><span class="k">in</span><span class="w"> </span>working<span class="w"> </span>directory<span class="o">)</span>
+<span class="w">        </span>modified:<span class="w">   </span>Git-cheatsheet.md
 
-Untracked files:
-  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
-        Commit-good-practice.md
+Untracked<span class="w"> </span>files:
+<span class="w">  </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git add &lt;file&gt;...&quot;</span><span class="w"> </span>to<span class="w"> </span>include<span class="w"> </span><span class="k">in</span><span class="w"> </span>what<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>committed<span class="o">)</span>
+<span class="w">        </span>Commit-good-practice.md
 
-no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
+no<span class="w"> </span>changes<span class="w"> </span>added<span class="w"> </span>to<span class="w"> </span>commit<span class="w"> </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git add&quot;</span><span class="w"> </span>and/or<span class="w"> </span><span class="s2">&quot;git commit -a&quot;</span><span class="o">)</span>
 </pre></div>
 </div>
 <p>Git has noticed that:</p>
@@ -954,19 +892,19 @@ would be a natural accompaniment to the <code class="docutils literal notranslat
 <p>First thing’s first: we commit only the cheatsheet with it’s material about
 using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code>. We apply <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> to <code class="docutils literal notranslate"><span class="pre">Git-cheatsheet.md</span></code>, then check the
 status of the repository:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git add Git-cheatsheet.md
-$ git status
-On branch main
-Your branch is ahead of &#39;origin/main&#39; by 1 commit.
-  (use &quot;git push&quot; to publish your local commits)
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>Git-cheatsheet.md
+$<span class="w"> </span>git<span class="w"> </span>status
+On<span class="w"> </span>branch<span class="w"> </span>main
+Your<span class="w"> </span>branch<span class="w"> </span>is<span class="w"> </span>ahead<span class="w"> </span>of<span class="w"> </span><span class="s1">&#39;origin/main&#39;</span><span class="w"> </span>by<span class="w"> </span><span class="m">1</span><span class="w"> </span>commit.
+<span class="w">  </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git push&quot;</span><span class="w"> </span>to<span class="w"> </span>publish<span class="w"> </span>your<span class="w"> </span><span class="nb">local</span><span class="w"> </span>commits<span class="o">)</span>
 
-Changes to be committed:
-  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)
-        modified:   Git-cheatsheet.md
+Changes<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>committed:
+<span class="w">  </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git restore --staged &lt;file&gt;...&quot;</span><span class="w"> </span>to<span class="w"> </span>unstage<span class="o">)</span>
+<span class="w">        </span>modified:<span class="w">   </span>Git-cheatsheet.md
 
-Untracked files:
-  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
-        Commit-good-practice.md
+Untracked<span class="w"> </span>files:
+<span class="w">  </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git add &lt;file&gt;...&quot;</span><span class="w"> </span>to<span class="w"> </span>include<span class="w"> </span><span class="k">in</span><span class="w"> </span>what<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>committed<span class="o">)</span>
+<span class="w">        </span>Commit-good-practice.md
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">Commit-good-practice.md</span></code> is still not being tracked, but now the modifications
@@ -976,67 +914,67 @@ by the ‘Changes to be committed:’ part of the output).</p>
 “Add entry about staging files with ‘git add’”. To speed things up a bit, we can
 use the optional argument <code class="docutils literal notranslate"><span class="pre">--message</span></code> (equivalently, <code class="docutils literal notranslate"><span class="pre">-m</span></code>) to record use this
 commit message without opening up a text editor, like so:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git commit -m &quot;Add entry about staging files with &#39;git add&#39;&quot;
-[main ad56194] Add entry about staging files with &#39;git add&#39;
- 1 file changed, 5 insertions(+)
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add entry about staging files with &#39;git add&#39;&quot;</span>
+<span class="o">[</span>main<span class="w"> </span>ad56194<span class="o">]</span><span class="w"> </span>Add<span class="w"> </span>entry<span class="w"> </span>about<span class="w"> </span>staging<span class="w"> </span>files<span class="w"> </span>with<span class="w"> </span><span class="s1">&#39;git add&#39;</span>
+<span class="w"> </span><span class="m">1</span><span class="w"> </span>file<span class="w"> </span>changed,<span class="w"> </span><span class="m">5</span><span class="w"> </span>insertions<span class="o">(</span>+<span class="o">)</span>
 </pre></div>
 </div>
 <p>Having committed just the changes to <code class="docutils literal notranslate"><span class="pre">Git-cheatsheet.md</span></code>, we see that Git still
 recognises it has an untracked file in <code class="docutils literal notranslate"><span class="pre">Commit-good-practice.md</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git status
-On branch main
-Your branch is ahead of &#39;origin/main&#39; by 2 commits.
-  (use &quot;git push&quot; to publish your local commits)
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>status
+On<span class="w"> </span>branch<span class="w"> </span>main
+Your<span class="w"> </span>branch<span class="w"> </span>is<span class="w"> </span>ahead<span class="w"> </span>of<span class="w"> </span><span class="s1">&#39;origin/main&#39;</span><span class="w"> </span>by<span class="w"> </span><span class="m">2</span><span class="w"> </span>commits.
+<span class="w">  </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git push&quot;</span><span class="w"> </span>to<span class="w"> </span>publish<span class="w"> </span>your<span class="w"> </span><span class="nb">local</span><span class="w"> </span>commits<span class="o">)</span>
 
-Untracked files:
-  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
-        Commit-good-practice.md
+Untracked<span class="w"> </span>files:
+<span class="w">  </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git add &lt;file&gt;...&quot;</span><span class="w"> </span>to<span class="w"> </span>include<span class="w"> </span><span class="k">in</span><span class="w"> </span>what<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>committed<span class="o">)</span>
+<span class="w">        </span>Commit-good-practice.md
 
-nothing added to commit but untracked files present (use &quot;git add&quot; to track)
+nothing<span class="w"> </span>added<span class="w"> </span>to<span class="w"> </span>commit<span class="w"> </span>but<span class="w"> </span>untracked<span class="w"> </span>files<span class="w"> </span>present<span class="w"> </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git add&quot;</span><span class="w"> </span>to<span class="w"> </span>track<span class="o">)</span>
 </pre></div>
 </div>
 <p>We now take the opportunity to add an cheatsheet entry about the <code class="docutils literal notranslate"><span class="pre">commit</span></code>
 command (under the ‘Adding / committing changes’ section):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>`git commit` — Commit changes to the repository that have been staged with
-               `git add`.
-
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="sb">`</span>git<span class="w"> </span>commit<span class="sb">`</span><span class="w"> </span>—<span class="w"> </span>Commit<span class="w"> </span>changes<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>repository<span class="w"> </span>that<span class="w"> </span>have<span class="w"> </span>been<span class="w"> </span>staged<span class="w"> </span>with
+<span class="w">               </span><span class="sb">`</span>git<span class="w"> </span>add<span class="sb">`</span>.
 </pre></div>
 </div>
 <p>We now again have two sets of changes that have yet to be staged, one to the
 cheatsheet and the other to the as yet still untracked <code class="docutils literal notranslate"><span class="pre">Commit-good-practice.md</span></code>.
 So, finally, we now bank these changes in a single commit; first we stage them
 with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git add Git-cheatsheet.md Commit-good-practice.md
-$ git status
-On branch main
-Your branch is ahead of &#39;origin/main&#39; by 2 commits.
-  (use &quot;git push&quot; to publish your local commits)
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>Git-cheatsheet.md<span class="w"> </span>Commit-good-practice.md
+$<span class="w"> </span>git<span class="w"> </span>status
+On<span class="w"> </span>branch<span class="w"> </span>main
+Your<span class="w"> </span>branch<span class="w"> </span>is<span class="w"> </span>ahead<span class="w"> </span>of<span class="w"> </span><span class="s1">&#39;origin/main&#39;</span><span class="w"> </span>by<span class="w"> </span><span class="m">2</span><span class="w"> </span>commits.
+<span class="w">  </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git push&quot;</span><span class="w"> </span>to<span class="w"> </span>publish<span class="w"> </span>your<span class="w"> </span><span class="nb">local</span><span class="w"> </span>commits<span class="o">)</span>
 
-Changes to be committed:
-  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)
-        new file:   Commit-good-practice.md
-        modified:   Git-cheatsheet.md
+Changes<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>committed:
+<span class="w">  </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git restore --staged &lt;file&gt;...&quot;</span><span class="w"> </span>to<span class="w"> </span>unstage<span class="o">)</span>
+<span class="w">        </span>new<span class="w"> </span>file:<span class="w">   </span>Commit-good-practice.md
+<span class="w">        </span>modified:<span class="w">   </span>Git-cheatsheet.md
 </pre></div>
 </div>
 <p>Having checked with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> that each file has indeed been staged, we
 go ahead and perform the commit. The commit message we use is the following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Add</span> <span class="n">material</span> <span class="n">on</span> <span class="n">committing</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Add<span class="w"> </span>material<span class="w"> </span>on<span class="w"> </span>committing
 
-<span class="n">This</span> <span class="n">includes</span> <span class="n">both</span> <span class="n">an</span> <span class="n">entry</span> <span class="k">for</span> <span class="s1">&#39;git commit&#39;</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">cheatsheet</span>
-<span class="ow">and</span> <span class="n">also</span> <span class="n">material</span> <span class="n">on</span> <span class="n">good</span> <span class="n">practice</span> <span class="k">for</span> <span class="n">commit</span> <span class="n">messages</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">new</span>
-<span class="s1">&#39;good practice&#39;</span> <span class="n">document</span><span class="o">.</span>
+This<span class="w"> </span>includes<span class="w"> </span>both<span class="w"> </span>an<span class="w"> </span>entry<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;git commit&#39;</span><span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>cheatsheet
+and<span class="w"> </span>also<span class="w"> </span>material<span class="w"> </span>on<span class="w"> </span>good<span class="w"> </span>practice<span class="w"> </span><span class="k">for</span><span class="w"> </span>commit<span class="w"> </span>messages<span class="w"> </span><span class="k">in</span><span class="w"> </span>a<span class="w"> </span>new
+<span class="s1">&#39;good practice&#39;</span><span class="w"> </span>document.
 </pre></div>
 </div>
 <p>Since this is a longer message (in particular, featuring line breaks) we use
 the default <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code> to use a text editor:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git commit
-[main 34c19f2] Add material on committing
- 2 files changed, 15 insertions(+)
- create mode 100644 Commit-good-practice.md
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>commit
+<span class="o">[</span>main<span class="w"> </span>34c19f2<span class="o">]</span><span class="w"> </span>Add<span class="w"> </span>material<span class="w"> </span>on<span class="w"> </span>committing
+<span class="w"> </span><span class="m">2</span><span class="w"> </span>files<span class="w"> </span>changed,<span class="w"> </span><span class="m">15</span><span class="w"> </span>insertions<span class="o">(</span>+<span class="o">)</span>
+<span class="w"> </span>create<span class="w"> </span>mode<span class="w"> </span><span class="m">100644</span><span class="w"> </span>Commit-good-practice.md
 </pre></div>
 </div>
 <p>If we wanted, we could now verify that we have no more changes outstanding by
 another call to <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code>.</p>
+</section>
 </section>
 <section id="review">
 <h2>Review<a class="headerlink" href="#review" title="Link to this heading">#</a></h2>
@@ -1068,16 +1006,10 @@ process is captured in the following diagram.</p>
 <em>image is © Software Carpentry and reused under
 <a href ="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a>.
 It’s taken from <a href="https://swcarpentry.github.io/git-novice/04-changes/index.html">Version Control with Git – Tracking Changes</a>.</em></p>
-<blockquote>
-<div><h3 class="rubric" id="exercise">Exercise</h3>
-<p>Using the modify-add-commit cycle, add more content to the cheatsheet and commit
-good practice documents, by adding
-an entry in the cheatsheet about the <code class="docutils literal notranslate"><span class="pre">--message</span></code> / <code class="docutils literal notranslate"><span class="pre">-m</span></code> option for <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code>
-and including a section on ‘committing little and often’ in the <code class="docutils literal notranslate"><span class="pre">Commit-good-practice.md</span></code>
-document. Try practising ‘selective staging’ when you do this: modify both files
-to begin with, but then commit the changes one file at a time by using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code>
-selectively.</p>
-</div></blockquote>
+<section id="exercise">
+<h3>Exercise<a class="headerlink" href="#exercise" title="Link to this heading">#</a></h3>
+<p>Using the modify-add-commit cycle, add more content to the cheatsheet and commit good practice documents, by adding an entry in the cheatsheet about the <code class="docutils literal notranslate"><span class="pre">--message</span></code> / <code class="docutils literal notranslate"><span class="pre">-m</span></code> option for <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code> and including a section on ‘committing little and often’ in the <code class="docutils literal notranslate"><span class="pre">Commit-good-practice.md</span></code> document. Try practising ‘selective staging’ when you do this: modify both files to begin with, but then commit the changes one file at a time by using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> selectively.</p>
+</section>
 </section>
 </section>
 
@@ -1146,11 +1078,27 @@ selectively.</p>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning objectives</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-the-status-of-a-repository">Viewing the status of a repository</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-and-committing-files">Adding and committing files</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modify-add-commit">Modify-add-commit</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selective-staging">Selective staging</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#review">Review</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-the-status-of-a-repository">Viewing the status of a repository</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-git-status-often">Run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> often</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-and-committing-files">Adding and committing files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#markdown-syntax">Markdown syntax</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practice-commit-messages">Best practice: commit messages</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modify-add-commit">Modify-add-commit</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practice-commit-little-and-often">Best practice: commit little and often</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selective-staging">Selective staging</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Markdown syntax</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#review">Review</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

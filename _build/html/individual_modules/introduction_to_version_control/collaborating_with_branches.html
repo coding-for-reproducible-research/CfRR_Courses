@@ -555,7 +555,11 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-joe-bloggs-and-jane-doe">Example: Joe Bloggs and Jane Doe</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#collaborators-on-a-github-repository">Collaborators on a GitHub repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solo-work">Solo work</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-the-branches">Creating the branches</a><ul class="nav section-nav flex-column">
@@ -655,7 +659,7 @@ when you try to merge your work into the common codebase (about which more in
 the [Merge Conflicts](/16_merge_conflicts/index.html) episode).</p></li>
 </ul>
 <p>An example of feature branching is depicted below:</p>
-<p>![Feature branching](/images/feature-branching.svg)</p>
+<p><img alt="Feature branching" src="../../_images/feature-branching.svg" /></p>
 <section id="creating-feature-branches">
 <h3>Creating feature branches<a class="headerlink" href="#creating-feature-branches" title="Link to this heading">#</a></h3>
 <p>We will be creating feature branches using the workflow described in the previous
@@ -713,12 +717,10 @@ repository.</p></li>
 </ul>
 <p>In order for two people to work on the same remote repository on GitHub, they
 each need to be listed as collaborators on the repository.</p>
-<blockquote>
-<div><h3 class="rubric" id="collaborators-on-a-github-repository">Collaborators on a GitHub repository</h3>
-<p>If you are the owner of a repository on GitHub, you can invite collaborators
-to work on the repository using the
-<a href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository" target="_blank" rel="external noreferrer">instructions in the GitHub documentation</a>.</p>
-</div></blockquote>
+<section id="collaborators-on-a-github-repository">
+<h3>Collaborators on a GitHub repository<a class="headerlink" href="#collaborators-on-a-github-repository" title="Link to this heading">#</a></h3>
+<p>If you are the owner of a repository on GitHub, you can invite collaborators to work on the repository using the <a href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository" target="_blank" rel="external noreferrer">instructions in the GitHub documentation</a>.</p>
+</section>
 <section id="exercise">
 <h3>Exercise<a class="headerlink" href="#exercise" title="Link to this heading">#</a></h3>
 <p>At this point in the course, we encourage participants to pair up and work
@@ -728,15 +730,10 @@ on your repository. The collaborator should then clone the other person’s
 repository using the above instructions, so that you are both working on a
 common remote repository. In what follows, one of you should play the role of
 Joe Bloggs and the other of Jane Doe.</p>
-<blockquote>
-<div><h4 class="rubric" id="solo-work">Solo work</h4>
-<p>If you are working through these course notes by yourself then try imagining
-you are two different developers collaborating on the repository together. We
-suggest you clone a fresh copy of the remote repository to a new local repository
-on your computer, while keeping your original local repository. This will
-help you simulate the scenario of collaborators each having their own local
-repository.</p>
-</div></blockquote>
+<section id="solo-work">
+<h4>Solo work<a class="headerlink" href="#solo-work" title="Link to this heading">#</a></h4>
+<p>If you are working through these course notes by yourself then try imagining you are two different developers collaborating on the repository together. We suggest you clone a fresh copy of the remote repository to a new local repository on your computer, while keeping your original local repository. This will help you simulate the scenario of collaborators each having their own local repository.</p>
+</section>
 </section>
 </section>
 <section id="creating-the-branches">
@@ -756,16 +753,16 @@ that will track their remote branch.</p>
 <p>Joe fetches references to the new branches in the remote repository, then
 creates a new local branch to track his remote <code class="docutils literal notranslate"><span class="pre">fetching-material</span></code> branch (and
 also checks out this new local branch):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git fetch
-Username for &#39;https://github.com&#39;: jbloggs9999
-Password for &#39;https://jbloggs9999@github.com&#39;:
-From https://github.com/jbloggs9999/git-good-practice
- * [new branch]      collaboration-good-practice -&gt; origin/collaboration-good-practice
- * [new branch]      fetching-material -&gt; origin/fetching-material
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>fetch
+Username<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;https://github.com&#39;</span>:<span class="w"> </span>jbloggs9999
+Password<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;https://jbloggs9999@github.com&#39;</span>:
+From<span class="w"> </span>https://github.com/jbloggs9999/git-good-practice
+<span class="w"> </span>*<span class="w"> </span><span class="o">[</span>new<span class="w"> </span>branch<span class="o">]</span><span class="w">      </span>collaboration-good-practice<span class="w"> </span>-&gt;<span class="w"> </span>origin/collaboration-good-practice
+<span class="w"> </span>*<span class="w"> </span><span class="o">[</span>new<span class="w"> </span>branch<span class="o">]</span><span class="w">      </span>fetching-material<span class="w"> </span>-&gt;<span class="w"> </span>origin/fetching-material
 
-$ git checkout fetching-material 
-Switched to a new branch &#39;fetching-material&#39;
-branch &#39;fetching-material&#39; set up to track &#39;origin/fetching-material&#39;.
+$<span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>fetching-material<span class="w"> </span>
+Switched<span class="w"> </span>to<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>branch<span class="w"> </span><span class="s1">&#39;fetching-material&#39;</span>
+branch<span class="w"> </span><span class="s1">&#39;fetching-material&#39;</span><span class="w"> </span><span class="nb">set</span><span class="w"> </span>up<span class="w"> </span>to<span class="w"> </span>track<span class="w"> </span><span class="s1">&#39;origin/fetching-material&#39;</span>.
 </pre></div>
 </div>
 <p>Notice that the fetch creates references to <em>both</em> of the new remote branches,
@@ -773,13 +770,13 @@ branch &#39;fetching-material&#39; set up to track &#39;origin/fetching-material
 GitHub a moment ago. In contrast, Joe only has a local branch corresponding
 to his remote <code class="docutils literal notranslate"><span class="pre">fetching-material</span></code> branch, since this is the branch he performed
 the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span></code> on:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git branch -a
-* fetching-material
-  main
-  remotes/origin/HEAD -&gt; origin/main
-  remotes/origin/collaboration-good-practice
-  remotes/origin/fetching-material
-  remotes/origin/main
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>branch<span class="w"> </span>-a
+*<span class="w"> </span>fetching-material
+<span class="w">  </span>main
+<span class="w">  </span>remotes/origin/HEAD<span class="w"> </span>-&gt;<span class="w"> </span>origin/main
+<span class="w">  </span>remotes/origin/collaboration-good-practice
+<span class="w">  </span>remotes/origin/fetching-material
+<span class="w">  </span>remotes/origin/main
 </pre></div>
 </div>
 </section>
@@ -788,24 +785,24 @@ the <code class="docutils literal notranslate"><span class="pre">git</span> <spa
 <p>Jane runs the analogous commands in her local repository, in this case creating
 a local tracking branch for her <code class="docutils literal notranslate"><span class="pre">collaboration-good-practice</span></code> remote branch
 instead:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git fetch
-Username for &#39;https://github.com&#39;: janedoe9999
-Password for &#39;https://janedoe9999@github.com&#39;:
-From https://github.com/jbloggs9999/git-good-practice
- * [new branch]      collaboration-good-practice -&gt; origin/collaboration-good-practice
- * [new branch]      fetching-material -&gt; origin/fetching-material
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>fetch
+Username<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;https://github.com&#39;</span>:<span class="w"> </span>janedoe9999
+Password<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;https://janedoe9999@github.com&#39;</span>:
+From<span class="w"> </span>https://github.com/jbloggs9999/git-good-practice
+<span class="w"> </span>*<span class="w"> </span><span class="o">[</span>new<span class="w"> </span>branch<span class="o">]</span><span class="w">      </span>collaboration-good-practice<span class="w"> </span>-&gt;<span class="w"> </span>origin/collaboration-good-practice
+<span class="w"> </span>*<span class="w"> </span><span class="o">[</span>new<span class="w"> </span>branch<span class="o">]</span><span class="w">      </span>fetching-material<span class="w"> </span>-&gt;<span class="w"> </span>origin/fetching-material
 
-$ git checkout collaboration-good-practice 
-Switched to a new branch &#39;collaboration-good-practice&#39;
-branch &#39;collaboration-good-practice&#39; set up to track &#39;origin/collaboration-good-practice&#39;.
+$<span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>collaboration-good-practice<span class="w"> </span>
+Switched<span class="w"> </span>to<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>branch<span class="w"> </span><span class="s1">&#39;collaboration-good-practice&#39;</span>
+branch<span class="w"> </span><span class="s1">&#39;collaboration-good-practice&#39;</span><span class="w"> </span><span class="nb">set</span><span class="w"> </span>up<span class="w"> </span>to<span class="w"> </span>track<span class="w"> </span><span class="s1">&#39;origin/collaboration-good-practice&#39;</span>.
 
-$ git branch -a
-* collaboration-good-practice
-  main
-  remotes/origin/HEAD -&gt; origin/main
-  remotes/origin/collaboration-good-practice
-  remotes/origin/fetching-material
-  remotes/origin/main
+$<span class="w"> </span>git<span class="w"> </span>branch<span class="w"> </span>-a
+*<span class="w"> </span>collaboration-good-practice
+<span class="w">  </span>main
+<span class="w">  </span>remotes/origin/HEAD<span class="w"> </span>-&gt;<span class="w"> </span>origin/main
+<span class="w">  </span>remotes/origin/collaboration-good-practice
+<span class="w">  </span>remotes/origin/fetching-material
+<span class="w">  </span>remotes/origin/main
 </pre></div>
 </div>
 </section>
@@ -815,57 +812,55 @@ $ git branch -a
 <section id="joe-s-fetching-material-feature-branch">
 <h3>Joe’s <code class="docutils literal notranslate"><span class="pre">fetching-material</span></code> feature branch<a class="headerlink" href="#joe-s-fetching-material-feature-branch" title="Link to this heading">#</a></h3>
 <p>Joe adds the following content to <code class="docutils literal notranslate"><span class="pre">Git-cheatsheet.md</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-## Syncing with a remote repository
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">## Syncing with a remote repository</span>
 
-`git fetch origin` — Retrieve references to new remote branches, and/or commits
-                     that are contained in remote branches, from the remote
-                     repository (referred to as `origin`).
-
+<span class="sb">`</span>git<span class="w"> </span>fetch<span class="w"> </span>origin<span class="sb">`</span><span class="w"> </span>—<span class="w"> </span>Retrieve<span class="w"> </span>references<span class="w"> </span>to<span class="w"> </span>new<span class="w"> </span>remote<span class="w"> </span>branches,<span class="w"> </span>and/or<span class="w"> </span>commits
+<span class="w">                     </span>that<span class="w"> </span>are<span class="w"> </span>contained<span class="w"> </span><span class="k">in</span><span class="w"> </span>remote<span class="w"> </span>branches,<span class="w"> </span>from<span class="w"> </span>the<span class="w"> </span>remote
+<span class="w">                     </span>repository<span class="w"> </span><span class="o">(</span>referred<span class="w"> </span>to<span class="w"> </span>as<span class="w"> </span><span class="sb">`</span>origin<span class="sb">`</span><span class="o">)</span>.
 </pre></div>
 </div>
 <p>He then commits it on his (local) <code class="docutils literal notranslate"><span class="pre">fetching-material</span></code> branch:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git add Git-cheatsheet.md 
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>Git-cheatsheet.md<span class="w"> </span>
 
-$ git commit -m &quot;Add entry about fetching from a remote&quot;
-[fetching-material 1d026a8] Add entry about fetching from a remote
- 1 file changed, 7 insertions(+)
+$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add entry about fetching from a remote&quot;</span>
+<span class="o">[</span>fetching-material<span class="w"> </span>1d026a8<span class="o">]</span><span class="w"> </span>Add<span class="w"> </span>entry<span class="w"> </span>about<span class="w"> </span>fetching<span class="w"> </span>from<span class="w"> </span>a<span class="w"> </span>remote
+<span class="w"> </span><span class="m">1</span><span class="w"> </span>file<span class="w"> </span>changed,<span class="w"> </span><span class="m">7</span><span class="w"> </span>insertions<span class="o">(</span>+<span class="o">)</span>
 </pre></div>
 </div>
 <p>Checking the status, Joe confirms that his local <code class="docutils literal notranslate"><span class="pre">fetching-material</span></code> branch is 1 commit
 ahead of the associated remote branch:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git status
-On branch fetching-material
-Your branch is ahead of &#39;origin/fetching-material&#39; by 1 commit.
-  (use &quot;git push&quot; to publish your local commits)
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>status
+On<span class="w"> </span>branch<span class="w"> </span>fetching-material
+Your<span class="w"> </span>branch<span class="w"> </span>is<span class="w"> </span>ahead<span class="w"> </span>of<span class="w"> </span><span class="s1">&#39;origin/fetching-material&#39;</span><span class="w"> </span>by<span class="w"> </span><span class="m">1</span><span class="w"> </span>commit.
+<span class="w">  </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git push&quot;</span><span class="w"> </span>to<span class="w"> </span>publish<span class="w"> </span>your<span class="w"> </span><span class="nb">local</span><span class="w"> </span>commits<span class="o">)</span>
 
-nothing to commit, working tree clean
+nothing<span class="w"> </span>to<span class="w"> </span>commit,<span class="w"> </span>working<span class="w"> </span>tree<span class="w"> </span>clean
 </pre></div>
 </div>
 <p>In order to back up his work and give Jane a preview of what he’s been doing,
 Joe pushes the changes to his local <code class="docutils literal notranslate"><span class="pre">fetching-material</span></code> branch to the remote
 <code class="docutils literal notranslate"><span class="pre">origin/fetching-material</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git push
-Username for &#39;https://github.com&#39;: jbloggs9999
-Password for &#39;https://jbloggs9999@github.com&#39;:
-Enumerating objects: 5, done.
-Counting objects: 100% (5/5), done.
-Delta compression using up to 8 threads
-Compressing objects: 100% (3/3), done.
-Writing objects: 100% (3/3), 494 bytes | 123.00 KiB/s, done.
-Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
-remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
-To https://github.com/jbloggs9999/git-good-practice.git
-   86ebbee..1d026a8  fetching-material -&gt; fetching-material
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>push
+Username<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;https://github.com&#39;</span>:<span class="w"> </span>jbloggs9999
+Password<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;https://jbloggs9999@github.com&#39;</span>:
+Enumerating<span class="w"> </span>objects:<span class="w"> </span><span class="m">5</span>,<span class="w"> </span><span class="k">done</span>.
+Counting<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">5</span>/5<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
+Delta<span class="w"> </span>compression<span class="w"> </span>using<span class="w"> </span>up<span class="w"> </span>to<span class="w"> </span><span class="m">8</span><span class="w"> </span>threads
+Compressing<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">3</span>/3<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
+Writing<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">3</span>/3<span class="o">)</span>,<span class="w"> </span><span class="m">494</span><span class="w"> </span>bytes<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">123</span>.00<span class="w"> </span>KiB/s,<span class="w"> </span><span class="k">done</span>.
+Total<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">2</span><span class="o">)</span>,<span class="w"> </span>reused<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">0</span><span class="o">)</span>,<span class="w"> </span>pack-reused<span class="w"> </span><span class="m">0</span>
+remote:<span class="w"> </span>Resolving<span class="w"> </span>deltas:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">2</span>/2<span class="o">)</span>,<span class="w"> </span>completed<span class="w"> </span>with<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="nb">local</span><span class="w"> </span>objects.
+To<span class="w"> </span>https://github.com/jbloggs9999/git-good-practice.git
+<span class="w">   </span>86ebbee..1d026a8<span class="w">  </span>fetching-material<span class="w"> </span>-&gt;<span class="w"> </span>fetching-material
 </pre></div>
 </div>
 <p>The history on Joe’s <code class="docutils literal notranslate"><span class="pre">fetching-material</span></code> branch now looks like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log --oneline -5
-1d026a8 (HEAD -&gt; fetching-material, origin/fetching-material) Add entry about fetching from a remote
-86ebbee (origin/main, origin/collaboration-good-practice, origin/HEAD, main) Merge pull request #1 from jbloggs9999/remote-branches-material        
-5125372 Add note about creating local tracking branches
-3b918f2 Add entry about merging branches
-51da8da Add entry about checking out a branch
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>-5
+1d026a8<span class="w"> </span><span class="o">(</span>HEAD<span class="w"> </span>-&gt;<span class="w"> </span>fetching-material,<span class="w"> </span>origin/fetching-material<span class="o">)</span><span class="w"> </span>Add<span class="w"> </span>entry<span class="w"> </span>about<span class="w"> </span>fetching<span class="w"> </span>from<span class="w"> </span>a<span class="w"> </span>remote
+86ebbee<span class="w"> </span><span class="o">(</span>origin/main,<span class="w"> </span>origin/collaboration-good-practice,<span class="w"> </span>origin/HEAD,<span class="w"> </span>main<span class="o">)</span><span class="w"> </span>Merge<span class="w"> </span>pull<span class="w"> </span>request<span class="w"> </span><span class="c1">#1 from jbloggs9999/remote-branches-material        </span>
+<span class="m">5125372</span><span class="w"> </span>Add<span class="w"> </span>note<span class="w"> </span>about<span class="w"> </span>creating<span class="w"> </span><span class="nb">local</span><span class="w"> </span>tracking<span class="w"> </span>branches
+3b918f2<span class="w"> </span>Add<span class="w"> </span>entry<span class="w"> </span>about<span class="w"> </span>merging<span class="w"> </span>branches
+51da8da<span class="w"> </span>Add<span class="w"> </span>entry<span class="w"> </span>about<span class="w"> </span>checking<span class="w"> </span>out<span class="w"> </span>a<span class="w"> </span>branch
 </pre></div>
 </div>
 </section>
@@ -874,44 +869,43 @@ To https://github.com/jbloggs9999/git-good-practice.git
 <p>Jane creates a new file called <code class="docutils literal notranslate"><span class="pre">Collaboration-good-practice.md</span></code> in the
 <code class="docutils literal notranslate"><span class="pre">Good-practice-guides</span></code> directory (which she includes as a stand-alone commit)
 and adds the following content about the above feature branch strategy:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Best practice for collaboration
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Best practice for collaboration</span>
 
-## A basic feature branch strategy
+<span class="c1">## A basic feature branch strategy</span>
 
-A basic way to collaborate on a common repository is to use *feature branching*.
-A *feature* in this context is any piece of work that adds to of the
-software&#39;s overall development, whether this be a new piece of functionality, a
-bug fix, some documentation, etc. In feature branching, new features are
-developed in their own, dedicated *feature branches* that branch off the
-`main` branch. When the feature is ready to be shared with others, the feature
-branch is merged back into `main`.
-
+A<span class="w"> </span>basic<span class="w"> </span>way<span class="w"> </span>to<span class="w"> </span>collaborate<span class="w"> </span>on<span class="w"> </span>a<span class="w"> </span>common<span class="w"> </span>repository<span class="w"> </span>is<span class="w"> </span>to<span class="w"> </span>use<span class="w"> </span>*feature<span class="w"> </span>branching*.
+A<span class="w"> </span>*feature*<span class="w"> </span><span class="k">in</span><span class="w"> </span>this<span class="w"> </span>context<span class="w"> </span>is<span class="w"> </span>any<span class="w"> </span>piece<span class="w"> </span>of<span class="w"> </span>work<span class="w"> </span>that<span class="w"> </span>adds<span class="w"> </span>to<span class="w"> </span>of<span class="w"> </span>the
+software<span class="err">&#39;</span>s<span class="w"> </span>overall<span class="w"> </span>development,<span class="w"> </span>whether<span class="w"> </span>this<span class="w"> </span>be<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>piece<span class="w"> </span>of<span class="w"> </span>functionality,<span class="w"> </span>a
+bug<span class="w"> </span>fix,<span class="w"> </span>some<span class="w"> </span>documentation,<span class="w"> </span>etc.<span class="w"> </span>In<span class="w"> </span>feature<span class="w"> </span>branching,<span class="w"> </span>new<span class="w"> </span>features<span class="w"> </span>are
+developed<span class="w"> </span><span class="k">in</span><span class="w"> </span>their<span class="w"> </span>own,<span class="w"> </span>dedicated<span class="w"> </span>*feature<span class="w"> </span>branches*<span class="w"> </span>that<span class="w"> </span>branch<span class="w"> </span>off<span class="w"> </span>the
+<span class="sb">`</span>main<span class="sb">`</span><span class="w"> </span>branch.<span class="w"> </span>When<span class="w"> </span>the<span class="w"> </span>feature<span class="w"> </span>is<span class="w"> </span>ready<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>shared<span class="w"> </span>with<span class="w"> </span>others,<span class="w"> </span>the<span class="w"> </span>feature
+branch<span class="w"> </span>is<span class="w"> </span>merged<span class="w"> </span>back<span class="w"> </span>into<span class="w"> </span><span class="sb">`</span>main<span class="sb">`</span>.
 </pre></div>
 </div>
 <p>Like Joe, she then also pushes the new commits on her local
 <code class="docutils literal notranslate"><span class="pre">collaboration-good-practice</span></code> to the associated remote branch,
 <code class="docutils literal notranslate"><span class="pre">origin/collaboration-good-practice</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git push origin
-Username for &#39;https://github.com&#39;: janedoe9999
-Password for &#39;https://janedoe9999@github.com&#39;:
-Enumerating objects: 10, done.
-Counting objects: 100% (10/10), done.
-Delta compression using up to 8 threads
-Compressing objects: 100% (7/7), done.
-Writing objects: 100% (8/8), 1.04 KiB | 353.00 KiB/s, done.
-Total 8 (delta 2), reused 1 (delta 0), pack-reused 0
-remote: Resolving deltas: 100% (2/2), completed with 1 local object.
-To https://github.com/jbloggs9999/git-good-practice.git
-   86ebbee..b9df491  collaboration-good-practice -&gt; collaboration-good-practice
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>push<span class="w"> </span>origin
+Username<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;https://github.com&#39;</span>:<span class="w"> </span>janedoe9999
+Password<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;https://janedoe9999@github.com&#39;</span>:
+Enumerating<span class="w"> </span>objects:<span class="w"> </span><span class="m">10</span>,<span class="w"> </span><span class="k">done</span>.
+Counting<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">10</span>/10<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
+Delta<span class="w"> </span>compression<span class="w"> </span>using<span class="w"> </span>up<span class="w"> </span>to<span class="w"> </span><span class="m">8</span><span class="w"> </span>threads
+Compressing<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">7</span>/7<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
+Writing<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">8</span>/8<span class="o">)</span>,<span class="w"> </span><span class="m">1</span>.04<span class="w"> </span>KiB<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">353</span>.00<span class="w"> </span>KiB/s,<span class="w"> </span><span class="k">done</span>.
+Total<span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">2</span><span class="o">)</span>,<span class="w"> </span>reused<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">0</span><span class="o">)</span>,<span class="w"> </span>pack-reused<span class="w"> </span><span class="m">0</span>
+remote:<span class="w"> </span>Resolving<span class="w"> </span>deltas:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">2</span>/2<span class="o">)</span>,<span class="w"> </span>completed<span class="w"> </span>with<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="nb">local</span><span class="w"> </span>object.
+To<span class="w"> </span>https://github.com/jbloggs9999/git-good-practice.git
+<span class="w">   </span>86ebbee..b9df491<span class="w">  </span>collaboration-good-practice<span class="w"> </span>-&gt;<span class="w"> </span>collaboration-good-practice
 </pre></div>
 </div>
 <p>Having done this, her <code class="docutils literal notranslate"><span class="pre">collaboration-good-practice</span></code> history looks as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log --oneline -5
-b9df491 (HEAD -&gt; collaboration-good-practice, origin/collaboration-good-practice) Add material on feature branching
-687cf02 Start good practice guide on collaboration
-86ebbee (origin/main, origin/fetching-material, origin/HEAD, main) Merge pull request #1 from jbloggs9999/remote-branches-material
-5125372 Add note about creating local tracking branches
-3b918f2 Add entry about merging branches
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>-5
+b9df491<span class="w"> </span><span class="o">(</span>HEAD<span class="w"> </span>-&gt;<span class="w"> </span>collaboration-good-practice,<span class="w"> </span>origin/collaboration-good-practice<span class="o">)</span><span class="w"> </span>Add<span class="w"> </span>material<span class="w"> </span>on<span class="w"> </span>feature<span class="w"> </span>branching
+687cf02<span class="w"> </span>Start<span class="w"> </span>good<span class="w"> </span>practice<span class="w"> </span>guide<span class="w"> </span>on<span class="w"> </span>collaboration
+86ebbee<span class="w"> </span><span class="o">(</span>origin/main,<span class="w"> </span>origin/fetching-material,<span class="w"> </span>origin/HEAD,<span class="w"> </span>main<span class="o">)</span><span class="w"> </span>Merge<span class="w"> </span>pull<span class="w"> </span>request<span class="w"> </span><span class="c1">#1 from jbloggs9999/remote-branches-material</span>
+<span class="m">5125372</span><span class="w"> </span>Add<span class="w"> </span>note<span class="w"> </span>about<span class="w"> </span>creating<span class="w"> </span><span class="nb">local</span><span class="w"> </span>tracking<span class="w"> </span>branches
+3b918f2<span class="w"> </span>Add<span class="w"> </span>entry<span class="w"> </span>about<span class="w"> </span>merging<span class="w"> </span>branches
 </pre></div>
 </div>
 <p>Let us take a moment to point out that, at this point, <code class="docutils literal notranslate"><span class="pre">origin/fetching-material</span></code>
@@ -937,21 +931,21 @@ he creates a pull request associated to the merge.</p>
 merged any work into the remote <code class="docutils literal notranslate"><span class="pre">main</span></code> branch. He could do this by examining
 the history of <code class="docutils literal notranslate"><span class="pre">main</span></code> on GitHub, or by checking out <code class="docutils literal notranslate"><span class="pre">main</span></code> and
 pulling in any changes from the remote:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout main
-Switched to branch &#39;main&#39;
-Your branch is up to date with &#39;origin/main&#39;.
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>main
+Switched<span class="w"> </span>to<span class="w"> </span>branch<span class="w"> </span><span class="s1">&#39;main&#39;</span>
+Your<span class="w"> </span>branch<span class="w"> </span>is<span class="w"> </span>up<span class="w"> </span>to<span class="w"> </span>date<span class="w"> </span>with<span class="w"> </span><span class="s1">&#39;origin/main&#39;</span>.
 
-$ git pull
-Username for &#39;https://github.com&#39;: jbloggs9999
-Password for &#39;https://jbloggs9999@github.com&#39;:
-remote: Enumerating objects: 10, done.
-remote: Counting objects: 100% (10/10), done.
-remote: Compressing objects: 100% (5/5), done.
-remote: Total 8 (delta 2), reused 8 (delta 2), pack-reused 0
-Unpacking objects: 100% (8/8), 1.02 KiB | 17.00 KiB/s, done.
-From https://github.com/jbloggs9999/git-good-practice
-   86ebbee..b9df491  collaboration-good-practice -&gt; origin/collaboration-good-practice
-Already up to date.
+$<span class="w"> </span>git<span class="w"> </span>pull
+Username<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;https://github.com&#39;</span>:<span class="w"> </span>jbloggs9999
+Password<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;https://jbloggs9999@github.com&#39;</span>:
+remote:<span class="w"> </span>Enumerating<span class="w"> </span>objects:<span class="w"> </span><span class="m">10</span>,<span class="w"> </span><span class="k">done</span>.
+remote:<span class="w"> </span>Counting<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">10</span>/10<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
+remote:<span class="w"> </span>Compressing<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">5</span>/5<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
+remote:<span class="w"> </span>Total<span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">2</span><span class="o">)</span>,<span class="w"> </span>reused<span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">2</span><span class="o">)</span>,<span class="w"> </span>pack-reused<span class="w"> </span><span class="m">0</span>
+Unpacking<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">8</span>/8<span class="o">)</span>,<span class="w"> </span><span class="m">1</span>.02<span class="w"> </span>KiB<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">17</span>.00<span class="w"> </span>KiB/s,<span class="w"> </span><span class="k">done</span>.
+From<span class="w"> </span>https://github.com/jbloggs9999/git-good-practice
+<span class="w">   </span>86ebbee..b9df491<span class="w">  </span>collaboration-good-practice<span class="w"> </span>-&gt;<span class="w"> </span>origin/collaboration-good-practice
+Already<span class="w"> </span>up<span class="w"> </span>to<span class="w"> </span>date.
 </pre></div>
 </div>
 <p>Recall that <code class="docutils literal notranslate"><span class="pre">Your</span> <span class="pre">branch</span> <span class="pre">is</span> <span class="pre">up</span> <span class="pre">to</span> <span class="pre">date</span> <span class="pre">with</span> <span class="pre">'origin/main'.</span></code> after the
@@ -964,19 +958,19 @@ the remote repository’s <code class="docutils literal notranslate"><span class
 the remote version, Joe goes ahead and performs the merge of his feature branch
 into <code class="docutils literal notranslate"><span class="pre">main</span></code> on GitHub, by completing the pull request. He then updates his local
 <code class="docutils literal notranslate"><span class="pre">main</span></code> branch with the merged changes:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git pull
-Username for &#39;https://github.com&#39;: jbloggs9999
-Password for &#39;https://jbloggs9999@github.com&#39;:
-remote: Enumerating objects: 1, done.
-remote: Counting objects: 100% (1/1), done.
-remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
-Unpacking objects: 100% (1/1), 654 bytes | 93.00 KiB/s, done.
-From https://github.com/jbloggs9999/git-good-practice
-   86ebbee..4e209e9  main       -&gt; origin/main
-Updating 86ebbee..4e209e9
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>pull
+Username<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;https://github.com&#39;</span>:<span class="w"> </span>jbloggs9999
+Password<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;https://jbloggs9999@github.com&#39;</span>:
+remote:<span class="w"> </span>Enumerating<span class="w"> </span>objects:<span class="w"> </span><span class="m">1</span>,<span class="w"> </span><span class="k">done</span>.
+remote:<span class="w"> </span>Counting<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">1</span>/1<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
+remote:<span class="w"> </span>Total<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">0</span><span class="o">)</span>,<span class="w"> </span>reused<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">0</span><span class="o">)</span>,<span class="w"> </span>pack-reused<span class="w"> </span><span class="m">0</span>
+Unpacking<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">1</span>/1<span class="o">)</span>,<span class="w"> </span><span class="m">654</span><span class="w"> </span>bytes<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">93</span>.00<span class="w"> </span>KiB/s,<span class="w"> </span><span class="k">done</span>.
+From<span class="w"> </span>https://github.com/jbloggs9999/git-good-practice
+<span class="w">   </span>86ebbee..4e209e9<span class="w">  </span>main<span class="w">       </span>-&gt;<span class="w"> </span>origin/main
+Updating<span class="w"> </span>86ebbee..4e209e9
 Fast-forward
- Git-cheatsheet.md | 7 +++++++
- 1 file changed, 7 insertions(+)
+<span class="w"> </span>Git-cheatsheet.md<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">7</span><span class="w"> </span>+++++++
+<span class="w"> </span><span class="m">1</span><span class="w"> </span>file<span class="w"> </span>changed,<span class="w"> </span><span class="m">7</span><span class="w"> </span>insertions<span class="o">(</span>+<span class="o">)</span>
 </pre></div>
 </div>
 <section id="jane-merging-after-changes-to-main">
@@ -985,73 +979,73 @@ Fast-forward
 <code class="docutils literal notranslate"><span class="pre">main</span></code>, so she creates a pull request linked to the remote feature branch.</p>
 <p>As the feature branch protocol recommends, she checks to see whether her local
 <code class="docutils literal notranslate"><span class="pre">main</span></code> branch is up-to-date with the remote repository:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout main
-Switched to branch &#39;main&#39;
-Your branch is up to date with &#39;origin/main&#39;.
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>main
+Switched<span class="w"> </span>to<span class="w"> </span>branch<span class="w"> </span><span class="s1">&#39;main&#39;</span>
+Your<span class="w"> </span>branch<span class="w"> </span>is<span class="w"> </span>up<span class="w"> </span>to<span class="w"> </span>date<span class="w"> </span>with<span class="w"> </span><span class="s1">&#39;origin/main&#39;</span>.
 
-$ git pull origin
-Username for &#39;https://github.com&#39;: janedoe9999
-Password for &#39;https://janedoe9999@github.com&#39;:
-remote: Enumerating objects: 4, done.
-remote: Counting objects: 100% (4/4), done.
-remote: Compressing objects: 100% (2/2), done.
-remote: Total 4 (delta 3), reused 2 (delta 2), pack-reused 0
-Unpacking objects: 100% (4/4), 974 bytes | 27.00 KiB/s, done.
-From https://github.com/jbloggs9999/git-good-practice
-   86ebbee..4e209e9  main              -&gt; origin/main
-   86ebbee..1d026a8  fetching-material -&gt; origin/fetching-material
-Updating 86ebbee..4e209e9
+$<span class="w"> </span>git<span class="w"> </span>pull<span class="w"> </span>origin
+Username<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;https://github.com&#39;</span>:<span class="w"> </span>janedoe9999
+Password<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;https://janedoe9999@github.com&#39;</span>:
+remote:<span class="w"> </span>Enumerating<span class="w"> </span>objects:<span class="w"> </span><span class="m">4</span>,<span class="w"> </span><span class="k">done</span>.
+remote:<span class="w"> </span>Counting<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">4</span>/4<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
+remote:<span class="w"> </span>Compressing<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">2</span>/2<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
+remote:<span class="w"> </span>Total<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">3</span><span class="o">)</span>,<span class="w"> </span>reused<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">2</span><span class="o">)</span>,<span class="w"> </span>pack-reused<span class="w"> </span><span class="m">0</span>
+Unpacking<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">4</span>/4<span class="o">)</span>,<span class="w"> </span><span class="m">974</span><span class="w"> </span>bytes<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">27</span>.00<span class="w"> </span>KiB/s,<span class="w"> </span><span class="k">done</span>.
+From<span class="w"> </span>https://github.com/jbloggs9999/git-good-practice
+<span class="w">   </span>86ebbee..4e209e9<span class="w">  </span>main<span class="w">              </span>-&gt;<span class="w"> </span>origin/main
+<span class="w">   </span>86ebbee..1d026a8<span class="w">  </span>fetching-material<span class="w"> </span>-&gt;<span class="w"> </span>origin/fetching-material
+Updating<span class="w"> </span>86ebbee..4e209e9
 Fast-forward
- Git-cheatsheet.md | 7 +++++++
- 1 file changed, 7 insertions(+)
+<span class="w"> </span>Git-cheatsheet.md<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">7</span><span class="w"> </span>+++++++
+<span class="w"> </span><span class="m">1</span><span class="w"> </span>file<span class="w"> </span>changed,<span class="w"> </span><span class="m">7</span><span class="w"> </span>insertions<span class="o">(</span>+<span class="o">)</span>
 </pre></div>
 </div>
 <p>(Again, she could also have done this by looking at the history of <code class="docutils literal notranslate"><span class="pre">main</span></code> on
 GitHub.) Jane finds that there have been changes made to the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch while
 she was working on her feature branch, as indicated by the line</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="mi">86</span><span class="n">ebbee</span><span class="o">.</span><span class="mf">.4e209</span><span class="n">e9</span>  <span class="n">main</span>              <span class="o">-&gt;</span> <span class="n">origin</span><span class="o">/</span><span class="n">main</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w">   </span>86ebbee..4e209e9<span class="w">  </span>main<span class="w">              </span>-&gt;<span class="w"> </span>origin/main
 </pre></div>
 </div>
 <p>Therefore, she merges her now updated <code class="docutils literal notranslate"><span class="pre">main</span></code> branch into her feature branch, to
 ensure her feature branch includes the latest changes. (Note that she does
 this <em>locally</em>, rather than on GitHub.)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout collaboration-good-practice 
-Switched to branch &#39;collaboration-good-practice&#39;
-Your branch is up to date with &#39;origin/collaboration-good-practice&#39;.
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>collaboration-good-practice<span class="w"> </span>
+Switched<span class="w"> </span>to<span class="w"> </span>branch<span class="w"> </span><span class="s1">&#39;collaboration-good-practice&#39;</span>
+Your<span class="w"> </span>branch<span class="w"> </span>is<span class="w"> </span>up<span class="w"> </span>to<span class="w"> </span>date<span class="w"> </span>with<span class="w"> </span><span class="s1">&#39;origin/collaboration-good-practice&#39;</span>.
 
-$ git merge main
-Merge made by the &#39;ort&#39; strategy.
- Git-cheatsheet.md | 7 +++++++
- 1 file changed, 7 insertions(+)
+$<span class="w"> </span>git<span class="w"> </span>merge<span class="w"> </span>main
+Merge<span class="w"> </span>made<span class="w"> </span>by<span class="w"> </span>the<span class="w"> </span><span class="s1">&#39;ort&#39;</span><span class="w"> </span>strategy.
+<span class="w"> </span>Git-cheatsheet.md<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">7</span><span class="w"> </span>+++++++
+<span class="w"> </span><span class="m">1</span><span class="w"> </span>file<span class="w"> </span>changed,<span class="w"> </span><span class="m">7</span><span class="w"> </span>insertions<span class="o">(</span>+<span class="o">)</span>
 </pre></div>
 </div>
 <p>She also then pushes her updated feature branch to the
 remote repository, so that her local and remote branches are synchronised.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git push
-Username for &#39;https://github.com&#39;: janedoe9999
-Password for &#39;https://janedoe9999@github.com&#39;:
-Enumerating objects: 4, done.
-Counting objects: 100% (4/4), done.
-Delta compression using up to 8 threads
-Compressing objects: 100% (2/2), done.
-Writing objects: 100% (2/2), 325 bytes | 325.00 KiB/s, done.
-Total 2 (delta 1), reused 0 (delta 0), pack-reused 0
-remote: Resolving deltas: 100% (1/1), completed with 1 local object.
-To https://github.com/jbloggs9999/git-good-practice.git
-   b9df491..ee1617c  collaboration-good-practice -&gt; collaboration-good-practice
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>push
+Username<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;https://github.com&#39;</span>:<span class="w"> </span>janedoe9999
+Password<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;https://janedoe9999@github.com&#39;</span>:
+Enumerating<span class="w"> </span>objects:<span class="w"> </span><span class="m">4</span>,<span class="w"> </span><span class="k">done</span>.
+Counting<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">4</span>/4<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
+Delta<span class="w"> </span>compression<span class="w"> </span>using<span class="w"> </span>up<span class="w"> </span>to<span class="w"> </span><span class="m">8</span><span class="w"> </span>threads
+Compressing<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">2</span>/2<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
+Writing<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">2</span>/2<span class="o">)</span>,<span class="w"> </span><span class="m">325</span><span class="w"> </span>bytes<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">325</span>.00<span class="w"> </span>KiB/s,<span class="w"> </span><span class="k">done</span>.
+Total<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">1</span><span class="o">)</span>,<span class="w"> </span>reused<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">0</span><span class="o">)</span>,<span class="w"> </span>pack-reused<span class="w"> </span><span class="m">0</span>
+remote:<span class="w"> </span>Resolving<span class="w"> </span>deltas:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">1</span>/1<span class="o">)</span>,<span class="w"> </span>completed<span class="w"> </span>with<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="nb">local</span><span class="w"> </span>object.
+To<span class="w"> </span>https://github.com/jbloggs9999/git-good-practice.git
+<span class="w">   </span>b9df491..ee1617c<span class="w">  </span>collaboration-good-practice<span class="w"> </span>-&gt;<span class="w"> </span>collaboration-good-practice
 </pre></div>
 </div>
 <p>Having done this, she now effectively starts the protocol for merging a feature
 branch into <code class="docutils literal notranslate"><span class="pre">main</span></code> again. First she checks there haven’t been any further updates
 to <code class="docutils literal notranslate"><span class="pre">main</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout main
-Switched to branch &#39;main&#39;
-Your branch is up to date with &#39;origin/main&#39;.
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>main
+Switched<span class="w"> </span>to<span class="w"> </span>branch<span class="w"> </span><span class="s1">&#39;main&#39;</span>
+Your<span class="w"> </span>branch<span class="w"> </span>is<span class="w"> </span>up<span class="w"> </span>to<span class="w"> </span>date<span class="w"> </span>with<span class="w"> </span><span class="s1">&#39;origin/main&#39;</span>.
 
-$ git pull
-Username for &#39;https://github.com&#39;: janedoe9999
-Password for &#39;https://janedoe9999@github.com&#39;:
-Already up to date.
+$<span class="w"> </span>git<span class="w"> </span>pull
+Username<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;https://github.com&#39;</span>:<span class="w"> </span>janedoe9999
+Password<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;https://janedoe9999@github.com&#39;</span>:
+Already<span class="w"> </span>up<span class="w"> </span>to<span class="w"> </span>date.
 </pre></div>
 </div>
 <p>Having seen there are no further updates, she goes to GitHub and completes
@@ -1059,20 +1053,20 @@ the associated pull request, thus merging her remote
 <code class="docutils literal notranslate"><span class="pre">collaboration-good-practice</span></code> feature branch into <code class="docutils literal notranslate"><span class="pre">main</span></code> in the remote
 repository. Then she pulls down the new, merged changes from <code class="docutils literal notranslate"><span class="pre">origin/main</span></code> into
 her local <code class="docutils literal notranslate"><span class="pre">main</span></code> branch:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git pull
-Username for &#39;https://github.com&#39;: janedoe9999
-Password for &#39;https://janedoe9999@github.com&#39;:
-remote: Enumerating objects: 1, done.
-remote: Counting objects: 100% (1/1), done.
-remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
-Unpacking objects: 100% (1/1), 648 bytes | 108.00 KiB/s, done.
-From https://github.com/jbloggs9999/git-good-practice
-   4e209e9..785f6f8  main       -&gt; origin/main
-Updating 4e209e9..785f6f8
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>pull
+Username<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;https://github.com&#39;</span>:<span class="w"> </span>janedoe9999
+Password<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;https://janedoe9999@github.com&#39;</span>:
+remote:<span class="w"> </span>Enumerating<span class="w"> </span>objects:<span class="w"> </span><span class="m">1</span>,<span class="w"> </span><span class="k">done</span>.
+remote:<span class="w"> </span>Counting<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">1</span>/1<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
+remote:<span class="w"> </span>Total<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">0</span><span class="o">)</span>,<span class="w"> </span>reused<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">0</span><span class="o">)</span>,<span class="w"> </span>pack-reused<span class="w"> </span><span class="m">0</span>
+Unpacking<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">1</span>/1<span class="o">)</span>,<span class="w"> </span><span class="m">648</span><span class="w"> </span>bytes<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">108</span>.00<span class="w"> </span>KiB/s,<span class="w"> </span><span class="k">done</span>.
+From<span class="w"> </span>https://github.com/jbloggs9999/git-good-practice
+<span class="w">   </span>4e209e9..785f6f8<span class="w">  </span>main<span class="w">       </span>-&gt;<span class="w"> </span>origin/main
+Updating<span class="w"> </span>4e209e9..785f6f8
 Fast-forward
- Good-practice-guides/Collaboration-good-practice.md | 11 +++++++++++
- 1 file changed, 11 insertions(+)
- create mode 100644 Good-practice-guides/Collaboration-good-practice.md
+<span class="w"> </span>Good-practice-guides/Collaboration-good-practice.md<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">11</span><span class="w"> </span>+++++++++++
+<span class="w"> </span><span class="m">1</span><span class="w"> </span>file<span class="w"> </span>changed,<span class="w"> </span><span class="m">11</span><span class="w"> </span>insertions<span class="o">(</span>+<span class="o">)</span>
+<span class="w"> </span>create<span class="w"> </span>mode<span class="w"> </span><span class="m">100644</span><span class="w"> </span>Good-practice-guides/Collaboration-good-practice.md
 </pre></div>
 </div>
 </section>
@@ -1083,28 +1077,28 @@ Fast-forward
 repository until he pulls them into his local <code class="docutils literal notranslate"><span class="pre">main</span></code> branch. Having seen on
 GitHub that Jane has completed her pull request, he duly makes sure his local
 repository has these changes (making sure he’s on <code class="docutils literal notranslate"><span class="pre">main</span></code> to begin with):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git status
-On branch main
-Your branch is up to date with &#39;origin/main&#39;.
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>status
+On<span class="w"> </span>branch<span class="w"> </span>main
+Your<span class="w"> </span>branch<span class="w"> </span>is<span class="w"> </span>up<span class="w"> </span>to<span class="w"> </span>date<span class="w"> </span>with<span class="w"> </span><span class="s1">&#39;origin/main&#39;</span>.
 
-nothing to commit, working tree clean
+nothing<span class="w"> </span>to<span class="w"> </span>commit,<span class="w"> </span>working<span class="w"> </span>tree<span class="w"> </span>clean
 
-$ git pull
-Username for &#39;https://github.com&#39;: jbloggs9999
-Password for &#39;https://jbloggs9999@github.com&#39;:
-remote: Enumerating objects: 5, done.
-remote: Counting objects: 100% (5/5), done.
-remote: Compressing objects: 100% (2/2), done.
-remote: Total 3 (delta 2), reused 1 (delta 1), pack-reused 0
-Unpacking objects: 100% (3/3), 829 bytes | 48.00 KiB/s, done.
-From https://github.com/jbloggs9999/git-good-practice
-   4e209e9..785f6f8  main       -&gt; origin/main
-   b9df491..ee1617c  collaboration-good-practice -&gt; origin/collaboration-good-practice
-Updating 4e209e9..785f6f8
+$<span class="w"> </span>git<span class="w"> </span>pull
+Username<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;https://github.com&#39;</span>:<span class="w"> </span>jbloggs9999
+Password<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;https://jbloggs9999@github.com&#39;</span>:
+remote:<span class="w"> </span>Enumerating<span class="w"> </span>objects:<span class="w"> </span><span class="m">5</span>,<span class="w"> </span><span class="k">done</span>.
+remote:<span class="w"> </span>Counting<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">5</span>/5<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
+remote:<span class="w"> </span>Compressing<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">2</span>/2<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
+remote:<span class="w"> </span>Total<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">2</span><span class="o">)</span>,<span class="w"> </span>reused<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">1</span><span class="o">)</span>,<span class="w"> </span>pack-reused<span class="w"> </span><span class="m">0</span>
+Unpacking<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">3</span>/3<span class="o">)</span>,<span class="w"> </span><span class="m">829</span><span class="w"> </span>bytes<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">48</span>.00<span class="w"> </span>KiB/s,<span class="w"> </span><span class="k">done</span>.
+From<span class="w"> </span>https://github.com/jbloggs9999/git-good-practice
+<span class="w">   </span>4e209e9..785f6f8<span class="w">  </span>main<span class="w">       </span>-&gt;<span class="w"> </span>origin/main
+<span class="w">   </span>b9df491..ee1617c<span class="w">  </span>collaboration-good-practice<span class="w"> </span>-&gt;<span class="w"> </span>origin/collaboration-good-practice
+Updating<span class="w"> </span>4e209e9..785f6f8
 Fast-forward
- Good-practice-guides/Collaboration-good-practice.md | 11 +++++++++++
- 1 file changed, 11 insertions(+)
- create mode 100644 Good-practice-guides/Collaboration-good-practice.md
+<span class="w"> </span>Good-practice-guides/Collaboration-good-practice.md<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">11</span><span class="w"> </span>+++++++++++
+<span class="w"> </span><span class="m">1</span><span class="w"> </span>file<span class="w"> </span>changed,<span class="w"> </span><span class="m">11</span><span class="w"> </span>insertions<span class="o">(</span>+<span class="o">)</span>
+<span class="w"> </span>create<span class="w"> </span>mode<span class="w"> </span><span class="m">100644</span><span class="w"> </span>Good-practice-guides/Collaboration-good-practice.md
 </pre></div>
 </div>
 <p>Both Joe and Jane now have completely up-to-date local repositories.</p>
@@ -1116,7 +1110,7 @@ a look at what they’ve just accomplished. One nice way to view history in the
 repository when multiple branches are involved is to use the <code class="docutils literal notranslate"><span class="pre">--graph</span></code> option with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code>.
 This will pictorially represent the inter-relationships of the branches that
 are involved in the commit history:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">log</span> <span class="p">[</span><span class="n">options</span><span class="p">]</span> <span class="o">--</span><span class="n">graph</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>log<span class="w"> </span><span class="o">[</span>options<span class="o">]</span><span class="w"> </span>--graph
 </pre></div>
 </div>
 <p>Note: you may find it clearest to use this with the <code class="docutils literal notranslate"><span class="pre">--oneline</span></code> option.</p>
@@ -1172,14 +1166,14 @@ local repository and the remote repository. There is no risk of losing work,
 because everything has been merged into <code class="docutils literal notranslate"><span class="pre">main</span></code>, both locally and on the
 remote repository. After doing this, the log of recent history looks
 like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log --oneline -7
-785f6f8 (HEAD -&gt; main, origin/main, origin/HEAD) Merge pull request #3 from jbloggs9999/collaboration-good-practice
-ee1617c Merge branch &#39;main&#39; into collaboration-good-practice
-4e209e9 Merge pull request #2 from jbloggs9999/fetching-material
-b9df491 Add material on feature branching
-687cf02 Start good practice guide on collaboration
-1d026a8 Add entry about fetching from a remote
-86ebbee Merge pull request #1 from jbloggs9999/remote-branches-material
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>-7
+785f6f8<span class="w"> </span><span class="o">(</span>HEAD<span class="w"> </span>-&gt;<span class="w"> </span>main,<span class="w"> </span>origin/main,<span class="w"> </span>origin/HEAD<span class="o">)</span><span class="w"> </span>Merge<span class="w"> </span>pull<span class="w"> </span>request<span class="w"> </span><span class="c1">#3 from jbloggs9999/collaboration-good-practice</span>
+ee1617c<span class="w"> </span>Merge<span class="w"> </span>branch<span class="w"> </span><span class="s1">&#39;main&#39;</span><span class="w"> </span>into<span class="w"> </span>collaboration-good-practice
+4e209e9<span class="w"> </span>Merge<span class="w"> </span>pull<span class="w"> </span>request<span class="w"> </span><span class="c1">#2 from jbloggs9999/fetching-material</span>
+b9df491<span class="w"> </span>Add<span class="w"> </span>material<span class="w"> </span>on<span class="w"> </span>feature<span class="w"> </span>branching
+687cf02<span class="w"> </span>Start<span class="w"> </span>good<span class="w"> </span>practice<span class="w"> </span>guide<span class="w"> </span>on<span class="w"> </span>collaboration
+1d026a8<span class="w"> </span>Add<span class="w"> </span>entry<span class="w"> </span>about<span class="w"> </span>fetching<span class="w"> </span>from<span class="w"> </span>a<span class="w"> </span>remote
+86ebbee<span class="w"> </span>Merge<span class="w"> </span>pull<span class="w"> </span>request<span class="w"> </span><span class="c1">#1 from jbloggs9999/remote-branches-material</span>
 </pre></div>
 </div>
 </section>
@@ -1257,7 +1251,11 @@ b9df491 Add material on feature branching
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-joe-bloggs-and-jane-doe">Example: Joe Bloggs and Jane Doe</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#collaborators-on-a-github-repository">Collaborators on a GitHub repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solo-work">Solo work</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-the-branches">Creating the branches</a><ul class="nav section-nav flex-column">

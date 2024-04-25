@@ -41,12 +41,8 @@ so the email address used should be the same as the one used when setting up
 your GitHub account. If you are concerned about privacy, please review
 <a href="https://help.github.com/articles/keeping-your-email-address-private/" target="_blank" rel="external noreferrer">GitHub's instructions for keeping your email address private</a>. 
 
-> #### Keeping your email private
->
-> If you elect to use a private email address with GitHub, then use that same
-> email address for the `user.email` value. It will look something like
-> `nnnnnnnnn-username@users.noreply.github.com` where
-> `nnnnnnnnn-username` is your username prepended with a numerical ID.
+#### Keeping your email private
+If you elect to use a private email address with GitHub, then use that same email address for the `user.email` value. It will look something like `nnnnnnnnn-username@users.noreply.github.com` where `nnnnnnnnn-username` is your username prepended with a numerical ID.
 
 The commands we just ran above only need to be run once: the flag `--global` tells Git
 to use the settings for _every_ Git repository, in your user account, on this computer.
@@ -69,11 +65,8 @@ at the command line, making it quick to write the short 'commit messages', but
 is much simpler to use than Vim. You can change this at any time if you find you'd
 prefer to use something else.
 
-> #### Git for Windows
->
-> If you followed the recommendations in the
-> [installation instructions for Git for Windows]({{ site.url }}/setup.html#windows) then
-> Nano should already be the default editor used by Git.
+#### Git for Windows
+If you followed the recommendations in the [installation instructions for Git for Windows]({{ site.url }}/setup.html#windows) then Nano should already be the default editor used by Git.
 
 The following table shows how to set the default editor for Git for several popular 
 text editors. In some cases, you need to provide the path to the executable
@@ -129,13 +122,11 @@ For versions of Git prior to 2.28, the change can only be made on an individual
 repository level and we will cover this in the episode on
 [making repositories]({{ site.url }}/05_making_repos/index.html) later.
 
-> #### Exercise
->
-> Set up Git the way you'd like it by configuring settings for:
-> - Your username and password
-> - Your preferred text editor
-> - (Optional) Changing the default Git branch naming to `main`. If your version
->   of Git is older than 2.28 then you won't be able to do this yet.
+#### Exercise
+Set up Git the way you'd like it by configuring settings for:
+- Your username and password
+- Your preferred text editor
+- (Optional) Changing the default Git branch naming to `main`. If your version of Git is older than 2.28 then you won't be able to do this yet.
 
 
 ### Final notes on configuring Git
@@ -207,19 +198,10 @@ involves specifying the scope of what an application using that PAT is allowed
 to do on GitHub. PATs are generated via your GitHub account and then saved for
 later use.
 
-> ### Look after your PATs!
->
-> **You should treat PATs with the same level of care you would your GitHub
-> account password. Store the PAT somewhere secure, such as in a password
-> manager. If you ever suspect a PAT has been exposed, then you should
-> delete the token and generate a new one.**
-
-> ### Note on classic tokens
->
-> At the time of writing, GitHub is in the process of creating newer, so-called 'fine 
-> grained' personal access tokens. These provide more fine grained control, but are
-> still in a developmental phase. The older, 'classic', PATs are sufficient for
-> our needs and simpler to set up, so we'll use them throughout this course.
+### Look after your PATs!
+**You should treat PATs with the same level of care you would your GitHub account password. Store the PAT somewhere secure, such as in a password manager. If you ever suspect a PAT has been exposed, then you should delete the token and generate a new one.**
+### Note on classic tokens
+At the time of writing, GitHub is in the process of creating newer, so-called 'fine  grained' personal access tokens. These provide more fine grained control, but are still in a developmental phase. The older, 'classic', PATs are sufficient forour needs and simpler to set up, so we'll use them throughout this course.
 
 To set up a PAT, follow the
 <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-personal-access-token-classic" target="_blank" rel="external noreferrer">instructions provided by GitHub for classic tokens</a>. Note:
@@ -243,8 +225,6 @@ To set up a PAT, follow the
 - To delete a token (e.g. if you suspect it's been compromised), go to your
   _Personal access tokens (classic)_ as described in the link above and then
   click on _Delete_ next to the token.
-
-> ### Exercise
->
-> Using the instructions on GitHub linked above, create a PAT and save it
-> somewhere safe for later use in this course.
+  
+### Exercise
+Using the instructions on GitHub linked above, create a PAT and save it somewhere safe for later use in this course.

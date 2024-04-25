@@ -551,9 +551,18 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repository-files">Repository files</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concept-of-branches">Concept of branches</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Working with local branches</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-branches">Creating branches</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-branches">Viewing branches</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-commits-to-a-branch">Adding commits to a branch</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-branches">Creating branches</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#branching-off-a-commit">Branching off a commit</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-branches">Viewing branches</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#main-is-just-a-branch"><code class="docutils literal notranslate"><span class="pre">main</span></code> is just a branch</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-commits-to-a-branch">Adding commits to a branch</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#branching-off-a-branch">Branching off a branch</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merging-branches">Merging branches</a><ul class="nav section-nav flex-column">
@@ -603,7 +612,7 @@ affecting the main codebase.</p>
 <p>In simple terms, a branch is a separate series of commits of the codebase that diverges from the main codebase. You can think of
 it as a separate timeline of changes that runs in parallel with the main timeline. Each branch contains a copy of the
 entire codebase, with its own set of changes.</p>
-<p>![A Git branch](/images/branch.svg)</p>
+<p><img alt="A Git branch" src="../../_images/branch.svg" /></p>
 <p>Git branches are incredibly useful for collaborative development, as they allow multiple developers to work on
 different features or fixes simultaneously, without stepping on each other’s toes. They also provide a way to
 experiment with new features or ideas without affecting the stability of the main codebase.</p>
@@ -619,7 +628,7 @@ detail.</p>
 <section id="creating-branches">
 <h3>Creating branches<a class="headerlink" href="#creating-branches" title="Link to this heading">#</a></h3>
 <p>The general way to create a new branch in our local repository is:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">branch</span> <span class="o">&lt;</span><span class="n">new</span><span class="o">-</span><span class="n">branch</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>branch<span class="w"> </span>&lt;new-branch-name&gt;
 </pre></div>
 </div>
 <p>where <code class="docutils literal notranslate"><span class="pre">&lt;new-branch-name&gt;</span></code> is the name of the branch we wish to work on.</p>
@@ -633,112 +642,97 @@ that can be modified independently.</p>
 <p>It can be helpful to have a dual picture in your mind when it comes to branches,
 thinking of them both as a series of commits and also a pointer to a particular
 commit.</p>
-<blockquote>
-<div><h4 class="rubric" id="branching-off-a-commit">Branching off a commit</h4>
-<p>You can create a new branch at any commit in the repository’s history. This can be useful if you want to create a new
-branch based on a specific version of your code, or if you want to experiment with changes from a previous commit
-without affecting the current branch. Here’s how you can create a new branch at any commit:</p>
+<section id="branching-off-a-commit">
+<h4>Branching off a commit<a class="headerlink" href="#branching-off-a-commit" title="Link to this heading">#</a></h4>
+<p>You can create a new branch at any commit in the repository’s history. This can be useful if you want to create a new  branch based on a specific version of your code, or if you want to experiment with changes from a previous commit  without affecting the current branch. Here’s how you can create a new branch at any commit:</p>
 <ol class="arabic simple">
-<li><p>Identify the commit you want to create the branch at: Use the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> command to view the commit history of the
-repository and find the commit identifier of the commit you want to create the new branch at.</p></li>
+<li><p>Identify the commit you want to create the branch at: Use the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> command to view the commit history of the  repository and find the commit identifier of the commit you want to create the new branch at.</p></li>
 <li><p>Create a new branch: Use the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span></code> command with the commit identifier to create a new branch at that commit:</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">branch</span> <span class="o">&lt;</span><span class="n">new</span><span class="o">-</span><span class="n">branch</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">commit</span><span class="o">-</span><span class="n">identifier</span><span class="o">&gt;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>branch<span class="w"> </span>&lt;new-branch-name&gt;<span class="w"> </span>&lt;commit-identifier&gt;
 </pre></div>
 </div>
-<p>For example, to create a new branch called <code class="docutils literal notranslate"><span class="pre">experimental-branch</span></code> based on a commit with the identifier <code class="docutils literal notranslate"><span class="pre">abc1234</span></code>, you would
-run:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">branch</span> <span class="n">experimental</span><span class="o">-</span><span class="n">branch</span> <span class="n">abc1234</span>
+<p>For example, to create a new branch called <code class="docutils literal notranslate"><span class="pre">experimental-branch</span></code> based on a commit with the identifier <code class="docutils literal notranslate"><span class="pre">abc1234</span></code>, you would  run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>branch<span class="w"> </span>experimental-branch<span class="w"> </span>abc1234
 </pre></div>
 </div>
 <p>This creates a new branch called experimental-branch at the specified commit.</p>
-</div></blockquote>
 <p>In our example, we create a new branch
 off of our most recent commit, called <code class="docutils literal notranslate"><span class="pre">branches-material</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git branch branches-material
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>branch<span class="w"> </span>branches-material
 </pre></div>
 </div>
 <p>This will shortly be the branch in which we add new content to the cheatsheet.</p>
 </section>
+</section>
 <section id="viewing-branches">
 <h3>Viewing branches<a class="headerlink" href="#viewing-branches" title="Link to this heading">#</a></h3>
 <p>We can view all the local branches we have in our local repository by running:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">branch</span> <span class="o">--</span><span class="nb">list</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>branch<span class="w"> </span>--list
 </pre></div>
 </div>
 <p>(Equivalently, we could use the short form <code class="docutils literal notranslate"><span class="pre">-l</span></code> for <code class="docutils literal notranslate"><span class="pre">--list</span></code>.)</p>
 <p>In our <code class="docutils literal notranslate"><span class="pre">git-good-practice</span></code> repository, this would show us:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git branch --list
-  branches-material
-* main
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>branch<span class="w"> </span>--list
+<span class="w">  </span>branches-material
+*<span class="w"> </span>main
 </pre></div>
 </div>
 <p>The asterisk (*) preceding “main” is used to indicate the currently checked out branch in your local repository.
 Another way to find out which branch you have checked out is to run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code>.</p>
-<blockquote>
-<div><h4 class="rubric" id="main-is-just-a-branch"><code class="docutils literal notranslate"><span class="pre">main</span></code> is just a branch</h4>
-<p>The main branch in Git is simply a branch like any other branch in your repository, created automatically
-to hold the initial commit of the repository’s history.</p>
-<p>Because the main branch is created automatically and is the default branch, it is often used as the primary branch
-for a project’s development. However, you can choose to rename the main branch or use a different branch as the
-primary branch if you prefer.</p>
-</div></blockquote>
+<section id="main-is-just-a-branch">
+<h4><code class="docutils literal notranslate"><span class="pre">main</span></code> is just a branch<a class="headerlink" href="#main-is-just-a-branch" title="Link to this heading">#</a></h4>
+<p>The main branch in Git is simply a branch like any other branch in your repository, created automatically  to hold the initial commit of the repository’s history.
+Because the main branch is created automatically and is the default branch, it is often used as the primary branch for a project’s development. However, you can choose to rename the main branch or use a different branch as the primary branch if you prefer.</p>
+</section>
 </section>
 <section id="adding-commits-to-a-branch">
 <h3>Adding commits to a branch<a class="headerlink" href="#adding-commits-to-a-branch" title="Link to this heading">#</a></h3>
 <p>In order to work on a branch, we need to <strong>checkout</strong> the branch so that any
 new commits we make are added to the branch. The general command for doing this
 is:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="o">&lt;</span><span class="n">branch</span><span class="o">&gt;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>&lt;branch&gt;
 </pre></div>
 </div>
-<blockquote>
-<div><h4 class="rubric" id="branching-off-a-branch">Branching off a branch</h4>
-<p>There is nothing stopping us from creating a new branch that starts on a different
-branch to <code class="docutils literal notranslate"><span class="pre">main</span></code>. For example, suppose you have checked out a branch called <code class="docutils literal notranslate"><span class="pre">feature-branch</span></code>,
-and you want to create a new branch called <code class="docutils literal notranslate"><span class="pre">bugfix-branch</span></code> on top of <code class="docutils literal notranslate"><span class="pre">feature-branch</span></code>. If
-you do not specify a starting point for the new branch, Git will create it at the current commit on
-<code class="docutils literal notranslate"><span class="pre">feature-branch</span></code>, i.e. the commit that <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> is pointing to.</p>
-</div></blockquote>
+<section id="branching-off-a-branch">
+<h4>Branching off a branch<a class="headerlink" href="#branching-off-a-branch" title="Link to this heading">#</a></h4>
+<p>There is nothing stopping us from creating a new branch that starts on a different branch to <code class="docutils literal notranslate"><span class="pre">main</span></code>. For example, suppose you have checked out a branch called <code class="docutils literal notranslate"><span class="pre">feature-branch</span></code>, and you want to create a new branch called <code class="docutils literal notranslate"><span class="pre">bugfix-branch</span></code> on top of <code class="docutils literal notranslate"><span class="pre">feature-branch</span></code>. If you do not specify a starting point for the new branch, Git will create it at the current commit on  <code class="docutils literal notranslate"><span class="pre">feature-branch</span></code>, i.e. the commit that <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> is pointing to.</p>
 <p>We now switch to our new branch <code class="docutils literal notranslate"><span class="pre">branches-material</span></code> so that
 our new cheatsheet content will feature in this branch, rather than the branch
 <code class="docutils literal notranslate"><span class="pre">main</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout branches-material 
-Switched to branch &#39;branches-material&#39;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>branches-material<span class="w"> </span>
+Switched<span class="w"> </span>to<span class="w"> </span>branch<span class="w"> </span><span class="s1">&#39;branches-material&#39;</span>
 </pre></div>
 </div>
 <p>We’re now ready to get to work in the branch <code class="docutils literal notranslate"><span class="pre">branches-material</span></code>. We add the
 following content to <code class="docutils literal notranslate"><span class="pre">Git-cheatsheet.md</span></code> on what we just learned about creating
 a branch.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-## Branches
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">## Branches</span>
 
-`git branch &lt;branch&gt;` — Create a new local branch called `&lt;branch&gt;` based at the
-                        current commit (i.e. at `HEAD`).
-
+<span class="sb">`</span>git<span class="w"> </span>branch<span class="w"> </span>&lt;branch&gt;<span class="sb">`</span><span class="w"> </span>—<span class="w"> </span>Create<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span><span class="nb">local</span><span class="w"> </span>branch<span class="w"> </span>called<span class="w"> </span><span class="sb">`</span>&lt;branch&gt;<span class="sb">`</span><span class="w"> </span>based<span class="w"> </span>at<span class="w"> </span>the
+<span class="w">                        </span>current<span class="w"> </span>commit<span class="w"> </span><span class="o">(</span>i.e.<span class="w"> </span>at<span class="w"> </span><span class="sb">`</span>HEAD<span class="sb">`</span><span class="o">)</span>.
 </pre></div>
 </div>
 <p>We make a commit with the new change:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git add Git-cheatsheet.md
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>Git-cheatsheet.md
 
-$ git commit -m &quot;Add entry about creating branches&quot;
-[branches-material 8124186] Add entry about creating branches
- 1 file changed, 6 insertions(+)
+$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add entry about creating branches&quot;</span>
+<span class="o">[</span>branches-material<span class="w"> </span><span class="m">8124186</span><span class="o">]</span><span class="w"> </span>Add<span class="w"> </span>entry<span class="w"> </span>about<span class="w"> </span>creating<span class="w"> </span>branches
+<span class="w"> </span><span class="m">1</span><span class="w"> </span>file<span class="w"> </span>changed,<span class="w"> </span><span class="m">6</span><span class="w"> </span>insertions<span class="o">(</span>+<span class="o">)</span>
 </pre></div>
 </div>
 <p>We next add an entry to our cheatsheet about checking out a branch:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>`git checkout &lt;branch&gt;` — Check out the branch `&lt;branch&gt;`, so that new commits
-                          are added to `&lt;branch&gt;`.
-
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="sb">`</span>git<span class="w"> </span>checkout<span class="w"> </span>&lt;branch&gt;<span class="sb">`</span><span class="w"> </span>—<span class="w"> </span>Check<span class="w"> </span>out<span class="w"> </span>the<span class="w"> </span>branch<span class="w"> </span><span class="sb">`</span>&lt;branch&gt;<span class="sb">`</span>,<span class="w"> </span>so<span class="w"> </span>that<span class="w"> </span>new<span class="w"> </span>commits
+<span class="w">                          </span>are<span class="w"> </span>added<span class="w"> </span>to<span class="w"> </span><span class="sb">`</span>&lt;branch&gt;<span class="sb">`</span>.
 </pre></div>
 </div>
 <p>Having committed this change, we now view the log to see our new commits:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log --oneline -5
-51da8da (HEAD -&gt; branches-material) Add entry about checking out a branch
-8124186 Add entry about creating branches
-42a9a32 (origin/main, origin/HEAD, main) Ignore TODO list file
-0984d2b Add material on basic pathspec usage (directories)
-92b2ac2 Create general good practice guides directory
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>-5
+51da8da<span class="w"> </span><span class="o">(</span>HEAD<span class="w"> </span>-&gt;<span class="w"> </span>branches-material<span class="o">)</span><span class="w"> </span>Add<span class="w"> </span>entry<span class="w"> </span>about<span class="w"> </span>checking<span class="w"> </span>out<span class="w"> </span>a<span class="w"> </span>branch
+<span class="m">8124186</span><span class="w"> </span>Add<span class="w"> </span>entry<span class="w"> </span>about<span class="w"> </span>creating<span class="w"> </span>branches
+42a9a32<span class="w"> </span><span class="o">(</span>origin/main,<span class="w"> </span>origin/HEAD,<span class="w"> </span>main<span class="o">)</span><span class="w"> </span>Ignore<span class="w"> </span>TODO<span class="w"> </span>list<span class="w"> </span>file
+0984d2b<span class="w"> </span>Add<span class="w"> </span>material<span class="w"> </span>on<span class="w"> </span>basic<span class="w"> </span>pathspec<span class="w"> </span>usage<span class="w"> </span><span class="o">(</span>directories<span class="o">)</span>
+92b2ac2<span class="w"> </span>Create<span class="w"> </span>general<span class="w"> </span>good<span class="w"> </span>practice<span class="w"> </span>guides<span class="w"> </span>directory
 </pre></div>
 </div>
 <p>We can see that the new commits have been added to the branch <code class="docutils literal notranslate"><span class="pre">branches-material</span></code>
@@ -747,21 +741,22 @@ and that we are now working on <code class="docutils literal notranslate"><span 
 commit <code class="docutils literal notranslate"><span class="pre">42a9a32</span></code> shown by <code class="docutils literal notranslate"><span class="pre">origin/main,</span> <span class="pre">origin/HEAD,</span> <span class="pre">main</span></code>.</p>
 <p>We can verify that these new commits are not on the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch by examining
 the log of <code class="docutils literal notranslate"><span class="pre">main</span></code> directly. In general, we can run</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">log</span> <span class="p">[</span><span class="n">options</span><span class="p">]</span> <span class="o">&lt;</span><span class="n">branch</span><span class="o">&gt;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>log<span class="w"> </span><span class="o">[</span>options<span class="o">]</span><span class="w"> </span>&lt;branch&gt;
 </pre></div>
 </div>
 <p>to view the commit history contained in a specific branch <code class="docutils literal notranslate"><span class="pre">&lt;branch&gt;</span></code>, where
 <code class="docutils literal notranslate"><span class="pre">[options]</span></code> are any optional arguments we want to include e.g <code class="docutils literal notranslate"><span class="pre">--oneline</span></code>. In
 our example, we get the following history for the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log --oneline -5 main
-42a9a32 (origin/main, origin/HEAD, main) Ignore TODO list file
-0984d2b Add material on basic pathspec usage (directories)
-92b2ac2 Create general good practice guides directory
-5cf8321 Remove rubbish.txt
-d26a698 Add some rubbish to try out &#39;git rm&#39;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>-5<span class="w"> </span>main
+42a9a32<span class="w"> </span><span class="o">(</span>origin/main,<span class="w"> </span>origin/HEAD,<span class="w"> </span>main<span class="o">)</span><span class="w"> </span>Ignore<span class="w"> </span>TODO<span class="w"> </span>list<span class="w"> </span>file
+0984d2b<span class="w"> </span>Add<span class="w"> </span>material<span class="w"> </span>on<span class="w"> </span>basic<span class="w"> </span>pathspec<span class="w"> </span>usage<span class="w"> </span><span class="o">(</span>directories<span class="o">)</span>
+92b2ac2<span class="w"> </span>Create<span class="w"> </span>general<span class="w"> </span>good<span class="w"> </span>practice<span class="w"> </span>guides<span class="w"> </span>directory
+5cf8321<span class="w"> </span>Remove<span class="w"> </span>rubbish.txt
+d26a698<span class="w"> </span>Add<span class="w"> </span>some<span class="w"> </span>rubbish<span class="w"> </span>to<span class="w"> </span>try<span class="w"> </span>out<span class="w"> </span><span class="s1">&#39;git rm&#39;</span>
 </pre></div>
 </div>
 <p>This confirms that the new commits are not on the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch.</p>
+</section>
 </section>
 </section>
 <section id="merging-branches">
@@ -775,7 +770,7 @@ them into a cohesive whole. This is the key to using Git for collaboration, as
 it allows multiple developers to work on different
 aspects of a project simultaneously <em>and then collate their changes</em>.</p>
 <p>We do this with the <code class="docutils literal notranslate"><span class="pre">merge</span></code> command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">merge</span> <span class="o">&lt;</span><span class="n">branch</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">bring</span><span class="o">-</span><span class="ow">in</span><span class="o">&gt;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>merge<span class="w"> </span>&lt;branch-to-bring-in&gt;
 </pre></div>
 </div>
 <p>Here, <code class="docutils literal notranslate"><span class="pre">&lt;branch-to-merge-in&gt;</span></code> is the name of the branch whose commits we want
@@ -784,57 +779,57 @@ to bring <em>into</em> the branch we’re currently on.</p>
 <p>In our example, we need to merge the branch <code class="docutils literal notranslate"><span class="pre">branches-material</span></code> into <code class="docutils literal notranslate"><span class="pre">main</span></code>.
 To do this, we need to checkout the branch we want to merge <em>into</em>, i.e.
 <code class="docutils literal notranslate"><span class="pre">main</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout main
-Switched to branch &#39;main&#39;
-Your branch is up to date with &#39;origin/main&#39;.
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>main
+Switched<span class="w"> </span>to<span class="w"> </span>branch<span class="w"> </span><span class="s1">&#39;main&#39;</span>
+Your<span class="w"> </span>branch<span class="w"> </span>is<span class="w"> </span>up<span class="w"> </span>to<span class="w"> </span>date<span class="w"> </span>with<span class="w"> </span><span class="s1">&#39;origin/main&#39;</span>.
 </pre></div>
 </div>
 <p>Now we can merge <code class="docutils literal notranslate"><span class="pre">branches-material</span></code> into <code class="docutils literal notranslate"><span class="pre">main</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git merge branches-material 
-Updating 42a9a32..51da8da
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>merge<span class="w"> </span>branches-material<span class="w"> </span>
+Updating<span class="w"> </span>42a9a32..51da8da
 Fast-forward
- Git-cheatsheet.md | 9 +++++++++
- 1 file changed, 9 insertions(+)
+<span class="w"> </span>Git-cheatsheet.md<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">9</span><span class="w"> </span>+++++++++
+<span class="w"> </span><span class="m">1</span><span class="w"> </span>file<span class="w"> </span>changed,<span class="w"> </span><span class="m">9</span><span class="w"> </span>insertions<span class="o">(</span>+<span class="o">)</span>
 </pre></div>
 </div>
 <p>Let’s take another look at the log of <code class="docutils literal notranslate"><span class="pre">main</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log --oneline -5
-51da8da (HEAD -&gt; main, branches-material) Add entry about checking out a branch
-8124186 Add entry about creating branches
-42a9a32 (origin/main, origin/HEAD) Ignore TODO list file
-0984d2b Add material on basic pathspec usage (directories)
-92b2ac2 Create general good practice guides directory
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>-5
+51da8da<span class="w"> </span><span class="o">(</span>HEAD<span class="w"> </span>-&gt;<span class="w"> </span>main,<span class="w"> </span>branches-material<span class="o">)</span><span class="w"> </span>Add<span class="w"> </span>entry<span class="w"> </span>about<span class="w"> </span>checking<span class="w"> </span>out<span class="w"> </span>a<span class="w"> </span>branch
+<span class="m">8124186</span><span class="w"> </span>Add<span class="w"> </span>entry<span class="w"> </span>about<span class="w"> </span>creating<span class="w"> </span>branches
+42a9a32<span class="w"> </span><span class="o">(</span>origin/main,<span class="w"> </span>origin/HEAD<span class="o">)</span><span class="w"> </span>Ignore<span class="w"> </span>TODO<span class="w"> </span>list<span class="w"> </span>file
+0984d2b<span class="w"> </span>Add<span class="w"> </span>material<span class="w"> </span>on<span class="w"> </span>basic<span class="w"> </span>pathspec<span class="w"> </span>usage<span class="w"> </span><span class="o">(</span>directories<span class="o">)</span>
+92b2ac2<span class="w"> </span>Create<span class="w"> </span>general<span class="w"> </span>good<span class="w"> </span>practice<span class="w"> </span>guides<span class="w"> </span>directory
 </pre></div>
 </div>
 <p>We can see that the commits from <code class="docutils literal notranslate"><span class="pre">branches-material</span></code> have been added to
 <code class="docutils literal notranslate"><span class="pre">main</span></code>. In fact, Git has just moved <code class="docutils literal notranslate"><span class="pre">main</span></code> to now point to the same commit
 as at the end of the <code class="docutils literal notranslate"><span class="pre">branches-material</span></code>, as seen by the line</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">51</span><span class="n">da8da</span> <span class="p">(</span><span class="n">HEAD</span> <span class="o">-&gt;</span> <span class="n">main</span><span class="p">,</span> <span class="n">branches</span><span class="o">-</span><span class="n">material</span><span class="p">)</span> <span class="n">Add</span> <span class="n">entry</span> <span class="n">about</span> <span class="n">checking</span> <span class="n">out</span> <span class="n">a</span> <span class="n">branch</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>51da8da<span class="w"> </span><span class="o">(</span>HEAD<span class="w"> </span>-&gt;<span class="w"> </span>main,<span class="w"> </span>branches-material<span class="o">)</span><span class="w"> </span>Add<span class="w"> </span>entry<span class="w"> </span>about<span class="w"> </span>checking<span class="w"> </span>out<span class="w"> </span>a<span class="w"> </span>branch
 </pre></div>
 </div>
 <p>Our <code class="docutils literal notranslate"><span class="pre">main</span></code> branch now has some commits that have not been pushed to the remote
 repository, so we will now rectify that:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git push
-Username for &#39;https://github.com&#39;: jbloggs9999
-Password for &#39;https://jbloggs9999@github.com&#39;:
-Enumerating objects: 8, done.
-Counting objects: 100% (8/8), done.
-Delta compression using up to 8 threads
-Compressing objects: 100% (6/6), done.
-Writing objects: 100% (6/6), 765 bytes | 255.00 KiB/s, done.
-Total 6 (delta 4), reused 0 (delta 0), pack-reused 0
-remote: Resolving deltas: 100% (4/4), completed with 2 local objects.
-To https://github.com/jbloggs9999/git-good-practice.git
-   42a9a32..51da8da  main -&gt; main
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>push
+Username<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;https://github.com&#39;</span>:<span class="w"> </span>jbloggs9999
+Password<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;https://jbloggs9999@github.com&#39;</span>:
+Enumerating<span class="w"> </span>objects:<span class="w"> </span><span class="m">8</span>,<span class="w"> </span><span class="k">done</span>.
+Counting<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">8</span>/8<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
+Delta<span class="w"> </span>compression<span class="w"> </span>using<span class="w"> </span>up<span class="w"> </span>to<span class="w"> </span><span class="m">8</span><span class="w"> </span>threads
+Compressing<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">6</span>/6<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
+Writing<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">6</span>/6<span class="o">)</span>,<span class="w"> </span><span class="m">765</span><span class="w"> </span>bytes<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">255</span>.00<span class="w"> </span>KiB/s,<span class="w"> </span><span class="k">done</span>.
+Total<span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">4</span><span class="o">)</span>,<span class="w"> </span>reused<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">0</span><span class="o">)</span>,<span class="w"> </span>pack-reused<span class="w"> </span><span class="m">0</span>
+remote:<span class="w"> </span>Resolving<span class="w"> </span>deltas:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">4</span>/4<span class="o">)</span>,<span class="w"> </span>completed<span class="w"> </span>with<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="nb">local</span><span class="w"> </span>objects.
+To<span class="w"> </span>https://github.com/jbloggs9999/git-good-practice.git
+<span class="w">   </span>42a9a32..51da8da<span class="w">  </span>main<span class="w"> </span>-&gt;<span class="w"> </span>main
 </pre></div>
 </div>
 <section id="exercise">
 <h3>Exercise<a class="headerlink" href="#exercise" title="Link to this heading">#</a></h3>
 <p>Add another commit to the <code class="docutils literal notranslate"><span class="pre">branches-material</span></code> branch about merging branches.
 You may wish to use the following text:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>`git merge &lt;branch-to-merge-in&gt;` — Combine the commit history of `&lt;branch-to-merge-in&gt;`
-                                   with that of the branch currently checked out.
-                                   
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="sb">`</span>git<span class="w"> </span>merge<span class="w"> </span>&lt;branch-to-merge-in&gt;<span class="sb">`</span><span class="w"> </span>—<span class="w"> </span>Combine<span class="w"> </span>the<span class="w"> </span>commit<span class="w"> </span><span class="nb">history</span><span class="w"> </span>of<span class="w"> </span><span class="sb">`</span>&lt;branch-to-merge-in&gt;<span class="sb">`</span>
+<span class="w">                                   </span>with<span class="w"> </span>that<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>branch<span class="w"> </span>currently<span class="w"> </span>checked<span class="w"> </span>out.
+<span class="w">                                   </span>
 </pre></div>
 </div>
 <p>Once you’ve done that, bring the changes into <code class="docutils literal notranslate"><span class="pre">main</span></code> by merging the branch
@@ -912,9 +907,18 @@ remote repository.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repository-files">Repository files</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concept-of-branches">Concept of branches</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Working with local branches</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-branches">Creating branches</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-branches">Viewing branches</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-commits-to-a-branch">Adding commits to a branch</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-branches">Creating branches</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#branching-off-a-commit">Branching off a commit</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-branches">Viewing branches</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#main-is-just-a-branch"><code class="docutils literal notranslate"><span class="pre">main</span></code> is just a branch</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-commits-to-a-branch">Adding commits to a branch</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#branching-off-a-branch">Branching off a branch</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merging-branches">Merging branches</a><ul class="nav section-nav flex-column">

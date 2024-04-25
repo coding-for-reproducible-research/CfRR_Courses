@@ -17,7 +17,7 @@ episode, [Recording Changes]({{ site.url }}/07_recording_changes/index.html), th
 running `git log` from within the `git-good-practice` repository should look
 something like the following:
 
-```
+``` bash
 commit 46b11e612128e68a9d558be1bcaa82bbdaac34ab (HEAD -> main)
 Author: Joe Bloggs <joe.bloggs@example.net>
 Date:   Tue Feb 7 16:47:21 2023 +0000
@@ -45,19 +45,11 @@ Author: Joe Bloggs <joe.bloggs@example.net>
 :
 ```
 
-> ### Paging the Log
->
-> When the output of `git log` is too long to fit in your screen,
-> Git uses a program called a _pager_ to split it into pages of the size of your screen.
-> When this pager is called, you will notice that the last line in your
-> screen is a `:`, instead of your usual prompt.
->
-> *   To get out of the pager, press <kbd>Q</kbd>.
-> *   To move to the next page, press <kbd>Spacebar</kbd>.
-> *   To search for `some_word` in all pages,
->     press <kbd>/</kbd>
->     and type `some_word`.
->     Navigate through matches pressing <kbd>N</kbd>.
+### Paging the Log
+When the output of `git log` is too long to fit in your screen, Git uses a program called a _pager_ to split it into pages of the size of your screen. When this pager is called, you will notice that the last line in your screen is a `:`, instead of your usual prompt.
+*   To get out of the pager, press <kbd>Q</kbd>.
+*   To move to the next page, press <kbd>Spacebar</kbd>.
+*   To search for `some_word` in all pages, press <kbd>/</kbd> and type `some_word`. Navigate through matches pressing <kbd>N</kbd>.
 
 The log contains one entry for each commit. The commit messages for the
 commits are included, as well as details of who made the commit. The name and email address
@@ -83,7 +75,7 @@ number of commits that Git lists by using `-n`, where `n` is the number of
 commits that you want to view. For example, if you only want information from
 the last commit you can use `git log -1`:
 
-```
+``` bash
 $ git log -1
 commit 46b11e612128e68a9d558be1bcaa82bbdaac34ab (HEAD -> main)
 Author: Joe Bloggs <joe.bloggs@example.net>
@@ -94,7 +86,7 @@ Date:   Tue Feb 7 16:47:21 2023 +0000
 
 You can also reduce the quantity of information using the `--oneline` option:
 
- ```
+ ``` bash
 $ git log --oneline
 46b11e6 (HEAD -> main) Add advice on committing little and often
 ecbf67e Add entry for 'git commit' with '-m' option
@@ -108,7 +100,7 @@ Note that, in this format, each commit has its short identifier displayed.
 You can also combine the `--oneline` option with others. For example, to view
 just the last 3 log entries on single lines:
 
-```
+``` bash
 $ git log --oneline -3
 46b11e6 (HEAD -> main) Add advice on committing little and often
 ecbf67e Add entry for 'git commit' with '-m' option
@@ -138,7 +130,7 @@ Let's first look at how to examine file changes
 that have been made to go from one commit to another. The general form of
 the command to do this is:
 
-```
+``` bash
 git diff <commit1> <commit2> <files>
 ```
 
@@ -154,7 +146,7 @@ changes required to go from commit
 `34c19f2` (with message "Add material on committing"), for each of the files
 `Git-cheatsheet.md` and `Commit-good-practice.md`:
 
-```
+``` bash
 $ git diff ad56194 34c19f2 Git-cheatsheet.md Commit-good-practice.md
 diff --git a/Commit-good-practice.md b/Commit-good-practice.md
 new file mode 100644
@@ -190,34 +182,16 @@ index c2409dd..26bcb5c 100644
 The output describes the **differences** (or **diffs**) of each file between the
 versions in the specified commits.
 
-> ### Understanding the output of `git diff`
-> 
-> The output of `git diff`, as shown above, is cryptic because
-> it is actually a series of commands for tools like editors and `patch`
-> telling them how to reconstruct one file given the other.
-> If we break it down into pieces:
-> 
-> 1. The 'diff' for each file begins with a line like
->    `diff --git a/<filename> b/<filename>`. It tells us that Git is producing output
->    similar to the Unix `diff` command, comparing the old and new versions of the
->    file `<filename>`. In the example above, the output starts
->    with the diff for
->    `Commit-good-practice.md` until just before the line 
->    `diff --git a/Git-cheatsheet.md b/Git-cheatsheet.md`, at which point it switches
->    to the diff for `Git-cheatsheet.md`.
-> 2. The next few lines in each file's diff tell exactly which versions of the file
->    Git is comparing. Confusingly, it looks like it contains commit identifiers,
->    but these are in face different, computer-generated labels for the
->    versions of the files.
-> 3. The remaining lines, beginning `@@`, are the most interesting: they show us the actual differences
->    and the lines on which they occur. In particular,
->    the `+` marker in the first column shows where we added a line. If we had
->    lines that were removed, these would be marked with `-`.
+### Understanding the output of `git diff`
+The output of `git diff`, as shown above, is cryptic because it is actually a series of commands for tools like editors and `patch` telling them how to reconstruct one file given the other. If we break it down into pieces:
+1. The 'diff' for each file begins with a line like `diff --git a/<filename> b/<filename>`. It tells us that Git is producing output similar to the Unix `diff` command, comparing the old and new versions of thefile `<filename>`. In the example above, the output starts with the diff for `Commit-good-practice.md` until just before the line  `diff --git a/Git-cheatsheet.md b/Git-cheatsheet.md`, at which point it switches to the diff for `Git-cheatsheet.md`.
+2. The next few lines in each file's diff tell exactly which versions of the file Git is comparing. Confusingly, it looks like it contains commit identifiers, but these are in face different, computer-generated labels for the versions of the files.
+3. The remaining lines, beginning `@@`, are the most interesting: they show us the actual differences and the lines on which they occur. In particular, the `+` marker in the first column shows where we added a line. If we had lines that were removed, these would be marked with `-`.
 
 If we wanted to view just the diff for the file `Git-cheatsheet.md` we would
 supply that as the only file argument, like so:
 
-```
+``` bash
 $ git diff ad56194 34c19f2 Git-cheatsheet.md
 ```
 
@@ -225,7 +199,7 @@ If we leave out `<files>` altogether, then Git will show the diffs for all files
 that were changed in the given commits. With the commits `ad56194` and `34c19f2`
 above we only have the two files, so in this case
 
-```
+``` bash
 git diff ad56194 34c19f2
 ```
 
@@ -234,7 +208,7 @@ would give the same output as `git diff ad56194 34c19f2 Git-cheatsheet.md Commit
 Sometimes you only want to see which files have changed between commits. This
 can be achieved with the `--name-only` option:
 
-```
+``` bash
 $ git diff --name-only ad56194 34c19f2
 Commit-good-practice.md
 Git-cheatsheet.md
@@ -244,7 +218,7 @@ If we just want to compare the _latest_ commit — that is, the commit referred 
 by `HEAD` — with a previous commit, we just provide an identifier for the
 commit to compare to:
 
-```
+``` bash
 git diff <commit> <files>
 ```
 
@@ -252,7 +226,7 @@ The rules for `<files>` are the same as before. For example, to view the changes
 to the file `Commit-good-practice.md` from commit `34c19f2`
 ("Add material on committing") to the latest commit:
 
-```
+``` bash
 $ git diff 34c19f2 Commit-good-practice.md
 diff --git a/Commit-good-practice.md b/Commit-good-practice.md
 index 9610409..524d4ec 100644
@@ -298,12 +272,8 @@ using our `git log --oneline` output from earlier:
   just gives the changes applied back when we did commit `34c19f2`.
 
 
-> ### Exercise
->
-> Verify the claims in the three bullet point examples given above, checking
-> the outputs of `git diff` agree for the `HEAD` versions and the regular
-> commit identifier versions. _Note: make sure to use the commit identifiers
-> found in your own log, not the ones that feature in the example output above!_
+### Exercise
+Verify the claims in the three bullet point examples given above, checking the outputs of `git diff` agree for the `HEAD` versions and the regular commit identifier versions. _Note: make sure to use the commit identifiersfound in your own log, not the ones that feature in the example output above!_
 
 
 ## Working tree and staging area diffs
@@ -318,7 +288,7 @@ or committed.
 
 Let's suppose we add some new content to our cheatsheet about `git log`:
 
-```
+``` bash
 
 
 ## Viewing repository history
@@ -333,7 +303,7 @@ This will add changes to the working tree for our repository. We can view the
 diff for changes that are in the working tree, but have not yet been staged,
 by using `diff` without reference to any commits:
 
-```
+``` bash
 git diff <files>
 ```
 As usual, we can leave `<files>` empty and Git will return the diffs for all
@@ -341,7 +311,7 @@ files that have changed.
 
 Running this in our `git-good-practice` repository now yields
 
-```
+``` bash
 $ git diff
 diff --git a/Git-cheatsheet.md b/Git-cheatsheet.md
 index 135822a..86e679f 100644
@@ -369,7 +339,7 @@ as we would expect.
 Suppose we now stage the changes above made in the previous section and run
 `git diff` again:
 
-```
+``` bash
 $ git add Git-cheatsheet.md
 
 $ git diff
@@ -382,7 +352,7 @@ behaviour of `git diff` is to show changes that are _in the working tree_ but
 have not been staged. We can use the `--staged` option to view the changes that
 have been staged, but not yet committed:
 
-```
+``` bash
 $ git diff --staged
 diff --git a/Git-cheatsheet.md b/Git-cheatsheet.md
 index 135822a..86e679f 100644
@@ -403,20 +373,11 @@ index 135822a..86e679f 100644
 ```
 
 
-> ### Exercise
->
-> First follow the steps above, so that you end up with entries about `git log` and
-> `git log --oneline` in `Git-cheatsheet.md` that are staged but not committed.
-> Now add a new entry to the cheatsheet about `git log -n`, but don't stage it.
-> Now do the following:
->
-> * Run `git diff Git-cheatsheet.md`
-> * Run `git status`
->
-> Can you explain what the output from these commands is saying, and why we get
-> it? Once you're happy you understand what's going on, complete
-> the task of adding the material about `git log` to the cheatsheet by making
-> an appropriate commit, making sure to include the entry about `git log -n`.
+### Exercise
+First follow the steps above, so that you end up with entries about `git log` and `git log --oneline` in `Git-cheatsheet.md` that are staged but not committed.Now add a new entry to the cheatsheet about `git log -n`, but don't stage it. Now do the following:
+* Run `git diff Git-cheatsheet.md`
+* Run `git status`
+Can you explain what the output from these commands is saying, and why we get it? Once you're happy you understand what's going on, complete the task of adding the material about `git log` to the cheatsheet by making an appropriate commit, making sure to include the entry about `git log -n`.
 
 
 ## Viewing diffs with GUIs
@@ -427,20 +388,8 @@ and IDEs support ways of visually depicting differences, either 'out of the box'
 or through the installation of a plug-in / extension. Do a search online
 to see if this is the case for your preferred text editor / IDE.
 
-> ### VS Code
->
-> For VS Code users, the following links may be of help:
-> 
-> * View the diffs for files that have not been staged, or have been staged but
->   not committed <https://code.visualstudio.com/docs/sourcecontrol/overview#_working-in-a-git-repository>.
->
-> * View the commit history of a file: 
->   <https://code.visualstudio.com/docs/sourcecontrol/overview#_timeline-view>.
->   This also suggests some extensions for VS Code to make working with Git more
->   graphical.
-> 
-> * Displaying diffs by selecting files to compare:
->   <https://code.visualstudio.com/docs/sourcecontrol/overview#_viewing-diffs>.
->   Note that the method described in this link can be used on the 'timeline'
->   described in the previous link: simply right-click on different commits in
->   the timeline for a given file to see the changes between the commits.
+### VS Code
+For VS Code users, the following links may be of help:
+* View the diffs for files that have not been staged, or have been staged but not committed <https://code.visualstudio.com/docs/sourcecontrol/overview#_working-in-a-git-repository>.
+* View the commit history of a file:  <https://code.visualstudio.com/docs/sourcecontrol/overview#_timeline-view>. This also suggests some extensions for VS Code to make working with Git more graphical.
+* Displaying diffs by selecting files to compare: <https://code.visualstudio.com/docs/sourcecontrol/overview#_viewing-diffs>. Note that the method described in this link can be used on the 'timeline' described in the previous link: simply right-click on different commits inthe timeline for a given file to see the changes between the commits.

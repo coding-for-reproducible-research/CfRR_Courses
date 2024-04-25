@@ -22,7 +22,7 @@ in the root folder of the repository. In the example below, this is contained
 within the parent folder `~/repositories`, so we first change directories with
 `cd` and remind ourselves of the contents:
 
-```
+``` bash
 $ cd ~/repositories/git-good-practice
 $ ls
 README.md
@@ -33,7 +33,7 @@ folder actually also contains the hidden folder `.git`, which we would have also
 seen if we'd used `ls -a` instead of just plain old `ls`. Now we can check the
 status of the repository:
 
-```
+``` bash
 $ git status
 On branch main
 Your branch is up to date with 'origin/main'.
@@ -66,12 +66,8 @@ subfolders. Git is able to detect changes to files in the working tree, includin
 those that are in subfolders of the repository root folder (or sub-subfolders, etc.)
 
 
-> ### Run `git status` often
-> 
-> We're going to flag here that you should get into the habit of running
-> `git status` often. It's the primary way of seeing at a glance what state
-> your working tree is in and how it differs (or not) with what was last
-> recorded in the repository.
+### Run `git status` often
+We're going to flag here that you should get into the habit of running `git status` often. It's the primary way of seeing at a glance what state your working tree is in and how it differs (or not) with what was last recorded in the repository.
 
 
 ## Adding and committing files
@@ -80,7 +76,7 @@ Let's make some changes to the repository. First, we'll create a new Markdown
 file called `Git-cheatsheet.md`, for us to record key Git commands as we go.
 Running `git status` now shows us:
 
-```
+``` bash
 $ git status
 On branch main
 Your branch is up to date with 'origin/main'.
@@ -96,7 +92,7 @@ The 'Untracked files:' bit indicates that Git has spotted a new file which it
 has no record of. Before going further, let's add some content to the cheatsheet
 about `git status`:
 
-```
+``` bash
 # Git Cheatsheet
 
 *Note: run commands from within a Git repository*
@@ -107,76 +103,25 @@ about `git status`:
 `git status` — Checks the state of the working tree in a Git repository.
 
 ```
-
-> ### Markdown syntax
->
-> * Hash symbols (`#`) are used to denote the document title and headings. One
->   hash `#` denotes the document title, two hashes `##` indicates a section heading,
->   three hashes `###` indicates a sub-heading, etc.
->
-> * Wrapping text with asterisks (`*`) will emphasise text i.e. set it in italics.
->   You can also wrap the text in underscores (`_`) e.g. `*This* is in italics,
->   so is _this_.`
->
-> * Wrapping text in backticks (`` ` ``) is used to display code. It won't be
->   formatted like regular text. Compare:
->   - Wrapped in backticks: `` `foo _bar_` `` renders as `foo _bar_`
->   - As regular text: `foo _bar_` renders as foo _bar_
->
-> * Extra spaces and tabs are just treated as a single space. Paragraphs must
->   have a blank line between them to be rendered on different lines. E.g.
->
->   <table>
->     <tr>
->       <td><strong>Markdown code</strong></td>
->       <td><strong>Rendered output</strong></td>
->     </tr>
->     <tr>
->       <td>
->         <code>No &nbsp; &nbsp; &nbsp; extra spaces here</code>
->       </td>
->       <td>
->         No    extra spaces here
->       </td>
->     </tr>
->     <tr>
->       <td>
->         <code>
->         These lines are in<br>
->         the same paragraph
->         </code>
->       </td>
->       <td>
->         These lines are in
->         the same paragraph
->       </td>
->     </tr>
->     <tr>
->       <td>
->         <code>
->         These lines are in<br>
->         <br>
->         different paragraphs<br>
->         </code>
->       </td>
->       <td>
->         <p>These lines are in</p>
->         <p>different paragraphs</p>
->       </td>
->     </tr>
->   </table>
+### Markdown syntax
+* Hash symbols (`#`) are used to denote the document title and headings. One hash `#` denotes the document title, two hashes `##` indicates a section heading, three hashes `###` indicates a sub-heading, etc.
+* Wrapping text with asterisks (`*`) will emphasise text i.e. set it in italics. You can also wrap the text in underscores (`_`) e.g. `*This* is in italics, so is _this_.`
+* Wrapping text in backticks (`` ` ``) is used to display code. It won't be formatted like regular text. Compare:
+    - Wrapped in backticks: `` `foo _bar_` `` renders as `foo _bar_`
+    - As regular text: `foo _bar_` renders as foo _bar_
+* Extra spaces and tabs are just treated as a single space. Paragraphs must have a blank line between them to be rendered on different lines. 
 
 After adding the above text to `Git-cheatsheet.md` file and saving our changes,
 we now tell Git to start tracking changes to this file by using the `add`
 command:
 
-```
+``` bash
 $ git add Git-cheatsheet.md
 ```
 
 Let's see what `git status` now tells us:
 
-```
+``` bash
 $ git status
 On branch main
 Your branch is up to date with 'origin/main'.
@@ -193,14 +138,14 @@ it has a new file, called `Git-cheatsheet.md`, to keep track of. It Git parlance
 yet stored the new version of the file as part of its history. To do that, we
 need to run another Git command, called `commit`:
 
-```
+``` bash
 $ git commit
 ```
 
 Upon entering this command, the text editor we configured for Git earlier springs into life, opening up a file with some pre-defined text and leaving space at the top for us
 to write in. (The lines preceded by hashes are comments that are ignored by Git.)
 
-```
+``` bash
 
 # Please enter the commit message for your changes. Lines starting
 # with '#' will be ignored, and an empty message aborts the commit.
@@ -218,7 +163,7 @@ that tells people about changes that are being committed to the repository.
 It should briefly, but clearly, describe the main changes that have been made. We
 add our commit message at the top of the opened file:
 
-```
+``` bash
 Create a cheatsheet document
 
 Start the document by adding an entry for Git's status command.
@@ -239,7 +184,7 @@ name!) and close it. The `git commit` command finishes and we get a little
 summary message about what was just committed (note the first line of our
 commit message is included):
 
-```
+``` bash
 $ git commit
 [main 17912ce] Create a cheatsheet document
  1 file changed, 8 insertions(+)
@@ -251,22 +196,13 @@ Git takes everything we have told it to save by using `git add`
 and stores a copy permanently inside the special `.git` directory.
 This permanent copy is called a **commit** (or **revision**).
 
-> ### Best practice: commit messages
-> 
-> <a href="https://chris.beams.io/posts/git-commit/" target="_blank" rel="external noreferrer">Good commit messages</a>
-> start with a brief (usually < 50 characters) statement about the
-> changes made in the commit. Generally, the message should complete the sentence
-> "If applied, this commit will [_commit message here_]".
-> If you want to go into more detail, add a blank line between the summary line
-> and your additional notes. Use this additional space to explain why you made
-> changes and/or what their impact will be. Avoid uninformative messages such as
-> "small tweaks" or "updates" — write what will be useful for others to read
-> (which includes yourself in one year's time).
+### Best practice: commit messages
+<a href="https://chris.beams.io/posts/git-commit/" target="_blank" rel="external noreferrer">Good commit messages</a> start with a brief (usually < 50 characters) statement about the changes made in the commit. Generally, the message should complete the sentence "If applied, this commit will [_commit message here_]". If you want to go into more detail, add a blank line between the summary line and your additional notes. Use this additional space to explain why you made changes and/or what their impact will be. Avoid uninformative messages such as "small tweaks" or "updates" — write what will be useful for others to read (which includes yourself in one year's time).
 
 
 If we now run `git status` again, we get the following:
 
-```
+``` bash
 $ git status
 On branch main
 Your branch is ahead of 'origin/main' by 1 commit.
@@ -308,27 +244,13 @@ Git has a special **staging area** (also called the **index**) where it keeps
 track of things that should go into the next commit. It might help to remember
 these terms by thinking of `git add` as 'setting the stage' for the next commit. 
 
-> ### Best practice: commit little and often
->
-> A commit is much easier to digest if it contains few changes. In fact, you
-> should aim for each commit to capture one conceptual change to your work that
-> can stand alone. This will make the history of your files' development much easier
-> to follow. A good rule of thumb: a commit should capture a change that
-> you can describe in about 50 characters or fewer, potentially with extra
-> explanation in the commit message if needed. Examples (with commit message):
-> 
-> * Adding a new function to read in some sequencing data ('_Add a function to
->   read in sequencing data_').
-> * Updating a configuration file to include the setting required for a particular
->   experiment ('_Change settings for experiment A simulation_' — the rest of the commit
->   message may then give more detail on what these settings are).
-> * Giving a variable a better name, which may be done across multiple files in
->   the same commit ('_Rename input variable to a more descriptive name_').
-> * Adding this box about best practice for commit ('_Add content about best
->   practice for commits_').
-> 
-> This is something you gain a feel for as you use Git more and study other
-> developers' work.
+### Best practice: commit little and often
+A commit is much easier to digest if it contains few changes. In fact, you should aim for each commit to capture one conceptual change to your work that can stand alone. This will make the history of your files' development much easier to follow. A good rule of thumb: a commit should capture a change that you can describe in about 50 characters or fewer, potentially with extra explanation in the commit message if needed. Examples (with commit message):
+* Adding a new function to read in some sequencing data ('_Add a function to read in sequencing data_').
+* Updating a configuration file to include the setting required for a particular experiment ('_Change settings for experiment A simulation_' — the rest of the commit message may then give more detail on what these settings are).
+* Giving a variable a better name, which may be done across multiple files in the same commit ('_Rename input variable to a more descriptive name_').
+* Adding this box about best practice for commit ('_Add content about best practice for commits_').
+This is something you gain a feel for as you use Git more and study other developers' work.
 
 
 ## Selective staging
@@ -343,12 +265,12 @@ Note that, although we've only seen an example of adding changes to a single fil
 can actually add changes to multiple files by listing them out when running
 `git add`, like this:
 
-```
+``` bash
 git add path/to/file1 path/to/file2 path/to/file3 ...
 ```
 
 So we add the following lines to `Git-cheatsheet.md`:
-```
+``` bash
 ## Adding / committing changes
 
 `git add <files>` — Stages changes in the `<files>`, ready for committing.
@@ -359,7 +281,7 @@ However, we've also seen some tips on good practice about commits and commit
 messages. So let's create a new file, called `Commit-good-practice.md` and record
 what we learnt about commit messages:
 
-```
+``` bash
 # Best practice when committing
 
 ## Commit messages
@@ -374,24 +296,14 @@ Avoid uninformative messages such as "small tweaks" or "updates" — write what
 will be useful for others to read.
 
 ```
-
-> ### Markdown syntax
->
-> Hyperlinks to external URLs are included by putting the text of the hyperlink
-> in square brackets, immediately followed by the URL of the link in parentheses
-> (with no space between the square brackets and parentheses). To just include
-> a URL as its own hyperlink, just place it between angle brackets. Examples:
-> 
-> * `[Good commit messages](https://chris.beams.io/posts/git-commit/)` renders
->   as the hyperlinked text
->   [Good commit messages](https://chris.beams.io/posts/git-commit/).
->
-> * `<https://chris.beams.io/posts/git-commit/>` renders as
->   <https://chris.beams.io/posts/git-commit/>.
+### Markdown syntax
+Hyperlinks to external URLs are included by putting the text of the hyperlink in square brackets, immediately followed by the URL of the link in parentheses (with no space between the square brackets and parentheses). To just include a URL as its own hyperlink, just place it between angle brackets. Examples:
+* `[Good commit messages](https://chris.beams.io/posts/git-commit/)` renders as the hyperlinked text [Good commit messages](https://chris.beams.io/posts/git-commit/).
+* `<https://chris.beams.io/posts/git-commit/>` renders as <https://chris.beams.io/posts/git-commit/>.
 
 Let's now check the state of the working tree:
 
-```
+``` bash
 $ git status
 On branch main
 Your branch is ahead of 'origin/main' by 1 commit.
@@ -432,7 +344,7 @@ First thing's first: we commit only the cheatsheet with it's material about
 using `git add`. We apply `git add` to `Git-cheatsheet.md`, then check the
 status of the repository:
 
-```
+``` bash
 $ git add Git-cheatsheet.md
 $ git status
 On branch main
@@ -457,7 +369,7 @@ Next we'll commit the change to `Git-cheatsheet.md`, using the message
 use the optional argument `--message` (equivalently, `-m`) to record use this
 commit message without opening up a text editor, like so:
 
-```
+``` bash
 $ git commit -m "Add entry about staging files with 'git add'"
 [main ad56194] Add entry about staging files with 'git add'
  1 file changed, 5 insertions(+)
@@ -466,7 +378,7 @@ $ git commit -m "Add entry about staging files with 'git add'"
 Having committed just the changes to `Git-cheatsheet.md`, we see that Git still
 recognises it has an untracked file in `Commit-good-practice.md`:
 
-```
+``` bash
 $ git status
 On branch main
 Your branch is ahead of 'origin/main' by 2 commits.
@@ -482,7 +394,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 We now take the opportunity to add an cheatsheet entry about the `commit`
 command (under the 'Adding / committing changes' section):
 
-```
+``` bash
 `git commit` — Commit changes to the repository that have been staged with
                `git add`.
 
@@ -493,7 +405,7 @@ cheatsheet and the other to the as yet still untracked `Commit-good-practice.md`
 So, finally, we now bank these changes in a single commit; first we stage them
 with `git add`:
 
-```
+``` bash
 $ git add Git-cheatsheet.md Commit-good-practice.md
 $ git status
 On branch main
@@ -509,7 +421,7 @@ Changes to be committed:
 Having checked with `git status` that each file has indeed been staged, we
 go ahead and perform the commit. The commit message we use is the following:
 
-```
+``` bash
 Add material on committing
 
 This includes both an entry for 'git commit' in the cheatsheet
@@ -520,7 +432,7 @@ and also material on good practice for commit messages in a new
 Since this is a longer message (in particular, featuring line breaks) we use
 the default `git commit` to use a text editor:
 
-```
+``` bash
 $ git commit
 [main 34c19f2] Add material on committing
  2 files changed, 15 insertions(+)
@@ -567,12 +479,5 @@ _image is © Software Carpentry and reused under
 <a href ="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a>.
 It's taken from <a href="https://swcarpentry.github.io/git-novice/04-changes/index.html">Version Control with Git – Tracking Changes</a>._
 
-> ### Exercise
-> 
-> Using the modify-add-commit cycle, add more content to the cheatsheet and commit
-> good practice documents, by adding
-> an entry in the cheatsheet about the `--message` / `-m` option for `git commit`
-> and including a section on 'committing little and often' in the `Commit-good-practice.md`
-> document. Try practising 'selective staging' when you do this: modify both files
-> to begin with, but then commit the changes one file at a time by using `git add`
-> selectively.
+### Exercise
+Using the modify-add-commit cycle, add more content to the cheatsheet and commit good practice documents, by adding an entry in the cheatsheet about the `--message` / `-m` option for `git commit` and including a section on 'committing little and often' in the `Commit-good-practice.md` document. Try practising 'selective staging' when you do this: modify both files to begin with, but then commit the changes one file at a time by using `git add` selectively.

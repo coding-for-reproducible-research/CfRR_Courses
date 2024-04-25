@@ -25,7 +25,7 @@ We can list _all_ the branches that our local repository is aware of (both
 local branches and remote branches) by using `git branch --all` (or
 just `git branch -a`):
 
-```
+``` bash
 $ git branch -a
   branches-material
 * main
@@ -47,7 +47,7 @@ called `branches-material`. The necessary steps are as follows:
 - **Step 2** Click on _branch(es)_, above the list of files on the left-hand side,
   as indicated in the following screenshot:
 
-  ![Viewing branches on GitHub]({{ site.url }}/images/github-view-branches.png)
+  ![Viewing branches on GitHub](images/github-view-branches.png)
 
 - **Step 3** Click on _All branches_, located to the left of the green _New branch_
   button on the right-hand side of the screen — this will display a list of all
@@ -123,7 +123,7 @@ new remote branch called `remote-branches-material`, which is based on top of
 `main`. Our local repository doesn't have any knowledge of this new branch, as
 can be seen by listing the branches:
 
-```
+``` bash
 $ git branch -a
   branches-material
 * main
@@ -137,7 +137,7 @@ $ git branch -a
 In order to update our local repository so that it has knowledge of the new
 remote branch, we use the following command from within our local repository:
 
-```
+``` bash
 git fetch
 ```
 
@@ -152,7 +152,7 @@ In our example, after running `git fetch` in our `git-good-practice`
 repository, we see that information about the new remote `remote-branches-material`
 has been retrieved:
 
-```
+``` bash
 $ git fetch
 Username for 'https://github.com': jbloggs9999
 Password for 'https://jbloggs9999@github.com':
@@ -178,7 +178,7 @@ In order to create a local version of the
 `origin/remote-branches-material` branch where we can add commits, we can
 perform the following checkout:
 
-```
+``` bash
 $ git checkout remote-branches-material 
 Switched to a new branch 'remote-branches-material'
 branch 'remote-branches-material' set up to track 'origin/remote-branches-material'. 
@@ -191,7 +191,7 @@ remote branch. So it automatically creates a new local branch — called `remote
 will track `origin/remote-branches-material`, and checks out this new local branch for us. We
 can verify this by listing all the branches again:
 
-```
+``` bash
 $ git branch -a
   branches-material
   main
@@ -207,7 +207,7 @@ We are now set to add our new material to `Git-cheatsheet.md` about remote
 branches. We modify the start of the subsection _Branches_ so that it now reads as
 follows:
 
-```
+``` bash
 ## Branches
 
 `git branch <new-branch-name>` — Create a new branch called `<new-branch-name>`
@@ -226,48 +226,25 @@ follows:
 Having included this addition, we commit to our local `remote-branches-material` branch.
 
 
-> #### Markdown syntax
->
-> Unordered lists are denoted by using a hyphen (`-`) or an asterisk (`*`),
-> followed by a space, with the text in the list item following. Example:
-> 
-> ```
-> - Foo
-> - Bar
-> - Baz
-> ```
-> renders as:
-> - Foo
-> - Bar
-> - Baz
-> 
-> Text that flows over multiple lines in the source file, yet belongs to a single
-> list item, should respect the indenting. For example:
-> 
-> ```
-> * list entry with
->   
->   new line
-> 
-> * the quick brown fox jumps over the
->   lazy dog
-> ```
-> 
-> renders as:
-> 
-> * list entry with
->   
->   new line
-> 
-> * the quick brown fox jumps over the
->   lazy dog
+#### Markdown syntax
+Unordered lists are denoted by using a hyphen (`-`) or an asterisk (`*`), followed by a space, with the text in the list item following. Example:
+``` markdown
+- Foo
+- Bar
+- Baz
+```
+renders as:
+- Foo
+- Bar
+- Baz
+
 
 We're now in the position where our local branch
 `remote-branches-material` is ahead of the remote branch
 `origin/remote-branches-material` that it tracks, as can be seen from
 the log on `remote-branches-material`:
 
-```
+``` bash
 $ git log --oneline -3
 5125372 (HEAD -> remote-branches-material) Add note about creating local tracking branches
 3b918f2 (origin/remote-branches-material, origin/main, origin/HEAD, main, branches-material) Add entry about merging branches
@@ -284,17 +261,14 @@ remote branch `origin/<foo>`, then in order to push `<foo>` to `origin/<foo>` we
 need to first checkout `<foo>`.
 
 
-> #### Alternative: specify the branch explicitly
->
-> Alternatively, if you have a local branch `<foo>` that tracks a remote branch
-> `origin/<foo>`, then you can run `git push origin <foo>` from any local branch
-> to push commits from `<foo>` to `origin/<foo>`.
+#### Alternative: specify the branch explicitly
+Alternatively, if you have a local branch `<foo>` that tracks a remote branch `origin/<foo>`, then you can run `git push origin <foo>` from any local branch to push commits from `<foo>` to `origin/<foo>`.
 
 
 In our example, we're already on the branch `remote-branches-material` that we want to push,
 so we can just go ahead and do `git push`:
 
-```
+``` bash
 $ git push
 Username for 'https://github.com': jbloggs9999
 Password for 'https://jbloggs9999@github.com':
@@ -349,7 +323,7 @@ the remote repository.
 
 To update `main`, we first check it out:
 
-```
+``` bash
 $ git checkout main
 Switched to branch 'main'
 Your branch is up to date with 'origin/main'.
@@ -362,7 +336,7 @@ pull in. Instead, it means that Git is not aware of any extra commits in
 
 So, let us fetch updates from the remote repository:
 
-```
+``` bash
 $ git fetch
 Username for 'https://github.com': jbloggs9999
 Password for 'https://jbloggs9999@github.com':
@@ -377,7 +351,7 @@ From https://github.com/jbloggs/git-good-practice
 We can see that our local repository is now aware of the change to the remote
 `origin/main` branch by checking the status again:
 
-```
+``` bash
 $ git status
 On branch main
 Your branch is behind 'origin/main' by 2 commits, and can be fast-forwarded.
@@ -395,24 +369,18 @@ a remote branch that has commits not yet in a local tracking
 branch `<branch>`, then run the following command _with `<branch>` checked out_
 to update `<branch>` with these new commits:
 
-```
+``` bash
 git pull
 ```
 
 (or, to be explicit about the remote repository, `git pull origin`).
 
-> #### `pull` automatically `fetch`es
->
-> `git pull` actually performs a two step process on a branch
-> `<branch>`. First, it runs a `git fetch` to retrieve all new commits,
-> branches, etc. from the remote repository. Then,
-> it merges the changes that have been fetched into the `origin/<branch>` into
-> `<branch>`. As a result, we did not in fact need to use the `git fetch` command
-> before using `git pull` above.
+#### `pull` automatically `fetch`es
+`git pull` actually performs a two step process on a branch `<branch>`. First, it runs a `git fetch` to retrieve all new commits, branches, etc. from the remote repository. Then, it merges the changes that have been fetched into the `origin/<branch>` into `<branch>`. As a result, we did not in fact need to use the `git fetch` command before using `git pull` above.
 
 We pull the changes to `origin/main` into our local `main` branch:
 
-```
+``` bash
 $ git pull
 Username for 'https://github.com': jbloggs9999
 Password for 'https://jbloggs9999@github.com':
@@ -424,7 +392,7 @@ Fast-forward
 
 We can now see from the log that our changes are fully reflected in `main`:
 
-```
+``` bash
 $ git log --oneline -5
 86ebbee (HEAD -> main, origin/main, origin/HEAD) Merge pull request #1 from jbloggs9999/remote-branches-material
 5125372 (origin/remote-branches-material, remote-branches-material) Add note about creating local tracking branches
@@ -442,11 +410,8 @@ including the remote version of `remote-branches-material`, since these
 no longer serve any purpose.
 
 
-> ### Good practice: deleting old branches
->
-> It is good practice to delete branches that are no longer required. This makes
-> navigating a repository easier and makes it clear what work is still ongoing
-> compared to work that has been finished.
+### Good practice: deleting old branches
+It is good practice to delete branches that are no longer required. This makes navigating a repository easier and makes it clear what work is still ongoing compared to work that has been finished.
 
 
 ### Deleting branches from a local repository
@@ -471,7 +436,7 @@ There are a couple of important things to note about deleting branches:
 
 We delete our local branches:
 
-```
+``` bash
 $ git branch -d branches-material remote-branches-material 
 Deleted branch branches-material (was 3b918f2).
 Deleted branch remote-branches-material (was 5125372).
@@ -479,24 +444,18 @@ Deleted branch remote-branches-material (was 5125372).
 
 Then we delete our remote branch reference `origin/remote-branches-material`:
 
-```
+``` bash
 $ git branch -r -d origin/remote-branches-material
 Deleted remote-tracking branch origin/remote-branches-material (was 5125372).
 ```
 
-> ### Force deletion
-> 
-> Git may stop you from deleting a branch, because it can't verify that
-> all the commits in the branch have been merged into a corresponding remote
-> branch or another local branch. This is a protection
-> mechanism to stop you from potentially losing changes. If you encounter this but
-> are sure you want to proceed with the deletion, you can force the deletion
-> by using `-D` instead of `-d` in the commands above.
+### Force deletion
+Git may stop you from deleting a branch, because it can't verify that all the commits in the branch have been merged into a corresponding remote branch or another local branch. This is a protection mechanism to stop you from potentially losing changes. If you encounter this but are sure you want to proceed with the deletion, you can force the deletion by using `-D` instead of `-d` in the commands above.
 
 
 Our local repository is now looking cleaner with regards to the branches we have:
 
-```
+``` bash
 $ git branch -a
 * main
   remotes/origin/HEAD -> origin/main
@@ -507,7 +466,7 @@ Note also that the references to the non-`main` branches have disappeared from
 the log (note that the _commits_ have _not_ disappeared, however, because these
 are part of `main`):
 
-```
+``` bash
 $ git log --oneline -5
 86ebbee (HEAD -> main, origin/main, origin/HEAD) Merge pull request #1 from jbloggs9999/remote-branches-material
 5125372 Add note about creating local tracking branches

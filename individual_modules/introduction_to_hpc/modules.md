@@ -3,7 +3,7 @@
 ## Questions
 - How do we load and unload software packages?
 
-## Objectives
+## Objectives
 - Load and use a software package.
 - Explain how the shell environment changes when the module mechanism loads or unloads packages.
 

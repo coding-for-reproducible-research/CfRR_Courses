@@ -549,9 +549,18 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-git">Setting up Git</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#username-and-email-address">Username and email address</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-a-text-editor">Setting a text editor</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default-git-branch-naming">Default Git branch naming</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#username-and-email-address">Username and email address</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#keeping-your-email-private">Keeping your email private</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-a-text-editor">Setting a text editor</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#git-for-windows">Git for Windows</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default-git-branch-naming">Default Git branch naming</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#final-notes-on-configuring-git">Final notes on configuring Git</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-configuration">Changing configuration</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#git-help-and-manual">Git Help and Manual</a></li>
@@ -560,7 +569,12 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-github-credentials">Setting up GitHub credentials</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-github-credentials">Setting up GitHub credentials</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#look-after-your-pats">Look after your PATs!</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#note-on-classic-tokens">Note on classic tokens</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Exercise</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -608,19 +622,16 @@ with these services, then this information will be publicly visible.</p>
 so the email address used should be the same as the one used when setting up
 your GitHub account. If you are concerned about privacy, please review
 <a href="https://help.github.com/articles/keeping-your-email-address-private/" target="_blank" rel="external noreferrer">GitHub’s instructions for keeping your email address private</a>.</p>
-<blockquote>
-<div><h4 class="rubric" id="keeping-your-email-private">Keeping your email private</h4>
-<p>If you elect to use a private email address with GitHub, then use that same
-email address for the <code class="docutils literal notranslate"><span class="pre">user.email</span></code> value. It will look something like
-<code class="docutils literal notranslate"><span class="pre">nnnnnnnnn-username&#64;users.noreply.github.com</span></code> where
-<code class="docutils literal notranslate"><span class="pre">nnnnnnnnn-username</span></code> is your username prepended with a numerical ID.</p>
-</div></blockquote>
+<section id="keeping-your-email-private">
+<h4>Keeping your email private<a class="headerlink" href="#keeping-your-email-private" title="Link to this heading">#</a></h4>
+<p>If you elect to use a private email address with GitHub, then use that same email address for the <code class="docutils literal notranslate"><span class="pre">user.email</span></code> value. It will look something like <code class="docutils literal notranslate"><span class="pre">nnnnnnnnn-username&#64;users.noreply.github.com</span></code> where <code class="docutils literal notranslate"><span class="pre">nnnnnnnnn-username</span></code> is your username prepended with a numerical ID.</p>
 <p>The commands we just ran above only need to be run once: the flag <code class="docutils literal notranslate"><span class="pre">--global</span></code> tells Git
 to use the settings for <em>every</em> Git repository, in your user account, on this computer.</p>
 <p>You can check your global settings at any time:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>--list
 </pre></div>
 </div>
+</section>
 </section>
 <section id="setting-a-text-editor">
 <h3>Setting a text editor<a class="headerlink" href="#setting-a-text-editor" title="Link to this heading">#</a></h3>
@@ -632,12 +643,9 @@ you’re more familiar with. We recommend trying <em>Nano</em> for Git usage: it
 at the command line, making it quick to write the short ‘commit messages’, but
 is much simpler to use than Vim. You can change this at any time if you find you’d
 prefer to use something else.</p>
-<blockquote>
-<div><h4 class="rubric" id="git-for-windows">Git for Windows</h4>
-<p>If you followed the recommendations in the
-[installation instructions for Git for Windows](/setup.html#windows) then
-Nano should already be the default editor used by Git.</p>
-</div></blockquote>
+<section id="git-for-windows">
+<h4>Git for Windows<a class="headerlink" href="#git-for-windows" title="Link to this heading">#</a></h4>
+<p>If you followed the recommendations in the [installation instructions for Git for Windows](/setup.html#windows) then Nano should already be the default editor used by Git.</p>
 <p>The following table shows how to set the default editor for Git for several popular
 text editors. In some cases, you need to provide the path to the executable
 program for the editor — this indicated as <code class="docutils literal notranslate"><span class="pre">path/to/executable-name</span></code> (if you
@@ -692,6 +700,7 @@ on your computer).</p>
 </tbody>
 </table>
 </section>
+</section>
 <section id="default-git-branch-naming">
 <h3>Default Git branch naming<a class="headerlink" href="#default-git-branch-naming" title="Link to this heading">#</a></h3>
 <p>Git (2.28+) allows configuration of the name of the branch created when you
@@ -717,16 +726,15 @@ services.</p>
 <p>For versions of Git prior to 2.28, the change can only be made on an individual
 repository level and we will cover this in the episode on
 [making repositories](/05_making_repos/index.html) later.</p>
-<blockquote>
-<div><h4 class="rubric" id="exercise">Exercise</h4>
+<section id="exercise">
+<h4>Exercise<a class="headerlink" href="#exercise" title="Link to this heading">#</a></h4>
 <p>Set up Git the way you’d like it by configuring settings for:</p>
 <ul class="simple">
 <li><p>Your username and password</p></li>
 <li><p>Your preferred text editor</p></li>
-<li><p>(Optional) Changing the default Git branch naming to <code class="docutils literal notranslate"><span class="pre">main</span></code>. If your version
-of Git is older than 2.28 then you won’t be able to do this yet.</p></li>
+<li><p>(Optional) Changing the default Git branch naming to <code class="docutils literal notranslate"><span class="pre">main</span></code>. If your version of Git is older than 2.28 then you won’t be able to do this yet.</p></li>
 </ul>
-</div></blockquote>
+</section>
 </section>
 <section id="final-notes-on-configuring-git">
 <h3>Final notes on configuring Git<a class="headerlink" href="#final-notes-on-configuring-git" title="Link to this heading">#</a></h3>
@@ -797,20 +805,13 @@ authorised to interact with GitHub on your behalf. Part of setting up a PAT
 involves specifying the scope of what an application using that PAT is allowed
 to do on GitHub. PATs are generated via your GitHub account and then saved for
 later use.</p>
-<blockquote>
-<div><h3 class="rubric" id="look-after-your-pats">Look after your PATs!</h3>
-<p><strong>You should treat PATs with the same level of care you would your GitHub
-account password. Store the PAT somewhere secure, such as in a password
-manager. If you ever suspect a PAT has been exposed, then you should
-delete the token and generate a new one.</strong></p>
-</div></blockquote>
-<blockquote>
-<div><h3 class="rubric" id="note-on-classic-tokens">Note on classic tokens</h3>
-<p>At the time of writing, GitHub is in the process of creating newer, so-called ‘fine
-grained’ personal access tokens. These provide more fine grained control, but are
-still in a developmental phase. The older, ‘classic’, PATs are sufficient for
-our needs and simpler to set up, so we’ll use them throughout this course.</p>
-</div></blockquote>
+<section id="look-after-your-pats">
+<h3>Look after your PATs!<a class="headerlink" href="#look-after-your-pats" title="Link to this heading">#</a></h3>
+<p><strong>You should treat PATs with the same level of care you would your GitHub account password. Store the PAT somewhere secure, such as in a password manager. If you ever suspect a PAT has been exposed, then you should delete the token and generate a new one.</strong></p>
+</section>
+<section id="note-on-classic-tokens">
+<h3>Note on classic tokens<a class="headerlink" href="#note-on-classic-tokens" title="Link to this heading">#</a></h3>
+<p>At the time of writing, GitHub is in the process of creating newer, so-called ‘fine  grained’ personal access tokens. These provide more fine grained control, but are still in a developmental phase. The older, ‘classic’, PATs are sufficient forour needs and simpler to set up, so we’ll use them throughout this course.</p>
 <p>To set up a PAT, follow the
 <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-personal-access-token-classic" target="_blank" rel="external noreferrer">instructions provided by GitHub for classic tokens</a>. Note:</p>
 <ul class="simple">
@@ -831,11 +832,11 @@ in the link above, selecting the affected token and then clicking on <em>Regener
 <em>Personal access tokens (classic)</em> as described in the link above and then
 click on <em>Delete</em> next to the token.</p></li>
 </ul>
-<blockquote>
-<div><h3 class="rubric" id="id1">Exercise</h3>
-<p>Using the instructions on GitHub linked above, create a PAT and save it
-somewhere safe for later use in this course.</p>
-</div></blockquote>
+</section>
+<section id="id1">
+<h3>Exercise<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Using the instructions on GitHub linked above, create a PAT and save it somewhere safe for later use in this course.</p>
+</section>
 </section>
 </section>
 
@@ -905,9 +906,18 @@ somewhere safe for later use in this course.</p>
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-git">Setting up Git</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#username-and-email-address">Username and email address</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-a-text-editor">Setting a text editor</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default-git-branch-naming">Default Git branch naming</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#username-and-email-address">Username and email address</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#keeping-your-email-private">Keeping your email private</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-a-text-editor">Setting a text editor</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#git-for-windows">Git for Windows</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default-git-branch-naming">Default Git branch naming</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#final-notes-on-configuring-git">Final notes on configuring Git</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-configuration">Changing configuration</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#git-help-and-manual">Git Help and Manual</a></li>
@@ -916,7 +926,12 @@ somewhere safe for later use in this course.</p>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-github-credentials">Setting up GitHub credentials</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-github-credentials">Setting up GitHub credentials</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#look-after-your-pats">Look after your PATs!</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#note-on-classic-tokens">Note on classic tokens</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Exercise</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

@@ -12,7 +12,7 @@ We've got quite a bit of outstanding stuff we could add to our cheatsheet
 and good practice guide. Let's make a note of these things in a `TODO.txt`
 file, which we'll put in the root folder of our repository:
 
-```
+``` bash
 TODO:
 
 Add note about staging multiple files with `git add` and `git diff`
@@ -27,7 +27,7 @@ Add cheatsheet entries for pushing and pulling
 We might as well tick off the first two items, so let's add the following content
 to `Git-cheatsheet.md`:
 
-```
+``` bash
 
 ## Specifying multiple files
 
@@ -46,7 +46,7 @@ Examples:
 
 And we add the following to `Good-practice-guides/Commit-good-practice.md`:
 
-```
+``` bash
 
 ## Make sure you know what you're committing
 
@@ -60,13 +60,13 @@ We go ahead and stage these, using our recently learnt syntax for staging
 changes to multiple files (our working directory is the repository root
 folder, as usual):
 
-```
+``` bash
 $ git add .
 ```
 
 Wait! Something doesn't feel right... Let's check the status:
 
-```
+``` bash
 $ git status
 On branch main
 Your branch is up to date with 'origin/main'.
@@ -84,14 +84,14 @@ keep track of our work and it doesn't belong in the repository. Fortunately
 we can remove changes to a file from the staging area. In fact,
 `git status` tells us how to do this. The general command to use is:
 
-```
+``` bash
 git restore --staged <files>
 ```
 
 So let's use this on our `TODO.txt` file. We run the command, then check that
 the only differences staged are for the cheatsheet and good practice guide
 
-```
+``` bash
 $ git restore --staged TODO.txt
 
 $ git diff --name-only --staged
@@ -102,7 +102,7 @@ Good-practice-guides/Commit-good-practice.md
 That's better, now we can go ahead and commit. (Good thing we checked before
 committing the first time round!)
 
-```
+``` bash
 $ git commit -m "Add material on basic pathspec usage (directories)"
 [main 0984d2b] Add material on basic pathspec usage (directories)
  2 files changed, 21 insertions(+)
@@ -124,7 +124,7 @@ Git offers a couple of ways to address this:
 Let's suppose we've 'accidentally' made a new commit which puts `TODO.txt` under
 version control, which we want to undo:
 
-```
+``` bash
 $ git log --oneline -3
 cc01bda (HEAD -> main) Add TODO.txt
 0984d2b Add material on basic pathspec usage (directories)
@@ -133,7 +133,7 @@ cc01bda (HEAD -> main) Add TODO.txt
 
 The command
 
-```
+``` bash
 git revert <commit>
 ```
 can be used to create a new commit that undoes a previous `<commit>`. In our
@@ -144,7 +144,7 @@ because the revert will return the repository to the state before we'd added
 `TODO.txt`, which will involve deleting the file. Having done this, we now
 perform the reversion:
 
-```
+``` bash
 $ git revert cc01bda
 ```
 
@@ -152,7 +152,7 @@ Because `git revert` is actually making a new commit, our text editor pops into
 life for us to write a commit message. It's been pre-populated with a
 helpful message, telling us which commit is being reverted:
 
-```
+``` bash
 Revert "Add TODO.txt"
 
 This reverts commit cc01bdaf30a98d5bfaf5e43838d90522695f251e.
@@ -172,7 +172,7 @@ This reverts commit cc01bdaf30a98d5bfaf5e43838d90522695f251e.
 We could edit this if we wanted to, but the default is fine, so we just close
 the file to complete the commit.
 
-```
+``` bash
 $ git revert cc01bda
 [main bc9d190] Revert "Add TODO.txt"
  1 file changed, 9 deletions(-)
@@ -182,7 +182,7 @@ $ git revert cc01bda
 Now our commit history includes our new 'reverting' commit. Note also that
 `TODO.txt` has been deleted.
 
-```
+``` bash
 $ git log --oneline -4
 bc9d190 (HEAD -> main) Revert "Add TODO.txt"
 cc01bda Add TODO.txt
@@ -192,11 +192,8 @@ cc01bda Add TODO.txt
 $ ls
 Git-cheatsheet.md  Good-practice-guides/  README.md
 ```
-
-> #### Note on `git revert`
-> 
-> The `revert` command will only work if the working tree and staging area have
-> no changes in them.
+#### Note on `git revert`
+The `revert` command will only work if the working tree and staging area have no changes in them.
 
 
 ### Resetting (move back to a previous commit and lose later ones)
@@ -210,7 +207,7 @@ more destructive way to undo commit history that will get rid of the commits.
 The `git reset` command is used to move back our `HEAD` to an earlier commit.
 The default form of the command is:
 
-```
+``` bash
 git reset <commit>
 ```
 
@@ -222,14 +219,14 @@ work with the files as they currently are before the reset.
 For example, let's create an empty file `foo.txt`. We can do this using
 the `touch` command within the root folder of our repository:
 
-```
+``` bash
 $ touch foo.txt
 ```
 
 We'll make a commit of this new file and remove it via a reset. First, we make
 the commit:
 
-```
+``` bash
 $ git add foo.txt
 
 $ git commit -m "Add foo.txt to practice resetting"
@@ -245,7 +242,7 @@ Let's now reset the commit history back to how it was before
 we committed `TODO.txt`. We check the log to get the commit identifier,
 perform our reset, then check the status of the repository:
 
-```
+``` bash
 $ git log --oneline -5
 fcecec0 (HEAD -> main) Add foo.txt to practice resetting
 bc9d190 Revert "Add TODO.txt"
@@ -270,7 +267,7 @@ the repository as it was at `HEAD` just before the reset (at the
 now-removed commit `fcecec0`). In other words, we expect to see just the change
 that adds `foo.txt`. We can verify this with `git status`:
 
-```
+``` bash
 $ git status
 On branch main
 Your branch is ahead of 'origin/main' by 1 commit.
@@ -286,7 +283,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 We don't want to keep this `foo.txt` file, so let's just delete it with the
 usual Unix command `rm` to get a nice, clean working tree again.
 
-```
+``` bash
 $ rm foo.txt
 ```
 
@@ -294,7 +291,7 @@ After all that, we can move that TODO list back into the repository. We'll
 finish by removing the tasks we've completed and add some new tasks, leaving our
 list like so:
 
-```
+``` bash
 TODO:
 
 Add cheatsheet entries for `git rm` and `git mv`
@@ -305,13 +302,8 @@ Add cheatsheet entries about undoing changes
 
 ```
 
-> #### Hard reset
->
-> If you're really sure you don't need to keep the changes from later commits when
-> resetting, then you can automatically discard them by using the `--hard` option:
-> `git reset --hard <commit>`. This will set your working tree to the exact same state as
-> the commit you're resetting to. It thus deletes the work you did after
-> `<commit>`; be sure that this is what you want before running a hard reset!
+#### Hard reset
+If you're really sure you don't need to keep the changes from later commits when resetting, then you can automatically discard them by using the `--hard` option: `git reset --hard <commit>`. This will set your working tree to the exact same state as the commit you're resetting to. It thus deletes the work you did after `<commit>`; be sure that this is what you want before running a hard reset!
 
 
 ### Warning: pushing after a reset
@@ -325,7 +317,7 @@ For example, suppose we had reset our local repository to the commit _before_
 our local repository to the remote one, Git would not complete the request and
 complain to us with the following message:
 
-```
+``` bash
 $ git push origin
 To https://github.com/jbloggs9999/git-good-practice.git
  ! [rejected]        main -> main (non-fast-forward)

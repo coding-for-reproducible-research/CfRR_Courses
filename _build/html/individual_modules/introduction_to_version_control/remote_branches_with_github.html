@@ -556,13 +556,22 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-remote-branch-on-github">Create a remote branch on GitHub</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fetch-the-remote-branch">Fetch the remote branch</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-tracking-local-branch">Create a new tracking local branch</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-content-to-the-local-branch-and-push">Add content to the local branch and push</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-content-to-the-local-branch-and-push">Add content to the local branch and push</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#markdown-syntax">Markdown syntax</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-specify-the-branch-explicitly">Alternative: specify the branch explicitly</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merge-remote-branch-into-remote-main">Merge remote branch into remote <code class="docutils literal notranslate"><span class="pre">main</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pull-changes-into-our-local-repository">Pull changes into our local repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pull-changes-into-our-local-repository">Pull changes into our local repository</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pull-automatically-fetches"><code class="docutils literal notranslate"><span class="pre">pull</span></code> automatically <code class="docutils literal notranslate"><span class="pre">fetch</span></code>es</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning-up">Cleaning up</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#good-practice-deleting-old-branches">Good practice: deleting old branches</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deleting-branches-from-a-local-repository">Deleting branches from a local repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#force-deletion">Force deletion</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deleting-branches-from-the-remote-repository-via-github">Deleting branches from the remote repository via GitHub</a></li>
 </ul>
 </li>
@@ -600,11 +609,11 @@ use <code class="docutils literal notranslate"><span class="pre">git</span> <spa
 <p>We can list <em>all</em> the branches that our local repository is aware of (both
 local branches and remote branches) by using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span> <span class="pre">--all</span></code> (or
 just <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span> <span class="pre">-a</span></code>):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git branch -a
-  branches-material
-* main
-  remotes/origin/HEAD -&gt; origin/main
-  remotes/origin/main
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>branch<span class="w"> </span>-a
+<span class="w">  </span>branches-material
+*<span class="w"> </span>main
+<span class="w">  </span>remotes/origin/HEAD<span class="w"> </span>-&gt;<span class="w"> </span>origin/main
+<span class="w">  </span>remotes/origin/main
 </pre></div>
 </div>
 <p>There are three branches worth noting here, namely <code class="docutils literal notranslate"><span class="pre">main</span></code> (our local version of
@@ -618,7 +627,7 @@ called <code class="docutils literal notranslate"><span class="pre">branches-mat
 <li><p><strong>Step 1</strong> Navigate to your repository on GitHub.</p></li>
 <li><p><strong>Step 2</strong> Click on <em>branch(es)</em>, above the list of files on the left-hand side,
 as indicated in the following screenshot:</p>
-<p>![Viewing branches on GitHub](/images/github-view-branches.png)</p>
+<p><img alt="Viewing branches on GitHub" src="../../_images/github-view-branches.png" /></p>
 </li>
 <li><p><strong>Step 3</strong> Click on <em>All branches</em>, located to the left of the green <em>New branch</em>
 button on the right-hand side of the screen — this will display a list of all
@@ -680,11 +689,11 @@ the branch you are branching off of (e.g. <code class="docutils literal notransl
 new remote branch called <code class="docutils literal notranslate"><span class="pre">remote-branches-material</span></code>, which is based on top of
 <code class="docutils literal notranslate"><span class="pre">main</span></code>. Our local repository doesn’t have any knowledge of this new branch, as
 can be seen by listing the branches:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git branch -a
-  branches-material
-* main
-  remotes/origin/HEAD -&gt; origin/main
-  remotes/origin/main
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>branch<span class="w"> </span>-a
+<span class="w">  </span>branches-material
+*<span class="w"> </span>main
+<span class="w">  </span>remotes/origin/HEAD<span class="w"> </span>-&gt;<span class="w"> </span>origin/main
+<span class="w">  </span>remotes/origin/main
 </pre></div>
 </div>
 </section>
@@ -692,7 +701,7 @@ can be seen by listing the branches:</p>
 <h3>Fetch the remote branch<a class="headerlink" href="#fetch-the-remote-branch" title="Link to this heading">#</a></h3>
 <p>In order to update our local repository so that it has knowledge of the new
 remote branch, we use the following command from within our local repository:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">fetch</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>fetch
 </pre></div>
 </div>
 <p>(Like with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code>, we can instead run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span> <span class="pre">origin</span></code> to
@@ -704,18 +713,18 @@ local repository doesn’t yet know about.</p>
 <p>In our example, after running <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span></code> in our <code class="docutils literal notranslate"><span class="pre">git-good-practice</span></code>
 repository, we see that information about the new remote <code class="docutils literal notranslate"><span class="pre">remote-branches-material</span></code>
 has been retrieved:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git fetch
-Username for &#39;https://github.com&#39;: jbloggs9999
-Password for &#39;https://jbloggs9999@github.com&#39;:
-From https://github.com/jbloggs9999/git-good-practice
- * [new branch]      remote-branches-material -&gt; origin/remote-branches-material
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>fetch
+Username<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;https://github.com&#39;</span>:<span class="w"> </span>jbloggs9999
+Password<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;https://jbloggs9999@github.com&#39;</span>:
+From<span class="w"> </span>https://github.com/jbloggs9999/git-good-practice
+<span class="w"> </span>*<span class="w"> </span><span class="o">[</span>new<span class="w"> </span>branch<span class="o">]</span><span class="w">      </span>remote-branches-material<span class="w"> </span>-&gt;<span class="w"> </span>origin/remote-branches-material
 
-$ git branch -a
-  branches-material
-* main
-  remotes/origin/HEAD -&gt; origin/main
-  remotes/origin/main
-  remotes/origin/remote-branches-material
+$<span class="w"> </span>git<span class="w"> </span>branch<span class="w"> </span>-a
+<span class="w">  </span>branches-material
+*<span class="w"> </span>main
+<span class="w">  </span>remotes/origin/HEAD<span class="w"> </span>-&gt;<span class="w"> </span>origin/main
+<span class="w">  </span>remotes/origin/main
+<span class="w">  </span>remotes/origin/remote-branches-material
 </pre></div>
 </div>
 <p>However, this has only created a reference to the remote branch, indicated
@@ -727,9 +736,9 @@ to create a <em>local</em> branch that will track the remote branch.</p>
 <p>In order to create a local version of the
 <code class="docutils literal notranslate"><span class="pre">origin/remote-branches-material</span></code> branch where we can add commits, we can
 perform the following checkout:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout remote-branches-material 
-Switched to a new branch &#39;remote-branches-material&#39;
-branch &#39;remote-branches-material&#39; set up to track &#39;origin/remote-branches-material&#39;. 
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>remote-branches-material<span class="w"> </span>
+Switched<span class="w"> </span>to<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>branch<span class="w"> </span><span class="s1">&#39;remote-branches-material&#39;</span>
+branch<span class="w"> </span><span class="s1">&#39;remote-branches-material&#39;</span><span class="w"> </span><span class="nb">set</span><span class="w"> </span>up<span class="w"> </span>to<span class="w"> </span>track<span class="w"> </span><span class="s1">&#39;origin/remote-branches-material&#39;</span>.<span class="w"> </span>
 </pre></div>
 </div>
 <p>You may be surprised by this: after all, we’ve asked Git to checkout a branch
@@ -738,13 +747,13 @@ what we want to do is set up a new local branch that tracks the <code class="doc
 remote branch. So it automatically creates a new local branch — called <code class="docutils literal notranslate"><span class="pre">remote-branches-material</span></code> — that
 will track <code class="docutils literal notranslate"><span class="pre">origin/remote-branches-material</span></code>, and checks out this new local branch for us. We
 can verify this by listing all the branches again:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git branch -a
-  branches-material
-  main
-* remote-branches-material
-  remotes/origin/HEAD -&gt; origin/main
-  remotes/origin/main
-  remotes/origin/remote-branches-material
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>branch<span class="w"> </span>-a
+<span class="w">  </span>branches-material
+<span class="w">  </span>main
+*<span class="w"> </span>remote-branches-material
+<span class="w">  </span>remotes/origin/HEAD<span class="w"> </span>-&gt;<span class="w"> </span>origin/main
+<span class="w">  </span>remotes/origin/main
+<span class="w">  </span>remotes/origin/remote-branches-material
 </pre></div>
 </div>
 </section>
@@ -753,29 +762,28 @@ can verify this by listing all the branches again:</p>
 <p>We are now set to add our new material to <code class="docutils literal notranslate"><span class="pre">Git-cheatsheet.md</span></code> about remote
 branches. We modify the start of the subsection <em>Branches</em> so that it now reads as
 follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>## Branches
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">## Branches</span>
 
-`git branch &lt;new-branch-name&gt;` — Create a new branch called `&lt;new-branch-name&gt;`
-                                 based at the current commit (i.e. at `HEAD`).
+<span class="sb">`</span>git<span class="w"> </span>branch<span class="w"> </span>&lt;new-branch-name&gt;<span class="sb">`</span><span class="w"> </span>—<span class="w"> </span>Create<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>branch<span class="w"> </span>called<span class="w"> </span><span class="sb">`</span>&lt;new-branch-name&gt;<span class="sb">`</span>
+<span class="w">                                 </span>based<span class="w"> </span>at<span class="w"> </span>the<span class="w"> </span>current<span class="w"> </span>commit<span class="w"> </span><span class="o">(</span>i.e.<span class="w"> </span>at<span class="w"> </span><span class="sb">`</span>HEAD<span class="sb">`</span><span class="o">)</span>.
 
-`git checkout &lt;branch&gt;` — Check out the branch `&lt;branch&gt;`, so that new commits
-                          are added to `&lt;branch&gt;`.
+<span class="sb">`</span>git<span class="w"> </span>checkout<span class="w"> </span>&lt;branch&gt;<span class="sb">`</span><span class="w"> </span>—<span class="w"> </span>Check<span class="w"> </span>out<span class="w"> </span>the<span class="w"> </span>branch<span class="w"> </span><span class="sb">`</span>&lt;branch&gt;<span class="sb">`</span>,<span class="w"> </span>so<span class="w"> </span>that<span class="w"> </span>new<span class="w"> </span>commits
+<span class="w">                          </span>are<span class="w"> </span>added<span class="w"> </span>to<span class="w"> </span><span class="sb">`</span>&lt;branch&gt;<span class="sb">`</span>.
 
-- Can also be used to create and checkout a new local branch `&lt;branch&gt;` that
-  tracks an existing remote branch `origin/&lt;branch&gt;`.
+-<span class="w"> </span>Can<span class="w"> </span>also<span class="w"> </span>be<span class="w"> </span>used<span class="w"> </span>to<span class="w"> </span>create<span class="w"> </span>and<span class="w"> </span>checkout<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span><span class="nb">local</span><span class="w"> </span>branch<span class="w"> </span><span class="sb">`</span>&lt;branch&gt;<span class="sb">`</span><span class="w"> </span>that
+<span class="w">  </span>tracks<span class="w"> </span>an<span class="w"> </span>existing<span class="w"> </span>remote<span class="w"> </span>branch<span class="w"> </span><span class="sb">`</span>origin/&lt;branch&gt;<span class="sb">`</span>.
 
-`git merge &lt;branch-to-merge-in&gt;` — Combine the commit history of `&lt;branch-to-merge-in&gt;`
-                                   with that of the branch currently checked out.
+<span class="sb">`</span>git<span class="w"> </span>merge<span class="w"> </span>&lt;branch-to-merge-in&gt;<span class="sb">`</span><span class="w"> </span>—<span class="w"> </span>Combine<span class="w"> </span>the<span class="w"> </span>commit<span class="w"> </span><span class="nb">history</span><span class="w"> </span>of<span class="w"> </span><span class="sb">`</span>&lt;branch-to-merge-in&gt;<span class="sb">`</span>
+<span class="w">                                   </span>with<span class="w"> </span>that<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>branch<span class="w"> </span>currently<span class="w"> </span>checked<span class="w"> </span>out.
 </pre></div>
 </div>
 <p>Having included this addition, we commit to our local <code class="docutils literal notranslate"><span class="pre">remote-branches-material</span></code> branch.</p>
-<blockquote>
-<div><h4 class="rubric" id="markdown-syntax">Markdown syntax</h4>
-<p>Unordered lists are denoted by using a hyphen (<code class="docutils literal notranslate"><span class="pre">-</span></code>) or an asterisk (<code class="docutils literal notranslate"><span class="pre">*</span></code>),
-followed by a space, with the text in the list item following. Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">Foo</span>
-<span class="o">-</span> <span class="n">Bar</span>
-<span class="o">-</span> <span class="n">Baz</span>
+<section id="markdown-syntax">
+<h4>Markdown syntax<a class="headerlink" href="#markdown-syntax" title="Link to this heading">#</a></h4>
+<p>Unordered lists are denoted by using a hyphen (<code class="docutils literal notranslate"><span class="pre">-</span></code>) or an asterisk (<code class="docutils literal notranslate"><span class="pre">*</span></code>), followed by a space, with the text in the list item following. Example:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="k">-</span><span class="w"> </span>Foo
+<span class="k">-</span><span class="w"> </span>Bar
+<span class="k">-</span><span class="w"> </span>Baz
 </pre></div>
 </div>
 <p>renders as:</p>
@@ -784,33 +792,14 @@ followed by a space, with the text in the list item following. Example:</p>
 <li><p>Bar</p></li>
 <li><p>Baz</p></li>
 </ul>
-<p>Text that flows over multiple lines in the source file, yet belongs to a single
-list item, should respect the indenting. For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="nb">list</span> <span class="n">entry</span> <span class="k">with</span>
-  
-  <span class="n">new</span> <span class="n">line</span>
-
-<span class="o">*</span> <span class="n">the</span> <span class="n">quick</span> <span class="n">brown</span> <span class="n">fox</span> <span class="n">jumps</span> <span class="n">over</span> <span class="n">the</span>
-  <span class="n">lazy</span> <span class="n">dog</span>
-</pre></div>
-</div>
-<p>renders as:</p>
-<ul>
-<li><p>list entry with</p>
-<p>new line</p>
-</li>
-<li><p>the quick brown fox jumps over the
-lazy dog</p></li>
-</ul>
-</div></blockquote>
 <p>We’re now in the position where our local branch
 <code class="docutils literal notranslate"><span class="pre">remote-branches-material</span></code> is ahead of the remote branch
 <code class="docutils literal notranslate"><span class="pre">origin/remote-branches-material</span></code> that it tracks, as can be seen from
 the log on <code class="docutils literal notranslate"><span class="pre">remote-branches-material</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log --oneline -3
-5125372 (HEAD -&gt; remote-branches-material) Add note about creating local tracking branches
-3b918f2 (origin/remote-branches-material, origin/main, origin/HEAD, main, branches-material) Add entry about merging branches
-51da8da Add entry about checking out a branch
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>-3
+<span class="m">5125372</span><span class="w"> </span><span class="o">(</span>HEAD<span class="w"> </span>-&gt;<span class="w"> </span>remote-branches-material<span class="o">)</span><span class="w"> </span>Add<span class="w"> </span>note<span class="w"> </span>about<span class="w"> </span>creating<span class="w"> </span><span class="nb">local</span><span class="w"> </span>tracking<span class="w"> </span>branches
+3b918f2<span class="w"> </span><span class="o">(</span>origin/remote-branches-material,<span class="w"> </span>origin/main,<span class="w"> </span>origin/HEAD,<span class="w"> </span>main,<span class="w"> </span>branches-material<span class="o">)</span><span class="w"> </span>Add<span class="w"> </span>entry<span class="w"> </span>about<span class="w"> </span>merging<span class="w"> </span>branches
+51da8da<span class="w"> </span>Add<span class="w"> </span>entry<span class="w"> </span>about<span class="w"> </span>checking<span class="w"> </span>out<span class="w"> </span>a<span class="w"> </span>branch
 </pre></div>
 </div>
 <p>In order to update an upstream remote branch with new commits in the local
@@ -821,30 +810,29 @@ Note however that this will push the commits <em>on the currently checked out br
 remote branch. So, in general, if you have a local branch <code class="docutils literal notranslate"><span class="pre">&lt;foo&gt;</span></code> that tracks a
 remote branch <code class="docutils literal notranslate"><span class="pre">origin/&lt;foo&gt;</span></code>, then in order to push <code class="docutils literal notranslate"><span class="pre">&lt;foo&gt;</span></code> to <code class="docutils literal notranslate"><span class="pre">origin/&lt;foo&gt;</span></code> we
 need to first checkout <code class="docutils literal notranslate"><span class="pre">&lt;foo&gt;</span></code>.</p>
-<blockquote>
-<div><h4 class="rubric" id="alternative-specify-the-branch-explicitly">Alternative: specify the branch explicitly</h4>
-<p>Alternatively, if you have a local branch <code class="docutils literal notranslate"><span class="pre">&lt;foo&gt;</span></code> that tracks a remote branch
-<code class="docutils literal notranslate"><span class="pre">origin/&lt;foo&gt;</span></code>, then you can run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span> <span class="pre">&lt;foo&gt;</span></code> from any local branch
-to push commits from <code class="docutils literal notranslate"><span class="pre">&lt;foo&gt;</span></code> to <code class="docutils literal notranslate"><span class="pre">origin/&lt;foo&gt;</span></code>.</p>
-</div></blockquote>
+</section>
+<section id="alternative-specify-the-branch-explicitly">
+<h4>Alternative: specify the branch explicitly<a class="headerlink" href="#alternative-specify-the-branch-explicitly" title="Link to this heading">#</a></h4>
+<p>Alternatively, if you have a local branch <code class="docutils literal notranslate"><span class="pre">&lt;foo&gt;</span></code> that tracks a remote branch <code class="docutils literal notranslate"><span class="pre">origin/&lt;foo&gt;</span></code>, then you can run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span> <span class="pre">&lt;foo&gt;</span></code> from any local branch to push commits from <code class="docutils literal notranslate"><span class="pre">&lt;foo&gt;</span></code> to <code class="docutils literal notranslate"><span class="pre">origin/&lt;foo&gt;</span></code>.</p>
 <p>In our example, we’re already on the branch <code class="docutils literal notranslate"><span class="pre">remote-branches-material</span></code> that we want to push,
 so we can just go ahead and do <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git push
-Username for &#39;https://github.com&#39;: jbloggs9999
-Password for &#39;https://jbloggs9999@github.com&#39;:
-Enumerating objects: 5, done.
-Counting objects: 100% (5/5), done.
-Delta compression using up to 8 threads
-Compressing objects: 100% (3/3), done.
-Writing objects: 100% (3/3), 438 bytes | 219.00 KiB/s, done.
-Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
-remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
-To https://github.com/jbloggs9999/git-good-practice.git
-   3b918f2..5125372  remote-branches-material -&gt; remote-branches-material
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>push
+Username<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;https://github.com&#39;</span>:<span class="w"> </span>jbloggs9999
+Password<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;https://jbloggs9999@github.com&#39;</span>:
+Enumerating<span class="w"> </span>objects:<span class="w"> </span><span class="m">5</span>,<span class="w"> </span><span class="k">done</span>.
+Counting<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">5</span>/5<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
+Delta<span class="w"> </span>compression<span class="w"> </span>using<span class="w"> </span>up<span class="w"> </span>to<span class="w"> </span><span class="m">8</span><span class="w"> </span>threads
+Compressing<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">3</span>/3<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
+Writing<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">3</span>/3<span class="o">)</span>,<span class="w"> </span><span class="m">438</span><span class="w"> </span>bytes<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">219</span>.00<span class="w"> </span>KiB/s,<span class="w"> </span><span class="k">done</span>.
+Total<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">2</span><span class="o">)</span>,<span class="w"> </span>reused<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">0</span><span class="o">)</span>,<span class="w"> </span>pack-reused<span class="w"> </span><span class="m">0</span>
+remote:<span class="w"> </span>Resolving<span class="w"> </span>deltas:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">2</span>/2<span class="o">)</span>,<span class="w"> </span>completed<span class="w"> </span>with<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="nb">local</span><span class="w"> </span>objects.
+To<span class="w"> </span>https://github.com/jbloggs9999/git-good-practice.git
+<span class="w">   </span>3b918f2..5125372<span class="w">  </span>remote-branches-material<span class="w"> </span>-&gt;<span class="w"> </span>remote-branches-material
 </pre></div>
 </div>
 <p>The last line of the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code> message shows that we’ve successfully updated the remote
 branch with the new commit.</p>
+</section>
 </section>
 </section>
 <section id="merge-remote-branch-into-remote-main">
@@ -874,9 +862,9 @@ bottom of the page.</p></li>
 the changes made to <code class="docutils literal notranslate"><span class="pre">main</span></code> in our local repository, we need to pull them from
 the remote repository.</p>
 <p>To update <code class="docutils literal notranslate"><span class="pre">main</span></code>, we first check it out:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout main
-Switched to branch &#39;main&#39;
-Your branch is up to date with &#39;origin/main&#39;.
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>main
+Switched<span class="w"> </span>to<span class="w"> </span>branch<span class="w"> </span><span class="s1">&#39;main&#39;</span>
+Your<span class="w"> </span>branch<span class="w"> </span>is<span class="w"> </span>up<span class="w"> </span>to<span class="w"> </span>date<span class="w"> </span>with<span class="w"> </span><span class="s1">&#39;origin/main&#39;</span>.
 </pre></div>
 </div>
 <p>There’s an important point to make about the output here. It is stated that
@@ -884,25 +872,25 @@ Your branch is up to date with &#39;origin/main&#39;.
 pull in. Instead, it means that Git is not aware of any extra commits in
 <code class="docutils literal notranslate"><span class="pre">origin/main</span></code> compared to <code class="docutils literal notranslate"><span class="pre">main</span></code> <em>since last <code class="docutils literal notranslate"><span class="pre">fetch</span></code>ing from the remote repository</em>.</p>
 <p>So, let us fetch updates from the remote repository:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git fetch
-Username for &#39;https://github.com&#39;: jbloggs9999
-Password for &#39;https://jbloggs9999@github.com&#39;:
-remote: Enumerating objects: 1, done.
-remote: Counting objects: 100% (1/1), done.
-remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
-Unpacking objects: 100% (1/1), 667 bytes | 83.00 KiB/s, done.
-From https://github.com/jbloggs/git-good-practice
-   3b918f2..86ebbee  main       -&gt; origin/main
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>fetch
+Username<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;https://github.com&#39;</span>:<span class="w"> </span>jbloggs9999
+Password<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;https://jbloggs9999@github.com&#39;</span>:
+remote:<span class="w"> </span>Enumerating<span class="w"> </span>objects:<span class="w"> </span><span class="m">1</span>,<span class="w"> </span><span class="k">done</span>.
+remote:<span class="w"> </span>Counting<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">1</span>/1<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
+remote:<span class="w"> </span>Total<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">0</span><span class="o">)</span>,<span class="w"> </span>reused<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">0</span><span class="o">)</span>,<span class="w"> </span>pack-reused<span class="w"> </span><span class="m">0</span>
+Unpacking<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">1</span>/1<span class="o">)</span>,<span class="w"> </span><span class="m">667</span><span class="w"> </span>bytes<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">83</span>.00<span class="w"> </span>KiB/s,<span class="w"> </span><span class="k">done</span>.
+From<span class="w"> </span>https://github.com/jbloggs/git-good-practice
+<span class="w">   </span>3b918f2..86ebbee<span class="w">  </span>main<span class="w">       </span>-&gt;<span class="w"> </span>origin/main
 </pre></div>
 </div>
 <p>We can see that our local repository is now aware of the change to the remote
 <code class="docutils literal notranslate"><span class="pre">origin/main</span></code> branch by checking the status again:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git status
-On branch main
-Your branch is behind &#39;origin/main&#39; by 2 commits, and can be fast-forwarded.
-  (use &quot;git pull&quot; to update your local branch)
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>status
+On<span class="w"> </span>branch<span class="w"> </span>main
+Your<span class="w"> </span>branch<span class="w"> </span>is<span class="w"> </span>behind<span class="w"> </span><span class="s1">&#39;origin/main&#39;</span><span class="w"> </span>by<span class="w"> </span><span class="m">2</span><span class="w"> </span>commits,<span class="w"> </span>and<span class="w"> </span>can<span class="w"> </span>be<span class="w"> </span>fast-forwarded.
+<span class="w">  </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git pull&quot;</span><span class="w"> </span>to<span class="w"> </span>update<span class="w"> </span>your<span class="w"> </span><span class="nb">local</span><span class="w"> </span>branch<span class="o">)</span>
 
-nothing to commit, working tree clean
+nothing<span class="w"> </span>to<span class="w"> </span>commit,<span class="w"> </span>working<span class="w"> </span>tree<span class="w"> </span>clean
 </pre></div>
 </div>
 <p>In the
@@ -913,38 +901,33 @@ remote repository. To be more precise, <code class="docutils literal notranslate
 a remote branch that has commits not yet in a local tracking
 branch <code class="docutils literal notranslate"><span class="pre">&lt;branch&gt;</span></code>, then run the following command <em>with <code class="docutils literal notranslate"><span class="pre">&lt;branch&gt;</span></code> checked out</em>
 to update <code class="docutils literal notranslate"><span class="pre">&lt;branch&gt;</span></code> with these new commits:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">pull</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>pull
 </pre></div>
 </div>
 <p>(or, to be explicit about the remote repository, <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span> <span class="pre">origin</span></code>).</p>
-<blockquote>
-<div><h4 class="rubric" id="pull-automatically-fetches"><code class="docutils literal notranslate"><span class="pre">pull</span></code> automatically <code class="docutils literal notranslate"><span class="pre">fetch</span></code>es</h4>
-<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> actually performs a two step process on a branch
-<code class="docutils literal notranslate"><span class="pre">&lt;branch&gt;</span></code>. First, it runs a <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span></code> to retrieve all new commits,
-branches, etc. from the remote repository. Then,
-it merges the changes that have been fetched into the <code class="docutils literal notranslate"><span class="pre">origin/&lt;branch&gt;</span></code> into
-<code class="docutils literal notranslate"><span class="pre">&lt;branch&gt;</span></code>. As a result, we did not in fact need to use the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span></code> command
-before using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> above.</p>
-</div></blockquote>
+<section id="pull-automatically-fetches">
+<h3><code class="docutils literal notranslate"><span class="pre">pull</span></code> automatically <code class="docutils literal notranslate"><span class="pre">fetch</span></code>es<a class="headerlink" href="#pull-automatically-fetches" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> actually performs a two step process on a branch <code class="docutils literal notranslate"><span class="pre">&lt;branch&gt;</span></code>. First, it runs a <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span></code> to retrieve all new commits, branches, etc. from the remote repository. Then, it merges the changes that have been fetched into the <code class="docutils literal notranslate"><span class="pre">origin/&lt;branch&gt;</span></code> into <code class="docutils literal notranslate"><span class="pre">&lt;branch&gt;</span></code>. As a result, we did not in fact need to use the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span></code> command before using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> above.</p>
 <p>We pull the changes to <code class="docutils literal notranslate"><span class="pre">origin/main</span></code> into our local <code class="docutils literal notranslate"><span class="pre">main</span></code> branch:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git pull
-Username for &#39;https://github.com&#39;: jbloggs9999
-Password for &#39;https://jbloggs9999@github.com&#39;:
-Updating 3b918f2..86ebbee
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>pull
+Username<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;https://github.com&#39;</span>:<span class="w"> </span>jbloggs9999
+Password<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;https://jbloggs9999@github.com&#39;</span>:
+Updating<span class="w"> </span>3b918f2..86ebbee
 Fast-forward
- Git-cheatsheet.md | 3 +++
- 1 file changed, 3 insertions(+)
+<span class="w"> </span>Git-cheatsheet.md<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">3</span><span class="w"> </span>+++
+<span class="w"> </span><span class="m">1</span><span class="w"> </span>file<span class="w"> </span>changed,<span class="w"> </span><span class="m">3</span><span class="w"> </span>insertions<span class="o">(</span>+<span class="o">)</span>
 </pre></div>
 </div>
 <p>We can now see from the log that our changes are fully reflected in <code class="docutils literal notranslate"><span class="pre">main</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log --oneline -5
-86ebbee (HEAD -&gt; main, origin/main, origin/HEAD) Merge pull request #1 from jbloggs9999/remote-branches-material
-5125372 (origin/remote-branches-material, remote-branches-material) Add note about creating local tracking branches
-3b918f2 (branches-material) Add entry about merging branches
-51da8da Add entry about checking out a branch
-8124186 Add entry about creating branches
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>-5
+86ebbee<span class="w"> </span><span class="o">(</span>HEAD<span class="w"> </span>-&gt;<span class="w"> </span>main,<span class="w"> </span>origin/main,<span class="w"> </span>origin/HEAD<span class="o">)</span><span class="w"> </span>Merge<span class="w"> </span>pull<span class="w"> </span>request<span class="w"> </span><span class="c1">#1 from jbloggs9999/remote-branches-material</span>
+<span class="m">5125372</span><span class="w"> </span><span class="o">(</span>origin/remote-branches-material,<span class="w"> </span>remote-branches-material<span class="o">)</span><span class="w"> </span>Add<span class="w"> </span>note<span class="w"> </span>about<span class="w"> </span>creating<span class="w"> </span><span class="nb">local</span><span class="w"> </span>tracking<span class="w"> </span>branches
+3b918f2<span class="w"> </span><span class="o">(</span>branches-material<span class="o">)</span><span class="w"> </span>Add<span class="w"> </span>entry<span class="w"> </span>about<span class="w"> </span>merging<span class="w"> </span>branches
+51da8da<span class="w"> </span>Add<span class="w"> </span>entry<span class="w"> </span>about<span class="w"> </span>checking<span class="w"> </span>out<span class="w"> </span>a<span class="w"> </span>branch
+<span class="m">8124186</span><span class="w"> </span>Add<span class="w"> </span>entry<span class="w"> </span>about<span class="w"> </span>creating<span class="w"> </span>branches
 </pre></div>
 </div>
+</section>
 </section>
 <section id="cleaning-up">
 <h2>Cleaning up<a class="headerlink" href="#cleaning-up" title="Link to this heading">#</a></h2>
@@ -953,12 +936,10 @@ locally and in the remote repository). So, to clean up the state of the reposito
 we’re going to delete the branches <code class="docutils literal notranslate"><span class="pre">branches-material</span></code> and <code class="docutils literal notranslate"><span class="pre">remote-branches-material</span></code>,
 including the remote version of <code class="docutils literal notranslate"><span class="pre">remote-branches-material</span></code>, since these
 no longer serve any purpose.</p>
-<blockquote>
-<div><h3 class="rubric" id="good-practice-deleting-old-branches">Good practice: deleting old branches</h3>
-<p>It is good practice to delete branches that are no longer required. This makes
-navigating a repository easier and makes it clear what work is still ongoing
-compared to work that has been finished.</p>
-</div></blockquote>
+<section id="good-practice-deleting-old-branches">
+<h3>Good practice: deleting old branches<a class="headerlink" href="#good-practice-deleting-old-branches" title="Link to this heading">#</a></h3>
+<p>It is good practice to delete branches that are no longer required. This makes navigating a repository easier and makes it clear what work is still ongoing compared to work that has been finished.</p>
+</section>
 <section id="deleting-branches-from-a-local-repository">
 <h3>Deleting branches from a local repository<a class="headerlink" href="#deleting-branches-from-a-local-repository" title="Link to this heading">#</a></h3>
 <p>The general commands for deleting branches are as follows:</p>
@@ -977,41 +958,36 @@ feature in other branches. So, before deleting a branch, be sure that the
 changes you want to keep have been merged into another branch e.g. <code class="docutils literal notranslate"><span class="pre">main</span></code>.</p></li>
 </ul>
 <p>We delete our local branches:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git branch -d branches-material remote-branches-material 
-Deleted branch branches-material (was 3b918f2).
-Deleted branch remote-branches-material (was 5125372).
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w"> </span>branches-material<span class="w"> </span>remote-branches-material<span class="w"> </span>
+Deleted<span class="w"> </span>branch<span class="w"> </span>branches-material<span class="w"> </span><span class="o">(</span>was<span class="w"> </span>3b918f2<span class="o">)</span>.
+Deleted<span class="w"> </span>branch<span class="w"> </span>remote-branches-material<span class="w"> </span><span class="o">(</span>was<span class="w"> </span><span class="m">5125372</span><span class="o">)</span>.
 </pre></div>
 </div>
 <p>Then we delete our remote branch reference <code class="docutils literal notranslate"><span class="pre">origin/remote-branches-material</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git branch -r -d origin/remote-branches-material
-Deleted remote-tracking branch origin/remote-branches-material (was 5125372).
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>branch<span class="w"> </span>-r<span class="w"> </span>-d<span class="w"> </span>origin/remote-branches-material
+Deleted<span class="w"> </span>remote-tracking<span class="w"> </span>branch<span class="w"> </span>origin/remote-branches-material<span class="w"> </span><span class="o">(</span>was<span class="w"> </span><span class="m">5125372</span><span class="o">)</span>.
 </pre></div>
 </div>
-<blockquote>
-<div><h3 class="rubric" id="force-deletion">Force deletion</h3>
-<p>Git may stop you from deleting a branch, because it can’t verify that
-all the commits in the branch have been merged into a corresponding remote
-branch or another local branch. This is a protection
-mechanism to stop you from potentially losing changes. If you encounter this but
-are sure you want to proceed with the deletion, you can force the deletion
-by using <code class="docutils literal notranslate"><span class="pre">-D</span></code> instead of <code class="docutils literal notranslate"><span class="pre">-d</span></code> in the commands above.</p>
-</div></blockquote>
+</section>
+<section id="force-deletion">
+<h3>Force deletion<a class="headerlink" href="#force-deletion" title="Link to this heading">#</a></h3>
+<p>Git may stop you from deleting a branch, because it can’t verify that all the commits in the branch have been merged into a corresponding remote branch or another local branch. This is a protection mechanism to stop you from potentially losing changes. If you encounter this but are sure you want to proceed with the deletion, you can force the deletion by using <code class="docutils literal notranslate"><span class="pre">-D</span></code> instead of <code class="docutils literal notranslate"><span class="pre">-d</span></code> in the commands above.</p>
 <p>Our local repository is now looking cleaner with regards to the branches we have:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git branch -a
-* main
-  remotes/origin/HEAD -&gt; origin/main
-  remotes/origin/main
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>branch<span class="w"> </span>-a
+*<span class="w"> </span>main
+<span class="w">  </span>remotes/origin/HEAD<span class="w"> </span>-&gt;<span class="w"> </span>origin/main
+<span class="w">  </span>remotes/origin/main
 </pre></div>
 </div>
 <p>Note also that the references to the non-<code class="docutils literal notranslate"><span class="pre">main</span></code> branches have disappeared from
 the log (note that the <em>commits</em> have <em>not</em> disappeared, however, because these
 are part of <code class="docutils literal notranslate"><span class="pre">main</span></code>):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log --oneline -5
-86ebbee (HEAD -&gt; main, origin/main, origin/HEAD) Merge pull request #1 from jbloggs9999/remote-branches-material
-5125372 Add note about creating local tracking branches
-3b918f2 Add entry about merging branches
-51da8da Add entry about checking out a branch
-8124186 Add entry about creating branches
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>-5
+86ebbee<span class="w"> </span><span class="o">(</span>HEAD<span class="w"> </span>-&gt;<span class="w"> </span>main,<span class="w"> </span>origin/main,<span class="w"> </span>origin/HEAD<span class="o">)</span><span class="w"> </span>Merge<span class="w"> </span>pull<span class="w"> </span>request<span class="w"> </span><span class="c1">#1 from jbloggs9999/remote-branches-material</span>
+<span class="m">5125372</span><span class="w"> </span>Add<span class="w"> </span>note<span class="w"> </span>about<span class="w"> </span>creating<span class="w"> </span><span class="nb">local</span><span class="w"> </span>tracking<span class="w"> </span>branches
+3b918f2<span class="w"> </span>Add<span class="w"> </span>entry<span class="w"> </span>about<span class="w"> </span>merging<span class="w"> </span>branches
+51da8da<span class="w"> </span>Add<span class="w"> </span>entry<span class="w"> </span>about<span class="w"> </span>checking<span class="w"> </span>out<span class="w"> </span>a<span class="w"> </span>branch
+<span class="m">8124186</span><span class="w"> </span>Add<span class="w"> </span>entry<span class="w"> </span>about<span class="w"> </span>creating<span class="w"> </span>branches
 </pre></div>
 </div>
 </section>
@@ -1106,13 +1082,22 @@ is the name of the branch to be deleted.</p></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-remote-branch-on-github">Create a remote branch on GitHub</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fetch-the-remote-branch">Fetch the remote branch</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-tracking-local-branch">Create a new tracking local branch</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-content-to-the-local-branch-and-push">Add content to the local branch and push</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-content-to-the-local-branch-and-push">Add content to the local branch and push</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#markdown-syntax">Markdown syntax</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-specify-the-branch-explicitly">Alternative: specify the branch explicitly</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merge-remote-branch-into-remote-main">Merge remote branch into remote <code class="docutils literal notranslate"><span class="pre">main</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pull-changes-into-our-local-repository">Pull changes into our local repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pull-changes-into-our-local-repository">Pull changes into our local repository</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pull-automatically-fetches"><code class="docutils literal notranslate"><span class="pre">pull</span></code> automatically <code class="docutils literal notranslate"><span class="pre">fetch</span></code>es</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning-up">Cleaning up</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#good-practice-deleting-old-branches">Good practice: deleting old branches</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deleting-branches-from-a-local-repository">Deleting branches from a local repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#force-deletion">Force deletion</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deleting-branches-from-the-remote-repository-via-github">Deleting branches from the remote repository via GitHub</a></li>
 </ul>
 </li>

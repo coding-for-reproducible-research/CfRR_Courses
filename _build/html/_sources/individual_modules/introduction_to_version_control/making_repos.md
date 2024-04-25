@@ -103,27 +103,11 @@ the repository.
 
 
 > #### Further options for GitHub repositories
->
-> Let's take a moment mention a few extra things about creating repositories on
-> GitHub. None of these points are essential for moving forward, but you'll likely
-> come into contact with them as you use GitHub more:
-> 
-> * When creating the repository, there was the option to initialise the
->   repository with some extra files:
->   - A `.gitignore` file. This is a particular file that can be used to tell Git
->     about files that it should _not_ keep a version history for. We will see
->     this later in the course.
->   - A licence file. If you intend to make your work publicly available, then
->     it's important to include a licence file which both allows others to use
->     your work and specify the terms for their use. You can read more about this
->     important topic <a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository" target="_blank" rel="external noreferrer">on GitHub</a>
->     and on the <a href="https://www.software.ac.uk/resources/guides/choosing-open-source-licence" target="_blank" rel="external noreferrer">Software Sustainability Institute</a>'s website.
-> 
-> * If you belong to an _Organisation_ on GitHub and have the correct
->   permissions, then you will be able to create repositories under the
->   organisation instead of your own user account. See GitHub's
->   <a href="https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/about-organizations" target="_blank" rel="external noreferrer">overview on organisations</a>
->   for more information. 
+Let's take a moment mention a few extra things about creating repositories on GitHub. None of these points are essential for moving forward, but you'll likely come into contact with them as you use GitHub more:
+* When creating the repository, there was the option to initialise the repository with some extra files:
+  - A `.gitignore` file. This is a particular file that can be used to tell Git about files that it should _not_ keep a version history for. We will see this later in the course.
+  - A licence file. If you intend to make your work publicly available, then it's important to include a licence file which both allows others to use your work and specify the terms for their use. You can read more about this important topic <a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository" target="_blank" rel="external noreferrer">on GitHub</a> and on the <a href="https://www.software.ac.uk/resources/guides/choosing-open-source-licence" target="_blank" rel="external noreferrer">Software Sustainability Institute</a>'s website.
+* If you belong to an _Organisation_ on GitHub and have the correct permissions, then you will be able to create repositories under the organisation instead of your own user account. See GitHub's <a href="https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/about-organizations" target="_blank" rel="external noreferrer">overview on organisations</a> for more information. 
 
 
 ### Cloning a remote repository
@@ -136,17 +120,8 @@ Any remote repository will have a URL which specifies its location — you can
 recognise them in that they end with `.git`. You need this URL to clone the
 remote repository.
 
-
-> #### Example: GitHub repositories
->
-> The URL for a remote repository on GitHub can be found by going to the
-> repository's main webpage. Under the _Code_ tab, there is a green
-> drop-down button, also labelled _Code_. Click this and copy the HTTPS address
-> listed under the _Clone_ section — this is the URL for the remote repository.
-> 
-> (Strictly speaking, this is the URL that uses the HTTPS protocol; other
-> protocols, such as SSH, are available to use instead if you prefer. We'll
-> use HTTPS for this course because it doesn't require extra set-up.)
+#### Example: GitHub repositories
+The URL for a remote repository on GitHub can be found by going to the repository's main webpage. Under the _Code_ tab, there is a green drop-down button, also labelled _Code_. Click this and copy the HTTPS address listed under the _Clone_ section — this is the URL for the remote repository. (Strictly speaking, this is the URL that uses the HTTPS protocol; other protocols, such as SSH, are available to use instead if you prefer. We'll use HTTPS for this course because it doesn't require extra set-up.)
 
 To create a local 'clone' of the remote repository, navigate in the command-line
 to a folder where you'd like to put your repository. Then run
@@ -159,11 +134,8 @@ This will create a new folder with the same name as the remote repository and
 download all the repository's contents into it.
 
 
-> #### GitHub authentication
->
-> If the remote repository is private, you may be prompted to enter your
-> GitHub username and a password. Use your Personal Access Token
-> for the password, not your GitHub account password.
+#### GitHub authentication
+If the remote repository is private, you may be prompted to enter yourGitHub username and a password. Use your Personal Access Token for the password, not your GitHub account password.
 
 If you instead want to put the contents of the repository into a specific
 folder, then use the form
@@ -171,26 +143,18 @@ folder, then use the form
 ``` bash
 git clone <remote-repo-url> path/to/folder
 ```
+#### Example
+Joe Bloggs created a remote repository on GitHub called `test-repo` and the remote repository's URL is `https://github.com/jbloggs9999/test-repo.git`. On his Mac, he navigates to the folder `~/Documents/Repositories` and runs
 
-> #### Example
->
-> Joe Bloggs created a remote repository on GitHub called `test-repo`
-> and the remote repository's URL is `https://github.com/jbloggs9999/test-repo.git`.
-> On his Mac, he navigates to the folder `~/Documents/Repositories` and runs
->
-> ``` bash
-> git clone https://github.com/jbloggs9999/test-repo.git
-> ```
->
-> This creates a new folder called `test-repo` within his `Repositories` folder,
-> which contains the local, cloned repository. If he instead had run
->
-> ``` bash
-> git clone https://github.com/jbloggs9999/test-repo.git my-test-repo-clone/
-> ```
->
-> then this would have put the contents of the repository into the folder
-> `~/Documents/Repositories/my-test-repo-clone`.
+``` bash
+git clone https://github.com/jbloggs9999/test-repo.git
+```
+
+This creates a new folder called `test-repo` within his `Repositories` folder, which contains the local, cloned repository. If he instead had run
+``` bash
+git clone https://github.com/jbloggs9999/test-repo.git my-test-repo-clone/
+```
+then this would have put the contents of the repository into the folder `~/Documents/Repositories/my-test-repo-clone`.
 
 
 ### Creating a new repository on your computer
@@ -216,21 +180,12 @@ then see the section on 'bare' repositories on
 [Atlassian's tutorial page for `git init`](https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-init).
 
 
-> #### Renaming the default branch
-> 
-> In the previous episode, we discussed changing the name of the default branch
-> from `master` to something else, e.g. `main`. For Git versions 2.28 and later,
-> the configuration can be set so that new repositories have this new name by
-> default, see the
-> [Setting up Git and GitHub]({{ site.url }}/04_configuring_git/index.html#default-git-branch-naming)
-> episode. If the version of Git you are
-> using is earlier than 2.28, then this needs to be done for each repository
-> individually. After creating the repository with `git init`, run the following
-> command:
-> 
-> ```
-> $ git checkout -b main
-> ```
+#### Renaming the default branch
+In the previous episode, we discussed changing the name of the default branch from `master` to something else, e.g. `main`. For Git versions 2.28 and later, the configuration can be set so that new repositories have this new name by default, see the [Setting up Git and GitHub]({{ site.url }}/04_configuring_git/index.html#default-git-branch-naming) episode. If the version of Git you are using is earlier than 2.28, then this needs to be done for each repository individually. After creating the repository with `git init`, run the following command:
+
+```
+$ git checkout -b main
+```
 
 
 ## What does a local repository look like?
@@ -244,13 +199,13 @@ Below is a screenshot of the repository on a Windows machine; note that we've
 enabled the display of 'hidden' files and folders, i.e. those whose names
 begin with a period.
 
-![A simple Git repository on Windows]({{ site.url }}/images/basic-repo.png)
+![A simple Git repository on Windows](images/basic-repo.png)
 
 And here is the same repository displayed on a Linux operating system, using the
 command line; note we are displaying hidden files using the `-a` option
 in the `ls` command:
 
-```
+``` bash
 $ ls -a awesome-research-done-right/
 .  ..  .git  data  plot_results.py  process_geo_data.py  run-everything.py  simulate.py  simulation-engine
 ```
@@ -266,17 +221,8 @@ have spotted in the example outputs above. This is a folder that Git creates
 automatically when the repository is created.
 
 
-> ### Warning!
-> 
-> As a general rule, don't go modifying the files in the `.git`
-> folder within a repository. Accidentally modifying a file / subfolder will likely
-> mess up the version history of the repository. There are files in the
-> `.git` folder that are suitable for direct modification, allowing users to
-> customise their interaction with Git, but this
-> comes under more advanced use that is beyond the scope of this course.
->
-> Our advice: don't poke around the `.git` folder, unless you are a confident
-> Git user and need to customise Git (even then, follow a reputable tutorial or
-> guide the first time).
+### Warning!
+As a general rule, don't go modifying the files in the `.git` folder within a repository. Accidentally modifying a file / subfolder will likely mess up the version history of the repository. There are files in the `.git` folder that are suitable for direct modification, allowing users to customise their interaction with Git, but this comes under more advanced use that is beyond the scope of this course.
+Our advice: don't poke around the `.git` folder, unless you are a confident Git user and need to customise Git (even then, follow a reputable tutorial or guide the first time).
 
  

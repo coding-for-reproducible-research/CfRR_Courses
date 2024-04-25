@@ -549,20 +549,27 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-repository-history">Viewing repository history</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paging-the-log">Paging the Log</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limiting-log-output">Limiting log output</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git-diff-viewing-changes"><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code>: viewing changes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differences-between-commits">Differences between commits</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-the-output-of-git-diff">Understanding the output of <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-your-head">Using your <code class="docutils literal notranslate"><span class="pre">HEAD</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-tree-and-staging-area-diffs">Working tree and staging area diffs</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changes-that-have-not-been-staged">Changes that have not been staged</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changes-staged-but-not-committed">Changes staged, but not committed</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Exercise</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-diffs-with-guis">Viewing diffs with GUIs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-diffs-with-guis">Viewing diffs with GUIs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vs-code">VS Code</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -591,48 +598,41 @@ the <code class="docutils literal notranslate"><span class="pre">git</span> <spa
 episode, [Recording Changes](/07_recording_changes/index.html), then
 running <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> from within the <code class="docutils literal notranslate"><span class="pre">git-good-practice</span></code> repository should look
 something like the following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">commit</span> <span class="mi">46</span><span class="n">b11e612128e68a9d558be1bcaa82bbdaac34ab</span> <span class="p">(</span><span class="n">HEAD</span> <span class="o">-&gt;</span> <span class="n">main</span><span class="p">)</span>
-<span class="n">Author</span><span class="p">:</span> <span class="n">Joe</span> <span class="n">Bloggs</span> <span class="o">&lt;</span><span class="n">joe</span><span class="o">.</span><span class="n">bloggs</span><span class="nd">@example</span><span class="o">.</span><span class="n">net</span><span class="o">&gt;</span>
-<span class="n">Date</span><span class="p">:</span>   <span class="n">Tue</span> <span class="n">Feb</span> <span class="mi">7</span> <span class="mi">16</span><span class="p">:</span><span class="mi">47</span><span class="p">:</span><span class="mi">21</span> <span class="mi">2023</span> <span class="o">+</span><span class="mi">0000</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>commit<span class="w"> </span>46b11e612128e68a9d558be1bcaa82bbdaac34ab<span class="w"> </span><span class="o">(</span>HEAD<span class="w"> </span>-&gt;<span class="w"> </span>main<span class="o">)</span>
+Author:<span class="w"> </span>Joe<span class="w"> </span>Bloggs<span class="w"> </span>&lt;joe.bloggs@example.net&gt;
+Date:<span class="w">   </span>Tue<span class="w"> </span>Feb<span class="w"> </span><span class="m">7</span><span class="w"> </span><span class="m">16</span>:47:21<span class="w"> </span><span class="m">2023</span><span class="w"> </span>+0000
 
-    <span class="n">Add</span> <span class="n">advice</span> <span class="n">on</span> <span class="n">committing</span> <span class="n">little</span> <span class="ow">and</span> <span class="n">often</span>
+<span class="w">    </span>Add<span class="w"> </span>advice<span class="w"> </span>on<span class="w"> </span>committing<span class="w"> </span>little<span class="w"> </span>and<span class="w"> </span>often
 
-<span class="n">commit</span> <span class="n">ecbf67e161e805a3183ebc84eb7d39c229a78451</span>
-<span class="n">Author</span><span class="p">:</span> <span class="n">Joe</span> <span class="n">Bloggs</span> <span class="o">&lt;</span><span class="n">joe</span><span class="o">.</span><span class="n">bloggs</span><span class="nd">@example</span><span class="o">.</span><span class="n">net</span><span class="o">&gt;</span>
-<span class="n">Date</span><span class="p">:</span>   <span class="n">Tue</span> <span class="n">Feb</span> <span class="mi">7</span> <span class="mi">16</span><span class="p">:</span><span class="mi">46</span><span class="p">:</span><span class="mi">54</span> <span class="mi">2023</span> <span class="o">+</span><span class="mi">0000</span>
+commit<span class="w"> </span>ecbf67e161e805a3183ebc84eb7d39c229a78451
+Author:<span class="w"> </span>Joe<span class="w"> </span>Bloggs<span class="w"> </span>&lt;joe.bloggs@example.net&gt;
+Date:<span class="w">   </span>Tue<span class="w"> </span>Feb<span class="w"> </span><span class="m">7</span><span class="w"> </span><span class="m">16</span>:46:54<span class="w"> </span><span class="m">2023</span><span class="w"> </span>+0000
 
-    <span class="n">Add</span> <span class="n">entry</span> <span class="k">for</span> <span class="s1">&#39;git commit&#39;</span> <span class="k">with</span> <span class="s1">&#39;-m&#39;</span> <span class="n">option</span>
+<span class="w">    </span>Add<span class="w"> </span>entry<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;git commit&#39;</span><span class="w"> </span>with<span class="w"> </span><span class="s1">&#39;-m&#39;</span><span class="w"> </span>option
 
-<span class="n">commit</span> <span class="mi">34</span><span class="n">c19f2dd01c42fa2981520ca436bde5378979cb</span>
-<span class="n">Author</span><span class="p">:</span> <span class="n">Joe</span> <span class="n">Bloggs</span> <span class="o">&lt;</span><span class="n">joe</span><span class="o">.</span><span class="n">bloggs</span><span class="nd">@example</span><span class="o">.</span><span class="n">net</span><span class="o">&gt;</span>
-<span class="n">Date</span><span class="p">:</span>   <span class="n">Tue</span> <span class="n">Feb</span> <span class="mi">7</span> <span class="mi">16</span><span class="p">:</span><span class="mi">14</span><span class="p">:</span><span class="mi">14</span> <span class="mi">2023</span> <span class="o">+</span><span class="mi">0000</span>
+commit<span class="w"> </span>34c19f2dd01c42fa2981520ca436bde5378979cb
+Author:<span class="w"> </span>Joe<span class="w"> </span>Bloggs<span class="w"> </span>&lt;joe.bloggs@example.net&gt;
+Date:<span class="w">   </span>Tue<span class="w"> </span>Feb<span class="w"> </span><span class="m">7</span><span class="w"> </span><span class="m">16</span>:14:14<span class="w"> </span><span class="m">2023</span><span class="w"> </span>+0000
 
-    <span class="n">Add</span> <span class="n">material</span> <span class="n">on</span> <span class="n">committing</span>
+<span class="w">    </span>Add<span class="w"> </span>material<span class="w"> </span>on<span class="w"> </span>committing
 
-    <span class="n">This</span> <span class="n">includes</span> <span class="n">both</span> <span class="n">an</span> <span class="n">entry</span> <span class="k">for</span> <span class="s1">&#39;git commit&#39;</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">cheatsheet</span>
-    <span class="ow">and</span> <span class="n">also</span> <span class="n">material</span> <span class="n">on</span> <span class="n">good</span> <span class="n">practice</span> <span class="k">for</span> <span class="n">commit</span> <span class="n">messages</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">new</span>
-    <span class="s1">&#39;good practice&#39;</span> <span class="n">document</span><span class="o">.</span>
+<span class="w">    </span>This<span class="w"> </span>includes<span class="w"> </span>both<span class="w"> </span>an<span class="w"> </span>entry<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;git commit&#39;</span><span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>cheatsheet
+<span class="w">    </span>and<span class="w"> </span>also<span class="w"> </span>material<span class="w"> </span>on<span class="w"> </span>good<span class="w"> </span>practice<span class="w"> </span><span class="k">for</span><span class="w"> </span>commit<span class="w"> </span>messages<span class="w"> </span><span class="k">in</span><span class="w"> </span>a<span class="w"> </span>new
+<span class="w">    </span><span class="s1">&#39;good practice&#39;</span><span class="w"> </span>document.
 
-<span class="n">commit</span> <span class="n">ad56194133fcac4f65d236260f372665fbec605b</span>
-<span class="n">Author</span><span class="p">:</span> <span class="n">Joe</span> <span class="n">Bloggs</span> <span class="o">&lt;</span><span class="n">joe</span><span class="o">.</span><span class="n">bloggs</span><span class="nd">@example</span><span class="o">.</span><span class="n">net</span><span class="o">&gt;</span>
-<span class="p">:</span>
+commit<span class="w"> </span>ad56194133fcac4f65d236260f372665fbec605b
+Author:<span class="w"> </span>Joe<span class="w"> </span>Bloggs<span class="w"> </span>&lt;joe.bloggs@example.net&gt;
+:
 </pre></div>
 </div>
-<blockquote>
-<div><h3 class="rubric" id="paging-the-log">Paging the Log</h3>
-<p>When the output of <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> is too long to fit in your screen,
-Git uses a program called a <em>pager</em> to split it into pages of the size of your screen.
-When this pager is called, you will notice that the last line in your
-screen is a <code class="docutils literal notranslate"><span class="pre">:</span></code>, instead of your usual prompt.</p>
+<section id="paging-the-log">
+<h3>Paging the Log<a class="headerlink" href="#paging-the-log" title="Link to this heading">#</a></h3>
+<p>When the output of <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> is too long to fit in your screen, Git uses a program called a <em>pager</em> to split it into pages of the size of your screen. When this pager is called, you will notice that the last line in your screen is a <code class="docutils literal notranslate"><span class="pre">:</span></code>, instead of your usual prompt.</p>
 <ul class="simple">
 <li><p>To get out of the pager, press <kbd>Q</kbd>.</p></li>
 <li><p>To move to the next page, press <kbd>Spacebar</kbd>.</p></li>
-<li><p>To search for <code class="docutils literal notranslate"><span class="pre">some_word</span></code> in all pages,
-press <kbd>/</kbd>
-and type <code class="docutils literal notranslate"><span class="pre">some_word</span></code>.
-Navigate through matches pressing <kbd>N</kbd>.</p></li>
+<li><p>To search for <code class="docutils literal notranslate"><span class="pre">some_word</span></code> in all pages, press <kbd>/</kbd> and type <code class="docutils literal notranslate"><span class="pre">some_word</span></code>. Navigate through matches pressing <kbd>N</kbd>.</p></li>
 </ul>
-</div></blockquote>
 <p>The log contains one entry for each commit. The commit messages for the
 commits are included, as well as details of who made the commit. The name and email address
 are those that were given when configuring Git (see the episode
@@ -646,37 +646,38 @@ identifier.</p>
 <p>Git also has a way of referring to the current, or most recent, commit: this is
 called <code class="docutils literal notranslate"><span class="pre">HEAD</span></code>. In the above output, <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> refers to the commit with message
 “Add advice on committing little and often” (as indicated by <code class="docutils literal notranslate"><span class="pre">(HEAD</span> <span class="pre">-&gt;</span> <span class="pre">main)</span></code>).</p>
+</section>
 <section id="limiting-log-output">
 <h3>Limiting log output<a class="headerlink" href="#limiting-log-output" title="Link to this heading">#</a></h3>
 <p>To avoid having <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> cover your entire terminal screen, you can limit the
 number of commits that Git lists by using <code class="docutils literal notranslate"><span class="pre">-n</span></code>, where <code class="docutils literal notranslate"><span class="pre">n</span></code> is the number of
 commits that you want to view. For example, if you only want information from
 the last commit you can use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span> <span class="pre">-1</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log -1
-commit 46b11e612128e68a9d558be1bcaa82bbdaac34ab (HEAD -&gt; main)
-Author: Joe Bloggs &lt;joe.bloggs@example.net&gt;
-Date:   Tue Feb 7 16:47:21 2023 +0000
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span>-1
+commit<span class="w"> </span>46b11e612128e68a9d558be1bcaa82bbdaac34ab<span class="w"> </span><span class="o">(</span>HEAD<span class="w"> </span>-&gt;<span class="w"> </span>main<span class="o">)</span>
+Author:<span class="w"> </span>Joe<span class="w"> </span>Bloggs<span class="w"> </span>&lt;joe.bloggs@example.net&gt;
+Date:<span class="w">   </span>Tue<span class="w"> </span>Feb<span class="w"> </span><span class="m">7</span><span class="w"> </span><span class="m">16</span>:47:21<span class="w"> </span><span class="m">2023</span><span class="w"> </span>+0000
 
-    Add advice on committing little and often
+<span class="w">    </span>Add<span class="w"> </span>advice<span class="w"> </span>on<span class="w"> </span>committing<span class="w"> </span>little<span class="w"> </span>and<span class="w"> </span>often
 </pre></div>
 </div>
 <p>You can also reduce the quantity of information using the <code class="docutils literal notranslate"><span class="pre">--oneline</span></code> option:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log --oneline
-46b11e6 (HEAD -&gt; main) Add advice on committing little and often
-ecbf67e Add entry for &#39;git commit&#39; with &#39;-m&#39; option
-34c19f2 Add material on committing
-ad56194 Add entry about staging files with &#39;git add&#39;
-17912ce Create a cheatsheet document
-3917168 (origin/main, origin/HEAD) Initial commit
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span>--oneline
+46b11e6<span class="w"> </span><span class="o">(</span>HEAD<span class="w"> </span>-&gt;<span class="w"> </span>main<span class="o">)</span><span class="w"> </span>Add<span class="w"> </span>advice<span class="w"> </span>on<span class="w"> </span>committing<span class="w"> </span>little<span class="w"> </span>and<span class="w"> </span>often
+ecbf67e<span class="w"> </span>Add<span class="w"> </span>entry<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;git commit&#39;</span><span class="w"> </span>with<span class="w"> </span><span class="s1">&#39;-m&#39;</span><span class="w"> </span>option
+34c19f2<span class="w"> </span>Add<span class="w"> </span>material<span class="w"> </span>on<span class="w"> </span>committing
+ad56194<span class="w"> </span>Add<span class="w"> </span>entry<span class="w"> </span>about<span class="w"> </span>staging<span class="w"> </span>files<span class="w"> </span>with<span class="w"> </span><span class="s1">&#39;git add&#39;</span>
+17912ce<span class="w"> </span>Create<span class="w"> </span>a<span class="w"> </span>cheatsheet<span class="w"> </span>document
+<span class="m">3917168</span><span class="w"> </span><span class="o">(</span>origin/main,<span class="w"> </span>origin/HEAD<span class="o">)</span><span class="w"> </span>Initial<span class="w"> </span>commit
 </pre></div>
 </div>
 <p>Note that, in this format, each commit has its short identifier displayed.
 You can also combine the <code class="docutils literal notranslate"><span class="pre">--oneline</span></code> option with others. For example, to view
 just the last 3 log entries on single lines:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log --oneline -3
-46b11e6 (HEAD -&gt; main) Add advice on committing little and often
-ecbf67e Add entry for &#39;git commit&#39; with &#39;-m&#39; option
-34c19f2 Add material on committing
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>-3
+46b11e6<span class="w"> </span><span class="o">(</span>HEAD<span class="w"> </span>-&gt;<span class="w"> </span>main<span class="o">)</span><span class="w"> </span>Add<span class="w"> </span>advice<span class="w"> </span>on<span class="w"> </span>committing<span class="w"> </span>little<span class="w"> </span>and<span class="w"> </span>often
+ecbf67e<span class="w"> </span>Add<span class="w"> </span>entry<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;git commit&#39;</span><span class="w"> </span>with<span class="w"> </span><span class="s1">&#39;-m&#39;</span><span class="w"> </span>option
+34c19f2<span class="w"> </span>Add<span class="w"> </span>material<span class="w"> </span>on<span class="w"> </span>committing
 </pre></div>
 </div>
 </section>
@@ -702,7 +703,7 @@ files that have yet to be staged or, in the second form, yet to be committed.</p
 <p>Let’s first look at how to examine file changes
 that have been made to go from one commit to another. The general form of
 the command to do this is:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">diff</span> <span class="o">&lt;</span><span class="n">commit1</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">commit2</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">files</span><span class="o">&gt;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>diff<span class="w"> </span>&lt;commit1&gt;<span class="w"> </span>&lt;commit2&gt;<span class="w"> </span>&lt;files&gt;
 </pre></div>
 </div>
 <p>Commits should be referred to by their identifiers (either their normal or short
@@ -715,80 +716,63 @@ changes required to go from commit
 <code class="docutils literal notranslate"><span class="pre">ad56194</span></code> (with message “Add entry about staging files with ‘git add’”) to commit
 <code class="docutils literal notranslate"><span class="pre">34c19f2</span></code> (with message “Add material on committing”), for each of the files
 <code class="docutils literal notranslate"><span class="pre">Git-cheatsheet.md</span></code> and <code class="docutils literal notranslate"><span class="pre">Commit-good-practice.md</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git diff ad56194 34c19f2 Git-cheatsheet.md Commit-good-practice.md
-diff --git a/Commit-good-practice.md b/Commit-good-practice.md
-new file mode 100644
-index 0000000..9610409
---- /dev/null
-+++ b/Commit-good-practice.md
-@@ -0,0 +1,12 @@
-+# Best practice when committing
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>diff<span class="w"> </span>ad56194<span class="w"> </span>34c19f2<span class="w"> </span>Git-cheatsheet.md<span class="w"> </span>Commit-good-practice.md
+diff<span class="w"> </span>--git<span class="w"> </span>a/Commit-good-practice.md<span class="w"> </span>b/Commit-good-practice.md
+new<span class="w"> </span>file<span class="w"> </span>mode<span class="w"> </span><span class="m">100644</span>
+index<span class="w"> </span><span class="m">0000000</span>..9610409
+---<span class="w"> </span>/dev/null
++++<span class="w"> </span>b/Commit-good-practice.md
+@@<span class="w"> </span>-0,0<span class="w"> </span>+1,12<span class="w"> </span>@@
++#<span class="w"> </span>Best<span class="w"> </span>practice<span class="w"> </span>when<span class="w"> </span>committing
 +
-+## Commit messages
++##<span class="w"> </span>Commit<span class="w"> </span>messages
 +
-+[Good commit messages](https://chris.beams.io/posts/git-commit/)
-+start with a brief (usually &lt; 50 characters) summary statement about the
-+changes made in the commit, with more explanation given in a new paragraph if
-+required. Generally, the summary should complete the sentence &quot;If applied, this
-+commit will [_commit message here_]&quot;.
++<span class="o">[</span>Good<span class="w"> </span>commit<span class="w"> </span>messages<span class="o">](</span>https://chris.beams.io/posts/git-commit/<span class="o">)</span>
++start<span class="w"> </span>with<span class="w"> </span>a<span class="w"> </span>brief<span class="w"> </span><span class="o">(</span>usually<span class="w"> </span>&lt;<span class="w"> </span><span class="m">50</span><span class="w"> </span>characters<span class="o">)</span><span class="w"> </span>summary<span class="w"> </span>statement<span class="w"> </span>about<span class="w"> </span>the
++changes<span class="w"> </span>made<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>commit,<span class="w"> </span>with<span class="w"> </span>more<span class="w"> </span>explanation<span class="w"> </span>given<span class="w"> </span><span class="k">in</span><span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>paragraph<span class="w"> </span><span class="k">if</span>
++required.<span class="w"> </span>Generally,<span class="w"> </span>the<span class="w"> </span>summary<span class="w"> </span>should<span class="w"> </span><span class="nb">complete</span><span class="w"> </span>the<span class="w"> </span>sentence<span class="w"> </span><span class="s2">&quot;If applied, this</span>
+<span class="s2">+commit will [_commit message here_]&quot;</span>.
 +
-+Avoid uninformative messages such as &quot;small tweaks&quot; or &quot;updates&quot; — write what
-+will be useful for others to read.
-diff --git a/Git-cheatsheet.md b/Git-cheatsheet.md
-index c2409dd..26bcb5c 100644
---- a/Git-cheatsheet.md
-+++ b/Git-cheatsheet.md
-@@ -11,3 +11,6 @@
- ## Adding / committing changes
++Avoid<span class="w"> </span>uninformative<span class="w"> </span>messages<span class="w"> </span>such<span class="w"> </span>as<span class="w"> </span><span class="s2">&quot;small tweaks&quot;</span><span class="w"> </span>or<span class="w"> </span><span class="s2">&quot;updates&quot;</span><span class="w"> </span>—<span class="w"> </span>write<span class="w"> </span>what
++will<span class="w"> </span>be<span class="w"> </span>useful<span class="w"> </span><span class="k">for</span><span class="w"> </span>others<span class="w"> </span>to<span class="w"> </span>read.
+diff<span class="w"> </span>--git<span class="w"> </span>a/Git-cheatsheet.md<span class="w"> </span>b/Git-cheatsheet.md
+index<span class="w"> </span>c2409dd..26bcb5c<span class="w"> </span><span class="m">100644</span>
+---<span class="w"> </span>a/Git-cheatsheet.md
++++<span class="w"> </span>b/Git-cheatsheet.md
+@@<span class="w"> </span>-11,3<span class="w"> </span>+11,6<span class="w"> </span>@@
+<span class="w"> </span><span class="c1">## Adding / committing changes</span>
 
- `git add &lt;files&gt;` — Stages changes in the `&lt;files&gt;`, ready for committing.
+<span class="w"> </span><span class="sb">`</span>git<span class="w"> </span>add<span class="w"> </span>&lt;files&gt;<span class="sb">`</span><span class="w"> </span>—<span class="w"> </span>Stages<span class="w"> </span>changes<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span><span class="sb">`</span>&lt;files&gt;<span class="sb">`</span>,<span class="w"> </span>ready<span class="w"> </span><span class="k">for</span><span class="w"> </span>committing.
 +
-+`git commit` — Commit changes to the repository that have been staged with
-+               `git add`.
++<span class="sb">`</span>git<span class="w"> </span>commit<span class="sb">`</span><span class="w"> </span>—<span class="w"> </span>Commit<span class="w"> </span>changes<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>repository<span class="w"> </span>that<span class="w"> </span>have<span class="w"> </span>been<span class="w"> </span>staged<span class="w"> </span>with
++<span class="w">               </span><span class="sb">`</span>git<span class="w"> </span>add<span class="sb">`</span>.
 </pre></div>
 </div>
 <p>The output describes the <strong>differences</strong> (or <strong>diffs</strong>) of each file between the
 versions in the specified commits.</p>
-<blockquote>
-<div><h3 class="rubric" id="understanding-the-output-of-git-diff">Understanding the output of <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code></h3>
-<p>The output of <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code>, as shown above, is cryptic because
-it is actually a series of commands for tools like editors and <code class="docutils literal notranslate"><span class="pre">patch</span></code>
-telling them how to reconstruct one file given the other.
-If we break it down into pieces:</p>
+<section id="understanding-the-output-of-git-diff">
+<h3>Understanding the output of <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code><a class="headerlink" href="#understanding-the-output-of-git-diff" title="Link to this heading">#</a></h3>
+<p>The output of <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code>, as shown above, is cryptic because it is actually a series of commands for tools like editors and <code class="docutils literal notranslate"><span class="pre">patch</span></code> telling them how to reconstruct one file given the other. If we break it down into pieces:</p>
 <ol class="arabic simple">
-<li><p>The ‘diff’ for each file begins with a line like
-<code class="docutils literal notranslate"><span class="pre">diff</span> <span class="pre">--git</span> <span class="pre">a/&lt;filename&gt;</span> <span class="pre">b/&lt;filename&gt;</span></code>. It tells us that Git is producing output
-similar to the Unix <code class="docutils literal notranslate"><span class="pre">diff</span></code> command, comparing the old and new versions of the
-file <code class="docutils literal notranslate"><span class="pre">&lt;filename&gt;</span></code>. In the example above, the output starts
-with the diff for
-<code class="docutils literal notranslate"><span class="pre">Commit-good-practice.md</span></code> until just before the line
-<code class="docutils literal notranslate"><span class="pre">diff</span> <span class="pre">--git</span> <span class="pre">a/Git-cheatsheet.md</span> <span class="pre">b/Git-cheatsheet.md</span></code>, at which point it switches
-to the diff for <code class="docutils literal notranslate"><span class="pre">Git-cheatsheet.md</span></code>.</p></li>
-<li><p>The next few lines in each file’s diff tell exactly which versions of the file
-Git is comparing. Confusingly, it looks like it contains commit identifiers,
-but these are in face different, computer-generated labels for the
-versions of the files.</p></li>
-<li><p>The remaining lines, beginning <code class="docutils literal notranslate"><span class="pre">&#64;&#64;</span></code>, are the most interesting: they show us the actual differences
-and the lines on which they occur. In particular,
-the <code class="docutils literal notranslate"><span class="pre">+</span></code> marker in the first column shows where we added a line. If we had
-lines that were removed, these would be marked with <code class="docutils literal notranslate"><span class="pre">-</span></code>.</p></li>
+<li><p>The ‘diff’ for each file begins with a line like <code class="docutils literal notranslate"><span class="pre">diff</span> <span class="pre">--git</span> <span class="pre">a/&lt;filename&gt;</span> <span class="pre">b/&lt;filename&gt;</span></code>. It tells us that Git is producing output similar to the Unix <code class="docutils literal notranslate"><span class="pre">diff</span></code> command, comparing the old and new versions of thefile <code class="docutils literal notranslate"><span class="pre">&lt;filename&gt;</span></code>. In the example above, the output starts with the diff for <code class="docutils literal notranslate"><span class="pre">Commit-good-practice.md</span></code> until just before the line  <code class="docutils literal notranslate"><span class="pre">diff</span> <span class="pre">--git</span> <span class="pre">a/Git-cheatsheet.md</span> <span class="pre">b/Git-cheatsheet.md</span></code>, at which point it switches to the diff for <code class="docutils literal notranslate"><span class="pre">Git-cheatsheet.md</span></code>.</p></li>
+<li><p>The next few lines in each file’s diff tell exactly which versions of the file Git is comparing. Confusingly, it looks like it contains commit identifiers, but these are in face different, computer-generated labels for the versions of the files.</p></li>
+<li><p>The remaining lines, beginning <code class="docutils literal notranslate"><span class="pre">&#64;&#64;</span></code>, are the most interesting: they show us the actual differences and the lines on which they occur. In particular, the <code class="docutils literal notranslate"><span class="pre">+</span></code> marker in the first column shows where we added a line. If we had lines that were removed, these would be marked with <code class="docutils literal notranslate"><span class="pre">-</span></code>.</p></li>
 </ol>
-</div></blockquote>
 <p>If we wanted to view just the diff for the file <code class="docutils literal notranslate"><span class="pre">Git-cheatsheet.md</span></code> we would
 supply that as the only file argument, like so:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git diff ad56194 34c19f2 Git-cheatsheet.md
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>diff<span class="w"> </span>ad56194<span class="w"> </span>34c19f2<span class="w"> </span>Git-cheatsheet.md
 </pre></div>
 </div>
 <p>If we leave out <code class="docutils literal notranslate"><span class="pre">&lt;files&gt;</span></code> altogether, then Git will show the diffs for all files
 that were changed in the given commits. With the commits <code class="docutils literal notranslate"><span class="pre">ad56194</span></code> and <code class="docutils literal notranslate"><span class="pre">34c19f2</span></code>
 above we only have the two files, so in this case</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">diff</span> <span class="n">ad56194</span> <span class="mi">34</span><span class="n">c19f2</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>diff<span class="w"> </span>ad56194<span class="w"> </span>34c19f2
 </pre></div>
 </div>
 <p>would give the same output as <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span> <span class="pre">ad56194</span> <span class="pre">34c19f2</span> <span class="pre">Git-cheatsheet.md</span> <span class="pre">Commit-good-practice.md</span></code>.</p>
 <p>Sometimes you only want to see which files have changed between commits. This
 can be achieved with the <code class="docutils literal notranslate"><span class="pre">--name-only</span></code> option:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git diff --name-only ad56194 34c19f2
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>diff<span class="w"> </span>--name-only<span class="w"> </span>ad56194<span class="w"> </span>34c19f2
 Commit-good-practice.md
 Git-cheatsheet.md
 </pre></div>
@@ -796,34 +780,35 @@ Git-cheatsheet.md
 <p>If we just want to compare the <em>latest</em> commit — that is, the commit referred to
 by <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> — with a previous commit, we just provide an identifier for the
 commit to compare to:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">diff</span> <span class="o">&lt;</span><span class="n">commit</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">files</span><span class="o">&gt;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>diff<span class="w"> </span>&lt;commit&gt;<span class="w"> </span>&lt;files&gt;
 </pre></div>
 </div>
 <p>The rules for <code class="docutils literal notranslate"><span class="pre">&lt;files&gt;</span></code> are the same as before. For example, to view the changes
 to the file <code class="docutils literal notranslate"><span class="pre">Commit-good-practice.md</span></code> from commit <code class="docutils literal notranslate"><span class="pre">34c19f2</span></code>
 (“Add material on committing”) to the latest commit:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git diff 34c19f2 Commit-good-practice.md
-diff --git a/Commit-good-practice.md b/Commit-good-practice.md
-index 9610409..524d4ec 100644
---- a/Commit-good-practice.md
-+++ b/Commit-good-practice.md
-@@ -10,3 +10,14 @@ commit will [_commit message here_]&quot;.
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>diff<span class="w"> </span>34c19f2<span class="w"> </span>Commit-good-practice.md
+diff<span class="w"> </span>--git<span class="w"> </span>a/Commit-good-practice.md<span class="w"> </span>b/Commit-good-practice.md
+index<span class="w"> </span><span class="m">9610409</span>..524d4ec<span class="w"> </span><span class="m">100644</span>
+---<span class="w"> </span>a/Commit-good-practice.md
++++<span class="w"> </span>b/Commit-good-practice.md
+@@<span class="w"> </span>-10,3<span class="w"> </span>+10,14<span class="w"> </span>@@<span class="w"> </span>commit<span class="w"> </span>will<span class="w"> </span><span class="o">[</span>_commit<span class="w"> </span>message<span class="w"> </span>here_<span class="o">]</span><span class="s2">&quot;.</span>
 
- Avoid uninformative messages such as &quot;small tweaks&quot; or &quot;updates&quot; — write what
- will be useful for others to read.
-+
-+
-+## Commit little and often
-+
-+Aim for each commit to capture one conceptual change to your work that
-+can stand alone. This will make the history of your files&#39; development much easier
-+to follow.
-+
-+A good rule of thumb: a commit should capture a change that
-+you can describe in about 50 characters or fewer, potentially with extra
-+explanation in the commit message if needed.
+<span class="s2"> Avoid uninformative messages such as &quot;</span>small<span class="w"> </span>tweaks<span class="s2">&quot; or &quot;</span>updates<span class="s2">&quot; — write what</span>
+<span class="s2"> will be useful for others to read.</span>
+<span class="s2">+</span>
+<span class="s2">+</span>
+<span class="s2">+## Commit little and often</span>
+<span class="s2">+</span>
+<span class="s2">+Aim for each commit to capture one conceptual change to your work that</span>
+<span class="s2">+can stand alone. This will make the history of your files&#39; development much easier</span>
+<span class="s2">+to follow.</span>
+<span class="s2">+</span>
+<span class="s2">+A good rule of thumb: a commit should capture a change that</span>
+<span class="s2">+you can describe in about 50 characters or fewer, potentially with extra</span>
+<span class="s2">+explanation in the commit message if needed.</span>
 </pre></div>
 </div>
+</section>
 <section id="using-your-head">
 <h3>Using your <code class="docutils literal notranslate"><span class="pre">HEAD</span></code><a class="headerlink" href="#using-your-head" title="Link to this heading">#</a></h3>
 <p>The case where you want to compare the most recent commit to an earlier one in
@@ -844,13 +829,10 @@ i.e. the changes required to go from 3 commits earlier to the current commit.</p
 from commit <code class="docutils literal notranslate"><span class="pre">HEAD~3</span></code> (<code class="docutils literal notranslate"><span class="pre">ad56194</span></code>) to <code class="docutils literal notranslate"><span class="pre">HEAD~2</span></code> (<code class="docutils literal notranslate"><span class="pre">34c19f2</span></code>). In other words, it
 just gives the changes applied back when we did commit <code class="docutils literal notranslate"><span class="pre">34c19f2</span></code>.</p></li>
 </ul>
-<blockquote>
-<div><h3 class="rubric" id="exercise">Exercise</h3>
-<p>Verify the claims in the three bullet point examples given above, checking
-the outputs of <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code> agree for the <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> versions and the regular
-commit identifier versions. <em>Note: make sure to use the commit identifiers
-found in your own log, not the ones that feature in the example output above!</em></p>
-</div></blockquote>
+</section>
+<section id="exercise">
+<h3>Exercise<a class="headerlink" href="#exercise" title="Link to this heading">#</a></h3>
+<p>Verify the claims in the three bullet point examples given above, checking the outputs of <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code> agree for the <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> versions and the regular commit identifier versions. <em>Note: make sure to use the commit identifiersfound in your own log, not the ones that feature in the example output above!</em></p>
 </section>
 </section>
 <section id="working-tree-and-staging-area-diffs">
@@ -862,42 +844,38 @@ or committed.</p>
 <section id="changes-that-have-not-been-staged">
 <h3>Changes that have not been staged<a class="headerlink" href="#changes-that-have-not-been-staged" title="Link to this heading">#</a></h3>
 <p>Let’s suppose we add some new content to our cheatsheet about <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">## Viewing repository history</span>
 
-## Viewing repository history
+<span class="sb">`</span>git<span class="w"> </span>log<span class="sb">`</span><span class="w"> </span>—<span class="w"> </span>Shows<span class="w"> </span>the<span class="w"> </span><span class="nb">history</span><span class="w"> </span>of<span class="w"> </span>commits<span class="w"> </span>that<span class="w"> </span>have<span class="w"> </span>been<span class="w"> </span>made.
 
-`git log` — Shows the history of commits that have been made.
-
-`git log --oneline` — Show summary commit information, one commit per line.
-
+<span class="sb">`</span>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="sb">`</span><span class="w"> </span>—<span class="w"> </span>Show<span class="w"> </span>summary<span class="w"> </span>commit<span class="w"> </span>information,<span class="w"> </span>one<span class="w"> </span>commit<span class="w"> </span>per<span class="w"> </span>line.
 </pre></div>
 </div>
 <p>This will add changes to the working tree for our repository. We can view the
 diff for changes that are in the working tree, but have not yet been staged,
 by using <code class="docutils literal notranslate"><span class="pre">diff</span></code> without reference to any commits:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">diff</span> <span class="o">&lt;</span><span class="n">files</span><span class="o">&gt;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>diff<span class="w"> </span>&lt;files&gt;
 </pre></div>
 </div>
 <p>As usual, we can leave <code class="docutils literal notranslate"><span class="pre">&lt;files&gt;</span></code> empty and Git will return the diffs for all
 files that have changed.</p>
 <p>Running this in our <code class="docutils literal notranslate"><span class="pre">git-good-practice</span></code> repository now yields</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git diff
-diff --git a/Git-cheatsheet.md b/Git-cheatsheet.md
-index 135822a..86e679f 100644
---- a/Git-cheatsheet.md
-+++ b/Git-cheatsheet.md
-@@ -17,3 +17,10 @@
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>diff
+diff<span class="w"> </span>--git<span class="w"> </span>a/Git-cheatsheet.md<span class="w"> </span>b/Git-cheatsheet.md
+index<span class="w"> </span>135822a..86e679f<span class="w"> </span><span class="m">100644</span>
+---<span class="w"> </span>a/Git-cheatsheet.md
++++<span class="w"> </span>b/Git-cheatsheet.md
+@@<span class="w"> </span>-17,3<span class="w"> </span>+17,10<span class="w"> </span>@@
 
- `git commit -m &quot;commit message here&quot; — Commit changes to the repository, using
-                                        the given commit message
+<span class="w"> </span><span class="sb">`</span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;commit message here&quot;</span><span class="w"> </span>—<span class="w"> </span>Commit<span class="w"> </span>changes<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>repository,<span class="w"> </span>using
+<span class="w">                                        </span>the<span class="w"> </span>given<span class="w"> </span>commit<span class="w"> </span>message
 +
 +
-+## Viewing repository history
++##<span class="w"> </span>Viewing<span class="w"> </span>repository<span class="w"> </span><span class="nb">history</span>
 +
-+`git log` — Shows the history of commits that have been made.
++<span class="sb">`</span>git<span class="w"> </span>log<span class="sb">`</span><span class="w"> </span>—<span class="w"> </span>Shows<span class="w"> </span>the<span class="w"> </span><span class="nb">history</span><span class="w"> </span>of<span class="w"> </span>commits<span class="w"> </span>that<span class="w"> </span>have<span class="w"> </span>been<span class="w"> </span>made.
 +
-+`git log --oneline` — Show summary commit information, one commit per line.
-
++<span class="sb">`</span>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="sb">`</span><span class="w"> </span>—<span class="w"> </span>Show<span class="w"> </span>summary<span class="w"> </span>commit<span class="w"> </span>information,<span class="w"> </span>one<span class="w"> </span>commit<span class="w"> </span>per<span class="w"> </span>line.
 </pre></div>
 </div>
 <p>as we would expect.</p>
@@ -906,9 +884,9 @@ index 135822a..86e679f 100644
 <h3>Changes staged, but not committed<a class="headerlink" href="#changes-staged-but-not-committed" title="Link to this heading">#</a></h3>
 <p>Suppose we now stage the changes above made in the previous section and run
 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code> again:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git add Git-cheatsheet.md
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>Git-cheatsheet.md
 
-$ git diff
+$<span class="w"> </span>git<span class="w"> </span>diff
 
 $
 </pre></div>
@@ -917,40 +895,33 @@ $
 behaviour of <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code> is to show changes that are <em>in the working tree</em> but
 have not been staged. We can use the <code class="docutils literal notranslate"><span class="pre">--staged</span></code> option to view the changes that
 have been staged, but not yet committed:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git diff --staged
-diff --git a/Git-cheatsheet.md b/Git-cheatsheet.md
-index 135822a..86e679f 100644
---- a/Git-cheatsheet.md
-+++ b/Git-cheatsheet.md
-@@ -17,3 +17,10 @@
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>diff<span class="w"> </span>--staged
+diff<span class="w"> </span>--git<span class="w"> </span>a/Git-cheatsheet.md<span class="w"> </span>b/Git-cheatsheet.md
+index<span class="w"> </span>135822a..86e679f<span class="w"> </span><span class="m">100644</span>
+---<span class="w"> </span>a/Git-cheatsheet.md
++++<span class="w"> </span>b/Git-cheatsheet.md
+@@<span class="w"> </span>-17,3<span class="w"> </span>+17,10<span class="w"> </span>@@
 
- `git commit -m &quot;commit message here&quot; — Commit changes to the repository, using
-                                        the given commit message
+<span class="w"> </span><span class="sb">`</span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;commit message here&quot;</span><span class="w"> </span>—<span class="w"> </span>Commit<span class="w"> </span>changes<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>repository,<span class="w"> </span>using
+<span class="w">                                        </span>the<span class="w"> </span>given<span class="w"> </span>commit<span class="w"> </span>message
 +
 +
-+## Viewing repository history
++##<span class="w"> </span>Viewing<span class="w"> </span>repository<span class="w"> </span><span class="nb">history</span>
 +
-+`git log` — Shows the history of commits that have been made.
++<span class="sb">`</span>git<span class="w"> </span>log<span class="sb">`</span><span class="w"> </span>—<span class="w"> </span>Shows<span class="w"> </span>the<span class="w"> </span><span class="nb">history</span><span class="w"> </span>of<span class="w"> </span>commits<span class="w"> </span>that<span class="w"> </span>have<span class="w"> </span>been<span class="w"> </span>made.
 +
-+`git log --oneline` — Show summary commit information, one commit per line.
-
++<span class="sb">`</span>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="sb">`</span><span class="w"> </span>—<span class="w"> </span>Show<span class="w"> </span>summary<span class="w"> </span>commit<span class="w"> </span>information,<span class="w"> </span>one<span class="w"> </span>commit<span class="w"> </span>per<span class="w"> </span>line.
 </pre></div>
 </div>
-<blockquote>
-<div><h3 class="rubric" id="id1">Exercise</h3>
-<p>First follow the steps above, so that you end up with entries about <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> and
-<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span> <span class="pre">--oneline</span></code> in <code class="docutils literal notranslate"><span class="pre">Git-cheatsheet.md</span></code> that are staged but not committed.
-Now add a new entry to the cheatsheet about <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span> <span class="pre">-n</span></code>, but don’t stage it.
-Now do the following:</p>
+</section>
+<section id="id1">
+<h3>Exercise<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>First follow the steps above, so that you end up with entries about <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span> <span class="pre">--oneline</span></code> in <code class="docutils literal notranslate"><span class="pre">Git-cheatsheet.md</span></code> that are staged but not committed.Now add a new entry to the cheatsheet about <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span> <span class="pre">-n</span></code>, but don’t stage it. Now do the following:</p>
 <ul class="simple">
 <li><p>Run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span> <span class="pre">Git-cheatsheet.md</span></code></p></li>
-<li><p>Run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code></p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code>
+Can you explain what the output from these commands is saying, and why we get it? Once you’re happy you understand what’s going on, complete the task of adding the material about <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> to the cheatsheet by making an appropriate commit, making sure to include the entry about <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span> <span class="pre">-n</span></code>.</p></li>
 </ul>
-<p>Can you explain what the output from these commands is saying, and why we get
-it? Once you’re happy you understand what’s going on, complete
-the task of adding the material about <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> to the cheatsheet by making
-an appropriate commit, making sure to include the entry about <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span> <span class="pre">-n</span></code>.</p>
-</div></blockquote>
 </section>
 </section>
 <section id="viewing-diffs-with-guis">
@@ -960,23 +931,15 @@ way to view differences between file versions. Fortunately, many text editors
 and IDEs support ways of visually depicting differences, either ‘out of the box’
 or through the installation of a plug-in / extension. Do a search online
 to see if this is the case for your preferred text editor / IDE.</p>
-<blockquote>
-<div><h3 class="rubric" id="vs-code">VS Code</h3>
+<section id="vs-code">
+<h3>VS Code<a class="headerlink" href="#vs-code" title="Link to this heading">#</a></h3>
 <p>For VS Code users, the following links may be of help:</p>
 <ul class="simple">
-<li><p>View the diffs for files that have not been staged, or have been staged but
-not committed <a class="reference external" href="https://code.visualstudio.com/docs/sourcecontrol/overview#_working-in-a-git-repository">https://code.visualstudio.com/docs/sourcecontrol/overview#_working-in-a-git-repository</a>.</p></li>
-<li><p>View the commit history of a file:
-<a class="reference external" href="https://code.visualstudio.com/docs/sourcecontrol/overview#_timeline-view">https://code.visualstudio.com/docs/sourcecontrol/overview#_timeline-view</a>.
-This also suggests some extensions for VS Code to make working with Git more
-graphical.</p></li>
-<li><p>Displaying diffs by selecting files to compare:
-<a class="reference external" href="https://code.visualstudio.com/docs/sourcecontrol/overview#_viewing-diffs">https://code.visualstudio.com/docs/sourcecontrol/overview#_viewing-diffs</a>.
-Note that the method described in this link can be used on the ‘timeline’
-described in the previous link: simply right-click on different commits in
-the timeline for a given file to see the changes between the commits.</p></li>
+<li><p>View the diffs for files that have not been staged, or have been staged but not committed <a class="reference external" href="https://code.visualstudio.com/docs/sourcecontrol/overview#_working-in-a-git-repository">https://code.visualstudio.com/docs/sourcecontrol/overview#_working-in-a-git-repository</a>.</p></li>
+<li><p>View the commit history of a file:  <a class="reference external" href="https://code.visualstudio.com/docs/sourcecontrol/overview#_timeline-view">https://code.visualstudio.com/docs/sourcecontrol/overview#_timeline-view</a>. This also suggests some extensions for VS Code to make working with Git more graphical.</p></li>
+<li><p>Displaying diffs by selecting files to compare: <a class="reference external" href="https://code.visualstudio.com/docs/sourcecontrol/overview#_viewing-diffs">https://code.visualstudio.com/docs/sourcecontrol/overview#_viewing-diffs</a>. Note that the method described in this link can be used on the ‘timeline’ described in the previous link: simply right-click on different commits inthe timeline for a given file to see the changes between the commits.</p></li>
 </ul>
-</div></blockquote>
+</section>
 </section>
 </section>
 
@@ -1046,20 +1009,27 @@ the timeline for a given file to see the changes between the commits.</p></li>
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-repository-history">Viewing repository history</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paging-the-log">Paging the Log</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limiting-log-output">Limiting log output</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git-diff-viewing-changes"><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code>: viewing changes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differences-between-commits">Differences between commits</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-the-output-of-git-diff">Understanding the output of <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-your-head">Using your <code class="docutils literal notranslate"><span class="pre">HEAD</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-tree-and-staging-area-diffs">Working tree and staging area diffs</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changes-that-have-not-been-staged">Changes that have not been staged</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changes-staged-but-not-committed">Changes staged, but not committed</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Exercise</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-diffs-with-guis">Viewing diffs with GUIs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-diffs-with-guis">Viewing diffs with GUIs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vs-code">VS Code</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

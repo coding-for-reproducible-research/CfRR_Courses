@@ -16,7 +16,7 @@ put this work on the remote repository residing on GitHub.
 
 Let's review the status of the repository and view the log:
 
-```
+``` bash
 $ git status
 On branch main
 Your branch is ahead of 'origin/main' by 11 commits.
@@ -61,14 +61,13 @@ Personal Access Token (PAT) we generated in the
 [Setting up Git and GitHub]({{ site.url }}/04_configuring_git/index.html)
 episode as said password.
 
-> ### Pasting the PAT
->
-> You can paste the PAT in most terminals by right-clicking at the prompt.
+### Pasting the PAT
+You can paste the PAT in most terminals by right-clicking at the prompt.
 
 We now push the commits to our remote `git-good-practice` repository (note
 that our terminal program doesn't display the PAT when we paste it in):
 
-```
+``` bash
 $ git push origin
 Username for 'https://github.com': jbloggs9999
 Password for 'https://jbloggs9999@github.com':
@@ -85,7 +84,7 @@ To https://github.com/jbloggs9999/git-good-practice.git
 
 Now we check the status and log again:
 
-```
+``` bash
 $ git status
 On branch main
 Your branch is up to date with 'origin/main'.
@@ -130,7 +129,7 @@ in the remote repository on your personal GitHub account.
   may differ if you've diverged from our ongoing example, or if you've skipped
   some exercises):
   
-  ![Link to viewing commits on GitHub]({{ site.url }}/images/github-commits-link.png)
+  ![Link to viewing commits on GitHub](images/github-commits-link.png)
 
 
 ## Pulling changes from a remote repository
@@ -146,13 +145,13 @@ this command more later in the course, when we talk about collaborating with
 others on code. You use `git pull` in the analogous way to `git push`: from
 within the root folder of the repository, just run
 
-```
+``` bash
 git pull
 ```
 
 or, to be more explicit about the remote repository, you can equivalently run
 
-```
+``` bash
 git pull origin
 ```
 

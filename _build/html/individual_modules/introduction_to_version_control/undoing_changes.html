@@ -550,8 +550,14 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#episode-objectives">Episode objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-files-from-the-staging-area">Removing files from the staging area</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#undoing-commits">Undoing commits</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reverting-undo-a-commit-by-making-a-new-one">Reverting (undo a commit by making a new one)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resetting-move-back-to-a-previous-commit-and-lose-later-ones">Resetting (move back to a previous commit and lose later ones)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reverting-undo-a-commit-by-making-a-new-one">Reverting (undo a commit by making a new one)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#note-on-git-revert">Note on <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">revert</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resetting-move-back-to-a-previous-commit-and-lose-later-ones">Resetting (move back to a previous commit and lose later ones)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#hard-reset">Hard reset</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warning-pushing-after-a-reset">Warning: pushing after a reset</a></li>
 </ul>
 </li>
@@ -579,85 +585,80 @@ mean to stage and how to undo accidental commits.</p>
 <p>We’ve got quite a bit of outstanding stuff we could add to our cheatsheet
 and good practice guide. Let’s make a note of these things in a <code class="docutils literal notranslate"><span class="pre">TODO.txt</span></code>
 file, which we’ll put in the root folder of our repository:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>TODO:
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>TODO:
 
-Add note about staging multiple files with `git add` and `git diff`
+Add<span class="w"> </span>note<span class="w"> </span>about<span class="w"> </span>staging<span class="w"> </span>multiple<span class="w"> </span>files<span class="w"> </span>with<span class="w"> </span><span class="sb">`</span>git<span class="w"> </span>add<span class="sb">`</span><span class="w"> </span>and<span class="w"> </span><span class="sb">`</span>git<span class="w"> </span>diff<span class="sb">`</span>
 
-Add note to commit good practice about perils of `git add .`
+Add<span class="w"> </span>note<span class="w"> </span>to<span class="w"> </span>commit<span class="w"> </span>good<span class="w"> </span>practice<span class="w"> </span>about<span class="w"> </span>perils<span class="w"> </span>of<span class="w"> </span><span class="sb">`</span>git<span class="w"> </span>add<span class="w"> </span>.<span class="sb">`</span>
 
-Add cheatsheet entries for `git rm` and `git mv`
+Add<span class="w"> </span>cheatsheet<span class="w"> </span>entries<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="sb">`</span>git<span class="w"> </span>rm<span class="sb">`</span><span class="w"> </span>and<span class="w"> </span><span class="sb">`</span>git<span class="w"> </span>mv<span class="sb">`</span>
 
-Add cheatsheet entries for pushing and pulling
+Add<span class="w"> </span>cheatsheet<span class="w"> </span>entries<span class="w"> </span><span class="k">for</span><span class="w"> </span>pushing<span class="w"> </span>and<span class="w"> </span>pulling
 </pre></div>
 </div>
 <p>We might as well tick off the first two items, so let’s add the following content
 to <code class="docutils literal notranslate"><span class="pre">Git-cheatsheet.md</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-## Specifying multiple files
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">## Specifying multiple files</span>
 
-`git &lt;command&gt; path/to/directory` — Apply `&lt;command&gt;` to all files in and descended
-                                    from `path/to/directory`
+<span class="sb">`</span>git<span class="w"> </span>&lt;command&gt;<span class="w"> </span>path/to/directory<span class="sb">`</span><span class="w"> </span>—<span class="w"> </span>Apply<span class="w"> </span><span class="sb">`</span>&lt;command&gt;<span class="sb">`</span><span class="w"> </span>to<span class="w"> </span>all<span class="w"> </span>files<span class="w"> </span><span class="k">in</span><span class="w"> </span>and<span class="w"> </span>descended
+<span class="w">                                    </span>from<span class="w"> </span><span class="sb">`</span>path/to/directory<span class="sb">`</span>
 
 Examples:
 
-`git add .` — Stage all changes to files in current directory or descended from
-              current directory.
+<span class="sb">`</span>git<span class="w"> </span>add<span class="w"> </span>.<span class="sb">`</span><span class="w"> </span>—<span class="w"> </span>Stage<span class="w"> </span>all<span class="w"> </span>changes<span class="w"> </span>to<span class="w"> </span>files<span class="w"> </span><span class="k">in</span><span class="w"> </span>current<span class="w"> </span>directory<span class="w"> </span>or<span class="w"> </span>descended<span class="w"> </span>from
+<span class="w">              </span>current<span class="w"> </span>directory.
 
-`git diff foo/` — Show diffs of all files in directory `foo` or descended from
-                  `foo`.
-
+<span class="sb">`</span>git<span class="w"> </span>diff<span class="w"> </span>foo/<span class="sb">`</span><span class="w"> </span>—<span class="w"> </span>Show<span class="w"> </span>diffs<span class="w"> </span>of<span class="w"> </span>all<span class="w"> </span>files<span class="w"> </span><span class="k">in</span><span class="w"> </span>directory<span class="w"> </span><span class="sb">`</span>foo<span class="sb">`</span><span class="w"> </span>or<span class="w"> </span>descended<span class="w"> </span>from
+<span class="w">                  </span><span class="sb">`</span>foo<span class="sb">`</span>.
 </pre></div>
 </div>
 <p>And we add the following to <code class="docutils literal notranslate"><span class="pre">Good-practice-guides/Commit-good-practice.md</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-## Make sure you know what you&#39;re committing
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">## Make sure you know what you&#39;re committing</span>
 
-Take care when staging multiple files with e.g. `git add .` that you don&#39;t
-stage changes you didn&#39;t mean to. Always check what you&#39;re committing with
-`git diff` or `git status`.
-
+Take<span class="w"> </span>care<span class="w"> </span>when<span class="w"> </span>staging<span class="w"> </span>multiple<span class="w"> </span>files<span class="w"> </span>with<span class="w"> </span>e.g.<span class="w"> </span><span class="sb">`</span>git<span class="w"> </span>add<span class="w"> </span>.<span class="sb">`</span><span class="w"> </span>that<span class="w"> </span>you<span class="w"> </span>don<span class="s1">&#39;t</span>
+<span class="s1">stage changes you didn&#39;</span>t<span class="w"> </span>mean<span class="w"> </span>to.<span class="w"> </span>Always<span class="w"> </span>check<span class="w"> </span>what<span class="w"> </span>you<span class="err">&#39;</span>re<span class="w"> </span>committing<span class="w"> </span>with
+<span class="sb">`</span>git<span class="w"> </span>diff<span class="sb">`</span><span class="w"> </span>or<span class="w"> </span><span class="sb">`</span>git<span class="w"> </span>status<span class="sb">`</span>.
 </pre></div>
 </div>
 <p>We go ahead and stage these, using our recently learnt syntax for staging
 changes to multiple files (our working directory is the repository root
 folder, as usual):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git add .
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>.
 </pre></div>
 </div>
 <p>Wait! Something doesn’t feel right… Let’s check the status:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git status
-On branch main
-Your branch is up to date with &#39;origin/main&#39;.
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>status
+On<span class="w"> </span>branch<span class="w"> </span>main
+Your<span class="w"> </span>branch<span class="w"> </span>is<span class="w"> </span>up<span class="w"> </span>to<span class="w"> </span>date<span class="w"> </span>with<span class="w"> </span><span class="s1">&#39;origin/main&#39;</span>.
 
-Changes to be committed:
-  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)
-        modified:   Git-cheatsheet.md
-        modified:   Good-practice-guides/Commit-good-practice.md
-        new file:   TODO.txt
-
+Changes<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>committed:
+<span class="w">  </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git restore --staged &lt;file&gt;...&quot;</span><span class="w"> </span>to<span class="w"> </span>unstage<span class="o">)</span>
+<span class="w">        </span>modified:<span class="w">   </span>Git-cheatsheet.md
+<span class="w">        </span>modified:<span class="w">   </span>Good-practice-guides/Commit-good-practice.md
+<span class="w">        </span>new<span class="w"> </span>file:<span class="w">   </span>TODO.txt
 </pre></div>
 </div>
 <p>Ah, no! We don’t want to commit our <code class="docutils literal notranslate"><span class="pre">TODO.txt</span></code> file. This was just to help us
 keep track of our work and it doesn’t belong in the repository. Fortunately
 we can remove changes to a file from the staging area. In fact,
 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> tells us how to do this. The general command to use is:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">restore</span> <span class="o">--</span><span class="n">staged</span> <span class="o">&lt;</span><span class="n">files</span><span class="o">&gt;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>restore<span class="w"> </span>--staged<span class="w"> </span>&lt;files&gt;
 </pre></div>
 </div>
 <p>So let’s use this on our <code class="docutils literal notranslate"><span class="pre">TODO.txt</span></code> file. We run the command, then check that
 the only differences staged are for the cheatsheet and good practice guide</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git restore --staged TODO.txt
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>restore<span class="w"> </span>--staged<span class="w"> </span>TODO.txt
 
-$ git diff --name-only --staged
+$<span class="w"> </span>git<span class="w"> </span>diff<span class="w"> </span>--name-only<span class="w"> </span>--staged
 Git-cheatsheet.md
 Good-practice-guides/Commit-good-practice.md
 </pre></div>
 </div>
 <p>That’s better, now we can go ahead and commit. (Good thing we checked before
 committing the first time round!)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git commit -m &quot;Add material on basic pathspec usage (directories)&quot;
-[main 0984d2b] Add material on basic pathspec usage (directories)
- 2 files changed, 21 insertions(+)
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add material on basic pathspec usage (directories)&quot;</span>
+<span class="o">[</span>main<span class="w"> </span>0984d2b<span class="o">]</span><span class="w"> </span>Add<span class="w"> </span>material<span class="w"> </span>on<span class="w"> </span>basic<span class="w"> </span>pathspec<span class="w"> </span>usage<span class="w"> </span><span class="o">(</span>directories<span class="o">)</span>
+<span class="w"> </span><span class="m">2</span><span class="w"> </span>files<span class="w"> </span>changed,<span class="w"> </span><span class="m">21</span><span class="w"> </span>insertions<span class="o">(</span>+<span class="o">)</span>
 </pre></div>
 </div>
 </section>
@@ -674,14 +675,14 @@ removed from the commit history.</p></li>
 <h3>Reverting (undo a commit by making a new one)<a class="headerlink" href="#reverting-undo-a-commit-by-making-a-new-one" title="Link to this heading">#</a></h3>
 <p>Let’s suppose we’ve ‘accidentally’ made a new commit which puts <code class="docutils literal notranslate"><span class="pre">TODO.txt</span></code> under
 version control, which we want to undo:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log --oneline -3
-cc01bda (HEAD -&gt; main) Add TODO.txt
-0984d2b Add material on basic pathspec usage (directories)
-92b2ac2 (origin/main, origin/HEAD) Create general good practice guides directory
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>-3
+cc01bda<span class="w"> </span><span class="o">(</span>HEAD<span class="w"> </span>-&gt;<span class="w"> </span>main<span class="o">)</span><span class="w"> </span>Add<span class="w"> </span>TODO.txt
+0984d2b<span class="w"> </span>Add<span class="w"> </span>material<span class="w"> </span>on<span class="w"> </span>basic<span class="w"> </span>pathspec<span class="w"> </span>usage<span class="w"> </span><span class="o">(</span>directories<span class="o">)</span>
+92b2ac2<span class="w"> </span><span class="o">(</span>origin/main,<span class="w"> </span>origin/HEAD<span class="o">)</span><span class="w"> </span>Create<span class="w"> </span>general<span class="w"> </span>good<span class="w"> </span>practice<span class="w"> </span>guides<span class="w"> </span>directory
 </pre></div>
 </div>
 <p>The command</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">revert</span> <span class="o">&lt;</span><span class="n">commit</span><span class="o">&gt;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>revert<span class="w"> </span>&lt;commit&gt;
 </pre></div>
 </div>
 <p>can be used to create a new commit that undoes a previous <code class="docutils literal notranslate"><span class="pre">&lt;commit&gt;</span></code>. In our
@@ -691,15 +692,15 @@ a temporary copy of <code class="docutils literal notranslate"><span class="pre"
 because the revert will return the repository to the state before we’d added
 <code class="docutils literal notranslate"><span class="pre">TODO.txt</span></code>, which will involve deleting the file. Having done this, we now
 perform the reversion:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git revert cc01bda
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>revert<span class="w"> </span>cc01bda
 </pre></div>
 </div>
 <p>Because <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">revert</span></code> is actually making a new commit, our text editor pops into
 life for us to write a commit message. It’s been pre-populated with a
 helpful message, telling us which commit is being reverted:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Revert</span> <span class="s2">&quot;Add TODO.txt&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Revert<span class="w"> </span><span class="s2">&quot;Add TODO.txt&quot;</span>
 
-<span class="n">This</span> <span class="n">reverts</span> <span class="n">commit</span> <span class="n">cc01bdaf30a98d5bfaf5e43838d90522695f251e</span><span class="o">.</span>
+This<span class="w"> </span>reverts<span class="w"> </span>commit<span class="w"> </span>cc01bdaf30a98d5bfaf5e43838d90522695f251e.
 
 <span class="c1"># Please enter the commit message for your changes. Lines starting</span>
 <span class="c1"># with &#39;#&#39; will be ignored, and an empty message aborts the commit.</span>
@@ -715,29 +716,28 @@ helpful message, telling us which commit is being reverted:</p>
 </div>
 <p>We could edit this if we wanted to, but the default is fine, so we just close
 the file to complete the commit.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git revert cc01bda
-[main bc9d190] Revert &quot;Add TODO.txt&quot;
- 1 file changed, 9 deletions(-)
- delete mode 100644 TODO.txt
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>revert<span class="w"> </span>cc01bda
+<span class="o">[</span>main<span class="w"> </span>bc9d190<span class="o">]</span><span class="w"> </span>Revert<span class="w"> </span><span class="s2">&quot;Add TODO.txt&quot;</span>
+<span class="w"> </span><span class="m">1</span><span class="w"> </span>file<span class="w"> </span>changed,<span class="w"> </span><span class="m">9</span><span class="w"> </span>deletions<span class="o">(</span>-<span class="o">)</span>
+<span class="w"> </span>delete<span class="w"> </span>mode<span class="w"> </span><span class="m">100644</span><span class="w"> </span>TODO.txt
 </pre></div>
 </div>
 <p>Now our commit history includes our new ‘reverting’ commit. Note also that
 <code class="docutils literal notranslate"><span class="pre">TODO.txt</span></code> has been deleted.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log --oneline -4
-bc9d190 (HEAD -&gt; main) Revert &quot;Add TODO.txt&quot;
-cc01bda Add TODO.txt
-0984d2b Add material on basic pathspec usage (directories)
-92b2ac2 (origin/main, origin/HEAD) Create general good practice guides directory
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>-4
+bc9d190<span class="w"> </span><span class="o">(</span>HEAD<span class="w"> </span>-&gt;<span class="w"> </span>main<span class="o">)</span><span class="w"> </span>Revert<span class="w"> </span><span class="s2">&quot;Add TODO.txt&quot;</span>
+cc01bda<span class="w"> </span>Add<span class="w"> </span>TODO.txt
+0984d2b<span class="w"> </span>Add<span class="w"> </span>material<span class="w"> </span>on<span class="w"> </span>basic<span class="w"> </span>pathspec<span class="w"> </span>usage<span class="w"> </span><span class="o">(</span>directories<span class="o">)</span>
+92b2ac2<span class="w"> </span><span class="o">(</span>origin/main,<span class="w"> </span>origin/HEAD<span class="o">)</span><span class="w"> </span>Create<span class="w"> </span>general<span class="w"> </span>good<span class="w"> </span>practice<span class="w"> </span>guides<span class="w"> </span>directory
 
-$ ls
-Git-cheatsheet.md  Good-practice-guides/  README.md
+$<span class="w"> </span>ls
+Git-cheatsheet.md<span class="w">  </span>Good-practice-guides/<span class="w">  </span>README.md
 </pre></div>
 </div>
-<blockquote>
-<div><h4 class="rubric" id="note-on-git-revert">Note on <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">revert</span></code></h4>
-<p>The <code class="docutils literal notranslate"><span class="pre">revert</span></code> command will only work if the working tree and staging area have
-no changes in them.</p>
-</div></blockquote>
+<section id="note-on-git-revert">
+<h4>Note on <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">revert</span></code><a class="headerlink" href="#note-on-git-revert" title="Link to this heading">#</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">revert</span></code> command will only work if the working tree and staging area have no changes in them.</p>
+</section>
 </section>
 <section id="resetting-move-back-to-a-previous-commit-and-lose-later-ones">
 <h3>Resetting (move back to a previous commit and lose later ones)<a class="headerlink" href="#resetting-move-back-to-a-previous-commit-and-lose-later-ones" title="Link to this heading">#</a></h3>
@@ -748,7 +748,7 @@ the original, offending commit is not actually lost. This way, if we decide we
 more destructive way to undo commit history that will get rid of the commits.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span></code> command is used to move back our <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> to an earlier commit.
 The default form of the command is:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">reset</span> <span class="o">&lt;</span><span class="n">commit</span><span class="o">&gt;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>reset<span class="w"> </span>&lt;commit&gt;
 </pre></div>
 </div>
 <p>In effect, this will ‘rewind’ the commit history back to finish at the given
@@ -757,40 +757,40 @@ put all changes since <code class="docutils literal notranslate"><span class="pr
 work with the files as they currently are before the reset.</p>
 <p>For example, let’s create an empty file <code class="docutils literal notranslate"><span class="pre">foo.txt</span></code>. We can do this using
 the <code class="docutils literal notranslate"><span class="pre">touch</span></code> command within the root folder of our repository:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ touch foo.txt
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>touch<span class="w"> </span>foo.txt
 </pre></div>
 </div>
 <p>We’ll make a commit of this new file and remove it via a reset. First, we make
 the commit:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git add foo.txt
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>foo.txt
 
-$ git commit -m &quot;Add foo.txt to practice resetting&quot;
-[main fcecec0] Add foo.txt to practice resetting
- 1 file changed, 1 insertion(+)
- create mode 100644 foo.txt
+$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add foo.txt to practice resetting&quot;</span>
+<span class="o">[</span>main<span class="w"> </span>fcecec0<span class="o">]</span><span class="w"> </span>Add<span class="w"> </span>foo.txt<span class="w"> </span>to<span class="w"> </span>practice<span class="w"> </span>resetting
+<span class="w"> </span><span class="m">1</span><span class="w"> </span>file<span class="w"> </span>changed,<span class="w"> </span><span class="m">1</span><span class="w"> </span>insertion<span class="o">(</span>+<span class="o">)</span>
+<span class="w"> </span>create<span class="w"> </span>mode<span class="w"> </span><span class="m">100644</span><span class="w"> </span>foo.txt
 
-$ ls
-foo.txt  Git-cheatsheet.md  Good-practice-guides/  README.md
+$<span class="w"> </span>ls
+foo.txt<span class="w">  </span>Git-cheatsheet.md<span class="w">  </span>Good-practice-guides/<span class="w">  </span>README.md
 </pre></div>
 </div>
 <p>Let’s now reset the commit history back to how it was before
 we committed <code class="docutils literal notranslate"><span class="pre">TODO.txt</span></code>. We check the log to get the commit identifier,
 perform our reset, then check the status of the repository:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log --oneline -5
-fcecec0 (HEAD -&gt; main) Add foo.txt to practice resetting
-bc9d190 Revert &quot;Add TODO.txt&quot;
-cc01bda Add TODO.txt
-0984d2b Add material on basic pathspec usage (directories)
-92b2ac2 (origin/main, origin/HEAD) Create general good practice guides directory
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>-5
+fcecec0<span class="w"> </span><span class="o">(</span>HEAD<span class="w"> </span>-&gt;<span class="w"> </span>main<span class="o">)</span><span class="w"> </span>Add<span class="w"> </span>foo.txt<span class="w"> </span>to<span class="w"> </span>practice<span class="w"> </span>resetting
+bc9d190<span class="w"> </span>Revert<span class="w"> </span><span class="s2">&quot;Add TODO.txt&quot;</span>
+cc01bda<span class="w"> </span>Add<span class="w"> </span>TODO.txt
+0984d2b<span class="w"> </span>Add<span class="w"> </span>material<span class="w"> </span>on<span class="w"> </span>basic<span class="w"> </span>pathspec<span class="w"> </span>usage<span class="w"> </span><span class="o">(</span>directories<span class="o">)</span>
+92b2ac2<span class="w"> </span><span class="o">(</span>origin/main,<span class="w"> </span>origin/HEAD<span class="o">)</span><span class="w"> </span>Create<span class="w"> </span>general<span class="w"> </span>good<span class="w"> </span>practice<span class="w"> </span>guides<span class="w"> </span>directory
 
-$ git reset 0984d2b
+$<span class="w"> </span>git<span class="w"> </span>reset<span class="w"> </span>0984d2b
 
-$ git log --oneline -5
-0984d2b (HEAD -&gt; main) Add material on basic pathspec usage (directories)
-92b2ac2 (origin/main, origin/HEAD) Create general good practice guides directory
-5cf8321 Remove rubbish.txt
-d26a698 Add some rubbish to try out &#39;git rm&#39;
-910bb79 Add note about &#39;--name-only&#39; option to &#39;git diff&#39;
+$<span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>-5
+0984d2b<span class="w"> </span><span class="o">(</span>HEAD<span class="w"> </span>-&gt;<span class="w"> </span>main<span class="o">)</span><span class="w"> </span>Add<span class="w"> </span>material<span class="w"> </span>on<span class="w"> </span>basic<span class="w"> </span>pathspec<span class="w"> </span>usage<span class="w"> </span><span class="o">(</span>directories<span class="o">)</span>
+92b2ac2<span class="w"> </span><span class="o">(</span>origin/main,<span class="w"> </span>origin/HEAD<span class="o">)</span><span class="w"> </span>Create<span class="w"> </span>general<span class="w"> </span>good<span class="w"> </span>practice<span class="w"> </span>guides<span class="w"> </span>directory
+5cf8321<span class="w"> </span>Remove<span class="w"> </span>rubbish.txt
+d26a698<span class="w"> </span>Add<span class="w"> </span>some<span class="w"> </span>rubbish<span class="w"> </span>to<span class="w"> </span>try<span class="w"> </span>out<span class="w"> </span><span class="s1">&#39;git rm&#39;</span>
+910bb79<span class="w"> </span>Add<span class="w"> </span>note<span class="w"> </span>about<span class="w"> </span><span class="s1">&#39;--name-only&#39;</span><span class="w"> </span>option<span class="w"> </span>to<span class="w"> </span><span class="s1">&#39;git diff&#39;</span>
 </pre></div>
 </div>
 <p>We can see that our new <code class="docutils literal notranslate"><span class="pre">HEAD</span></code>, i.e. our new ‘current commit’, is what we reset
@@ -799,44 +799,39 @@ will contain the changes that would need to be made to recover the state of
 the repository as it was at <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> just before the reset (at the
 now-removed commit <code class="docutils literal notranslate"><span class="pre">fcecec0</span></code>). In other words, we expect to see just the change
 that adds <code class="docutils literal notranslate"><span class="pre">foo.txt</span></code>. We can verify this with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git status
-On branch main
-Your branch is ahead of &#39;origin/main&#39; by 1 commit.
-  (use &quot;git push&quot; to publish your local commits)
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>status
+On<span class="w"> </span>branch<span class="w"> </span>main
+Your<span class="w"> </span>branch<span class="w"> </span>is<span class="w"> </span>ahead<span class="w"> </span>of<span class="w"> </span><span class="s1">&#39;origin/main&#39;</span><span class="w"> </span>by<span class="w"> </span><span class="m">1</span><span class="w"> </span>commit.
+<span class="w">  </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git push&quot;</span><span class="w"> </span>to<span class="w"> </span>publish<span class="w"> </span>your<span class="w"> </span><span class="nb">local</span><span class="w"> </span>commits<span class="o">)</span>
 
-Untracked files:
-  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
-        foo.txt
+Untracked<span class="w"> </span>files:
+<span class="w">  </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git add &lt;file&gt;...&quot;</span><span class="w"> </span>to<span class="w"> </span>include<span class="w"> </span><span class="k">in</span><span class="w"> </span>what<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>committed<span class="o">)</span>
+<span class="w">        </span>foo.txt
 
-nothing added to commit but untracked files present (use &quot;git add&quot; to track)
+nothing<span class="w"> </span>added<span class="w"> </span>to<span class="w"> </span>commit<span class="w"> </span>but<span class="w"> </span>untracked<span class="w"> </span>files<span class="w"> </span>present<span class="w"> </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git add&quot;</span><span class="w"> </span>to<span class="w"> </span>track<span class="o">)</span>
 </pre></div>
 </div>
 <p>We don’t want to keep this <code class="docutils literal notranslate"><span class="pre">foo.txt</span></code> file, so let’s just delete it with the
 usual Unix command <code class="docutils literal notranslate"><span class="pre">rm</span></code> to get a nice, clean working tree again.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rm foo.txt
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>rm<span class="w"> </span>foo.txt
 </pre></div>
 </div>
 <p>After all that, we can move that TODO list back into the repository. We’ll
 finish by removing the tasks we’ve completed and add some new tasks, leaving our
 list like so:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>TODO:
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>TODO:
 
-Add cheatsheet entries for `git rm` and `git mv`
+Add<span class="w"> </span>cheatsheet<span class="w"> </span>entries<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="sb">`</span>git<span class="w"> </span>rm<span class="sb">`</span><span class="w"> </span>and<span class="w"> </span><span class="sb">`</span>git<span class="w"> </span>mv<span class="sb">`</span>
 
-Add cheatsheet entries for pushing and pulling
+Add<span class="w"> </span>cheatsheet<span class="w"> </span>entries<span class="w"> </span><span class="k">for</span><span class="w"> </span>pushing<span class="w"> </span>and<span class="w"> </span>pulling
 
-Add cheatsheet entries about undoing changes
-
+Add<span class="w"> </span>cheatsheet<span class="w"> </span>entries<span class="w"> </span>about<span class="w"> </span>undoing<span class="w"> </span>changes
 </pre></div>
 </div>
-<blockquote>
-<div><h4 class="rubric" id="hard-reset">Hard reset</h4>
-<p>If you’re really sure you don’t need to keep the changes from later commits when
-resetting, then you can automatically discard them by using the <code class="docutils literal notranslate"><span class="pre">--hard</span></code> option:
-<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span> <span class="pre">--hard</span> <span class="pre">&lt;commit&gt;</span></code>. This will set your working tree to the exact same state as
-the commit you’re resetting to. It thus deletes the work you did after
-<code class="docutils literal notranslate"><span class="pre">&lt;commit&gt;</span></code>; be sure that this is what you want before running a hard reset!</p>
-</div></blockquote>
+<section id="hard-reset">
+<h4>Hard reset<a class="headerlink" href="#hard-reset" title="Link to this heading">#</a></h4>
+<p>If you’re really sure you don’t need to keep the changes from later commits when resetting, then you can automatically discard them by using the <code class="docutils literal notranslate"><span class="pre">--hard</span></code> option: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span> <span class="pre">--hard</span> <span class="pre">&lt;commit&gt;</span></code>. This will set your working tree to the exact same state as the commit you’re resetting to. It thus deletes the work you did after <code class="docutils literal notranslate"><span class="pre">&lt;commit&gt;</span></code>; be sure that this is what you want before running a hard reset!</p>
+</section>
 </section>
 <section id="warning-pushing-after-a-reset">
 <h3>Warning: pushing after a reset<a class="headerlink" href="#warning-pushing-after-a-reset" title="Link to this heading">#</a></h3>
@@ -847,14 +842,14 @@ that is behind where the remote repository (<code class="docutils literal notran
 <code class="docutils literal notranslate"><span class="pre">origin/main</span></code>, i.e. commit <code class="docutils literal notranslate"><span class="pre">5cf8321</span></code>, “Remove rubbish.txt”. If we then tried to push
 our local repository to the remote one, Git would not complete the request and
 complain to us with the following message:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git push origin
-To https://github.com/jbloggs9999/git-good-practice.git
- ! [rejected]        main -&gt; main (non-fast-forward)
-error: failed to push some refs to &#39;https://github.com/jbloggs9999/git-good-practice.git&#39;
-hint: Updates were rejected because the tip of your current branch is behind
-hint: its remote counterpart. Integrate the remote changes (e.g.
-hint: &#39;git pull ...&#39;) before pushing again.
-hint: See the &#39;Note about fast-forwards&#39; in &#39;git push --help&#39; for details.
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>push<span class="w"> </span>origin
+To<span class="w"> </span>https://github.com/jbloggs9999/git-good-practice.git
+<span class="w"> </span>!<span class="w"> </span><span class="o">[</span>rejected<span class="o">]</span><span class="w">        </span>main<span class="w"> </span>-&gt;<span class="w"> </span>main<span class="w"> </span><span class="o">(</span>non-fast-forward<span class="o">)</span>
+error:<span class="w"> </span>failed<span class="w"> </span>to<span class="w"> </span>push<span class="w"> </span>some<span class="w"> </span>refs<span class="w"> </span>to<span class="w"> </span><span class="s1">&#39;https://github.com/jbloggs9999/git-good-practice.git&#39;</span>
+hint:<span class="w"> </span>Updates<span class="w"> </span>were<span class="w"> </span>rejected<span class="w"> </span>because<span class="w"> </span>the<span class="w"> </span>tip<span class="w"> </span>of<span class="w"> </span>your<span class="w"> </span>current<span class="w"> </span>branch<span class="w"> </span>is<span class="w"> </span>behind
+hint:<span class="w"> </span>its<span class="w"> </span>remote<span class="w"> </span>counterpart.<span class="w"> </span>Integrate<span class="w"> </span>the<span class="w"> </span>remote<span class="w"> </span>changes<span class="w"> </span><span class="o">(</span>e.g.
+hint:<span class="w"> </span><span class="s1">&#39;git pull ...&#39;</span><span class="o">)</span><span class="w"> </span>before<span class="w"> </span>pushing<span class="w"> </span>again.
+hint:<span class="w"> </span>See<span class="w"> </span>the<span class="w"> </span><span class="s1">&#39;Note about fast-forwards&#39;</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s1">&#39;git push --help&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>details.
 </pre></div>
 </div>
 <p>The main reason for this is to avoid a situation where commit history in the
@@ -949,8 +944,14 @@ sensitive data from the repository. See
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#episode-objectives">Episode objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-files-from-the-staging-area">Removing files from the staging area</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#undoing-commits">Undoing commits</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reverting-undo-a-commit-by-making-a-new-one">Reverting (undo a commit by making a new one)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resetting-move-back-to-a-previous-commit-and-lose-later-ones">Resetting (move back to a previous commit and lose later ones)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reverting-undo-a-commit-by-making-a-new-one">Reverting (undo a commit by making a new one)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#note-on-git-revert">Note on <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">revert</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resetting-move-back-to-a-previous-commit-and-lose-later-ones">Resetting (move back to a previous commit and lose later ones)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#hard-reset">Hard reset</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warning-pushing-after-a-reset">Warning: pushing after a reset</a></li>
 </ul>
 </li>
