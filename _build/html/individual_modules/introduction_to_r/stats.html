@@ -57,10 +57,12 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'individual_modules/introduction_to_r/stats';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Introduction to HPC and ISCA" href="../../section_landing_pages/introduction_to_hpc.html" />
+    <link rel="next" title="Establishing Good Practices when Coding" href="good_practise.html" />
     <link rel="prev" title="Plots" href="plots.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -245,9 +247,6 @@
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_r.html">Introduction to R</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="gettingstarted.html">Getting Up and Running with R</a></li>
-
-
-
 <li class="toctree-l2"><a class="reference internal" href="basic_commands.html">Running Commands With R</a></li>
 
 
@@ -256,14 +255,7 @@
 
 
 
-
-
-
-
 <li class="toctree-l2"><a class="reference internal" href="data_types.html">Data Types and Structures</a></li>
-
-
-
 
 
 
@@ -278,33 +270,10 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <li class="toctree-l2"><a class="reference internal" href="control_flow.html">Control Flow</a></li>
 
 
-
 <li class="toctree-l2"><a class="reference internal" href="plots.html">Plots</a></li>
-
-
-
-
-
-
-
-
 
 
 
@@ -318,6 +287,9 @@
 
 
 
+
+
+<li class="toctree-l2"><a class="reference internal" href="good_practise.html">Establishing Good Practices when Coding</a></li>
 
 
 </ul>
@@ -428,6 +400,37 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -483,7 +486,7 @@
       
       
       
-      <li><a href="../../_sources/individual_modules/introduction_to_r/stats.md" target="_blank"
+      <li><a href="../../_sources/individual_modules/introduction_to_r/stats.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -493,7 +496,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -579,306 +582,32 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Statistical Analysis</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-the-dataset">Loading the dataset</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ptid-male-age-intervention-bp-baseline-bp-3m-bp-6m">ptid male age intervention bp_baseline bp_3m bp_6m</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drug-b-218-153-163">1    1    1  41       Drug B         218   153   163</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drug-b-200-162-177">2    2    0  46       Drug B         200   162   177</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drug-a-198-122-166">3    3    0  37       Drug A         198   122   166</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drug-a-202-148-128">4    4    0  46       Drug A         202   148   128</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control-142-196-231">5    5    1  44      Control         142   196   231</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drug-b-148-191-164">6    6    1  36       Drug B         148   191   164</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">[1] 100   7</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-frame-100-obs-of-7-variables">‘data.frame’:	100 obs. of  7 variables:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ptid-int-1-2-3-4-5-6-7-8-9-10">$ ptid        : int  1 2 3 4 5 6 7 8 9 10 …</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#male-int-1-0-0-0-1-1-0-0-1-1">$ male        : int  1 0 0 0 1 1 0 0 1 1 …</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#age-int-41-46-37-46-44-36-65-69-58-65">$ age         : int  41 46 37 46 44 36 65 69 58 65 …</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intervention-chr-drug-b-drug-b-drug-a-drug-a">$ intervention: chr  “Drug B” “Drug B” “Drug A” “Drug A” …</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bp-baseline-int-218-200-198-202-142-148-166-201-206-140">$ bp_baseline : int  218 200 198 202 142 148 166 201 206 140 …</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bp-3m-int-153-162-122-148-196-191-140-141-173-125">$ bp_3m       : int  153 162 122 148 196 191 140 141 173 125 …</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bp-6m-int-163-177-166-128-231-164-152-113-164-115">$ bp_6m       : int  163 177 166 128 231 164 152 113 164 115 …</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-organisation">Data Organisation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-statistics">Summary statistics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">[1] 49.03</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">[1] 49.03</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">[1] 12.31116</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">[1] 47</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">[1] 151.5647</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">[1] 26</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">[1] 81</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">[1] 26 81</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">[1] 4903</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">25%   50%   75%</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">40.00 47.00 56.25</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">[1] 16.25</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#min-1st-qu-median-mean-3rd-qu-max">Min. 1st Qu.  Median    Mean 3rd Qu.    Max.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">26.00   40.00   47.00   49.03   56.25   81.00</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activity">Activity</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-statistics-by-groups">Summary statistics by groups</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">0        1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">51.94595 47.31746</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">[1] 47.31746</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control-drug-a-drug-b">Control  Drug A  Drug B</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">49.5    49.5    42.5</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#male-intervention-age">male intervention      age</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control-53-84615">1    0      Control 53.84615</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control-49-33333">2    1      Control 49.33333</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drug-a-56-63636">3    0       Drug A 56.63636</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drug-a-47-73913">4    1       Drug A 47.73913</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drug-b-46-07692">5    0       Drug B 46.07692</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drug-b-45-72000">6    1       Drug B 45.72000</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">Activity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Activity</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-statistics-for-categorical-data">Summary statistics for categorical data</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#male">male</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">0  1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">37 63</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intervention">intervention</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#male-control-drug-a-drug-b">male Control Drug A Drug B</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">0      13     11     13</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">1      15     23     25</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">male</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">0    1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id26">0.37 0.63</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id27">intervention</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id28">male Control Drug A Drug B</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id29">0    0.13   0.11   0.13</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id30">1    0.15   0.23   0.25</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id31"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id32">0  1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id33">17 19</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id34">Activity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Activity</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#common-statistical-tests-one-sample-t-test">Common statistical tests: One-sample t-test</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id35"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-sample-t-test">One Sample t-test</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id36"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-age">data:  age</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#t-39-826-df-99-p-value-2-2e-16">t = 39.826, df = 99, p-value &lt; 2.2e-16</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-hypothesis-true-mean-is-not-equal-to-0">alternative hypothesis: true mean is not equal to 0</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#percent-confidence-interval">95 percent confidence interval:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id37">46.5872 51.4728</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-estimates">sample estimates:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-of-x">mean of x</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id38">49.03</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id39"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id40">One Sample t-test</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id41"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id42">data:  age</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id43">t = 39.826, df = 99, p-value &lt; 2.2e-16</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id44">alternative hypothesis: true mean is not equal to 0</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id45">90 percent confidence interval:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id46">46.98587 51.07413</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id47">sample estimates:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id48">mean of x</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id49">49.03</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id50"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id51">One Sample t-test</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id52"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id53">data:  age</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id54">t = 39.826, df = 99, p-value &lt; 2.2e-16</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-hypothesis-true-mean-is-greater-than-0">alternative hypothesis: true mean is greater than 0</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id55">95 percent confidence interval:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inf">46.98587      Inf</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id56">sample estimates:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id57">mean of x</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id58">49.03</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id59"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id60">One Sample t-test</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id61"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id62">data:  age</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#t-0-7879-df-99-p-value-0-4326">t = -0.7879, df = 99, p-value = 0.4326</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-hypothesis-true-mean-is-not-equal-to-50">alternative hypothesis: true mean is not equal to 50</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id63">95 percent confidence interval:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id64">46.5872 51.4728</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id65">sample estimates:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id66">mean of x</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id67">49.03</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id68"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id69">One Sample t-test</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id70"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id71">data:  age</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id72">t = -0.7879, df = 99, p-value = 0.4326</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id73">alternative hypothesis: true mean is not equal to 50</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id74">95 percent confidence interval:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id75">46.5872 51.4728</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id76">sample estimates:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id77">mean of x</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id78">49.03</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#htest">[1] “htest”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistic-parameter-p-value-conf-int-estimate">[1] “statistic”   “parameter”   “p.value”     “conf.int”    “estimate”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#null-value-stderr-alternative-method-data-name">[6] “null.value”  “stderr”      “alternative” “method”      “data.name”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id79">[1] 0.432636</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id80">mean of x</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id81">49.03</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id82">[1] 46.5872 51.4728</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#attr-conf-level">attr(,”conf.level”)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id83">[1] 0.95</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#common-statistical-tests-two-sample-unpaired-t-test">Common statistical tests: Two-sample unpaired t-test</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id84"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#welch-two-sample-t-test">Welch Two Sample t-test</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id85"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-age-by-male">data:  age by male</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#t-1-739-df-63-594-p-value-0-08687">t = 1.739, df = 63.594, p-value = 0.08687</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-hypothesis-true-difference-in-means-between-group-0-and-group-1-is-not-equal-to-0">alternative hypothesis: true difference in means between group 0 and group 1 is not equal to 0</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id86">95 percent confidence interval:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id87">-0.6891826  9.9461538</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id88">sample estimates:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-in-group-0-mean-in-group-1">mean in group 0 mean in group 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id89">51.94595        47.31746</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id90"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id91">Welch Two Sample t-test</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id92"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-age-males-and-age-females">data:  age.males and age.females</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id93">t = -1.739, df = 63.594, p-value = 0.08687</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-hypothesis-true-difference-in-means-is-not-equal-to-0">alternative hypothesis: true difference in means is not equal to 0</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id94">95 percent confidence interval:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id95">-9.9461538  0.6891826</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id96">sample estimates:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-of-x-mean-of-y">mean of x mean of y</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id97">47.31746  51.94595</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id98"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id99">Welch Two Sample t-test</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id100"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id101">data:  age.males and age.females</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#t-1-739-df-63-594-p-value-0-04343">t = -1.739, df = 63.594, p-value = 0.04343</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-hypothesis-true-difference-in-means-is-less-than-0">alternative hypothesis: true difference in means is less than 0</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id102">95 percent confidence interval:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inf-0-1859434">-Inf -0.1859434</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id103">sample estimates:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id104">mean of x mean of y</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id105">47.31746  51.94595</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id106"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-sample-t-test">Two Sample t-test</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id107"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id108">data:  age by male</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#t-1-8368-df-98-p-value-0-06927">t = 1.8368, df = 98, p-value = 0.06927</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id109">alternative hypothesis: true difference in means between group 0 and group 1 is not equal to 0</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id110">95 percent confidence interval:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id111">-0.3721683  9.6291395</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id112">sample estimates:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id113">mean in group 0 mean in group 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id114">51.94595        47.31746</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id115"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#f-test-to-compare-two-variances">F test to compare two variances</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id116"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id117">data:  age by male</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#f-1-5248-num-df-36-denom-df-62-p-value-0-1431">F = 1.5248, num df = 36, denom df = 62, p-value = 0.1431</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-hypothesis-true-ratio-of-variances-is-not-equal-to-1">alternative hypothesis: true ratio of variances is not equal to 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id118">95 percent confidence interval:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id119">0.8663612 2.8110952</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id120">sample estimates:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratio-of-variances">ratio of variances</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id121">1.524841</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id122"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bartlett-test-of-homogeneity-of-variances">Bartlett test of homogeneity of variances</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id123"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id124">data:  age by male</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bartlett-s-k-squared-2-0664-df-1-p-value-0-1506">Bartlett’s K-squared = 2.0664, df = 1, p-value = 0.1506</a></li>
-</ul>
-</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#common-statistical-tests-one-sample-t-test">Common statistical tests: One-sample t-test</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#common-statistical-tests-two-sample-unpaired-t-test">Common statistical tests: Two-sample unpaired t-test</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#common-statistical-tests-paired-t-test">Common statistical tests: Paired t-test</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id125"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paired-t-test">Paired t-test</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id126"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-bp-3m-and-bp-baseline">data:  bp_3m and bp_baseline</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#t-4-5608-df-99-p-value-1-462e-05">t = -4.5608, df = 99, p-value = 1.462e-05</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-hypothesis-true-mean-difference-is-not-equal-to-0">alternative hypothesis: true mean difference is not equal to 0</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id127">95 percent confidence interval:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id128">-23.707166  -9.332834</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id129">sample estimates:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-difference">mean difference</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id130">-16.52</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id131"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id132">Welch Two Sample t-test</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id133"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id134">data:  bp_3m and bp_baseline</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#t-4-8468-df-197-48-p-value-2-534e-06">t = -4.8468, df = 197.48, p-value = 2.534e-06</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id135">alternative hypothesis: true difference in means is not equal to 0</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id136">95 percent confidence interval:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id137">-23.241544  -9.798456</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id138">sample estimates:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id139">mean of x mean of y</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id140">165.88    182.40</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id141">Activity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Activity</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#common-statistical-tests-mann-whitney-test">Common statistical tests: Mann-Whitney test</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id142"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wilcoxon-rank-sum-test-with-continuity-correction">Wilcoxon rank sum test with continuity correction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id143"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id144">data:  age by male</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#w-1374-p-value-0-06865">W = 1374, p-value = 0.06865</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-hypothesis-true-location-shift-is-greater-than-0">alternative hypothesis: true location shift is greater than 0</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id145">[1] 0.06865345</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistic-parameter-p-value-null-value-alternative">[1] “statistic”   “parameter”   “p.value”     “null.value”  “alternative”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-data-name">[6] “method”      “data.name”</a></li>
-</ul>
-</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#common-statistical-tests-mann-whitney-test">Common statistical tests: Mann-Whitney test</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#common-statistical-tests-anova">Common statistical tests: ANOVA</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#call">Call:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aov-formula-bp-3m-intervention">aov(formula = bp_3m ~ intervention)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id146"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terms">Terms:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intervention-residuals">intervention Residuals</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sum-of-squares-12718-47-41840-09">Sum of Squares      12718.47  41840.09</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deg-of-freedom-2-97">Deg. of Freedom            2        97</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id147"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#residual-standard-error-20-76875">Residual standard error: 20.76875</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimated-effects-may-be-unbalanced">Estimated effects may be unbalanced</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#df-sum-sq-mean-sq-f-value-pr-f">Df Sum Sq Mean Sq F value   Pr(&gt;F)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intervention-2-12718-6359-14-74-2-57e-06">intervention  2  12718    6359   14.74 2.57e-06 ***</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#residuals-97-41840-431">Residuals    97  41840     431</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id148">—</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#signif-codes-0-0-001-0-01-0-05-0-1-1">Signif. codes:  0 ‘<em><strong>’ 0.001 ‘</strong>’ 0.01 ‘</em>’ 0.05 ‘.’ 0.1 ‘ ‘ 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-variance-table">Analysis of Variance Table</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id149"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response-bp-3m">Response: bp_3m</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id150">Df Sum Sq Mean Sq F value    Pr(&gt;F)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intervention-2-12718-6359-2-14-743-2-567e-06">intervention  2  12718  6359.2  14.743 2.567e-06 ***</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#residuals-97-41840-431-3">Residuals    97  41840   431.3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id151">—</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id152">Signif. codes:  0 ‘<em><strong>’ 0.001 ‘</strong>’ 0.01 ‘</em>’ 0.05 ‘.’ 0.1 ‘ ‘ 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id153">Activity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Activity</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#common-statistical-tests-chi-square-test">Common statistical tests: Chi-square test</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id154"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pearson-s-chi-squared-test">Pearson’s Chi-squared test</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id155"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-table-male-intervention">data:  table(male, intervention)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#x-squared-1-5097-df-2-p-value-0-4701">X-squared = 1.5097, df = 2, p-value = 0.4701</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#common-statistical-tests-correlation">Common statistical tests: Correlation</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id156">[1] 0.01138201</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id157"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pearson-s-product-moment-correlation">Pearson’s product-moment correlation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id158"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-age-and-bp-baseline">data:  age and bp_baseline</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#t-0-11268-df-98-p-value-0-9105">t = 0.11268, df = 98, p-value = 0.9105</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-hypothesis-true-correlation-is-not-equal-to-0">alternative hypothesis: true correlation is not equal to 0</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id159">95 percent confidence interval:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id160">-0.1854507  0.2073366</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id161">sample estimates:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cor">cor</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id162">0.01138201</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warning-in-cor-test-default-age-bp-baseline-method-spearman-cannot">Warning in cor.test.default(age, bp_baseline, method = “spearman”): Cannot</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-exact-p-value-with-ties">compute exact p-value with ties</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id163"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spearman-s-rank-correlation-rho">Spearman’s rank correlation rho</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id164"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id165">data:  age and bp_baseline</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#s-165406-p-value-0-9412">S = 165406, p-value = 0.9412</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-hypothesis-true-rho-is-not-equal-to-0">alternative hypothesis: true rho is not equal to 0</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id166">sample estimates:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rho">rho</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id167">0.007464794</a></li>
-</ul>
-</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#common-statistical-tests-chi-square-test">Common statistical tests: Chi-square test</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#common-statistical-tests-correlation">Common statistical tests: Correlation</a></li>
 </ul>
 
             </nav>
@@ -904,85 +633,71 @@ drugs is to reduce blood pressure. Some additional information about the people 
 <p>Let’s start by loading the dataset. You need to ensure that the dataset is located in your current working directory.
 We will read in the csv file and assign it to a variable called <code class="docutils literal notranslate"><span class="pre">bp_dataset</span></code>. The <code class="docutils literal notranslate"><span class="pre">header=TRUE</span></code> argument means R will take the entries in the first row
 and use these to set the column headings.</p>
-<p>{% highlight r %}
-bp_dataset&lt;-read.csv(file=”bp_dataset_session4.csv”, header=TRUE)
-{% endhighlight %}</p>
-<p>Take a look at the first six rows to get a sense of the dataset.</p>
-<p>{% highlight r %}
-head(bp_dataset)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="ptid-male-age-intervention-bp-baseline-bp-3m-bp-6m">
-<h2>ptid male age intervention bp_baseline bp_3m bp_6m<a class="headerlink" href="#ptid-male-age-intervention-bp-baseline-bp-3m-bp-6m" title="Link to this heading">#</a></h2>
-</section>
-<section id="drug-b-218-153-163">
-<h2>1    1    1  41       Drug B         218   153   163<a class="headerlink" href="#drug-b-218-153-163" title="Link to this heading">#</a></h2>
-</section>
-<section id="drug-b-200-162-177">
-<h2>2    2    0  46       Drug B         200   162   177<a class="headerlink" href="#drug-b-200-162-177" title="Link to this heading">#</a></h2>
-</section>
-<section id="drug-a-198-122-166">
-<h2>3    3    0  37       Drug A         198   122   166<a class="headerlink" href="#drug-a-198-122-166" title="Link to this heading">#</a></h2>
-</section>
-<section id="drug-a-202-148-128">
-<h2>4    4    0  46       Drug A         202   148   128<a class="headerlink" href="#drug-a-202-148-128" title="Link to this heading">#</a></h2>
-</section>
-<section id="control-142-196-231">
-<h2>5    5    1  44      Control         142   196   231<a class="headerlink" href="#control-142-196-231" title="Link to this heading">#</a></h2>
-</section>
-<section id="drug-b-148-191-164">
-<h2>6    6    1  36       Drug B         148   191   164<a class="headerlink" href="#drug-b-148-191-164" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<p>Let’s find out how many rows (observations) and variables (columns) are in this dataset using the <code class="docutils literal notranslate"><span class="pre">dim</span></code> command (for dimensions).</p>
-<p>{% highlight r %}
-dim(bp_dataset)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id1">
-<h2>[1] 100   7<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<details>
-	<summary> Data Organisation </summary>
-	<pre>
-<p>When it comes to programming how you organise/store your data becomes important to facilitate efficient processing. This is beyond the
-remit of this course - but you can find out more about the principles of <a class="reference external" href="https://r4ds.had.co.nz/tidy-data.html">tidy data here</a>.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;/pre&gt;
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">bp_dataset</span><span class="o">&lt;-</span><span class="nf">read.csv</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s">&quot;data/bp_dataset_session4.csv&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">header</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">bp_dataset</span><span class="p">)</span>
 </pre></div>
 </div>
-</details>
-<p>We also want to check the types of variable in the dataframe. The <code class="docutils literal notranslate"><span class="pre">str()</span></code> command allows us to check the structure of the dataframe and tells us
-about the types of variables in our dataset.</p>
-<p>{% highlight r %}
-str(bp_dataset)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A data.frame: 6 × 7</caption>
+<thead>
+	<tr><th></th><th scope=col>ptid</th><th scope=col>male</th><th scope=col>age</th><th scope=col>intervention</th><th scope=col>bp_baseline</th><th scope=col>bp_3m</th><th scope=col>bp_6m</th></tr>
+	<tr><th></th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>1</th><td>1</td><td>1</td><td>41</td><td>Drug B </td><td>218</td><td>153</td><td>163</td></tr>
+	<tr><th scope=row>2</th><td>2</td><td>0</td><td>46</td><td>Drug B </td><td>200</td><td>162</td><td>177</td></tr>
+	<tr><th scope=row>3</th><td>3</td><td>0</td><td>37</td><td>Drug A </td><td>198</td><td>122</td><td>166</td></tr>
+	<tr><th scope=row>4</th><td>4</td><td>0</td><td>46</td><td>Drug A </td><td>202</td><td>148</td><td>128</td></tr>
+	<tr><th scope=row>5</th><td>5</td><td>1</td><td>44</td><td>Control</td><td>142</td><td>196</td><td>231</td></tr>
+	<tr><th scope=row>6</th><td>6</td><td>1</td><td>36</td><td>Drug B </td><td>148</td><td>191</td><td>164</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p>Let’s find out how many rows (observations) and variables (columns) are in this dataset using the <code class="docutils literal notranslate"><span class="pre">dim</span></code> command (for dimensions).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">dim</span><span class="p">(</span><span class="n">bp_dataset</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>100</li><li>7</li></ol>
+</div></div>
+</div>
 </section>
-<section id="data-frame-100-obs-of-7-variables">
-<h2>‘data.frame’:	100 obs. of  7 variables:<a class="headerlink" href="#data-frame-100-obs-of-7-variables" title="Link to this heading">#</a></h2>
-</section>
-<section id="ptid-int-1-2-3-4-5-6-7-8-9-10">
-<h2>$ ptid        : int  1 2 3 4 5 6 7 8 9 10 …<a class="headerlink" href="#ptid-int-1-2-3-4-5-6-7-8-9-10" title="Link to this heading">#</a></h2>
-</section>
-<section id="male-int-1-0-0-0-1-1-0-0-1-1">
-<h2>$ male        : int  1 0 0 0 1 1 0 0 1 1 …<a class="headerlink" href="#male-int-1-0-0-0-1-1-0-0-1-1" title="Link to this heading">#</a></h2>
-</section>
-<section id="age-int-41-46-37-46-44-36-65-69-58-65">
-<h2>$ age         : int  41 46 37 46 44 36 65 69 58 65 …<a class="headerlink" href="#age-int-41-46-37-46-44-36-65-69-58-65" title="Link to this heading">#</a></h2>
-</section>
-<section id="intervention-chr-drug-b-drug-b-drug-a-drug-a">
-<h2>$ intervention: chr  “Drug B” “Drug B” “Drug A” “Drug A” …<a class="headerlink" href="#intervention-chr-drug-b-drug-b-drug-a-drug-a" title="Link to this heading">#</a></h2>
-</section>
-<section id="bp-baseline-int-218-200-198-202-142-148-166-201-206-140">
-<h2>$ bp_baseline : int  218 200 198 202 142 148 166 201 206 140 …<a class="headerlink" href="#bp-baseline-int-218-200-198-202-142-148-166-201-206-140" title="Link to this heading">#</a></h2>
-</section>
-<section id="bp-3m-int-153-162-122-148-196-191-140-141-173-125">
-<h2>$ bp_3m       : int  153 162 122 148 196 191 140 141 173 125 …<a class="headerlink" href="#bp-3m-int-153-162-122-148-196-191-140-141-173-125" title="Link to this heading">#</a></h2>
-</section>
-<section id="bp-6m-int-163-177-166-128-231-164-152-113-164-115">
-<h2>$ bp_6m       : int  163 177 166 128 231 164 152 113 164 115 …<a class="headerlink" href="#bp-6m-int-163-177-166-128-231-164-152-113-164-115" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<section id="data-organisation">
+<h2>Data Organisation<a class="headerlink" href="#data-organisation" title="Link to this heading">#</a></h2>
+<p>When it comes to programming how you organise/store your data becomes important to facilitate efficient processing. This is beyond the remit of this course - but you can find out more about the principles of <a class="reference external" href="https://r4ds.had.co.nz/tidy-data.html">tidy data here</a>.</p>
+<p>We also want to check the types of variable in the dataframe. The <code class="docutils literal notranslate"><span class="pre">str()</span></code> command allows us to check the structure of the dataframe and tells us about the types of variables in our dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">str</span><span class="p">(</span><span class="n">bp_dataset</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;data.frame&#39;:	100 obs. of  7 variables:
+ $ ptid        : int  1 2 3 4 5 6 7 8 9 10 ...
+ $ male        : int  1 0 0 0 1 1 0 0 1 1 ...
+ $ age         : int  41 46 37 46 44 36 65 69 58 65 ...
+ $ intervention: chr  &quot;Drug B&quot; &quot;Drug B&quot; &quot;Drug A&quot; &quot;Drug A&quot; ...
+ $ bp_baseline : int  218 200 198 202 142 148 166 201 206 140 ...
+ $ bp_3m       : int  153 162 122 148 196 191 140 141 173 125 ...
+ $ bp_6m       : int  163 177 166 128 231 164 152 113 164 115 ...
+</pre></div>
+</div>
+</div>
+</div>
 <p>In this dataset we have both integer and character variables. Gender is provided as a binary variable
 (also known as an indicator or dummay variable called <code class="docutils literal notranslate"><span class="pre">male</span></code> coded as 0
 (for female) and 1 (for male). This is not nessecary, if it was coded as a factor with the levels
@@ -997,117 +712,138 @@ in most cases R will convert it to a factor within the function calls if it is n
 <p>In this dataset, there are 4 numeric variables. These are <code class="docutils literal notranslate"><span class="pre">age</span></code>, and blood pressure measured at three timepoints (<code class="docutils literal notranslate"><span class="pre">bp_baseline</span></code>,
 <code class="docutils literal notranslate"><span class="pre">bp_3m</span></code>, <code class="docutils literal notranslate"><span class="pre">bp_6m</span></code>).</p>
 <p>We want to find the mean, median, standard deviation and variance for these variables. Let’s start with the mean. To find the mean for <code class="docutils literal notranslate"><span class="pre">age</span></code> we can use:</p>
-<p>{% highlight r %}
-mean(bp_dataset$age)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id2">
-<h2>[1] 49.03<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">mean</span><span class="p">(</span><span class="n">bp_dataset</span><span class="o">$</span><span class="n">age</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">49.03</div></div>
+</div>
 <p>We can attach the dataframe <code class="docutils literal notranslate"><span class="pre">bp_dataset</span></code>, so we don’t need to use the <code class="docutils literal notranslate"><span class="pre">$</span></code> notation for each command. Remember to use the <code class="docutils literal notranslate"><span class="pre">detach()</span></code>
 command when you wish to detach the dataframe.</p>
-<p>{% highlight r %}
-attach(bp_dataset)
-mean(age)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id3">
-<h2>[1] 49.03<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">attach</span><span class="p">(</span><span class="n">bp_dataset</span><span class="p">)</span>
+<span class="nf">mean</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">49.03</div></div>
+</div>
 <p>We can also calculate the median, standard deviation, variance, minimum, maximum, range and sum fairly easily using base R functions.</p>
-<p>{% highlight r %}
-sd(age)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id4">
-<h2>[1] 12.31116<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<p>{% highlight r %}
-median(age)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id5">
-<h2>[1] 47<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<p>{% highlight r %}
-var(age)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id6">
-<h2>[1] 151.5647<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<p>{% highlight r %}
-min(age)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id7">
-<h2>[1] 26<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<p>{% highlight r %}
-max(age)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id8">
-<h2>[1] 81<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<p>{% highlight r %}
-range(age)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id9">
-<h2>[1] 26 81<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<p>{% highlight r %}
-sum(age)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id10">
-<h2>[1] 4903<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">sd</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">12.3111635305014</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">median</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">47</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">var</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">151.564747474747</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">min</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">26</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">max</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">81</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">range</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>26</li><li>81</li></ol>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">sum</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">4903</div></div>
+</div>
 <p><em>Note</em> The commands ‘sd’ and ‘var’ calculate the sample sd and variance, not the population sd and variance.</p>
-<p>We can also calculate percentiles. Using the <code class="docutils literal notranslate"><span class="pre">quantile()</span></code> command we need to specify which quantiles ( as proportions) that we want to calculate,
-where the 0.5 quantile would represent the median.</p>
-<p>{% highlight r %}
-quantile(age, probs = c(.25, .5, .75))
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id11">
-<h2>25%   50%   75%<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
-</section>
-<section id="id12">
-<h2>40.00 47.00 56.25<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<p>We can also calculate percentiles. Using the <code class="docutils literal notranslate"><span class="pre">quantile()</span></code> command we need to specify which quantiles ( as proportions) that we want to calculate, where the 0.5 quantile would represent the median.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">quantile</span><span class="p">(</span><span class="n">age</span><span class="p">,</span><span class="w"> </span><span class="n">probs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="n">.</span><span class="m">25</span><span class="p">,</span><span class="w"> </span><span class="n">.</span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="n">.</span><span class="m">75</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.dl-inline {width: auto; margin:0; padding: 0}
+.dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
+.dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
+.dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
+</style><dl class=dl-inline><dt>25%</dt><dd>40</dd><dt>50%</dt><dd>47</dd><dt>75%</dt><dd>56.25</dd></dl>
+</div></div>
+</div>
 <p>To get the inter-quartile range (75th percentile minus 25th percentile) we can do this with the <code class="docutils literal notranslate"><span class="pre">IQR()</span></code> function.</p>
-<p>{% highlight r %}
-IQR(age)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id13">
-<h2>[1] 16.25<a class="headerlink" href="#id13" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">IQR</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">16.25</div></div>
+</div>
 <p>We can also calculate multiple descriptive summary statistics of a numeric variable simultaneously using the function <code class="docutils literal notranslate"><span class="pre">summary()</span></code>.</p>
-<p>{% highlight r %}
-summary(age)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="min-1st-qu-median-mean-3rd-qu-max">
-<h2>Min. 1st Qu.  Median    Mean 3rd Qu.    Max.<a class="headerlink" href="#min-1st-qu-median-mean-3rd-qu-max" title="Link to this heading">#</a></h2>
-</section>
-<section id="id14">
-<h2>26.00   40.00   47.00   49.03   56.25   81.00<a class="headerlink" href="#id14" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">summary</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  26.00   40.00   47.00   49.03   56.25   81.00 
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="activity">
 <h2>Activity<a class="headerlink" href="#activity" title="Link to this heading">#</a></h2>
@@ -1123,74 +859,81 @@ command requires 3  arguments :</p>
 <li><p>a categorical variable indicating the subgroups,which we want to group by (in the example below this is <code class="docutils literal notranslate"><span class="pre">male</span></code>)</p></li>
 <li><p>the function we wish to call on each subgroup (in the example below this is <code class="docutils literal notranslate"><span class="pre">mean</span></code>)</p></li>
 </ul>
-<p>{% highlight r %}
-tapply(age, male, mean)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-<section id="id15">
-<h2>0        1<a class="headerlink" href="#id15" title="Link to this heading">#</a></h2>
-</section>
-<section id="id16">
-<h2>51.94595 47.31746<a class="headerlink" href="#id16" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">tapply</span><span class="p">(</span><span class="n">age</span><span class="p">,</span><span class="w"> </span><span class="n">male</span><span class="p">,</span><span class="w"> </span><span class="n">mean</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.dl-inline {width: auto; margin:0; padding: 0}
+.dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
+.dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
+.dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
+</style><dl class=dl-inline><dt>0</dt><dd>51.9459459459459</dd><dt>1</dt><dd>47.3174603174603</dd></dl>
+</div></div>
+</div>
 <p>If we want to calculate a summary statistics for a sub group, by subsetting it and providing the subset to the <code class="docutils literal notranslate"><span class="pre">mean()</span></code> function. For example
 to calucate the mean of just the means (i.e where male==1).
 Note the use of <code class="docutils literal notranslate"><span class="pre">==</span></code> for specifiying an equality condition.</p>
-<p>{% highlight r %}
-mean(age[male==1])
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id17">
-<h2>[1] 47.31746<a class="headerlink" href="#id17" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">mean</span><span class="p">(</span><span class="n">age</span><span class="p">[</span><span class="n">male</span><span class="o">==</span><span class="m">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">47.3174603174603</div></div>
+</div>
 <p>We can use the <code class="docutils literal notranslate"><span class="pre">tapply()</span></code> function to calculate the medians for the intervention groups.</p>
-<p>{% highlight r %}
-tapply(age, intervention, median)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="control-drug-a-drug-b">
-<h2>Control  Drug A  Drug B<a class="headerlink" href="#control-drug-a-drug-b" title="Link to this heading">#</a></h2>
-</section>
-<section id="id18">
-<h2>49.5    49.5    42.5<a class="headerlink" href="#id18" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">tapply</span><span class="p">(</span><span class="n">age</span><span class="p">,</span><span class="w"> </span><span class="n">intervention</span><span class="p">,</span><span class="w"> </span><span class="n">median</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.dl-inline {width: auto; margin:0; padding: 0}
+.dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
+.dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
+.dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
+</style><dl class=dl-inline><dt>Control</dt><dd>49.5</dd><dt>Drug A</dt><dd>49.5</dd><dt>Drug B</dt><dd>42.5</dd></dl>
+</div></div>
+</div>
 <p>If we want to calculate summary statistics for combinations of groups for example by sex and intervention group, we can use the <code class="docutils literal notranslate"><span class="pre">aggregate()</span></code>
 command. We use the formula method to specify which variables we want summarise (on the left hand side of the ~) and which we want to group by
 (on the right hand side of the ~).  If all the variables are included in
 single data.frame, we can construct the formula using just the column names, and include the argument <code class="docutils literal notranslate"><span class="pre">data</span></code> to specify which object these are found
 in. The <code class="docutils literal notranslate"><span class="pre">FUN</span></code> argument specfies which function you want to apply to these data, which is the mean in this example.
 Note that we need to include the dataset as an argument, even though we have attached <code class="docutils literal notranslate"><span class="pre">bp_dataset</span></code>.</p>
-<p>{% highlight r %}
-aggregate(age ~ male + intervention, data=bp_dataset, FUN=mean)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="male-intervention-age">
-<h2>male intervention      age<a class="headerlink" href="#male-intervention-age" title="Link to this heading">#</a></h2>
-</section>
-<section id="control-53-84615">
-<h2>1    0      Control 53.84615<a class="headerlink" href="#control-53-84615" title="Link to this heading">#</a></h2>
-</section>
-<section id="control-49-33333">
-<h2>2    1      Control 49.33333<a class="headerlink" href="#control-49-33333" title="Link to this heading">#</a></h2>
-</section>
-<section id="drug-a-56-63636">
-<h2>3    0       Drug A 56.63636<a class="headerlink" href="#drug-a-56-63636" title="Link to this heading">#</a></h2>
-</section>
-<section id="drug-a-47-73913">
-<h2>4    1       Drug A 47.73913<a class="headerlink" href="#drug-a-47-73913" title="Link to this heading">#</a></h2>
-</section>
-<section id="drug-b-46-07692">
-<h2>5    0       Drug B 46.07692<a class="headerlink" href="#drug-b-46-07692" title="Link to this heading">#</a></h2>
-</section>
-<section id="drug-b-45-72000">
-<h2>6    1       Drug B 45.72000<a class="headerlink" href="#drug-b-45-72000" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-</section>
-<section id="id19">
-<h2>Activity<a class="headerlink" href="#id19" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">aggregate</span><span class="p">(</span><span class="n">age</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">male</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">intervention</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="o">=</span><span class="n">bp_dataset</span><span class="p">,</span><span class="w"> </span><span class="n">FUN</span><span class="o">=</span><span class="n">mean</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A data.frame: 6 × 3</caption>
+<thead>
+	<tr><th scope=col>male</th><th scope=col>intervention</th><th scope=col>age</th></tr>
+	<tr><th scope=col>&lt;int&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>0</td><td>Control</td><td>53.84615</td></tr>
+	<tr><td>1</td><td>Control</td><td>49.33333</td></tr>
+	<tr><td>0</td><td>Drug A </td><td>56.63636</td></tr>
+	<tr><td>1</td><td>Drug A </td><td>47.73913</td></tr>
+	<tr><td>0</td><td>Drug B </td><td>46.07692</td></tr>
+	<tr><td>1</td><td>Drug B </td><td>45.72000</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<section id="id1">
+<h2>Activity<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Calculate the mean, SD, median, 10th and 90th percentiles for <code class="docutils literal notranslate"><span class="pre">bp_baseline</span></code> for each intervention group.</p></li>
 <li><p>Calculate the 25th centile, 50th centile (median) and 75th centile for <code class="docutils literal notranslate"><span class="pre">age</span></code>, for each combination of sex and intervention group.</p></li>
@@ -1200,94 +943,88 @@ aggregate(age ~ male + intervention, data=bp_dataset, FUN=mean)
 <section class="tex2jax_ignore mathjax_ignore" id="summary-statistics-for-categorical-data">
 <h1>Summary statistics for categorical data<a class="headerlink" href="#summary-statistics-for-categorical-data" title="Link to this heading">#</a></h1>
 <p>We can create a frequency table for categorical variables using the <code class="docutils literal notranslate"><span class="pre">table()</span></code> command.</p>
-<p>{% highlight r %}
-table(male)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-<section id="male">
-<h2>male<a class="headerlink" href="#male" title="Link to this heading">#</a></h2>
-</section>
-<section id="id20">
-<h2>0  1<a class="headerlink" href="#id20" title="Link to this heading">#</a></h2>
-</section>
-<section id="id21">
-<h2>37 63<a class="headerlink" href="#id21" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">table</span><span class="p">(</span><span class="n">male</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>male
+ 0  1 
+37 63 
+</pre></div>
+</div>
+</div>
+</div>
 <p>We can also produce cross-tabulations for two categorical variables. The first variable will form the rows, and The
 second variable the columns.</p>
-<p>{% highlight r %}
-table(male, intervention)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="intervention">
-<h2>intervention<a class="headerlink" href="#intervention" title="Link to this heading">#</a></h2>
-</section>
-<section id="male-control-drug-a-drug-b">
-<h2>male Control Drug A Drug B<a class="headerlink" href="#male-control-drug-a-drug-b" title="Link to this heading">#</a></h2>
-</section>
-<section id="id22">
-<h2>0      13     11     13<a class="headerlink" href="#id22" title="Link to this heading">#</a></h2>
-</section>
-<section id="id23">
-<h2>1      15     23     25<a class="headerlink" href="#id23" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">table</span><span class="p">(</span><span class="n">male</span><span class="p">,</span><span class="w"> </span><span class="n">intervention</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    intervention
+male Control Drug A Drug B
+   0      13     11     13
+   1      15     23     25
+</pre></div>
+</div>
+</div>
+</div>
 <p>In fact we can produce tables for more than 2 categorical variables. R will print these as a series of 2 dimensional
 tables for fixed values of the other variables.</p>
 <p>If we also wish to calculate proportions or percentages, we can use the <code class="docutils literal notranslate"><span class="pre">prop.table()</span></code> command. We first need to create the
 table and then pass to <code class="docutils literal notranslate"><span class="pre">prop.table()</span></code>. You can either do this in two stages:</p>
-<p>{% highlight r %}
-table.male&lt;-table(male)
-prop.table(table.male)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id24">
-<h2>male<a class="headerlink" href="#id24" title="Link to this heading">#</a></h2>
-</section>
-<section id="id25">
-<h2>0    1<a class="headerlink" href="#id25" title="Link to this heading">#</a></h2>
-</section>
-<section id="id26">
-<h2>0.37 0.63<a class="headerlink" href="#id26" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">table.male</span><span class="o">&lt;-</span><span class="nf">table</span><span class="p">(</span><span class="n">male</span><span class="p">)</span>
+<span class="nf">prop.table</span><span class="p">(</span><span class="n">table.male</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>male
+   0    1 
+0.37 0.63 
+</pre></div>
+</div>
+</div>
+</div>
 <p>Or as a nested function call:</p>
-<p>{% highlight r %}
-prop.table(table(male, intervention))
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id27">
-<h2>intervention<a class="headerlink" href="#id27" title="Link to this heading">#</a></h2>
-</section>
-<section id="id28">
-<h2>male Control Drug A Drug B<a class="headerlink" href="#id28" title="Link to this heading">#</a></h2>
-</section>
-<section id="id29">
-<h2>0    0.13   0.11   0.13<a class="headerlink" href="#id29" title="Link to this heading">#</a></h2>
-</section>
-<section id="id30">
-<h2>1    0.15   0.23   0.25<a class="headerlink" href="#id30" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<p>We can also create a table for a subgroup of the data by providing just a subset of the data to the <code class="docutils literal notranslate"><span class="pre">table()</span></code> function.
-For example to count the number of each sex, only for people aged over 50:</p>
-<p>{% highlight r %}
-table(male[age&gt;50])
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id31">
-<h2><a class="headerlink" href="#id31" title="Link to this heading">#</a></h2>
-</section>
-<section id="id32">
-<h2>0  1<a class="headerlink" href="#id32" title="Link to this heading">#</a></h2>
-</section>
-<section id="id33">
-<h2>17 19<a class="headerlink" href="#id33" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-</section>
-<section id="id34">
-<h2>Activity<a class="headerlink" href="#id34" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">prop.table</span><span class="p">(</span><span class="nf">table</span><span class="p">(</span><span class="n">male</span><span class="p">,</span><span class="w"> </span><span class="n">intervention</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    intervention
+male Control Drug A Drug B
+   0    0.13   0.11   0.13
+   1    0.15   0.23   0.25
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also create a table for a subgroup of the data by providing just a subset of the data to the <code class="docutils literal notranslate"><span class="pre">table()</span></code> function. For example to count the number of each sex, only for people aged over 50:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">table</span><span class="p">(</span><span class="n">male</span><span class="p">[</span><span class="n">age</span><span class="o">&gt;</span><span class="m">50</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0  1 
+17 19 
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id2">
+<h2>Activity<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Create table of frequencies of the number of indivduals in each intervention group. Convert this into
 and a table of percentages.</p></li>
@@ -1300,43 +1037,27 @@ greater than or equal to 180.</p></li>
 <h1>Common statistical tests: One-sample t-test<a class="headerlink" href="#common-statistical-tests-one-sample-t-test" title="Link to this heading">#</a></h1>
 <p>There are several types of t-test. We will start with the simplest: a one-sample two-sided t-test to test the null hypothesis that the true mean
 value of a continuous variable is equal to a pre-specified value. The default behaviour, and the most common application is to compare to a value of 0.</p>
-<p>{% highlight r %}
-t.test(age)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-<section id="id35">
-<h2><a class="headerlink" href="#id35" title="Link to this heading">#</a></h2>
-</section>
-<section id="one-sample-t-test">
-<h2>One Sample t-test<a class="headerlink" href="#one-sample-t-test" title="Link to this heading">#</a></h2>
-</section>
-<section id="id36">
-<h2><a class="headerlink" href="#id36" title="Link to this heading">#</a></h2>
-</section>
-<section id="data-age">
-<h2>data:  age<a class="headerlink" href="#data-age" title="Link to this heading">#</a></h2>
-</section>
-<section id="t-39-826-df-99-p-value-2-2e-16">
-<h2>t = 39.826, df = 99, p-value &lt; 2.2e-16<a class="headerlink" href="#t-39-826-df-99-p-value-2-2e-16" title="Link to this heading">#</a></h2>
-</section>
-<section id="alternative-hypothesis-true-mean-is-not-equal-to-0">
-<h2>alternative hypothesis: true mean is not equal to 0<a class="headerlink" href="#alternative-hypothesis-true-mean-is-not-equal-to-0" title="Link to this heading">#</a></h2>
-</section>
-<section id="percent-confidence-interval">
-<h2>95 percent confidence interval:<a class="headerlink" href="#percent-confidence-interval" title="Link to this heading">#</a></h2>
-</section>
-<section id="id37">
-<h2>46.5872 51.4728<a class="headerlink" href="#id37" title="Link to this heading">#</a></h2>
-</section>
-<section id="sample-estimates">
-<h2>sample estimates:<a class="headerlink" href="#sample-estimates" title="Link to this heading">#</a></h2>
-</section>
-<section id="mean-of-x">
-<h2>mean of x<a class="headerlink" href="#mean-of-x" title="Link to this heading">#</a></h2>
-</section>
-<section id="id38">
-<h2>49.03<a class="headerlink" href="#id38" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">t.test</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	One Sample t-test
+
+data:  age
+t = 39.826, df = 99, p-value &lt; 2.2e-16
+alternative hypothesis: true mean is not equal to 0
+95 percent confidence interval:
+ 46.5872 51.4728
+sample estimates:
+mean of x 
+    49.03 
+</pre></div>
+</div>
+</div>
+</div>
 <p>We can see in the console, we get a more verbose output than we have seen before. Mainly because the result of statistical test often includes multiple
 statistics, and the orginial writers of the <code class="docutils literal notranslate"><span class="pre">t.test()</span></code> function have made an effort to present these back to the user in an easy to intepret way.</p>
 <p>We can see there is a statement at the top of the output reminding or confirming which statistical test we have performed, and underneath this a confirmation
@@ -1349,232 +1070,168 @@ Later we will show you how to extract a more precise p-value.</p>
 estimated mean of the sample.</p>
 <p>We can vary the width of the confidence interval provided as part of the t-test output, by including the argument <code class="docutils literal notranslate"><span class="pre">conf.int</span></code>. The default is the 95% CI.
 For the 90% confidence interval, we can run</p>
-<p>{% highlight r %}
-t.test(age, conf.level=0.90)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id39">
-<h2><a class="headerlink" href="#id39" title="Link to this heading">#</a></h2>
-</section>
-<section id="id40">
-<h2>One Sample t-test<a class="headerlink" href="#id40" title="Link to this heading">#</a></h2>
-</section>
-<section id="id41">
-<h2><a class="headerlink" href="#id41" title="Link to this heading">#</a></h2>
-</section>
-<section id="id42">
-<h2>data:  age<a class="headerlink" href="#id42" title="Link to this heading">#</a></h2>
-</section>
-<section id="id43">
-<h2>t = 39.826, df = 99, p-value &lt; 2.2e-16<a class="headerlink" href="#id43" title="Link to this heading">#</a></h2>
-</section>
-<section id="id44">
-<h2>alternative hypothesis: true mean is not equal to 0<a class="headerlink" href="#id44" title="Link to this heading">#</a></h2>
-</section>
-<section id="id45">
-<h2>90 percent confidence interval:<a class="headerlink" href="#id45" title="Link to this heading">#</a></h2>
-</section>
-<section id="id46">
-<h2>46.98587 51.07413<a class="headerlink" href="#id46" title="Link to this heading">#</a></h2>
-</section>
-<section id="id47">
-<h2>sample estimates:<a class="headerlink" href="#id47" title="Link to this heading">#</a></h2>
-</section>
-<section id="id48">
-<h2>mean of x<a class="headerlink" href="#id48" title="Link to this heading">#</a></h2>
-</section>
-<section id="id49">
-<h2>49.03<a class="headerlink" href="#id49" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">t.test</span><span class="p">(</span><span class="n">age</span><span class="p">,</span><span class="w"> </span><span class="n">conf.level</span><span class="o">=</span><span class="m">0.90</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	One Sample t-test
+
+data:  age
+t = 39.826, df = 99, p-value &lt; 2.2e-16
+alternative hypothesis: true mean is not equal to 0
+90 percent confidence interval:
+ 46.98587 51.07413
+sample estimates:
+mean of x 
+    49.03 
+</pre></div>
+</div>
+</div>
+</div>
 <p>Here we can see that the majority of the output is unchanged, it is just the confidence interval which is different.</p>
 <p>The default behaviour is to perform a two-sided t-test. We can specify a one-sided t-test testing whether the true mean of the variable is greater than
 or less than the specified value  by including the argument <code class="docutils literal notranslate"><span class="pre">alternative</span></code> and setting it to either <code class="docutils literal notranslate"><span class="pre">greater</span></code> or <code class="docutils literal notranslate"><span class="pre">less</span></code>. To test
 whether the true mean <code class="docutils literal notranslate"><span class="pre">age</span></code> is greater than 0 we use:</p>
-<p>{% highlight r %}
-t.test(age, alternative=”greater”)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id50">
-<h2><a class="headerlink" href="#id50" title="Link to this heading">#</a></h2>
-</section>
-<section id="id51">
-<h2>One Sample t-test<a class="headerlink" href="#id51" title="Link to this heading">#</a></h2>
-</section>
-<section id="id52">
-<h2><a class="headerlink" href="#id52" title="Link to this heading">#</a></h2>
-</section>
-<section id="id53">
-<h2>data:  age<a class="headerlink" href="#id53" title="Link to this heading">#</a></h2>
-</section>
-<section id="id54">
-<h2>t = 39.826, df = 99, p-value &lt; 2.2e-16<a class="headerlink" href="#id54" title="Link to this heading">#</a></h2>
-</section>
-<section id="alternative-hypothesis-true-mean-is-greater-than-0">
-<h2>alternative hypothesis: true mean is greater than 0<a class="headerlink" href="#alternative-hypothesis-true-mean-is-greater-than-0" title="Link to this heading">#</a></h2>
-</section>
-<section id="id55">
-<h2>95 percent confidence interval:<a class="headerlink" href="#id55" title="Link to this heading">#</a></h2>
-</section>
-<section id="inf">
-<h2>46.98587      Inf<a class="headerlink" href="#inf" title="Link to this heading">#</a></h2>
-</section>
-<section id="id56">
-<h2>sample estimates:<a class="headerlink" href="#id56" title="Link to this heading">#</a></h2>
-</section>
-<section id="id57">
-<h2>mean of x<a class="headerlink" href="#id57" title="Link to this heading">#</a></h2>
-</section>
-<section id="id58">
-<h2>49.03<a class="headerlink" href="#id58" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">t.test</span><span class="p">(</span><span class="n">age</span><span class="p">,</span><span class="w"> </span><span class="n">alternative</span><span class="o">=</span><span class="s">&quot;greater&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	One Sample t-test
+
+data:  age
+t = 39.826, df = 99, p-value &lt; 2.2e-16
+alternative hypothesis: true mean is greater than 0
+95 percent confidence interval:
+ 46.98587      Inf
+sample estimates:
+mean of x 
+    49.03 
+</pre></div>
+</div>
+</div>
+</div>
 <p>Although this is a very uncommon application (due to the need to justify the choice of value), you can perform a one sample t-test against a value
 other than 0 by including the argument <code class="docutils literal notranslate"><span class="pre">mu</span></code>. For example, we can use a t-test to test if true mean <code class="docutils literal notranslate"><span class="pre">age</span></code>=50.</p>
-<p>{% highlight r %}
-t.test(age, mu=50)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id59">
-<h2><a class="headerlink" href="#id59" title="Link to this heading">#</a></h2>
-</section>
-<section id="id60">
-<h2>One Sample t-test<a class="headerlink" href="#id60" title="Link to this heading">#</a></h2>
-</section>
-<section id="id61">
-<h2><a class="headerlink" href="#id61" title="Link to this heading">#</a></h2>
-</section>
-<section id="id62">
-<h2>data:  age<a class="headerlink" href="#id62" title="Link to this heading">#</a></h2>
-</section>
-<section id="t-0-7879-df-99-p-value-0-4326">
-<h2>t = -0.7879, df = 99, p-value = 0.4326<a class="headerlink" href="#t-0-7879-df-99-p-value-0-4326" title="Link to this heading">#</a></h2>
-</section>
-<section id="alternative-hypothesis-true-mean-is-not-equal-to-50">
-<h2>alternative hypothesis: true mean is not equal to 50<a class="headerlink" href="#alternative-hypothesis-true-mean-is-not-equal-to-50" title="Link to this heading">#</a></h2>
-</section>
-<section id="id63">
-<h2>95 percent confidence interval:<a class="headerlink" href="#id63" title="Link to this heading">#</a></h2>
-</section>
-<section id="id64">
-<h2>46.5872 51.4728<a class="headerlink" href="#id64" title="Link to this heading">#</a></h2>
-</section>
-<section id="id65">
-<h2>sample estimates:<a class="headerlink" href="#id65" title="Link to this heading">#</a></h2>
-</section>
-<section id="id66">
-<h2>mean of x<a class="headerlink" href="#id66" title="Link to this heading">#</a></h2>
-</section>
-<section id="id67">
-<h2>49.03<a class="headerlink" href="#id67" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">t.test</span><span class="p">(</span><span class="n">age</span><span class="p">,</span><span class="w"> </span><span class="n">mu</span><span class="o">=</span><span class="m">50</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	One Sample t-test
+
+data:  age
+t = -0.7879, df = 99, p-value = 0.4326
+alternative hypothesis: true mean is not equal to 50
+95 percent confidence interval:
+ 46.5872 51.4728
+sample estimates:
+mean of x 
+    49.03 
+</pre></div>
+</div>
+</div>
+</div>
 <p>If you are only performing one (or a few) statistical tests, and you are working interatively then you might be ok to manually copy the result from the
 console. However, there are likely times when you want to extract the result from the test for further processing, for example enter it into a table to
 save to your computer. We can save the output of a t.test (or indeed any other statistical test or function) to a variable, meaning we can manipulate it
 further.</p>
-<p>{% highlight r %}
-t.out&lt;-t.test(age, mu=50)
-t.out
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id68">
-<h2><a class="headerlink" href="#id68" title="Link to this heading">#</a></h2>
-</section>
-<section id="id69">
-<h2>One Sample t-test<a class="headerlink" href="#id69" title="Link to this heading">#</a></h2>
-</section>
-<section id="id70">
-<h2><a class="headerlink" href="#id70" title="Link to this heading">#</a></h2>
-</section>
-<section id="id71">
-<h2>data:  age<a class="headerlink" href="#id71" title="Link to this heading">#</a></h2>
-</section>
-<section id="id72">
-<h2>t = -0.7879, df = 99, p-value = 0.4326<a class="headerlink" href="#id72" title="Link to this heading">#</a></h2>
-</section>
-<section id="id73">
-<h2>alternative hypothesis: true mean is not equal to 50<a class="headerlink" href="#id73" title="Link to this heading">#</a></h2>
-</section>
-<section id="id74">
-<h2>95 percent confidence interval:<a class="headerlink" href="#id74" title="Link to this heading">#</a></h2>
-</section>
-<section id="id75">
-<h2>46.5872 51.4728<a class="headerlink" href="#id75" title="Link to this heading">#</a></h2>
-</section>
-<section id="id76">
-<h2>sample estimates:<a class="headerlink" href="#id76" title="Link to this heading">#</a></h2>
-</section>
-<section id="id77">
-<h2>mean of x<a class="headerlink" href="#id77" title="Link to this heading">#</a></h2>
-</section>
-<section id="id78">
-<h2>49.03<a class="headerlink" href="#id78" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">t.out</span><span class="o">&lt;-</span><span class="nf">t.test</span><span class="p">(</span><span class="n">age</span><span class="p">,</span><span class="w"> </span><span class="n">mu</span><span class="o">=</span><span class="m">50</span><span class="p">)</span>
+<span class="n">t.out</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	One Sample t-test
+
+data:  age
+t = -0.7879, df = 99, p-value = 0.4326
+alternative hypothesis: true mean is not equal to 50
+95 percent confidence interval:
+ 46.5872 51.4728
+sample estimates:
+mean of x 
+    49.03 
+</pre></div>
+</div>
+</div>
+</div>
 <p>As before, when we defined or created a variable, there is no output to the console. We can see the output by entering the name of the object. Let’s
 explore the object that we have created. If we use <code class="docutils literal notranslate"><span class="pre">class()</span></code> we can learn what type of object it is.</p>
-<p>{% highlight r %}
-class(t.out)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="htest">
-<h2>[1] “htest”<a class="headerlink" href="#htest" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">class</span><span class="p">(</span><span class="n">t.out</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">'htest'</div></div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">htest</span></code> - that’s a new one. This is a type of object that has been specfying defined to hold the result of a t-test. It consists of different objects
 or slots where didferent parts of the result are stored. We can get a list of this elements with the function <code class="docutils literal notranslate"><span class="pre">names()</span></code></p>
-<p>{% highlight r %}
-names(t.out)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="statistic-parameter-p-value-conf-int-estimate">
-<h2>[1] “statistic”   “parameter”   “p.value”     “conf.int”    “estimate”<a class="headerlink" href="#statistic-parameter-p-value-conf-int-estimate" title="Link to this heading">#</a></h2>
-</section>
-<section id="null-value-stderr-alternative-method-data-name">
-<h2>[6] “null.value”  “stderr”      “alternative” “method”      “<a class="reference external" href="http://data.name">data.name</a>”<a class="headerlink" href="#null-value-stderr-alternative-method-data-name" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">names</span><span class="p">(</span><span class="n">t.out</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>'statistic'</li><li>'parameter'</li><li>'p.value'</li><li>'conf.int'</li><li>'estimate'</li><li>'null.value'</li><li>'stderr'</li><li>'alternative'</li><li>'method'</li><li>'data.name'</li></ol>
+</div></div>
+</div>
 <p>We can see 10 items listed. All of these are named elements stored within our <code class="docutils literal notranslate"><span class="pre">htest</span></code> object which we can extract by name using the <code class="docutils literal notranslate"><span class="pre">$</span></code>. For example
 we can get just the p-value as follows:</p>
-<p>{% highlight r %}
-t.out$p.value
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id79">
-<h2>[1] 0.432636<a class="headerlink" href="#id79" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">t.out</span><span class="o">$</span><span class="n">p.value</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">0.432636031241971</div></div>
+</div>
 <p>We can get the estimated mean:</p>
-<p>{% highlight r %}
-t.out$estimate
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id80">
-<h2>mean of x<a class="headerlink" href="#id80" title="Link to this heading">#</a></h2>
-</section>
-<section id="id81">
-<h2>49.03<a class="headerlink" href="#id81" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">t.out</span><span class="o">$</span><span class="n">estimate</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><strong>mean of x:</strong> 49.03</div></div>
+</div>
 <p>We can get the confidence interval:</p>
-<p>{% highlight r %}
-t.out$conf.int
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id82">
-<h2>[1] 46.5872 51.4728<a class="headerlink" href="#id82" title="Link to this heading">#</a></h2>
-</section>
-<section id="attr-conf-level">
-<h2>attr(,”conf.level”)<a class="headerlink" href="#attr-conf-level" title="Link to this heading">#</a></h2>
-</section>
-<section id="id83">
-<h2>[1] 0.95<a class="headerlink" href="#id83" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">t.out</span><span class="o">$</span><span class="n">conf.int</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>46.5871980629027</li><li>51.4728019370973</li></ol>
+</div></div>
+</div>
 <p>While the p-value and estimated mean were single values, the confidence interval has returned a vector of length 2. The <code class="docutils literal notranslate"><span class="pre">htest</span></code>
 object contains a range of different elements.</p>
-</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="common-statistical-tests-two-sample-unpaired-t-test">
 <h1>Common statistical tests: Two-sample unpaired t-test<a class="headerlink" href="#common-statistical-tests-two-sample-unpaired-t-test" title="Link to this heading">#</a></h1>
@@ -1585,43 +1242,27 @@ for males and females.</p>
 <p>As we have all the data for our response variable (also called outcome variable or dependent variable), age in one object and we have a second object
 which indicates which entries are female and which are male, we will use the formula method (signalled by the <code class="docutils literal notranslate"><span class="pre">~</span></code>)
 for specifying the comparision we want to make.</p>
-<p>{% highlight r %}
-t.test(age~male)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-<section id="id84">
-<h2><a class="headerlink" href="#id84" title="Link to this heading">#</a></h2>
-</section>
-<section id="welch-two-sample-t-test">
-<h2>Welch Two Sample t-test<a class="headerlink" href="#welch-two-sample-t-test" title="Link to this heading">#</a></h2>
-</section>
-<section id="id85">
-<h2><a class="headerlink" href="#id85" title="Link to this heading">#</a></h2>
-</section>
-<section id="data-age-by-male">
-<h2>data:  age by male<a class="headerlink" href="#data-age-by-male" title="Link to this heading">#</a></h2>
-</section>
-<section id="t-1-739-df-63-594-p-value-0-08687">
-<h2>t = 1.739, df = 63.594, p-value = 0.08687<a class="headerlink" href="#t-1-739-df-63-594-p-value-0-08687" title="Link to this heading">#</a></h2>
-</section>
-<section id="alternative-hypothesis-true-difference-in-means-between-group-0-and-group-1-is-not-equal-to-0">
-<h2>alternative hypothesis: true difference in means between group 0 and group 1 is not equal to 0<a class="headerlink" href="#alternative-hypothesis-true-difference-in-means-between-group-0-and-group-1-is-not-equal-to-0" title="Link to this heading">#</a></h2>
-</section>
-<section id="id86">
-<h2>95 percent confidence interval:<a class="headerlink" href="#id86" title="Link to this heading">#</a></h2>
-</section>
-<section id="id87">
-<h2>-0.6891826  9.9461538<a class="headerlink" href="#id87" title="Link to this heading">#</a></h2>
-</section>
-<section id="id88">
-<h2>sample estimates:<a class="headerlink" href="#id88" title="Link to this heading">#</a></h2>
-</section>
-<section id="mean-in-group-0-mean-in-group-1">
-<h2>mean in group 0 mean in group 1<a class="headerlink" href="#mean-in-group-0-mean-in-group-1" title="Link to this heading">#</a></h2>
-</section>
-<section id="id89">
-<h2>51.94595        47.31746<a class="headerlink" href="#id89" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">t.test</span><span class="p">(</span><span class="n">age</span><span class="o">~</span><span class="n">male</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Welch Two Sample t-test
+
+data:  age by male
+t = 1.739, df = 63.594, p-value = 0.08687
+alternative hypothesis: true difference in means between group 0 and group 1 is not equal to 0
+95 percent confidence interval:
+ -0.6891826  9.9461538
+sample estimates:
+mean in group 0 mean in group 1 
+       51.94595        47.31746 
+</pre></div>
+</div>
+</div>
+</div>
 <p>The output looks very similar to the output for the one sample t-test, with a couple of differences.</p>
 <ol class="arabic simple">
 <li><p>The name of the test has changed to “Welch Two Sample t-test”.</p></li>
@@ -1631,187 +1272,114 @@ t.test(age~male)
 <p>Instead of using the formula method, we can code a two sample test where the data for each group is stored in a separate object. To demonstrate this
 we will create two numeric vectors, one with the ages of the female participants, and one with the ages of the male partipicants. We then provide the
 two vectors as the first two argument in the <code class="docutils literal notranslate"><span class="pre">t.test()</span></code> function.</p>
-<p>{% highlight r %}
-age.males&lt;-age[male==1]
-age.females&lt;-age[male==0]</p>
-<p>t.test(age.males, age.females)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id90">
-<h2><a class="headerlink" href="#id90" title="Link to this heading">#</a></h2>
-</section>
-<section id="id91">
-<h2>Welch Two Sample t-test<a class="headerlink" href="#id91" title="Link to this heading">#</a></h2>
-</section>
-<section id="id92">
-<h2><a class="headerlink" href="#id92" title="Link to this heading">#</a></h2>
-</section>
-<section id="data-age-males-and-age-females">
-<h2>data:  age.males and age.females<a class="headerlink" href="#data-age-males-and-age-females" title="Link to this heading">#</a></h2>
-</section>
-<section id="id93">
-<h2>t = -1.739, df = 63.594, p-value = 0.08687<a class="headerlink" href="#id93" title="Link to this heading">#</a></h2>
-</section>
-<section id="alternative-hypothesis-true-difference-in-means-is-not-equal-to-0">
-<h2>alternative hypothesis: true difference in means is not equal to 0<a class="headerlink" href="#alternative-hypothesis-true-difference-in-means-is-not-equal-to-0" title="Link to this heading">#</a></h2>
-</section>
-<section id="id94">
-<h2>95 percent confidence interval:<a class="headerlink" href="#id94" title="Link to this heading">#</a></h2>
-</section>
-<section id="id95">
-<h2>-9.9461538  0.6891826<a class="headerlink" href="#id95" title="Link to this heading">#</a></h2>
-</section>
-<section id="id96">
-<h2>sample estimates:<a class="headerlink" href="#id96" title="Link to this heading">#</a></h2>
-</section>
-<section id="mean-of-x-mean-of-y">
-<h2>mean of x mean of y<a class="headerlink" href="#mean-of-x-mean-of-y" title="Link to this heading">#</a></h2>
-</section>
-<section id="id97">
-<h2>47.31746  51.94595<a class="headerlink" href="#id97" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">age.males</span><span class="o">&lt;-</span><span class="n">age</span><span class="p">[</span><span class="n">male</span><span class="o">==</span><span class="m">1</span><span class="p">]</span>
+<span class="n">age.females</span><span class="o">&lt;-</span><span class="n">age</span><span class="p">[</span><span class="n">male</span><span class="o">==</span><span class="m">0</span><span class="p">]</span>
+
+<span class="nf">t.test</span><span class="p">(</span><span class="n">age.males</span><span class="p">,</span><span class="w"> </span><span class="n">age.females</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Welch Two Sample t-test
+
+data:  age.males and age.females
+t = -1.739, df = 63.594, p-value = 0.08687
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -9.9461538  0.6891826
+sample estimates:
+mean of x mean of y 
+ 47.31746  51.94595 
+</pre></div>
+</div>
+</div>
+</div>
 <p>We can perform a one-side test using the <code class="docutils literal notranslate"><span class="pre">alternative</span></code> argument as shown above.</p>
-<p>{% highlight r %}
-t.test(age.males, age.females, alternative = “less”)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id98">
-<h2><a class="headerlink" href="#id98" title="Link to this heading">#</a></h2>
-</section>
-<section id="id99">
-<h2>Welch Two Sample t-test<a class="headerlink" href="#id99" title="Link to this heading">#</a></h2>
-</section>
-<section id="id100">
-<h2><a class="headerlink" href="#id100" title="Link to this heading">#</a></h2>
-</section>
-<section id="id101">
-<h2>data:  age.males and age.females<a class="headerlink" href="#id101" title="Link to this heading">#</a></h2>
-</section>
-<section id="t-1-739-df-63-594-p-value-0-04343">
-<h2>t = -1.739, df = 63.594, p-value = 0.04343<a class="headerlink" href="#t-1-739-df-63-594-p-value-0-04343" title="Link to this heading">#</a></h2>
-</section>
-<section id="alternative-hypothesis-true-difference-in-means-is-less-than-0">
-<h2>alternative hypothesis: true difference in means is less than 0<a class="headerlink" href="#alternative-hypothesis-true-difference-in-means-is-less-than-0" title="Link to this heading">#</a></h2>
-</section>
-<section id="id102">
-<h2>95 percent confidence interval:<a class="headerlink" href="#id102" title="Link to this heading">#</a></h2>
-</section>
-<section id="inf-0-1859434">
-<h2>-Inf -0.1859434<a class="headerlink" href="#inf-0-1859434" title="Link to this heading">#</a></h2>
-</section>
-<section id="id103">
-<h2>sample estimates:<a class="headerlink" href="#id103" title="Link to this heading">#</a></h2>
-</section>
-<section id="id104">
-<h2>mean of x mean of y<a class="headerlink" href="#id104" title="Link to this heading">#</a></h2>
-</section>
-<section id="id105">
-<h2>47.31746  51.94595<a class="headerlink" href="#id105" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">t.test</span><span class="p">(</span><span class="n">age.males</span><span class="p">,</span><span class="w"> </span><span class="n">age.females</span><span class="p">,</span><span class="w"> </span><span class="n">alternative</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;less&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Welch Two Sample t-test
+
+data:  age.males and age.females
+t = -1.739, df = 63.594, p-value = 0.04343
+alternative hypothesis: true difference in means is less than 0
+95 percent confidence interval:
+       -Inf -0.1859434
+sample estimates:
+mean of x mean of y 
+ 47.31746  51.94595 
+</pre></div>
+</div>
+</div>
+</div>
 <p>The default behaviour the <code class="docutils literal notranslate"><span class="pre">t.test()</span></code> function is to assumes unequal variance. If we wish to repeat the t-test using the assumption of equal variance
 we can include the argument <code class="docutils literal notranslate"><span class="pre">var.equal</span></code> and set it to TRUE.</p>
-<p>{% highlight r %}
-t.test(age~male, var.equal=TRUE)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id106">
-<h2><a class="headerlink" href="#id106" title="Link to this heading">#</a></h2>
-</section>
-<section id="two-sample-t-test">
-<h2>Two Sample t-test<a class="headerlink" href="#two-sample-t-test" title="Link to this heading">#</a></h2>
-</section>
-<section id="id107">
-<h2><a class="headerlink" href="#id107" title="Link to this heading">#</a></h2>
-</section>
-<section id="id108">
-<h2>data:  age by male<a class="headerlink" href="#id108" title="Link to this heading">#</a></h2>
-</section>
-<section id="t-1-8368-df-98-p-value-0-06927">
-<h2>t = 1.8368, df = 98, p-value = 0.06927<a class="headerlink" href="#t-1-8368-df-98-p-value-0-06927" title="Link to this heading">#</a></h2>
-</section>
-<section id="id109">
-<h2>alternative hypothesis: true difference in means between group 0 and group 1 is not equal to 0<a class="headerlink" href="#id109" title="Link to this heading">#</a></h2>
-</section>
-<section id="id110">
-<h2>95 percent confidence interval:<a class="headerlink" href="#id110" title="Link to this heading">#</a></h2>
-</section>
-<section id="id111">
-<h2>-0.3721683  9.6291395<a class="headerlink" href="#id111" title="Link to this heading">#</a></h2>
-</section>
-<section id="id112">
-<h2>sample estimates:<a class="headerlink" href="#id112" title="Link to this heading">#</a></h2>
-</section>
-<section id="id113">
-<h2>mean in group 0 mean in group 1<a class="headerlink" href="#id113" title="Link to this heading">#</a></h2>
-</section>
-<section id="id114">
-<h2>51.94595        47.31746<a class="headerlink" href="#id114" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">t.test</span><span class="p">(</span><span class="n">age</span><span class="o">~</span><span class="n">male</span><span class="p">,</span><span class="w"> </span><span class="n">var.equal</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Two Sample t-test
+
+data:  age by male
+t = 1.8368, df = 98, p-value = 0.06927
+alternative hypothesis: true difference in means between group 0 and group 1 is not equal to 0
+95 percent confidence interval:
+ -0.3721683  9.6291395
+sample estimates:
+mean in group 0 mean in group 1 
+       51.94595        47.31746 
+</pre></div>
+</div>
+</div>
+</div>
 <p>If you are unsure whether you can assume equal variance, you can run a statistical test called an F test to confirm using the function <code class="docutils literal notranslate"><span class="pre">var.test()</span></code>.
 The null hypothesis for this test is that variances are equal. So a significant result means that the assumption of equal variances is rejected. To compare the variances in age by gender:</p>
-<p>{% highlight r %}
-var.test(age ~ male)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id115">
-<h2><a class="headerlink" href="#id115" title="Link to this heading">#</a></h2>
-</section>
-<section id="f-test-to-compare-two-variances">
-<h2>F test to compare two variances<a class="headerlink" href="#f-test-to-compare-two-variances" title="Link to this heading">#</a></h2>
-</section>
-<section id="id116">
-<h2><a class="headerlink" href="#id116" title="Link to this heading">#</a></h2>
-</section>
-<section id="id117">
-<h2>data:  age by male<a class="headerlink" href="#id117" title="Link to this heading">#</a></h2>
-</section>
-<section id="f-1-5248-num-df-36-denom-df-62-p-value-0-1431">
-<h2>F = 1.5248, num df = 36, denom df = 62, p-value = 0.1431<a class="headerlink" href="#f-1-5248-num-df-36-denom-df-62-p-value-0-1431" title="Link to this heading">#</a></h2>
-</section>
-<section id="alternative-hypothesis-true-ratio-of-variances-is-not-equal-to-1">
-<h2>alternative hypothesis: true ratio of variances is not equal to 1<a class="headerlink" href="#alternative-hypothesis-true-ratio-of-variances-is-not-equal-to-1" title="Link to this heading">#</a></h2>
-</section>
-<section id="id118">
-<h2>95 percent confidence interval:<a class="headerlink" href="#id118" title="Link to this heading">#</a></h2>
-</section>
-<section id="id119">
-<h2>0.8663612 2.8110952<a class="headerlink" href="#id119" title="Link to this heading">#</a></h2>
-</section>
-<section id="id120">
-<h2>sample estimates:<a class="headerlink" href="#id120" title="Link to this heading">#</a></h2>
-</section>
-<section id="ratio-of-variances">
-<h2>ratio of variances<a class="headerlink" href="#ratio-of-variances" title="Link to this heading">#</a></h2>
-</section>
-<section id="id121">
-<h2>1.524841<a class="headerlink" href="#id121" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">var.test</span><span class="p">(</span><span class="n">age</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">male</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	F test to compare two variances
+
+data:  age by male
+F = 1.5248, num df = 36, denom df = 62, p-value = 0.1431
+alternative hypothesis: true ratio of variances is not equal to 1
+95 percent confidence interval:
+ 0.8663612 2.8110952
+sample estimates:
+ratio of variances 
+          1.524841 
+</pre></div>
+</div>
+</div>
+</div>
 <p>An alternative statistical test to test for equal variances is Bartlett’s test (again, the null hypothesis is that the variances are equal for each group):</p>
-<p>{% highlight r %}
-bartlett.test(age ~ male)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id122">
-<h2><a class="headerlink" href="#id122" title="Link to this heading">#</a></h2>
-</section>
-<section id="bartlett-test-of-homogeneity-of-variances">
-<h2>Bartlett test of homogeneity of variances<a class="headerlink" href="#bartlett-test-of-homogeneity-of-variances" title="Link to this heading">#</a></h2>
-</section>
-<section id="id123">
-<h2><a class="headerlink" href="#id123" title="Link to this heading">#</a></h2>
-</section>
-<section id="id124">
-<h2>data:  age by male<a class="headerlink" href="#id124" title="Link to this heading">#</a></h2>
-</section>
-<section id="bartlett-s-k-squared-2-0664-df-1-p-value-0-1506">
-<h2>Bartlett’s K-squared = 2.0664, df = 1, p-value = 0.1506<a class="headerlink" href="#bartlett-s-k-squared-2-0664-df-1-p-value-0-1506" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-</section>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">bartlett.test</span><span class="p">(</span><span class="n">age</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">male</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Bartlett test of homogeneity of variances
+
+data:  age by male
+Bartlett&#39;s K-squared = 2.0664, df = 1, p-value = 0.1506
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="common-statistical-tests-paired-t-test">
 <h1>Common statistical tests: Paired t-test<a class="headerlink" href="#common-statistical-tests-paired-t-test" title="Link to this heading">#</a></h1>
@@ -1822,43 +1390,27 @@ difference between them is 0. Therefore, the length of both vectors needs to be 
 3 months (<code class="docutils literal notranslate"><span class="pre">bp_3m</span></code>) are the same, taking into account that the blood pressure measurements come from the same individual, i.e. for every
 baseline measurement, there is a ‘matched’ measurement taken at 3 months. To do a paired t-test we need to include the argument <code class="docutils literal notranslate"><span class="pre">paired</span></code> and
 set it to TRUE.</p>
-<p>{% highlight r %}
-t.test(bp_3m,bp_baseline, paired=TRUE)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-<section id="id125">
-<h2><a class="headerlink" href="#id125" title="Link to this heading">#</a></h2>
-</section>
-<section id="paired-t-test">
-<h2>Paired t-test<a class="headerlink" href="#paired-t-test" title="Link to this heading">#</a></h2>
-</section>
-<section id="id126">
-<h2><a class="headerlink" href="#id126" title="Link to this heading">#</a></h2>
-</section>
-<section id="data-bp-3m-and-bp-baseline">
-<h2>data:  bp_3m and bp_baseline<a class="headerlink" href="#data-bp-3m-and-bp-baseline" title="Link to this heading">#</a></h2>
-</section>
-<section id="t-4-5608-df-99-p-value-1-462e-05">
-<h2>t = -4.5608, df = 99, p-value = 1.462e-05<a class="headerlink" href="#t-4-5608-df-99-p-value-1-462e-05" title="Link to this heading">#</a></h2>
-</section>
-<section id="alternative-hypothesis-true-mean-difference-is-not-equal-to-0">
-<h2>alternative hypothesis: true mean difference is not equal to 0<a class="headerlink" href="#alternative-hypothesis-true-mean-difference-is-not-equal-to-0" title="Link to this heading">#</a></h2>
-</section>
-<section id="id127">
-<h2>95 percent confidence interval:<a class="headerlink" href="#id127" title="Link to this heading">#</a></h2>
-</section>
-<section id="id128">
-<h2>-23.707166  -9.332834<a class="headerlink" href="#id128" title="Link to this heading">#</a></h2>
-</section>
-<section id="id129">
-<h2>sample estimates:<a class="headerlink" href="#id129" title="Link to this heading">#</a></h2>
-</section>
-<section id="mean-difference">
-<h2>mean difference<a class="headerlink" href="#mean-difference" title="Link to this heading">#</a></h2>
-</section>
-<section id="id130">
-<h2>-16.52<a class="headerlink" href="#id130" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">t.test</span><span class="p">(</span><span class="n">bp_3m</span><span class="p">,</span><span class="n">bp_baseline</span><span class="p">,</span><span class="w"> </span><span class="n">paired</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Paired t-test
+
+data:  bp_3m and bp_baseline
+t = -4.5608, df = 99, p-value = 1.462e-05
+alternative hypothesis: true mean difference is not equal to 0
+95 percent confidence interval:
+ -23.707166  -9.332834
+sample estimates:
+mean difference 
+         -16.52 
+</pre></div>
+</div>
+</div>
+</div>
 <p>We can see the output is similar to before but with the following differences</p>
 <ol class="arabic simple">
 <li><p>Test title is changed to “Paired t-test”</p></li>
@@ -1867,47 +1419,29 @@ t.test(bp_3m,bp_baseline, paired=TRUE)
 </ol>
 <p>Note that the results are different if we do not
 take into account the paired nature of the variables.</p>
-<p>{% highlight r %}
-t.test(bp_3m,bp_baseline,paired=FALSE)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id131">
-<h2><a class="headerlink" href="#id131" title="Link to this heading">#</a></h2>
-</section>
-<section id="id132">
-<h2>Welch Two Sample t-test<a class="headerlink" href="#id132" title="Link to this heading">#</a></h2>
-</section>
-<section id="id133">
-<h2><a class="headerlink" href="#id133" title="Link to this heading">#</a></h2>
-</section>
-<section id="id134">
-<h2>data:  bp_3m and bp_baseline<a class="headerlink" href="#id134" title="Link to this heading">#</a></h2>
-</section>
-<section id="t-4-8468-df-197-48-p-value-2-534e-06">
-<h2>t = -4.8468, df = 197.48, p-value = 2.534e-06<a class="headerlink" href="#t-4-8468-df-197-48-p-value-2-534e-06" title="Link to this heading">#</a></h2>
-</section>
-<section id="id135">
-<h2>alternative hypothesis: true difference in means is not equal to 0<a class="headerlink" href="#id135" title="Link to this heading">#</a></h2>
-</section>
-<section id="id136">
-<h2>95 percent confidence interval:<a class="headerlink" href="#id136" title="Link to this heading">#</a></h2>
-</section>
-<section id="id137">
-<h2>-23.241544  -9.798456<a class="headerlink" href="#id137" title="Link to this heading">#</a></h2>
-</section>
-<section id="id138">
-<h2>sample estimates:<a class="headerlink" href="#id138" title="Link to this heading">#</a></h2>
-</section>
-<section id="id139">
-<h2>mean of x mean of y<a class="headerlink" href="#id139" title="Link to this heading">#</a></h2>
-</section>
-<section id="id140">
-<h2>165.88    182.40<a class="headerlink" href="#id140" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-</section>
-<section id="id141">
-<h2>Activity<a class="headerlink" href="#id141" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">t.test</span><span class="p">(</span><span class="n">bp_3m</span><span class="p">,</span><span class="n">bp_baseline</span><span class="p">,</span><span class="n">paired</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Welch Two Sample t-test
+
+data:  bp_3m and bp_baseline
+t = -4.8468, df = 197.48, p-value = 2.534e-06
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -23.241544  -9.798456
+sample estimates:
+mean of x mean of y 
+   165.88    182.40 
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id3">
+<h2>Activity<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Perform a single sample 2-sided t-test to test whether the true mean of baseline BP is equal to 170.</p></li>
 <li><p>Perform an unpaired t-test to compare mean BP at 3 months between Drug A and the control group.</p></li>
@@ -1919,148 +1453,119 @@ t.test(bp_3m,bp_baseline,paired=FALSE)
 <h1>Common statistical tests: Mann-Whitney test<a class="headerlink" href="#common-statistical-tests-mann-whitney-test" title="Link to this heading">#</a></h1>
 <p>An non-parametric alternative to a t-test is a a Mann-Whitney U test, which is performed using by function <code class="docutils literal notranslate"><span class="pre">wilcox.test()</span></code>.
 It works in a very similar way to the two sample t- test, and many of the arguments are shared.</p>
-<p>{% highlight r %}
-wilcox.test(age~male, alternative = “greater”)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-<section id="id142">
-<h2><a class="headerlink" href="#id142" title="Link to this heading">#</a></h2>
-</section>
-<section id="wilcoxon-rank-sum-test-with-continuity-correction">
-<h2>Wilcoxon rank sum test with continuity correction<a class="headerlink" href="#wilcoxon-rank-sum-test-with-continuity-correction" title="Link to this heading">#</a></h2>
-</section>
-<section id="id143">
-<h2><a class="headerlink" href="#id143" title="Link to this heading">#</a></h2>
-</section>
-<section id="id144">
-<h2>data:  age by male<a class="headerlink" href="#id144" title="Link to this heading">#</a></h2>
-</section>
-<section id="w-1374-p-value-0-06865">
-<h2>W = 1374, p-value = 0.06865<a class="headerlink" href="#w-1374-p-value-0-06865" title="Link to this heading">#</a></h2>
-</section>
-<section id="alternative-hypothesis-true-location-shift-is-greater-than-0">
-<h2>alternative hypothesis: true location shift is greater than 0<a class="headerlink" href="#alternative-hypothesis-true-location-shift-is-greater-than-0" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">wilcox.test</span><span class="p">(</span><span class="n">age</span><span class="o">~</span><span class="n">male</span><span class="p">,</span><span class="w"> </span><span class="n">alternative</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;greater&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Wilcoxon rank sum test with continuity correction
+
+data:  age by male
+W = 1374, p-value = 0.06865
+alternative hypothesis: true location shift is greater than 0
+</pre></div>
+</div>
+</div>
+</div>
 <p>The output is shorter (as the test has less components) but it follows a similar format the that of the t-test.</p>
 <p>We can save this output as a variable and extract the p-value in the same way as the t-test. The elements within
 the variable are different to the t-test output but they are accessed in the same way.</p>
-<p>{% highlight r %}
-m.out&lt;-wilcox.test(age~male, alternative = “greater”)
-m.out$p.value
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id145">
-<h2>[1] 0.06865345<a class="headerlink" href="#id145" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<p>{% highlight r %}
-names(m.out)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="statistic-parameter-p-value-null-value-alternative">
-<h2>[1] “statistic”   “parameter”   “p.value”     “null.value”  “alternative”<a class="headerlink" href="#statistic-parameter-p-value-null-value-alternative" title="Link to this heading">#</a></h2>
-</section>
-<section id="method-data-name">
-<h2>[6] “method”      “<a class="reference external" href="http://data.name">data.name</a>”<a class="headerlink" href="#method-data-name" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-</section>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">m.out</span><span class="o">&lt;-</span><span class="nf">wilcox.test</span><span class="p">(</span><span class="n">age</span><span class="o">~</span><span class="n">male</span><span class="p">,</span><span class="w"> </span><span class="n">alternative</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;greater&quot;</span><span class="p">)</span>
+<span class="n">m.out</span><span class="o">$</span><span class="n">p.value</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">0.0686534524054603</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">names</span><span class="p">(</span><span class="n">m.out</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>'statistic'</li><li>'parameter'</li><li>'p.value'</li><li>'null.value'</li><li>'alternative'</li><li>'method'</li><li>'data.name'</li></ol>
+</div></div>
+</div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="common-statistical-tests-anova">
 <h1>Common statistical tests: ANOVA<a class="headerlink" href="#common-statistical-tests-anova" title="Link to this heading">#</a></h1>
 <p>We perform a one-way ANOVA (ANalysis Of VAriance test) to compare means across three or more groups. The null hypothesis is that the mean
 is equal across groups. There are two ways to perform an ANOVA in R, both use the formula method to specify the comparision we want to make.</p>
 <p>For example, to compare mean BP at 3 months across Drug A, Drug B, Control, first using the <code class="docutils literal notranslate"><span class="pre">aov()</span> </code> function:</p>
-<p>{% highlight r %}
-aov(bp_3m ~ intervention)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-<section id="call">
-<h2>Call:<a class="headerlink" href="#call" title="Link to this heading">#</a></h2>
-</section>
-<section id="aov-formula-bp-3m-intervention">
-<h2>aov(formula = bp_3m ~ intervention)<a class="headerlink" href="#aov-formula-bp-3m-intervention" title="Link to this heading">#</a></h2>
-</section>
-<section id="id146">
-<h2><a class="headerlink" href="#id146" title="Link to this heading">#</a></h2>
-</section>
-<section id="terms">
-<h2>Terms:<a class="headerlink" href="#terms" title="Link to this heading">#</a></h2>
-</section>
-<section id="intervention-residuals">
-<h2>intervention Residuals<a class="headerlink" href="#intervention-residuals" title="Link to this heading">#</a></h2>
-</section>
-<section id="sum-of-squares-12718-47-41840-09">
-<h2>Sum of Squares      12718.47  41840.09<a class="headerlink" href="#sum-of-squares-12718-47-41840-09" title="Link to this heading">#</a></h2>
-</section>
-<section id="deg-of-freedom-2-97">
-<h2>Deg. of Freedom            2        97<a class="headerlink" href="#deg-of-freedom-2-97" title="Link to this heading">#</a></h2>
-</section>
-<section id="id147">
-<h2><a class="headerlink" href="#id147" title="Link to this heading">#</a></h2>
-</section>
-<section id="residual-standard-error-20-76875">
-<h2>Residual standard error: 20.76875<a class="headerlink" href="#residual-standard-error-20-76875" title="Link to this heading">#</a></h2>
-</section>
-<section id="estimated-effects-may-be-unbalanced">
-<h2>Estimated effects may be unbalanced<a class="headerlink" href="#estimated-effects-may-be-unbalanced" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<p>{% highlight r %}
-summary(aov(bp_3m ~ intervention))
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="df-sum-sq-mean-sq-f-value-pr-f">
-<h2>Df Sum Sq Mean Sq F value   Pr(&gt;F)<a class="headerlink" href="#df-sum-sq-mean-sq-f-value-pr-f" title="Link to this heading">#</a></h2>
-</section>
-<section id="intervention-2-12718-6359-14-74-2-57e-06">
-<h2>intervention  2  12718    6359   14.74 2.57e-06 ***<a class="headerlink" href="#intervention-2-12718-6359-14-74-2-57e-06" title="Link to this heading">#</a></h2>
-</section>
-<section id="residuals-97-41840-431">
-<h2>Residuals    97  41840     431<a class="headerlink" href="#residuals-97-41840-431" title="Link to this heading">#</a></h2>
-</section>
-<section id="id148">
-<h2>—<a class="headerlink" href="#id148" title="Link to this heading">#</a></h2>
-</section>
-<section id="signif-codes-0-0-001-0-01-0-05-0-1-1">
-<h2>Signif. codes:  0 ‘<em><strong>’ 0.001 ‘</strong>’ 0.01 ‘</em>’ 0.05 ‘.’ 0.1 ‘ ‘ 1<a class="headerlink" href="#signif-codes-0-0-001-0-01-0-05-0-1-1" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">aov</span><span class="p">(</span><span class="n">bp_3m</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">intervention</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
+   aov(formula = bp_3m ~ intervention)
+
+Terms:
+                intervention Residuals
+Sum of Squares      12718.47  41840.09
+Deg. of Freedom            2        97
+
+Residual standard error: 20.76875
+Estimated effects may be unbalanced
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">summary</span><span class="p">(</span><span class="nf">aov</span><span class="p">(</span><span class="n">bp_3m</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">intervention</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>             Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+intervention  2  12718    6359   14.74 2.57e-06 ***
+Residuals    97  41840     431                     
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+</pre></div>
+</div>
+</div>
+</div>
 <p>Note, that the <code class="docutils literal notranslate"><span class="pre">aov()</span></code> call doesn’t output the complete test result we want. We have to additionally use the function <code class="docutils literal notranslate"><span class="pre">summary()</span></code> to extract and
 print the required test result. This is not an uncommon approach for performing statistical tests in R.</p>
 <p>We can get the same result using the <code class="docutils literal notranslate"><span class="pre">anova()</span></code> function (give a rounding difference). This version of the anova requires a linear model to be fit first using the
 <code class="docutils literal notranslate"><span class="pre">lm()</span></code> function.</p>
-<p>{% highlight r %}
-anova(lm(bp_3m ~ intervention))
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="analysis-of-variance-table">
-<h2>Analysis of Variance Table<a class="headerlink" href="#analysis-of-variance-table" title="Link to this heading">#</a></h2>
-</section>
-<section id="id149">
-<h2><a class="headerlink" href="#id149" title="Link to this heading">#</a></h2>
-</section>
-<section id="response-bp-3m">
-<h2>Response: bp_3m<a class="headerlink" href="#response-bp-3m" title="Link to this heading">#</a></h2>
-</section>
-<section id="id150">
-<h2>Df Sum Sq Mean Sq F value    Pr(&gt;F)<a class="headerlink" href="#id150" title="Link to this heading">#</a></h2>
-</section>
-<section id="intervention-2-12718-6359-2-14-743-2-567e-06">
-<h2>intervention  2  12718  6359.2  14.743 2.567e-06 ***<a class="headerlink" href="#intervention-2-12718-6359-2-14-743-2-567e-06" title="Link to this heading">#</a></h2>
-</section>
-<section id="residuals-97-41840-431-3">
-<h2>Residuals    97  41840   431.3<a class="headerlink" href="#residuals-97-41840-431-3" title="Link to this heading">#</a></h2>
-</section>
-<section id="id151">
-<h2>—<a class="headerlink" href="#id151" title="Link to this heading">#</a></h2>
-</section>
-<section id="id152">
-<h2>Signif. codes:  0 ‘<em><strong>’ 0.001 ‘</strong>’ 0.01 ‘</em>’ 0.05 ‘.’ 0.1 ‘ ‘ 1<a class="headerlink" href="#id152" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-</section>
-<section id="id153">
-<h2>Activity<a class="headerlink" href="#id153" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">anova</span><span class="p">(</span><span class="nf">lm</span><span class="p">(</span><span class="n">bp_3m</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">intervention</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A anova: 2 × 5</caption>
+<thead>
+	<tr><th></th><th scope=col>Df</th><th scope=col>Sum Sq</th><th scope=col>Mean Sq</th><th scope=col>F value</th><th scope=col>Pr(&gt;F)</th></tr>
+	<tr><th></th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>intervention</th><td> 2</td><td>12718.47</td><td>6359.2360</td><td>14.74294</td><td>2.566788e-06</td></tr>
+	<tr><th scope=row>Residuals</th><td>97</td><td>41840.09</td><td> 431.3411</td><td>      NA</td><td>          NA</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<section id="id4">
+<h2>Activity<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
 <p>Perform a one-way ANOVA to compare <code class="docutils literal notranslate"><span class="pre">age</span></code> across the three intervention groups.</p>
 </section>
 </section>
@@ -2068,124 +1573,86 @@ anova(lm(bp_3m ~ intervention))
 <h1>Common statistical tests: Chi-square test<a class="headerlink" href="#common-statistical-tests-chi-square-test" title="Link to this heading">#</a></h1>
 <p>Chi square tests are used to test for a relationship between two categorical variables.
 The function is <code class="docutils literal notranslate"><span class="pre">chisq.test()</span></code> and requires a cross tabulation of the two variables as the input.</p>
-<p>{% highlight r %}
-chisq.test(table(male, intervention))
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-<section id="id154">
-<h2><a class="headerlink" href="#id154" title="Link to this heading">#</a></h2>
-</section>
-<section id="pearson-s-chi-squared-test">
-<h2>Pearson’s Chi-squared test<a class="headerlink" href="#pearson-s-chi-squared-test" title="Link to this heading">#</a></h2>
-</section>
-<section id="id155">
-<h2><a class="headerlink" href="#id155" title="Link to this heading">#</a></h2>
-</section>
-<section id="data-table-male-intervention">
-<h2>data:  table(male, intervention)<a class="headerlink" href="#data-table-male-intervention" title="Link to this heading">#</a></h2>
-</section>
-<section id="x-squared-1-5097-df-2-p-value-0-4701">
-<h2>X-squared = 1.5097, df = 2, p-value = 0.4701<a class="headerlink" href="#x-squared-1-5097-df-2-p-value-0-4701" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-</section>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">chisq.test</span><span class="p">(</span><span class="nf">table</span><span class="p">(</span><span class="n">male</span><span class="p">,</span><span class="w"> </span><span class="n">intervention</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Pearson&#39;s Chi-squared test
+
+data:  table(male, intervention)
+X-squared = 1.5097, df = 2, p-value = 0.4701
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="common-statistical-tests-correlation">
 <h1>Common statistical tests: Correlation<a class="headerlink" href="#common-statistical-tests-correlation" title="Link to this heading">#</a></h1>
 <p>When you have two continuous variables, it is likely a correlation statistics that you want to calculate. We can do this with the function <code class="docutils literal notranslate"><span class="pre">cor()</span></code>.
 For example to calculate the correlation between age and BP at baseline we can run:</p>
-<p>{% highlight r %}
-cor(age, bp_baseline)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-<section id="id156">
-<h2>[1] 0.01138201<a class="headerlink" href="#id156" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">cor</span><span class="p">(</span><span class="n">age</span><span class="p">,</span><span class="w"> </span><span class="n">bp_baseline</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">0.0113820051816785</div></div>
+</div>
 <p>The output of this function is very simple compared to the tests we looked at before, it is just a simple value. If you compare the function name to
 the names o fthe other functions to perform statistical tests, this doesn’t have the suffix <code class="docutils literal notranslate"><span class="pre">.test</span></code>. This function simply caluclated the value of
 the correlation statistic and does not perform any hypothesis testing with it. To do that we need the <code class="docutils literal notranslate"><span class="pre">cor.test()</span></code> function.</p>
 <p>We can use <code class="docutils literal notranslate"><span class="pre">cor.test</span></code> to find the  correlation between <code class="docutils literal notranslate"><span class="pre">age</span></code> and <code class="docutils literal notranslate"><span class="pre">bp_baseline</span></code></p>
-<p>{% highlight r %}
-cor.test(age, bp_baseline)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id157">
-<h2><a class="headerlink" href="#id157" title="Link to this heading">#</a></h2>
-</section>
-<section id="pearson-s-product-moment-correlation">
-<h2>Pearson’s product-moment correlation<a class="headerlink" href="#pearson-s-product-moment-correlation" title="Link to this heading">#</a></h2>
-</section>
-<section id="id158">
-<h2><a class="headerlink" href="#id158" title="Link to this heading">#</a></h2>
-</section>
-<section id="data-age-and-bp-baseline">
-<h2>data:  age and bp_baseline<a class="headerlink" href="#data-age-and-bp-baseline" title="Link to this heading">#</a></h2>
-</section>
-<section id="t-0-11268-df-98-p-value-0-9105">
-<h2>t = 0.11268, df = 98, p-value = 0.9105<a class="headerlink" href="#t-0-11268-df-98-p-value-0-9105" title="Link to this heading">#</a></h2>
-</section>
-<section id="alternative-hypothesis-true-correlation-is-not-equal-to-0">
-<h2>alternative hypothesis: true correlation is not equal to 0<a class="headerlink" href="#alternative-hypothesis-true-correlation-is-not-equal-to-0" title="Link to this heading">#</a></h2>
-</section>
-<section id="id159">
-<h2>95 percent confidence interval:<a class="headerlink" href="#id159" title="Link to this heading">#</a></h2>
-</section>
-<section id="id160">
-<h2>-0.1854507  0.2073366<a class="headerlink" href="#id160" title="Link to this heading">#</a></h2>
-</section>
-<section id="id161">
-<h2>sample estimates:<a class="headerlink" href="#id161" title="Link to this heading">#</a></h2>
-</section>
-<section id="cor">
-<h2>cor<a class="headerlink" href="#cor" title="Link to this heading">#</a></h2>
-</section>
-<section id="id162">
-<h2>0.01138201<a class="headerlink" href="#id162" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">cor.test</span><span class="p">(</span><span class="n">age</span><span class="p">,</span><span class="w"> </span><span class="n">bp_baseline</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Pearson&#39;s product-moment correlation
+
+data:  age and bp_baseline
+t = 0.11268, df = 98, p-value = 0.9105
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.1854507  0.2073366
+sample estimates:
+       cor 
+0.01138201 
+</pre></div>
+</div>
+</div>
+</div>
 <p>The output here is now more similar to what we had before in that it reports a number of statistics relating to the test.</p>
 <p>The default method for calculating the correlation is Pearson’s, we can instead calculate Spearman’s rank correlation coefficient, with the argument
 <code class="docutils literal notranslate"><span class="pre">method</span></code>:</p>
-<p>{% highlight r %}
-cor.test(age, bp_baseline, method=”spearman”)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="warning-in-cor-test-default-age-bp-baseline-method-spearman-cannot">
-<h2>Warning in cor.test.default(age, bp_baseline, method = “spearman”): Cannot<a class="headerlink" href="#warning-in-cor-test-default-age-bp-baseline-method-spearman-cannot" title="Link to this heading">#</a></h2>
-</section>
-<section id="compute-exact-p-value-with-ties">
-<h2>compute exact p-value with ties<a class="headerlink" href="#compute-exact-p-value-with-ties" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id163">
-<h2><a class="headerlink" href="#id163" title="Link to this heading">#</a></h2>
-</section>
-<section id="spearman-s-rank-correlation-rho">
-<h2>Spearman’s rank correlation rho<a class="headerlink" href="#spearman-s-rank-correlation-rho" title="Link to this heading">#</a></h2>
-</section>
-<section id="id164">
-<h2><a class="headerlink" href="#id164" title="Link to this heading">#</a></h2>
-</section>
-<section id="id165">
-<h2>data:  age and bp_baseline<a class="headerlink" href="#id165" title="Link to this heading">#</a></h2>
-</section>
-<section id="s-165406-p-value-0-9412">
-<h2>S = 165406, p-value = 0.9412<a class="headerlink" href="#s-165406-p-value-0-9412" title="Link to this heading">#</a></h2>
-</section>
-<section id="alternative-hypothesis-true-rho-is-not-equal-to-0">
-<h2>alternative hypothesis: true rho is not equal to 0<a class="headerlink" href="#alternative-hypothesis-true-rho-is-not-equal-to-0" title="Link to this heading">#</a></h2>
-</section>
-<section id="id166">
-<h2>sample estimates:<a class="headerlink" href="#id166" title="Link to this heading">#</a></h2>
-</section>
-<section id="rho">
-<h2>rho<a class="headerlink" href="#rho" title="Link to this heading">#</a></h2>
-</section>
-<section id="id167">
-<h2>0.007464794<a class="headerlink" href="#id167" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-</section>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">cor.test</span><span class="p">(</span><span class="n">age</span><span class="p">,</span><span class="w"> </span><span class="n">bp_baseline</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="o">=</span><span class="s">&quot;spearman&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in cor.test.default(age, bp_baseline, method = &quot;spearman&quot;):
+“Cannot compute exact p-value with ties”
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Spearman&#39;s rank correlation rho
+
+data:  age and bp_baseline
+S = 165406, p-value = 0.9412
+alternative hypothesis: true rho is not equal to 0
+sample estimates:
+        rho 
+0.007464794 
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -2197,16 +1664,16 @@ cor.test(age, bp_baseline, method=”spearman”)
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "r"
         },
         kernelOptions: {
-            name: "python3",
+            name: "ir",
             path: "./individual_modules/introduction_to_r"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'ir'</script>
 
                 </article>
               
@@ -2228,11 +1695,11 @@ cor.test(age, bp_baseline, method=”spearman”)
       </div>
     </a>
     <a class="right-next"
-       href="../../section_landing_pages/introduction_to_hpc.html"
+       href="good_practise.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Introduction to HPC and ISCA</p>
+        <p class="prev-next-title">Establishing Good Practices when Coding</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -2254,306 +1721,32 @@ cor.test(age, bp_baseline, method=”spearman”)
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Statistical Analysis</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-the-dataset">Loading the dataset</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ptid-male-age-intervention-bp-baseline-bp-3m-bp-6m">ptid male age intervention bp_baseline bp_3m bp_6m</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drug-b-218-153-163">1    1    1  41       Drug B         218   153   163</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drug-b-200-162-177">2    2    0  46       Drug B         200   162   177</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drug-a-198-122-166">3    3    0  37       Drug A         198   122   166</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drug-a-202-148-128">4    4    0  46       Drug A         202   148   128</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control-142-196-231">5    5    1  44      Control         142   196   231</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drug-b-148-191-164">6    6    1  36       Drug B         148   191   164</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">[1] 100   7</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-frame-100-obs-of-7-variables">‘data.frame’:	100 obs. of  7 variables:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ptid-int-1-2-3-4-5-6-7-8-9-10">$ ptid        : int  1 2 3 4 5 6 7 8 9 10 …</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#male-int-1-0-0-0-1-1-0-0-1-1">$ male        : int  1 0 0 0 1 1 0 0 1 1 …</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#age-int-41-46-37-46-44-36-65-69-58-65">$ age         : int  41 46 37 46 44 36 65 69 58 65 …</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intervention-chr-drug-b-drug-b-drug-a-drug-a">$ intervention: chr  “Drug B” “Drug B” “Drug A” “Drug A” …</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bp-baseline-int-218-200-198-202-142-148-166-201-206-140">$ bp_baseline : int  218 200 198 202 142 148 166 201 206 140 …</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bp-3m-int-153-162-122-148-196-191-140-141-173-125">$ bp_3m       : int  153 162 122 148 196 191 140 141 173 125 …</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bp-6m-int-163-177-166-128-231-164-152-113-164-115">$ bp_6m       : int  163 177 166 128 231 164 152 113 164 115 …</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-organisation">Data Organisation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-statistics">Summary statistics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">[1] 49.03</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">[1] 49.03</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">[1] 12.31116</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">[1] 47</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">[1] 151.5647</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">[1] 26</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">[1] 81</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">[1] 26 81</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">[1] 4903</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">25%   50%   75%</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">40.00 47.00 56.25</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">[1] 16.25</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#min-1st-qu-median-mean-3rd-qu-max">Min. 1st Qu.  Median    Mean 3rd Qu.    Max.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">26.00   40.00   47.00   49.03   56.25   81.00</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activity">Activity</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-statistics-by-groups">Summary statistics by groups</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">0        1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">51.94595 47.31746</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">[1] 47.31746</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control-drug-a-drug-b">Control  Drug A  Drug B</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">49.5    49.5    42.5</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#male-intervention-age">male intervention      age</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control-53-84615">1    0      Control 53.84615</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control-49-33333">2    1      Control 49.33333</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drug-a-56-63636">3    0       Drug A 56.63636</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drug-a-47-73913">4    1       Drug A 47.73913</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drug-b-46-07692">5    0       Drug B 46.07692</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drug-b-45-72000">6    1       Drug B 45.72000</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">Activity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Activity</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-statistics-for-categorical-data">Summary statistics for categorical data</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#male">male</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">0  1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">37 63</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intervention">intervention</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#male-control-drug-a-drug-b">male Control Drug A Drug B</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">0      13     11     13</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">1      15     23     25</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">male</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">0    1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id26">0.37 0.63</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id27">intervention</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id28">male Control Drug A Drug B</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id29">0    0.13   0.11   0.13</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id30">1    0.15   0.23   0.25</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id31"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id32">0  1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id33">17 19</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id34">Activity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Activity</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#common-statistical-tests-one-sample-t-test">Common statistical tests: One-sample t-test</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id35"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-sample-t-test">One Sample t-test</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id36"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-age">data:  age</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#t-39-826-df-99-p-value-2-2e-16">t = 39.826, df = 99, p-value &lt; 2.2e-16</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-hypothesis-true-mean-is-not-equal-to-0">alternative hypothesis: true mean is not equal to 0</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#percent-confidence-interval">95 percent confidence interval:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id37">46.5872 51.4728</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-estimates">sample estimates:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-of-x">mean of x</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id38">49.03</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id39"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id40">One Sample t-test</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id41"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id42">data:  age</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id43">t = 39.826, df = 99, p-value &lt; 2.2e-16</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id44">alternative hypothesis: true mean is not equal to 0</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id45">90 percent confidence interval:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id46">46.98587 51.07413</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id47">sample estimates:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id48">mean of x</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id49">49.03</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id50"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id51">One Sample t-test</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id52"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id53">data:  age</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id54">t = 39.826, df = 99, p-value &lt; 2.2e-16</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-hypothesis-true-mean-is-greater-than-0">alternative hypothesis: true mean is greater than 0</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id55">95 percent confidence interval:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inf">46.98587      Inf</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id56">sample estimates:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id57">mean of x</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id58">49.03</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id59"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id60">One Sample t-test</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id61"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id62">data:  age</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#t-0-7879-df-99-p-value-0-4326">t = -0.7879, df = 99, p-value = 0.4326</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-hypothesis-true-mean-is-not-equal-to-50">alternative hypothesis: true mean is not equal to 50</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id63">95 percent confidence interval:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id64">46.5872 51.4728</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id65">sample estimates:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id66">mean of x</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id67">49.03</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id68"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id69">One Sample t-test</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id70"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id71">data:  age</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id72">t = -0.7879, df = 99, p-value = 0.4326</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id73">alternative hypothesis: true mean is not equal to 50</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id74">95 percent confidence interval:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id75">46.5872 51.4728</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id76">sample estimates:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id77">mean of x</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id78">49.03</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#htest">[1] “htest”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistic-parameter-p-value-conf-int-estimate">[1] “statistic”   “parameter”   “p.value”     “conf.int”    “estimate”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#null-value-stderr-alternative-method-data-name">[6] “null.value”  “stderr”      “alternative” “method”      “data.name”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id79">[1] 0.432636</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id80">mean of x</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id81">49.03</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id82">[1] 46.5872 51.4728</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#attr-conf-level">attr(,”conf.level”)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id83">[1] 0.95</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#common-statistical-tests-two-sample-unpaired-t-test">Common statistical tests: Two-sample unpaired t-test</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id84"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#welch-two-sample-t-test">Welch Two Sample t-test</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id85"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-age-by-male">data:  age by male</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#t-1-739-df-63-594-p-value-0-08687">t = 1.739, df = 63.594, p-value = 0.08687</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-hypothesis-true-difference-in-means-between-group-0-and-group-1-is-not-equal-to-0">alternative hypothesis: true difference in means between group 0 and group 1 is not equal to 0</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id86">95 percent confidence interval:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id87">-0.6891826  9.9461538</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id88">sample estimates:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-in-group-0-mean-in-group-1">mean in group 0 mean in group 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id89">51.94595        47.31746</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id90"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id91">Welch Two Sample t-test</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id92"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-age-males-and-age-females">data:  age.males and age.females</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id93">t = -1.739, df = 63.594, p-value = 0.08687</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-hypothesis-true-difference-in-means-is-not-equal-to-0">alternative hypothesis: true difference in means is not equal to 0</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id94">95 percent confidence interval:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id95">-9.9461538  0.6891826</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id96">sample estimates:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-of-x-mean-of-y">mean of x mean of y</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id97">47.31746  51.94595</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id98"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id99">Welch Two Sample t-test</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id100"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id101">data:  age.males and age.females</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#t-1-739-df-63-594-p-value-0-04343">t = -1.739, df = 63.594, p-value = 0.04343</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-hypothesis-true-difference-in-means-is-less-than-0">alternative hypothesis: true difference in means is less than 0</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id102">95 percent confidence interval:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inf-0-1859434">-Inf -0.1859434</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id103">sample estimates:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id104">mean of x mean of y</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id105">47.31746  51.94595</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id106"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-sample-t-test">Two Sample t-test</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id107"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id108">data:  age by male</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#t-1-8368-df-98-p-value-0-06927">t = 1.8368, df = 98, p-value = 0.06927</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id109">alternative hypothesis: true difference in means between group 0 and group 1 is not equal to 0</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id110">95 percent confidence interval:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id111">-0.3721683  9.6291395</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id112">sample estimates:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id113">mean in group 0 mean in group 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id114">51.94595        47.31746</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id115"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#f-test-to-compare-two-variances">F test to compare two variances</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id116"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id117">data:  age by male</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#f-1-5248-num-df-36-denom-df-62-p-value-0-1431">F = 1.5248, num df = 36, denom df = 62, p-value = 0.1431</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-hypothesis-true-ratio-of-variances-is-not-equal-to-1">alternative hypothesis: true ratio of variances is not equal to 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id118">95 percent confidence interval:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id119">0.8663612 2.8110952</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id120">sample estimates:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratio-of-variances">ratio of variances</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id121">1.524841</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id122"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bartlett-test-of-homogeneity-of-variances">Bartlett test of homogeneity of variances</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id123"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id124">data:  age by male</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bartlett-s-k-squared-2-0664-df-1-p-value-0-1506">Bartlett’s K-squared = 2.0664, df = 1, p-value = 0.1506</a></li>
-</ul>
-</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#common-statistical-tests-one-sample-t-test">Common statistical tests: One-sample t-test</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#common-statistical-tests-two-sample-unpaired-t-test">Common statistical tests: Two-sample unpaired t-test</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#common-statistical-tests-paired-t-test">Common statistical tests: Paired t-test</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id125"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paired-t-test">Paired t-test</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id126"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-bp-3m-and-bp-baseline">data:  bp_3m and bp_baseline</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#t-4-5608-df-99-p-value-1-462e-05">t = -4.5608, df = 99, p-value = 1.462e-05</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-hypothesis-true-mean-difference-is-not-equal-to-0">alternative hypothesis: true mean difference is not equal to 0</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id127">95 percent confidence interval:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id128">-23.707166  -9.332834</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id129">sample estimates:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-difference">mean difference</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id130">-16.52</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id131"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id132">Welch Two Sample t-test</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id133"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id134">data:  bp_3m and bp_baseline</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#t-4-8468-df-197-48-p-value-2-534e-06">t = -4.8468, df = 197.48, p-value = 2.534e-06</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id135">alternative hypothesis: true difference in means is not equal to 0</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id136">95 percent confidence interval:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id137">-23.241544  -9.798456</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id138">sample estimates:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id139">mean of x mean of y</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id140">165.88    182.40</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id141">Activity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Activity</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#common-statistical-tests-mann-whitney-test">Common statistical tests: Mann-Whitney test</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id142"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wilcoxon-rank-sum-test-with-continuity-correction">Wilcoxon rank sum test with continuity correction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id143"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id144">data:  age by male</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#w-1374-p-value-0-06865">W = 1374, p-value = 0.06865</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-hypothesis-true-location-shift-is-greater-than-0">alternative hypothesis: true location shift is greater than 0</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id145">[1] 0.06865345</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistic-parameter-p-value-null-value-alternative">[1] “statistic”   “parameter”   “p.value”     “null.value”  “alternative”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-data-name">[6] “method”      “data.name”</a></li>
-</ul>
-</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#common-statistical-tests-mann-whitney-test">Common statistical tests: Mann-Whitney test</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#common-statistical-tests-anova">Common statistical tests: ANOVA</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#call">Call:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aov-formula-bp-3m-intervention">aov(formula = bp_3m ~ intervention)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id146"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terms">Terms:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intervention-residuals">intervention Residuals</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sum-of-squares-12718-47-41840-09">Sum of Squares      12718.47  41840.09</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deg-of-freedom-2-97">Deg. of Freedom            2        97</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id147"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#residual-standard-error-20-76875">Residual standard error: 20.76875</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimated-effects-may-be-unbalanced">Estimated effects may be unbalanced</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#df-sum-sq-mean-sq-f-value-pr-f">Df Sum Sq Mean Sq F value   Pr(&gt;F)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intervention-2-12718-6359-14-74-2-57e-06">intervention  2  12718    6359   14.74 2.57e-06 ***</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#residuals-97-41840-431">Residuals    97  41840     431</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id148">—</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#signif-codes-0-0-001-0-01-0-05-0-1-1">Signif. codes:  0 ‘<em><strong>’ 0.001 ‘</strong>’ 0.01 ‘</em>’ 0.05 ‘.’ 0.1 ‘ ‘ 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-variance-table">Analysis of Variance Table</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id149"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response-bp-3m">Response: bp_3m</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id150">Df Sum Sq Mean Sq F value    Pr(&gt;F)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intervention-2-12718-6359-2-14-743-2-567e-06">intervention  2  12718  6359.2  14.743 2.567e-06 ***</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#residuals-97-41840-431-3">Residuals    97  41840   431.3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id151">—</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id152">Signif. codes:  0 ‘<em><strong>’ 0.001 ‘</strong>’ 0.01 ‘</em>’ 0.05 ‘.’ 0.1 ‘ ‘ 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id153">Activity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Activity</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#common-statistical-tests-chi-square-test">Common statistical tests: Chi-square test</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id154"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pearson-s-chi-squared-test">Pearson’s Chi-squared test</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id155"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-table-male-intervention">data:  table(male, intervention)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#x-squared-1-5097-df-2-p-value-0-4701">X-squared = 1.5097, df = 2, p-value = 0.4701</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#common-statistical-tests-correlation">Common statistical tests: Correlation</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id156">[1] 0.01138201</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id157"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pearson-s-product-moment-correlation">Pearson’s product-moment correlation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id158"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-age-and-bp-baseline">data:  age and bp_baseline</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#t-0-11268-df-98-p-value-0-9105">t = 0.11268, df = 98, p-value = 0.9105</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-hypothesis-true-correlation-is-not-equal-to-0">alternative hypothesis: true correlation is not equal to 0</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id159">95 percent confidence interval:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id160">-0.1854507  0.2073366</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id161">sample estimates:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cor">cor</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id162">0.01138201</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warning-in-cor-test-default-age-bp-baseline-method-spearman-cannot">Warning in cor.test.default(age, bp_baseline, method = “spearman”): Cannot</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-exact-p-value-with-ties">compute exact p-value with ties</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id163"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spearman-s-rank-correlation-rho">Spearman’s rank correlation rho</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id164"></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id165">data:  age and bp_baseline</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#s-165406-p-value-0-9412">S = 165406, p-value = 0.9412</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-hypothesis-true-rho-is-not-equal-to-0">alternative hypothesis: true rho is not equal to 0</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id166">sample estimates:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rho">rho</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id167">0.007464794</a></li>
-</ul>
-</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#common-statistical-tests-chi-square-test">Common statistical tests: Chi-square test</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#common-statistical-tests-correlation">Common statistical tests: Correlation</a></li>
 </ul>
 
   </nav></div>

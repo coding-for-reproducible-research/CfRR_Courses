@@ -247,9 +247,6 @@
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_r.html">Introduction to R</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="gettingstarted.html">Getting Up and Running with R</a></li>
-
-
-
 <li class="toctree-l2"><a class="reference internal" href="basic_commands.html">Running Commands With R</a></li>
 
 
@@ -258,14 +255,7 @@
 
 
 
-
-
-
-
 <li class="toctree-l2"><a class="reference internal" href="data_types.html">Data Types and Structures</a></li>
-
-
-
 
 
 
@@ -280,33 +270,10 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <li class="toctree-l2"><a class="reference internal" href="control_flow.html">Control Flow</a></li>
 
 
-
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Plots</a></li>
-
-
-
-
-
-
-
-
 
 
 
@@ -320,6 +287,9 @@
 
 
 
+
+
+<li class="toctree-l2"><a class="reference internal" href="good_practise.html">Establishing Good Practices when Coding</a></li>
 
 
 </ul>
@@ -430,6 +400,37 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -485,7 +486,7 @@
       
       
       
-      <li><a href="../../_sources/individual_modules/introduction_to_r/plots.md" target="_blank"
+      <li><a href="../../_sources/individual_modules/introduction_to_r/plots.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -495,7 +496,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -580,32 +581,14 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Plots</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setosa-setosa-setosa-setosa-setosa-setosa-setosa-setosa-setosa-setosa">[1] setosa setosa setosa setosa setosa setosa setosa setosa setosa setosa</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#levels-setosa-versicolor-virginica">Levels: setosa versicolor virginica</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">[1] 1 1 1 1 1 1 1 1 1 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#red-red-red-red-red-red-red-red-red-red">[1] “red” “red” “red” “red” “red” “red” “red” “red” “red” “red”</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arguements">Arguements</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-sepal-length-with-increased-bins">Plotting “Sepal.Length” with increased bins</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-data-to-an-existing-plot">Adding data to an existing plot</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-sepal-length-on-a-then-add-sepal-width-data-as-points-and-petal-length-as-lines">Plot “Sepal.Length” on a, then add “Sepal.Width” data as points and “Petal.Length” as lines</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-horizontal-line-at-6-and-a-vertical-line-at-60">Adding a horizontal line at 6 and a vertical line at 60</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-sepal-length-against-petal-length-and-adding-a-line-of-best-fit">Plotting “Sepal.Length” against “Petal.Length” and adding a line of best fit</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#further-customisations">Further customisations</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-sepal-length-and-colouring-and-using-different-points-by-species-then-adding-a-legend">Plotting “Sepal.Length” and colouring and using different points by “Species”, then adding a legend</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-text-to-a-plot">Adding text to a plot</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-sepal-length-without-axes-and-adding-them-with-adjustment">Plotting “Sepal.Length” without axes and adding them with adjustment</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#adjusting-the-plot-margins">Adjusting the plot margins</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-composite-plots">Creating composite plots</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">[,1] [,2]</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">[1,]    1    1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">[2,]    2    3</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-and-exporting-plots">Saving and exporting plots</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-a-plot-as-a-jpeg-file">Saving a plot as a jpeg file</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#png">png</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">2</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-composite-plots">Creating composite plots</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-and-exporting-plots">Saving and exporting plots</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activity">Activity:</a></li>
 </ul>
 </li>
@@ -630,116 +613,188 @@ different types of plots and importantly these are infinitely customisable. To m
 we need to take advantage of the many arguments available in plotting functions.</p>
 <p>The R base function <code class="docutils literal notranslate"><span class="pre">plot()</span></code> can generate a range of different plots from some user supplied data.</p>
 <p>If we provide one vector of continous data, it plots that on the y-axis against the index on the x-axis.</p>
-<p>{% highlight r %}
-plot(iris$Sepal.Length)
-{% endhighlight %}</p>
-<p><img alt="plot of chunk unnamed-chunk-1" src="https://raw.githubusercontent.com/UniExeterRSE/intro-to-r/main/figure/rmarkdown/08_plots/unnamed-chunk-1-1.png" /></p>
-<p>If we want to plot a scatterplot between two continuous variables, we provide both to the <code class="docutils literal notranslate"><span class="pre">plot()</span></code> function. The order here can
-be important, if not explicitly labeled as the x or y variable, R will take the first entry as the x variable and
-the second entry as the y variable.</p>
-<p>{% highlight r %}
-plot(iris<span class="math notranslate nohighlight">\(Sepal.Length, iris\)</span>Sepal.Width)
-{% endhighlight %}</p>
-<p><img alt="plot of chunk unnamed-chunk-2" src="https://raw.githubusercontent.com/UniExeterRSE/intro-to-r/main/figure/rmarkdown/08_plots/unnamed-chunk-2-1.png" /></p>
-<p>Alternatively we can use the argument keywords to specify which variable should be plotted on which axis, in this
-case is doesn’t matter which order we include the arguments. For example we can state the y variable first.</p>
-<p>{% highlight r %}
-plot(y = iris<span class="math notranslate nohighlight">\(Sepal.Length, x = iris\)</span>Sepal.Width)
-{% endhighlight %}</p>
-<p><img alt="plot of chunk unnamed-chunk-3" src="https://raw.githubusercontent.com/UniExeterRSE/intro-to-r/main/figure/rmarkdown/08_plots/unnamed-chunk-3-1.png" /></p>
-<details>
-	<summary> Arguments </summary>
-	<pre>
-<p>When calling a function, in the case of multiple arguments, there are two ways arguments can be specified.
-They can be specified <strong>positionally</strong>, where R knows which argument is which based on the order they are listed or
-using <strong>keywords</strong> where a keyword followed by = is used to inform R which argument is which. With keyword arguments,
-the order does not matter, with positional arguments it is critical. It is not uncommon to see both ways used within the
-same function call.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;/pre&gt;
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">)</span>
 </pre></div>
 </div>
-</details>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/e6e43a1a34b94addc71212bcd11a02a6e4d2cf5efb2d49fd195dda101a10e99b.png" src="../../_images/e6e43a1a34b94addc71212bcd11a02a6e4d2cf5efb2d49fd195dda101a10e99b.png" />
+</div>
+</div>
+<p>If we want to plot a scatterplot between two continuous variables, we provide both to the <code class="docutils literal notranslate"><span class="pre">plot()</span></code> function. The order here can be important, if not explicitly labeled as the x or y variable, R will take the first entry as the x variable and  the second entry as the y variable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">,</span><span class="w"> </span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Width</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/9957641b0472b2179a07f9d1459b5c14833baa96037c348e41f1161fdb838c9c.png" src="../../_images/9957641b0472b2179a07f9d1459b5c14833baa96037c348e41f1161fdb838c9c.png" />
+</div>
+</div>
+<p>Alternatively we can use the argument keywords to specify which variable should be plotted on which axis, in this
+case is doesn’t matter which order we include the arguments. For example we can state the y variable first.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Width</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/296a9fc248f7ae33c274e701af9452f3e3a9456dafa8587fc866ddb54b3786e9.png" src="../../_images/296a9fc248f7ae33c274e701af9452f3e3a9456dafa8587fc866ddb54b3786e9.png" />
+</div>
+</div>
+<section id="arguements">
+<h2>Arguements<a class="headerlink" href="#arguements" title="Link to this heading">#</a></h2>
+<p>When calling a function, in the case of multiple arguments, there are two ways arguments can be specified.  They can be specified <strong>positionally</strong>, where R knows which argument is which based on the order they are listed or  using <strong>keywords</strong> where a keyword followed by = is used to inform R which argument is which. With keyword arguments,  the order does not matter, with positional arguments it is critical. It is not uncommon to see both ways used within the same function call.</p>
 <p>You will see that R has generated the axis labels from the variable names. We can customise this with additional
 arguments (<code class="docutils literal notranslate"><span class="pre">xlab</span></code> and <code class="docutils literal notranslate"><span class="pre">ylab</span></code>) in the function.</p>
-<p>{% highlight r %}
-plot(iris<span class="math notranslate nohighlight">\(Sepal.Length, iris\)</span>Sepal.Width , xlab = “Sepal Length (cm)”, ylab = “Sepal Width (cm)”)
-{% endhighlight %}</p>
-<p><img alt="plot of chunk unnamed-chunk-4" src="https://raw.githubusercontent.com/UniExeterRSE/intro-to-r/main/figure/rmarkdown/08_plots/unnamed-chunk-4-1.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">,</span><span class="w"> </span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Width</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Sepal Length (cm)&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Sepal Width (cm)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/cbf79e7aeb819c5f2a57ddc281ceea9f5c2a30363b3458fa4357986352a33ca7.png" src="../../_images/cbf79e7aeb819c5f2a57ddc281ceea9f5c2a30363b3458fa4357986352a33ca7.png" />
+</div>
+</div>
 <p>We can also change the colour of the points with the <code class="docutils literal notranslate"><span class="pre">col</span></code> argument. If we give it one colour, all the points
 will be changed to the same colour.</p>
-<p>{% highlight r %}
-plot(iris<span class="math notranslate nohighlight">\(Sepal.Length, iris\)</span>Sepal.Width , xlab = “Sepal Length (cm)”, ylab = “Sepal Width (cm)”, col = “red”)
-{% endhighlight %}</p>
-<p><img alt="plot of chunk unnamed-chunk-5" src="https://raw.githubusercontent.com/UniExeterRSE/intro-to-r/main/figure/rmarkdown/08_plots/unnamed-chunk-5-1.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">,</span><span class="w"> </span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Width</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Sepal Length (cm)&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Sepal Width (cm)&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;red&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/b703657a6e221d4c23785db3049970c11f21741a9bfd7b111e5a5cb293693708.png" src="../../_images/b703657a6e221d4c23785db3049970c11f21741a9bfd7b111e5a5cb293693708.png" />
+</div>
+</div>
 <p>Alternatively, we can provide a vector of colours, where the first colour will be the colour of the first point drawn, the second colour, the colour of the second point and so on.
 This vector does have to be the same length as the number of points. For example if we provide a vector of three colours, this will recycled until all the points have been pointed.</p>
-<p>{% highlight r %}
-plot(iris<span class="math notranslate nohighlight">\(Sepal.Length, iris\)</span>Sepal.Width , xlab = “Sepal Length (cm)”, ylab = “Sepal Width (cm)”, col = c(“red”, “blue”, “#ddaa33”))
-{% endhighlight %}</p>
-<p><img alt="plot of chunk unnamed-chunk-6" src="https://raw.githubusercontent.com/UniExeterRSE/intro-to-r/main/figure/rmarkdown/08_plots/unnamed-chunk-6-1.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">,</span><span class="w"> </span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Width</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Sepal Length (cm)&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Sepal Width (cm)&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;#ddaa33&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/c8c936bf15d30c3fbdbd1e95ceae4ae482793d79d0c0ea511cea2da520311729.png" src="../../_images/c8c936bf15d30c3fbdbd1e95ceae4ae482793d79d0c0ea511cea2da520311729.png" />
+</div>
+</div>
 <p>What has happened is the 1st,4th,7th etc are pointed in red, the 2nd,5th,8th etc in blue and the 3rd,6th,9th etc in #ddaa33.</p>
 <p>If we want to colour the points by some categorial variable, we can use the fact that factors are represented as integers to subset a vector of colours.</p>
-<p>{% highlight r %}
-plot(iris<span class="math notranslate nohighlight">\(Sepal.Length, iris\)</span>Sepal.Width , xlab = “Sepal Length (cm)”, ylab = “Sepal Width (cm)”, col = c(“red”, “blue”, “#ddaa33”)[iris$Species])
-{% endhighlight %}</p>
-<p><img alt="plot of chunk unnamed-chunk-7" src="https://raw.githubusercontent.com/UniExeterRSE/intro-to-r/main/figure/rmarkdown/08_plots/unnamed-chunk-7-1.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">,</span><span class="w"> </span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Width</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Sepal Length (cm)&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Sepal Width (cm)&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;#ddaa33&quot;</span><span class="p">)[</span><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/653d2761ae6689d5f573e53254d7c30a8bcc676a213588ea4c7debd4695d0314.png" src="../../_images/653d2761ae6689d5f573e53254d7c30a8bcc676a213588ea4c7debd4695d0314.png" />
+</div>
+</div>
 <p>There are three levels in the factor <code class="docutils literal notranslate"><span class="pre">iris$Species</span></code>, which are represented internally by the numbers 1,2,3. These integers can be used to index a vector of at
 least three as shown below, and create a new vector, where each level is replaced by the same colour.</p>
-<p>{% highlight r %}
-iris$Species[1:10]
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-<section id="setosa-setosa-setosa-setosa-setosa-setosa-setosa-setosa-setosa-setosa">
-<h2>[1] setosa setosa setosa setosa setosa setosa setosa setosa setosa setosa<a class="headerlink" href="#setosa-setosa-setosa-setosa-setosa-setosa-setosa-setosa-setosa-setosa" title="Link to this heading">#</a></h2>
-</section>
-<section id="levels-setosa-versicolor-virginica">
-<h2>Levels: setosa versicolor virginica<a class="headerlink" href="#levels-setosa-versicolor-virginica" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<p>{% highlight r %}
-as.numeric(iris$Species[1:10])
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id1">
-<h2>[1] 1 1 1 1 1 1 1 1 1 1<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<p>{% highlight r %}
-c(“red”, “blue”, “#ddaa33”)[iris$Species[1:10]]
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="red-red-red-red-red-red-red-red-red-red">
-<h2>[1] “red” “red” “red” “red” “red” “red” “red” “red” “red” “red”<a class="headerlink" href="#red-red-red-red-red-red-red-red-red-red" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<p>Depending on the data we are
-attempting to visualize, the type of plot we may want to use will vary. R will automatically try and plot the most
-appropriate plot for the data provided. Next, we will use a “~” to provide a formula denoting what we want to plot.
-As <code class="docutils literal notranslate"><span class="pre">iris$Species</span></code> is a factor, R defaults to a boxplot.</p>
-<p>{% highlight r %}
-plot(iris<span class="math notranslate nohighlight">\(Sepal.Length ~ iris\)</span>Species, ylab = “Sepal Length (cm)”, xlab = “Species”,
-col =  c(“red”, “blue”, “#ddaa33”))
-{% endhighlight %}</p>
-<p><img alt="plot of chunk unnamed-chunk-9" src="https://raw.githubusercontent.com/UniExeterRSE/intro-to-r/main/figure/rmarkdown/08_plots/unnamed-chunk-9-1.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>setosa</li><li>setosa</li><li>setosa</li><li>setosa</li><li>setosa</li><li>setosa</li><li>setosa</li><li>setosa</li><li>setosa</li><li>setosa</li></ol>
+
+<details>
+	<summary style=display:list-item;cursor:pointer>
+		<strong>Levels</strong>:
+	</summary>
+	<style>
+	.list-inline {list-style: none; margin:0; padding: 0}
+	.list-inline>li {display: inline-block}
+	.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+	</style>
+	<ol class=list-inline><li>'setosa'</li><li>'versicolor'</li><li>'virginica'</li></ol>
+</details></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li></ol>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;#ddaa33&quot;</span><span class="p">)[</span><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>'red'</li><li>'red'</li><li>'red'</li><li>'red'</li><li>'red'</li><li>'red'</li><li>'red'</li><li>'red'</li><li>'red'</li><li>'red'</li></ol>
+</div></div>
+</div>
+<p>Depending on the data we are attempting to visualize, the type of plot we may want to use will vary. R will automatically try and plot the most  appropriate plot for the data provided. Next, we will use a “~” to provide a formula denoting what we want to plot.  As <code class="docutils literal notranslate"><span class="pre">iris$Species</span></code> is a factor, R defaults to a boxplot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Sepal Length (cm)&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Species&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;#ddaa33&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/e9a1469228a66dc6e2a751580226de316e1b57773ca72cd2602e25a25f5eb708.png" src="../../_images/e9a1469228a66dc6e2a751580226de316e1b57773ca72cd2602e25a25f5eb708.png" />
+</div>
+</div>
 <p>Note here, we only need to provide a vector of three colours, as there are only three boxes in the figure.</p>
 <p>As well as the <code class="docutils literal notranslate"><span class="pre">plot()</span></code> function R has some specific plot functions (box plots (boxplot()), histograms (hist())
 and bar plots (barplot())) we can call instead. These functions use a lot of the same arguments to customise the visualise
 the appearance of the plot.</p>
 <p>For example we can recreate the same boxplot as follows</p>
-<p>{% highlight r %}
-boxplot(iris<span class="math notranslate nohighlight">\(Sepal.Length ~ iris\)</span>Species, ylab = “Sepal Length (cm)”, xlab = “Species”,
-col =  c(“red”, “blue”, “#ddaa33”))
-{% endhighlight %}</p>
-<p><img alt="plot of chunk unnamed-chunk-10" src="https://raw.githubusercontent.com/UniExeterRSE/intro-to-r/main/figure/rmarkdown/08_plots/unnamed-chunk-10-1.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">boxplot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Sepal Length (cm)&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Species&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">     </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;#ddaa33&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/e9a1469228a66dc6e2a751580226de316e1b57773ca72cd2602e25a25f5eb708.png" src="../../_images/e9a1469228a66dc6e2a751580226de316e1b57773ca72cd2602e25a25f5eb708.png" />
+</div>
+</div>
 <p>Histograms are plotted using the function <code class="docutils literal notranslate"><span class="pre">hist()</span></code>, which allows us to plot the frequency distribution of a vector.
 You can use standard plotting arguments such as col, but also used the argument breaks to adjust the amount of bins.</p>
-<p>{% highlight r %}</p>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="plotting-sepal-length-with-increased-bins">
-<h1>Plotting “Sepal.Length” with increased bins<a class="headerlink" href="#plotting-sepal-length-with-increased-bins" title="Link to this heading">#</a></h1>
-<p>hist(iris$Sepal.Length, breaks = 16)
-{% endhighlight %}</p>
-<p><img alt="plot of chunk unnamed-chunk-11" src="https://raw.githubusercontent.com/UniExeterRSE/intro-to-r/main/figure/rmarkdown/08_plots/unnamed-chunk-11-1.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotting &quot;Sepal.Length&quot; with increased bins</span>
+<span class="nf">hist</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">,</span><span class="w"> </span><span class="n">breaks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">16</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/19b73293a1bd67e97d9c849f2b8194d711d5009af220cc838708a1d646489d16.png" src="../../_images/19b73293a1bd67e97d9c849f2b8194d711d5009af220cc838708a1d646489d16.png" />
+</div>
+</div>
 <p>Below you can see a table containing a lot of basic plotting arguments. Also, for colour selection, making colour themes and looking for colour blind options, you can use <a class="reference external" href="https://www.colorhexa.com/">https://www.colorhexa.com/</a> which will give you R friendly colour codes.</p>
 <table class="table">
 <thead>
@@ -844,6 +899,7 @@ You can use standard plotting arguments such as col, but also used the argument 
 </tbody>
 </table>
 </section>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="adding-data-to-an-existing-plot">
 <h1>Adding data to an existing plot<a class="headerlink" href="#adding-data-to-an-existing-plot" title="Link to this heading">#</a></h1>
 <p>Once you have created a plot, there are various methods which allow us to add more data on top. For example, we may
@@ -851,35 +907,45 @@ want to add individual data points on top of a boxplot, add more data points to 
 can use functions such as points(), lines() or abline().</p>
 <p>Using <code class="docutils literal notranslate"><span class="pre">points()</span></code> and <code class="docutils literal notranslate"><span class="pre">lines()</span></code>, you can add more data to your plot. They use similar arguments to <code class="docutils literal notranslate"><span class="pre">plot()</span></code>,
 such as col, lty, pch, cex etc.</p>
-<p>{% highlight r %}</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="plot-sepal-length-on-a-then-add-sepal-width-data-as-points-and-petal-length-as-lines">
-<h1>Plot “Sepal.Length” on a, then add “Sepal.Width” data as points and “Petal.Length” as lines<a class="headerlink" href="#plot-sepal-length-on-a-then-add-sepal-width-data-as-points-and-petal-length-as-lines" title="Link to this heading">#</a></h1>
-<p>plot(iris<span class="math notranslate nohighlight">\(Sepal.Length, ylim = c(0, 8), ylab = &quot;Size (cm)&quot;, xlab = &quot;Sample&quot;)
-points(iris\)</span>Sepal.Width, col = “red”, pch = 19, cex = 0.8)
-lines(iris$Petal.Length, lty = 2, col = “blue”)
-{% endhighlight %}</p>
-<p><img alt="plot of chunk unnamed-chunk-13" src="https://raw.githubusercontent.com/UniExeterRSE/intro-to-r/main/figure/rmarkdown/08_plots/unnamed-chunk-13-1.png" /></p>
-<p>using <code class="docutils literal notranslate"><span class="pre">abline()</span></code>, you can add horizontal lines (<code class="docutils literal notranslate"><span class="pre">h=</span></code>), vertical lines (<code class="docutils literal notranslate"><span class="pre">v=</span></code>), or diagonal lines(x, y). You can also specify
-the parameters of the straight line i.e the intercept (<code class="docutils literal notranslate"><span class="pre">a=</span></code>) and slope coefficient (<code class="docutils literal notranslate"><span class="pre">b=</span></code>).</p>
-<p>It can also be wrapped around a linear regression (<code class="docutils literal notranslate"><span class="pre">lm()</span></code>) to add a line of best fit.</p>
-<p>{% highlight r %}</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="adding-a-horizontal-line-at-6-and-a-vertical-line-at-60">
-<h1>Adding a horizontal line at 6 and a vertical line at 60<a class="headerlink" href="#adding-a-horizontal-line-at-6-and-a-vertical-line-at-60" title="Link to this heading">#</a></h1>
-<p>plot(iris$Sepal.Length)
-abline(h = 6, col = “red”)
-abline(v = 60, col = “blue”)
-{% endhighlight %}</p>
-<p><img alt="plot of chunk unnamed-chunk-14" src="https://raw.githubusercontent.com/UniExeterRSE/intro-to-r/main/figure/rmarkdown/08_plots/unnamed-chunk-14-1.png" /></p>
-<p>{% highlight r %}</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="plotting-sepal-length-against-petal-length-and-adding-a-line-of-best-fit">
-<h1>Plotting “Sepal.Length” against “Petal.Length” and adding a line of best fit<a class="headerlink" href="#plotting-sepal-length-against-petal-length-and-adding-a-line-of-best-fit" title="Link to this heading">#</a></h1>
-<p>plot(iris<span class="math notranslate nohighlight">\(Sepal.Length ~ iris\)</span>Petal.Length)
-abline(lm(iris<span class="math notranslate nohighlight">\(Sepal.Length ~ iris\)</span>Petal.Length), lty = 3, col = “green”, lwd = 3)
-{% endhighlight %}</p>
-<p><img alt="plot of chunk unnamed-chunk-14" src="https://raw.githubusercontent.com/UniExeterRSE/intro-to-r/main/figure/rmarkdown/08_plots/unnamed-chunk-14-2.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot &quot;Sepal.Length&quot; on a, then add &quot;Sepal.Width&quot; data as points and &quot;Petal.Length&quot; as lines</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">,</span><span class="w"> </span><span class="n">ylim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">8</span><span class="p">),</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Size (cm)&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Sample&quot;</span><span class="p">)</span>
+<span class="nf">points</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Width</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">19</span><span class="p">,</span><span class="w"> </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.8</span><span class="p">)</span>
+<span class="nf">lines</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Petal.Length</span><span class="p">,</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/3ee50d4f43c23edf554a22ea81b7e73f171ba06b38ea8bbaa32cda91f04aaa20.png" src="../../_images/3ee50d4f43c23edf554a22ea81b7e73f171ba06b38ea8bbaa32cda91f04aaa20.png" />
+</div>
+</div>
+<p>using <code class="docutils literal notranslate"><span class="pre">abline()</span></code>, you can add horizontal lines (<code class="docutils literal notranslate"><span class="pre">h=</span></code>), vertical lines (<code class="docutils literal notranslate"><span class="pre">v=</span></code>), or diagonal lines(x, y). You can also specify the parameters of the straight line i.e the intercept (<code class="docutils literal notranslate"><span class="pre">a=</span></code>) and slope coefficient (<code class="docutils literal notranslate"><span class="pre">b=</span></code>). It can also be wrapped around a linear regression (<code class="docutils literal notranslate"><span class="pre">lm()</span></code>) to add a line of best fit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Adding a horizontal line at 6 and a vertical line at 60</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">)</span>
+<span class="nf">abline</span><span class="p">(</span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;red&quot;</span><span class="p">)</span>
+<span class="nf">abline</span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">60</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/d1f29ea3b5b6fed6cceec64c83f21503fc330e0ad7abecd4c715f25186877e17.png" src="../../_images/d1f29ea3b5b6fed6cceec64c83f21503fc330e0ad7abecd4c715f25186877e17.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotting &quot;Sepal.Length&quot; against &quot;Petal.Length&quot; and adding a line of best fit</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">iris</span><span class="o">$</span><span class="n">Petal.Length</span><span class="p">)</span>
+<span class="nf">abline</span><span class="p">(</span><span class="nf">lm</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">iris</span><span class="o">$</span><span class="n">Petal.Length</span><span class="p">),</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;green&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/204441c476086cd53b66c52ff1bf847ecc3c7506f983a100b948e9d9914923ea.png" src="../../_images/204441c476086cd53b66c52ff1bf847ecc3c7506f983a100b948e9d9914923ea.png" />
+</div>
+</div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="further-customisations">
 <h1>Further customisations<a class="headerlink" href="#further-customisations" title="Link to this heading">#</a></h1>
@@ -888,31 +954,39 @@ list additional ones which may be useful in the future.</p>
 <p>We often need to add a legend to our, and can do this using <code class="docutils literal notranslate"><span class="pre">legend()</span></code>. The <code class="docutils literal notranslate"><span class="pre">legend()</span></code> function allows us to
 define position, either by using x, y coordinates or by a word such as “topleft”. We also provide the text, colours
 and background.</p>
-<p>{% highlight r %}</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="plotting-sepal-length-and-colouring-and-using-different-points-by-species-then-adding-a-legend">
-<h1>Plotting “Sepal.Length” and colouring and using different points by “Species”, then adding a legend<a class="headerlink" href="#plotting-sepal-length-and-colouring-and-using-different-points-by-species-then-adding-a-legend" title="Link to this heading">#</a></h1>
-<p>plot(iris<span class="math notranslate nohighlight">\(Sepal.Length, col = c(&quot;red&quot;, &quot;blue&quot;, &quot;#ddaa33&quot;)[iris\)</span>Species],
-pch = c(1, 2, 3)[iris$Species])
-legend(“topleft”, legend = c(“Setosa”, “Versicolor”, “Virginica”),
-pch = c(1,2,3), col = c(“red”, “blue”, “#ddaa33”))
-{% endhighlight %}</p>
-<p><img alt="plot of chunk unnamed-chunk-15" src="https://raw.githubusercontent.com/UniExeterRSE/intro-to-r/main/figure/rmarkdown/08_plots/unnamed-chunk-15-1.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotting &quot;Sepal.Length&quot; and colouring and using different points by &quot;Species&quot;, then adding a legend</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;#ddaa33&quot;</span><span class="p">)[</span><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">],</span><span class="w"> </span>
+<span class="w">     </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">)[</span><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">])</span>
+<span class="nf">legend</span><span class="p">(</span><span class="s">&quot;topleft&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">legend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Setosa&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Versicolor&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Virginica&quot;</span><span class="p">),</span><span class="w"> </span>
+<span class="w">       </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">),</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;#ddaa33&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/96846488035ea5058dca00891ffae6e7a5b6850645afc39643f9416efdec1bb1.png" src="../../_images/96846488035ea5058dca00891ffae6e7a5b6850645afc39643f9416efdec1bb1.png" />
+</div>
+</div>
 <p>We can add additional text to a plot by using <code class="docutils literal notranslate"><span class="pre">text()</span></code> or <code class="docutils literal notranslate"><span class="pre">mtext()</span></code> for putting text in the margin. To use
 <code class="docutils literal notranslate"><span class="pre">text()</span></code>, we provide x, y coordinates,
 the text to be written (<code class="docutils literal notranslate"><span class="pre">labels</span> <span class="pre">=</span></code>), size (<code class="docutils literal notranslate"><span class="pre">cex</span> <span class="pre">=</span></code>), and colour (<code class="docutils literal notranslate"><span class="pre">col</span> <span class="pre">=</span></code>) and font (<code class="docutils literal notranslate"><span class="pre">font</span> <span class="pre">=</span></code>).</p>
 <p>Using <code class="docutils literal notranslate"><span class="pre">mtext()</span></code> requires different arguments as it is relation to the margin side we put the text in. It requires
 the text (<code class="docutils literal notranslate"><span class="pre">text</span> <span class="pre">=</span> </code>), the side of the plot
 the text will go (side =) with 1 = bottom, 2 = left, 3 = top, 4 = right, the margin line to put the text on (line = ).</p>
-<p>{% highlight r %}</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="adding-text-to-a-plot">
-<h1>Adding text to a plot<a class="headerlink" href="#adding-text-to-a-plot" title="Link to this heading">#</a></h1>
-<p>plot(iris$Sepal.Length)
-text(20, 6, “text”, cex = 0.7, col = “blue”, font = 2)
-mtext(“text”, side = 4, line = 1, col = “red”)
-{% endhighlight %}</p>
-<p><img alt="plot of chunk unnamed-chunk-16" src="https://raw.githubusercontent.com/UniExeterRSE/intro-to-r/main/figure/rmarkdown/08_plots/unnamed-chunk-16-1.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Adding text to a plot</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">)</span>
+<span class="nf">text</span><span class="p">(</span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;text&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.7</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">font</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span>
+<span class="nf">mtext</span><span class="p">(</span><span class="s">&quot;text&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">side</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;red&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/9a41b6a5bbff7a1f0a43a85eb9e15665044957f8ee53acf7aa90e87e8bcbafc5.png" src="../../_images/9a41b6a5bbff7a1f0a43a85eb9e15665044957f8ee53acf7aa90e87e8bcbafc5.png" />
+</div>
+</div>
 <p>There are times when we may want to add additional axes or move and adjust the axes of a plot. For this, we use
 <code class="docutils literal notranslate"><span class="pre">axis()</span></code> function after we create our plot. But first we need to tell R not to plot the default axes by
 setting the argument <code class="docutils literal notranslate"><span class="pre">axes</span></code> to FALSE when running <code class="docutils literal notranslate"><span class="pre">plot()</span></code>. <code class="docutils literal notranslate"><span class="pre">axis()</span></code> can be used to plot one axis at a time.
@@ -921,15 +995,19 @@ Arguments for <code class="docutils literal notranslate"><span class="pre">axis(
 <code class="docutils literal notranslate"><span class="pre">(labels</span> <span class="pre">=)</span></code>, how far from the axis the ticks should extend <code class="docutils literal notranslate"><span class="pre">(line</span> <span class="pre">=)</span></code>, the position of the axis <code class="docutils literal notranslate"><span class="pre">(pos</span> <span class="pre">=)</span></code>
 and if tick marks should be drawn <code class="docutils literal notranslate"><span class="pre">(tick</span> <span class="pre">=)</span></code>. You can also change the line width <code class="docutils literal notranslate"><span class="pre">(lwd</span> <span class="pre">=)</span></code>, colour <code class="docutils literal notranslate"><span class="pre">(col</span> <span class="pre">=)</span></code>
 and type of line <code class="docutils literal notranslate"><span class="pre">(lty</span> <span class="pre">=)</span></code>. You need to use <code class="docutils literal notranslate"><span class="pre">axis()</span></code> for each axis you want to add.</p>
-<p>{% highlight r %}</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="plotting-sepal-length-without-axes-and-adding-them-with-adjustment">
-<h1>Plotting “Sepal.Length” without axes and adding them with adjustment<a class="headerlink" href="#plotting-sepal-length-without-axes-and-adding-them-with-adjustment" title="Link to this heading">#</a></h1>
-<p>plot(iris$Sepal.Length, axes = F, ylab=”Sepal Length (cm)”)
-axis(1)
-axis(2, pos = 50, at = 1:8, lwd = 2, col = “blue”)
-{% endhighlight %}</p>
-<p><img alt="plot of chunk unnamed-chunk-17" src="https://raw.githubusercontent.com/UniExeterRSE/intro-to-r/main/figure/rmarkdown/08_plots/unnamed-chunk-17-1.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotting &quot;Sepal.Length&quot; without axes and adding them with adjustment</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">,</span><span class="w"> </span><span class="n">axes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">F</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="o">=</span><span class="s">&quot;Sepal Length (cm)&quot;</span><span class="p">)</span>
+<span class="nf">axis</span><span class="p">(</span><span class="m">1</span><span class="p">)</span>
+<span class="nf">axis</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">50</span><span class="p">,</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">8</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/2402513018998d74459e92982cf1abcf1ab407b2cef4e94177ec60a865c8926b.png" src="../../_images/2402513018998d74459e92982cf1abcf1ab407b2cef4e94177ec60a865c8926b.png" />
+</div>
+</div>
 <p>If you want to enclose the plot in a box (i.e. add in the extra axes as straight lines) you can use the function <code class="docutils literal notranslate"><span class="pre">box()</span></code>.</p>
 <p>Additional functions to add elements to your plots are <code class="docutils literal notranslate"><span class="pre">segments()</span></code>, <code class="docutils literal notranslate"><span class="pre">arrows()</span></code>, <code class="docutils literal notranslate"><span class="pre">curve()</span></code>, <code class="docutils literal notranslate"><span class="pre">rect()</span></code>,
 <code class="docutils literal notranslate"><span class="pre">polygon()</span></code> and <code class="docutils literal notranslate"><span class="pre">grid()</span></code>.</p>
@@ -952,24 +1030,36 @@ The default is  <code class="docutils literal notranslate"><span class="pre">c(3
 The options are parallel to the axis (the default, las = 0), always horizontal (las = 1), always perpendicular to the
 axis (las = 2), and always vertical (las = 3). It can also be used within the <code class="docutils literal notranslate"><span class="pre">axis()</span></code> or <code class="docutils literal notranslate"><span class="pre">text()</span></code>
 functions to change the orientation of specific elements.</p>
-<p>{% highlight r %}
-par(mar = c(4, 4, 2, 1), mgp = c(2, 0.5, 0), las = 1)
-plot(iris$Sepal.Length, ylab=”Sepal Length (cm)”)
-{% endhighlight %}</p>
-<p><img alt="plot of chunk unnamed-chunk-18" src="https://raw.githubusercontent.com/UniExeterRSE/intro-to-r/main/figure/rmarkdown/08_plots/unnamed-chunk-18-1.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">par</span><span class="p">(</span><span class="n">mar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">),</span><span class="w"> </span><span class="n">mgp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">0.5</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">),</span><span class="w"> </span><span class="n">las</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="o">=</span><span class="s">&quot;Sepal Length (cm)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/453879334e3ffec72596fa6964eaebd4f84ef6b6bd98ce0bbae0e22a4277fe19.png" src="../../_images/453879334e3ffec72596fa6964eaebd4f84ef6b6bd98ce0bbae0e22a4277fe19.png" />
+</div>
+</div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="creating-composite-plots">
 <h1>Creating composite plots<a class="headerlink" href="#creating-composite-plots" title="Link to this heading">#</a></h1>
 <p>There are two options for making composite plots, or a multi-panel plots.</p>
 <p>We can use the <code class="docutils literal notranslate"><span class="pre">par()</span></code> function with the arguments <code class="docutils literal notranslate"><span class="pre">mfrow</span></code> <code class="docutils literal notranslate"><span class="pre">mfcol</span></code> which allows us define a matrix of plots
 with a specified number of rows and columns. Using <code class="docutils literal notranslate"><span class="pre">mfcol</span></code> draws by columns and <code class="docutils literal notranslate"><span class="pre">mfrow</span></code> draws by rows.</p>
-<p>{% highlight r %}
-par(mar = c(4, 4, 2, 1))
-par(mfrow = c(1, 2))
-plot(iris<span class="math notranslate nohighlight">\(Sepal.Length, ylab=&quot;Sepal Length (cm)&quot;)
-plot(iris\)</span>Sepal.Width, ylab=”Sepal Width (cm)”)
-{% endhighlight %}</p>
-<p><img alt="plot of chunk unnamed-chunk-19" src="https://raw.githubusercontent.com/UniExeterRSE/intro-to-r/main/figure/rmarkdown/08_plots/unnamed-chunk-19-1.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">par</span><span class="p">(</span><span class="n">mar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">))</span>
+<span class="nf">par</span><span class="p">(</span><span class="n">mfrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">))</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="o">=</span><span class="s">&quot;Sepal Length (cm)&quot;</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Width</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="o">=</span><span class="s">&quot;Sepal Width (cm)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/16e869a0c8d213fde851b189814ca898aba7ece1f4fd408a25f70926ee925799.png" src="../../_images/16e869a0c8d213fde851b189814ca898aba7ece1f4fd408a25f70926ee925799.png" />
+</div>
+</div>
 <p>Alternatively we can use the function <code class="docutils literal notranslate"><span class="pre">layout()</span></code> which allows for complicated ways of combining plots. Again you should think
 think of it as a matrix or grid, but in this case a plot can occupy multiple elements. In this way plots can be different sizes.
 The relevant argument is <code class="docutils literal notranslate"><span class="pre">matrix</span></code> where you need to provide a matrix with increasing integers specifying where you want each plot
@@ -978,30 +1068,38 @@ to be located.</p>
 we need a 2x2 matrix with 1s across top and 2 and 3 underneath. We can create a matrix with the function <code class="docutils literal notranslate"><span class="pre">matrix()</span></code>
 where we provide the elements as a vector, the number of rows (or columns or both). The <code class="docutils literal notranslate"><span class="pre">byrow</span></code> argument, if true,
 will add the numbers to the matrix by row, if FALSE, it will add by column.</p>
-<p>{% highlight r %}
-matrix(c(1, 1, 2, 3), nrow = 2, ncol = 2, byrow = TRUE)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-<section id="id2">
-<h2>[,1] [,2]<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-</section>
-<section id="id3">
-<h2>[1,]    1    1<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
-</section>
-<section id="id4">
-<h2>[2,]    2    3<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">),</span><span class="w"> </span><span class="n">nrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">ncol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">byrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A matrix: 2 × 2 of type dbl</caption>
+<tbody>
+	<tr><td>1</td><td>1</td></tr>
+	<tr><td>2</td><td>3</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
 <p>If we provide the this matrix to the <code class="docutils literal notranslate"><span class="pre">layout()</span></code> function, we are telling it to put the first plot to the positions
 occupied with the value 1, the second plot where the value 2 is located, and the third plot where the value 3 is located.</p>
-<p>{% highlight r %}
-par(mar = c(4, 4, 2, 1))
-layout(matrix(c(1, 1, 2, 3), 2, 2, byrow = TRUE))
-plot(iris<span class="math notranslate nohighlight">\(Sepal.Length, ylab = &quot;Sepal Length (cm)&quot;)
-plot(iris\)</span>Sepal.Width, ylab = “Sepal Width (cm)”)
-plot(iris$Petal.Length, ylab = “Petal Length (cm)”)
-{% endhighlight %}</p>
-<p><img alt="plot of chunk unnamed-chunk-21" src="https://raw.githubusercontent.com/UniExeterRSE/intro-to-r/main/figure/rmarkdown/08_plots/unnamed-chunk-21-1.png" /></p>
-</section>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">par</span><span class="p">(</span><span class="n">mar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">))</span>
+<span class="nf">layout</span><span class="p">(</span><span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">),</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">byrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">))</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Sepal Length (cm)&quot;</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Width</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Sepal Width (cm)&quot;</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Petal.Length</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Petal Length (cm)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/4d114ac6b6a743407a4ceb96df1f2cdbc806e0383f767680a548bb2219c05f75.png" src="../../_images/4d114ac6b6a743407a4ceb96df1f2cdbc806e0383f767680a548bb2219c05f75.png" />
+</div>
+</div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="saving-and-exporting-plots">
 <h1>Saving and exporting plots<a class="headerlink" href="#saving-and-exporting-plots" title="Link to this heading">#</a></h1>
@@ -1014,22 +1112,18 @@ save the plot. When you call these functions you can also define the size of the
 created, if it already exists, it will be overwritten without warning. All of these functions apart from <code class="docutils literal notranslate"><span class="pre">pdf()</span></code>
 will only save one image (although this could be a multi panel plot), and the last image that is plotted before <code class="docutils literal notranslate"><span class="pre">dev.off()</span></code>
 is called. <code class="docutils literal notranslate"><span class="pre">pdf()</span></code> on the other hand will save multiple images as multiple pages.</p>
-<p>{% highlight r %}</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="saving-a-plot-as-a-jpeg-file">
-<h1>Saving a plot as a jpeg file<a class="headerlink" href="#saving-a-plot-as-a-jpeg-file" title="Link to this heading">#</a></h1>
-<p>jpeg(“exampleplot.jpg”, width = 300, height = 300, units = “mm”, bg = “white”, res = 200)
-plot(iris$Sepal.Length, ylab = “Sepal Length (cm)”)
-dev.off()
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-<section id="png">
-<h2>png<a class="headerlink" href="#png" title="Link to this heading">#</a></h2>
-</section>
-<section id="id5">
-<h2>2<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-</section>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Saving a plot as a jpeg file</span>
+<span class="nf">jpeg</span><span class="p">(</span><span class="s">&quot;images/exampleplot.jpg&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">300</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">300</span><span class="p">,</span><span class="w"> </span><span class="n">units</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;mm&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">bg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;white&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">200</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Sepal Length (cm)&quot;</span><span class="p">)</span>
+<span class="nf">dev.off</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><strong>pdf:</strong> 2</div></div>
+</div>
 <section id="activity">
 <h2>Activity:<a class="headerlink" href="#activity" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
@@ -1074,16 +1168,16 @@ dev.off()
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "r"
         },
         kernelOptions: {
-            name: "python3",
+            name: "ir",
             path: "./individual_modules/introduction_to_r"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'ir'</script>
 
                 </article>
               
@@ -1130,32 +1224,14 @@ dev.off()
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Plots</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setosa-setosa-setosa-setosa-setosa-setosa-setosa-setosa-setosa-setosa">[1] setosa setosa setosa setosa setosa setosa setosa setosa setosa setosa</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#levels-setosa-versicolor-virginica">Levels: setosa versicolor virginica</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">[1] 1 1 1 1 1 1 1 1 1 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#red-red-red-red-red-red-red-red-red-red">[1] “red” “red” “red” “red” “red” “red” “red” “red” “red” “red”</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arguements">Arguements</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-sepal-length-with-increased-bins">Plotting “Sepal.Length” with increased bins</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-data-to-an-existing-plot">Adding data to an existing plot</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-sepal-length-on-a-then-add-sepal-width-data-as-points-and-petal-length-as-lines">Plot “Sepal.Length” on a, then add “Sepal.Width” data as points and “Petal.Length” as lines</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-horizontal-line-at-6-and-a-vertical-line-at-60">Adding a horizontal line at 6 and a vertical line at 60</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-sepal-length-against-petal-length-and-adding-a-line-of-best-fit">Plotting “Sepal.Length” against “Petal.Length” and adding a line of best fit</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#further-customisations">Further customisations</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-sepal-length-and-colouring-and-using-different-points-by-species-then-adding-a-legend">Plotting “Sepal.Length” and colouring and using different points by “Species”, then adding a legend</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-text-to-a-plot">Adding text to a plot</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-sepal-length-without-axes-and-adding-them-with-adjustment">Plotting “Sepal.Length” without axes and adding them with adjustment</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#adjusting-the-plot-margins">Adjusting the plot margins</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-composite-plots">Creating composite plots</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">[,1] [,2]</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">[1,]    1    1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">[2,]    2    3</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-and-exporting-plots">Saving and exporting plots</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-a-plot-as-a-jpeg-file">Saving a plot as a jpeg file</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#png">png</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">2</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-composite-plots">Creating composite plots</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-and-exporting-plots">Saving and exporting plots</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activity">Activity:</a></li>
 </ul>
 </li>

@@ -57,6 +57,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'individual_modules/introduction_to_r/basic_commands';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -245,9 +247,6 @@
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_r.html">Introduction to R</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="gettingstarted.html">Getting Up and Running with R</a></li>
-
-
-
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Running Commands With R</a></li>
 
 
@@ -256,14 +255,7 @@
 
 
 
-
-
-
-
 <li class="toctree-l2"><a class="reference internal" href="data_types.html">Data Types and Structures</a></li>
-
-
-
 
 
 
@@ -278,33 +270,10 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <li class="toctree-l2"><a class="reference internal" href="control_flow.html">Control Flow</a></li>
 
 
-
 <li class="toctree-l2"><a class="reference internal" href="plots.html">Plots</a></li>
-
-
-
-
-
-
-
-
 
 
 
@@ -318,6 +287,9 @@
 
 
 
+
+
+<li class="toctree-l2"><a class="reference internal" href="good_practise.html">Establishing Good Practices when Coding</a></li>
 
 
 </ul>
@@ -428,6 +400,37 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -483,7 +486,7 @@
       
       
       
-      <li><a href="../../_sources/individual_modules/introduction_to_r/basic_commands.md" target="_blank"
+      <li><a href="../../_sources/individual_modules/introduction_to_r/basic_commands.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -493,7 +496,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -577,46 +580,18 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Running Commands With R</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#executing-commands-in-r">Executing Commands in R</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">[1] 4</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Running Commands With R</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#executing-commands-in-r">Executing Commands in R</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interacting-with-r">Interacting with R</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-the-working-directory">Set the Working Directory</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#interacting-with-r">Interacting with R</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#set-the-working-directory">Set the Working Directory</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#home-runner-work-intro-to-r-intro-to-r-rmarkdown">[1] “/home/runner/work/intro-to-r/intro-to-r/_rmarkdown”</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-variables">Defining Variables</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">[1] 55</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#weight-in-pounds">weight in pounds:</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">[1] 121</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#weight-in-kilograms-is-now">weight in kilograms is now</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">[1] 57.5</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#weight-in-kg">weight in kg…</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">[1] 57.5</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#and-in-pounds">…and in pounds</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">[1] 126.5</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#weight-in-kg-now">weight in kg now…</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">[1] 100</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#and-weight-in-pounds-still">…and weight in pounds still</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">[1] 126.5</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-assigning-values-to-variables">Activity: Assigning Values to Variables</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#naming-objects-in-r">Naming objects in R</a></li>
-</ul>
-</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#absolute-vs-relative-filepaths">Absolute vs Relative Filepaths</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-variables">Defining Variables</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#assignment-operator">Assignment Operator</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-assigning-values-to-variables">Activity: Assigning Values to Variables</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#printing-with-parentheses">Printing With Parentheses</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#naming-objects-in-r">Naming Objects in R</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
 </ul>
 
@@ -632,96 +607,57 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="running-commands-with-r">
 <h1>Running Commands With R<a class="headerlink" href="#running-commands-with-r" title="Link to this heading">#</a></h1>
+<section id="executing-commands-in-r">
+<h2>Executing Commands in R<a class="headerlink" href="#executing-commands-in-r" title="Link to this heading">#</a></h2>
+<p>The console pane (in RStudio, the bottom left panel) is the place where R is waiting for you to tell it what to do, and where it will show the results of a command that has been executed. This console is the fundamental component of R and is available outside of RStudio. It is recognisable due to the blurb of text at the top (which provides details on which R version you are using) and the arrowhead cursor (&gt;).</p>
+<p><img alt="Alt Text" src="../../_images/r_console.png" /></p>
+<p>You can type commands directly into the console and press <code class="docutils literal notranslate"><span class="pre">Enter</span></code> to execute those commands. For example we can use R as a calculator:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="m">2+2</span><span class="w"> </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">4</div></div>
+</div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="executing-commands-in-r">
-<h1>Executing Commands in R<a class="headerlink" href="#executing-commands-in-r" title="Link to this heading">#</a></h1>
-<p>The console pane (in RStudio, the bottom left panel) is the place where R is
-waiting for you to tell it what to do, and where it will show the results of a
-command that has been executed. This console is the fundamental component of R and is available
-outside of RStudio. It is recognisable due to the blurb of text at the top (which provides details
-on which R version you are using) and the arrowhead cursor (&gt;).</p>
-<p><img alt="Alt Text" src="individual_modules/images/r_console.png" /></p>
-<p>You can type commands directly into the console
-and press <code class="docutils literal notranslate"><span class="pre">Enter</span></code> to execute those commands. For example we can use R as a calculator:</p>
-<p>{% highlight r %}
-2+2
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-<section id="id1">
-<h2>[1] 4<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<section id="interacting-with-r">
+<h2>Interacting with R<a class="headerlink" href="#interacting-with-r" title="Link to this heading">#</a></h2>
+<p>There are two main ways of interacting with R: using the console or by using a script. A script is a text file that contains your code. R scripts are often saved with the file extension .r or .R.</p>
+<p>We want our code and workflow to be reproducible. In other words, we want to write code in a way that anyone (including ou future selves) can easily replicate, such they will obtain the same results from our code on their computer. If we type our commands directly into the Console, they will be forgotten when you close the session.  It is preferable to type the commands you want to run directly into the script editor, so that you can save the script. This way,  you have a complete record of what you did,  you can easily show others how you did it and you can do it again later on if needed.</p>
+<p>RStudio allows you to execute commands directly from the script editor by using the <kbd><code class="docutils literal notranslate"><span class="pre">Ctrl</span></code></kbd> + <kbd><code class="docutils literal notranslate"><span class="pre">Enter</span></code></kbd> shortcut. If no text is highlighted, the command on the current line in the script (i.e. where the line containing the cursor) will be sent to the console and executed. Alternatively you can select multiple lines to  send to the console for execution when you press <kbd><code class="docutils literal notranslate"><span class="pre">Ctrl</span></code></kbd> + <kbd><code class="docutils literal notranslate"><span class="pre">Enter</span></code></kbd>.</p>
+<p>There may be times when you want to type directly in the console, for example a quick calcuation.  RStudio provides the <kbd><code class="docutils literal notranslate"><span class="pre">Ctrl</span></code></kbd> + <kbd><code class="docutils literal notranslate"><span class="pre">1</span></code></kbd> and <kbd><code class="docutils literal notranslate"><span class="pre">Ctrl</span></code></kbd> + <kbd><code class="docutils literal notranslate"><span class="pre">2</span></code></kbd> shortcuts allow you to jump between the script and the console windows.</p>
+<p>If R is ready to accept commands, the R console shows a <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> prompt. If it receives a command (by typing, copy-pasting or sent from the script editor using <kbd><code class="docutils literal notranslate"><span class="pre">Ctrl</span></code></kbd> + <kbd><code class="docutils literal notranslate"><span class="pre">Enter</span></code></kbd>), R will try to execute it, and when ready, show the results and come back with a new <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>prompt to indicate it is ready for the next command.</p>
+<p>If R is still waiting for you to enter more text to complete the current command  the console will show a <code class="docutils literal notranslate"><span class="pre">+</span></code> prompt. It means that you haven’t finished entering a complete command. This is because it is expecting a specific character, that finishes a command you have already started. For example, if you open a parenthesis or quotation,  it needs to be closed before the command can be processed. Another way of thinking about this  is R expects for every left-parentheses you include, a right-parentheses to accompany it. Similarly, it expects an even  number of quotation marks. This can be quite frustrating, as it might not be obvious what R is waiting for, but if you’re in RStudio and this happens, click inside the console window and press <code class="docutils literal notranslate"><span class="pre">Esc</span></code>; this will cancel the incomplete command and return you to the <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> prompt.</p>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="interacting-with-r">
-<h1>Interacting with R<a class="headerlink" href="#interacting-with-r" title="Link to this heading">#</a></h1>
-<p>There are two main ways of interacting with R: using the console or by using
-a script. A script is a text file that contains your code. R scripts are often saved with the file extension .r or .R.</p>
-<p>We want our code and workflow to be reproducible. In other words, we want to write code in a way that
-anyone (including ou future selves) can easily replicate, such they will obtain the same results from our code
-on their computer. If we type our commands directly into the Console, they will be forgotten when you close the session.
-It is preferable to type the commands you want to run directly into the script editor, so that you can save the script. This way,
-you have a complete record of what you did,
-you can easily show others how you did it and you can do it again later on if needed.</p>
-<p>RStudio allows you to execute commands directly from the script editor by using
-the <kbd><code class="docutils literal notranslate"><span class="pre">Ctrl</span></code></kbd> + <kbd><code class="docutils literal notranslate"><span class="pre">Enter</span></code></kbd> shortcut. If no text is highlighted, the command on the current
-line in the script (i.e. where the line containing the cursor) will be
-sent to the console and executed. Alternatively you can select multiple lines to
-send to the console for execution when you press <kbd><code class="docutils literal notranslate"><span class="pre">Ctrl</span></code></kbd> +
-<kbd><code class="docutils literal notranslate"><span class="pre">Enter</span></code></kbd>.</p>
-<p>There may be times when you want to type directly in the console, for example a quick calcuation.
-RStudio provides the <kbd><code class="docutils literal notranslate"><span class="pre">Ctrl</span></code></kbd> + <kbd><code class="docutils literal notranslate"><span class="pre">1</span></code></kbd> and <kbd><code class="docutils literal notranslate"><span class="pre">Ctrl</span></code></kbd> +
-<kbd><code class="docutils literal notranslate"><span class="pre">2</span></code></kbd> shortcuts allow you to jump between the script and the console
-windows.</p>
-<p>If R is ready to accept commands, the R console shows a <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> prompt. If it
-receives a command (by typing, copy-pasting or sent from the script editor using
-<kbd><code class="docutils literal notranslate"><span class="pre">Ctrl</span></code></kbd> + <kbd><code class="docutils literal notranslate"><span class="pre">Enter</span></code></kbd>), R will try to execute it, and when
-ready, show the results and come back with a new <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>prompt to indicate it is ready for
-the next command.</p>
-<p>If R is still waiting for you to enter more text to complete the current command
-the console will show a <code class="docutils literal notranslate"><span class="pre">+</span></code> prompt. It means that you haven’t finished entering
-a complete command. This is because it is expecting a specific character, that
-finishes a command you have already started. For example, if you open a parenthesis or
-quotation,  it needs to be closed before the command can be processed. Another way of thinking about this
-is R expects for every left-parentheses you include, a right-parentheses to accompany it. Similarly, it expects an even
-number of quotation marks. This can be quite frustrating, as it might not be obvious what R is waiting for, but if
-you’re in RStudio and this happens, click inside the console window and press
-<code class="docutils literal notranslate"><span class="pre">Esc</span></code>; this will cancel the incomplete command and return you to the <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> prompt.</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="set-the-working-directory">
-<h1>Set the Working Directory<a class="headerlink" href="#set-the-working-directory" title="Link to this heading">#</a></h1>
+<section id="set-the-working-directory">
+<h2>Set the Working Directory<a class="headerlink" href="#set-the-working-directory" title="Link to this heading">#</a></h2>
 <p>When using R, often we want to analyse data stored in files on our computer and potentially save some output.</p>
-<p>It is important to note that we are always working in a folder or directory on our computer. There are times when this may not be
-important (for example running a simulation from given parameters).
-But if we want a specific file, we need to tell R where to find it. We do using by specifying the filepath. One common issue, when
-starting out with programming is understanding where a program (in this case R/Rstudio) is looking for the file(s).</p>
-<p>Theoretically, we can find any file from any location given the correct filepath. However, to make our code simpler, it can be helpful
-to change location, and move to a folder where the files we want to work on are located. The folder we are currently in is called the working directory.</p>
-<p>Let’s create a folder on our computer, to store all the files we will work on for this series of workshops. On your computer, open up a
-file explorer window (outside of Rstudio) and create a folder called <strong>R-workshop</strong> somewhere memorable. For example on the Desktop.</p>
+<p>It is important to note that we are always working in a folder or directory on our computer. There are times when this may not be important (for example running a simulation from given parameters).  But if we want a specific file, we need to tell R where to find it. We do using by specifying the filepath. One common issue, when  starting out with programming is understanding where a program (in this case R/Rstudio) is looking for the file(s).</p>
+<p>Theoretically, we can find any file from any location given the correct filepath. However, to make our code simpler, it can be helpful  to change location, and move to a folder where the files we want to work on are located. The folder we are currently in is called the working directory.</p>
+<p>Let’s create a folder on our computer, to store all the files we will work on for this series of workshops. On your computer, open up a  file explorer window (outside of Rstudio) and create a folder called <strong>R-workshop</strong> somewhere memorable. For example on the Desktop.</p>
 <p>In Rstudio, we can change the working directory through the drop down menus by selecting options</p>
 <p><code class="docutils literal notranslate"><span class="pre">Session</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Set</span> <span class="pre">Working</span> <span class="pre">Directory</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Choose</span> <span class="pre">Directory...</span></code></p>
 <p>We then search for and select the folder we want.</p>
-<p><img alt="Alt Text" src="individual_modules/images/rstudio_workdirectory.png" /></p>
+<p><img alt="Alt Text" src="../../_images/rstudio_workdirectory.png" /></p>
 <p>You will note that in the R console a line of code has appeared.</p>
-<p><img alt="Alt Text" src="individual_modules/images/rstudio_setwd.png" /></p>
-<p>This is the R command that is required to change the current working directory using the function <code class="docutils literal notranslate"><span class="pre">setwd()</span></code>.
-The text string inside the “()” is the filepath to the folder we want to change to. If you save this to your script,
-next time you won’t need to click through the menus, you can execute this line of code instead.</p>
-<p>You should also see that in the File Pane (bottom-right), this has also changed to this new directory. We need to
-know where we are such that we can navigate R to find files and locations appropriately.  If we ever get lost we can use <code class="docutils literal notranslate"><span class="pre">getwd()</span></code> to get the path
-of our current location.</p>
-<p>{% highlight r %}
-getwd()
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-<section id="home-runner-work-intro-to-r-intro-to-r-rmarkdown">
-<h2>[1] “/home/runner/work/intro-to-r/intro-to-r/_rmarkdown”<a class="headerlink" href="#home-runner-work-intro-to-r-intro-to-r-rmarkdown" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<br>
-<details>
-	<summary> Absolute vs Relative Filepaths </summary>
-	<pre>
-    <p>
+<p><img alt="Alt Text" src="../../_images/rstudio_setwd.png" /></p>
+<p>This is the R command that is required to change the current working directory using the function <code class="docutils literal notranslate"><span class="pre">setwd()</span></code>.  The text string inside the “()” is the filepath to the folder we want to change to. If you save this to your script,  next time you won’t need to click through the menus, you can execute this line of code instead.</p>
+<p>You should also see that in the File Pane (bottom-right), this has also changed to this new directory. We need to  know where we are such that we can navigate R to find files and locations appropriately.  If we ever get lost we can use <code class="docutils literal notranslate"><span class="pre">getwd()</span></code> to get the path of our current location.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">getwd</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">'/Users/lb788/Documents/CfRR/CfRR_Courses/individual_modules/introduction_to_r'</div></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="absolute-vs-relative-filepaths">
+<h1>Absolute vs Relative Filepaths<a class="headerlink" href="#absolute-vs-relative-filepaths" title="Link to this heading">#</a></h1>
 <p>We can specify filepaths in two ways:</p>
 <ol class="arabic simple">
 <li><p>Absolute - this is where we direct R how to get there from the root folder, which is the uppermost folder in the system and is denoted “/”.
@@ -729,181 +665,139 @@ Any file path that starts with “/” is an absolute filepath.</p></li>
 <li><p>Relative - this is where we direct R how to get to the new folder from where we currently are. For example to get to a sub-folder of the current
 folder we can just provide the name of the current folder. We can use shortcuts to go up a folder (“..”). Relative file paths do not start with “/”</p></li>
 </ol>
-</p>
-</pre>
-</details>
-<br>
-</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="defining-variables">
 <h1>Defining Variables<a class="headerlink" href="#defining-variables" title="Link to this heading">#</a></h1>
-<p>A key concept in any programming language is that of a variable. A variable is just a name, such as <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">current_temperature</span></code>, or <code class="docutils literal notranslate"><span class="pre">subject_id</span></code> which
-represents some value. We use the word value here loosely as it could be a singular number, a matrix, or a more complex numerical structure. It also
-does not have to even be a number it could be a string of text. The idea though is it’s value might change and we want to simplify how we process the value.</p>
+<p>A key concept in any programming language is that of a variable. A variable is just a name, such as <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">current_temperature</span></code>, or <code class="docutils literal notranslate"><span class="pre">subject_id</span></code> which  represents some value. We use the word value here loosely as it could be a singular number, a matrix, or a more complex numerical structure. It also  does not have to even be a number it could be a string of text. The idea though is it’s value might change and we want to simplify how we process the value.</p>
 <p>In R, we can create a new variable simply by assigning a value to it using <code class="docutils literal notranslate"><span class="pre">&lt;-</span></code></p>
-<p>{% highlight r %}
-weight_kg &lt;- 55
-{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">weight_kg</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">55</span>
+<span class="n">weight_kg</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">55</div></div>
+</div>
 <p>Once a variable has a value, we can print it by typing the name of the variable and hitting <code class="docutils literal notranslate"><span class="pre">Enter</span></code> (or <code class="docutils literal notranslate"><span class="pre">return</span></code>).
 In general, R will print to the console any object returned by a function or operation <em>unless</em> we assign it to a variable.</p>
-<p>{% highlight r %}
-weight_kg
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-<section id="id2">
-<h2>[1] 55<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
 <p>We can do arithmetic with the variable:</p>
-<p>{% highlight r %}</p>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="weight-in-pounds">
-<h1>weight in pounds:<a class="headerlink" href="#weight-in-pounds" title="Link to this heading">#</a></h1>
-<p>2.2 * weight_kg
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-<section id="id3">
-<h2>[1] 121<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<p>We can also change an object’s value by assigning it a new value:</p>
-<p>{% highlight r %}
-weight_kg &lt;- 57.5</p>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="weight-in-kilograms-is-now">
-<h1>weight in kilograms is now<a class="headerlink" href="#weight-in-kilograms-is-now" title="Link to this heading">#</a></h1>
-<p>weight_kg
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-<section id="id4">
-<h2>[1] 57.5<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="m">2.2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">weight_kg</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">121</div></div>
+</div>
+<p>We can also change an object’s value by assigning it a new value, and see that accessing the variable again shows the new value.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">weight_kg</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">57.5</span><span class="w"> </span>
+<span class="n">weight_kg</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">57.5</div></div>
+</div>
 <p>If we imagine the variable as a sticky note with a name written on it,
 assignment is like putting the sticky note on a particular value:</p>
-<img src="../images/python-sticky-note-variables-01.svg" alt="Variables as Sticky Notes" />
+<p><img alt="Variables as sticky notes" src="../../_images/python-sticky-note-variables-011.svg" /></p>
 <p>This means that assigning a value to one object does not change the values of other variables.
 For example, let’s store the subject’s weight in pounds in a variable:</p>
-<p>{% highlight r %}
-weight_lb &lt;- 2.2 * weight_kg</p>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="weight-in-kg">
-<h1>weight in kg…<a class="headerlink" href="#weight-in-kg" title="Link to this heading">#</a></h1>
-<p>weight_kg
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-<section id="id5">
-<h2>[1] 57.5<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<p>{% highlight r %}</p>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="and-in-pounds">
-<h1>…and in pounds<a class="headerlink" href="#and-in-pounds" title="Link to this heading">#</a></h1>
-<p>weight_lb
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-<section id="id6">
-<h2>[1] 126.5<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<img src="../images/python-sticky-note-variables-02.svg" alt="Creating Another Variable" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">weight_lb</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">2.2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">weight_kg</span>
+<span class="c1"># weight in kg...</span>
+<span class="n">weight_kg</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">57.5</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># ... and in pounds</span>
+<span class="n">weight_lb</span><span class="w"> </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">126.5</div></div>
+</div>
+<p><img alt="Creating another variable" src="../../_images/python-sticky-note-variables-021.svg" /></p>
 <p>and then change <code class="docutils literal notranslate"><span class="pre">weight_kg</span></code>:</p>
-<p>{% highlight r %}
-weight_kg &lt;- 100.0</p>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="weight-in-kg-now">
-<h1>weight in kg now…<a class="headerlink" href="#weight-in-kg-now" title="Link to this heading">#</a></h1>
-<p>weight_kg
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-<section id="id7">
-<h2>[1] 100<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<p>{% highlight r %}</p>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="and-weight-in-pounds-still">
-<h1>…and weight in pounds still<a class="headerlink" href="#and-weight-in-pounds-still" title="Link to this heading">#</a></h1>
-<p>weight_lb
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-<section id="id8">
-<h2>[1] 126.5<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<img src="../images/python-sticky-note-variables-03.svg" alt="Updating a Variable" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">weight_kg</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">100.0</span>
+<span class="c1"># weight in kg now...</span>
+<span class="n">weight_kg</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">100</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># ...and weight in pounds still</span>
+<span class="n">weight_lb</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">126.5</div></div>
+</div>
+<p><img alt="Updating a variable" src="../../_images/python-sticky-note-variables-031.svg" /></p>
 <p>Since <code class="docutils literal notranslate"><span class="pre">weight_lb</span></code> doesn’t “remember” where its value came from, it isn’t automatically updated when <code class="docutils literal notranslate"><span class="pre">weight_kg</span></code> changes.
 This is different from the way spreadsheets work.</p>
-<details>
-	<summary> Assignment operator </summary>
-	<pre>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>`&lt;-` is the assignment operator. It assigns values on the right to objects on
-the left. So, after executing `x &lt;- 3`, the value of `x` is `3`. The arrow can
-be read as 3 **goes into** `x`.  For historical reasons, you can also use `=` for assignments,
-but not in every context. Because of the [slight](http://blog.revolutionanalytics.com/2008/12/use-equals-or-arrow-for-assignment.html) 
-[differences](https://web.archive.org/web/20130610005305/https://stat.ethz.ch/pipermail/r-help/2009-March/191462.html) in syntax,
-it is good practice to use always `&lt;-` for assignments, except when specifying the values of
-arguments in functions, when only `=` should be used, see below.
-
-In RStudio, typing &lt;kbd&gt;Alt&lt;/kbd&gt; + &lt;kbd&gt;-&lt;/kbd&gt; (push &lt;kbd&gt;Alt&lt;/kbd&gt; at the
-same time as the &lt;kbd&gt;-&lt;/kbd&gt; key) will write ` &lt;- ` in a single keystroke.
-&lt;/pre&gt;
-</pre></div>
-</div>
-</details>
 </section>
-<section id="activity-assigning-values-to-variables">
-<h2>Activity: Assigning Values to Variables<a class="headerlink" href="#activity-assigning-values-to-variables" title="Link to this heading">#</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="assignment-operator">
+<h1>Assignment Operator<a class="headerlink" href="#assignment-operator" title="Link to this heading">#</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;-</span></code> is the assignment operator. It assigns values on the right to objects on the left. So, after executing <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;-</span> <span class="pre">3</span></code>, the value of <code class="docutils literal notranslate"><span class="pre">x</span></code> is <code class="docutils literal notranslate"><span class="pre">3</span></code>. The arrow can be read as 3 <strong>goes into</strong> <code class="docutils literal notranslate"><span class="pre">x</span></code>.  For historical reasons, you can also use <code class="docutils literal notranslate"><span class="pre">=</span></code> for assignments, but not in every context. Because of the <a class="reference external" href="http://blog.revolutionanalytics.com/2008/12/use-equals-or-arrow-for-assignment.html">slight</a>
+<a class="reference external" href="https://web.archive.org/web/20130610005305/https://stat.ethz.ch/pipermail/r-help/2009-March/191462.html">differences</a> in syntax, it is good practice to use always <code class="docutils literal notranslate"><span class="pre">&lt;-</span></code> for assignments, except when specifying the values of arguments in functions, when only <code class="docutils literal notranslate"><span class="pre">=</span></code> should be used, see below.
+In RStudio, typing <kbd>Alt</kbd> + <kbd>-</kbd> (push <kbd>Alt</kbd> at thesame time as the <kbd>-</kbd> key) will write <code class="docutils literal notranslate"><span class="pre">&lt;-</span></code> in a single keystroke.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="activity-assigning-values-to-variables">
+<h1>Activity: Assigning Values to Variables<a class="headerlink" href="#activity-assigning-values-to-variables" title="Link to this heading">#</a></h1>
 <p>Draw diagrams showing what variables refer to what values after each statement in the following program:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mass</span> <span class="o">&lt;-</span> <span class="mf">47.5</span>
-<span class="n">age</span> <span class="o">&lt;-</span> <span class="mi">122</span>
-<span class="n">mass</span> <span class="o">&lt;-</span> <span class="n">mass</span> <span class="o">*</span> <span class="mf">2.0</span>
-<span class="n">age</span> <span class="o">&lt;-</span> <span class="n">age</span> <span class="o">-</span> <span class="mi">20</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">mass</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">47.5</span>
+<span class="n">age</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">122</span>
+<span class="n">mass</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">mass</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">2.0</span>
+<span class="n">age</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">20</span>
 </pre></div>
 </div>
-<details>
-	<summary> Printing with Parentheses </summary>
-	<pre>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An alternative way to print the value of a variable is to use () around the 
-assignment statement.
-
-As an example: 
-
-`(total_weight &lt;- weight_kg + weight_lb)` 
-
-adds the values of `weight_kg` and `weight_lb`,
-assigns the result to the `total_weight`,
-and finally prints the assigned value of the variable `total_weight`.
-&lt;/pre&gt;
-</pre></div>
 </div>
-</details>
+</div>
 </section>
-<section id="naming-objects-in-r">
-<h2>Naming objects in R<a class="headerlink" href="#naming-objects-in-r" title="Link to this heading">#</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="printing-with-parentheses">
+<h1>Printing With Parentheses<a class="headerlink" href="#printing-with-parentheses" title="Link to this heading">#</a></h1>
+<p>An alternative way to print the value of a variable is to use () around the assignment statement.
+As an example: <code class="docutils literal notranslate"><span class="pre">(total_weight</span> <span class="pre">&lt;-</span> <span class="pre">weight_kg</span> <span class="pre">+</span> <span class="pre">weight_lb)</span></code> adds the values of <code class="docutils literal notranslate"><span class="pre">weight_kg</span></code> and <code class="docutils literal notranslate"><span class="pre">weight_lb</span></code>, assigns the result to the <code class="docutils literal notranslate"><span class="pre">total_weight</span></code>, and finally prints the assigned value of the variable <code class="docutils literal notranslate"><span class="pre">total_weight</span></code>.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="naming-objects-in-r">
+<h1>Naming Objects in R<a class="headerlink" href="#naming-objects-in-r" title="Link to this heading">#</a></h1>
 <p>You can use any combination of alphanumeric characters, along with dots and underscores, to name an R object. But there are a few <em><strong>exceptions</strong></em>:</p>
 <ul class="simple">
 <li><p>Names cannot start with a number;</p></li>
 <li><p>Names cannot have spaces;</p></li>
 <li><p>Names cannot be a standalone number such as <code class="docutils literal notranslate"><span class="pre">12</span></code> or <code class="docutils literal notranslate"><span class="pre">0.34</span></code>;</p></li>
-<li><p>Names cannot be a reserved word such as <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code>, <code class="docutils literal notranslate"><span class="pre">function</span></code>, <code class="docutils literal notranslate"><span class="pre">TRUE</span></code>, <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> and <code class="docutils literal notranslate"><span class="pre">NULL</span></code> just to name a few
-(to see the full list of reserved words, type <code class="docutils literal notranslate"><span class="pre">?Reserved</span></code>).</p></li>
+<li><p>Names cannot be a reserved word such as <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code>, <code class="docutils literal notranslate"><span class="pre">function</span></code>, <code class="docutils literal notranslate"><span class="pre">TRUE</span></code>, <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> and <code class="docutils literal notranslate"><span class="pre">NULL</span></code> just to name a few (to see the full list of reserved words, type <code class="docutils literal notranslate"><span class="pre">?Reserved</span></code>).</p></li>
 </ul>
-<p>Examples of <strong><em>valid names</em></strong> include <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">dat2</span></code>, <code class="docutils literal notranslate"><span class="pre">cpi_index</span></code>, <code class="docutils literal notranslate"><span class="pre">.tmp</span></code>, and even a standalone dot <code class="docutils literal notranslate"><span class="pre">.</span></code> (though a dot can
-make reading code difficult under certain circumstances).</p>
-<p>Examples of <strong><em>invalid names</em></strong> include <code class="docutils literal notranslate"><span class="pre">1dat</span></code>,<code class="docutils literal notranslate"> <span class="pre">dat</span> <span class="pre">2</span></code> (note the space between <code class="docutils literal notranslate"><span class="pre">dat</span></code> and <code class="docutils literal notranslate"><span class="pre">2</span></code>), <code class="docutils literal notranslate"><span class="pre">df-ver2</span></code> (the dash is
-treated as a mathematical operator), and <code class="docutils literal notranslate"><span class="pre">Inf</span></code> (the latter is a reserved word listed in the <code class="docutils literal notranslate"><span class="pre">?Reserved</span></code> help document).</p>
+<p>Examples of <strong><em>valid names</em></strong> include <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">dat2</span></code>, <code class="docutils literal notranslate"><span class="pre">cpi_index</span></code>, <code class="docutils literal notranslate"><span class="pre">.tmp</span></code>, and even a standalone dot <code class="docutils literal notranslate"><span class="pre">.</span></code> (though a dot can make reading code difficult under certain circumstances).</p>
+<p>Examples of <strong><em>invalid names</em></strong> include <code class="docutils literal notranslate"><span class="pre">1dat</span></code>,<code class="docutils literal notranslate"> <span class="pre">dat</span> <span class="pre">2</span></code> (note the space between <code class="docutils literal notranslate"><span class="pre">dat</span></code> and <code class="docutils literal notranslate"><span class="pre">2</span></code>), <code class="docutils literal notranslate"><span class="pre">df-ver2</span></code> (the dash is treated as a mathematical operator), and <code class="docutils literal notranslate"><span class="pre">Inf</span></code> (the latter is a reserved word listed in the <code class="docutils literal notranslate"><span class="pre">?Reserved</span></code> help document).</p>
 <p>You can mix cases, but use upper cases with caution since some letters look very much the same in both lower and upper cases (e.g. s and S).</p>
-</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="functions">
 <h1>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h1>
-<p>Functions are a core concept in programming, they are commands which tells R to perform a particular task. The utility of a function is that it
-will perform its given action again and again. R identifies functions by the presence of “()” following their name. You can customise how the function behaves
-by the use of arguments, this is additional information provide to the function to allow it to run).</p>
-<p>We have already used two functions in this workshop. First we used <code class="docutils literal notranslate"><span class="pre">setwd()</span></code>. We used this function with an argument, which was the path to the folder we
-wanted to change to. We can reuse this function to change to an unlimited number of different folders on our computer. Then we used <code class="docutils literal notranslate"><span class="pre">getwd()</span></code>, this is an example
-of a function that doesn’t require any arguments.</p>
+<p>Functions are a core concept in programming, they are commands which tells R to perform a particular task. The utility of a function is that it will perform its given action again and again. R identifies functions by the presence of “()” following their name. You can customise how the function behaves by the use of arguments, this is additional information provide to the function to allow it to run).</p>
+<p>We have already used two functions in this workshop. First we used <code class="docutils literal notranslate"><span class="pre">setwd()</span></code>. We used this function with an argument, which was the path to the folder we  wanted to change to. We can reuse this function to change to an unlimited number of different folders on our computer. Then we used <code class="docutils literal notranslate"><span class="pre">getwd()</span></code>, this is an example  of a function that doesn’t require any arguments.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -915,16 +809,16 @@ of a function that doesn’t require any arguments.</p>
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "r"
         },
         kernelOptions: {
-            name: "python3",
+            name: "ir",
             path: "./individual_modules/introduction_to_r"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'ir'</script>
 
                 </article>
               
@@ -970,46 +864,18 @@ of a function that doesn’t require any arguments.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Running Commands With R</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#executing-commands-in-r">Executing Commands in R</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">[1] 4</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Running Commands With R</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#executing-commands-in-r">Executing Commands in R</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interacting-with-r">Interacting with R</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-the-working-directory">Set the Working Directory</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#interacting-with-r">Interacting with R</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#set-the-working-directory">Set the Working Directory</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#home-runner-work-intro-to-r-intro-to-r-rmarkdown">[1] “/home/runner/work/intro-to-r/intro-to-r/_rmarkdown”</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-variables">Defining Variables</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">[1] 55</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#weight-in-pounds">weight in pounds:</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">[1] 121</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#weight-in-kilograms-is-now">weight in kilograms is now</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">[1] 57.5</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#weight-in-kg">weight in kg…</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">[1] 57.5</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#and-in-pounds">…and in pounds</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">[1] 126.5</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#weight-in-kg-now">weight in kg now…</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">[1] 100</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#and-weight-in-pounds-still">…and weight in pounds still</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">[1] 126.5</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-assigning-values-to-variables">Activity: Assigning Values to Variables</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#naming-objects-in-r">Naming objects in R</a></li>
-</ul>
-</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#absolute-vs-relative-filepaths">Absolute vs Relative Filepaths</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-variables">Defining Variables</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#assignment-operator">Assignment Operator</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-assigning-values-to-variables">Activity: Assigning Values to Variables</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#printing-with-parentheses">Printing With Parentheses</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#naming-objects-in-r">Naming Objects in R</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
 </ul>
 

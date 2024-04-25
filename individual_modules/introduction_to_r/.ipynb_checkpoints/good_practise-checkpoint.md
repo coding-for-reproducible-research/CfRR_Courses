@@ -58,7 +58,7 @@ tutorial.
 
 Your working directory should now look like this:
 
-![How it should look like at the beginning of this lesson](../images/r_starting_how_it_should_like.png)
+![How it should look like at the beginning of this lesson](images/r_starting_how_it_should_like.png)
 
 ## Organizing your working directory
 
@@ -87,7 +87,7 @@ You may want additional directories or subdirectories depending on your project
 needs, but these should form the backbone of your working directory. For this
 workshop, you only need a `data/` folder.
 
-![Example of a working directory structure](../images/R-ecology-work_dir_structure.png)
+![Example of a working directory structure](images/R-ecology-work_dir_structure.png)
 
 # Performing reproducible analyses
 

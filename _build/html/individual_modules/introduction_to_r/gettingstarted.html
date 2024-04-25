@@ -245,9 +245,6 @@
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_r.html">Introduction to R</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Getting Up and Running with R</a></li>
-
-
-
 <li class="toctree-l2"><a class="reference internal" href="basic_commands.html">Running Commands With R</a></li>
 
 
@@ -256,14 +253,7 @@
 
 
 
-
-
-
-
 <li class="toctree-l2"><a class="reference internal" href="data_types.html">Data Types and Structures</a></li>
-
-
-
 
 
 
@@ -278,33 +268,10 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <li class="toctree-l2"><a class="reference internal" href="control_flow.html">Control Flow</a></li>
 
 
-
 <li class="toctree-l2"><a class="reference internal" href="plots.html">Plots</a></li>
-
-
-
-
-
-
-
-
 
 
 
@@ -318,6 +285,9 @@
 
 
 
+
+
+<li class="toctree-l2"><a class="reference internal" href="good_practise.html">Establishing Good Practices when Coding</a></li>
 
 
 </ul>
@@ -428,6 +398,37 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -483,7 +484,7 @@
       
       
       
-      <li><a href="../../_sources/individual_modules/introduction_to_r/gettingstarted.md" target="_blank"
+      <li><a href="../../_sources/individual_modules/introduction_to_r/gettingstarted.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -493,7 +494,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -577,12 +578,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Getting Up and Running with R</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#why-r">Why R?</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-r-and-rstudio">What are R and RStudio?</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#navigating-rstudio">Navigating RStudio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-r">Why R?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-r-and-rstudio">What are R and RStudio?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigating-rstudio">Navigating RStudio</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -596,9 +595,8 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="getting-up-and-running-with-r">
 <h1>Getting Up and Running with R<a class="headerlink" href="#getting-up-and-running-with-r" title="Link to this heading">#</a></h1>
 <p>In this session we are going to cover some background to R and Rstudio and provide you with a guided tour of RStudio. We assume that you already have both of these installed on your machines.</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="why-r">
-<h1>Why R?<a class="headerlink" href="#why-r" title="Link to this heading">#</a></h1>
+<section id="why-r">
+<h2>Why R?<a class="headerlink" href="#why-r" title="Link to this heading">#</a></h2>
 <p><strong>R</strong> is a free software program primarily used for statistical analysis. It has become incredibly popular, particularly in biological sciences.</p>
 <p>The basis of programming is that we write down instructions for the computer to
 follow, and then we tell the computer to follow those instructions. We write, or
@@ -613,28 +611,22 @@ commands.</p>
 <li><p>it has a large library of external packages available for performing diverse tasks</p></li>
 <li><p>it is a gateway into other programming languages</p></li>
 </ul>
-<blockquote>
-<div><h2 class="rubric" id="task-this-is-a-great-point-you-as-a-learner-to-reflect-on-why-you-are-here-how-will-r-help-you-with-your-research-or-daily-activities">Task: This is a great point you as a learner to reflect on why you are here, how will R help you with your research or daily activities?</h2>
-</div></blockquote>
 <p>We should also note that, the two most important reasons for choosing a language are to use whatever language your colleagues are using, so you can share your work with them easily, and to use that language well.</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="what-are-r-and-rstudio">
-<h1>What are R and RStudio?<a class="headerlink" href="#what-are-r-and-rstudio" title="Link to this heading">#</a></h1>
+<section id="what-are-r-and-rstudio">
+<h2>What are R and RStudio?<a class="headerlink" href="#what-are-r-and-rstudio" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="https://www.r-project.org/">R</a> is the programming language that we use to tell the computer what to do.</p>
 <p><a class="reference external" href="https://www.rstudio.com/">RStudio</a>, is an Integrated Development Environment (IDE) that provides an interface designed to improve the experience of programming with R, and to facilitate more efficient and reproducible code development. It is designed so you can have multiple elements visible at the same time within a single programme. For example plots, tables and code, rather than juggle different programmes or windows.</p>
 <p>We will use RStudio IDE to write code, navigate the files found on our computer, inspect the variables we are going to create, and visualize the plots we will generate. RStudio can also be used for other things (e.g., version control, developing packages, writing Shiny apps, creating documents and slides) that we will not cover during the workshop. It can be a very powerful tool for managing how you develop code, software or programmes.</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="navigating-rstudio">
-<h1>Navigating RStudio<a class="headerlink" href="#navigating-rstudio" title="Link to this heading">#</a></h1>
+<section id="navigating-rstudio">
+<h2>Navigating RStudio<a class="headerlink" href="#navigating-rstudio" title="Link to this heading">#</a></h2>
 <p>When you open RStudio, you will see a screen like the one below, with three windows automatically open.</p>
-<p><img alt="Alt Text" src="individual_modules/images/rstudio_screen.png" /></p>
-<br>
+<p><img alt="Alt Text" src="../../_images/rstudio_screen.png" /></p>
 <p>We will add a fourth panel, arguably the most important one. Click on the icon at the top right of the window on the left, to get the screen with four sections. This is the most common set up.</p>
-<p><img alt="Alt Text" src="individual_modules/images/rstudio_screen_1.png" /></p>
-<br>
+<p><img alt="Alt Text" src="../../_images/rstudio_screen_1.png" /></p>
 <p>RStudio is divided into 4 “Panes”.</p>
-<p><img alt="Alt Text" src="individual_modules/images/rstudio_screen_3.png" /></p>
-<br>
+<p><img alt="Alt Text" src="../../_images/rstudio_screen_3.png" /></p>
 <p><strong>Pane 1 (top-left in the default layout):</strong> This pane is a text editor, where you can write the commands/code you intend on running. You can use this editor, you edit any type of file, but it is typically used to record or plan your R code. A file containing programming commands is normally called a script. It can then be saved to your computer as you would do with a word or excel file.</p>
 <p><strong>Pane 2 (bottom-left):</strong> This is the R console, this is where commands are entered for the computer to run.</p>
 <p><strong>Pane 3 (top-right):</strong> This window has multiple tabs including, Environment, History and collates information relating to your current R session.</p>
@@ -645,6 +637,7 @@ using RStudio is that all the information you need to write code is available in
 a single window. Additionally, with many shortcuts, autocompletion, and
 highlighting for the major file types you use while developing in R, RStudio
 will make typing easier and less error-prone.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -711,12 +704,10 @@ will make typing easier and less error-prone.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Getting Up and Running with R</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#why-r">Why R?</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-r-and-rstudio">What are R and RStudio?</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#navigating-rstudio">Navigating RStudio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-r">Why R?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-r-and-rstudio">What are R and RStudio?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigating-rstudio">Navigating RStudio</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>

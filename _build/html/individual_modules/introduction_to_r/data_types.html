@@ -57,6 +57,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'individual_modules/introduction_to_r/data_types';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -245,9 +247,6 @@
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_r.html">Introduction to R</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="gettingstarted.html">Getting Up and Running with R</a></li>
-
-
-
 <li class="toctree-l2"><a class="reference internal" href="basic_commands.html">Running Commands With R</a></li>
 
 
@@ -256,14 +255,7 @@
 
 
 
-
-
-
-
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Data Types and Structures</a></li>
-
-
-
 
 
 
@@ -278,33 +270,10 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <li class="toctree-l2"><a class="reference internal" href="control_flow.html">Control Flow</a></li>
 
 
-
 <li class="toctree-l2"><a class="reference internal" href="plots.html">Plots</a></li>
-
-
-
-
-
-
-
-
 
 
 
@@ -318,6 +287,9 @@
 
 
 
+
+
+<li class="toctree-l2"><a class="reference internal" href="good_practise.html">Establishing Good Practices when Coding</a></li>
 
 
 </ul>
@@ -428,6 +400,37 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -483,7 +486,7 @@
       
       
       
-      <li><a href="../../_sources/individual_modules/introduction_to_r/data_types.md" target="_blank"
+      <li><a href="../../_sources/individual_modules/introduction_to_r/data_types.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -493,7 +496,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -577,107 +580,29 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Data Types and Structures</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#inbuilt-datasets">Inbuilt Datasets</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-datasets">Exploring datasets</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-frame">[1] “data.frame”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">[1] 150   5</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Data Types and Structures</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inbuilt-datasets">Inbuilt Datasets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-datasets">Exploring datasets</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#subsetting-data">Subsetting Data</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">[1] 5.1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">[1] 1.6</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sepal-length-sepal-width-petal-length">Sepal.Length Sepal.Width Petal.Length</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">1          5.1         3.5          1.4</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">2          4.9         3.0          1.4</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">3          4.7         3.2          1.3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">4          4.6         3.1          1.5</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Sepal.Length Sepal.Width Petal.Length</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">5           5.0         3.6          1.4</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">6           5.4         3.9          1.7</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">7           4.6         3.4          1.4</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">8           5.0         3.4          1.5</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">9           4.4         2.9          1.4</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">10          4.9         3.1          1.5</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sepal-length-petal-length">Sepal.Length Petal.Length</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">3           4.7          1.3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">8           5.0          1.5</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">37          5.5          1.3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">56          5.7          4.5</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#all-columns-from-row-5">All columns from row 5</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sepal-length-sepal-width-petal-length-petal-width-species">Sepal.Length Sepal.Width Petal.Length Petal.Width Species</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setosa">5            5         3.6          1.4         0.2  setosa</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#all-rows-from-column-2">All rows from column 2</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">[1] 3.5 3.0 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 3.7 3.4 3.0 3.0 4.0 4.4 3.9 3.5</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">[19] 3.8 3.8 3.4 3.7 3.6 3.3 3.4 3.0 3.4 3.5 3.4 3.2 3.1 3.4 4.1 4.2 3.1 3.2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">[37] 3.5 3.6 3.0 3.4 3.5 2.3 3.2 3.5 3.8 3.0 3.8 3.2 3.7 3.3 3.2 3.2 3.1 2.3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">[55] 2.8 2.8 3.3 2.4 2.9 2.7 2.0 3.0 2.2 2.9 2.9 3.1 3.0 2.7 2.2 2.5 3.2 2.8</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">[73] 2.5 2.8 2.9 3.0 2.8 3.0 2.9 2.6 2.4 2.4 2.7 2.7 3.0 3.4 3.1 2.3 3.0 2.5</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">[91] 2.6 3.0 2.6 2.3 2.7 3.0 2.9 2.9 2.5 2.8 3.3 2.7 3.0 2.9 3.0 3.0 2.5 2.9</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">[109] 2.5 3.6 3.2 2.7 3.0 2.5 2.8 3.2 3.0 3.8 2.6 2.2 3.2 2.8 2.8 2.7 3.3 3.2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id26">[127] 2.8 3.0 2.8 3.0 2.8 3.8 2.8 2.8 2.6 3.0 3.4 3.1 3.0 3.1 3.1 3.1 2.7 3.2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id27">[145] 3.3 3.0 2.5 3.0 3.4 3.0</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">Data Types</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#character">[1] “character”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id28">[1]  1  2  3  4  5  6  7  8  9 10</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integer">[1] “integer”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id29">[1] “integer”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id30">[1] 10</a></li>
-</ul>
-</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#subsetting-data">Subsetting Data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#addressing-columns-by-name">Addressing Columns by name</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">Data Types</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-between-datatypes">Converting Between Datatypes</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id31">[1] “character”</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-determining-data-yypes">Activity: Determining Data Yypes</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-structures">Data Structures</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vectors">Vectors</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id32">[1]  9 20 12</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#true-false-false-true">[1]  TRUE FALSE FALSE  TRUE</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sarah-tracy-jon-annette">[1] “Sarah”   “Tracy”   “Jon”     “Annette”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id33">[1] 1 2 3 4</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id34">Data Frame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-frame">Data Frame</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-to-explore-data-frames">Functions to explore data frames</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id-x-y">id  x  y</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-1-11">1   a  1 11</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-2-12">2   b  2 12</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-3-13">3   c  3 13</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-4-14">4   d  4 14</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#e-5-15">5   e  5 15</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#f-6-16">6   f  6 16</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#g-7-17">7   g  7 17</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#h-8-18">8   h  8 18</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#i-9-19">9   i  9 19</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#j-10-20">10  j 10 20</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices">Matrices</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id35">[,1] [,2] [,3]</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id36">[1,]    1    3    5</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id37">[2,]    2    4    6</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id38">[,1] [,2] [,3]</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id39">[1,]    1    2    3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id40">[2,]    4    5    6</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-array">[1] “matrix” “array”</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays">Arrays</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">Lists</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-in-eval-expr-envir-enclos-object-v-it-not-found">Error in eval(expr, envir, enclos): object ‘v_it’ not found</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-in-eval-expr-envir-enclos-object-l-not-found">Error in eval(expr, envir, enclos): object ‘l’ not found</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#factors">Factors</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id41">[1] “character”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id42">[1] “character”</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices">Matrices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays">Arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">Lists</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#factors">Factors</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-data-exploration">Activity: Data Exploration</a></li>
 </ul>
 </li>
@@ -695,45 +620,52 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="data-types-and-structures">
 <h1>Data Types and Structures<a class="headerlink" href="#data-types-and-structures" title="Link to this heading">#</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="inbuilt-datasets">
-<h1>Inbuilt Datasets<a class="headerlink" href="#inbuilt-datasets" title="Link to this heading">#</a></h1>
-<p>R has a number of datasets included for you to practice with.
-We can get a list of these by running the command <code class="docutils literal notranslate"><span class="pre">data()</span></code></p>
-<p>{% highlight r %}
-data()
-{% endhighlight %}</p>
-<p>This command won’t produce any output but open a file in the scripts pane that lists the available datasets.</p>
-<p>(Alt text!)[“../images/r_data.png”]</p>
-<p>In this session, we will be using the built-in R data sets stored in the variables <code class="docutils literal notranslate"><span class="pre">iris</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">mtcars</span></code>.
+<section id="inbuilt-datasets">
+<h2>Inbuilt Datasets<a class="headerlink" href="#inbuilt-datasets" title="Link to this heading">#</a></h2>
+<p>R has a number of datasets included for you to practice with. We can get a list of these by running the command <code class="docutils literal notranslate"><span class="pre">data()</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">data</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This command won’t produce any output but open a file in the scripts pane that lists the available datasets.
+In this session, we will be using the built-in R data sets stored in the variables <code class="docutils literal notranslate"><span class="pre">iris</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">mtcars</span></code>.
 By having our data stored in a variable means we can easily use it with R functions and start to
 manipulate or process it. Note that we are using the word data very loosely, it can refer to any form of
 information we want to store.</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="exploring-datasets">
-<h1>Exploring datasets<a class="headerlink" href="#exploring-datasets" title="Link to this heading">#</a></h1>
+<section id="exploring-datasets">
+<h2>Exploring datasets<a class="headerlink" href="#exploring-datasets" title="Link to this heading">#</a></h2>
 <p>Let’s take a closer look at the <code class="docutils literal notranslate"><span class="pre">iris</span></code> data.</p>
 <p>First, let’s ask what type of thing <code class="docutils literal notranslate"><span class="pre">iris</span></code> is using the function <code class="docutils literal notranslate"><span class="pre">class()</span></code></p>
-<p>{% highlight r %}
-class(iris)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-<section id="data-frame">
-<h2>[1] “data.frame”<a class="headerlink" href="#data-frame" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<p>The output tells us that it is a data frame. A data frame is an example of R object, and can be defined by certain properties.
-A data frame is comparable to a spreadsheet in MS Excel as it is a 2 dimensional object (i.e. has rows and columns).
-Data frames are very useful for storing data, especially if you are used to work with your data in tables.
-A typical data frame of experimental data contains individual observations in rows and variables in columns.</p>
-<p>We can see the shape, or dimensions, of the data frame with the function <code class="docutils literal notranslate"><span class="pre">dim()</span></code>:</p>
-<p>{% highlight r %}
-dim(iris)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id1">
-<h2>[1] 150   5<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">class</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">'data.frame'</div></div>
+</div>
+<p>The output tells us that it is a data frame. A data frame is an example of R object, and can be defined by certain properties. A data frame is comparable to a spreadsheet in MS Excel as it is a 2 dimensional object (i.e. has rows and columns). Data frames are very useful for storing data, especially if you are used to work with your data in tables. A typical data frame of experimental data contains individual observations in rows and variables in columns.
+We can see the shape, or dimensions, of the data frame with the function <code class="docutils literal notranslate"><span class="pre">dim()</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">dim</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>150</li><li>5</li></ol>
+</div></div>
+</div>
 <p>This tells us that our data frame, <code class="docutils literal notranslate"><span class="pre">iris</span></code>, has 150 rows and 5 columns.</p>
 <p>To explore data frames, there are a number of relevant functions:</p>
 <ul class="simple">
@@ -751,159 +683,136 @@ dim(iris)
 <h1>Subsetting Data<a class="headerlink" href="#subsetting-data" title="Link to this heading">#</a></h1>
 <p>There are many occasions we want to “look” at some part of the data. Extract a subset is known as slicing.
 If we want to get a single value from the data frame, we can index a specific position using square brackets.
-If you are familiar with matrices we index in the same way. For example, to get the element in the top left corner, i.e.
-in the first row and first column we run:</p>
-<p>{% highlight r %}
-iris[1, 1]
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-<section id="id2">
-<h2>[1] 5.1<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<p>We can use this principle to extract any entry of the matrix. For example the 30th row and 3rd column</p>
-<p>{% highlight r %}
-iris[30, 3]
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id3">
-<h2>[1] 1.6<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<p>An index like ``[30, 3]``` selects a single element of a data frame, but we can select larger sections as well.
-For example, we can select the first three columns of values for the first four rows like this:</p>
-<p>{% highlight r %}
-iris[1:4, 1:3]
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="sepal-length-sepal-width-petal-length">
-<h2>Sepal.Length Sepal.Width Petal.Length<a class="headerlink" href="#sepal-length-sepal-width-petal-length" title="Link to this heading">#</a></h2>
-</section>
-<section id="id4">
-<h2>1          5.1         3.5          1.4<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
-</section>
-<section id="id5">
-<h2>2          4.9         3.0          1.4<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
-</section>
-<section id="id6">
-<h2>3          4.7         3.2          1.3<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
-</section>
-<section id="id7">
-<h2>4          4.6         3.1          1.5<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<p>The slice <code class="docutils literal notranslate"><span class="pre">1:4</span></code> means, “Start at index 1 and go to index 4.”</p>
-<p>The slice does not need to start at 1, e.g. the line below selects rows 5 through 10:</p>
-<p>{% highlight r %}
-iris[5:10, 1:3]
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id8">
-<h2>Sepal.Length Sepal.Width Petal.Length<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
-</section>
-<section id="id9">
-<h2>5           5.0         3.6          1.4<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
-</section>
-<section id="id10">
-<h2>6           5.4         3.9          1.7<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
-</section>
-<section id="id11">
-<h2>7           4.6         3.4          1.4<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
-</section>
-<section id="id12">
-<h2>8           5.0         3.4          1.5<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
-</section>
-<section id="id13">
-<h2>9           4.4         2.9          1.4<a class="headerlink" href="#id13" title="Link to this heading">#</a></h2>
-</section>
-<section id="id14">
-<h2>10          4.9         3.1          1.5<a class="headerlink" href="#id14" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<p>We can use the function <code class="docutils literal notranslate"><span class="pre">c()</span></code>, which stands for <strong>c</strong>ombine, to select non-contiguous entries:</p>
-<p>{% highlight r %}
-iris[c(3, 8, 37, 56), c(1,3)]
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="sepal-length-petal-length">
-<h2>Sepal.Length Petal.Length<a class="headerlink" href="#sepal-length-petal-length" title="Link to this heading">#</a></h2>
-</section>
-<section id="id15">
-<h2>3           4.7          1.3<a class="headerlink" href="#id15" title="Link to this heading">#</a></h2>
-</section>
-<section id="id16">
-<h2>8           5.0          1.5<a class="headerlink" href="#id16" title="Link to this heading">#</a></h2>
-</section>
-<section id="id17">
-<h2>37          5.5          1.3<a class="headerlink" href="#id17" title="Link to this heading">#</a></h2>
-</section>
-<section id="id18">
-<h2>56          5.7          4.5<a class="headerlink" href="#id18" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<p>We also don’t have to provide a slice for either the rows or the columns.
-If we don’t include a slice for the rows, R returns all the rows; if we don’t include a slice for the columns,
-R returns all the columns.
-If we don’t provide a slice for either rows or columns, e.g. <code class="docutils literal notranslate"><span class="pre">iris[,</span> <span class="pre">]</span></code>, R returns the full data frame.</p>
-<p>{% highlight r %}</p>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="all-columns-from-row-5">
-<h1>All columns from row 5<a class="headerlink" href="#all-columns-from-row-5" title="Link to this heading">#</a></h1>
-<p>iris[5, ]
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-<section id="sepal-length-sepal-width-petal-length-petal-width-species">
-<h2>Sepal.Length Sepal.Width Petal.Length Petal.Width Species<a class="headerlink" href="#sepal-length-sepal-width-petal-length-petal-width-species" title="Link to this heading">#</a></h2>
-</section>
-<section id="setosa">
-<h2>5            5         3.6          1.4         0.2  setosa<a class="headerlink" href="#setosa" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<p>{% highlight r %}</p>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="all-rows-from-column-2">
-<h1>All rows from column 2<a class="headerlink" href="#all-rows-from-column-2" title="Link to this heading">#</a></h1>
-<p>iris[, 2]
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-<section id="id19">
-<h2>[1] 3.5 3.0 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 3.7 3.4 3.0 3.0 4.0 4.4 3.9 3.5<a class="headerlink" href="#id19" title="Link to this heading">#</a></h2>
-</section>
-<section id="id20">
-<h2>[19] 3.8 3.8 3.4 3.7 3.6 3.3 3.4 3.0 3.4 3.5 3.4 3.2 3.1 3.4 4.1 4.2 3.1 3.2<a class="headerlink" href="#id20" title="Link to this heading">#</a></h2>
-</section>
-<section id="id21">
-<h2>[37] 3.5 3.6 3.0 3.4 3.5 2.3 3.2 3.5 3.8 3.0 3.8 3.2 3.7 3.3 3.2 3.2 3.1 2.3<a class="headerlink" href="#id21" title="Link to this heading">#</a></h2>
-</section>
-<section id="id22">
-<h2>[55] 2.8 2.8 3.3 2.4 2.9 2.7 2.0 3.0 2.2 2.9 2.9 3.1 3.0 2.7 2.2 2.5 3.2 2.8<a class="headerlink" href="#id22" title="Link to this heading">#</a></h2>
-</section>
-<section id="id23">
-<h2>[73] 2.5 2.8 2.9 3.0 2.8 3.0 2.9 2.6 2.4 2.4 2.7 2.7 3.0 3.4 3.1 2.3 3.0 2.5<a class="headerlink" href="#id23" title="Link to this heading">#</a></h2>
-</section>
-<section id="id24">
-<h2>[91] 2.6 3.0 2.6 2.3 2.7 3.0 2.9 2.9 2.5 2.8 3.3 2.7 3.0 2.9 3.0 3.0 2.5 2.9<a class="headerlink" href="#id24" title="Link to this heading">#</a></h2>
-</section>
-<section id="id25">
-<h2>[109] 2.5 3.6 3.2 2.7 3.0 2.5 2.8 3.2 3.0 3.8 2.6 2.2 3.2 2.8 2.8 2.7 3.3 3.2<a class="headerlink" href="#id25" title="Link to this heading">#</a></h2>
-</section>
-<section id="id26">
-<h2>[127] 2.8 3.0 2.8 3.0 2.8 3.8 2.8 2.8 2.6 3.0 3.4 3.1 3.0 3.1 3.1 3.1 2.7 3.2<a class="headerlink" href="#id26" title="Link to this heading">#</a></h2>
-</section>
-<section id="id27">
-<h2>[145] 3.3 3.0 2.5 3.0 3.4 3.0<a class="headerlink" href="#id27" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<details>
-	<summary> Addressing Columns by Name </summary>
-	<pre>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Columns can also be addressed by name, with either the ```$``` operator (i.e. ```iris$Petal.Length```) 
-or square brackets (ie. ```iris[,&#39;Petal.Length&#39;]```).
-
-&lt;/pre&gt;
+If you are familiar with matrices we index in the same way. For example, to get the element in the top left corner, i.e. in the first row and first column we run:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">iris</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">]</span>
 </pre></div>
 </div>
-</details>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">5.1</div></div>
+</div>
+<p>We can use this principle to extract any entry of the matrix. For example the 30th row and 3rd column</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">iris</span><span class="p">[</span><span class="m">30</span><span class="p">,</span><span class="m">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">1.6</div></div>
+</div>
+<p>An index like ``[30, 3]``` selects a single element of a data frame, but we can select larger sections as well. For example, we can select the first three columns of values for the first four rows like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">iris</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A data.frame: 4 × 3</caption>
+<thead>
+	<tr><th></th><th scope=col>Sepal.Length</th><th scope=col>Sepal.Width</th><th scope=col>Petal.Length</th></tr>
+	<tr><th></th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>1</th><td>5.1</td><td>3.5</td><td>1.4</td></tr>
+	<tr><th scope=row>2</th><td>4.9</td><td>3.0</td><td>1.4</td></tr>
+	<tr><th scope=row>3</th><td>4.7</td><td>3.2</td><td>1.3</td></tr>
+	<tr><th scope=row>4</th><td>4.6</td><td>3.1</td><td>1.5</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p>The slice <code class="docutils literal notranslate"><span class="pre">1:4</span></code> means, “Start at index 1 and go to index 4.” The slice does not need to start at 1, e.g. the line below selects rows 5 through 10:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">iris</span><span class="p">[</span><span class="m">5</span><span class="o">:</span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A data.frame: 6 × 3</caption>
+<thead>
+	<tr><th></th><th scope=col>Sepal.Length</th><th scope=col>Sepal.Width</th><th scope=col>Petal.Length</th></tr>
+	<tr><th></th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>5</th><td>5.0</td><td>3.6</td><td>1.4</td></tr>
+	<tr><th scope=row>6</th><td>5.4</td><td>3.9</td><td>1.7</td></tr>
+	<tr><th scope=row>7</th><td>4.6</td><td>3.4</td><td>1.4</td></tr>
+	<tr><th scope=row>8</th><td>5.0</td><td>3.4</td><td>1.5</td></tr>
+	<tr><th scope=row>9</th><td>4.4</td><td>2.9</td><td>1.4</td></tr>
+	<tr><th scope=row>10</th><td>4.9</td><td>3.1</td><td>1.5</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p>We can use the function <code class="docutils literal notranslate"><span class="pre">c()</span></code>, which stands for <strong>c</strong>ombine, to select non-contiguous entries:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">iris</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">8</span><span class="p">,</span><span class="w"> </span><span class="m">37</span><span class="p">,</span><span class="w"> </span><span class="m">56</span><span class="p">),</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A data.frame: 4 × 2</caption>
+<thead>
+	<tr><th></th><th scope=col>Sepal.Length</th><th scope=col>Petal.Length</th></tr>
+	<tr><th></th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>3</th><td>4.7</td><td>1.3</td></tr>
+	<tr><th scope=row>8</th><td>5.0</td><td>1.5</td></tr>
+	<tr><th scope=row>37</th><td>5.5</td><td>1.3</td></tr>
+	<tr><th scope=row>56</th><td>5.7</td><td>4.5</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p>We also don’t have to provide a slice for either the rows or the columns. If we don’t include a slice for the rows, R returns all the rows; if we don’t include a slice for the columns, R returns all the columns. If we don’t provide a slice for either rows or columns, e.g. <code class="docutils literal notranslate"><span class="pre">iris[,</span> <span class="pre">]</span></code>, R returns the full data frame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">iris</span><span class="p">[</span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A data.frame: 1 × 5</caption>
+<thead>
+	<tr><th></th><th scope=col>Sepal.Length</th><th scope=col>Sepal.Width</th><th scope=col>Petal.Length</th><th scope=col>Petal.Width</th><th scope=col>Species</th></tr>
+	<tr><th></th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;fct&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>5</th><td>5</td><td>3.6</td><td>1.4</td><td>0.2</td><td>setosa</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">iris</span><span class="p">[,</span><span class="w"> </span><span class="m">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>3.5</li><li>3</li><li>3.2</li><li>3.1</li><li>3.6</li><li>3.9</li><li>3.4</li><li>3.4</li><li>2.9</li><li>3.1</li><li>3.7</li><li>3.4</li><li>3</li><li>3</li><li>4</li><li>4.4</li><li>3.9</li><li>3.5</li><li>3.8</li><li>3.8</li><li>3.4</li><li>3.7</li><li>3.6</li><li>3.3</li><li>3.4</li><li>3</li><li>3.4</li><li>3.5</li><li>3.4</li><li>3.2</li><li>3.1</li><li>3.4</li><li>4.1</li><li>4.2</li><li>3.1</li><li>3.2</li><li>3.5</li><li>3.6</li><li>3</li><li>3.4</li><li>3.5</li><li>2.3</li><li>3.2</li><li>3.5</li><li>3.8</li><li>3</li><li>3.8</li><li>3.2</li><li>3.7</li><li>3.3</li><li>3.2</li><li>3.2</li><li>3.1</li><li>2.3</li><li>2.8</li><li>2.8</li><li>3.3</li><li>2.4</li><li>2.9</li><li>2.7</li><li>2</li><li>3</li><li>2.2</li><li>2.9</li><li>2.9</li><li>3.1</li><li>3</li><li>2.7</li><li>2.2</li><li>2.5</li><li>3.2</li><li>2.8</li><li>2.5</li><li>2.8</li><li>2.9</li><li>3</li><li>2.8</li><li>3</li><li>2.9</li><li>2.6</li><li>2.4</li><li>2.4</li><li>2.7</li><li>2.7</li><li>3</li><li>3.4</li><li>3.1</li><li>2.3</li><li>3</li><li>2.5</li><li>2.6</li><li>3</li><li>2.6</li><li>2.3</li><li>2.7</li><li>3</li><li>2.9</li><li>2.9</li><li>2.5</li><li>2.8</li><li>3.3</li><li>2.7</li><li>3</li><li>2.9</li><li>3</li><li>3</li><li>2.5</li><li>2.9</li><li>2.5</li><li>3.6</li><li>3.2</li><li>2.7</li><li>3</li><li>2.5</li><li>2.8</li><li>3.2</li><li>3</li><li>3.8</li><li>2.6</li><li>2.2</li><li>3.2</li><li>2.8</li><li>2.8</li><li>2.7</li><li>3.3</li><li>3.2</li><li>2.8</li><li>3</li><li>2.8</li><li>3</li><li>2.8</li><li>3.8</li><li>2.8</li><li>2.8</li><li>2.6</li><li>3</li><li>3.4</li><li>3.1</li><li>3</li><li>3.1</li><li>3.1</li><li>3.1</li><li>2.7</li><li>3.2</li><li>3.3</li><li>3</li><li>2.5</li><li>3</li><li>3.4</li><li>3</li></ol>
+</div></div>
+</div>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="addressing-columns-by-name">
+<h1>Addressing Columns by name<a class="headerlink" href="#addressing-columns-by-name" title="Link to this heading">#</a></h1>
+<p>Columns can also be addressed by name, with either the <code class="docutils literal notranslate"><span class="pre">$</span></code> operator (i.e. <code class="docutils literal notranslate"><span class="pre">iris$Petal.Length</span></code>) or square brackets (ie. <code class="docutils literal notranslate"><span class="pre">iris[,'Petal.Length']</span></code>).</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="data-types">
 <h1>Data Types<a class="headerlink" href="#data-types" title="Link to this heading">#</a></h1>
@@ -930,48 +839,59 @@ or square brackets (ie. ```iris[,&#39;Petal.Length&#39;]```).
 <li><p><code class="docutils literal notranslate"><span class="pre">is.numeric()</span></code>, <code class="docutils literal notranslate"><span class="pre">is.character()</span></code>, <code class="docutils literal notranslate"><span class="pre">is.complex()</span></code>, <code class="docutils literal notranslate"><span class="pre">is.logical()</span></code> - returns TRUE when an object is the datatype queried, FALSE if not</p></li>
 </ul>
 <p>Let’s define some variables we can use R to profile the charateristics of</p>
-<p>{% highlight r %}
-x &lt;- “dataset”
-typeof(x)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-<section id="character">
-<h2>[1] “character”<a class="headerlink" href="#character" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<p>{% highlight r %}
-y &lt;- 1:10
-y
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id28">
-<h2>[1]  1  2  3  4  5  6  7  8  9 10<a class="headerlink" href="#id28" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<p>{% highlight r %}
-typeof(y)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="integer">
-<h2>[1] “integer”<a class="headerlink" href="#integer" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<p>{% highlight r %}
-class(y)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id29">
-<h2>[1] “integer”<a class="headerlink" href="#id29" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<p>{% highlight r %}
-length(y)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id30">
-<h2>[1] 10<a class="headerlink" href="#id30" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-</section>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;dataset&quot;</span>
+<span class="nf">typeof</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">'character'</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">10</span>
+<span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li></ol>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">typeof</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">'integer'</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">class</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">'integer'</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">length</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">10</div></div>
+</div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="converting-between-datatypes">
 <h1>Converting Between Datatypes<a class="headerlink" href="#converting-between-datatypes" title="Link to this heading">#</a></h1>
@@ -979,15 +899,16 @@ length(y)
 errors when processing it. You therefore may want to convert between different data types. This can be done with the
 series of functions <code class="docutils literal notranslate"><span class="pre">as.numeric</span></code>, <code class="docutils literal notranslate"><span class="pre">as.character</span></code> etc.</p>
 <p>For example, let’s convert our numeric variable <code class="docutils literal notranslate"><span class="pre">y</span></code> into a character.</p>
-<p>{% highlight r %}
-y &lt;- as.character(y)
-typeof(y)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-<section id="id31">
-<h2>[1] “character”<a class="headerlink" href="#id31" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-</section>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as.character</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="nf">typeof</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">'character'</div></div>
+</div>
 <section id="activity-determining-data-yypes">
 <h2>Activity: Determining Data Yypes<a class="headerlink" href="#activity-determining-data-yypes" title="Link to this heading">#</a></h2>
 <p>Create a variable with the numbers 9,2,200, and 14.
@@ -1018,188 +939,283 @@ the data.frame. Other include:</p>
 <p>A vector is the most common and basic data structure in R. They are an ordered collection of basic data types of
 a given length. They are one-dimensional. We can think of each column of a data frame as a vector.</p>
 <p>The concatenate or combine <code class="docutils literal notranslate"><span class="pre">c()</span></code> function will explicitly <strong>construct</strong> a vector.</p>
-<p>{% highlight r %}
-v_num &lt;- c(9,20,12)
-v_log &lt;- c(TRUE, FALSE, FALSE, TRUE)
-{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">v_num</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">9</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="m">12</span><span class="p">)</span>
+<span class="n">v_log</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>As we create these vectors you should see them listed in your environment pane. We can then call the name of the varible to see what the value is at that point in time.</p>
-<p>{% highlight r %}
-v_num
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id32">
-<h2>[1]  9 20 12<a class="headerlink" href="#id32" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<p>{% highlight r %}
-v_log
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="true-false-false-true">
-<h2>[1]  TRUE FALSE FALSE  TRUE<a class="headerlink" href="#true-false-false-true" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">v_num</span><span class="w"> </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>9</li><li>20</li><li>12</li></ol>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">v_log</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>TRUE</li><li>FALSE</li><li>FALSE</li><li>TRUE</li></ol>
+</div></div>
+</div>
 <p>The function <code class="docutils literal notranslate"><span class="pre">c()</span></code> can also be used to <strong>add elements</strong> to a vector.</p>
-<p>{% highlight r %}
-v_name &lt;- c(“Sarah”, “Tracy”, “Jon”)
-v_name &lt;- c(v_name, “Annette”)
-v_name
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="sarah-tracy-jon-annette">
-<h2>[1] “Sarah”   “Tracy”   “Jon”     “Annette”<a class="headerlink" href="#sarah-tracy-jon-annette" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">v_name</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Sarah&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Tracy&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Jon&quot;</span><span class="p">)</span>
+<span class="n">v_name</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="n">v_name</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Annette&quot;</span><span class="p">)</span>
+<span class="n">v_name</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>'Sarah'</li><li>'Tracy'</li><li>'Jon'</li><li>'Annette'</li></ol>
+</div></div>
+</div>
 <p>If we want to create a series of numbers, like 1 to 140, we can bypass the <code class="docutils literal notranslate"><span class="pre">c()</span></code> constructor and just write</p>
-<p>{% highlight r %}
-(v_int &lt;- 1:4)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id33">
-<h2>[1] 1 2 3 4<a class="headerlink" href="#id33" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">v_int</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>1</li><li>2</li><li>3</li><li>4</li></ol>
+</div></div>
+</div>
 <p>When we call a vector <em>atomic</em>, we mean that the vector only holds data of a single data type.</p>
-<section id="id34">
-<h3>Data Frame<a class="headerlink" href="#id34" title="Link to this heading">#</a></h3>
+</section>
+<section id="data-frame">
+<h2>Data Frame<a class="headerlink" href="#data-frame" title="Link to this heading">#</a></h2>
 <p>A data frame is a two dimensional structure consisting of rows and columns.</p>
 <p>We can create a data frames using the function <code class="docutils literal notranslate"><span class="pre">data.frame()</span></code>. We will use the predefined vector <code class="docutils literal notranslate"><span class="pre">letter</span></code>
 to get the first ten letters in the alphabet.</p>
-<p>{% highlight r %}
-dat &lt;- data.frame(id = letters[1:10], x = 1:10, y = 11:20)
-dat
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-</section>
-<section id="id-x-y">
-<h2>id  x  y<a class="headerlink" href="#id-x-y" title="Link to this heading">#</a></h2>
-</section>
-<section id="a-1-11">
-<h2>1   a  1 11<a class="headerlink" href="#a-1-11" title="Link to this heading">#</a></h2>
-</section>
-<section id="b-2-12">
-<h2>2   b  2 12<a class="headerlink" href="#b-2-12" title="Link to this heading">#</a></h2>
-</section>
-<section id="c-3-13">
-<h2>3   c  3 13<a class="headerlink" href="#c-3-13" title="Link to this heading">#</a></h2>
-</section>
-<section id="d-4-14">
-<h2>4   d  4 14<a class="headerlink" href="#d-4-14" title="Link to this heading">#</a></h2>
-</section>
-<section id="e-5-15">
-<h2>5   e  5 15<a class="headerlink" href="#e-5-15" title="Link to this heading">#</a></h2>
-</section>
-<section id="f-6-16">
-<h2>6   f  6 16<a class="headerlink" href="#f-6-16" title="Link to this heading">#</a></h2>
-</section>
-<section id="g-7-17">
-<h2>7   g  7 17<a class="headerlink" href="#g-7-17" title="Link to this heading">#</a></h2>
-</section>
-<section id="h-8-18">
-<h2>8   h  8 18<a class="headerlink" href="#h-8-18" title="Link to this heading">#</a></h2>
-</section>
-<section id="i-9-19">
-<h2>9   i  9 19<a class="headerlink" href="#i-9-19" title="Link to this heading">#</a></h2>
-</section>
-<section id="j-10-20">
-<h2>10  j 10 20<a class="headerlink" href="#j-10-20" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">dat</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">data.frame</span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">letters</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">],</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">11</span><span class="o">:</span><span class="m">20</span><span class="p">)</span>
+<span class="n">dat</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A data.frame: 10 × 3</caption>
+<thead>
+	<tr><th scope=col>id</th><th scope=col>x</th><th scope=col>y</th></tr>
+	<tr><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>a</td><td> 1</td><td>11</td></tr>
+	<tr><td>b</td><td> 2</td><td>12</td></tr>
+	<tr><td>c</td><td> 3</td><td>13</td></tr>
+	<tr><td>d</td><td> 4</td><td>14</td></tr>
+	<tr><td>e</td><td> 5</td><td>15</td></tr>
+	<tr><td>f</td><td> 6</td><td>16</td></tr>
+	<tr><td>g</td><td> 7</td><td>17</td></tr>
+	<tr><td>h</td><td> 8</td><td>18</td></tr>
+	<tr><td>i</td><td> 9</td><td>19</td></tr>
+	<tr><td>j</td><td>10</td><td>20</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
 <p>Columns are variables, and each column will have a specified data type, which all entries must adhere to.
 Rows are observations. Rows and columns will have <code class="docutils literal notranslate"><span class="pre">rownames</span></code> and <code class="docutils literal notranslate"><span class="pre">colnames</span></code> that you can use to extract
 specific rows or columns respectively.</p>
 <p>If you read in a table of data from a file, it will typically be represented by a data.frame.</p>
-<details>
-	<summary> Functions to explore data frames </summary>
-	<pre>
-<ul>
+<section id="functions-to-explore-data-frames">
+<h3>Functions to explore data frames<a class="headerlink" href="#functions-to-explore-data-frames" title="Link to this heading">#</a></h3>
+<ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">head()</span></code> - shows first 6 rows</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">tail()</span></code> - shows last 6 rows</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">dim()</span></code> - returns the dimensions of data frame (i.e. number of rows and number of columns)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">nrow()</span></code> - number of rows</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ncol()</span></code>- number of columns</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">str()</span></code> - structure of data frame - name, type and preview of data in each column</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">names()</span></code> or <code class="docutils literal notranslate"><span class="pre">colnames()</span></code> - both show the names attribute for a data frame</p>
-  </pre>
-</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">names()</span></code> or <code class="docutils literal notranslate"><span class="pre">colnames()</span></code> - both show the names attribute for a data frame</p></li>
 </ul>
-</details>
+</section>
+</section>
 <section id="matrices">
-<h3>Matrices<a class="headerlink" href="#matrices" title="Link to this heading">#</a></h3>
+<h2>Matrices<a class="headerlink" href="#matrices" title="Link to this heading">#</a></h2>
 <p>A matrix is another two dimensional object, but it differs to a data.frame as all columns/entries must be of the same type.
 It is more efficient memory wise than a data.frame, but can not be used as a substitute to all data.frames.</p>
 <p>We can construct a matrix as follows:</p>
-<p>{% highlight r %}
-m&lt;-matrix(1:6, nrow=2, ncol=3)
-m
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-</section>
-<section id="id35">
-<h2>[,1] [,2] [,3]<a class="headerlink" href="#id35" title="Link to this heading">#</a></h2>
-</section>
-<section id="id36">
-<h2>[1,]    1    3    5<a class="headerlink" href="#id36" title="Link to this heading">#</a></h2>
-</section>
-<section id="id37">
-<h2>[2,]    2    4    6<a class="headerlink" href="#id37" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<p>When creating a <strong>matrix</strong>, it is important to remember that matrices <strong><em>are filled column-wise</em></strong> If that is not what you want, you can use the <code class="docutils literal notranslate"><span class="pre">byrow</span></code> argument (a logical: can be <code class="docutils literal notranslate"><span class="pre">TRUE</span></code> or <code class="docutils literal notranslate"><span class="pre">FALSE</span></code>) to specify how the matrix is filled</p>
-<p>{% highlight r %}
-m&lt;-matrix(1:6, nrow=2, ncol=3, byrow=TRUE)
-m
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id38">
-<h2>[,1] [,2] [,3]<a class="headerlink" href="#id38" title="Link to this heading">#</a></h2>
-</section>
-<section id="id39">
-<h2>[1,]    1    2    3<a class="headerlink" href="#id39" title="Link to this heading">#</a></h2>
-</section>
-<section id="id40">
-<h2>[2,]    4    5    6<a class="headerlink" href="#id40" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">&lt;-</span><span class="nf">matrix</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="n">nrow</span><span class="o">=</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">ncol</span><span class="o">=</span><span class="m">3</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A matrix: 2 × 3 of type int</caption>
+<tbody>
+	<tr><td>1</td><td>3</td><td>5</td></tr>
+	<tr><td>2</td><td>4</td><td>6</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p>When creating a <strong>matrix</strong>, it is important to remember that matrices <strong><em>are filled column-wise</em></strong> If that is not what you want, you can use the <code class="docutils literal notranslate"><span class="pre">byrow</span></code> argument (a logical: can be <code class="docutils literal notranslate"><span class="pre">TRUE</span></code> or <code class="docutils literal notranslate"><span class="pre">FALSE</span></code>) to specify how the matrix is filled.</p>
 <p>We can confirm the data type of a matrix with the function <code class="docutils literal notranslate"><span class="pre">class</span></code>.</p>
-<p>{% highlight r %}
-class(m)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">class</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>'matrix'</li><li>'array'</li></ol>
+</div></div>
+</div>
 </section>
-<section id="matrix-array">
-<h2>[1] “matrix” “array”<a class="headerlink" href="#matrix-array" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
 <section id="arrays">
-<h3>Arrays<a class="headerlink" href="#arrays" title="Link to this heading">#</a></h3>
+<h2>Arrays<a class="headerlink" href="#arrays" title="Link to this heading">#</a></h2>
 <p>Arrays are n dimensional storage structures. A one dimensional array is a vector, a two dimensional array is a matrix.</p>
 <p>We will not be using this type of object, but it is included for completeness.</p>
 </section>
 <section id="lists">
-<h3>Lists<a class="headerlink" href="#lists" title="Link to this heading">#</a></h3>
+<h2>Lists<a class="headerlink" href="#lists" title="Link to this heading">#</a></h2>
 <p>A list in R is a collection of objects and elements, which themselves can be a heterogeneous mix of other objects
 including vectors, matrices, data.frames, functions, strings, numbers. They tend to be used to collate different
 data types connected in some way.</p>
 <p>We can create a list of the vectors, data.frames we have already constructed as follows.</p>
-<p>{% highlight r %}
-l &lt;- list(v_log, v_num, v_it, iris)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">l</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">v_log</span><span class="p">,</span><span class="w"> </span><span class="n">v_num</span><span class="p">,</span><span class="w"> </span><span class="n">iris</span><span class="p">)</span>
+<span class="n">l</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><ol>
+	<li><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>TRUE</li><li>FALSE</li><li>FALSE</li><li>TRUE</li></ol>
+</li>
+	<li><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>9</li><li>20</li><li>12</li></ol>
+</li>
+	<li><table class="dataframe">
+<caption>A data.frame: 150 × 5</caption>
+<thead>
+	<tr><th scope=col>Sepal.Length</th><th scope=col>Sepal.Width</th><th scope=col>Petal.Length</th><th scope=col>Petal.Width</th><th scope=col>Species</th></tr>
+	<tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;fct&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>5.1</td><td>3.5</td><td>1.4</td><td>0.2</td><td>setosa</td></tr>
+	<tr><td>4.9</td><td>3.0</td><td>1.4</td><td>0.2</td><td>setosa</td></tr>
+	<tr><td>4.7</td><td>3.2</td><td>1.3</td><td>0.2</td><td>setosa</td></tr>
+	<tr><td>4.6</td><td>3.1</td><td>1.5</td><td>0.2</td><td>setosa</td></tr>
+	<tr><td>5.0</td><td>3.6</td><td>1.4</td><td>0.2</td><td>setosa</td></tr>
+	<tr><td>5.4</td><td>3.9</td><td>1.7</td><td>0.4</td><td>setosa</td></tr>
+	<tr><td>4.6</td><td>3.4</td><td>1.4</td><td>0.3</td><td>setosa</td></tr>
+	<tr><td>5.0</td><td>3.4</td><td>1.5</td><td>0.2</td><td>setosa</td></tr>
+	<tr><td>4.4</td><td>2.9</td><td>1.4</td><td>0.2</td><td>setosa</td></tr>
+	<tr><td>4.9</td><td>3.1</td><td>1.5</td><td>0.1</td><td>setosa</td></tr>
+	<tr><td>5.4</td><td>3.7</td><td>1.5</td><td>0.2</td><td>setosa</td></tr>
+	<tr><td>4.8</td><td>3.4</td><td>1.6</td><td>0.2</td><td>setosa</td></tr>
+	<tr><td>4.8</td><td>3.0</td><td>1.4</td><td>0.1</td><td>setosa</td></tr>
+	<tr><td>4.3</td><td>3.0</td><td>1.1</td><td>0.1</td><td>setosa</td></tr>
+	<tr><td>5.8</td><td>4.0</td><td>1.2</td><td>0.2</td><td>setosa</td></tr>
+	<tr><td>5.7</td><td>4.4</td><td>1.5</td><td>0.4</td><td>setosa</td></tr>
+	<tr><td>5.4</td><td>3.9</td><td>1.3</td><td>0.4</td><td>setosa</td></tr>
+	<tr><td>5.1</td><td>3.5</td><td>1.4</td><td>0.3</td><td>setosa</td></tr>
+	<tr><td>5.7</td><td>3.8</td><td>1.7</td><td>0.3</td><td>setosa</td></tr>
+	<tr><td>5.1</td><td>3.8</td><td>1.5</td><td>0.3</td><td>setosa</td></tr>
+	<tr><td>5.4</td><td>3.4</td><td>1.7</td><td>0.2</td><td>setosa</td></tr>
+	<tr><td>5.1</td><td>3.7</td><td>1.5</td><td>0.4</td><td>setosa</td></tr>
+	<tr><td>4.6</td><td>3.6</td><td>1.0</td><td>0.2</td><td>setosa</td></tr>
+	<tr><td>5.1</td><td>3.3</td><td>1.7</td><td>0.5</td><td>setosa</td></tr>
+	<tr><td>4.8</td><td>3.4</td><td>1.9</td><td>0.2</td><td>setosa</td></tr>
+	<tr><td>5.0</td><td>3.0</td><td>1.6</td><td>0.2</td><td>setosa</td></tr>
+	<tr><td>5.0</td><td>3.4</td><td>1.6</td><td>0.4</td><td>setosa</td></tr>
+	<tr><td>5.2</td><td>3.5</td><td>1.5</td><td>0.2</td><td>setosa</td></tr>
+	<tr><td>5.2</td><td>3.4</td><td>1.4</td><td>0.2</td><td>setosa</td></tr>
+	<tr><td>4.7</td><td>3.2</td><td>1.6</td><td>0.2</td><td>setosa</td></tr>
+	<tr><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td></tr>
+	<tr><td>6.9</td><td>3.2</td><td>5.7</td><td>2.3</td><td>virginica</td></tr>
+	<tr><td>5.6</td><td>2.8</td><td>4.9</td><td>2.0</td><td>virginica</td></tr>
+	<tr><td>7.7</td><td>2.8</td><td>6.7</td><td>2.0</td><td>virginica</td></tr>
+	<tr><td>6.3</td><td>2.7</td><td>4.9</td><td>1.8</td><td>virginica</td></tr>
+	<tr><td>6.7</td><td>3.3</td><td>5.7</td><td>2.1</td><td>virginica</td></tr>
+	<tr><td>7.2</td><td>3.2</td><td>6.0</td><td>1.8</td><td>virginica</td></tr>
+	<tr><td>6.2</td><td>2.8</td><td>4.8</td><td>1.8</td><td>virginica</td></tr>
+	<tr><td>6.1</td><td>3.0</td><td>4.9</td><td>1.8</td><td>virginica</td></tr>
+	<tr><td>6.4</td><td>2.8</td><td>5.6</td><td>2.1</td><td>virginica</td></tr>
+	<tr><td>7.2</td><td>3.0</td><td>5.8</td><td>1.6</td><td>virginica</td></tr>
+	<tr><td>7.4</td><td>2.8</td><td>6.1</td><td>1.9</td><td>virginica</td></tr>
+	<tr><td>7.9</td><td>3.8</td><td>6.4</td><td>2.0</td><td>virginica</td></tr>
+	<tr><td>6.4</td><td>2.8</td><td>5.6</td><td>2.2</td><td>virginica</td></tr>
+	<tr><td>6.3</td><td>2.8</td><td>5.1</td><td>1.5</td><td>virginica</td></tr>
+	<tr><td>6.1</td><td>2.6</td><td>5.6</td><td>1.4</td><td>virginica</td></tr>
+	<tr><td>7.7</td><td>3.0</td><td>6.1</td><td>2.3</td><td>virginica</td></tr>
+	<tr><td>6.3</td><td>3.4</td><td>5.6</td><td>2.4</td><td>virginica</td></tr>
+	<tr><td>6.4</td><td>3.1</td><td>5.5</td><td>1.8</td><td>virginica</td></tr>
+	<tr><td>6.0</td><td>3.0</td><td>4.8</td><td>1.8</td><td>virginica</td></tr>
+	<tr><td>6.9</td><td>3.1</td><td>5.4</td><td>2.1</td><td>virginica</td></tr>
+	<tr><td>6.7</td><td>3.1</td><td>5.6</td><td>2.4</td><td>virginica</td></tr>
+	<tr><td>6.9</td><td>3.1</td><td>5.1</td><td>2.3</td><td>virginica</td></tr>
+	<tr><td>5.8</td><td>2.7</td><td>5.1</td><td>1.9</td><td>virginica</td></tr>
+	<tr><td>6.8</td><td>3.2</td><td>5.9</td><td>2.3</td><td>virginica</td></tr>
+	<tr><td>6.7</td><td>3.3</td><td>5.7</td><td>2.5</td><td>virginica</td></tr>
+	<tr><td>6.7</td><td>3.0</td><td>5.2</td><td>2.3</td><td>virginica</td></tr>
+	<tr><td>6.3</td><td>2.5</td><td>5.0</td><td>1.9</td><td>virginica</td></tr>
+	<tr><td>6.5</td><td>3.0</td><td>5.2</td><td>2.0</td><td>virginica</td></tr>
+	<tr><td>6.2</td><td>3.4</td><td>5.4</td><td>2.3</td><td>virginica</td></tr>
+	<tr><td>5.9</td><td>3.0</td><td>5.1</td><td>1.8</td><td>virginica</td></tr>
+</tbody>
+</table>
+</li>
+</ol>
+</div></div>
+</div>
 </section>
-</section>
-<section id="error-in-eval-expr-envir-enclos-object-v-it-not-found">
-<h2>Error in eval(expr, envir, enclos): object ‘v_it’ not found<a class="headerlink" href="#error-in-eval-expr-envir-enclos-object-v-it-not-found" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<p>{% highlight r %}
-l
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="error-in-eval-expr-envir-enclos-object-l-not-found">
-<h2>Error in eval(expr, envir, enclos): object ‘l’ not found<a class="headerlink" href="#error-in-eval-expr-envir-enclos-object-l-not-found" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
 <section id="factors">
-<h3>Factors<a class="headerlink" href="#factors" title="Link to this heading">#</a></h3>
+<h2>Factors<a class="headerlink" href="#factors" title="Link to this heading">#</a></h2>
 <p>Sometimes considered as a data type, as confusingly it is a possible response to the function <code class="docutils literal notranslate"><span class="pre">type</span></code>, and therefore
 a valid option for columns in a data frame. A factor is designed for categorical variables. They have a finite number of
 “levels”, which are the options that any element of that vector can take. They are actually stored as integers
@@ -1209,25 +1225,26 @@ when loading data is to store a string as a factor. Conversely if we define a ve
 it to a vector</p>
 <p>For example, if we define a vector of months, the default is to class it as a vector of characters. We have to actively
 coerce it into a factor.</p>
-<p>{% highlight r %}
-a      &lt;- c(“March”,”February”,”February”,”November”,”February”,”March”,”March”,”March”,”February”,”November”)
-class(a)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-</section>
-<section id="id41">
-<h2>[1] “character”<a class="headerlink" href="#id41" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<p>{% highlight r %}
-fact &lt;- as.factor(a)
-class(a)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id42">
-<h2>[1] “character”<a class="headerlink" href="#id42" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w">      </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;March&quot;</span><span class="p">,</span><span class="s">&quot;February&quot;</span><span class="p">,</span><span class="s">&quot;February&quot;</span><span class="p">,</span><span class="s">&quot;November&quot;</span><span class="p">,</span><span class="s">&quot;February&quot;</span><span class="p">,</span><span class="s">&quot;March&quot;</span><span class="p">,</span><span class="s">&quot;March&quot;</span><span class="p">,</span><span class="s">&quot;March&quot;</span><span class="p">,</span><span class="s">&quot;February&quot;</span><span class="p">,</span><span class="s">&quot;November&quot;</span><span class="p">)</span>
+<span class="nf">class</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">'character'</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">fact</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as.factor</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nf">class</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">'character'</div></div>
+</div>
 </section>
 <section id="activity-data-exploration">
 <h2>Activity: Data Exploration<a class="headerlink" href="#activity-data-exploration" title="Link to this heading">#</a></h2>
@@ -1249,16 +1266,16 @@ class(a)
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "r"
         },
         kernelOptions: {
-            name: "python3",
+            name: "ir",
             path: "./individual_modules/introduction_to_r"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'ir'</script>
 
                 </article>
               
@@ -1304,107 +1321,29 @@ class(a)
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Data Types and Structures</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#inbuilt-datasets">Inbuilt Datasets</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-datasets">Exploring datasets</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-frame">[1] “data.frame”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">[1] 150   5</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Data Types and Structures</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inbuilt-datasets">Inbuilt Datasets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-datasets">Exploring datasets</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#subsetting-data">Subsetting Data</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">[1] 5.1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">[1] 1.6</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sepal-length-sepal-width-petal-length">Sepal.Length Sepal.Width Petal.Length</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">1          5.1         3.5          1.4</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">2          4.9         3.0          1.4</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">3          4.7         3.2          1.3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">4          4.6         3.1          1.5</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Sepal.Length Sepal.Width Petal.Length</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">5           5.0         3.6          1.4</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">6           5.4         3.9          1.7</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">7           4.6         3.4          1.4</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">8           5.0         3.4          1.5</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">9           4.4         2.9          1.4</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">10          4.9         3.1          1.5</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sepal-length-petal-length">Sepal.Length Petal.Length</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">3           4.7          1.3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">8           5.0          1.5</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">37          5.5          1.3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">56          5.7          4.5</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#all-columns-from-row-5">All columns from row 5</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sepal-length-sepal-width-petal-length-petal-width-species">Sepal.Length Sepal.Width Petal.Length Petal.Width Species</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setosa">5            5         3.6          1.4         0.2  setosa</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#all-rows-from-column-2">All rows from column 2</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">[1] 3.5 3.0 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 3.7 3.4 3.0 3.0 4.0 4.4 3.9 3.5</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">[19] 3.8 3.8 3.4 3.7 3.6 3.3 3.4 3.0 3.4 3.5 3.4 3.2 3.1 3.4 4.1 4.2 3.1 3.2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">[37] 3.5 3.6 3.0 3.4 3.5 2.3 3.2 3.5 3.8 3.0 3.8 3.2 3.7 3.3 3.2 3.2 3.1 2.3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">[55] 2.8 2.8 3.3 2.4 2.9 2.7 2.0 3.0 2.2 2.9 2.9 3.1 3.0 2.7 2.2 2.5 3.2 2.8</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">[73] 2.5 2.8 2.9 3.0 2.8 3.0 2.9 2.6 2.4 2.4 2.7 2.7 3.0 3.4 3.1 2.3 3.0 2.5</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">[91] 2.6 3.0 2.6 2.3 2.7 3.0 2.9 2.9 2.5 2.8 3.3 2.7 3.0 2.9 3.0 3.0 2.5 2.9</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">[109] 2.5 3.6 3.2 2.7 3.0 2.5 2.8 3.2 3.0 3.8 2.6 2.2 3.2 2.8 2.8 2.7 3.3 3.2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id26">[127] 2.8 3.0 2.8 3.0 2.8 3.8 2.8 2.8 2.6 3.0 3.4 3.1 3.0 3.1 3.1 3.1 2.7 3.2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id27">[145] 3.3 3.0 2.5 3.0 3.4 3.0</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">Data Types</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#character">[1] “character”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id28">[1]  1  2  3  4  5  6  7  8  9 10</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integer">[1] “integer”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id29">[1] “integer”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id30">[1] 10</a></li>
-</ul>
-</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#subsetting-data">Subsetting Data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#addressing-columns-by-name">Addressing Columns by name</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">Data Types</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-between-datatypes">Converting Between Datatypes</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id31">[1] “character”</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-determining-data-yypes">Activity: Determining Data Yypes</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-structures">Data Structures</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vectors">Vectors</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id32">[1]  9 20 12</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#true-false-false-true">[1]  TRUE FALSE FALSE  TRUE</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sarah-tracy-jon-annette">[1] “Sarah”   “Tracy”   “Jon”     “Annette”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id33">[1] 1 2 3 4</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id34">Data Frame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-frame">Data Frame</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-to-explore-data-frames">Functions to explore data frames</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id-x-y">id  x  y</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-1-11">1   a  1 11</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-2-12">2   b  2 12</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-3-13">3   c  3 13</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-4-14">4   d  4 14</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#e-5-15">5   e  5 15</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#f-6-16">6   f  6 16</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#g-7-17">7   g  7 17</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#h-8-18">8   h  8 18</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#i-9-19">9   i  9 19</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#j-10-20">10  j 10 20</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices">Matrices</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id35">[,1] [,2] [,3]</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id36">[1,]    1    3    5</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id37">[2,]    2    4    6</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id38">[,1] [,2] [,3]</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id39">[1,]    1    2    3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id40">[2,]    4    5    6</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-array">[1] “matrix” “array”</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays">Arrays</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">Lists</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-in-eval-expr-envir-enclos-object-v-it-not-found">Error in eval(expr, envir, enclos): object ‘v_it’ not found</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-in-eval-expr-envir-enclos-object-l-not-found">Error in eval(expr, envir, enclos): object ‘l’ not found</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#factors">Factors</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id41">[1] “character”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id42">[1] “character”</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices">Matrices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays">Arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">Lists</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#factors">Factors</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-data-exploration">Activity: Data Exploration</a></li>
 </ul>
 </li>

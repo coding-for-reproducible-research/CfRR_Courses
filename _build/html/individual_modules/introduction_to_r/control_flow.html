@@ -57,6 +57,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'individual_modules/introduction_to_r/control_flow';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -245,9 +247,6 @@
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_r.html">Introduction to R</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="gettingstarted.html">Getting Up and Running with R</a></li>
-
-
-
 <li class="toctree-l2"><a class="reference internal" href="basic_commands.html">Running Commands With R</a></li>
 
 
@@ -256,14 +255,7 @@
 
 
 
-
-
-
-
 <li class="toctree-l2"><a class="reference internal" href="data_types.html">Data Types and Structures</a></li>
-
-
-
 
 
 
@@ -278,33 +270,10 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Control Flow</a></li>
 
 
-
 <li class="toctree-l2"><a class="reference internal" href="plots.html">Plots</a></li>
-
-
-
-
-
-
-
-
 
 
 
@@ -318,6 +287,9 @@
 
 
 
+
+
+<li class="toctree-l2"><a class="reference internal" href="good_practise.html">Establishing Good Practices when Coding</a></li>
 
 
 </ul>
@@ -428,6 +400,37 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -483,7 +486,7 @@
       
       
       
-      <li><a href="../../_sources/individual_modules/introduction_to_r/control_flow.md" target="_blank"
+      <li><a href="../../_sources/individual_modules/introduction_to_r/control_flow.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -493,7 +496,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -579,55 +582,14 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Control Flow</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops">For Loops</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let">[1] “Let”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the">[1] “the”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computer">[1] “computer”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#do">[1] “do”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">[1] “the”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work">[1] “work”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let-the-computer-do-the">[1] “Let”      “the”      “computer” “do”       “the”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">[1] “Let”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">[1] “the”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">[1] “computer”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">[1] “do”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">[1] “the”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#na">[1] NA</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">[1] “Let”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">[1] “the”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">[1] “computer”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">[1] “do”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">[1] “the”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">[1] “work”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">[1] “Let”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">[1] “the”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">[1] “computer”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">[1] “do”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">[1] “the”</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#number-of-vowels">Number of vowels</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">[1] 5</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a">[1] “a”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b">[1] “b”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c">[1] “c”</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#not-available">Not Available</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activity">Activity</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#after-the-loop-letter-is">after the loop, letter is</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">[1] “c”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">[1] 5</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activity">Activity:</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">Control Flow</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#not-greater">[1] “not greater”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#done">[1] “done”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#false">[1] FALSE</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#true">[1] TRUE</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">[1] -1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">[1] 0</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">[1] 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#at-least-one-part-is-not-true">[1] “at least one part is not true”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#at-least-one-part-is-true">[1] “at least one part is true”</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#if-statements">IF Statements</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-comparisons">Other Comparisons</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-combining-for-loops-and-control-flow">Activity: Combining for loops and control flow</a></li>
 </ul>
 </li>
@@ -652,341 +614,310 @@ empower you to write code efficiently and control the flow of information.</p>
 <p>Code is often focused around highly repetative tasks.
 Suppose we want to print each word in a sentence.
 One way is to use six <code class="docutils literal notranslate"><span class="pre">print</span></code> statements:</p>
-<p>{% highlight r %}
-best_practice &lt;- c(“Let”, “the”, “computer”, “do”, “the”, “work”)
-print_words &lt;- function(sentence) {
-print(sentence[1])
-print(sentence[2])
-print(sentence[3])
-print(sentence[4])
-print(sentence[5])
-print(sentence[6])
-}</p>
-<p>print_words(best_practice)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="let">
-<h2>[1] “Let”<a class="headerlink" href="#let" title="Link to this heading">#</a></h2>
-</section>
-<section id="the">
-<h2>[1] “the”<a class="headerlink" href="#the" title="Link to this heading">#</a></h2>
-</section>
-<section id="computer">
-<h2>[1] “computer”<a class="headerlink" href="#computer" title="Link to this heading">#</a></h2>
-</section>
-<section id="do">
-<h2>[1] “do”<a class="headerlink" href="#do" title="Link to this heading">#</a></h2>
-</section>
-<section id="id1">
-<h2>[1] “the”<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
-</section>
-<section id="work">
-<h2>[1] “work”<a class="headerlink" href="#work" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">best_practice</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Let&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;the&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;computer&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;do&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;the&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;work&quot;</span><span class="p">)</span>
+<span class="n">print_words</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="n">sentence</span><span class="p">[</span><span class="m">1</span><span class="p">])</span>
+<span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="n">sentence</span><span class="p">[</span><span class="m">2</span><span class="p">])</span>
+<span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="n">sentence</span><span class="p">[</span><span class="m">3</span><span class="p">])</span>
+<span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="n">sentence</span><span class="p">[</span><span class="m">4</span><span class="p">])</span>
+<span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="n">sentence</span><span class="p">[</span><span class="m">5</span><span class="p">])</span>
+<span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="n">sentence</span><span class="p">[</span><span class="m">6</span><span class="p">])</span>
+<span class="p">}</span>
+
+<span class="nf">print_words</span><span class="p">(</span><span class="n">best_practice</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;Let&quot;
+[1] &quot;the&quot;
+[1] &quot;computer&quot;
+[1] &quot;do&quot;
+[1] &quot;the&quot;
+[1] &quot;work&quot;
+</pre></div>
+</div>
+</div>
+</div>
 <p>but that’s a bad approach for two reasons:</p>
 <ol class="arabic simple">
 <li><p>It doesn’t scale: if we want to print the elements in a vector that’s hundreds long, we’d be better off just typing them in.</p></li>
 <li><p>It’s fragile: if we give it a longer vector, it only prints part of the data, and if we give it a shorter input, it returns <code class="docutils literal notranslate"><span class="pre">NA</span></code> values because we’re asking for elements that don’t exist!</p></li>
 </ol>
-<p>{% highlight r %}
-best_practice[-6]
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">best_practice</span><span class="p">[</span><span class="m">-6</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>'Let'</li><li>'the'</li><li>'computer'</li><li>'do'</li><li>'the'</li></ol>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">print_words</span><span class="p">(</span><span class="n">best_practice</span><span class="p">[</span><span class="m">-6</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;Let&quot;
+[1] &quot;the&quot;
+[1] &quot;computer&quot;
+[1] &quot;do&quot;
+[1] &quot;the&quot;
+[1] NA
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-<section id="let-the-computer-do-the">
-<h2>[1] “Let”      “the”      “computer” “do”       “the”<a class="headerlink" href="#let-the-computer-do-the" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<p>{% highlight r %}
-print_words(best_practice[-6])
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
 </section>
-<section id="id2">
-<h2>[1] “Let”<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-</section>
-<section id="id3">
-<h2>[1] “the”<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
-</section>
-<section id="id4">
-<h2>[1] “computer”<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
-</section>
-<section id="id5">
-<h2>[1] “do”<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
-</section>
-<section id="id6">
-<h2>[1] “the”<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
-</section>
-<section id="na">
-<h2>[1] NA<a class="headerlink" href="#na" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<details>
-	<summary> Not Available </summary>
-	<pre>
+<section class="tex2jax_ignore mathjax_ignore" id="not-available">
+<h1>Not Available<a class="headerlink" href="#not-available" title="Link to this heading">#</a></h1>
 <p>R has has a special variable, <code class="docutils literal notranslate"><span class="pre">NA</span></code>, for designating missing values that are
 <strong>N</strong>ot <strong>A</strong>vailable in a data set. See <code class="docutils literal notranslate"><span class="pre">?NA</span></code> and (An Introduction to R)[<a class="reference external" href="http://cran.r-project.org/doc/manuals/r-release/R-intro.html#Missing-values">http://cran.r-project.org/doc/manuals/r-release/R-intro.html#Missing-values</a>]
 for more details.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;/pre&gt;
+<p>Here’s a better approach:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">print_words</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nf">for </span><span class="p">(</span><span class="n">word</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">sentence</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">print</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nf">print_words</span><span class="p">(</span><span class="n">best_practice</span><span class="p">)</span>
 </pre></div>
 </div>
-</details>
-<p>Here’s a better approach:</p>
-<p>{% highlight r %}
-print_words &lt;- function(sentence) {
-for (word in sentence) {
-print(word)
-}
-}</p>
-<p>print_words(best_practice)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id7">
-<h2>[1] “Let”<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
-</section>
-<section id="id8">
-<h2>[1] “the”<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
-</section>
-<section id="id9">
-<h2>[1] “computer”<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
-</section>
-<section id="id10">
-<h2>[1] “do”<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
-</section>
-<section id="id11">
-<h2>[1] “the”<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
-</section>
-<section id="id12">
-<h2>[1] “work”<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;Let&quot;
+[1] &quot;the&quot;
+[1] &quot;computer&quot;
+[1] &quot;do&quot;
+[1] &quot;the&quot;
+[1] &quot;work&quot;
+</pre></div>
+</div>
+</div>
+</div>
 <p>This is shorter—certainly shorter than something that prints every character in a hundred-letter string—and more robust as well:</p>
-<p>{% highlight r %}
-print_words(best_practice[-6])
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id13">
-<h2>[1] “Let”<a class="headerlink" href="#id13" title="Link to this heading">#</a></h2>
-</section>
-<section id="id14">
-<h2>[1] “the”<a class="headerlink" href="#id14" title="Link to this heading">#</a></h2>
-</section>
-<section id="id15">
-<h2>[1] “computer”<a class="headerlink" href="#id15" title="Link to this heading">#</a></h2>
-</section>
-<section id="id16">
-<h2>[1] “do”<a class="headerlink" href="#id16" title="Link to this heading">#</a></h2>
-</section>
-<section id="id17">
-<h2>[1] “the”<a class="headerlink" href="#id17" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
 <p>The improved version of <code class="docutils literal notranslate"><span class="pre">print_words</span></code> uses a for loop to repeat an operation—in this case, printing—once for each thing in a collection.
 The general form of a loop is:</p>
-<p>{% highlight r %}
-for (variable in collection) {
-do things with variable
-}
-{% endhighlight %}</p>
-<p>We can name the loop variable anything we like (with a few (restrictions)[<a class="reference external" href="http://cran.r-project.org/doc/manuals/R-intro.html#R-commands_003b-case-sensitivity-etc">http://cran.r-project.org/doc/manuals/R-intro.html#R-commands_003b-case-sensitivity-etc</a>], e.g. the name of the variable cannot start with a digit).
-<code class="docutils literal notranslate"><span class="pre">in</span></code> is part of the <code class="docutils literal notranslate"><span class="pre">for</span></code> syntax.
-Note that the body of the loop is enclosed in curly braces <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">}</span></code>.
-For a single-line loop body, as here, the braces aren’t needed, but it is good practice to include them as we did.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">for </span><span class="p">(</span><span class="n">variable</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">collection</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">do</span><span class="w"> </span><span class="n">things</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">variable</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>We can name the loop variable anything we like (with a few (restrictions)[<a class="reference external" href="http://cran.r-project.org/doc/manuals/R-intro.html#R-commands_003b-case-sensitivity-etc">http://cran.r-project.org/doc/manuals/R-intro.html#R-commands_003b-case-sensitivity-etc</a>], e.g. the name of the variable cannot start with a digit). <code class="docutils literal notranslate"><span class="pre">in</span></code> is part of the <code class="docutils literal notranslate"><span class="pre">for</span></code> syntax. Note that the body of the loop is enclosed in curly braces <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">}</span></code>. For a single-line loop body, as here, the braces aren’t needed, but it is good practice to include them as we did.</p>
 <p>Here’s another loop that repeatedly updates a variable:</p>
-<p>{% highlight r %}
-len &lt;- 0
-vowels &lt;- c(“a”, “e”, “i”, “o”, “u”)
-for (v in vowels) {
-len &lt;- len + 1
-}</p>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="number-of-vowels">
-<h1>Number of vowels<a class="headerlink" href="#number-of-vowels" title="Link to this heading">#</a></h1>
-<p>len
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-<section id="id18">
-<h2>[1] 5<a class="headerlink" href="#id18" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<p>It’s worth tracing the execution of this little program step by step.
-Since there are five elements in the vector <code class="docutils literal notranslate"><span class="pre">vowels</span></code>, the statement inside the loop will be executed five times.
-The first time around, <code class="docutils literal notranslate"><span class="pre">len</span></code> is zero (the value assigned to it on line 1) and <code class="docutils literal notranslate"><span class="pre">v</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;a&quot;</span></code>.
-The statement adds 1 to the old value of <code class="docutils literal notranslate"><span class="pre">len</span></code>, producing 1, and updates <code class="docutils literal notranslate"><span class="pre">len</span></code> to refer to that new value.
-The next time around, <code class="docutils literal notranslate"><span class="pre">v</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;e&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">len</span></code> is 1, so <code class="docutils literal notranslate"><span class="pre">len</span></code> is updated to be 2.
-After three more updates, <code class="docutils literal notranslate"><span class="pre">len</span></code> is 5; since there is nothing left in the vector <code class="docutils literal notranslate"><span class="pre">vowels</span></code> for R to process, the loop finishes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">len</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0</span>
+<span class="n">vowels</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;e&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;i&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;o&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;u&quot;</span><span class="p">)</span>
+<span class="nf">for </span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">vowels</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">len</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span>
+<span class="p">}</span>
+<span class="c1"># Number of vowels</span>
+<span class="n">len</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">5</div></div>
+</div>
+<p>It’s worth tracing the execution of this little program step by step. Since there are five elements in the vector <code class="docutils literal notranslate"><span class="pre">vowels</span></code>, the statement inside the loop will be executed five times. The first time around, <code class="docutils literal notranslate"><span class="pre">len</span></code> is zero (the value assigned to it on line 1) and <code class="docutils literal notranslate"><span class="pre">v</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;a&quot;</span></code>. The statement adds 1 to the old value of <code class="docutils literal notranslate"><span class="pre">len</span></code>, producing 1, and updates <code class="docutils literal notranslate"><span class="pre">len</span></code> to refer to that new value. The next time around, <code class="docutils literal notranslate"><span class="pre">v</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;e&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">len</span></code> is 1, so <code class="docutils literal notranslate"><span class="pre">len</span></code> is updated to be 2. After three more updates, <code class="docutils literal notranslate"><span class="pre">len</span></code> is 5; since there is nothing left in the vector <code class="docutils literal notranslate"><span class="pre">vowels</span></code> for R to process, the loop finishes.</p>
 <p>Note that a loop variable is just a variable that’s being used to record progress in a loop.
 It still exists after the loop is over, and we can re-use variables previously defined as loop variables as well:</p>
-<p>{% highlight r %}
-letter &lt;- “z”
-for (letter in c(“a”, “b”, “c”)) {
-print(letter)
-}
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="a">
-<h2>[1] “a”<a class="headerlink" href="#a" title="Link to this heading">#</a></h2>
-</section>
-<section id="b">
-<h2>[1] “b”<a class="headerlink" href="#b" title="Link to this heading">#</a></h2>
-</section>
-<section id="c">
-<h2>[1] “c”<a class="headerlink" href="#c" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<p>{% highlight r %}</p>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="after-the-loop-letter-is">
-<h1>after the loop, letter is<a class="headerlink" href="#after-the-loop-letter-is" title="Link to this heading">#</a></h1>
-<p>letter
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-<section id="id19">
-<h2>[1] “c”<a class="headerlink" href="#id19" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">letter</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;z&quot;</span>
+<span class="nf">for </span><span class="p">(</span><span class="n">letter</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;c&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;a&quot;
+[1] &quot;b&quot;
+[1] &quot;c&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># after the loop, letter is</span>
+<span class="n">letter</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">'c'</div></div>
+</div>
 <p>Note also that finding the length of a vector is such a common operation that R actually has a built-in function to do it called <code class="docutils literal notranslate"><span class="pre">length</span></code>:</p>
-<p>{% highlight r %}
-length(vowels)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id20">
-<h2>[1] 5<a class="headerlink" href="#id20" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">length</span><span class="p">(</span><span class="n">vowels</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">5</div></div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">length</span></code> is much faster than any R function we could write ourselves, and much easier to read than a two-line loop; it will also give us the length of many other things that we haven’t met yet, so we should always use it when we can.</p>
-</section>
 <section id="activity">
-<h2>Activity:<a class="headerlink" href="#activity" title="Link to this heading">#</a></h2>
+<h2>Activity<a class="headerlink" href="#activity" title="Link to this heading">#</a></h2>
 <p>Can you edit the for loop to print the sentance backwards?</p>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="id21">
-<h1>Control Flow<a class="headerlink" href="#id21" title="Link to this heading">#</a></h1>
-<p>As well as repeating tasks, it’s possible we want R to only perform certain tasks in certain situations.
-To do this we need to write code that automatically decides between multiple options.
-The tool R gives us for doing this is called a conditional statement, and looks like this:</p>
-<p>{% highlight r %}
-num &lt;- 37
-if (num &gt; 100) {
-print(“greater”)
-} else {
-print(“not greater”)
-}
-print(“done”)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-<section id="not-greater">
-<h2>[1] “not greater”<a class="headerlink" href="#not-greater" title="Link to this heading">#</a></h2>
-</section>
-<section id="done">
-<h2>[1] “done”<a class="headerlink" href="#done" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<p>The second line of this code uses an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement to tell R that we want to make a choice.
-If the following test is true, the body of the <code class="docutils literal notranslate"><span class="pre">if</span></code> (i.e., the lines in the curly braces underneath it) are executed.
-If the test is false, the body of the <code class="docutils literal notranslate"><span class="pre">else</span></code> is executed instead.
-Only one or the other is ever executed:</p>
-<img src="../images/python-flowchart-conditional.svg" alt="Executing a Conditional" />
-<p>In the example above, the test <code class="docutils literal notranslate"><span class="pre">num</span> <span class="pre">&gt;</span> <span class="pre">100</span></code> returns the value <code class="docutils literal notranslate"><span class="pre">FALSE</span></code>, which is why the code inside the <code class="docutils literal notranslate"><span class="pre">if</span></code> block was skipped and the code inside the <code class="docutils literal notranslate"><span class="pre">else</span></code> statement was run instead.</p>
-<p>{% highlight r %}
-num &gt; 100
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="false">
-<h2>[1] FALSE<a class="headerlink" href="#false" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<p>And as you likely guessed, the opposite of <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> is <code class="docutils literal notranslate"><span class="pre">TRUE</span></code>.</p>
-<p>{% highlight r %}
-num &lt; 100
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="true">
-<h2>[1] TRUE<a class="headerlink" href="#true" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<p>Conditional statements don’t have to include an <code class="docutils literal notranslate"><span class="pre">else</span></code>.
-If there isn’t one, R simply does nothing if the test is false:</p>
-<p>{% highlight r %}
-num &lt;- 53
-if (num &gt; 100) {
-print(“num is greater than 100”)
-}
-{% endhighlight %}</p>
-<p>We can also chain several tests together when there are more than two options.
-This makes it simple to write a function that returns the sign of a number:</p>
-<p>{% highlight r %}
-sign &lt;- function(num) {
-if (num &gt; 0) {
-return(1)
-} else if (num == 0) {
-return(0)
-} else {
-return(-1)
-}
-}</p>
-<p>sign(-3)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id22">
-<h2>[1] -1<a class="headerlink" href="#id22" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<p>{% highlight r %}
-sign(0)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id23">
-<h2>[1] 0<a class="headerlink" href="#id23" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<p>{% highlight r %}
-sign(2/3)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="id24">
-<h2>[1] 1<a class="headerlink" href="#id24" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<p>Note that when combining <code class="docutils literal notranslate"><span class="pre">else</span></code> and <code class="docutils literal notranslate"><span class="pre">if</span></code> in an <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span></code> statement (similar to <code class="docutils literal notranslate"><span class="pre">elif</span></code> in Python), the <code class="docutils literal notranslate"><span class="pre">if</span></code> portion still requires a direct input condition.  This is never the case for the <code class="docutils literal notranslate"><span class="pre">else</span></code> statement alone, which is only executed if all other conditions go unsatisfied.
-Note that the test for equality uses two equal signs, <code class="docutils literal notranslate"><span class="pre">==</span></code>.</p>
-<details>
-	<summary> Other Comparisons </summary>
-	<pre>
-<p>Other tests include greater than or equal to (<code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>), less than or equal to
-(<code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>), and not equal to (<code class="docutils literal notranslate"><span class="pre">!=</span></code>).</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;/pre&gt;
+<section class="tex2jax_ignore mathjax_ignore" id="if-statements">
+<h1>IF Statements<a class="headerlink" href="#if-statements" title="Link to this heading">#</a></h1>
+<p>As well as repeating tasks, it’s possible we want R to only perform certain tasks in certain situations. To do this we need to write code that automatically decides between multiple options. The tool R gives us for doing this is called a conditional statement, and looks like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">num</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">37</span>
+<span class="nf">if </span><span class="p">(</span><span class="n">num</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">100</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="s">&quot;greater&quot;</span><span class="p">)</span>
+<span class="p">}</span><span class="w"> </span><span class="n">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="s">&quot;not greater&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="nf">print</span><span class="p">(</span><span class="s">&quot;done&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</details>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;not greater&quot;
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;done&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p>The second line of this code uses an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement to tell R that we want to make a choice. If the following test is true, the body of the <code class="docutils literal notranslate"><span class="pre">if</span></code> (i.e., the lines in the curly braces underneath it) are executed. If the test is false, the body of the <code class="docutils literal notranslate"><span class="pre">else</span></code> is executed instead. Only one or the other is ever executed:</p>
+<p><img alt="Executing a conditional" src="../../_images/python-flowchart-conditional.svg" /></p>
+<p>In the example above, the test <code class="docutils literal notranslate"><span class="pre">num</span> <span class="pre">&gt;</span> <span class="pre">100</span></code> returns the value <code class="docutils literal notranslate"><span class="pre">FALSE</span></code>, which is why the code inside the <code class="docutils literal notranslate"><span class="pre">if</span></code> block was skipped and the code inside the <code class="docutils literal notranslate"><span class="pre">else</span></code> statement was run instead.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">num</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">100</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">FALSE</div></div>
+</div>
+<p>And as you likely guessed, the opposite of <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> is <code class="docutils literal notranslate"><span class="pre">TRUE</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">num</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">100</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">TRUE</div></div>
+</div>
+<p>Conditional statements don’t have to include an <code class="docutils literal notranslate"><span class="pre">else</span></code>. If there isn’t one, R simply does nothing if the test is false:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">num</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">53</span>
+<span class="nf">if </span><span class="p">(</span><span class="n">num</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">100</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="s">&quot;num is greater than 100&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also chain several tests together when there are more than two options.
+This makes it simple to write a function that returns the sign of a number:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">sign</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nf">if </span><span class="p">(</span><span class="n">num</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">return</span><span class="p">(</span><span class="m">1</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="n">else</span><span class="w"> </span><span class="nf">if </span><span class="p">(</span><span class="n">num</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">return</span><span class="p">(</span><span class="m">0</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="n">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">return</span><span class="p">(</span><span class="m">-1</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nf">sign</span><span class="p">(</span><span class="m">-3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">-1</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">sign</span><span class="p">(</span><span class="m">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">0</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">sign</span><span class="p">(</span><span class="m">2</span><span class="o">/</span><span class="m">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">1</div></div>
+</div>
+<p>Note that when combining <code class="docutils literal notranslate"><span class="pre">else</span></code> and <code class="docutils literal notranslate"><span class="pre">if</span></code> in an <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span></code> statement (similar to <code class="docutils literal notranslate"><span class="pre">elif</span></code> in Python), the <code class="docutils literal notranslate"><span class="pre">if</span></code> portion still requires a direct input condition.  This is never the case for the <code class="docutils literal notranslate"><span class="pre">else</span></code> statement alone, which is only executed if all other conditions go unsatisfied.
+Note that the test for equality uses two equal signs, <code class="docutils literal notranslate"><span class="pre">==</span></code>.</p>
+<section id="other-comparisons">
+<h2>Other Comparisons<a class="headerlink" href="#other-comparisons" title="Link to this heading">#</a></h2>
+<p>Other tests include greater than or equal to (<code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>), less than or equal to (<code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>), and not equal to (<code class="docutils literal notranslate"><span class="pre">!=</span></code>).</p>
 <p>We can also combine tests.
 An ampersand, <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>, symbolizes “and”.
 A vertical bar, <code class="docutils literal notranslate"><span class="pre">|</span></code>, symbolizes “or”.
 <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> is only true if both parts are true:</p>
-<p>{% highlight r %}
-if (1 &gt; 0 &amp; -1 &gt; 0) {
-print(“both parts are true”)
-} else {
-print(“at least one part is not true”)
-}
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="at-least-one-part-is-not-true">
-<h2>[1] “at least one part is not true”<a class="headerlink" href="#at-least-one-part-is-not-true" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">if </span><span class="p">(</span><span class="m">1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="m">-1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">print</span><span class="p">(</span><span class="s">&quot;both parts are true&quot;</span><span class="p">)</span>
+<span class="p">}</span><span class="w"> </span><span class="n">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="s">&quot;at least one part is not true&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;at least one part is not true&quot;
+</pre></div>
+</div>
+</div>
+</div>
 <p>while <code class="docutils literal notranslate"><span class="pre">|</span></code> is true if either part is true:</p>
-<p>{% highlight r %}
-if (1 &gt; 0 | -1 &gt; 0) {
-print(“at least one part is true”)
-} else {
-print(“neither part is true”)
-}
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="at-least-one-part-is-true">
-<h2>[1] “at least one part is true”<a class="headerlink" href="#at-least-one-part-is-true" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">if </span><span class="p">(</span><span class="m">1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="m">-1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">print</span><span class="p">(</span><span class="s">&quot;at least one part is true&quot;</span><span class="p">)</span>
+<span class="p">}</span><span class="w"> </span><span class="n">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="s">&quot;neither part is true&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;at least one part is true&quot;
+</pre></div>
+</div>
+</div>
+</div>
 <p>In this case, “either” means “either or both”, not “either one or the other but not both”.</p>
 </section>
 <section id="activity-combining-for-loops-and-control-flow">
@@ -1004,16 +935,16 @@ print(“neither part is true”)
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "r"
         },
         kernelOptions: {
-            name: "python3",
+            name: "ir",
             path: "./individual_modules/introduction_to_r"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'ir'</script>
 
                 </article>
               
@@ -1061,55 +992,14 @@ print(“neither part is true”)
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Control Flow</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops">For Loops</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let">[1] “Let”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the">[1] “the”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computer">[1] “computer”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#do">[1] “do”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">[1] “the”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work">[1] “work”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let-the-computer-do-the">[1] “Let”      “the”      “computer” “do”       “the”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">[1] “Let”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">[1] “the”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">[1] “computer”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">[1] “do”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">[1] “the”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#na">[1] NA</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">[1] “Let”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">[1] “the”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">[1] “computer”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">[1] “do”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">[1] “the”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">[1] “work”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">[1] “Let”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">[1] “the”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">[1] “computer”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">[1] “do”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">[1] “the”</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#number-of-vowels">Number of vowels</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">[1] 5</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a">[1] “a”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b">[1] “b”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c">[1] “c”</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#not-available">Not Available</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activity">Activity</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#after-the-loop-letter-is">after the loop, letter is</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">[1] “c”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">[1] 5</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activity">Activity:</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">Control Flow</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#not-greater">[1] “not greater”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#done">[1] “done”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#false">[1] FALSE</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#true">[1] TRUE</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">[1] -1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">[1] 0</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">[1] 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#at-least-one-part-is-not-true">[1] “at least one part is not true”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#at-least-one-part-is-true">[1] “at least one part is true”</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#if-statements">IF Statements</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-comparisons">Other Comparisons</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-combining-for-loops-and-control-flow">Activity: Combining for loops and control flow</a></li>
 </ul>
 </li>

@@ -57,6 +57,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'individual_modules/introduction_to_r/load_data';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -245,9 +247,6 @@
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../../section_landing_pages/introduction_to_r.html">Introduction to R</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="gettingstarted.html">Getting Up and Running with R</a></li>
-
-
-
 <li class="toctree-l2"><a class="reference internal" href="basic_commands.html">Running Commands With R</a></li>
 
 
@@ -256,14 +255,7 @@
 
 
 
-
-
-
-
 <li class="toctree-l2"><a class="reference internal" href="data_types.html">Data Types and Structures</a></li>
-
-
-
 
 
 
@@ -278,33 +270,10 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <li class="toctree-l2"><a class="reference internal" href="control_flow.html">Control Flow</a></li>
 
 
-
 <li class="toctree-l2"><a class="reference internal" href="plots.html">Plots</a></li>
-
-
-
-
-
-
-
-
 
 
 
@@ -318,6 +287,9 @@
 
 
 
+
+
+<li class="toctree-l2"><a class="reference internal" href="good_practise.html">Establishing Good Practices when Coding</a></li>
 
 
 </ul>
@@ -428,6 +400,37 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -483,7 +486,7 @@
       
       
       
-      <li><a href="../../_sources/individual_modules/introduction_to_r/load_data.md" target="_blank"
+      <li><a href="../../_sources/individual_modules/introduction_to_r/load_data.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -493,7 +496,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -577,9 +580,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warning-in-file-file-rt-cannot-open-file-worms-csv-no-such-file-or">Warning in file(file, “rt”): cannot open file ‘worms.csv’: No such file or</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#directory">directory</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-in-file-file-rt-cannot-open-the-connection">Error in file(file, “rt”): cannot open the connection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-options-for-reading-csv-files">Other options for Reading CSV Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-data-with-header">Loading Data With Header</a></li>
 </ul>
             </nav>
         </div>
@@ -598,21 +600,44 @@ dataset in the file <a class="reference internal" href="#%22../data/worms.csv%22
 This is a comma-separated values (CSV) format which means that a comma is used to indicate the end of a column.</p>
 <p>We need to tell our computer where is the file that contains the values - if we forget this step we’ll get an error message when trying to read the file. We can load the data into R using <code class="docutils literal notranslate"><span class="pre">read.csv</span></code>.</p>
 <p>Assuming you have downloaded the file into your current working directory, you can execute the following</p>
-<p>{% highlight r %}
-read.csv(file = “worms.csv”, header = TRUE)
-{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-<section id="warning-in-file-file-rt-cannot-open-file-worms-csv-no-such-file-or">
-<h2>Warning in file(file, “rt”): cannot open file ‘worms.csv’: No such file or<a class="headerlink" href="#warning-in-file-file-rt-cannot-open-file-worms-csv-no-such-file-or" title="Link to this heading">#</a></h2>
-</section>
-<section id="directory">
-<h2>directory<a class="headerlink" href="#directory" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
-<p>{% highlight text %}</p>
-</section>
-<section id="error-in-file-file-rt-cannot-open-the-connection">
-<h2>Error in file(file, “rt”): cannot open the connection<a class="headerlink" href="#error-in-file-file-rt-cannot-open-the-connection" title="Link to this heading">#</a></h2>
-<p>{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">read.csv</span><span class="p">(</span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;data/worms.csv&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">header</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A data.frame: 20 × 7</caption>
+<thead>
+	<tr><th scope=col>Field.Name</th><th scope=col>Area</th><th scope=col>Slope</th><th scope=col>Vegetation</th><th scope=col>Soil.pH</th><th scope=col>Damp</th><th scope=col>Worm.density</th></tr>
+	<tr><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;lgl&gt;</th><th scope=col>&lt;int&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>Nashs Field      </td><td>3.6</td><td>11</td><td>Grassland</td><td>4.1</td><td>FALSE</td><td>4</td></tr>
+	<tr><td>Silwood Bottom   </td><td>5.1</td><td> 2</td><td>Arable   </td><td>5.2</td><td>FALSE</td><td>7</td></tr>
+	<tr><td>Nursery Field    </td><td>2.8</td><td> 3</td><td>Grassland</td><td>4.3</td><td>FALSE</td><td>2</td></tr>
+	<tr><td>Rush Meadow      </td><td>2.4</td><td> 5</td><td>Meadow   </td><td>4.9</td><td> TRUE</td><td>5</td></tr>
+	<tr><td>Gunness Thicket  </td><td>3.8</td><td> 0</td><td>Scrub    </td><td>4.2</td><td>FALSE</td><td>6</td></tr>
+	<tr><td>Oak Mead         </td><td>3.1</td><td> 2</td><td>Grassland</td><td>3.9</td><td>FALSE</td><td>2</td></tr>
+	<tr><td>Church Field     </td><td>3.5</td><td> 3</td><td>Grassland</td><td>4.2</td><td>FALSE</td><td>3</td></tr>
+	<tr><td>Ashurst          </td><td>2.1</td><td> 0</td><td>Arable   </td><td>4.8</td><td>FALSE</td><td>4</td></tr>
+	<tr><td>The Orchard      </td><td>1.9</td><td> 0</td><td>Orchard  </td><td>5.7</td><td>FALSE</td><td>9</td></tr>
+	<tr><td>Rookery Slope    </td><td>1.5</td><td> 4</td><td>Grassland</td><td>5.0</td><td> TRUE</td><td>7</td></tr>
+	<tr><td>Garden Wood      </td><td>2.9</td><td>10</td><td>Scrub    </td><td>5.2</td><td>FALSE</td><td>8</td></tr>
+	<tr><td>North Gravel     </td><td>3.3</td><td> 1</td><td>Grassland</td><td>4.1</td><td>FALSE</td><td>1</td></tr>
+	<tr><td>South Gravel     </td><td>3.7</td><td> 2</td><td>Grassland</td><td>4.0</td><td>FALSE</td><td>2</td></tr>
+	<tr><td>Observatory Ridge</td><td>1.8</td><td> 6</td><td>Grassland</td><td>3.8</td><td>FALSE</td><td>0</td></tr>
+	<tr><td>Pond Field       </td><td>4.1</td><td> 0</td><td>Meadow   </td><td>5.0</td><td> TRUE</td><td>6</td></tr>
+	<tr><td>Water Meadow     </td><td>3.9</td><td> 0</td><td>Meadow   </td><td>4.9</td><td> TRUE</td><td>8</td></tr>
+	<tr><td>Cheapside        </td><td>2.2</td><td> 8</td><td>Scrub    </td><td>4.7</td><td> TRUE</td><td>4</td></tr>
+	<tr><td>Pound Hill       </td><td>4.4</td><td> 2</td><td>Arable   </td><td>4.5</td><td>FALSE</td><td>5</td></tr>
+	<tr><td>Gravel Pit       </td><td>2.9</td><td> 1</td><td>Grassland</td><td>3.5</td><td>FALSE</td><td>1</td></tr>
+	<tr><td>Farm Wood        </td><td>0.8</td><td>10</td><td>Scrub    </td><td>5.1</td><td> TRUE</td><td>3</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
 <p>We have provided two arguments to this function:</p>
 <ol class="arabic simple">
 <li><p><strong>file</strong> - the name of the file we want to read,</p></li>
@@ -624,31 +649,21 @@ The header argument needs to be a logical, we have set <code class="docutils lit
 Try it out.</p>
 <p><code class="docutils literal notranslate"><span class="pre">read.csv</span></code> reads the file, but we can’t easily use data unless we assign it to a variable. Let’s re-run <code class="docutils literal notranslate"><span class="pre">read.csv</span></code> and
 save the result:</p>
-<p>{% highlight r %}
-df &lt;- read.csv(file = “worms.csv”, header = TRUE)
-{% endhighlight %}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">read.csv</span><span class="p">(</span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;data/worms.csv&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">header</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>Use some of the functions we have introduced earlier can be used to summarise the properties of the worms dataset</p>
-<details>
-	<summary> Other Options for Reading CSV Files </summary>
-	<pre>
-<p><code class="docutils literal notranslate"><span class="pre">read.csv</span></code> actually has many more arguments that you may find useful when
-importing your own data in the future. You can learn more about these
-options <a class="reference external" href="http://swcarpentry.github.io/r-novice-inflammation/11-supp-read-write-csv/">here</a>.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;/pre&gt;
-</pre></div>
-</div>
-</details>
-<details>
-	<summary> Loading Data with Headers </summary>
-	<pre>
-<p>What happens if you forget to put <code class="docutils literal notranslate"><span class="pre">header</span> <span class="pre">=</span> <span class="pre">FALSE</span></code>? The default value is <code class="docutils literal notranslate"><span class="pre">header</span> <span class="pre">=</span> <span class="pre">TRUE</span></code>, which you can check
-with <code class="docutils literal notranslate"><span class="pre">?read.csv</span></code> or <code class="docutils literal notranslate"><span class="pre">help(read.csv)</span></code>. What do you expect will happen if you leave the default value? Before you
-run any code, think about what will happen to the first few rows of your data frame, and its overall size. Then
-run the following code and see if your expectations agree:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;/pre&gt;
-</pre></div>
-</div>
-</details>
+<section id="other-options-for-reading-csv-files">
+<h2>Other options for Reading CSV Files<a class="headerlink" href="#other-options-for-reading-csv-files" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">read.csv</span></code> actually has many more arguments that you may find useful when importing your own data in the future. You can learn more about these options <a class="reference external" href="http://swcarpentry.github.io/r-novice-inflammation/11-supp-read-write-csv/">here</a>.</p>
+</section>
+<section id="loading-data-with-header">
+<h2>Loading Data With Header<a class="headerlink" href="#loading-data-with-header" title="Link to this heading">#</a></h2>
+<p>What happens if you forget to put <code class="docutils literal notranslate"><span class="pre">header</span> <span class="pre">=</span> <span class="pre">FALSE</span></code>? The default value is <code class="docutils literal notranslate"><span class="pre">header</span> <span class="pre">=</span> <span class="pre">TRUE</span></code>, which you can check  with <code class="docutils literal notranslate"><span class="pre">?read.csv</span></code> or <code class="docutils literal notranslate"><span class="pre">help(read.csv)</span></code>. What do you expect will happen if you leave the default value? Before you  run any code, think about what will happen to the first few rows of your data frame, and its overall size. Then run the following code and see if your expectations agree:</p>
 </section>
 </section>
 
@@ -661,16 +676,16 @@ run the following code and see if your expectations agree:</p>
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "r"
         },
         kernelOptions: {
-            name: "python3",
+            name: "ir",
             path: "./individual_modules/introduction_to_r"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'ir'</script>
 
                 </article>
               
@@ -716,9 +731,8 @@ run the following code and see if your expectations agree:</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warning-in-file-file-rt-cannot-open-file-worms-csv-no-such-file-or">Warning in file(file, “rt”): cannot open file ‘worms.csv’: No such file or</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#directory">directory</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-in-file-file-rt-cannot-open-the-connection">Error in file(file, “rt”): cannot open the connection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-options-for-reading-csv-files">Other options for Reading CSV Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-data-with-header">Loading Data With Header</a></li>
 </ul>
   </nav></div>
 
