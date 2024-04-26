@@ -724,8 +724,7 @@ $<span class="w"> </span>nano<span class="w"> </span>draft.txt
 <p>When we say, ‘<code class="docutils literal notranslate"><span class="pre">nano</span></code> is a text editor’ we really do mean ‘text’: it can only work with plain character data, not tables, images, or any other human-friendly media. We use it in examples because it is one of the least complex text editors. However, because of this trait, it may not be powerful enough or flexible enough for the work you need to do after this workshop. On Unix systems (such as Linux and macOS), many programmers use <a class="reference external" href="http://www.gnu.org/software/emacs/">Emacs</a> or <a class="reference external" href="http://www.vim.org/">Vim</a> (both of which require more time to learn), or a graphical editor such as <a class="reference external" href="http://projects.gnome.org/gedit/">Gedit</a>. On Windows, you may wish to use <a class="reference external" href="http://notepad-plus-plus.org/">Notepad++</a>.  Windows also has a built-in editor called <code class="docutils literal notranslate"><span class="pre">notepad</span></code> that can be run from the command line in the same way as <code class="docutils literal notranslate"><span class="pre">nano</span></code> for the purposes of this lesson.
 No matter what editor you use, you will need to know where it searches for and saves files. If you start it from the shell, it will (probably) use your current working directory as its default location. If you use your computer’s start menu, it may want to save files in your desktop or documents directory instead. You can change this by navigating to another directory the first time you ‘Save As…’</p>
 <p>Let’s type in a few lines of text. Once we’re happy with our text, we can press <kbd>Ctrl</kbd>+<kbd>O</kbd> (press the <kbd>Ctrl</kbd> or <kbd>Control</kbd> key and, while holding it down, press the <kbd>O</kbd> key) to write our data to disk (we’ll be asked what file we want to save this to: press <kbd>Return</kbd> to accept the suggested default of <code class="docutils literal notranslate"><span class="pre">draft.txt</span></code>).</p>
-<div style="width:80%; margin: auto;"><img alt="screenshot of nano text editor in action"
-src="../fig/nano-screenshot.png"></div>
+<p><img alt="screenshot of nano text editor in action" src="../../_images/nano-screenshot.png" /></p>
 <p>Once our file is saved, we can use <kbd>Ctrl</kbd>+<kbd>X</kbd> to quit the editor and
 return to the shell.</p>
 </section>
@@ -937,10 +936,10 @@ e.g. to back up a directory:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">proteins</span><span class="o">.</span><span class="n">dat</span>
 </pre></div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;<span class="w"> </span>$<span class="w"> </span>mkdir<span class="w"> </span>recombined
-&gt;<span class="w"> </span>$<span class="w"> </span>mv<span class="w"> </span>proteins.dat<span class="w"> </span>recombined/
-&gt;<span class="w"> </span>$<span class="w"> </span>cp<span class="w"> </span>recombined/proteins.dat<span class="w"> </span>../proteins-saved.dat
-&gt;<span class="w"> </span>$<span class="w"> </span>ls
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mkdir<span class="w"> </span>recombined
+$<span class="w"> </span>mv<span class="w"> </span>proteins.dat<span class="w"> </span>recombined/
+$<span class="w"> </span>cp<span class="w"> </span>recombined/proteins.dat<span class="w"> </span>../proteins-saved.dat
+$<span class="w"> </span>ls
 </pre></div>
 </div>
 <ol class="arabic simple">
@@ -1092,10 +1091,10 @@ When the shell sees a wildcard, it expands the wildcard to create a list of matc
 </pre></div>
 </div>
 <p>Before heading off to another field trip, she wants to back up her data and send some datasets to her colleague Bob. Sam uses the following commands to get the job done:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;<span class="w"> </span>$<span class="w"> </span>cp<span class="w"> </span>*dataset*<span class="w"> </span>backup/datasets
-&gt;<span class="w"> </span>$<span class="w"> </span>cp<span class="w"> </span>____calibration____<span class="w"> </span>backup/calibration
-&gt;<span class="w"> </span>$<span class="w"> </span>cp<span class="w"> </span><span class="m">2015</span>-____-____<span class="w"> </span>send_to_bob/all_november_files/
-&gt;<span class="w"> </span>$<span class="w"> </span>cp<span class="w"> </span>____<span class="w"> </span>send_to_bob/all_datasets_created_on_a_23rd/
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>cp<span class="w"> </span>*dataset*<span class="w"> </span>backup/datasets
+$<span class="w"> </span>cp<span class="w"> </span>____calibration____<span class="w"> </span>backup/calibration
+$<span class="w"> </span>cp<span class="w"> </span><span class="m">2015</span>-____-____<span class="w"> </span>send_to_bob/all_november_files/
+$<span class="w"> </span>cp<span class="w"> </span>____<span class="w"> </span>send_to_bob/all_datasets_created_on_a_23rd/
 </pre></div>
 </div>
 <p>Help Sam by filling in the blanks. The resulting directory structure should look like this</p>

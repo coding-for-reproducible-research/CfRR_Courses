@@ -753,16 +753,16 @@ that will track their remote branch.</p>
 <p>Joe fetches references to the new branches in the remote repository, then
 creates a new local branch to track his remote <code class="docutils literal notranslate"><span class="pre">fetching-material</span></code> branch (and
 also checks out this new local branch):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>fetch
-Username<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;https://github.com&#39;</span>:<span class="w"> </span>jbloggs9999
-Password<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;https://jbloggs9999@github.com&#39;</span>:
-From<span class="w"> </span>https://github.com/jbloggs9999/git-good-practice
-<span class="w"> </span>*<span class="w"> </span><span class="o">[</span>new<span class="w"> </span>branch<span class="o">]</span><span class="w">      </span>collaboration-good-practice<span class="w"> </span>-&gt;<span class="w"> </span>origin/collaboration-good-practice
-<span class="w"> </span>*<span class="w"> </span><span class="o">[</span>new<span class="w"> </span>branch<span class="o">]</span><span class="w">      </span>fetching-material<span class="w"> </span>-&gt;<span class="w"> </span>origin/fetching-material
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git fetch
+Username for &#39;https://github.com&#39;: jbloggs9999
+Password for &#39;https://jbloggs9999@github.com&#39;:
+From https://github.com/jbloggs9999/git-good-practice
+ * [new branch]      collaboration-good-practice -&gt; origin/collaboration-good-practice
+ * [new branch]      fetching-material -&gt; origin/fetching-material
 
-$<span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>fetching-material<span class="w"> </span>
-Switched<span class="w"> </span>to<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>branch<span class="w"> </span><span class="s1">&#39;fetching-material&#39;</span>
-branch<span class="w"> </span><span class="s1">&#39;fetching-material&#39;</span><span class="w"> </span><span class="nb">set</span><span class="w"> </span>up<span class="w"> </span>to<span class="w"> </span>track<span class="w"> </span><span class="s1">&#39;origin/fetching-material&#39;</span>.
+$ git checkout fetching-material 
+Switched to a new branch &#39;fetching-material&#39;
+branch &#39;fetching-material&#39; set up to track &#39;origin/fetching-material&#39;.
 </pre></div>
 </div>
 <p>Notice that the fetch creates references to <em>both</em> of the new remote branches,

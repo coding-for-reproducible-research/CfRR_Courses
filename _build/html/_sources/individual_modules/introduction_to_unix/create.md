@@ -141,8 +141,7 @@ No matter what editor you use, you will need to know where it searches for and s
 
 Let's type in a few lines of text. Once we're happy with our text, we can press <kbd>Ctrl</kbd>+<kbd>O</kbd> (press the <kbd>Ctrl</kbd> or <kbd>Control</kbd> key and, while holding it down, press the <kbd>O</kbd> key) to write our data to disk (we'll be asked what file we want to save this to: press <kbd>Return</kbd> to accept the suggested default of `draft.txt`).
 
-<div style="width:80%; margin: auto;"><img alt="screenshot of nano text editor in action"
-src="../fig/nano-screenshot.png"></div>
+![screenshot of nano text editor in action](fig/nano-screenshot.png)
 
 Once our file is saved, we can use <kbd>Ctrl</kbd>+<kbd>X</kbd> to quit the editor and
 return to the shell.
@@ -378,10 +377,10 @@ proteins.dat
 ```
 
 ``` bash
-> $ mkdir recombined
-> $ mv proteins.dat recombined/
-> $ cp recombined/proteins.dat ../proteins-saved.dat
-> $ ls
+$ mkdir recombined
+$ mv proteins.dat recombined/
+$ cp recombined/proteins.dat ../proteins-saved.dat
+$ ls
 ```
 
 1. `proteins-saved.dat recombined`
@@ -561,10 +560,10 @@ Sam has a directory containing calibration data, datasets, and descriptions of t
 Before heading off to another field trip, she wants to back up her data and send some datasets to her colleague Bob. Sam uses the following commands to get the job done:
 
 ``` bash
-> $ cp *dataset* backup/datasets
-> $ cp ____calibration____ backup/calibration
-> $ cp 2015-____-____ send_to_bob/all_november_files/
-> $ cp ____ send_to_bob/all_datasets_created_on_a_23rd/
+$ cp *dataset* backup/datasets
+$ cp ____calibration____ backup/calibration
+$ cp 2015-____-____ send_to_bob/all_november_files/
+$ cp ____ send_to_bob/all_datasets_created_on_a_23rd/
 ```
 
 Help Sam by filling in the blanks. The resulting directory structure should look like this

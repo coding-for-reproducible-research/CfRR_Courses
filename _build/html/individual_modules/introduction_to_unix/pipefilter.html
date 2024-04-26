@@ -615,33 +615,28 @@ We’ll start with the directory <code class="docutils literal notranslate"><spa
 that contains six files describing some simple organic molecules.
 The <code class="docutils literal notranslate"><span class="pre">.pdb</span></code> extension indicates that these files are in Protein Data Bank format,
 a simple text format that specifies the type and position of each atom in the molecule.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls proteins
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls<span class="w"> </span>proteins
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cubane</span><span class="o">.</span><span class="n">pdb</span>    <span class="n">methane</span><span class="o">.</span><span class="n">pdb</span>    <span class="n">pentane</span><span class="o">.</span><span class="n">pdb</span>
 <span class="n">ethane</span><span class="o">.</span><span class="n">pdb</span>    <span class="n">octane</span><span class="o">.</span><span class="n">pdb</span>     <span class="n">propane</span><span class="o">.</span><span class="n">pdb</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <p>Let’s go into that directory with <code class="docutils literal notranslate"><span class="pre">cd</span></code> and run an example  command <code class="docutils literal notranslate"><span class="pre">wc</span> <span class="pre">cubane.pdb</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd proteins
-$ wc cubane.pdb
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>proteins
+$<span class="w"> </span>wc<span class="w"> </span>cubane.pdb
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">20</span>  <span class="mi">156</span> <span class="mi">1158</span> <span class="n">cubane</span><span class="o">.</span><span class="n">pdb</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <p><code class="docutils literal notranslate"><span class="pre">wc</span></code> is the ‘word count’ command:
 it counts the number of lines, words, and characters in files (from left to right, in that order).</p>
 <p>If we run the command <code class="docutils literal notranslate"><span class="pre">wc</span> <span class="pre">*.pdb</span></code>, the <code class="docutils literal notranslate"><span class="pre">*</span></code> in <code class="docutils literal notranslate"><span class="pre">*.pdb</span></code> matches zero or more characters,
 so the shell turns <code class="docutils literal notranslate"><span class="pre">*.pdb</span></code> into a list of all <code class="docutils literal notranslate"><span class="pre">.pdb</span></code> files in the current directory:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ wc *.pdb
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>wc<span class="w"> </span>*.pdb
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="mi">20</span>  <span class="mi">156</span>  <span class="mi">1158</span>  <span class="n">cubane</span><span class="o">.</span><span class="n">pdb</span>
   <span class="mi">12</span>  <span class="mi">84</span>   <span class="mi">622</span>   <span class="n">ethane</span><span class="o">.</span><span class="n">pdb</span>
    <span class="mi">9</span>  <span class="mi">57</span>   <span class="mi">422</span>   <span class="n">methane</span><span class="o">.</span><span class="n">pdb</span>
@@ -651,14 +646,12 @@ so the shell turns <code class="docutils literal notranslate"><span class="pre">
  <span class="mi">107</span>  <span class="mi">819</span>  <span class="mi">6081</span>  <span class="n">total</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <p>Note that <code class="docutils literal notranslate"><span class="pre">wc</span> <span class="pre">*.pdb</span></code> also shows the total number of all lines in the last line of the output.</p>
 <p>If we run <code class="docutils literal notranslate"><span class="pre">wc</span> <span class="pre">-l</span></code> instead of just <code class="docutils literal notranslate"><span class="pre">wc</span></code>,
 the output shows only the number of lines per file:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ wc -l *.pdb
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>wc<span class="w"> </span>-l<span class="w"> </span>*.pdb
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="mi">20</span>  <span class="n">cubane</span><span class="o">.</span><span class="n">pdb</span>
   <span class="mi">12</span>  <span class="n">ethane</span><span class="o">.</span><span class="n">pdb</span>
    <span class="mi">9</span>  <span class="n">methane</span><span class="o">.</span><span class="n">pdb</span>
@@ -668,30 +661,18 @@ the output shows only the number of lines per file:</p>
  <span class="mi">107</span>  <span class="n">total</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">-m</span></code> and <code class="docutils literal notranslate"><span class="pre">-w</span></code> options can also be used with the <code class="docutils literal notranslate"><span class="pre">wc</span></code> command, to show
 only the number of characters or the number of words in the files.</p>
 </section>
 <section id="why-isn-t-it-doing-anything">
 <h2>Why Isn’t It Doing Anything?<a class="headerlink" href="#why-isn-t-it-doing-anything" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>What happens if a command is supposed to process a file, but we
-don’t give it a filename? For example, what if we type:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ wc -l
+<p>What happens if a command is supposed to process a file, but we don’t give it a filename? For example, what if we type:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>wc<span class="w"> </span>-l
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
-<p>but don’t type <code class="docutils literal notranslate"><span class="pre">*.pdb</span></code> (or anything else) after the command?
-Since it doesn’t have any filenames, <code class="docutils literal notranslate"><span class="pre">wc</span></code> assumes it is supposed to
-process input given at the command prompt, so it just sits there and waits for us to give
-it some data interactively. From the outside, though, all we see is it
-sitting there: the command doesn’t appear to do anything.</p>
-<p>If you make this kind of mistake, you can escape out of this state by holding down
-the control key (<kbd>Ctrl</kbd>) and typing the letter <kbd>C</kbd> once and
-letting go of the <kbd>Ctrl</kbd> key.</p>
-<p>This whole action is denoted by <kbd>Ctrl</kbd>+<kbd>C</kbd>.
-{: .callout}</p>
-</div></blockquote>
+<p>but don’t type <code class="docutils literal notranslate"><span class="pre">*.pdb</span></code> (or anything else) after the command? Since it doesn’t have any filenames, <code class="docutils literal notranslate"><span class="pre">wc</span></code> assumes it is supposed to process input given at the command prompt, so it just sits there and waits for us to give it some data interactively. From the outside, though, all we see is it sitting there: the command doesn’t appear to do anything.
+If you make this kind of mistake, you can escape out of this state by holding down the control key (<kbd>Ctrl</kbd>) and typing the letter <kbd>C</kbd> once and letting go of the <kbd>Ctrl</kbd> key.
+This whole action is denoted by <kbd>Ctrl</kbd>+<kbd>C</kbd>.</p>
 </section>
 <section id="capturing-output-from-commands">
 <h2>Capturing output from commands<a class="headerlink" href="#capturing-output-from-commands" title="Link to this heading">#</a></h2>
@@ -699,10 +680,9 @@ letting go of the <kbd>Ctrl</kbd> key.</p>
 It’s an easy question to answer when there are only six files,
 but what if there were 6000?
 Our first step toward a solution is to run the command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ wc -l *.pdb &gt; lengths.txt
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>wc<span class="w"> </span>-l<span class="w"> </span>*.pdb<span class="w"> </span>&gt;<span class="w"> </span>lengths.txt
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <p>The greater than symbol, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, tells the shell to <strong>redirect</strong> the command’s output
 to a file instead of printing it to the screen. (This is why there is no screen output:
 everything that <code class="docutils literal notranslate"><span class="pre">wc</span></code> would have printed has gone into the
@@ -711,23 +691,20 @@ the file if it doesn’t exist. If the file exists, it will be
 silently overwritten, which may lead to data loss and thus requires
 some caution.
 <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">lengths.txt</span></code> confirms that the file exists:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls lengths.txt
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls<span class="w"> </span>lengths.txt
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lengths</span><span class="o">.</span><span class="n">txt</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <p>We can now send the content of <code class="docutils literal notranslate"><span class="pre">lengths.txt</span></code> to the screen using <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">lengths.txt</span></code>.
 The <code class="docutils literal notranslate"><span class="pre">cat</span></code> command gets its name from ‘concatenate’ i.e. join together,
 and it prints the contents of files one after another.
 There’s only one file in this case,
 so <code class="docutils literal notranslate"><span class="pre">cat</span></code> just shows us what it contains:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cat lengths.txt
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>cat<span class="w"> </span>lengths.txt
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="mi">20</span>  <span class="n">cubane</span><span class="o">.</span><span class="n">pdb</span>
   <span class="mi">12</span>  <span class="n">ethane</span><span class="o">.</span><span class="n">pdb</span>
    <span class="mi">9</span>  <span class="n">methane</span><span class="o">.</span><span class="n">pdb</span>
@@ -737,20 +714,10 @@ so <code class="docutils literal notranslate"><span class="pre">cat</span></code
  <span class="mi">107</span>  <span class="n">total</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 </section>
 <section id="output-page-by-page">
 <h2>Output Page by Page<a class="headerlink" href="#output-page-by-page" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>We’ll continue to use <code class="docutils literal notranslate"><span class="pre">cat</span></code> in this lesson, for convenience and consistency,
-but it has the disadvantage that it always dumps the whole file onto your screen.
-More useful in practice is the command <code class="docutils literal notranslate"><span class="pre">less</span></code>,
-which you use with <code class="docutils literal notranslate"><span class="pre">less</span> <span class="pre">lengths.txt</span></code>.
-This displays a screenful of the file, and then stops.
-You can go forward one screenful by pressing the spacebar,
-or back one by pressing <code class="docutils literal notranslate"><span class="pre">b</span></code>.  Press <code class="docutils literal notranslate"><span class="pre">q</span></code> to quit.
-{: .callout}</p>
-</div></blockquote>
+<p>We’ll continue to use <code class="docutils literal notranslate"><span class="pre">cat</span></code> in this lesson, for convenience and consistency, but it has the disadvantage that it always dumps the whole file onto your screen. More useful in practice is the command <code class="docutils literal notranslate"><span class="pre">less</span></code>, which you use with <code class="docutils literal notranslate"><span class="pre">less</span> <span class="pre">lengths.txt</span></code>. This displays a screenful of the file, and then stops. You can go forward one screenful by pressing the spacebar, or back one by pressing <code class="docutils literal notranslate"><span class="pre">b</span></code>.  Press <code class="docutils literal notranslate"><span class="pre">q</span></code> to quit.</p>
 </section>
 <section id="filtering-output">
 <h2>Filtering output<a class="headerlink" href="#filtering-output" title="Link to this heading">#</a></h2>
@@ -759,8 +726,7 @@ But first we’ll use an exercise to learn a little about the sort command:</p>
 </section>
 <section id="what-does-sort-n-do">
 <h2>What Does <code class="docutils literal notranslate"><span class="pre">sort</span> <span class="pre">-n</span></code> Do?<a class="headerlink" href="#what-does-sort-n-do" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>The file <code class="docutils literal notranslate"><span class="pre">shell-lesson-data/exercise-data/numbers.txt</span></code> contains the following lines:</p>
+<p>The file <code class="docutils literal notranslate"><span class="pre">shell-lesson-data/exercise-data/numbers.txt</span></code> contains the following lines:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span>
 <span class="mi">2</span>
 <span class="mi">19</span>
@@ -768,7 +734,6 @@ But first we’ll use an exercise to learn a little about the sort command:</p>
 <span class="mi">6</span>
 </pre></div>
 </div>
-<p>{: .source}</p>
 <p>If we run <code class="docutils literal notranslate"><span class="pre">sort</span></code> on this file, the output is:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span>
 <span class="mi">19</span>
@@ -777,7 +742,6 @@ But first we’ll use an exercise to learn a little about the sort command:</p>
 <span class="mi">6</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <p>If we run <code class="docutils literal notranslate"><span class="pre">sort</span> <span class="pre">-n</span></code> on the same file, we get this instead:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span>
 <span class="mi">6</span>
@@ -786,23 +750,18 @@ But first we’ll use an exercise to learn a little about the sort command:</p>
 <span class="mi">22</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <p>Explain why <code class="docutils literal notranslate"><span class="pre">-n</span></code> has this effect.</p>
-<blockquote>
-<div><h2 class="rubric" id="solution">Solution</h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">-n</span></code> option specifies a numerical rather than an alphanumerical sort.
-{: .solution}
-{: .challenge}</p>
-</div></blockquote>
-</div></blockquote>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">-n</span></code> option specifies a numerical rather than an alphanumerical sort.</p>
+</div>
 <p>We will also use the <code class="docutils literal notranslate"><span class="pre">-n</span></code> option to specify that the sort is
 numerical instead of alphanumerical.
 This does <em>not</em> change the file;
 instead, it sends the sorted result to the screen:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sort -n lengths.txt
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sort<span class="w"> </span>-n<span class="w"> </span>lengths.txt
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="mi">9</span>  <span class="n">methane</span><span class="o">.</span><span class="n">pdb</span>
  <span class="mi">12</span>  <span class="n">ethane</span><span class="o">.</span><span class="n">pdb</span>
  <span class="mi">15</span>  <span class="n">propane</span><span class="o">.</span><span class="n">pdb</span>
@@ -812,21 +771,18 @@ instead, it sends the sorted result to the screen:</p>
 <span class="mi">107</span>  <span class="n">total</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <p>We can put the sorted list of lines in another temporary file called <code class="docutils literal notranslate"><span class="pre">sorted-lengths.txt</span></code>
 by putting <code class="docutils literal notranslate"><span class="pre">&gt;</span> <span class="pre">sorted-lengths.txt</span></code> after the command,
 just as we used <code class="docutils literal notranslate"><span class="pre">&gt;</span> <span class="pre">lengths.txt</span></code> to put the output of <code class="docutils literal notranslate"><span class="pre">wc</span></code> into <code class="docutils literal notranslate"><span class="pre">lengths.txt</span></code>.
 Once we’ve done that,
 we can run another command called <code class="docutils literal notranslate"><span class="pre">head</span></code> to get the first few lines in <code class="docutils literal notranslate"><span class="pre">sorted-lengths.txt</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sort -n lengths.txt &gt; sorted-lengths.txt
-$ head -n 1 sorted-lengths.txt
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sort<span class="w"> </span>-n<span class="w"> </span>lengths.txt<span class="w"> </span>&gt;<span class="w"> </span>sorted-lengths.txt
+$<span class="w"> </span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span>sorted-lengths.txt
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="mi">9</span>  <span class="n">methane</span><span class="o">.</span><span class="n">pdb</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <p>Using <code class="docutils literal notranslate"><span class="pre">-n</span> <span class="pre">1</span></code> with <code class="docutils literal notranslate"><span class="pre">head</span></code> tells it that
 we only want the first line of the file;
 <code class="docutils literal notranslate"><span class="pre">-n</span> <span class="pre">20</span></code> would get the first 20,
@@ -836,89 +792,56 @@ the output of <code class="docutils literal notranslate"><span class="pre">head<
 </section>
 <section id="redirecting-to-the-same-file">
 <h2>Redirecting to the same file<a class="headerlink" href="#redirecting-to-the-same-file" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>It’s a very bad idea to try redirecting
-the output of a command that operates on a file
-to the same file. For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sort -n lengths.txt &gt; lengths.txt
+<p>It’s a very bad idea to try redirecting the output of a command that operates on a file to the same file. For example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sort<span class="w"> </span>-n<span class="w"> </span>lengths.txt<span class="w"> </span>&gt;<span class="w"> </span>lengths.txt
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
-<p>Doing something like this may give you
-incorrect results and/or delete
-the contents of <code class="docutils literal notranslate"><span class="pre">lengths.txt</span></code>.
-{: .callout}</p>
-</div></blockquote>
+<p>Doing something like this may give you incorrect results and/or delete the contents of <code class="docutils literal notranslate"><span class="pre">lengths.txt</span></code>.</p>
 </section>
 <section id="what-does-mean">
 <h2>What Does <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> Mean?<a class="headerlink" href="#what-does-mean" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>We have seen the use of <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, but there is a similar operator <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code>
-which works slightly differently.
-We’ll learn about the differences between these two operators by printing some strings.
-We can use the <code class="docutils literal notranslate"><span class="pre">echo</span></code> command to print strings e.g.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ echo The echo command prints text
+<p>We have seen the use of <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, but there is a similar operator <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> which works slightly differently. We’ll learn about the differences between these two operators by printing some strings. We can use the <code class="docutils literal notranslate"><span class="pre">echo</span></code> command to print strings e.g.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>The<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nb">command</span><span class="w"> </span>prints<span class="w"> </span>text
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">echo</span> <span class="n">command</span> <span class="n">prints</span> <span class="n">text</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <p>Now test the commands below to reveal the difference between the two operators:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ echo hello &gt; testfile01.txt
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>hello<span class="w"> </span>&gt;<span class="w"> </span>testfile01.txt
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <p>and:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ echo hello &gt;&gt; testfile02.txt
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>hello<span class="w"> </span>&gt;&gt;<span class="w"> </span>testfile02.txt
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <p>Hint: Try executing each command twice in a row and then examining the output files.</p>
-<blockquote>
-<div><h2 class="rubric" id="id1">Solution</h2>
-<p>In the first example with <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, the string ‘hello’ is written to <code class="docutils literal notranslate"><span class="pre">testfile01.txt</span></code>,
-but the file gets overwritten each time we run the command.</p>
-<p>We see from the second example that the <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> operator also writes ‘hello’ to a file
-(in this case<code class="docutils literal notranslate"><span class="pre">testfile02.txt</span></code>),
-but appends the string to the file if it already exists
-(i.e. when we run it for the second time).
-{: .solution}
-{: .challenge}</p>
-</div></blockquote>
-</div></blockquote>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>In the first example with <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, the string ‘hello’ is written to <code class="docutils literal notranslate"><span class="pre">testfile01.txt</span></code>, but the file gets overwritten each time we run the command. We see from the second example that the <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> operator also writes ‘hello’ to a file (in this case<code class="docutils literal notranslate"><span class="pre">testfile02.txt</span></code>), but appends the string to the file if it already exists (i.e. when we run it for the second time).</p>
+</div>
 </section>
 <section id="appending-data">
 <h2>Appending Data<a class="headerlink" href="#appending-data" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>We have already met the <code class="docutils literal notranslate"><span class="pre">head</span></code> command, which prints lines from the start of a file.
-<code class="docutils literal notranslate"><span class="pre">tail</span></code> is similar, but prints lines from the end of a file instead.</p>
-<p>Consider the file <code class="docutils literal notranslate"><span class="pre">shell-lesson-data/exercise-data/animal-counts/animals.csv</span></code>.
-After these commands, select the answer that
-corresponds to the file <code class="docutils literal notranslate"><span class="pre">animals-subset.csv</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ head -n 3 animals.csv &gt; animals-subset.csv
-$ tail -n 2 animals.csv &gt;&gt; animals-subset.csv
+<p>We have already met the <code class="docutils literal notranslate"><span class="pre">head</span></code> command, which prints lines from the start of a file. <code class="docutils literal notranslate"><span class="pre">tail</span></code> is similar, but prints lines from the end of a file instead.
+Consider the file <code class="docutils literal notranslate"><span class="pre">shell-lesson-data/exercise-data/animal-counts/animals.csv</span></code>. After these commands, select the answer that corresponds to the file <code class="docutils literal notranslate"><span class="pre">animals-subset.csv</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">3</span><span class="w"> </span>animals.csv<span class="w"> </span>&gt;<span class="w"> </span>animals-subset.csv
+$<span class="w"> </span>tail<span class="w"> </span>-n<span class="w"> </span><span class="m">2</span><span class="w"> </span>animals.csv<span class="w"> </span>&gt;&gt;<span class="w"> </span>animals-subset.csv
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <ol class="arabic simple">
 <li><p>The first three lines of <code class="docutils literal notranslate"><span class="pre">animals.csv</span></code></p></li>
 <li><p>The last two lines of <code class="docutils literal notranslate"><span class="pre">animals.csv</span></code></p></li>
 <li><p>The first three lines and the last two lines of <code class="docutils literal notranslate"><span class="pre">animals.csv</span></code></p></li>
 <li><p>The second and third lines of <code class="docutils literal notranslate"><span class="pre">animals.csv</span></code></p></li>
 </ol>
-<blockquote>
-<div><h2 class="rubric" id="id2">Solution</h2>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
 <p>Option 3 is correct.
 For option 1 to be correct we would only run the <code class="docutils literal notranslate"><span class="pre">head</span></code> command.
 For option 2 to be correct we would only run the <code class="docutils literal notranslate"><span class="pre">tail</span></code> command.
-For option 4 to be correct we would have to pipe the output of <code class="docutils literal notranslate"><span class="pre">head</span></code> into <code class="docutils literal notranslate"><span class="pre">tail</span> <span class="pre">-n</span> <span class="pre">2</span></code>
-by doing <code class="docutils literal notranslate"><span class="pre">head</span> <span class="pre">-n</span> <span class="pre">3</span> <span class="pre">animals.csv</span> <span class="pre">|</span> <span class="pre">tail</span> <span class="pre">-n</span> <span class="pre">2</span> <span class="pre">&gt;</span> <span class="pre">animals-subset.csv</span></code>
-{: .solution}
-{: .challenge}</p>
-</div></blockquote>
-</div></blockquote>
+For option 4 to be correct we would have to pipe the output of <code class="docutils literal notranslate"><span class="pre">head</span></code> into <code class="docutils literal notranslate"><span class="pre">tail</span> <span class="pre">-n</span> <span class="pre">2</span></code> by doing <code class="docutils literal notranslate"><span class="pre">head</span> <span class="pre">-n</span> <span class="pre">3</span> <span class="pre">animals.csv</span> <span class="pre">|</span> <span class="pre">tail</span> <span class="pre">-n</span> <span class="pre">2</span> <span class="pre">&gt;</span> <span class="pre">animals-subset.csv</span></code></p>
+</div>
 </section>
 <section id="passing-output-to-another-command">
 <h2>Passing output to another command<a class="headerlink" href="#passing-output-to-another-command" title="Link to this heading">#</a></h2>
@@ -928,14 +851,12 @@ This is a confusing way to work because
 even once you understand what <code class="docutils literal notranslate"><span class="pre">wc</span></code>, <code class="docutils literal notranslate"><span class="pre">sort</span></code>, and <code class="docutils literal notranslate"><span class="pre">head</span></code> do,
 those intermediate files make it hard to follow what’s going on.
 We can make it easier to understand by running <code class="docutils literal notranslate"><span class="pre">sort</span></code> and <code class="docutils literal notranslate"><span class="pre">head</span></code> together:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sort -n lengths.txt | head -n 1
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sort<span class="w"> </span>-n<span class="w"> </span>lengths.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span>
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="mi">9</span>  <span class="n">methane</span><span class="o">.</span><span class="n">pdb</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <p>The vertical bar, <code class="docutils literal notranslate"><span class="pre">|</span></code>, between the two commands is called a <strong>pipe</strong>.
 It tells the shell that we want to use
 the output of the command on the left
@@ -952,7 +873,6 @@ This removes the need for any intermediate files.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ wc -l *.pdb | sort -n
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="mi">9</span> <span class="n">methane</span><span class="o">.</span><span class="n">pdb</span>
   <span class="mi">12</span> <span class="n">ethane</span><span class="o">.</span><span class="n">pdb</span>
   <span class="mi">15</span> <span class="n">propane</span><span class="o">.</span><span class="n">pdb</span>
@@ -962,50 +882,35 @@ This removes the need for any intermediate files.</p>
  <span class="mi">107</span> <span class="n">total</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <p>We can then send that output through another pipe, to <code class="docutils literal notranslate"><span class="pre">head</span></code>, so that the full pipeline becomes:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ wc -l *.pdb | sort -n | head -n 1
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>wc<span class="w"> </span>-l<span class="w"> </span>*.pdb<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-n<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span>
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="mi">9</span>  <span class="n">methane</span><span class="o">.</span><span class="n">pdb</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <p>This is exactly like a mathematician nesting functions like <em>log(3x)</em>
 and saying ‘the log of three times <em>x</em>’.
 In our case,
 the calculation is ‘head of sort of line count of <code class="docutils literal notranslate"><span class="pre">*.pdb</span></code>’.</p>
 <p>The redirection and pipes used in the last few commands are illustrated below:</p>
-<p><a class="reference internal" href="#../fig/redirects-and-pipes.svg"><span class="xref myst">Redirects and Pipes of different commands: “wc -l *.pdb” will direct the
-output to the shell. “wc -l *.pdb &gt; lengths” will direct output to the file
-“lengths”. “wc -l *.pdb | sort -n | head -n 1” will build a pipeline where the
-output of the “wc” command is the input to the “sort” command, the output of
-the “sort” command is the input to the “head” command and the output of the
-“head” command is directed to the shell</span></a></p>
+<p><img alt="Redirects and Pipes of different commands: &quot;wc -l *.pdb&quot; will direct theoutput to the shell. &quot;wc -l *.pdb &gt; lengths&quot; will direct output to the file&quot;lengths&quot;. &quot;wc -l *.pdb | sort -n | head -n 1&quot; will build a pipeline where theoutput of the &quot;wc&quot; command is the input to the &quot;sort&quot; command, the output ofthe &quot;sort&quot; command is the input to the &quot;head&quot; command and the output of the&quot;head&quot; command is directed to the shell" src="../../_images/redirects-and-pipes.svg" /></p>
 </section>
 <section id="piping-commands-together">
 <h2>Piping Commands Together<a class="headerlink" href="#piping-commands-together" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>In our current directory, we want to find the 3 files which have the least number of
-lines. Which command listed below would work?</p>
+<p>In our current directory, we want to find the 3 files which have the least number of lines. Which command listed below would work?</p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">wc</span> <span class="pre">-l</span> <span class="pre">*</span> <span class="pre">&gt;</span> <span class="pre">sort</span> <span class="pre">-n</span> <span class="pre">&gt;</span> <span class="pre">head</span> <span class="pre">-n</span> <span class="pre">3</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">wc</span> <span class="pre">-l</span> <span class="pre">*</span> <span class="pre">|</span> <span class="pre">sort</span> <span class="pre">-n</span> <span class="pre">|</span> <span class="pre">head</span> <span class="pre">-n</span> <span class="pre">1-3</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">wc</span> <span class="pre">-l</span> <span class="pre">*</span> <span class="pre">|</span> <span class="pre">head</span> <span class="pre">-n</span> <span class="pre">3</span> <span class="pre">|</span> <span class="pre">sort</span> <span class="pre">-n</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">wc</span> <span class="pre">-l</span> <span class="pre">*</span> <span class="pre">|</span> <span class="pre">sort</span> <span class="pre">-n</span> <span class="pre">|</span> <span class="pre">head</span> <span class="pre">-n</span> <span class="pre">3</span></code></p></li>
 </ol>
-<blockquote>
-<div><h2 class="rubric" id="id3">Solution</h2>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
 <p>Option 4 is the solution.
-The pipe character <code class="docutils literal notranslate"><span class="pre">|</span></code> is used to connect the output from one command to
-the input of another.
-<code class="docutils literal notranslate"><span class="pre">&gt;</span></code> is used to redirect standard output to a file.
-Try it in the <code class="docutils literal notranslate"><span class="pre">shell-lesson-data/exercise-data/proteins</span></code> directory!
-{: .solution}
-{: .challenge}</p>
-</div></blockquote>
-</div></blockquote>
+The pipe character <code class="docutils literal notranslate"><span class="pre">|</span></code> is used to connect the output from one command to the input of another. <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> is used to redirect standard output to a file.
+Try it in the <code class="docutils literal notranslate"><span class="pre">shell-lesson-data/exercise-data/proteins</span></code> directory!</p>
+</div>
 </section>
 <section id="tools-designed-to-work-together">
 <h2>Tools designed to work together<a class="headerlink" href="#tools-designed-to-work-together" title="Link to this heading">#</a></h2>
@@ -1030,9 +935,7 @@ so that you and other people can put those programs into pipes to multiply their
 </section>
 <section id="pipe-reading-comprehension">
 <h2>Pipe Reading Comprehension<a class="headerlink" href="#pipe-reading-comprehension" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>A file called <code class="docutils literal notranslate"><span class="pre">animals.csv</span></code> (in the <code class="docutils literal notranslate"><span class="pre">shell-lesson-data/exercise-data/animal-counts</span></code> folder)
-contains the following data:</p>
+<p>A file called <code class="docutils literal notranslate"><span class="pre">animals.csv</span></code> (in the <code class="docutils literal notranslate"><span class="pre">shell-lesson-data/exercise-data/animal-counts</span></code> folder) contains the following data:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2012</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">05</span><span class="p">,</span><span class="n">deer</span><span class="p">,</span><span class="mi">5</span>
 <span class="mi">2012</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">05</span><span class="p">,</span><span class="n">rabbit</span><span class="p">,</span><span class="mi">22</span>
 <span class="mi">2012</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">05</span><span class="p">,</span><span class="n">raccoon</span><span class="p">,</span><span class="mi">7</span>
@@ -1043,47 +946,28 @@ contains the following data:</p>
 <span class="mi">2012</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">07</span><span class="p">,</span><span class="n">bear</span><span class="p">,</span><span class="mi">1</span>
 </pre></div>
 </div>
-<p>{: .source}</p>
-<p>What text passes through each of the pipes and the final redirect in the pipeline below?
-Note, the <code class="docutils literal notranslate"><span class="pre">sort</span> <span class="pre">-r</span></code> command sorts in reverse order.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cat animals.csv | head -n 5 | tail -n 3 | sort -r &gt; final.txt
+<p>What text passes through each of the pipes and the final redirect in the pipeline below? Note, the <code class="docutils literal notranslate"><span class="pre">sort</span> <span class="pre">-r</span></code> command sorts in reverse order.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>cat<span class="w"> </span>animals.csv<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-n<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-r<span class="w"> </span>&gt;<span class="w"> </span>final.txt
 </pre></div>
 </div>
-<p>{: .language-bash}
-Hint: build the pipeline up one command at a time to test your understanding</p>
-<blockquote>
-<div><h2 class="rubric" id="id4">Solution</h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">head</span></code> command extracts the first 5 lines from <code class="docutils literal notranslate"><span class="pre">animals.csv</span></code>.
-Then, the last 3 lines are extracted from the previous 5 by using the <code class="docutils literal notranslate"><span class="pre">tail</span></code> command.
-With the <code class="docutils literal notranslate"><span class="pre">sort</span> <span class="pre">-r</span></code> command those 3 lines are sorted in reverse order and finally,
-the output is redirected to a file <code class="docutils literal notranslate"><span class="pre">final.txt</span></code>.
-The content of this file can be checked by executing <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">final.txt</span></code>.
-The file should contain the following lines:</p>
+<p>Hint: build the pipeline up one command at a time to test your understanding</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">head</span></code> command extracts the first 5 lines from <code class="docutils literal notranslate"><span class="pre">animals.csv</span></code>. Then, the last 3 lines are extracted from the previous 5 by using the <code class="docutils literal notranslate"><span class="pre">tail</span></code> command. With the <code class="docutils literal notranslate"><span class="pre">sort</span> <span class="pre">-r</span></code> command those 3 lines are sorted in reverse order and finally, the output is redirected to a file <code class="docutils literal notranslate"><span class="pre">final.txt</span></code>. The content of this file can be checked by executing <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">final.txt</span></code>. The file should contain the following lines:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2012</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">06</span><span class="p">,</span><span class="n">rabbit</span><span class="p">,</span><span class="mi">19</span>
 <span class="mi">2012</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">06</span><span class="p">,</span><span class="n">deer</span><span class="p">,</span><span class="mi">2</span>
 <span class="mi">2012</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">05</span><span class="p">,</span><span class="n">raccoon</span><span class="p">,</span><span class="mi">7</span>
 </pre></div>
 </div>
-<p>{: .source}
-{: .solution}
-{: .challenge}</p>
-</div></blockquote>
-</div></blockquote>
+</div>
 </section>
 <section id="pipe-construction">
 <h2>Pipe Construction<a class="headerlink" href="#pipe-construction" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>For the file <code class="docutils literal notranslate"><span class="pre">animals.csv</span></code> from the previous exercise, consider the following command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cut -d , -f 2 animals.csv
+<p>For the file <code class="docutils literal notranslate"><span class="pre">animals.csv</span></code> from the previous exercise, consider the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>cut<span class="w"> </span>-d<span class="w"> </span>,<span class="w"> </span>-f<span class="w"> </span><span class="m">2</span><span class="w"> </span>animals.csv
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">cut</span></code> command is used to remove or ‘cut out’ certain sections of each line in the file,
-and <code class="docutils literal notranslate"><span class="pre">cut</span></code> expects the lines to be separated into columns by a <kbd>Tab</kbd> character.
-A character used in this way is a called a <strong>delimiter</strong>.
-In the example above we use the <code class="docutils literal notranslate"><span class="pre">-d</span></code> option to specify the comma as our delimiter character.
-We have also used the <code class="docutils literal notranslate"><span class="pre">-f</span></code> option to specify that we want to extract the second field (column).
-This gives the following output:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">cut</span></code> command is used to remove or ‘cut out’ certain sections of each line in the file, and <code class="docutils literal notranslate"><span class="pre">cut</span></code> expects the lines to be separated into columns by a <kbd>Tab</kbd> character. A character used in this way is a called a <strong>delimiter</strong>. In the example above we use the <code class="docutils literal notranslate"><span class="pre">-d</span></code> option to specify the comma as our delimiter character. We have also used the <code class="docutils literal notranslate"><span class="pre">-f</span></code> option to specify that we want to extract the second field (column). This gives the following output:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">deer</span>
 <span class="n">rabbit</span>
 <span class="n">raccoon</span>
@@ -1094,26 +978,17 @@ This gives the following output:</p>
 <span class="n">bear</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">uniq</span></code> command filters out adjacent matching lines in a file.
-How could you extend this pipeline (using <code class="docutils literal notranslate"><span class="pre">uniq</span></code> and another command) to find
-out what animals the file contains (without any duplicates in their
-names)?</p>
-<blockquote>
-<div><h2 class="rubric" id="id5">Solution</h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cut -d , -f 2 animals.csv | sort | uniq
+<p>The <code class="docutils literal notranslate"><span class="pre">uniq</span></code> command filters out adjacent matching lines in a file. How could you extend this pipeline (using <code class="docutils literal notranslate"><span class="pre">uniq</span></code> and another command) to find out what animals the file contains (without any duplicates in their names)?</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>cut<span class="w"> </span>-d<span class="w"> </span>,<span class="w"> </span>-f<span class="w"> </span><span class="m">2</span><span class="w"> </span>animals.csv<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq
 </pre></div>
 </div>
-<p>{: .language-bash}
-{: .solution}
-{: .challenge}</p>
-</div></blockquote>
-</div></blockquote>
+</div>
 </section>
 <section id="which-pipe">
 <h2>Which Pipe?<a class="headerlink" href="#which-pipe" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>The file <code class="docutils literal notranslate"><span class="pre">animals.csv</span></code> contains 8 lines of data formatted as follows:</p>
+<p>The file <code class="docutils literal notranslate"><span class="pre">animals.csv</span></code> contains 8 lines of data formatted as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2012</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">05</span><span class="p">,</span><span class="n">deer</span><span class="p">,</span><span class="mi">5</span>
 <span class="mi">2012</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">05</span><span class="p">,</span><span class="n">rabbit</span><span class="p">,</span><span class="mi">22</span>
 <span class="mi">2012</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">05</span><span class="p">,</span><span class="n">raccoon</span><span class="p">,</span><span class="mi">7</span>
@@ -1121,12 +996,7 @@ names)?</p>
 <span class="o">...</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">uniq</span></code> command has a <code class="docutils literal notranslate"><span class="pre">-c</span></code> option which gives a count of the
-number of times a line occurs in its input.  Assuming your current
-directory is <code class="docutils literal notranslate"><span class="pre">shell-lesson-data/exercise-data/animal-counts</span></code>,
-what command would you use to produce a table that shows
-the total count of each type of animal in the file?</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">uniq</span></code> command has a <code class="docutils literal notranslate"><span class="pre">-c</span></code> option which gives a count of the number of times a line occurs in its input.  Assuming your current directory is <code class="docutils literal notranslate"><span class="pre">shell-lesson-data/exercise-data/animal-counts</span></code>, what command would you use to produce a table that shows the total count of each type of animal in the file?</p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">sort</span> <span class="pre">animals.csv</span> <span class="pre">|</span> <span class="pre">uniq</span> <span class="pre">-c</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">sort</span> <span class="pre">-t,</span> <span class="pre">-k2,2</span> <span class="pre">animals.csv</span> <span class="pre">|</span> <span class="pre">uniq</span> <span class="pre">-c</span></code></p></li>
@@ -1134,27 +1004,20 @@ the total count of each type of animal in the file?</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">cut</span> <span class="pre">-d,</span> <span class="pre">-f</span> <span class="pre">2</span> <span class="pre">animals.csv</span> <span class="pre">|</span> <span class="pre">sort</span> <span class="pre">|</span> <span class="pre">uniq</span> <span class="pre">-c</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">cut</span> <span class="pre">-d,</span> <span class="pre">-f</span> <span class="pre">2</span> <span class="pre">animals.csv</span> <span class="pre">|</span> <span class="pre">sort</span> <span class="pre">|</span> <span class="pre">uniq</span> <span class="pre">-c</span> <span class="pre">|</span> <span class="pre">wc</span> <span class="pre">-l</span></code></p></li>
 </ol>
-<blockquote>
-<div><h2 class="rubric" id="id6">Solution</h2>
-<p>Option 4. is the correct answer.
-If you have difficulty understanding why, try running the commands, or sub-sections of
-the pipelines (make sure you are in the <code class="docutils literal notranslate"><span class="pre">shell-lesson-data/exercise-data/animal-counts</span></code>
-directory).
-{: .solution}
-{: .challenge}</p>
-</div></blockquote>
-</div></blockquote>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>Option 4. is the correct answer. If you have difficulty understanding why, try running the commands, or sub-sections of the pipelines (make sure you are in the <code class="docutils literal notranslate"><span class="pre">shell-lesson-data/exercise-data/animal-counts</span></code> directory).</p>
+</div>
 </section>
 <section id="nelle-s-pipeline-checking-files">
 <h2>Nelle’s Pipeline: Checking Files<a class="headerlink" href="#nelle-s-pipeline-checking-files" title="Link to this heading">#</a></h2>
 <p>Nelle has run her samples through the assay machines
 and created 17 files in the <code class="docutils literal notranslate"><span class="pre">north-pacific-gyre</span></code> directory described earlier.
 As a quick check, starting from the <code class="docutils literal notranslate"><span class="pre">shell-lesson-data</span></code> directory, Nelle types:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd north-pacific-gyre
-$ wc -l *.txt
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>north-pacific-gyre
+$<span class="w"> </span>wc<span class="w"> </span>-l<span class="w"> </span>*.txt
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <p>The output is 18 lines that look like this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">300</span> <span class="n">NENE01729A</span><span class="o">.</span><span class="n">txt</span>
 <span class="mi">300</span> <span class="n">NENE01729B</span><span class="o">.</span><span class="n">txt</span>
@@ -1165,12 +1028,10 @@ $ wc -l *.txt
 <span class="o">...</span> <span class="o">...</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <p>Now she types this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ wc -l *.txt | sort -n | head -n 5
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>wc<span class="w"> </span>-l<span class="w"> </span>*.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-n<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">5</span>
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="mi">240</span> <span class="n">NENE02018B</span><span class="o">.</span><span class="n">txt</span>
  <span class="mi">300</span> <span class="n">NENE01729A</span><span class="o">.</span><span class="n">txt</span>
  <span class="mi">300</span> <span class="n">NENE01729B</span><span class="o">.</span><span class="n">txt</span>
@@ -1178,7 +1039,6 @@ $ wc -l *.txt
  <span class="mi">300</span> <span class="n">NENE01751A</span><span class="o">.</span><span class="n">txt</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <p>Whoops: one of the files is 60 lines shorter than the others.
 When she goes back and checks it,
 she sees that she did that assay at 8:00 on a Monday morning — someone
@@ -1186,10 +1046,9 @@ was probably in using the machine on the weekend,
 and she forgot to reset it.
 Before re-running that sample,
 she checks to see if any files have too much data:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ wc -l *.txt | sort -n | tail -n 5
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>wc<span class="w"> </span>-l<span class="w"> </span>*.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-n<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-n<span class="w"> </span><span class="m">5</span>
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="mi">300</span> <span class="n">NENE02040B</span><span class="o">.</span><span class="n">txt</span>
  <span class="mi">300</span> <span class="n">NENE02040Z</span><span class="o">.</span><span class="n">txt</span>
  <span class="mi">300</span> <span class="n">NENE02043A</span><span class="o">.</span><span class="n">txt</span>
@@ -1197,20 +1056,17 @@ she checks to see if any files have too much data:</p>
 <span class="mi">5040</span> <span class="n">total</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <p>Those numbers look good — but what’s that ‘Z’ doing there in the third-to-last line?
 All of her samples should be marked ‘A’ or ‘B’;
 by convention,
 her lab uses ‘Z’ to indicate samples with missing information.
 To find others like it, she does this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls *Z.txt
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls<span class="w"> </span>*Z.txt
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NENE01971Z</span><span class="o">.</span><span class="n">txt</span>    <span class="n">NENE02040Z</span><span class="o">.</span><span class="n">txt</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <p>Sure enough,
 when she checks the log on her laptop,
 there’s no depth recorded for either of those samples.
@@ -1223,33 +1079,22 @@ so instead, she’ll have to be careful later on to select files using the wildc
 </section>
 <section id="removing-unneeded-files">
 <h2>Removing Unneeded Files<a class="headerlink" href="#removing-unneeded-files" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>Suppose you want to delete your processed data files, and only keep
-your raw files and processing script to save storage.
-The raw files end in <code class="docutils literal notranslate"><span class="pre">.dat</span></code> and the processed files end in <code class="docutils literal notranslate"><span class="pre">.txt</span></code>.
-Which of the following would remove all the processed data files,
-and <em>only</em> the processed data files?</p>
+<p>Suppose you want to delete your processed data files, and only keep your raw files and processing script to save storage. The raw files end in <code class="docutils literal notranslate"><span class="pre">.dat</span></code> and the processed files end in <code class="docutils literal notranslate"><span class="pre">.txt</span></code>. Which of the following would remove all the processed data files, and <em>only</em> the processed data files?</p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">?.txt</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">*.txt</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">*</span> <span class="pre">.txt</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">*.*</span></code></p></li>
 </ol>
-<blockquote>
-<div><h2 class="rubric" id="id7">Solution</h2>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
 <ol class="arabic simple">
 <li><p>This would remove <code class="docutils literal notranslate"><span class="pre">.txt</span></code> files with one-character names</p></li>
 <li><p>This is the correct answer</p></li>
-<li><p>The shell would expand <code class="docutils literal notranslate"><span class="pre">*</span></code> to match everything in the current directory,
-so the command would try to remove all matched files and an additional
-file called <code class="docutils literal notranslate"><span class="pre">.txt</span></code></p></li>
-<li><p>The shell would expand <code class="docutils literal notranslate"><span class="pre">*.*</span></code> to match all files with any extension,
-so this command would delete all files
-{: .solution}
-{: .challenge}</p></li>
+<li><p>The shell would expand <code class="docutils literal notranslate"><span class="pre">*</span></code> to match everything in the current directory, so the command would try to remove all matched files and an additional file called <code class="docutils literal notranslate"><span class="pre">.txt</span></code></p></li>
+<li><p>The shell would expand <code class="docutils literal notranslate"><span class="pre">*.*</span></code> to match all files with any extension, so this command would delete all files</p></li>
 </ol>
-</div></blockquote>
-</div></blockquote>
+</div>
 </section>
 </section>
 

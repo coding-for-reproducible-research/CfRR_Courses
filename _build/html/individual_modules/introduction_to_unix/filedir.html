@@ -550,6 +550,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions">Questions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keypoints">Keypoints</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#home-directory-variation">Home Directory Variation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slashes">Slashes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clearing-your-terminal">Clearing your terminal</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-help">Getting help</a><ul class="nav section-nav flex-column">
@@ -639,33 +640,21 @@ while we are using the shell, we are in exactly one place called
 our <strong>current working directory</strong>. Commands mostly read and write files in the
 current working directory, i.e. ‘here’, so knowing where you are before running
 a command is important. <code class="docutils literal notranslate"><span class="pre">pwd</span></code> shows you where you are:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pwd
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">pwd</span>
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">nelle</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <p>Here,
 the computer’s response is <code class="docutils literal notranslate"><span class="pre">/Users/nelle</span></code>,
 which is Nelle’s <strong>home directory</strong>:</p>
-<blockquote>
-<div><h2 class="rubric" id="home-directory-variation">Home Directory Variation</h2>
-<p>The home directory path will look different on different operating systems.
-On Linux, it may look like <code class="docutils literal notranslate"><span class="pre">/home/nelle</span></code>,
-and on Windows, it will be similar to <code class="docutils literal notranslate"><span class="pre">C:\Documents</span> <span class="pre">and</span> <span class="pre">Settings\nelle</span></code> or
-<code class="docutils literal notranslate"><span class="pre">C:\Users\nelle</span></code>.
-(Note that it may look slightly different for different versions of Windows.)
-In future examples, we’ve used Mac output as the default - Linux and Windows
-output may differ slightly but should be generally similar.</p>
-<p>We will also assume that your <code class="docutils literal notranslate"><span class="pre">pwd</span></code> command returns your user’s home directory.
-If <code class="docutils literal notranslate"><span class="pre">pwd</span></code> returns something different, you may need to navigate there using <code class="docutils literal notranslate"><span class="pre">cd</span></code>
-or some commands in this lesson will not work as written.
-See <a class="reference internal" href="#exploring-other-directories"><span class="xref myst">Exploring Other Directories</span></a> for more details
-on the <code class="docutils literal notranslate"><span class="pre">cd</span></code> command.
+</section>
+<section id="home-directory-variation">
+<h2>Home Directory Variation<a class="headerlink" href="#home-directory-variation" title="Link to this heading">#</a></h2>
+<p>The home directory path will look different on different operating systems. On Linux, it may look like <code class="docutils literal notranslate"><span class="pre">/home/nelle</span></code>, and on Windows, it will be similar to <code class="docutils literal notranslate"><span class="pre">C:\Documents</span> <span class="pre">and</span> <span class="pre">Settings\nelle</span></code> or <code class="docutils literal notranslate"><span class="pre">C:\Users\nelle</span></code>. (Note that it may look slightly different for different versions of Windows.) In future examples, we’ve used Mac output as the default - Linux and Windows output may differ slightly but should be generally similar.
+We will also assume that your <code class="docutils literal notranslate"><span class="pre">pwd</span></code> command returns your user’s home directory. If <code class="docutils literal notranslate"><span class="pre">pwd</span></code> returns something different, you may need to navigate there using <code class="docutils literal notranslate"><span class="pre">cd</span></code> or some commands in this lesson will not work as written. See <a class="reference internal" href="#exploring-other-directories"><span class="xref myst">Exploring Other Directories</span></a> for more details on the <code class="docutils literal notranslate"><span class="pre">cd</span></code> command.
 {: .callout}</p>
-</div></blockquote>
 <p>To understand what a ‘home directory’ is,
 let’s have a look at how the file system as a whole is organized.  For the
 sake of this example, we’ll be
@@ -673,8 +662,7 @@ illustrating the filesystem on our scientist Nelle’s computer.  After this
 illustration, you’ll be learning commands to explore your own filesystem,
 which will be constructed in a similar way, but not be exactly identical.</p>
 <p>On Nelle’s computer, the filesystem looks like this:</p>
-<p><a class="reference internal" href="#../fig/filesystem.svg"><span class="xref myst">The file system is made up of a root directory that contains sub-directories
-titled bin, data, users, and tmp</span></a></p>
+<p><img alt="The file system is made up of a root directory that contains sub-directoriestitled bin, data, users, and tmp" src="../../_images/filesystem.svg" /></p>
 <p>At the top is the <strong>root directory</strong>
 that holds everything else.
 We refer to it using a slash character, <code class="docutils literal notranslate"><span class="pre">/</span></code>, on its own;
@@ -693,19 +681,12 @@ because its name begins with <code class="docutils literal notranslate"><span cl
 </section>
 <section id="slashes">
 <h2>Slashes<a class="headerlink" href="#slashes" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>Notice that there are two meanings for the <code class="docutils literal notranslate"><span class="pre">/</span></code> character.
-When it appears at the front of a file or directory name,
-it refers to the root directory. When it appears <em>inside</em> a path,
-it’s just a separator.
+<p>Notice that there are two meanings for the <code class="docutils literal notranslate"><span class="pre">/</span></code> character. When it appears at the front of a file or directory name, it refers to the root directory. When it appears <em>inside</em> a path, it’s just a separator.
 {: .callout}</p>
-</div></blockquote>
 <p>Underneath <code class="docutils literal notranslate"><span class="pre">/Users</span></code>,
 we find one directory for each user with an account on Nelle’s machine,
 her colleagues <em>Imhotep</em> and <em>Larry</em>.</p>
-<p><a class="reference internal" href="#../fig/home-directories.svg"><span class="xref myst">Like other directories, home directories are sub-directories underneath
-“/Users” like “/Users/imhotep”, “/Users/larry” or
-“/Users/nelle”</span></a></p>
+<p><img alt="Like other directories, home directories are sub-directories underneath&quot;/Users&quot; like &quot;/Users/imhotep&quot;, &quot;/Users/larry&quot; or&quot;/Users/nelle&quot;" src="../../_images/home-directories.svg" /></p>
 <p>The user <em>Imhotep</em>’s files are stored in <code class="docutils literal notranslate"><span class="pre">/Users/imhotep</span></code>,
 user <em>Larry</em>’s in <code class="docutils literal notranslate"><span class="pre">/Users/larry</span></code>,
 and Nelle’s in <code class="docutils literal notranslate"><span class="pre">/Users/nelle</span></code>.  Because Nelle is the user in our
@@ -714,15 +695,13 @@ Typically, when you open a new command prompt, you will be in
 your home directory to start.</p>
 <p>Now let’s learn the command that will let us see the contents of our
 own filesystem.  We can see what’s in our home directory by running <code class="docutils literal notranslate"><span class="pre">ls</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Applications</span> <span class="n">Documents</span>    <span class="n">Library</span>      <span class="n">Music</span>        <span class="n">Public</span>
 <span class="n">Desktop</span>      <span class="n">Downloads</span>    <span class="n">Movies</span>       <span class="n">Pictures</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <p>(Again, your results may be slightly different depending on your operating
 system and how you have customized your filesystem.)</p>
 <p><code class="docutils literal notranslate"><span class="pre">ls</span></code> prints the names of the files and directories in the current directory.
@@ -737,15 +716,13 @@ by adding a marker to file and directory names to indicate what they are:</p>
 <p>Depending on your shell’s default settings,
 the shell might also use colors to indicate whether each entry is a file or
 directory.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls -F
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls<span class="w"> </span>-F
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Applications</span><span class="o">/</span> <span class="n">Documents</span><span class="o">/</span>    <span class="n">Library</span><span class="o">/</span>      <span class="n">Music</span><span class="o">/</span>        <span class="n">Public</span><span class="o">/</span>
 <span class="n">Desktop</span><span class="o">/</span>      <span class="n">Downloads</span><span class="o">/</span>    <span class="n">Movies</span><span class="o">/</span>       <span class="n">Pictures</span><span class="o">/</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <p>Here,
 we can see that our home directory contains only <strong>sub-directories</strong>.
 Any names in our output that don’t have a classification symbol
@@ -753,12 +730,7 @@ are plain old <strong>files</strong>.</p>
 </section>
 <section id="clearing-your-terminal">
 <h2>Clearing your terminal<a class="headerlink" href="#clearing-your-terminal" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>If your screen gets too cluttered, you can clear your terminal using the
-<code class="docutils literal notranslate"><span class="pre">clear</span></code> command. You can still access previous commands using <kbd>↑</kbd>
-and <kbd>↓</kbd> to move line-by-line, or by scrolling in your terminal.
-{: .callout}</p>
-</div></blockquote>
+<p>If your screen gets too cluttered, you can clear your terminal using the <code class="docutils literal notranslate"><span class="pre">clear</span></code> command. You can still access previous commands using <kbd>↑</kbd> and <kbd>↓</kbd> to move line-by-line, or by scrolling in your terminal.</p>
 <section id="getting-help">
 <h3>Getting help<a class="headerlink" href="#getting-help" title="Link to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">ls</span></code> has lots of other <strong>options</strong>. There are two common ways to find out how
@@ -766,16 +738,14 @@ to use a command and what options it accepts —
 <strong>depending on your environment, you might find that only one of these ways works:</strong></p>
 <ol class="arabic">
 <li><p>We can pass a <code class="docutils literal notranslate"><span class="pre">--help</span></code> option to the command (not available on macOS), such as:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls --help
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls<span class="w"> </span>--help
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 </li>
 <li><p>We can read its manual with <code class="docutils literal notranslate"><span class="pre">man</span></code> (not available in Git Bash), such as:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ man ls
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>man<span class="w"> </span>ls
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 </li>
 </ol>
 <p>We’ll describe both ways next.</p>
@@ -784,10 +754,9 @@ to use a command and what options it accepts —
 <p>Most bash commands and programs that people have written to be
 run from within bash, support a <code class="docutils literal notranslate"><span class="pre">--help</span></code> option that displays more
 information on how to use the command or program.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls --help
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls<span class="w"> </span>--help
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span> <span class="n">ls</span> <span class="p">[</span><span class="n">OPTION</span><span class="p">]</span><span class="o">...</span> <span class="p">[</span><span class="n">FILE</span><span class="p">]</span><span class="o">...</span>
 <span class="n">List</span> <span class="n">information</span> <span class="n">about</span> <span class="n">the</span> <span class="n">FILEs</span> <span class="p">(</span><span class="n">the</span> <span class="n">current</span> <span class="n">directory</span> <span class="n">by</span> <span class="n">default</span><span class="p">)</span><span class="o">.</span>
 <span class="n">Sort</span> <span class="n">entries</span> <span class="n">alphabetically</span> <span class="k">if</span> <span class="n">neither</span> <span class="o">-</span><span class="n">cftuvSUX</span> <span class="n">nor</span> <span class="o">--</span><span class="n">sort</span> <span class="ow">is</span> <span class="n">specified</span><span class="o">.</span>
@@ -815,33 +784,25 @@ information on how to use the command or program.</p>
 <span class="o">...</span>        <span class="o">...</span>        <span class="o">...</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 </section>
 </section>
 </section>
 <section id="unsupported-command-line-options">
 <h2>Unsupported command-line options<a class="headerlink" href="#unsupported-command-line-options" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>If you try to use an option that is not supported, <code class="docutils literal notranslate"><span class="pre">ls</span></code> and other commands
-will usually print an error message similar to:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls -j
+<p>If you try to use an option that is not supported, <code class="docutils literal notranslate"><span class="pre">ls</span></code> and other commands will usually print an error message similar to:</p>
+<div class="highlight-bahs notranslate"><div class="highlight"><pre><span></span>$ ls -j
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span><span class="p">:</span> <span class="n">invalid</span> <span class="n">option</span> <span class="o">--</span> <span class="s1">&#39;j&#39;</span>
 <span class="n">Try</span> <span class="s1">&#39;ls --help&#39;</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
 </pre></div>
 </div>
-<p>{: .error}
-{: .callout}</p>
-</div></blockquote>
 <section id="the-man-command">
 <h3>The <code class="docutils literal notranslate"><span class="pre">man</span></code> command<a class="headerlink" href="#the-man-command" title="Link to this heading">#</a></h3>
 <p>The other way to learn about <code class="docutils literal notranslate"><span class="pre">ls</span></code> is to type</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ man ls
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>man<span class="w"> </span>ls
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <p>This command will turn your terminal into a page with a description
 of the <code class="docutils literal notranslate"><span class="pre">ls</span></code> command and its options.</p>
 <p>To navigate through the <code class="docutils literal notranslate"><span class="pre">man</span></code> pages,
@@ -857,59 +818,27 @@ If so, you can move between hits using <kbd>N</kbd> (for moving forward) and
 </section>
 <section id="manual-pages-on-the-web">
 <h2>Manual pages on the web<a class="headerlink" href="#manual-pages-on-the-web" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>Of course, there is a third way to access help for commands:
-searching the internet via your web browser.
-When using internet search, including the phrase <code class="docutils literal notranslate"><span class="pre">unix</span> <span class="pre">man</span> <span class="pre">page</span></code> in your search
-query will help to find relevant results.</p>
-<p>GNU provides links to its
-<a class="reference external" href="http://www.gnu.org/manual/manual.html">manuals</a> including the
-<a class="reference external" href="http://www.gnu.org/software/coreutils/manual/coreutils.html">core GNU utilities</a>,
-which covers many commands introduced within this lesson.
-{: .callout}</p>
-</div></blockquote>
+<p>Of course, there is a third way to access help for commands: searching the internet via your web browser. When using internet search, including the phrase <code class="docutils literal notranslate"><span class="pre">unix</span> <span class="pre">man</span> <span class="pre">page</span></code> in your search query will help to find relevant results.
+GNU provides links to its <a class="reference external" href="http://www.gnu.org/manual/manual.html">manuals</a> including the <a class="reference external" href="http://www.gnu.org/software/coreutils/manual/coreutils.html">core GNU utilities</a>, which covers many commands introduced within this lesson.</p>
 </section>
 <section id="exploring-more-ls-flags">
 <h2>Exploring More <code class="docutils literal notranslate"><span class="pre">ls</span></code> Flags<a class="headerlink" href="#exploring-more-ls-flags" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>You can also use two options at the same time. What does the command <code class="docutils literal notranslate"><span class="pre">ls</span></code> do when used
-with the <code class="docutils literal notranslate"><span class="pre">-l</span></code> option? What about if you use both the <code class="docutils literal notranslate"><span class="pre">-l</span></code> and the <code class="docutils literal notranslate"><span class="pre">-h</span></code> option?</p>
-<p>Some of its output is about properties that we do not cover in this lesson (such
-as file permissions and ownership), but the rest should be useful
-nevertheless.</p>
-<blockquote>
-<div><h2 class="rubric" id="solution">Solution</h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">-l</span></code> option makes <code class="docutils literal notranslate"><span class="pre">ls</span></code> use a <strong>l</strong>ong listing format, showing not only
-the file/directory names but also additional information, such as the file size
-and the time of its last modification. If you use both the <code class="docutils literal notranslate"><span class="pre">-h</span></code> option and the <code class="docutils literal notranslate"><span class="pre">-l</span></code> option,
-this makes the file size ‘<strong>h</strong>uman readable’, i.e. displaying something like <code class="docutils literal notranslate"><span class="pre">5.3K</span></code>
-instead of <code class="docutils literal notranslate"><span class="pre">5369</span></code>.
-This can either be passed in separately, as <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span> <span class="pre">-h</span></code>, or combined <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-lh</span></code>, although you
-can’t always rely on the combined form.
-{: .solution}
-{: .challenge}</p>
-</div></blockquote>
-</div></blockquote>
+<p>You can also use two options at the same time. What does the command <code class="docutils literal notranslate"><span class="pre">ls</span></code> do when used with the <code class="docutils literal notranslate"><span class="pre">-l</span></code> option? What about if you use both the <code class="docutils literal notranslate"><span class="pre">-l</span></code> and the <code class="docutils literal notranslate"><span class="pre">-h</span></code> option?</p>
+<p>Some of its output is about properties that we do not cover in this lesson (such as file permissions and ownership), but the rest should be useful nevertheless.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">-l</span></code> option makes <code class="docutils literal notranslate"><span class="pre">ls</span></code> use a <strong>l</strong>ong listing format, showing not only the file/directory names but also additional information, such as the file size and the time of its last modification. If you use both the <code class="docutils literal notranslate"><span class="pre">-h</span></code> option and the <code class="docutils literal notranslate"><span class="pre">-l</span></code> option, this makes the file size ‘<strong>h</strong>uman readable’, i.e. displaying something like <code class="docutils literal notranslate"><span class="pre">5.3K</span></code> instead of <code class="docutils literal notranslate"><span class="pre">5369</span></code>. This can either be passed in separately, as <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span> <span class="pre">-h</span></code>, or combined <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-lh</span></code>, although you can’t always rely on the combined form.</p>
+</div>
 </section>
 <section id="listing-in-reverse-chronological-order">
 <h2>Listing in Reverse Chronological Order<a class="headerlink" href="#listing-in-reverse-chronological-order" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>By default, <code class="docutils literal notranslate"><span class="pre">ls</span></code> lists the contents of a directory in alphabetical
-order by name. The command <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-t</span></code> lists items by time of last
-change instead of alphabetically. The command <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-r</span></code> lists the
-contents of a directory in reverse order.
-Which file is displayed last when you combine the <code class="docutils literal notranslate"><span class="pre">-t</span></code> and <code class="docutils literal notranslate"><span class="pre">-r</span></code> options?
-Hint: You may need to use the <code class="docutils literal notranslate"><span class="pre">-l</span></code> option to see the
-last changed dates.</p>
-<blockquote>
-<div><h2 class="rubric" id="id1">Solution</h2>
-<p>The most recently changed file is listed last when using <code class="docutils literal notranslate"><span class="pre">-rt</span></code>. This
-can be very useful for finding your most recent edits or checking to
-see if a new output file was written.
-{: .solution}
-{: .challenge}</p>
-</div></blockquote>
-</div></blockquote>
+<p>By default, <code class="docutils literal notranslate"><span class="pre">ls</span></code> lists the contents of a directory in alphabetical order by name. The command <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-t</span></code> lists items by time of last change instead of alphabetically. The command <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-r</span></code> lists the contents of a directory in reverse order.</p>
+<p>Which file is displayed last when you combine the <code class="docutils literal notranslate"><span class="pre">-t</span></code> and <code class="docutils literal notranslate"><span class="pre">-r</span></code> options?
+Hint: You may need to use the <code class="docutils literal notranslate"><span class="pre">-l</span></code> option to see the last changed dates.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>The most recently changed file is listed last when using <code class="docutils literal notranslate"><span class="pre">-rt</span></code>. This can be very useful for finding your most recent edits or checking to see if a new output file was written.</p>
+</div>
 <section id="exploring-other-directories">
 <h3>Exploring Other Directories<a class="headerlink" href="#exploring-other-directories" title="Link to this heading">#</a></h3>
 <p>Not only can we use <code class="docutils literal notranslate"><span class="pre">ls</span></code> on the current working directory,
@@ -919,14 +848,12 @@ i.e.,
 the command <code class="docutils literal notranslate"><span class="pre">ls</span></code> with the <code class="docutils literal notranslate"><span class="pre">-F</span></code> <strong>option</strong> and the <a class="reference external" href="https://swcarpentry.github.io/shell-novice/reference.html#argument"><strong>argument</strong></a>  <code class="docutils literal notranslate"><span class="pre">Desktop</span></code>.
 The argument <code class="docutils literal notranslate"><span class="pre">Desktop</span></code> tells <code class="docutils literal notranslate"><span class="pre">ls</span></code> that
 we want a listing of something other than our current working directory:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls -F Desktop
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls<span class="w"> </span>-F<span class="w"> </span>Desktop
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">shell</span><span class="o">-</span><span class="n">lesson</span><span class="o">-</span><span class="n">data</span><span class="o">/</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <p>Note that if a directory named <code class="docutils literal notranslate"><span class="pre">Desktop</span></code> does not exist in your current working directory,
 this command will return an error. Typically, a <code class="docutils literal notranslate"><span class="pre">Desktop</span></code> directory exists in your
 home directory, which we assume is the current working directory of your bash shell.</p>
@@ -946,14 +873,12 @@ but it’s a self-defeating strategy.</p>
 can do two things.</p>
 <p>First, we can look at its contents, using the same strategy as before, passing
 a directory name to <code class="docutils literal notranslate"><span class="pre">ls</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls -F Desktop/shell-lesson-data
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls<span class="w"> </span>-F<span class="w"> </span>Desktop/shell-lesson-data
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exercise</span><span class="o">-</span><span class="n">data</span><span class="o">/</span>  <span class="n">north</span><span class="o">-</span><span class="n">pacific</span><span class="o">-</span><span class="n">gyre</span><span class="o">/</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <p>Second, we can actually change our location to a different directory, so
 we are no longer located in
 our home directory.</p>
@@ -966,12 +891,11 @@ it changes the shell’s idea of what directory we are in.
 The <code class="docutils literal notranslate"><span class="pre">cd</span></code> command is akin to double-clicking a folder in a graphical interface to get into a folder.</p>
 <p>Let’s say we want to move to the <code class="docutils literal notranslate"><span class="pre">data</span></code> directory we saw above. We can
 use the following series of commands to get there:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd Desktop
-$ cd shell-lesson-data
-$ cd exercise-data
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>Desktop
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>shell-lesson-data
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>exercise-data
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <p>These commands will move us from our home directory into our Desktop directory, then into
 the <code class="docutils literal notranslate"><span class="pre">shell-lesson-data</span></code> directory, then into the <code class="docutils literal notranslate"><span class="pre">exercise-data</span></code> directory.
 You will notice that <code class="docutils literal notranslate"><span class="pre">cd</span></code> doesn’t print anything. This is normal.
@@ -981,33 +905,27 @@ in <code class="docutils literal notranslate"><span class="pre">/Users/nelle/Des
 <p>If we run <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-F</span></code> without arguments now,
 it lists the contents of <code class="docutils literal notranslate"><span class="pre">/Users/nelle/Desktop/shell-lesson-data/exercise-data</span></code>,
 because that’s where we now are:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pwd
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">pwd</span>
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">nelle</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">shell</span><span class="o">-</span><span class="n">lesson</span><span class="o">-</span><span class="n">data</span><span class="o">/</span><span class="n">exercise</span><span class="o">-</span><span class="n">data</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls -F
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls<span class="w"> </span>-F
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">animal</span><span class="o">-</span><span class="n">counts</span><span class="o">/</span>  <span class="n">creatures</span><span class="o">/</span>  <span class="n">numbers</span><span class="o">.</span><span class="n">txt</span>  <span class="n">proteins</span><span class="o">/</span>  <span class="n">writing</span><span class="o">/</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <p>We now know how to go down the directory tree (i.e. how to go into a subdirectory),
 but how do we go up (i.e. how do we leave a directory and go into its parent directory)?
 We might try the following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd shell-lesson-data
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>shell-lesson-data
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">bash</span><span class="p">:</span> <span class="n">cd</span><span class="p">:</span> <span class="n">shell</span><span class="o">-</span><span class="n">lesson</span><span class="o">-</span><span class="n">data</span><span class="p">:</span> <span class="n">No</span> <span class="n">such</span> <span class="n">file</span> <span class="ow">or</span> <span class="n">directory</span>
 </pre></div>
 </div>
-<p>{: .error}</p>
 <p>But we get an error! Why is this?</p>
 <p>With our methods so far,
 <code class="docutils literal notranslate"><span class="pre">cd</span></code> can only see sub-directories inside your current directory. There are
@@ -1015,34 +933,29 @@ different ways to see directories above your current location; we’ll start
 with the simplest.</p>
 <p>There is a shortcut in the shell to move up one directory level
 that looks like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd ..
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>..
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <p><code class="docutils literal notranslate"><span class="pre">..</span></code> is a special directory name meaning
 “the directory containing the current directory”,
 or more succinctly,
 the <strong>parent</strong> of the current directory.
 Sure enough,
 if we run <code class="docutils literal notranslate"><span class="pre">pwd</span></code> after running <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">..</span></code>, we’re back in <code class="docutils literal notranslate"><span class="pre">/Users/nelle/Desktop/shell-lesson-data</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pwd
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">pwd</span>
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">nelle</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">shell</span><span class="o">-</span><span class="n">lesson</span><span class="o">-</span><span class="n">data</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <p>The special directory <code class="docutils literal notranslate"><span class="pre">..</span></code> doesn’t usually show up when we run <code class="docutils literal notranslate"><span class="pre">ls</span></code>. If we want
 to display it, we can add the <code class="docutils literal notranslate"><span class="pre">-a</span></code> option to <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-F</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls -F -a
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls<span class="w"> </span>-F<span class="w"> </span>-a
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span>  <span class="o">../</span>  <span class="n">exercise</span><span class="o">-</span><span class="n">data</span><span class="o">/</span>  <span class="n">north</span><span class="o">-</span><span class="n">pacific</span><span class="o">-</span><span class="n">gyre</span><span class="o">/</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <p><code class="docutils literal notranslate"><span class="pre">-a</span></code> stands for ‘show all’;
 it forces <code class="docutils literal notranslate"><span class="pre">ls</span></code> to show us file and directory names that begin with <code class="docutils literal notranslate"><span class="pre">.</span></code>,
 such as <code class="docutils literal notranslate"><span class="pre">..</span></code> (which, if we’re in <code class="docutils literal notranslate"><span class="pre">/Users/nelle</span></code>, refers to the <code class="docutils literal notranslate"><span class="pre">/Users</span></code> directory).
@@ -1058,42 +971,29 @@ equivalent to <code class="docutils literal notranslate"><span class="pre">ls</s
 </section>
 <section id="other-hidden-files">
 <h2>Other Hidden Files<a class="headerlink" href="#other-hidden-files" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>In addition to the hidden directories <code class="docutils literal notranslate"><span class="pre">..</span></code> and <code class="docutils literal notranslate"><span class="pre">.</span></code>, you may also see a file
-called <code class="docutils literal notranslate"><span class="pre">.bash_profile</span></code>. This file usually contains shell configuration
-settings. You may also see other files and directories beginning
-with <code class="docutils literal notranslate"><span class="pre">.</span></code>. These are usually files and directories that are used to configure
-different programs on your computer. The prefix <code class="docutils literal notranslate"><span class="pre">.</span></code> is used to prevent these
-configuration files from cluttering the terminal when a standard <code class="docutils literal notranslate"><span class="pre">ls</span></code> command
-is used.
-{: .callout}</p>
-</div></blockquote>
+<p>In addition to the hidden directories <code class="docutils literal notranslate"><span class="pre">..</span></code> and <code class="docutils literal notranslate"><span class="pre">.</span></code>, you may also see a file called <code class="docutils literal notranslate"><span class="pre">.bash_profile</span></code>. This file usually contains shell configuration settings. You may also see other files and directories beginning with <code class="docutils literal notranslate"><span class="pre">.</span></code>. These are usually files and directories that are used to configure different programs on your computer. The prefix <code class="docutils literal notranslate"><span class="pre">.</span></code> is used to prevent these configuration files from cluttering the terminal when a standard <code class="docutils literal notranslate"><span class="pre">ls</span></code> command is used.</p>
 <p>These three commands are the basic commands for navigating the filesystem on your computer:
 <code class="docutils literal notranslate"><span class="pre">pwd</span></code>, <code class="docutils literal notranslate"><span class="pre">ls</span></code>, and <code class="docutils literal notranslate"><span class="pre">cd</span></code>. Let’s explore some variations on those commands. What happens
 if you type <code class="docutils literal notranslate"><span class="pre">cd</span></code> on its own, without giving
 a directory?</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span>
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <p>How can you check what happened? <code class="docutils literal notranslate"><span class="pre">pwd</span></code> gives us the answer!</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pwd
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">pwd</span>
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">nelle</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <p>It turns out that <code class="docutils literal notranslate"><span class="pre">cd</span></code> without an argument will return you to your home directory,
 which is great if you’ve got lost in your own filesystem.</p>
 <p>Let’s try returning to the <code class="docutils literal notranslate"><span class="pre">exercise-data</span></code> directory from before. Last time, we used
 three commands, but we can actually string together the list of directories
 to move to <code class="docutils literal notranslate"><span class="pre">exercise-data</span></code> in one step:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd Desktop/shell-lesson-data/exercise-data
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>Desktop/shell-lesson-data/exercise-data
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <p>Check that we’ve moved to the right place by running <code class="docutils literal notranslate"><span class="pre">pwd</span></code> and <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-F</span></code>.</p>
 <p>If we want to move up one level from the data directory, we could use <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">..</span></code>.  But
 there is another way to move to any directory, regardless of your
@@ -1111,63 +1011,40 @@ no matter where we are when we run the command.</p>
 the filesystem (including from inside <code class="docutils literal notranslate"><span class="pre">exercise-data</span></code>). To find the absolute path
 we’re looking for, we can use <code class="docutils literal notranslate"><span class="pre">pwd</span></code> and then extract the piece we need
 to move to <code class="docutils literal notranslate"><span class="pre">shell-lesson-data</span></code>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pwd
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">pwd</span>
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">nelle</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">shell</span><span class="o">-</span><span class="n">lesson</span><span class="o">-</span><span class="n">data</span><span class="o">/</span><span class="n">exercise</span><span class="o">-</span><span class="n">data</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd /Users/nelle/Desktop/shell-lesson-data
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/Users/nelle/Desktop/shell-lesson-data
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <p>Run <code class="docutils literal notranslate"><span class="pre">pwd</span></code> and <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-F</span></code> to ensure that we’re in the directory we expect.</p>
 </section>
 <section id="two-more-shortcuts">
 <h2>Two More Shortcuts<a class="headerlink" href="#two-more-shortcuts" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>The shell interprets a tilde (<code class="docutils literal notranslate"><span class="pre">~</span></code>) character at the start of a path to
-mean “the current user’s home directory”. For example, if Nelle’s home
-directory is <code class="docutils literal notranslate"><span class="pre">/Users/nelle</span></code>, then <code class="docutils literal notranslate"><span class="pre">~/data</span></code> is equivalent to
-<code class="docutils literal notranslate"><span class="pre">/Users/nelle/data</span></code>. This only works if it is the first character in the
-path: <code class="docutils literal notranslate"><span class="pre">here/there/~/elsewhere</span></code> is <em>not</em> <code class="docutils literal notranslate"><span class="pre">here/there/Users/nelle/elsewhere</span></code>.</p>
-<p>Another shortcut is the <code class="docutils literal notranslate"><span class="pre">-</span></code> (dash) character. <code class="docutils literal notranslate"><span class="pre">cd</span></code> will translate <code class="docutils literal notranslate"><span class="pre">-</span></code> into
-<em>the previous directory I was in</em>, which is faster than having to remember,
-then type, the full path.  This is a <em>very</em> efficient way of moving
-<em>back and forth between two directories</em> – i.e. if you execute <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">-</span></code> twice,
-you end up back in the starting directory.</p>
-<p>The difference between <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">..</span></code> and <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">-</span></code> is
-that the former brings you <em>up</em>, while the latter brings you <em>back</em>.</p>
-<hr class="docutils" />
+<p>The shell interprets a tilde (<code class="docutils literal notranslate"><span class="pre">~</span></code>) character at the start of a path to mean “the current user’s home directory”. For example, if Nelle’s home directory is <code class="docutils literal notranslate"><span class="pre">/Users/nelle</span></code>, then <code class="docutils literal notranslate"><span class="pre">~/data</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">/Users/nelle/data</span></code>. This only works if it is the first character in the path: <code class="docutils literal notranslate"><span class="pre">here/there/~/elsewhere</span></code> is <em>not</em> <code class="docutils literal notranslate"><span class="pre">here/there/Users/nelle/elsewhere</span></code>.
+Another shortcut is the <code class="docutils literal notranslate"><span class="pre">-</span></code> (dash) character. <code class="docutils literal notranslate"><span class="pre">cd</span></code> will translate <code class="docutils literal notranslate"><span class="pre">-</span></code> into <em>the previous directory I was in</em>, which is faster than having to remember, then type, the full path.  This is a <em>very</em> efficient way of moving <em>back and forth between two directories</em> – i.e. if you execute <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">-</span></code> twice, you end up back in the starting directory.
+The difference between <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">..</span></code> and <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">-</span></code> is that the former brings you <em>up</em>, while the latter brings you <em>back</em>.</p>
 <p>Try it!
 First navigate to <code class="docutils literal notranslate"><span class="pre">~/Desktop/shell-lesson-data</span></code> (you should already be there).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd ~/Desktop/shell-lesson-data
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/Desktop/shell-lesson-data
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <p>Then <code class="docutils literal notranslate"><span class="pre">cd</span></code> into the <code class="docutils literal notranslate"><span class="pre">exercise-data/creatures</span></code> directory</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd exercise-data/creatures
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>exercise-data/creatures
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <p>Now if you run</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd -
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>-
 </pre></div>
 </div>
-<p>{: .language-bash}
-you’ll see you’re back in <code class="docutils literal notranslate"><span class="pre">~/Desktop/shell-lesson-data</span></code>.
-Run <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">-</span></code> again and you’re back in <code class="docutils literal notranslate"><span class="pre">~/Desktop/shell-lesson-data/exercise-data/creatures</span></code>
-{: .callout}</p>
-</div></blockquote>
+<p>you’ll see you’re back in <code class="docutils literal notranslate"><span class="pre">~/Desktop/shell-lesson-data</span></code>. Run <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">-</span></code> again and you’re back in <code class="docutils literal notranslate"><span class="pre">~/Desktop/shell-lesson-data/exercise-data/creatures</span></code></p>
 </section>
 <section id="absolute-vs-relative-paths">
 <h2>Absolute vs Relative Paths<a class="headerlink" href="#absolute-vs-relative-paths" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>Starting from <code class="docutils literal notranslate"><span class="pre">/Users/amanda/data</span></code>,
-which of the following commands could Amanda use to navigate to her home directory,
-which is <code class="docutils literal notranslate"><span class="pre">/Users/amanda</span></code>?</p>
+<p>Starting from <code class="docutils literal notranslate"><span class="pre">/Users/amanda/data</span></code>, which of the following commands could Amanda use to navigate to her home directory, which is <code class="docutils literal notranslate"><span class="pre">/Users/amanda</span></code>?</p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">.</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/</span></code></p></li>
@@ -1179,88 +1056,61 @@ which is <code class="docutils literal notranslate"><span class="pre">/Users/ama
 <li><p><code class="docutils literal notranslate"><span class="pre">cd</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">..</span></code></p></li>
 </ol>
-<blockquote>
-<div><h2 class="rubric" id="id2">Solution</h2>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
 <ol class="arabic simple">
 <li><p>No: <code class="docutils literal notranslate"><span class="pre">.</span></code> stands for the current directory.</p></li>
 <li><p>No: <code class="docutils literal notranslate"><span class="pre">/</span></code> stands for the root directory.</p></li>
 <li><p>No: Amanda’s home directory is <code class="docutils literal notranslate"><span class="pre">/Users/amanda</span></code>.</p></li>
 <li><p>No: this command goes up two levels, i.e. ends in <code class="docutils literal notranslate"><span class="pre">/Users</span></code>.</p></li>
 <li><p>Yes: <code class="docutils literal notranslate"><span class="pre">~</span></code> stands for the user’s home directory, in this case <code class="docutils literal notranslate"><span class="pre">/Users/amanda</span></code>.</p></li>
-<li><p>No: this command would navigate into a directory <code class="docutils literal notranslate"><span class="pre">home</span></code> in the current directory
-if it exists.</p></li>
+<li><p>No: this command would navigate into a directory <code class="docutils literal notranslate"><span class="pre">home</span></code> in the current directory if it exists.</p></li>
 <li><p>Yes: unnecessarily complicated, but correct.</p></li>
 <li><p>Yes: shortcut to go back to the user’s home directory.</p></li>
-<li><p>Yes: goes up one level.
-{: .solution}
-{: .challenge}</p></li>
+<li><p>Yes: goes up one level.</p></li>
 </ol>
-</div></blockquote>
-</div></blockquote>
+</div>
 </section>
 <section id="relative-path-resolution">
 <h2>Relative Path Resolution<a class="headerlink" href="#relative-path-resolution" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>Using the filesystem diagram below, if <code class="docutils literal notranslate"><span class="pre">pwd</span></code> displays <code class="docutils literal notranslate"><span class="pre">/Users/thing</span></code>,
-what will <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-F</span> <span class="pre">../backup</span></code> display?</p>
+<p>Using the filesystem diagram below, if <code class="docutils literal notranslate"><span class="pre">pwd</span></code> displays <code class="docutils literal notranslate"><span class="pre">/Users/thing</span></code>, what will <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-F</span> <span class="pre">../backup</span></code> display?</p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">../backup:</span> <span class="pre">No</span> <span class="pre">such</span> <span class="pre">file</span> <span class="pre">or</span> <span class="pre">directory</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">2012-12-01</span> <span class="pre">2013-01-08</span> <span class="pre">2013-01-27</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">2012-12-01/</span> <span class="pre">2013-01-08/</span> <span class="pre">2013-01-27/</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">original/</span> <span class="pre">pnas_final/</span> <span class="pre">pnas_sub/</span></code></p></li>
 </ol>
-<p><a class="reference internal" href="#../fig/filesystem-challenge.svg"><span class="xref myst">A directory tree below the Users directory where “/Users” contains the
-directories “backup” and “thing”; “/Users/backup” contains “original”,
-“pnas_final” and “pnas_sub”; “/Users/thing” contains “backup”; and
-“/Users/thing/backup” contains “2012-12-01”, “2013-01-08” and
-“2013-01-27”</span></a></p>
-<blockquote>
-<div><h2 class="rubric" id="id3">Solution</h2>
+<p><img alt="A directory tree below the Users directory where &quot;/Users&quot; contains thedirectories &quot;backup&quot; and &quot;thing&quot;; &quot;/Users/backup&quot; contains &quot;original&quot;,&quot;pnas_final&quot; and &quot;pnas_sub&quot;; &quot;/Users/thing&quot; contains &quot;backup&quot;; and&quot;/Users/thing/backup&quot; contains &quot;2012-12-01&quot;, &quot;2013-01-08&quot; and&quot;2013-01-27&quot;" src="../../_images/filesystem-challenge.svg" /></p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
 <ol class="arabic simple">
 <li><p>No: there <em>is</em> a directory <code class="docutils literal notranslate"><span class="pre">backup</span></code> in <code class="docutils literal notranslate"><span class="pre">/Users</span></code>.</p></li>
-<li><p>No: this is the content of <code class="docutils literal notranslate"><span class="pre">Users/thing/backup</span></code>,
-but with <code class="docutils literal notranslate"><span class="pre">..</span></code>, we asked for one level further up.</p></li>
+<li><p>No: this is the content of <code class="docutils literal notranslate"><span class="pre">Users/thing/backup</span></code>, but with <code class="docutils literal notranslate"><span class="pre">..</span></code>, we asked for one level further up.</p></li>
 <li><p>No: see previous explanation.</p></li>
-<li><p>Yes: <code class="docutils literal notranslate"><span class="pre">../backup/</span></code> refers to <code class="docutils literal notranslate"><span class="pre">/Users/backup/</span></code>.
-{: .solution}
-{: .challenge}</p></li>
+<li><p>Yes: <code class="docutils literal notranslate"><span class="pre">../backup/</span></code> refers to <code class="docutils literal notranslate"><span class="pre">/Users/backup/</span></code>.</p></li>
 </ol>
-</div></blockquote>
-</div></blockquote>
+</div>
 </section>
 <section id="ls-reading-comprehension">
 <h2><code class="docutils literal notranslate"><span class="pre">ls</span></code> Reading Comprehension<a class="headerlink" href="#ls-reading-comprehension" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>Using the filesystem diagram below,
-if <code class="docutils literal notranslate"><span class="pre">pwd</span></code> displays <code class="docutils literal notranslate"><span class="pre">/Users/backup</span></code>,
-and <code class="docutils literal notranslate"><span class="pre">-r</span></code> tells <code class="docutils literal notranslate"><span class="pre">ls</span></code> to display things in reverse order,
-what command(s) will result in the following output:</p>
+<p>Using the filesystem diagram below, if <code class="docutils literal notranslate"><span class="pre">pwd</span></code> displays <code class="docutils literal notranslate"><span class="pre">/Users/backup</span></code>, and <code class="docutils literal notranslate"><span class="pre">-r</span></code> tells <code class="docutils literal notranslate"><span class="pre">ls</span></code> to display things in reverse order, what command(s) will result in the following output:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pnas_sub</span><span class="o">/</span> <span class="n">pnas_final</span><span class="o">/</span> <span class="n">original</span><span class="o">/</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
-<p><a class="reference internal" href="#../fig/filesystem-challenge.svg"><span class="xref myst">A directory tree below the Users directory where “/Users” contains the
-directories “backup” and “thing”; “/Users/backup” contains “original”,
-“pnas_final” and “pnas_sub”; “/Users/thing” contains “backup”; and
-“/Users/thing/backup” contains “2012-12-01”, “2013-01-08” and
-“2013-01-27”</span></a></p>
+<p><img alt="A directory tree below the Users directory where &quot;/Users&quot; contains thedirectories &quot;backup&quot; and &quot;thing&quot;; &quot;/Users/backup&quot; contains &quot;original&quot;,&quot;pnas_final&quot; and &quot;pnas_sub&quot;; &quot;/Users/thing&quot; contains &quot;backup&quot;; and&quot;/Users/thing/backup&quot; contains &quot;2012-12-01&quot;, &quot;2013-01-08&quot; and&quot;2013-01-27&quot;" src="../../_images/filesystem-challenge.svg" /></p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">pwd</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-r</span> <span class="pre">-F</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-r</span> <span class="pre">-F</span> <span class="pre">/Users/backup</span></code></p></li>
 </ol>
-<blockquote>
-<div><h2 class="rubric" id="id4">Solution</h2>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
 <ol class="arabic simple">
 <li><p>No: <code class="docutils literal notranslate"><span class="pre">pwd</span></code> is not the name of a directory.</p></li>
-<li><p>Yes: <code class="docutils literal notranslate"><span class="pre">ls</span></code> without directory argument lists files and directories
-in the current directory.</p></li>
-<li><p>Yes: uses the absolute path explicitly.
-{: .solution}
-{: .challenge}</p></li>
+<li><p>Yes: <code class="docutils literal notranslate"><span class="pre">ls</span></code> without directory argument lists files and directories in the current directory.</p></li>
+<li><p>Yes: uses the absolute path explicitly.</p></li>
 </ol>
-</div></blockquote>
-</div></blockquote>
+</div>
 </section>
 <section id="general-syntax-of-a-shell-command">
 <h2>General Syntax of a Shell Command<a class="headerlink" href="#general-syntax-of-a-shell-command" title="Link to this heading">#</a></h2>
@@ -1268,11 +1118,10 @@ in the current directory.</p></li>
 but it is perhaps useful to formalise some terminology.</p>
 <p>Consider the command below as a general example of a command,
 which we will dissect into its component parts:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls -F /
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls<span class="w"> </span>-F<span class="w"> </span>/
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
-<p><a class="reference internal" href="#../fig/shell_command_syntax.svg"><span class="xref myst">General syntax of a shell command</span></a></p>
+<p><img alt="General syntax of a shell command" src="../../_images/shell_command_syntax.svg" /></p>
 <p><code class="docutils literal notranslate"><span class="pre">ls</span></code> is the <strong>command</strong>, with an <strong>option</strong> <code class="docutils literal notranslate"><span class="pre">-F</span></code> and an
 <strong>argument</strong> <code class="docutils literal notranslate"><span class="pre">/</span></code>.
 We’ve already encountered options  which
@@ -1290,40 +1139,34 @@ between <code class="docutils literal notranslate"><span class="pre">ls</span></
 doesn’t exist. Also, capitalization can be important.
 For example, <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-s</span></code> will display the size of files and directories alongside the names,
 while <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-S</span></code> will sort the files and directories by size, as shown below:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd ~/Desktop/shell-lesson-data
-$ ls -s exercise-data
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/Desktop/shell-lesson-data
+$<span class="w"> </span>ls<span class="w"> </span>-s<span class="w"> </span>exercise-data
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">total</span> <span class="mi">28</span>
  <span class="mi">4</span> <span class="n">animal</span><span class="o">-</span><span class="n">counts</span>   <span class="mi">4</span> <span class="n">creatures</span>  <span class="mi">12</span> <span class="n">numbers</span><span class="o">.</span><span class="n">txt</span>   <span class="mi">4</span> <span class="n">proteins</span>   <span class="mi">4</span> <span class="n">writing</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <p>Note that the sizes returned by <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-s</span></code> are in <em>blocks</em>.
 As these are defined differently for different operating systems,
 you may not obtain the same figures as in the example.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls -S exercise-data
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls<span class="w"> </span>-S<span class="w"> </span>exercise-data
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">animal</span><span class="o">-</span><span class="n">counts</span>  <span class="n">creatures</span>  <span class="n">proteins</span>  <span class="n">writing</span>  <span class="n">numbers</span><span class="o">.</span><span class="n">txt</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <p>Putting all that together, our command above gives us a listing
 of files and directories in the root directory <code class="docutils literal notranslate"><span class="pre">/</span></code>.
 An example of the output you might get from the above command is given below:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls -F /
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls<span class="w"> </span>-F<span class="w"> </span>/
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Applications</span><span class="o">/</span>         <span class="n">System</span><span class="o">/</span>
 <span class="n">Library</span><span class="o">/</span>              <span class="n">Users</span><span class="o">/</span>
 <span class="n">Network</span><span class="o">/</span>              <span class="n">Volumes</span><span class="o">/</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <section id="nelle-s-pipeline-organizing-files">
 <h3>Nelle’s Pipeline: Organizing Files<a class="headerlink" href="#nelle-s-pipeline-organizing-files" title="Link to this heading">#</a></h3>
 <p>Knowing this much about files and directories,
@@ -1343,39 +1186,34 @@ she will call her files <code class="docutils literal notranslate"><span class="
 All 1520 files will go into the same directory.</p>
 <p>Now in her current directory <code class="docutils literal notranslate"><span class="pre">shell-lesson-data</span></code>,
 Nelle can see what files she has using the command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls north-pacific-gyre/
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls<span class="w"> </span>north-pacific-gyre/
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <p>This command is a lot to type,
 but she can let the shell do most of the work through what is called <strong>tab completion</strong>.
 If she types:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls nor
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls<span class="w"> </span>nor
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <p>and then presses <kbd>Tab</kbd> (the tab key on her keyboard),
 the shell automatically completes the directory name for her:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls north-pacific-gyre/
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls<span class="w"> </span>north-pacific-gyre/
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <p>Pressing <kbd>Tab</kbd> again does nothing,
 since there are multiple possibilities;
 pressing <kbd>Tab</kbd> twice brings up a list of all the files.</p>
 <p>If Nelle adds <kbd>G</kbd> and presses <kbd>Tab</kbd> again,
 the shell will append ‘goo’ since all files that start with ‘g’ share
 the first three characters ‘goo’.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls north-pacific-gyre/goo
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls<span class="w"> </span>north-pacific-gyre/goo
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <p>To see all of those files, she can press <kbd>Tab</kbd> twice more.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="n">north</span><span class="o">-</span><span class="n">pacific</span><span class="o">-</span><span class="n">gyre</span><span class="o">/</span><span class="n">goo</span>
-<span class="n">goodiff</span><span class="o">.</span><span class="n">sh</span>   <span class="n">goostats</span><span class="o">.</span><span class="n">sh</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>north-pacific-gyre/goo
+goodiff.sh<span class="w">   </span>goostats.sh
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <p>This is called <strong>tab completion</strong>,
 and we will see it in many other tools as we go on.</p>
 </section>
@@ -1460,6 +1298,7 @@ Some commands that might be useful are:</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions">Questions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keypoints">Keypoints</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#home-directory-variation">Home Directory Variation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slashes">Slashes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clearing-your-terminal">Clearing your terminal</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-help">Getting help</a><ul class="nav section-nav flex-column">

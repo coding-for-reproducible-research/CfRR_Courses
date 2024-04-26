@@ -614,11 +614,10 @@ you will be able to reproduce the same results simply by running your script,
 rather than having to remember or retype a long list of commands.</p>
 <p>Let’s start by going back to <code class="docutils literal notranslate"><span class="pre">proteins/</span></code> and creating a new file, <code class="docutils literal notranslate"><span class="pre">middle.sh</span></code> which will
 become our shell script:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd proteins
-$ nano middle.sh
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>proteins
+$<span class="w"> </span>nano<span class="w"> </span>middle.sh
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <p>The command <code class="docutils literal notranslate"><span class="pre">nano</span> <span class="pre">middle.sh</span></code> opens the file <code class="docutils literal notranslate"><span class="pre">middle.sh</span></code> within the text editor ‘nano’
 (which runs within the shell).
 If the file does not exist, it will be created.
@@ -626,7 +625,6 @@ We can use the text editor to directly edit the file – we’ll simply insert t
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">head</span> <span class="o">-</span><span class="n">n</span> <span class="mi">15</span> <span class="n">octane</span><span class="o">.</span><span class="n">pdb</span> <span class="o">|</span> <span class="n">tail</span> <span class="o">-</span><span class="n">n</span> <span class="mi">5</span>
 </pre></div>
 </div>
-<p>{: .source}</p>
 <p>This is a variation on the pipe we constructed earlier:
 it selects lines 11-15 of the file <code class="docutils literal notranslate"><span class="pre">octane.pdb</span></code>.
 Remember, we are <em>not</em> running it as a command just yet:
@@ -637,10 +635,9 @@ Check that the directory <code class="docutils literal notranslate"><span class=
 <p>Once we have saved the file,
 we can ask the shell to execute the commands it contains.
 Our shell is called <code class="docutils literal notranslate"><span class="pre">bash</span></code>, so we run the following command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bash middle.sh
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>bash<span class="w"> </span>middle.sh
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ATOM</span>      <span class="mi">9</span>  <span class="n">H</span>           <span class="mi">1</span>      <span class="o">-</span><span class="mf">4.502</span>   <span class="mf">0.681</span>   <span class="mf">0.785</span>  <span class="mf">1.00</span>  <span class="mf">0.00</span>
 <span class="n">ATOM</span>     <span class="mi">10</span>  <span class="n">H</span>           <span class="mi">1</span>      <span class="o">-</span><span class="mf">5.254</span>  <span class="o">-</span><span class="mf">0.243</span>  <span class="o">-</span><span class="mf">0.537</span>  <span class="mf">1.00</span>  <span class="mf">0.00</span>
 <span class="n">ATOM</span>     <span class="mi">11</span>  <span class="n">H</span>           <span class="mi">1</span>      <span class="o">-</span><span class="mf">4.357</span>   <span class="mf">1.252</span>  <span class="o">-</span><span class="mf">0.895</span>  <span class="mf">1.00</span>  <span class="mf">0.00</span>
@@ -648,45 +645,30 @@ Our shell is called <code class="docutils literal notranslate"><span class="pre"
 <span class="n">ATOM</span>     <span class="mi">13</span>  <span class="n">H</span>           <span class="mi">1</span>      <span class="o">-</span><span class="mf">3.172</span>  <span class="o">-</span><span class="mf">1.337</span>   <span class="mf">0.206</span>  <span class="mf">1.00</span>  <span class="mf">0.00</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <p>Sure enough,
 our script’s output is exactly what we would get if we ran that pipeline directly.</p>
 </section>
 <section id="text-vs-whatever">
 <h2>Text vs. Whatever<a class="headerlink" href="#text-vs-whatever" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>We usually call programs like Microsoft Word or LibreOffice Writer “text
-editors”, but we need to be a bit more careful when it comes to
-programming. By default, Microsoft Word uses <code class="docutils literal notranslate"><span class="pre">.docx</span></code> files to store not
-only text, but also formatting information about fonts, headings, and so
-on. This extra information isn’t stored as characters and doesn’t mean
-anything to tools like <code class="docutils literal notranslate"><span class="pre">head</span></code>: they expect input files to contain
-nothing but the letters, digits, and punctuation on a standard computer
-keyboard. When editing programs, therefore, you must either use a plain
-text editor, or be careful to save files as plain text.
-{: .callout}</p>
-</div></blockquote>
+<p>We usually call programs like Microsoft Word or LibreOffice Writer “text editors”, but we need to be a bit more careful when it comes to programming. By default, Microsoft Word uses <code class="docutils literal notranslate"><span class="pre">.docx</span></code> files to store not only text, but also formatting information about fonts, headings, and so on. This extra information isn’t stored as characters and doesn’t mean anything to tools like <code class="docutils literal notranslate"><span class="pre">head</span></code>: they expect input files to contain nothing but the letters, digits, and punctuation on a standard computer keyboard. When editing programs, therefore, you must either use a plain text editor, or be careful to save files as plain text.</p>
 <p>What if we want to select lines from an arbitrary file?
 We could edit <code class="docutils literal notranslate"><span class="pre">middle.sh</span></code> each time to change the filename,
 but that would probably take longer than typing the command out again
 in the shell and executing it with a new file name.
 Instead, let’s edit <code class="docutils literal notranslate"><span class="pre">middle.sh</span></code> and make it more versatile:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ nano middle.sh
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>nano<span class="w"> </span>middle.sh
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <p>Now, within “nano”, replace the text <code class="docutils literal notranslate"><span class="pre">octane.pdb</span></code> with the special variable called <code class="docutils literal notranslate"><span class="pre">$1</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">head</span> <span class="o">-</span><span class="n">n</span> <span class="mi">15</span> <span class="s2">&quot;$1&quot;</span> <span class="o">|</span> <span class="n">tail</span> <span class="o">-</span><span class="n">n</span> <span class="mi">5</span>
 </pre></div>
 </div>
-<p>{: .source}</p>
 <p>Inside a shell script,
 <code class="docutils literal notranslate"><span class="pre">$1</span></code> means ‘the first filename (or other argument) on the command line’.
 We can now run our script like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bash middle.sh octane.pdb
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>bash<span class="w"> </span>middle.sh<span class="w"> </span>octane.pdb
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ATOM</span>      <span class="mi">9</span>  <span class="n">H</span>           <span class="mi">1</span>      <span class="o">-</span><span class="mf">4.502</span>   <span class="mf">0.681</span>   <span class="mf">0.785</span>  <span class="mf">1.00</span>  <span class="mf">0.00</span>
 <span class="n">ATOM</span>     <span class="mi">10</span>  <span class="n">H</span>           <span class="mi">1</span>      <span class="o">-</span><span class="mf">5.254</span>  <span class="o">-</span><span class="mf">0.243</span>  <span class="o">-</span><span class="mf">0.537</span>  <span class="mf">1.00</span>  <span class="mf">0.00</span>
 <span class="n">ATOM</span>     <span class="mi">11</span>  <span class="n">H</span>           <span class="mi">1</span>      <span class="o">-</span><span class="mf">4.357</span>   <span class="mf">1.252</span>  <span class="o">-</span><span class="mf">0.895</span>  <span class="mf">1.00</span>  <span class="mf">0.00</span>
@@ -694,12 +676,10 @@ We can now run our script like this:</p>
 <span class="n">ATOM</span>     <span class="mi">13</span>  <span class="n">H</span>           <span class="mi">1</span>      <span class="o">-</span><span class="mf">3.172</span>  <span class="o">-</span><span class="mf">1.337</span>   <span class="mf">0.206</span>  <span class="mf">1.00</span>  <span class="mf">0.00</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <p>or on a different file like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bash middle.sh pentane.pdb
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>bash<span class="w"> </span>middle.sh<span class="w"> </span>pentane.pdb
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ATOM</span>      <span class="mi">9</span>  <span class="n">H</span>           <span class="mi">1</span>       <span class="mf">1.324</span>   <span class="mf">0.350</span>  <span class="o">-</span><span class="mf">1.332</span>  <span class="mf">1.00</span>  <span class="mf">0.00</span>
 <span class="n">ATOM</span>     <span class="mi">10</span>  <span class="n">H</span>           <span class="mi">1</span>       <span class="mf">1.271</span>   <span class="mf">1.378</span>   <span class="mf">0.122</span>  <span class="mf">1.00</span>  <span class="mf">0.00</span>
 <span class="n">ATOM</span>     <span class="mi">11</span>  <span class="n">H</span>           <span class="mi">1</span>      <span class="o">-</span><span class="mf">0.074</span>  <span class="o">-</span><span class="mf">0.384</span>   <span class="mf">1.288</span>  <span class="mf">1.00</span>  <span class="mf">0.00</span>
@@ -707,16 +687,10 @@ We can now run our script like this:</p>
 <span class="n">ATOM</span>     <span class="mi">13</span>  <span class="n">H</span>           <span class="mi">1</span>      <span class="o">-</span><span class="mf">1.183</span>   <span class="mf">0.500</span>  <span class="o">-</span><span class="mf">1.412</span>  <span class="mf">1.00</span>  <span class="mf">0.00</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 </section>
 <section id="double-quotes-around-arguments">
 <h2>Double-Quotes Around Arguments<a class="headerlink" href="#double-quotes-around-arguments" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>For the same reason that we put the loop variable inside double-quotes,
-in case the filename happens to contain any spaces,
-we surround <code class="docutils literal notranslate"><span class="pre">$1</span></code> with double-quotes.
-{: .callout}</p>
-</div></blockquote>
+<p>For the same reason that we put the loop variable inside double-quotes, in case the filename happens to contain any spaces, we surround <code class="docutils literal notranslate"><span class="pre">$1</span></code> with double-quotes.</p>
 <p>Currently, we need to edit <code class="docutils literal notranslate"><span class="pre">middle.sh</span></code> each time we want to adjust the range of
 lines that is returned.
 Let’s fix that by configuring our script to instead use three command-line arguments.
@@ -725,19 +699,16 @@ provide will be accessible via the special variables <code class="docutils liter
 which refer to the first, second, third command-line arguments, respectively.</p>
 <p>Knowing this, we can use additional arguments to define the range of lines to
 be passed to <code class="docutils literal notranslate"><span class="pre">head</span></code> and <code class="docutils literal notranslate"><span class="pre">tail</span></code> respectively:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ nano middle.sh
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>nano<span class="w"> </span>middle.sh
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">head</span> <span class="o">-</span><span class="n">n</span> <span class="s2">&quot;$2&quot;</span> <span class="s2">&quot;$1&quot;</span> <span class="o">|</span> <span class="n">tail</span> <span class="o">-</span><span class="n">n</span> <span class="s2">&quot;$3&quot;</span>
 </pre></div>
 </div>
-<p>{: .source}</p>
 <p>We can now run:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bash middle.sh pentane.pdb 15 5
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>bash<span class="w"> </span>middle.sh<span class="w"> </span>pentane.pdb<span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="m">5</span>
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ATOM</span>      <span class="mi">9</span>  <span class="n">H</span>           <span class="mi">1</span>       <span class="mf">1.324</span>   <span class="mf">0.350</span>  <span class="o">-</span><span class="mf">1.332</span>  <span class="mf">1.00</span>  <span class="mf">0.00</span>
 <span class="n">ATOM</span>     <span class="mi">10</span>  <span class="n">H</span>           <span class="mi">1</span>       <span class="mf">1.271</span>   <span class="mf">1.378</span>   <span class="mf">0.122</span>  <span class="mf">1.00</span>  <span class="mf">0.00</span>
 <span class="n">ATOM</span>     <span class="mi">11</span>  <span class="n">H</span>           <span class="mi">1</span>      <span class="o">-</span><span class="mf">0.074</span>  <span class="o">-</span><span class="mf">0.384</span>   <span class="mf">1.288</span>  <span class="mf">1.00</span>  <span class="mf">0.00</span>
@@ -745,13 +716,11 @@ be passed to <code class="docutils literal notranslate"><span class="pre">head</
 <span class="n">ATOM</span>     <span class="mi">13</span>  <span class="n">H</span>           <span class="mi">1</span>      <span class="o">-</span><span class="mf">1.183</span>   <span class="mf">0.500</span>  <span class="o">-</span><span class="mf">1.412</span>  <span class="mf">1.00</span>  <span class="mf">0.00</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <p>By changing the arguments to our command we can change our script’s
 behaviour:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bash middle.sh pentane.pdb 20 5
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>bash<span class="w"> </span>middle.sh<span class="w"> </span>pentane.pdb<span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="m">5</span>
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ATOM</span>     <span class="mi">14</span>  <span class="n">H</span>           <span class="mi">1</span>      <span class="o">-</span><span class="mf">1.259</span>   <span class="mf">1.420</span>   <span class="mf">0.112</span>  <span class="mf">1.00</span>  <span class="mf">0.00</span>
 <span class="n">ATOM</span>     <span class="mi">15</span>  <span class="n">H</span>           <span class="mi">1</span>      <span class="o">-</span><span class="mf">2.608</span>  <span class="o">-</span><span class="mf">0.407</span>   <span class="mf">1.130</span>  <span class="mf">1.00</span>  <span class="mf">0.00</span>
 <span class="n">ATOM</span>     <span class="mi">16</span>  <span class="n">H</span>           <span class="mi">1</span>      <span class="o">-</span><span class="mf">2.540</span>  <span class="o">-</span><span class="mf">1.303</span>  <span class="o">-</span><span class="mf">0.404</span>  <span class="mf">1.00</span>  <span class="mf">0.00</span>
@@ -759,20 +728,17 @@ behaviour:</p>
 <span class="n">TER</span>      <span class="mi">18</span>              <span class="mi">1</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <p>This works,
 but it may take the next person who reads <code class="docutils literal notranslate"><span class="pre">middle.sh</span></code> a moment to figure out what it does.
 We can improve our script by adding some <strong>comments</strong> at the top:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ nano middle.sh
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>nano<span class="w"> </span>middle.sh
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select lines from the middle of a file.</span>
 <span class="c1"># Usage: bash middle.sh filename end_line num_lines</span>
 <span class="n">head</span> <span class="o">-</span><span class="n">n</span> <span class="s2">&quot;$2&quot;</span> <span class="s2">&quot;$1&quot;</span> <span class="o">|</span> <span class="n">tail</span> <span class="o">-</span><span class="n">n</span> <span class="s2">&quot;$3&quot;</span>
 </pre></div>
 </div>
-<p>{: .source}</p>
 <p>A comment starts with a <code class="docutils literal notranslate"><span class="pre">#</span></code> character and runs to the end of the line.
 The computer ignores comments,
 but they’re invaluable for helping people (including your future self) understand and use scripts.
@@ -781,10 +747,9 @@ you should check that the comment is still accurate:
 an explanation that sends the reader in the wrong direction is worse than none at all.</p>
 <p>What if we want to process many files in a single pipeline?
 For example, if we want to sort our <code class="docutils literal notranslate"><span class="pre">.pdb</span></code> files by length, we would type:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ wc -l *.pdb | sort -n
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>wc<span class="w"> </span>-l<span class="w"> </span>*.pdb<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-n
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <p>because <code class="docutils literal notranslate"><span class="pre">wc</span> <span class="pre">-l</span></code> lists the number of lines in the files
 (recall that <code class="docutils literal notranslate"><span class="pre">wc</span></code> stands for ‘word count’, adding the <code class="docutils literal notranslate"><span class="pre">-l</span></code> option means ‘count lines’ instead)
 and <code class="docutils literal notranslate"><span class="pre">sort</span> <span class="pre">-n</span></code> sorts things numerically.
@@ -801,20 +766,17 @@ We also should put <code class="docutils literal notranslate"><span class="pre">
 to handle the case of arguments containing spaces
 (<code class="docutils literal notranslate"><span class="pre">&quot;$&#64;&quot;</span></code> is special syntax and is equivalent to <code class="docutils literal notranslate"><span class="pre">&quot;$1&quot;</span></code> <code class="docutils literal notranslate"><span class="pre">&quot;$2&quot;</span></code> …).</p>
 <p>Here’s an example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ nano sorted.sh
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>nano<span class="w"> </span>sorted.sh
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sort files by their length.</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sort files by their length.</span>
 <span class="c1"># Usage: bash sorted.sh one_or_more_filenames</span>
-<span class="n">wc</span> <span class="o">-</span><span class="n">l</span> <span class="s2">&quot;$@&quot;</span> <span class="o">|</span> <span class="n">sort</span> <span class="o">-</span><span class="n">n</span>
+wc<span class="w"> </span>-l<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-n
 </pre></div>
 </div>
-<p>{: .source}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bash sorted.sh *.pdb ../creatures/*.dat
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>bash<span class="w"> </span>sorted.sh<span class="w"> </span>*.pdb<span class="w"> </span>../creatures/*.dat
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">9</span> <span class="n">methane</span><span class="o">.</span><span class="n">pdb</span>
 <span class="mi">12</span> <span class="n">ethane</span><span class="o">.</span><span class="n">pdb</span>
 <span class="mi">15</span> <span class="n">propane</span><span class="o">.</span><span class="n">pdb</span>
@@ -827,12 +789,10 @@ to handle the case of arguments containing spaces
 <span class="mi">596</span> <span class="n">total</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 </section>
 <section id="list-unique-species">
 <h2>List Unique Species<a class="headerlink" href="#list-unique-species" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>Leah has several hundred data files, each of which is formatted like this:</p>
+<p>Leah has several hundred data files, each of which is formatted like this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2013</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">05</span><span class="p">,</span><span class="n">deer</span><span class="p">,</span><span class="mi">5</span>
 <span class="mi">2013</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">05</span><span class="p">,</span><span class="n">rabbit</span><span class="p">,</span><span class="mi">22</span>
 <span class="mi">2013</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">05</span><span class="p">,</span><span class="n">raccoon</span><span class="p">,</span><span class="mi">7</span>
@@ -843,35 +803,23 @@ to handle the case of arguments containing spaces
 <span class="mi">2013</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">07</span><span class="p">,</span><span class="n">bear</span><span class="p">,</span><span class="mi">1</span>
 </pre></div>
 </div>
-<p>{: .source}</p>
-<p>An example of this type of file is given in
-<code class="docutils literal notranslate"><span class="pre">shell-lesson-data/exercise-data/animal-counts/animals.csv</span></code>.</p>
-<p>We can use the command <code class="docutils literal notranslate"><span class="pre">cut</span> <span class="pre">-d</span> <span class="pre">,</span> <span class="pre">-f</span> <span class="pre">2</span> <span class="pre">animals.csv</span> <span class="pre">|</span> <span class="pre">sort</span> <span class="pre">|</span> <span class="pre">uniq</span></code> to produce
-the unique species in <code class="docutils literal notranslate"><span class="pre">animals.csv</span></code>.
-In order to avoid having to type out this series of commands every time,
-a scientist may choose to write a shell script instead.</p>
-<p>Write a shell script called <code class="docutils literal notranslate"><span class="pre">species.sh</span></code> that takes any number of
-filenames as command-line arguments, and uses a variation of the above command
-to print a list of the unique species appearing in each of those files separately.</p>
-<blockquote>
-<div><h2 class="rubric" id="solution">Solution</h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Script to find unique species in csv files where species is the second data field
-# This script accepts any number of file names as command line arguments
-
-# Loop over all files
-for file in $@
-do
-    echo &quot;Unique species in $file:&quot;
-    # Extract species names
-    cut -d , -f 2 $file | sort | uniq
-done
+<p>An example of this type of file is given in <code class="docutils literal notranslate"><span class="pre">shell-lesson-data/exercise-data/animal-counts/animals.csv</span></code>.
+We can use the command <code class="docutils literal notranslate"><span class="pre">cut</span> <span class="pre">-d</span> <span class="pre">,</span> <span class="pre">-f</span> <span class="pre">2</span> <span class="pre">animals.csv</span> <span class="pre">|</span> <span class="pre">sort</span> <span class="pre">|</span> <span class="pre">uniq</span></code> to produce the unique species in <code class="docutils literal notranslate"><span class="pre">animals.csv</span></code>. In order to avoid having to type out this series of commands every time, a scientist may choose to write a shell script instead.
+Write a shell script called <code class="docutils literal notranslate"><span class="pre">species.sh</span></code> that takes any number of filenames as command-line arguments, and uses a variation of the above command to print a list of the unique species appearing in each of those files separately.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Script to find unique species in csv files where species is the second data field</span>
+<span class="c1"># This script accepts any number of file names as command line arguments</span>
+<span class="c1"># Loop over all files</span>
+<span class="k">for</span><span class="w"> </span>file<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nv">$@</span>
+<span class="w">    </span><span class="k">do</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Unique species in </span><span class="nv">$file</span><span class="s2">:&quot;</span>
+<span class="w">        </span><span class="c1"># Extract species names</span>
+<span class="w">        </span>cut<span class="w"> </span>-d<span class="w"> </span>,<span class="w"> </span>-f<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="nv">$file</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq
+<span class="w">    </span><span class="k">done</span>
 </pre></div>
 </div>
-<p>{: .language-bash}
-{: .solution}
-{: .challenge}</p>
-</div></blockquote>
-</div></blockquote>
+</div>
 <p>Suppose we have just run a series of commands that did something useful — for example,
 that created a graph we’d like to use in a paper.
 We’d like to be able to re-create the graph later if we need to,
@@ -879,10 +827,9 @@ so we want to save the commands in a file.
 Instead of typing them in again
 (and potentially getting them wrong)
 we can do this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ history | tail -n 5 &gt; redo-figure-3.sh
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">history</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-n<span class="w"> </span><span class="m">5</span><span class="w"> </span>&gt;<span class="w"> </span>redo-figure-3.sh
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <p>The file <code class="docutils literal notranslate"><span class="pre">redo-figure-3.sh</span></code> now contains:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">297</span> <span class="n">bash</span> <span class="n">goostats</span><span class="o">.</span><span class="n">sh</span> <span class="n">NENE01729B</span><span class="o">.</span><span class="n">txt</span> <span class="n">stats</span><span class="o">-</span><span class="n">NENE01729B</span><span class="o">.</span><span class="n">txt</span>
 <span class="mi">298</span> <span class="n">bash</span> <span class="n">goodiff</span><span class="o">.</span><span class="n">sh</span> <span class="n">stats</span><span class="o">-</span><span class="n">NENE01729B</span><span class="o">.</span><span class="n">txt</span> <span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">validated</span><span class="o">/</span><span class="mf">01729.</span><span class="n">txt</span> <span class="o">&gt;</span> <span class="mi">01729</span><span class="o">-</span><span class="n">differences</span><span class="o">.</span><span class="n">txt</span>
@@ -891,33 +838,21 @@ we can do this:</p>
 <span class="mi">301</span> <span class="n">history</span> <span class="o">|</span> <span class="n">tail</span> <span class="o">-</span><span class="n">n</span> <span class="mi">5</span> <span class="o">&gt;</span> <span class="n">redo</span><span class="o">-</span><span class="n">figure</span><span class="o">-</span><span class="mf">3.</span><span class="n">sh</span>
 </pre></div>
 </div>
-<p>{: .source}</p>
 <p>After a moment’s work in an editor to remove the serial numbers on the commands,
 and to remove the final line where we called the <code class="docutils literal notranslate"><span class="pre">history</span></code> command,
 we have a completely accurate record of how we created that figure.</p>
 </section>
 <section id="why-record-commands-in-the-history-before-running-them">
 <h2>Why Record Commands in the History Before Running Them?<a class="headerlink" href="#why-record-commands-in-the-history-before-running-them" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>If you run the command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ history | tail -n 5 &gt; recent.sh
+<p>If you run the command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">history</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-n<span class="w"> </span><span class="m">5</span><span class="w"> </span>&gt;<span class="w"> </span>recent.sh
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
-<p>the last command in the file is the <code class="docutils literal notranslate"><span class="pre">history</span></code> command itself, i.e.,
-the shell has added <code class="docutils literal notranslate"><span class="pre">history</span></code> to the command log before actually
-running it. In fact, the shell <em>always</em> adds commands to the log
-before running them. Why do you think it does this?</p>
-<blockquote>
-<div><h2 class="rubric" id="id1">Solution</h2>
-<p>If a command causes something to crash or hang, it might be useful
-to know what that command was, in order to investigate the problem.
-Were the command only be recorded after running it, we would not
-have a record of the last command run in the event of a crash.
-{: .solution}
-{: .challenge}</p>
-</div></blockquote>
-</div></blockquote>
+<p>the last command in the file is the <code class="docutils literal notranslate"><span class="pre">history</span></code> command itself, i.e., the shell has added <code class="docutils literal notranslate"><span class="pre">history</span></code> to the command log before actually running it. In fact, the shell <em>always</em> adds commands to the log before running them. Why do you think it does this?</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>If a command causes something to crash or hang, it might be useful to know what that command was, in order to investigate the problem. Were the command only be recorded after running it, we would not have a record of the last command run in the event of a crash.</p>
+</div>
 <p>In practice, most people develop shell scripts by running commands at the shell prompt a few times
 to make sure they’re doing the right thing,
 then saving them in a file for re-use.
@@ -931,50 +866,44 @@ and save it as a shell script.</p>
 <p>Nelle’s supervisor insisted that all her analytics must be reproducible.
 The easiest way to capture all the steps is in a script.</p>
 <p>First we return to Nelle’s project directory:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd ../../north-pacific-gyre/
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>../../north-pacific-gyre/
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <p>She creates a file using <code class="docutils literal notranslate"><span class="pre">nano</span></code> …</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ nano do-stats.sh
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>nano<span class="w"> </span><span class="k">do</span>-stats.sh
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <p>…which contains the following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Calculate stats for data files.
-for datafile in &quot;$@&quot;
-do
-    echo $datafile
-    bash goostats.sh $datafile stats-$datafile
-done
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate stats for data files.</span>
+<span class="k">for</span><span class="w"> </span>datafile<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>
+<span class="k">do</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$datafile</span>
+<span class="w">    </span>bash<span class="w"> </span>goostats.sh<span class="w"> </span><span class="nv">$datafile</span><span class="w"> </span>stats-<span class="nv">$datafile</span>
+<span class="k">done</span>
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <p>She saves this in a file called <code class="docutils literal notranslate"><span class="pre">do-stats.sh</span></code>
 so that she can now re-do the first stage of her analysis by typing:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bash do-stats.sh NENE*A.txt NENE*B.txt
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>bash<span class="w"> </span><span class="k">do</span>-stats.sh<span class="w"> </span>NENE*A.txt<span class="w"> </span>NENE*B.txt
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <p>She can also do this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bash do-stats.sh NENE*A.txt NENE*B.txt | wc -l
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>bash<span class="w"> </span><span class="k">do</span>-stats.sh<span class="w"> </span>NENE*A.txt<span class="w"> </span>NENE*B.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <p>so that the output is just the number of files processed
 rather than the names of the files that were processed.</p>
 <p>One thing to note about Nelle’s script is that
 it lets the person running it decide what files to process.
 She could have written it as:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Calculate stats for Site A and Site B data files.
-for datafile in NENE*A.txt NENE*B.txt
-do
-    echo $datafile
-    bash goostats.sh $datafile stats-$datafile
-done
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate stats for Site A and Site B data files.</span>
+<span class="k">for</span><span class="w"> </span>datafile<span class="w"> </span><span class="k">in</span><span class="w"> </span>NENE*A.txt<span class="w"> </span>NENE*B.txt
+<span class="k">do</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$datafile</span>
+<span class="w">    </span>bash<span class="w"> </span>goostats.sh<span class="w"> </span><span class="nv">$datafile</span><span class="w"> </span>stats-<span class="nv">$datafile</span>
+<span class="k">done</span>
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <p>The advantage is that this always selects the right files:
 she doesn’t have to remember to exclude the ‘Z’ files.
 The disadvantage is that it <em>always</em> selects just those files — she can’t run it on all files
@@ -988,171 +917,114 @@ Of course, this introduces another trade-off between flexibility and complexity.
 </section>
 <section id="variables-in-shell-scripts">
 <h2>Variables in Shell Scripts<a class="headerlink" href="#variables-in-shell-scripts" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>In the <code class="docutils literal notranslate"><span class="pre">proteins</span></code> directory, imagine you have a shell script called <code class="docutils literal notranslate"><span class="pre">script.sh</span></code> containing the
-following commands:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>head -n $2 $1
-tail -n $3 $1
+<p>In the <code class="docutils literal notranslate"><span class="pre">proteins</span></code> directory, imagine you have a shell script called <code class="docutils literal notranslate"><span class="pre">script.sh</span></code> containing the following commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>head<span class="w"> </span>-n<span class="w"> </span><span class="nv">$2</span><span class="w"> </span><span class="nv">$1</span>
+tail<span class="w"> </span>-n<span class="w"> </span><span class="nv">$3</span><span class="w"> </span><span class="nv">$1</span>
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <p>While you are in the <code class="docutils literal notranslate"><span class="pre">proteins</span></code> directory, you type the following command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bash script.sh &#39;*.pdb&#39; 1 1
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>bash<span class="w"> </span>script.sh<span class="w"> </span><span class="s1">&#39;*.pdb&#39;</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1</span>
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <p>Which of the following outputs would you expect to see?</p>
 <ol class="arabic simple">
-<li><p>All of the lines between the first and the last lines of each file ending in <code class="docutils literal notranslate"><span class="pre">.pdb</span></code>
-in the <code class="docutils literal notranslate"><span class="pre">proteins</span></code> directory</p></li>
+<li><p>All of the lines between the first and the last lines of each file ending in <code class="docutils literal notranslate"><span class="pre">.pdb</span></code> in the <code class="docutils literal notranslate"><span class="pre">proteins</span></code> directory</p></li>
 <li><p>The first and the last line of each file ending in <code class="docutils literal notranslate"><span class="pre">.pdb</span></code> in the <code class="docutils literal notranslate"><span class="pre">proteins</span></code> directory</p></li>
 <li><p>The first and the last line of each file in the <code class="docutils literal notranslate"><span class="pre">proteins</span></code> directory</p></li>
 <li><p>An error because of the quotes around <code class="docutils literal notranslate"><span class="pre">*.pdb</span></code></p></li>
 </ol>
-<blockquote>
-<div><h2 class="rubric" id="id2">Solution</h2>
-<p>The correct answer is 2.</p>
-<p>The special variables <span class="math notranslate nohighlight">\(1, \)</span>2 and $3 represent the command line arguments given to the
-script, such that the commands run are:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ head -n 1 cubane.pdb ethane.pdb octane.pdb pentane.pdb propane.pdb
-$ tail -n 1 cubane.pdb ethane.pdb octane.pdb pentane.pdb propane.pdb
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>The correct answer is 2.
+The special variables <span class="math notranslate nohighlight">\(1, \)</span>2 and $3 represent the command line arguments given to the script, such that the commands run are:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span>cubane.pdb<span class="w"> </span>ethane.pdb<span class="w"> </span>octane.pdb<span class="w"> </span>pentane.pdb<span class="w"> </span>propane.pdb
+$<span class="w"> </span>tail<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span>cubane.pdb<span class="w"> </span>ethane.pdb<span class="w"> </span>octane.pdb<span class="w"> </span>pentane.pdb<span class="w"> </span>propane.pdb
 </pre></div>
 </div>
-<p>{: .language-bash}
-The shell does not expand <code class="docutils literal notranslate"><span class="pre">'*.pdb'</span></code> because it is enclosed by quote marks.
-As such, the first argument to the script is <code class="docutils literal notranslate"><span class="pre">'*.pdb'</span></code> which gets expanded within the
-script by <code class="docutils literal notranslate"><span class="pre">head</span></code> and <code class="docutils literal notranslate"><span class="pre">tail</span></code>.
-{: .solution}
-{: .challenge}</p>
-</div></blockquote>
-</div></blockquote>
+<p>The shell does not expand <code class="docutils literal notranslate"><span class="pre">'*.pdb'</span></code> because it is enclosed by quote marks. As such, the first argument to the script is <code class="docutils literal notranslate"><span class="pre">'*.pdb'</span></code> which gets expanded within the script by <code class="docutils literal notranslate"><span class="pre">head</span></code> and <code class="docutils literal notranslate"><span class="pre">tail</span></code>.</p>
+</div>
 </section>
 <section id="find-the-longest-file-with-a-given-extension">
 <h2>Find the Longest File With a Given Extension<a class="headerlink" href="#find-the-longest-file-with-a-given-extension" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>Write a shell script called <code class="docutils literal notranslate"><span class="pre">longest.sh</span></code> that takes the name of a
-directory and a filename extension as its arguments, and prints
-out the name of the file with the most lines in that directory
-with that extension. For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bash longest.sh shell-lesson-data/exercise-data/proteins pdb
-</pre></div>
-</div>
-<p>{: .language-bash}</p>
-<p>would print the name of the <code class="docutils literal notranslate"><span class="pre">.pdb</span></code> file in <code class="docutils literal notranslate"><span class="pre">shell-lesson-data/exercise-data/proteins</span></code> that has
-the most lines.</p>
-<p>Feel free to test your script on another directory e.g.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bash longest.sh shell-lesson-data/exercise-data/writing txt
-</pre></div>
-</div>
-<p>{: .language-bash}</p>
-<blockquote>
-<div><h2 class="rubric" id="id3">Solution</h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Shell script which takes two arguments:
-#    1. a directory name
-#    2. a file extension
-# and prints the name of the file in that directory
-# with the most lines which matches the file extension.
+<p>Write a shell script called <code class="docutils literal notranslate"><span class="pre">longest.sh</span></code> that takes the name of a directory and a filename extension as its arguments, and prints out the name of the file with the most lines in that directory with that extension. For example:
+`` bash
+$ bash <a class="reference external" href="http://longest.sh">longest.sh</a> shell-lesson-data/exercise-data/proteins pdb</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>would print the name of the `.pdb` file in `shell-lesson-data/exercise-data/proteins` that has the most lines.
 
-wc -l $1/*.$2 | sort -n | tail -n 2 | head -n 1
+Feel free to test your script on another directory e.g.
+```bash
+$ bash longest.sh shell-lesson-data/exercise-data/writing txt
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
-<p>The first part of the pipeline, <code class="docutils literal notranslate"><span class="pre">wc</span> <span class="pre">-l</span> <span class="pre">$1/*.$2</span> <span class="pre">|</span> <span class="pre">sort</span> <span class="pre">-n</span></code>, counts
-the lines in each file and sorts them numerically (largest last). When
-there’s more than one file, <code class="docutils literal notranslate"><span class="pre">wc</span></code> also outputs a final summary line,
-giving the total number of lines across <em>all</em> files.  We use <code class="docutils literal notranslate"><span class="pre">tail</span> <span class="pre">-n</span> <span class="pre">2</span> <span class="pre">|</span> <span class="pre">head</span> <span class="pre">-n</span> <span class="pre">1</span></code> to throw away this last line.</p>
-<p>With <code class="docutils literal notranslate"><span class="pre">wc</span> <span class="pre">-l</span> <span class="pre">$1/*.$2</span> <span class="pre">|</span> <span class="pre">sort</span> <span class="pre">-n</span> <span class="pre">|</span> <span class="pre">tail</span> <span class="pre">-n</span> <span class="pre">1</span></code> we’ll see the final summary
-line: we can build our pipeline up in pieces to be sure we understand
-the output.</p>
-</div></blockquote>
-<p>{: .solution}
-{: .challenge}</p>
-</div></blockquote>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Shell script which takes two arguments:</span>
+<span class="c1">#    1. a directory name</span>
+<span class="c1">#    2. a file extension</span>
+<span class="c1"># and prints the name of the file in that directory</span>
+<span class="c1"># with the most lines which matches the file extension.</span>
+wc<span class="w"> </span>-l<span class="w"> </span><span class="nv">$1</span>/*.<span class="nv">$2</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-n<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-n<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span>
+</pre></div>
+</div>
+<p>The first part of the pipeline, <code class="docutils literal notranslate"><span class="pre">wc</span> <span class="pre">-l</span> <span class="pre">$1/*.$2</span> <span class="pre">|</span> <span class="pre">sort</span> <span class="pre">-n</span></code>, counts the lines in each file and sorts them numerically (largest last). When there’s more than one file, <code class="docutils literal notranslate"><span class="pre">wc</span></code> also outputs a final summary line, giving the total number of lines across <em>all</em> files.  We use <code class="docutils literal notranslate"><span class="pre">tail</span> <span class="pre">-n</span> <span class="pre">2</span> <span class="pre">|</span> <span class="pre">head</span> <span class="pre">-n</span> <span class="pre">1</span></code> to throw away this last line.
+With <code class="docutils literal notranslate"><span class="pre">wc</span> <span class="pre">-l</span> <span class="pre">$1/*.$2</span> <span class="pre">|</span> <span class="pre">sort</span> <span class="pre">-n</span> <span class="pre">|</span> <span class="pre">tail</span> <span class="pre">-n</span> <span class="pre">1</span></code> we’ll see the final summary line: we can build our pipeline up in pieces to be sure we understand the output.</p>
+</div>
 </section>
 <section id="script-reading-comprehension">
 <h2>Script Reading Comprehension<a class="headerlink" href="#script-reading-comprehension" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>For this question, consider the <code class="docutils literal notranslate"><span class="pre">shell-lesson-data/exercise-data/proteins</span></code> directory once again.
-This contains a number of <code class="docutils literal notranslate"><span class="pre">.pdb</span></code> files in addition to any other files you
-may have created.
-Explain what each of the following three scripts would do when run as
-<code class="docutils literal notranslate"><span class="pre">bash</span> <span class="pre">script1.sh</span> <span class="pre">*.pdb</span></code>, <code class="docutils literal notranslate"><span class="pre">bash</span> <span class="pre">script2.sh</span> <span class="pre">*.pdb</span></code>, and <code class="docutils literal notranslate"><span class="pre">bash</span> <span class="pre">script3.sh</span> <span class="pre">*.pdb</span></code> respectively.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Script 1</span>
-<span class="n">echo</span> <span class="o">*.*</span>
+<p>For this question, consider the <code class="docutils literal notranslate"><span class="pre">shell-lesson-data/exercise-data/proteins</span></code> directory once again. This contains a number of <code class="docutils literal notranslate"><span class="pre">.pdb</span></code> files in addition to any other files you may have created. Explain what each of the following three scripts would do when run as <code class="docutils literal notranslate"><span class="pre">bash</span> <span class="pre">script1.sh</span> <span class="pre">*.pdb</span></code>, <code class="docutils literal notranslate"><span class="pre">bash</span> <span class="pre">script2.sh</span> <span class="pre">*.pdb</span></code>, and <code class="docutils literal notranslate"><span class="pre">bash</span> <span class="pre">script3.sh</span> <span class="pre">*.pdb</span></code> respectively.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Script 1</span>
+<span class="nb">echo</span><span class="w"> </span>*.*
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Script 2
-for filename in $1 $2 $3
-do
-    cat $filename
-done
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Script 2</span>
+<span class="k">for</span><span class="w"> </span>filename<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nv">$1</span><span class="w"> </span><span class="nv">$2</span><span class="w"> </span><span class="nv">$3</span>
+<span class="w">    </span><span class="k">do</span>
+<span class="w">        </span>cat<span class="w"> </span><span class="nv">$filename</span>
+<span class="w">    </span><span class="k">done</span>
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Script 3
-echo $@.pdb
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Script 3</span>
+<span class="nb">echo</span><span class="w"> </span><span class="nv">$@</span>.pdb
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
-<blockquote>
-<div><h2 class="rubric" id="solutions">Solutions</h2>
-<p>In each case, the shell expands the wildcard in <code class="docutils literal notranslate"><span class="pre">*.pdb</span></code> before passing the resulting
-list of file names as arguments to the script.</p>
-<p>Script 1 would print out a list of all files containing a dot in their name.
-The arguments passed to the script are not actually used anywhere in the script.</p>
-<p>Script 2 would print the contents of the first 3 files with a <code class="docutils literal notranslate"><span class="pre">.pdb</span></code> file extension.
-<code class="docutils literal notranslate"><span class="pre">$1</span></code>, <code class="docutils literal notranslate"><span class="pre">$2</span></code>, and <code class="docutils literal notranslate"><span class="pre">$3</span></code> refer to the first, second, and third argument respectively.</p>
-<p>Script 3 would print all the arguments to the script (i.e. all the <code class="docutils literal notranslate"><span class="pre">.pdb</span></code> files),
-followed by <code class="docutils literal notranslate"><span class="pre">.pdb</span></code>.
-<code class="docutils literal notranslate"><span class="pre">$&#64;</span></code> refers to <em>all</em> the arguments given to a shell script.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>In each case, the shell expands the wildcard in <code class="docutils literal notranslate"><span class="pre">*.pdb</span></code> before passing the resulting list of file names as arguments to the script.
+Script 1 would print out a list of all files containing a dot in their name. The arguments passed to the script are not actually used anywhere in the script.
+Script 2 would print the contents of the first 3 files with a <code class="docutils literal notranslate"><span class="pre">.pdb</span></code> file extension. <code class="docutils literal notranslate"><span class="pre">$1</span></code>, <code class="docutils literal notranslate"><span class="pre">$2</span></code>, and <code class="docutils literal notranslate"><span class="pre">$3</span></code> refer to the first, second, and third argument respectively.
+Script 3 would print all the arguments to the script (i.e. all the <code class="docutils literal notranslate"><span class="pre">.pdb</span></code> files), followed by <code class="docutils literal notranslate"><span class="pre">.pdb</span></code>. <code class="docutils literal notranslate"><span class="pre">$&#64;</span></code> refers to <em>all</em> the arguments given to a shell script.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cubane</span><span class="o">.</span><span class="n">pdb</span> <span class="n">ethane</span><span class="o">.</span><span class="n">pdb</span> <span class="n">methane</span><span class="o">.</span><span class="n">pdb</span> <span class="n">octane</span><span class="o">.</span><span class="n">pdb</span> <span class="n">pentane</span><span class="o">.</span><span class="n">pdb</span> <span class="n">propane</span><span class="o">.</span><span class="n">pdb</span><span class="o">.</span><span class="n">pdb</span>
 </pre></div>
 </div>
-<p>{: .output}
-{: .solution}
-{: .challenge}</p>
-</div></blockquote>
-</div></blockquote>
+</div>
 </section>
 <section id="debugging-scripts">
 <h2>Debugging Scripts<a class="headerlink" href="#debugging-scripts" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>Suppose you have saved the following script in a file called <code class="docutils literal notranslate"><span class="pre">do-errors.sh</span></code>
-in Nelle’s <code class="docutils literal notranslate"><span class="pre">north-pacific-gyre/scripts</span></code> directory:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Calculate stats for data files.
-for datafile in &quot;$@&quot;
-do
-    echo $datfile
-    bash goostats.sh $datafile stats-$datafile
-done
+<p>Suppose you have saved the following script in a file called <code class="docutils literal notranslate"><span class="pre">do-errors.sh</span></code> in Nelle’s <code class="docutils literal notranslate"><span class="pre">north-pacific-gyre/scripts</span></code> directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate stats for data files.</span>
+<span class="k">for</span><span class="w"> </span>datafile<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="k">do</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$datfile</span>
+<span class="w">        </span>bash<span class="w"> </span>goostats.sh<span class="w"> </span><span class="nv">$datafile</span><span class="w"> </span>stats-<span class="nv">$datafile</span>
+<span class="w">    </span><span class="k">done</span>
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <p>When you run it from the <code class="docutils literal notranslate"><span class="pre">north-pacific-gyre</span></code> directory:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bash do-errors.sh NENE*A.txt NENE*B.txt
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
-<p>the output is blank.
-To figure out why, re-run the script using the <code class="docutils literal notranslate"><span class="pre">-x</span></code> option:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bash -x do-errors.sh NENE*A.txt NENE*B.txt
+<p>the output is blank.</p>
+<p>To figure out why, re-run the script using the <code class="docutils literal notranslate"><span class="pre">-x</span></code> option:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>bash<span class="w"> </span>-x<span class="w"> </span><span class="k">do</span>-errors.sh<span class="w"> </span>NENE*A.txt<span class="w"> </span>NENE*B.txt
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <p>What is the output showing you?
 Which line is responsible for the error?</p>
-<blockquote>
-<div><h2 class="rubric" id="id4">Solution</h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">-x</span></code> option causes <code class="docutils literal notranslate"><span class="pre">bash</span></code> to run in debug mode.
-This prints out each command as it is run, which will help you to locate errors.
-In this example, we can see that <code class="docutils literal notranslate"><span class="pre">echo</span></code> isn’t printing anything. We have made a typo
-in the loop variable name, and the variable <code class="docutils literal notranslate"><span class="pre">datfile</span></code> doesn’t exist, hence returning
-an empty string.
-{: .solution}
-{: .challenge}</p>
-</div></blockquote>
-</div></blockquote>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">-x</span></code> option causes <code class="docutils literal notranslate"><span class="pre">bash</span></code> to run in debug mode. This prints out each command as it is run, which will help you to locate errors. In this example, we can see that <code class="docutils literal notranslate"><span class="pre">echo</span></code> isn’t printing anything. We have made a typo in the loop variable name, and the variable <code class="docutils literal notranslate"><span class="pre">datfile</span></code> doesn’t exist, hence returning an empty string.</p>
+</div>
 </section>
 </section>
 
