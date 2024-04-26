@@ -44,7 +44,7 @@ For this programme to run we need to introduce some dice rolls. To simulate a di
 
 If you want to see this in code here is an example for R:
 
-```
+``` R
 nPlayers <- 4
 endSquare <- 100
 snakes<-data.frame("Top" = c(14,28,34,68,85,96), "Bottom" = c(3,7,12,42,23,67))
@@ -80,7 +80,7 @@ while(max(P) < endSquare){
 
 A solution in python would be
 
-```
+``` python
 import random
 nPlayers = 4
 endSquare = 100

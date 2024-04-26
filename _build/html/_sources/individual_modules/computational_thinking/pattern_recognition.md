@@ -53,7 +53,7 @@ Here's a simple real-world application from the field of bioinformatics. Genetic
 
 Design a program that takes a sequence of nucleotides (of any length) and translates it into amino acids. Use the genetic code table given below as a dictionary to look up the codons and perform the translation. How can you use the ideas of decomposition and pattern recognition to help you to write this? Is this similar to anything you have written before?
 
-```
+``` python
 # The standard genetic code
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',

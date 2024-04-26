@@ -227,6 +227,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Where Is My Understanding?</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../where_is_my_understanding/homepage_where_is_my_understanding.html">What courses should I take?</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../where_is_my_understanding/computational_thinking.html">Computational Thinking Quiz</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../where_is_my_understanding/python_for_data_analysis.html">Python for Data Analysis Quizes</a></li>
 
 
@@ -586,41 +587,41 @@ document.write(`
 <p><img alt="flow chart of computational solution" src="individual_modules/computational_thinking/images/snakes_programme.png" /></p>
 <p>For this programme to run we need to introduce some dice rolls. To simulate a dice, we sample from the numbers 1,2,3,4,5,6.</p>
 <p>If you want to see this in code here is an example for R:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>nPlayers &lt;- 4
-endSquare &lt;- 100
-snakes&lt;-data.frame(&quot;Top&quot; = c(14,28,34,68,85,96), &quot;Bottom&quot; = c(3,7,12,42,23,67))
-ladders&lt;-data.frame(&quot;Bottom&quot; = c(5,22,38,51,64,72), &quot;Top&quot; = c(16,56,66,76,91,84))
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">nPlayers</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">4</span>
+<span class="n">endSquare</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">100</span>
+<span class="n">snakes</span><span class="o">&lt;-</span><span class="nf">data.frame</span><span class="p">(</span><span class="s">&quot;Top&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">14</span><span class="p">,</span><span class="m">28</span><span class="p">,</span><span class="m">34</span><span class="p">,</span><span class="m">68</span><span class="p">,</span><span class="m">85</span><span class="p">,</span><span class="m">96</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;Bottom&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">12</span><span class="p">,</span><span class="m">42</span><span class="p">,</span><span class="m">23</span><span class="p">,</span><span class="m">67</span><span class="p">))</span>
+<span class="n">ladders</span><span class="o">&lt;-</span><span class="nf">data.frame</span><span class="p">(</span><span class="s">&quot;Bottom&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">5</span><span class="p">,</span><span class="m">22</span><span class="p">,</span><span class="m">38</span><span class="p">,</span><span class="m">51</span><span class="p">,</span><span class="m">64</span><span class="p">,</span><span class="m">72</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;Top&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">16</span><span class="p">,</span><span class="m">56</span><span class="p">,</span><span class="m">66</span><span class="p">,</span><span class="m">76</span><span class="p">,</span><span class="m">91</span><span class="p">,</span><span class="m">84</span><span class="p">))</span>
 
-# create vector of current positions
-P&lt;-rep(1, nPlayers)
+<span class="c1"># create vector of current positions</span>
+<span class="n">P</span><span class="o">&lt;-</span><span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">nPlayers</span><span class="p">)</span>
 
-# specify starting player
-i&lt;-1
+<span class="c1"># specify starting player</span>
+<span class="n">i</span><span class="o">&lt;-</span><span class="m">1</span>
 
-while(max(P) &lt; endSquare){
+<span class="nf">while</span><span class="p">(</span><span class="nf">max</span><span class="p">(</span><span class="n">P</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">endSquare</span><span class="p">){</span>
 
-    D &lt;- sample(c(1:6),1)
-    P[i]&lt;-P[i]+D
-    if( P[i] %in% snakes$Top){
-        P[i]&lt;-snakes$Bottom[snakes$Top== P[i]]
-        print(paste(&quot;Player &quot;, i, &quot; goes down a snake.&quot;))
-    } else if (P[i] %in% ladders$Bottom) {
-        P[i]&lt;-ladders$Top[ladders$Bottom == P[i]]
-        print(paste(&quot;Player &quot;, i, &quot; goes up a ladder.&quot;))
-    }
+<span class="w">    </span><span class="n">D</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sample</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">6</span><span class="p">),</span><span class="m">1</span><span class="p">)</span>
+<span class="w">    </span><span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;-</span><span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">D</span>
+<span class="w">    </span><span class="nf">if</span><span class="p">(</span><span class="w"> </span><span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">%in%</span><span class="w"> </span><span class="n">snakes</span><span class="o">$</span><span class="n">Top</span><span class="p">){</span>
+<span class="w">        </span><span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;-</span><span class="n">snakes</span><span class="o">$</span><span class="n">Bottom</span><span class="p">[</span><span class="n">snakes</span><span class="o">$</span><span class="n">Top</span><span class="o">==</span><span class="w"> </span><span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+<span class="w">        </span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;Player &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="s">&quot; goes down a snake.&quot;</span><span class="p">))</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="n">else</span><span class="w"> </span><span class="nf">if </span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">%in%</span><span class="w"> </span><span class="n">ladders</span><span class="o">$</span><span class="n">Bottom</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;-</span><span class="n">ladders</span><span class="o">$</span><span class="n">Top</span><span class="p">[</span><span class="n">ladders</span><span class="o">$</span><span class="n">Bottom</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+<span class="w">        </span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;Player &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="s">&quot; goes up a ladder.&quot;</span><span class="p">))</span>
+<span class="w">    </span><span class="p">}</span>
 
-    print(paste(&quot;Player&quot;, i, &quot;is at square&quot;, P[i])) 
- 
-   if(i == nPlayers){
-        i &lt;- 1
-    } else {
-        i &lt;- i+1
-    }
-}
+<span class="w">    </span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;Player&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;is at square&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span><span class="w"> </span>
+<span class="w"> </span>
+<span class="w">   </span><span class="nf">if</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">nPlayers</span><span class="p">){</span>
+<span class="w">        </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="n">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">i</span><span class="m">+1</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>A solution in python would be</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
 <span class="n">nPlayers</span> <span class="o">=</span> <span class="mi">4</span>
 <span class="n">endSquare</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">snakes</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">14</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">28</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span> <span class="mi">34</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span> <span class="mi">68</span><span class="p">:</span><span class="mi">42</span><span class="p">,</span> <span class="mi">85</span><span class="p">:</span><span class="mi">23</span><span class="p">,</span> <span class="mi">96</span><span class="p">:</span><span class="mi">67</span> <span class="p">}</span>

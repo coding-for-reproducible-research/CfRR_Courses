@@ -227,6 +227,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Where Is My Understanding?</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../where_is_my_understanding/homepage_where_is_my_understanding.html">What courses should I take?</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../where_is_my_understanding/computational_thinking.html">Computational Thinking Quiz</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../where_is_my_understanding/python_for_data_analysis.html">Python for Data Analysis Quizes</a></li>
 
 
@@ -629,7 +630,7 @@ document.write(`
 <section id="activity-addition">
 <h3>Activity: Addition<a class="headerlink" href="#activity-addition" title="Link to this heading">#</a></h3>
 <p>We have created a program that asks a user for x and y values and then returns the sum of them.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;X = &#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;X = &#39;</span><span class="p">)</span>
 <span class="n">y</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Y = &#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
@@ -642,7 +643,7 @@ document.write(`
 <p>Hmm… did we tell it what to do incorrectly? Or did we tell it to do the wrong thing?</p>
 <p>To help decipher why it went wrong try setting ‘computational’ and ‘thinking’ as your input for X and Y. What is the difference between these types of input? Clue: type()</p>
 <p>The problem here is that the code is not accepting the input as numeric values, it is treating them as text strings. Our algorithm is missing a critical step where is converts the text input into numeric values. The correct algorithm is coded below</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;X = &#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;X = &#39;</span><span class="p">)</span>
 <span class="n">y</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Y = &#39;</span><span class="p">)</span>
 <span class="n">x</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>

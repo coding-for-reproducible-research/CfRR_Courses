@@ -60,7 +60,7 @@ Consider the exercise below:
 
 We have created a program that asks a user for x and y values and then returns the sum of them.
 
-```
+``` python
 x=input('X = ')
 y=input('Y = ')
 print(x+y)
@@ -82,7 +82,7 @@ To help decipher why it went wrong try setting 'computational' and 'thinking' as
 
 The problem here is that the code is not accepting the input as numeric values, it is treating them as text strings. Our algorithm is missing a critical step where is converts the text input into numeric values. The correct algorithm is coded below
 
-```
+``` python
 x=input('X = ')
 y=input('Y = ')
 x = float(x)
