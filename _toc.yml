@@ -6,7 +6,7 @@ root: home_page
 parts:
   - caption: Course Details and Delivery Dates
     chapters:
-    - file: course_homepages/connected_course_homepages/theortical
+    - file: course_homepages/connected_course_homepages/theoretical
       sections:
       - file: course_homepages/standalone_courses/computational_thinking
     - file: course_homepages/connected_course_homepages/machine_learning
@@ -41,9 +41,14 @@ parts:
       sections:
       - file: course_homepages/standalone_courses/introduction_to_version_control_with_git_and_github
       - file: course_homepages/standalone_courses/intermediate_version_control
+  - caption: Where Is My Understanding?
+    chapters: 
+    - file: where_is_my_understanding/homepage_where_is_my_understanding
+      sections: 
+      - file: where_is_my_understanding/python_for_data_analysis
   - caption: Self Study Notes
     chapters:
-    - file: section_landing_pages/introduction_to_python
+    - file: individual_modules/section_landing_pages/introduction_to_python
       sections:
       - file: individual_modules/introduction_to_python/motivation
       - file: individual_modules/introduction_to_python/fundamentals
@@ -59,7 +64,7 @@ parts:
       - file: individual_modules/introduction_to_python/analysis_task_1
       - file: individual_modules/introduction_to_python/analysis_task_2
       - file: individual_modules/introduction_to_python/analysis_task_3
-    - file: section_landing_pages/introduction_to_r
+    - file: individual_modules/section_landing_pages/introduction_to_r
       sections:
       - file: individual_modules/introduction_to_r/gettingstarted
       - file: individual_modules/introduction_to_r/basic_commands
@@ -70,7 +75,7 @@ parts:
       - file: individual_modules/introduction_to_r/plots
       - file: individual_modules/introduction_to_r/stats
       - file: individual_modules/introduction_to_r/good_practise
-    - file: section_landing_pages/introduction_to_hpc
+    - file: individual_modules/section_landing_pages/introduction_to_hpc
       sections:
       - file: individual_modules/introduction_to_hpc/motivation
       - file: individual_modules/introduction_to_hpc/isca
@@ -80,7 +85,7 @@ parts:
       - file: individual_modules/introduction_to_hpc/modules
       - file: individual_modules/introduction_to_hpc/example_jobs
       - file: individual_modules/introduction_to_hpc/exploiting_slurm
-    - file: section_landing_pages/introduction_to_version_control
+    - file: individual_modules/section_landing_pages/introduction_to_version_control
       sections:
       - file: individual_modules/introduction_to_version_control/motivation
       - file: individual_modules/introduction_to_version_control/git_vs_github
@@ -97,7 +102,7 @@ parts:
       - file: individual_modules/introduction_to_version_control/remote_branches_with_github
       - file: individual_modules/introduction_to_version_control/collaborating_with_branches
       - file: individual_modules/introduction_to_version_control/merge_conflicts
-    - file: section_landing_pages/introduction_to_unix
+    - file: individual_modules/section_landing_pages/introduction_to_unix
       sections:
       - file: individual_modules/introduction_to_unix/intro
       - file: individual_modules/introduction_to_unix/filedir
@@ -106,7 +111,7 @@ parts:
       - file: individual_modules/introduction_to_unix/loop
       - file: individual_modules/introduction_to_unix/script
       - file: individual_modules/introduction_to_unix/find
-    - file: section_landing_pages/computational_thinking
+    - file: individual_modules/section_landing_pages/computational_thinking
       sections:
       - file: individual_modules/computational_thinking/introduction
       - file: individual_modules/computational_thinking/algorithms
@@ -116,7 +121,7 @@ parts:
       - file: individual_modules/computational_thinking/alignment
       - file: individual_modules/computational_thinking/sudoku_task
       - file: individual_modules/computational_thinking/final_exercise
-    - file: section_landing_pages/python_for_data_analysis
+    - file: individual_modules/section_landing_pages/python_for_data_analysis
       sections:
       - file: individual_modules/python_for_data_analysis/Python_NumPy
       - file: individual_modules/python_for_data_analysis/Python_Pandas

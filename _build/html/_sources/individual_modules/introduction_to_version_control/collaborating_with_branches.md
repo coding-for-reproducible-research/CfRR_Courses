@@ -184,7 +184,7 @@ Joe fetches references to the new branches in the remote repository, then
 creates a new local branch to track his remote `fetching-material` branch (and
 also checks out this new local branch):
 
-```
+``` bash
 $ git fetch
 Username for 'https://github.com': jbloggs9999
 Password for 'https://jbloggs9999@github.com':
