@@ -4,6 +4,19 @@
 format: jb-book
 root: home_page
 parts:
+  - caption: What is Coding For Reproducible Research?
+    chapters:
+      - file : about_us 
+      - file : how_to_use_CfRR
+  - caption: What Courses Should I Take?
+    chapters: 
+    - file: where_is_my_understanding/homepage_where_is_my_understanding
+      sections: 
+      - file: where_is_my_understanding/computational_thinking
+      - file: where_is_my_understanding/python_for_data_analysis
+      - file: where_is_my_understanding/intro_to_python
+      - file: where_is_my_understanding/intro_to_version_control
+      - file: where_is_my_understanding/intro_to_unix
   - caption: Course Details and Delivery Dates
     chapters:
     - file: course_homepages/connected_course_homepages/theoretical
@@ -41,15 +54,6 @@ parts:
       sections:
       - file: course_homepages/standalone_courses/introduction_to_version_control_with_git_and_github
       - file: course_homepages/standalone_courses/intermediate_version_control
-  - caption: Where Is My Understanding?
-    chapters: 
-    - file: where_is_my_understanding/homepage_where_is_my_understanding
-      sections: 
-      - file: where_is_my_understanding/computational_thinking
-      - file: where_is_my_understanding/python_for_data_analysis
-      - file: where_is_my_understanding/intro_to_python
-      - file: where_is_my_understanding/intro_to_version_control
-      - file: where_is_my_understanding/intro_to_unix
   - caption: Self Study Notes
     chapters:
     - file: individual_modules/section_landing_pages/introduction_to_python
