@@ -192,6 +192,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../where_is_my_understanding/intro_to_python.html">Introduction to Python Quiz</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../where_is_my_understanding/intro_to_version_control.html">Introduction to Version Control with Git and Github Quiz</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../where_is_my_understanding/intro_to_unix.html">Introduction to UNIX Quiz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../where_is_my_understanding/regression_analysis_with_R.html">Regression Analysis With R</a></li>
 </ul>
 </li>
 </ul>
@@ -359,7 +360,17 @@
 <li class="toctree-l2"><a class="reference internal" href="../computational_thinking/final_exercise.html">Sudoku Task</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../section_landing_pages/python_for_data_analysis.html">Python for Data Analysis</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/regression_analysis_with_R.html">Regression Analysis with R</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../regression_analysis_with_R/introduction_to_regression.html">Introduction to Regression Analysis</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../regression_analysis_with_R/hypothesis_testing.html">Hypothesis Testing for Regression Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../regression_analysis_with_R/multiple_linear_regression.html">Multiple Linear Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../regression_analysis_with_R/logistic_regression.html">Logistic Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../regression_analysis_with_R/summary.html">Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../regression_analysis_with_R/extras.html">Extras</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../section_landing_pages/python_for_data_analysis.html">Python for Data Analysis</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="Python_NumPy.html">Numpy</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Pandas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Python_Matplotlib.html">Matplotlib</a></li>
@@ -711,13 +722,13 @@ As you saw in the previous workshop Python has a range of data structures but if
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="PLpUXOSrhgvB" data-shufflequestions="False"
+<div class="output text_html"><div id="feyApzkXCtWx" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#PLpUXOSrhgvB {
+#feyApzkXCtWx {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -887,7 +898,7 @@ As you saw in the previous workshop Python has a range of data structures but if
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsPLpUXOSrhgvB=[
+</style></div><script type="application/javascript">var questionsfeyApzkXCtWx=[
     {
         "question": "Which function is used to read a .csv file in Pandas",
         "type": "many_choice",
@@ -1663,8 +1674,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("PLpUXOSrhgvB")) {
-            show_questions(questionsPLpUXOSrhgvB,  PLpUXOSrhgvB); 
+          if(document.getElementById("feyApzkXCtWx")) {
+            show_questions(questionsfeyApzkXCtWx,  feyApzkXCtWx); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -1673,8 +1684,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("PLpUXOSrhgvB");
-        // console.log(document.getElementById("PLpUXOSrhgvB"));
+        //console.log("feyApzkXCtWx");
+        // console.log(document.getElementById("feyApzkXCtWx"));
 
         try_show();
         }
@@ -1952,13 +1963,13 @@ memory usage: 2.0+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="omnKDOxQEkbX" data-shufflequestions="False"
+<div class="output text_html"><div id="MTaYPEwNVSSN" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#omnKDOxQEkbX {
+#MTaYPEwNVSSN {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -2128,7 +2139,7 @@ memory usage: 2.0+ MB
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsomnKDOxQEkbX=[
+</style></div><script type="application/javascript">var questionsMTaYPEwNVSSN=[
     {
         "question": "Which function is used to read a .csv file in Pandas",
         "type": "many_choice",
@@ -2904,8 +2915,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("omnKDOxQEkbX")) {
-            show_questions(questionsomnKDOxQEkbX,  omnKDOxQEkbX); 
+          if(document.getElementById("MTaYPEwNVSSN")) {
+            show_questions(questionsMTaYPEwNVSSN,  MTaYPEwNVSSN); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -2914,8 +2925,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("omnKDOxQEkbX");
-        // console.log(document.getElementById("omnKDOxQEkbX"));
+        //console.log("MTaYPEwNVSSN");
+        // console.log(document.getElementById("MTaYPEwNVSSN"));
 
         try_show();
         }

@@ -192,6 +192,7 @@
 <li class="toctree-l2"><a class="reference internal" href="intro_to_python.html">Introduction to Python Quiz</a></li>
 <li class="toctree-l2"><a class="reference internal" href="intro_to_version_control.html">Introduction to Version Control with Git and Github Quiz</a></li>
 <li class="toctree-l2"><a class="reference internal" href="intro_to_unix.html">Introduction to UNIX Quiz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regression_analysis_with_R.html">Regression Analysis With R</a></li>
 </ul>
 </li>
 </ul>
@@ -359,7 +360,17 @@
 <li class="toctree-l2"><a class="reference internal" href="../individual_modules/computational_thinking/final_exercise.html">Sudoku Task</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../individual_modules/section_landing_pages/python_for_data_analysis.html">Python for Data Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../individual_modules/section_landing_pages/regression_analysis_with_R.html">Regression Analysis with R</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../individual_modules/regression_analysis_with_R/introduction_to_regression.html">Introduction to Regression Analysis</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../individual_modules/regression_analysis_with_R/hypothesis_testing.html">Hypothesis Testing for Regression Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../individual_modules/regression_analysis_with_R/multiple_linear_regression.html">Multiple Linear Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../individual_modules/regression_analysis_with_R/logistic_regression.html">Logistic Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../individual_modules/regression_analysis_with_R/summary.html">Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../individual_modules/regression_analysis_with_R/extras.html">Extras</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../individual_modules/section_landing_pages/python_for_data_analysis.html">Python for Data Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../individual_modules/python_for_data_analysis/Python_NumPy.html">Numpy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../individual_modules/python_for_data_analysis/Python_Pandas.html">Pandas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../individual_modules/python_for_data_analysis/Python_Matplotlib.html">Matplotlib</a></li>
@@ -621,13 +632,13 @@ document.write(`
 <h1>NumPy<a class="headerlink" href="#numpy" title="Link to this heading">#</a></h1>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="tbsCSLJRWhIe" data-shufflequestions="False"
+<div class="output text_html"><div id="FHmVJYxZcGuc" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#tbsCSLJRWhIe {
+#FHmVJYxZcGuc {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -797,7 +808,7 @@ document.write(`
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionstbsCSLJRWhIe=[
+</style></div><script type="application/javascript">var questionsFHmVJYxZcGuc=[
     {
         "question": "Which function is used to create an array in NumPy?",
         "type": "many_choice",
@@ -1807,8 +1818,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("tbsCSLJRWhIe")) {
-            show_questions(questionstbsCSLJRWhIe,  tbsCSLJRWhIe); 
+          if(document.getElementById("FHmVJYxZcGuc")) {
+            show_questions(questionsFHmVJYxZcGuc,  FHmVJYxZcGuc); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -1817,8 +1828,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("tbsCSLJRWhIe");
-        // console.log(document.getElementById("tbsCSLJRWhIe"));
+        //console.log("FHmVJYxZcGuc");
+        // console.log(document.getElementById("FHmVJYxZcGuc"));
 
         try_show();
         }
@@ -1829,13 +1840,13 @@ if (typeof version == 'undefined') {
 <h1>Pandas<a class="headerlink" href="#pandas" title="Link to this heading">#</a></h1>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="mOPkfWajhFxi" data-shufflequestions="False"
+<div class="output text_html"><div id="hKcokTNjehOV" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#mOPkfWajhFxi {
+#hKcokTNjehOV {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -2005,7 +2016,7 @@ if (typeof version == 'undefined') {
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsmOPkfWajhFxi=[
+</style></div><script type="application/javascript">var questionshKcokTNjehOV=[
     {
         "question": "Which function is used to read a .csv file in Pandas?",
         "type": "many_choice",
@@ -3015,8 +3026,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("mOPkfWajhFxi")) {
-            show_questions(questionsmOPkfWajhFxi,  mOPkfWajhFxi); 
+          if(document.getElementById("hKcokTNjehOV")) {
+            show_questions(questionshKcokTNjehOV,  hKcokTNjehOV); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -3025,8 +3036,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("mOPkfWajhFxi");
-        // console.log(document.getElementById("mOPkfWajhFxi"));
+        //console.log("hKcokTNjehOV");
+        // console.log(document.getElementById("hKcokTNjehOV"));
 
         try_show();
         }
@@ -3034,13 +3045,13 @@ if (typeof version == 'undefined') {
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="naxRMdJBhhXB" data-shufflequestions="False"
+<div class="output text_html"><div id="xPROQrqpVftG" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#naxRMdJBhhXB {
+#xPROQrqpVftG {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -3210,7 +3221,7 @@ if (typeof version == 'undefined') {
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsnaxRMdJBhhXB=[
+</style></div><script type="application/javascript">var questionsxPROQrqpVftG=[
     {
         "question": "What is Matplotlib used for in Python?",
         "type": "many_choice",
@@ -4220,8 +4231,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("naxRMdJBhhXB")) {
-            show_questions(questionsnaxRMdJBhhXB,  naxRMdJBhhXB); 
+          if(document.getElementById("xPROQrqpVftG")) {
+            show_questions(questionsxPROQrqpVftG,  xPROQrqpVftG); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -4230,8 +4241,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("naxRMdJBhhXB");
-        // console.log(document.getElementById("naxRMdJBhhXB"));
+        //console.log("xPROQrqpVftG");
+        // console.log(document.getElementById("xPROQrqpVftG"));
 
         try_show();
         }
@@ -4242,13 +4253,13 @@ if (typeof version == 'undefined') {
 <h1>Scikit Learn<a class="headerlink" href="#scikit-learn" title="Link to this heading">#</a></h1>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="vAqsiTvaRTXo" data-shufflequestions="False"
+<div class="output text_html"><div id="EuUwGQmxaUNX" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#vAqsiTvaRTXo {
+#EuUwGQmxaUNX {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -4418,7 +4429,7 @@ if (typeof version == 'undefined') {
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsvAqsiTvaRTXo=[
+</style></div><script type="application/javascript">var questionsEuUwGQmxaUNX=[
     {
         "question": "What function from scikit-learn is typically used to fit a linear regression model?",
         "type": "many_choice",
@@ -5298,8 +5309,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("vAqsiTvaRTXo")) {
-            show_questions(questionsvAqsiTvaRTXo,  vAqsiTvaRTXo); 
+          if(document.getElementById("EuUwGQmxaUNX")) {
+            show_questions(questionsEuUwGQmxaUNX,  EuUwGQmxaUNX); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -5308,8 +5319,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("vAqsiTvaRTXo");
-        // console.log(document.getElementById("vAqsiTvaRTXo"));
+        //console.log("EuUwGQmxaUNX");
+        // console.log(document.getElementById("EuUwGQmxaUNX"));
 
         try_show();
         }

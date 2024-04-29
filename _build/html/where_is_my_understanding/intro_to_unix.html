@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'where_is_my_understanding/intro_to_unix';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Theoretical" href="../course_homepages/connected_course_homepages/theoretical.html" />
+    <link rel="next" title="Regression Analysis With R" href="regression_analysis_with_R.html" />
     <link rel="prev" title="Introduction to Version Control with Git and Github Quiz" href="intro_to_version_control.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -192,6 +192,7 @@
 <li class="toctree-l2"><a class="reference internal" href="intro_to_python.html">Introduction to Python Quiz</a></li>
 <li class="toctree-l2"><a class="reference internal" href="intro_to_version_control.html">Introduction to Version Control with Git and Github Quiz</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Introduction to UNIX Quiz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regression_analysis_with_R.html">Regression Analysis With R</a></li>
 </ul>
 </li>
 </ul>
@@ -359,7 +360,17 @@
 <li class="toctree-l2"><a class="reference internal" href="../individual_modules/computational_thinking/final_exercise.html">Sudoku Task</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../individual_modules/section_landing_pages/python_for_data_analysis.html">Python for Data Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../individual_modules/section_landing_pages/regression_analysis_with_R.html">Regression Analysis with R</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../individual_modules/regression_analysis_with_R/introduction_to_regression.html">Introduction to Regression Analysis</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../individual_modules/regression_analysis_with_R/hypothesis_testing.html">Hypothesis Testing for Regression Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../individual_modules/regression_analysis_with_R/multiple_linear_regression.html">Multiple Linear Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../individual_modules/regression_analysis_with_R/logistic_regression.html">Logistic Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../individual_modules/regression_analysis_with_R/summary.html">Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../individual_modules/regression_analysis_with_R/extras.html">Extras</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../individual_modules/section_landing_pages/python_for_data_analysis.html">Python for Data Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../individual_modules/python_for_data_analysis/Python_NumPy.html">Numpy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../individual_modules/python_for_data_analysis/Python_Pandas.html">Pandas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../individual_modules/python_for_data_analysis/Python_Matplotlib.html">Matplotlib</a></li>
@@ -604,13 +615,13 @@ document.write(`
 <p>The following questions are aimed at testing your understanding of the content that is covered within this course. There is no defined threshold where we believe you should attend the course if you score below. Rather it is aimed to make you engage with the content and reflect for yourself if you feel you would benefit from attending the course. Of note, is that the quiz is intended for you to use google throuhgout and engage with documentation. Even if you get all of the questions right, you are ofcourse more than welcome to still attend the course and use it as a refresher!</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="BESFZXfjOczd" data-shufflequestions="False"
+<div class="output text_html"><div id="hFXDSRbCJorq" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#BESFZXfjOczd {
+#hFXDSRbCJorq {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -780,7 +791,7 @@ document.write(`
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsBESFZXfjOczd=[
+</style></div><script type="application/javascript">var questionshFXDSRbCJorq=[
     {
         "question": "What is the purpose of the command 'cd'",
         "type": "many_choice",
@@ -1790,8 +1801,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("BESFZXfjOczd")) {
-            show_questions(questionsBESFZXfjOczd,  BESFZXfjOczd); 
+          if(document.getElementById("hFXDSRbCJorq")) {
+            show_questions(questionshFXDSRbCJorq,  hFXDSRbCJorq); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -1800,8 +1811,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("BESFZXfjOczd");
-        // console.log(document.getElementById("BESFZXfjOczd"));
+        //console.log("hFXDSRbCJorq");
+        // console.log(document.getElementById("hFXDSRbCJorq"));
 
         try_show();
         }
@@ -1849,11 +1860,11 @@ if (typeof version == 'undefined') {
       </div>
     </a>
     <a class="right-next"
-       href="../course_homepages/connected_course_homepages/theoretical.html"
+       href="regression_analysis_with_R.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Theoretical</p>
+        <p class="prev-next-title">Regression Analysis With R</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
