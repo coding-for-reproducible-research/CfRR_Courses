@@ -196,6 +196,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../where_is_my_understanding/intro_to_unix.html">Introduction to UNIX Quiz</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../where_is_my_understanding/regression_analysis_with_R.html">Regression Analysis With R Quiz</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../where_is_my_understanding/software_development_best_practice.html">Software Development Best Practice Quiz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../where_is_my_understanding/advanced_regression_analysis_with_R.html">Advanced Regression Analysis with R</a></li>
 </ul>
 </li>
 </ul>
@@ -648,63 +649,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> rpy2.ipython
-</pre></div>
+  <div class="cell tag_remove-input docutils container">
 </div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
-knitr::opts_chunk$set(echo = TRUE)
-
-nInd&lt;-175
-indIDs &lt;-paste0(&quot;X&quot;, sample(10000:40000, nInd))
-nVisits&lt;-rpois(indIDs, 4)
-nVisits[which(nVisits == 0)]&lt;-1
-
-cogAbaseline&lt;-rpois(indIDs, 25)
-cogBbaseline&lt;-rnorm(indIDs, 8,4)
-cogCbaseline&lt;-rnorm(indIDs, 20, 2)
-sex&lt;-sample(c(&quot;M&quot;, &quot;F&quot;), nInd, replace = TRUE, prob = c(0.55, 0.45))
-age&lt;-floor(runif(nInd, 20, 60))
-intervention&lt;-sample(c(&quot;Placebo&quot;, &quot;Training&quot;), nInd, replace = TRUE)
-yearsEd&lt;-sample(c(12,14,17), nInd, replace = TRUE, prob = c(0.3,0.4, 0.3))
-smoke &lt;- sample(c(&quot;Yes&quot;, &quot;No&quot;), nInd, replace = TRUE, prob = c(0.25,0.75))
-physicalWellbeing &lt;- sample(c(&quot;High&quot;, &quot;Low&quot;), nInd, replace = TRUE, prob = c(0.85,0.15))
-mentalWellbeing &lt;- sample(c(&quot;High&quot;, &quot;Low&quot;), nInd, replace = TRUE, prob = c(0.7,0.3))
-cogAbaseline &lt;- cogAbaseline[(physicalWellbeing == &quot;Low&quot; | mentalWellbeing == &quot;Low&quot;)]&lt;- rpois(sum((physicalWellbeing == &quot;Low&quot; | mentalWellbeing == &quot;Low&quot;)), 22)
-cogAbaseline &lt;- cogAbaseline[smoke == &quot;Yes&quot;]&lt;- rpois(sum(smoke == &quot;Yes&quot;), 23)
-
-visitID&lt;-as.factor(rep(indIDs, nVisits))
-visitNum &lt;- unlist(lapply(nVisits, seq))
-
-index&lt;-match(visitID, indIDs)
-visitSex&lt;-as.factor(sex[index])
-visitAge&lt;-age[index]+visitNum
-visitIntervention&lt;-as.factor(intervention[index])
-visitYearsEd &lt;- yearsEd[index]
-visitSmoke &lt;- as.factor(smoke[index])
-visitPW &lt;- as.factor(physicalWellbeing[index])
-randomIndex&lt;-sample(1:length(index), nInd)
-visitPW[randomIndex]&lt;-&quot;Low&quot;
-visitMW &lt;-as.factor(mentalWellbeing[index])
-randomIndex&lt;-sample(which(visitNum &gt; 3), nInd*0.5)
-visitMW[randomIndex]&lt;-&quot;High&quot;
-    
-cogA&lt;- floor(cogAbaseline[index] + visitNum * (0.2 + 0.05 * as.numeric(visitIntervention) + 0.04 * as.numeric(visitMW)) + rnorm(length(visitNum), 0,2))
-
-cogB&lt;-cogBbaseline[index] + visitNum * (0.1 - 0.08 * as.numeric(visitSex) + 0.05 * (visitYearsEd-12)) + rnorm(length(visitNum), 0, 1) 
-
-cogC&lt;-cogCbaseline[index] + visitNum * (0.01 + 0.003 * as.numeric(visitSex) + 0.001 * as.numeric(visitIntervention)) + rnorm(length(visitNum), 0, 5) 
-
-
-cogDat&lt;-data.frame(&quot;ID&quot; = visitID, &quot;VisitNum&quot; = visitNum, &quot;Age&quot; = visitAge, &quot;Sex&quot; = visitSex, &quot;YearsEducation&quot; = visitYearsEd, &quot;Smoker&quot; = visitSmoke, &quot;Intervention&quot; = visitIntervention, &quot;CognitionA&quot; = cogA, &quot;CognitionB&quot; = cogB, &quot;CognitionC&quot; = cogC, &quot;PhysicalWellbeing&quot; = visitPW, &quot;MentalWellbeing&quot; = visitMW)
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="regression-models-with-interaction-terms">
 <h1>Regression models with interaction terms<a class="headerlink" href="#regression-models-with-interaction-terms" title="Link to this heading">#</a></h1>
@@ -797,7 +744,7 @@ summary(model.int)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2696.6
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2588.6
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -815,37 +762,37 @@ summary(model.int)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     Min 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Min 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      1Q 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     1Q 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Median 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Median 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      3Q 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     3Q 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     Max 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Max 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-2.72446 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-2.4987 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.60417 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.5705 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.01792 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.0150 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.58150 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.5378 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 2.73274 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 3.3147 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -878,10 +825,10 @@ summary(model.int)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> (Intercept)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 11.3840 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 16.510  
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 3.374   
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 4.063   
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -893,16 +840,16 @@ summary(model.int)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>            
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.9941 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1.014  
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.997   
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1.007   
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of obs: 719, groups: 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of obs: 661, groups: 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
@@ -932,49 +879,49 @@ summary(model.int)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(Intercept)  
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  8.12928
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  7.51604
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    0.38322
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    0.42788
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  21.213
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  17.566
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>VisitNum     
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.13320
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.15983
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    0.03339
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    0.03489
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   3.989
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   4.581
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SexM         
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -0.33775
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.65982
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    0.53196
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    0.63798
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  -0.635
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   1.034
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>VisitNum:SexM
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -0.04883
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -0.02623
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    0.04732
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    0.05548
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  -1.032
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  -0.473
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -998,7 +945,7 @@ summary(model.int)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>VisitNum   
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -0.224
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -0.202
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       
@@ -1010,10 +957,10 @@ summary(model.int)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SexM       
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -0.720
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -0.671
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.161
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.135
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       
@@ -1022,13 +969,13 @@ summary(model.int)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>VisitNm:SxM
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.158
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.127
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -0.706
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -0.629
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -0.229
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -0.207
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -1068,7 +1015,7 @@ lines(x.sample, y.female, col = &quot;magenta&quot;)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d2ccfb3973cef4fbb80453e4c3930fa8a6803cc90f01a804db9d17ab05c9447a.png" src="../../_images/d2ccfb3973cef4fbb80453e4c3930fa8a6803cc90f01a804db9d17ab05c9447a.png" />
+<img alt="../../_images/83a7df3bdc568d8510c19b815f9dcb324f427f8a9748d3b204feeca95a51ac2c.png" src="../../_images/83a7df3bdc568d8510c19b815f9dcb324f427f8a9748d3b204feeca95a51ac2c.png" />
 </div>
 </div>
 <p>We can see in the scatterplot that the male and female mean lines start at approximately the same place on the y-axis. This fits with the sex main effect not being significant and that there is no difference at baseline in cognitive scores. What we can also see is that the mean performance of the course of the study differs. Specifically, females scores improve at a faster rate as the pink line is steeper. While the graph is helpful to visualise this, we can also draw these conclusions by calculating the values of the intercept and slope coefficients for each sex from the regression parameters. These values are included in the table below.</p>
@@ -1123,21 +1070,15 @@ lines(x.sample, y.female, col = &quot;magenta&quot;)
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jupyterquiz</span> <span class="kn">import</span> <span class="n">display_quiz</span>
-<span class="n">display_quiz</span><span class="p">(</span><span class="s2">&quot;questions/regression_models.json&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="jwtIaCBvNHHO" data-shufflequestions="False"
+<div class="output text_html"><div id="eTKUoBAyPIPE" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#jwtIaCBvNHHO {
+#eTKUoBAyPIPE {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1307,7 +1248,7 @@ lines(x.sample, y.female, col = &quot;magenta&quot;)
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsjwtIaCBvNHHO=[
+</style></div><script type="application/javascript">var questionseTKUoBAyPIPE=[
     {
         "question": "Considering the results for cognitive test A, which of the following statements are correct. Select all that apply.",
         "type": "many_choice",
@@ -2166,8 +2107,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("jwtIaCBvNHHO")) {
-            show_questions(questionsjwtIaCBvNHHO,  jwtIaCBvNHHO); 
+          if(document.getElementById("eTKUoBAyPIPE")) {
+            show_questions(questionseTKUoBAyPIPE,  eTKUoBAyPIPE); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -2176,8 +2117,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("jwtIaCBvNHHO");
-        // console.log(document.getElementById("jwtIaCBvNHHO"));
+        //console.log("eTKUoBAyPIPE");
+        // console.log(document.getElementById("eTKUoBAyPIPE"));
 
         try_show();
         }
