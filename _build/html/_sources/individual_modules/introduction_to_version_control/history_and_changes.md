@@ -13,7 +13,7 @@ well as changes that have yet to be committed.
 There's little point in keeping a history of changes to files in a repository if
 we can't view it. We can view a record of the commits made in a repository using
 the `git log` command. If you completed the exercise at the end of the last
-episode, [Recording Changes]({{ site.url }}/07_recording_changes/index.html), then
+episode, Recording Changes, then
 running `git log` from within the `git-good-practice` repository should look
 something like the following:
 
@@ -53,8 +53,7 @@ When the output of `git log` is too long to fit in your screen, Git uses a progr
 
 The log contains one entry for each commit. The commit messages for the
 commits are included, as well as details of who made the commit. The name and email address
-are those that were given when configuring Git (see the episode
-[Setting up Git and GitHub]({{ site.url }}/04_configuring_git/index.html)).
+are those that were given when configuring Git (see the episode Setting up Git and GitHub.
 
 In addition, each commit has a unique **identifier** associated to it, which is the long
 random-looking string next to each commit. (The identifiers for your

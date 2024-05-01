@@ -1,4 +1,4 @@
-## Welcome to the Computational Thinking Workshop
+# Welcome to the Computational Thinking Workshop
 **Next Session Date:** Summer 2024
 
 **What to Expect:**

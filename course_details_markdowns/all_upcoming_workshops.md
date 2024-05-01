@@ -1,4 +1,4 @@
-### Welcome to the Introduction to Unix Workshop
+# Welcome to the Introduction to Unix Workshop
 **Next Session Date:** 20/10/2023, 27/10/2023
 
 **What to Expect:**
@@ -10,7 +10,7 @@ Over two sessions this workshop will introduce you to navigating the file system
 
 ---
 
-### Welcome to the Introduction to Python Workshop
+# Welcome to the Introduction to Python Workshop
 **Next Session Date:** 1/11/2023, 8/11/2023
 
 **What to Expect:**
@@ -22,7 +22,7 @@ Over two sessions learn the fundamentals of Python one of the most popular progr
 
 ---
 
-### Welcome to the Introduction to HPC at Exeter Workshop
+# Welcome to the Introduction to HPC at Exeter Workshop
 **Next Session Date:** 1/11/2023, 8/11/2023
 
 **What to Expect:**
@@ -34,7 +34,7 @@ Over two sessions learn about the high performance computing facilities at Exete
 
 ---
 
-### Welcome to the Introduction to Version Control with Git and GitHub Workshop
+# Welcome to the Introduction to Version Control with Git and GitHub Workshop
 **Next Session Date:** 12/12/2023, 19/12/2023
 
 **What to Expect:**
@@ -46,7 +46,7 @@ Over three sessions learn to use version control to manage your software develop
 
 ---
 
-### Welcome to the Introduction to R Workshop
+# Welcome to the Introduction to R Workshop
 **Next Session Date:**  9/1/2024, 16/1/2024, 23/1/2024
 
 **What to Expect:**
@@ -58,7 +58,7 @@ Over three sessions this workshop will provide an all-purpose introduction to th
 
 ---
 
-### Welcome to the Regression analysis with R Workshop
+# Welcome to the Regression analysis with R Workshop
 **Next Session Date:** 26/01/2024
 
 **What to Expect:**
@@ -70,7 +70,7 @@ In this hands on workshop you will learn how to fit and interpret a range of reg
 
 ---
 
-### Welcome to the Computational Thinking Workshop
+# Welcome to the Computational Thinking Workshop
 **Next Session Date:** Summer 2024
 
 **What to Expect:**
@@ -82,7 +82,7 @@ Over two sessions this course will introduce you to some fundamental principles 
 
 ---
 
-### Welcome to the Software development best practice Workshop
+# Welcome to the Software development best practice Workshop
 **Next Session Date:**  Summer 2024
 
 **What to Expect:**

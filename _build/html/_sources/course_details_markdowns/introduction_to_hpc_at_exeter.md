@@ -1,4 +1,4 @@
-## Welcome to the Introduction to HPC at Exeter Workshop
+# Welcome to the Introduction to HPC at Exeter Workshop
 **Next Session Date:** 1/11/2023, 8/11/2023
 
 **What to Expect:**

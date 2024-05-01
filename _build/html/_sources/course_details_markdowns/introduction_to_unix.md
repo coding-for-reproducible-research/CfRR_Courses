@@ -1,4 +1,4 @@
-## Welcome to the Introduction to Unix Workshop
+# Welcome to the Introduction to Unix Workshop
 **Next Session Date:** 20/10/2023, 27/10/2023
 
 **What to Expect:**

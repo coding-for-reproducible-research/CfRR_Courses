@@ -353,7 +353,7 @@
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/computational_thinking.html">Computational Thinking</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/introduction.html">Computational Thinking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../computational_thinking/algorithms.html">Algorithms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../computational_thinking/decomposition.html">Decomposition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../computational_thinking/pattern_recognition.html">Pattern recognition</a></li>
@@ -707,15 +707,14 @@ with other peoples’ work. Some changes made by others may pass under the radar
 when merging e.g. different naming of functions / variables to what your
 code relies on, deletion or moving of code your work relies on, etc.</p></li>
 <li><p>It also gives you a chance to resolve any <em>merge conflicts</em> that may arise
-when you try to merge your work into the common codebase (about which more in
-the [Merge Conflicts](/16_merge_conflicts/index.html) episode).</p></li>
+when you try to merge your work into the common codebase.</p></li>
 </ul>
 <p>An example of feature branching is depicted below:</p>
 <p><img alt="Feature branching" src="../../_images/feature-branching.svg" /></p>
 <section id="creating-feature-branches">
 <h3>Creating feature branches<a class="headerlink" href="#creating-feature-branches" title="Link to this heading">#</a></h3>
 <p>We will be creating feature branches using the workflow described in the previous
-episode, [Remote Branches with GitHub](/14_remote_branches_with_github/index.html):
+episode:
 feature branches will be created remotely on GitHub and then fetched in for us
 to work on locally.</p>
 </section>
@@ -735,7 +734,7 @@ otherwise go to step b) below.</p>
 in your local repository before continuing, by using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span></code>.
 If there are merge conflicts, these MUST be resolved and the merge into
 <code class="docutils literal notranslate"><span class="pre">foo-feature</span></code> completed before continuing to step c) below (see the later
-episode on [merge conflicts](/16_merge_conflicts/index.html)
+episode on merge conflicts
 for details on how to do this). Also take the
 opportunity to make sure this merge hasn’t introduced any problems into
 the codebase (e.g. inconsistencies in naming, etc.)</p>
@@ -977,7 +976,7 @@ the remote, via <code class="docutils literal notranslate"><span class="pre">git
 <h2>First to the pass: Joe<a class="headerlink" href="#first-to-the-pass-joe" title="Link to this heading">#</a></h2>
 <p>Joe finishes his work before Jane does and so gets to work on merging his
 feature branch into the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch. Following the strategy that was discussed
-in the episode [Remote Branches with GitHub](/14_remote_branches_with_github/index.html),
+in the episode Remote Branches with GitHub,
 he creates a pull request associated to the merge.</p>
 <p>Having done this, he checks that Jane hasn’t
 merged any work into the remote <code class="docutils literal notranslate"><span class="pre">main</span></code> branch. He could do this by examining
@@ -1188,7 +1187,7 @@ $ git log --oneline -7 --graph
 |\ 
 ```
 -->
-<p>![Git log as a graph](/images/git-log-as-graph.png)</p>
+<p><img alt="Git log as a graph" src="../../_images/git-log-as-graph.png" /></p>
 <p>Let’s go through this output in more detail:</p>
 <ul class="simple">
 <li><p>The commit <code class="docutils literal notranslate"><span class="pre">86ebbee</span></code> (“Merge pull request #1 …”) is where Joe and Jane

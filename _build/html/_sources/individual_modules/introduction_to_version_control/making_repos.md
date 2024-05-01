@@ -181,7 +181,7 @@ then see the section on 'bare' repositories on
 
 
 #### Renaming the default branch
-In the previous episode, we discussed changing the name of the default branch from `master` to something else, e.g. `main`. For Git versions 2.28 and later, the configuration can be set so that new repositories have this new name by default, see the [Setting up Git and GitHub]({{ site.url }}/04_configuring_git/index.html#default-git-branch-naming) episode. If the version of Git you are using is earlier than 2.28, then this needs to be done for each repository individually. After creating the repository with `git init`, run the following command:
+In the previous episode, we discussed changing the name of the default branch from `master` to something else, e.g. `main`. For Git versions 2.28 and later, the configuration can be set so that new repositories have this new name by default, see the Setting up Git and GitHub episode. If the version of Git you are using is earlier than 2.28, then this needs to be done for each repository individually. After creating the repository with `git init`, run the following command:
 
 ```
 $ git checkout -b main
@@ -194,7 +194,7 @@ We'll conclude this episode with taking a peek into an example repository that h
 created locally, whether this be via cloning or using `git init`.
 
 Let's consider an example, looking at the more organised folder of work
-introduced in the episode [Git vs GitHub]({{ site.url }}/03_git_vs_github/index.html).
+introduced in the episode Git vs GitHub.
 Below is a screenshot of the repository on a Windows machine; note that we've
 enabled the display of 'hidden' files and folders, i.e. those whose names
 begin with a period.

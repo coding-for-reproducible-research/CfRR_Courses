@@ -1,3 +1,3 @@
-## Intermediate Version Control Workshop
+# Intermediate Version Control Workshop
 
 **Details of this course will be confirmed soon!**

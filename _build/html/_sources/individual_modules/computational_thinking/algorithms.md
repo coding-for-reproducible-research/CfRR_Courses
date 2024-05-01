@@ -1,7 +1,6 @@
 # Algorithms
-
+## Introduction
 Real computational tasks can be complicated. To accomplish them you need to **THINK BEFORE YOU CODE**.
-
 ### Activity
 In small groups discuss what you think the most important elements to think about before writing a program are. How do you approach the task?
 

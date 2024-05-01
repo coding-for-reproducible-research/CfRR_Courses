@@ -1,4 +1,4 @@
-### Welcome to the Computational Thinking Workshop
+# Welcome to the Computational Thinking Workshop
 **Next Session Date:** Summer 2024
 
 **What to Expect:**
@@ -10,7 +10,7 @@ Over two sessions this course will introduce you to some fundamental principles 
 
 ---
 
-### Welcome to the Software development best practice Workshop
+# Welcome to the Software development best practice Workshop
 **Next Session Date:**  Summer 2024
 
 **What to Expect:**

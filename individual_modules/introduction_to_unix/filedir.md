@@ -298,7 +298,7 @@ home directory, which we assume is the current working directory of your bash sh
 
 Your output should be a list of all the files and sub-directories in your
 Desktop directory, including the `shell-lesson-data` directory you downloaded at
-the [setup for this lesson]({{ page.root }}{% link setup.md %}).
+the setup for this lesson.
 On many systems,
 the command line Desktop directory is the same as your GUI Desktop.
 Take a look at your Desktop to confirm that your output is accurate.

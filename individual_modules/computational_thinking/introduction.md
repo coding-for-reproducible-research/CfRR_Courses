@@ -1,5 +1,5 @@
-# Introduction
-
+# Computational Thinking
+## Introduction
 ### Activity
 What do you think computational thinking is?
 

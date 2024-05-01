@@ -52,7 +52,7 @@ version.
 
 ### Exercise
 
-Using the instructions in the [_Making Repositories_ episode]({{ site.url }}/05_making_repos/index.html):
+Using the instructions in the Making Repositories_ episode:
 
 1. Create a new repository on GitHub called `git-good-practice`.
    When doing this, have GitHub generate a readme file for you as part of the

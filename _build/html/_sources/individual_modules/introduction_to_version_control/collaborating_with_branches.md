@@ -70,8 +70,7 @@ resolve any issues in your feature branch:
   code relies on, deletion or moving of code your work relies on, etc.
 
 * It also gives you a chance to resolve any _merge conflicts_ that may arise
-  when you try to merge your work into the common codebase (about which more in
-  the [Merge Conflicts]({{ site.url }}/16_merge_conflicts/index.html) episode).
+  when you try to merge your work into the common codebase.
 
 An example of feature branching is depicted below:
 
@@ -81,7 +80,7 @@ An example of feature branching is depicted below:
 ### Creating feature branches
 
 We will be creating feature branches using the workflow described in the previous
-episode, [Remote Branches with GitHub]({{ site.url }}/14_remote_branches_with_github/index.html):
+episode:
 feature branches will be created remotely on GitHub and then fetched in for us
 to work on locally. 
 
@@ -105,7 +104,7 @@ also a local tracking branch in our local repository.
       in your local repository before continuing, by using `git merge`.
       If there are merge conflicts, these MUST be resolved and the merge into
       `foo-feature` completed before continuing to step c) below (see the later
-      episode on [merge conflicts]({{ site.url }}/16_merge_conflicts/index.html)
+      episode on merge conflicts
       for details on how to do this). Also take the
       opportunity to make sure this merge hasn't introduced any problems into
       the codebase (e.g. inconsistencies in naming, etc.)
@@ -377,7 +376,7 @@ the remote, via `git fetch` or `git pull`.
 
 Joe finishes his work before Jane does and so gets to work on merging his
 feature branch into the `main` branch. Following the strategy that was discussed
-in the episode [Remote Branches with GitHub]({{ site.url }}/14_remote_branches_with_github/index.html),
+in the episode Remote Branches with GitHub,
 he creates a pull request associated to the merge.
 
 Having done this, he checks that Jane hasn't
@@ -614,7 +613,7 @@ $ git log --oneline -7 --graph
 ```
 -->
 
-![Git log as a graph]({{ site.url }}/images/git-log-as-graph.png)
+![Git log as a graph](images/git-log-as-graph.png)
 
 Let's go through this output in more detail:
 

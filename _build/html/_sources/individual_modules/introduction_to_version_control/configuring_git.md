@@ -66,7 +66,7 @@ is much simpler to use than Vim. You can change this at any time if you find you
 prefer to use something else.
 
 #### Git for Windows
-If you followed the recommendations in the [installation instructions for Git for Windows]({{ site.url }}/setup.html#windows) then Nano should already be the default editor used by Git.
+If you followed the recommendations in the installation instructions for Git for Windows then Nano should already be the default editor used by Git.
 
 The following table shows how to set the default editor for Git for several popular 
 text editors. In some cases, you need to provide the path to the executable
@@ -119,8 +119,7 @@ $ git config --global init.defaultBranch main
 ```
 
 For versions of Git prior to 2.28, the change can only be made on an individual
-repository level and we will cover this in the episode on
-[making repositories]({{ site.url }}/05_making_repos/index.html) later.
+repository level and we will cover this in the episode on making repositories later.
 
 #### Exercise
 Set up Git the way you'd like it by configuring settings for:

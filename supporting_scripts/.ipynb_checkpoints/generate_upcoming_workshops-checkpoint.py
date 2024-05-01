@@ -22,7 +22,7 @@ def display_workshops_in_markdown(df, filter_next_month=False):
                 continue
 
         next_session = row['NextSession'] if pd.notna(row['NextSession']) else row['VerboseNextSession'] if pd.notna(row['VerboseNextSession']) else "TBD"
-        markdown_output += f"### Welcome to the {row['Workshop']} Workshop\n"
+        markdown_output += f"# Welcome to the {row['Workshop']} Workshop\n"
         markdown_output += f"**Next Session Date:** {next_session}\n\n"
         markdown_output += f"**What to Expect:**\n{row['Overview']}\n\n"
         registration_status = "Registration is currently open." if row['RegistrationLive'] == 'Y' else "Registration is currently closed."

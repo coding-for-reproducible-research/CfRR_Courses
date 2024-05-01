@@ -6,7 +6,7 @@ def display_row_in_markdown(df, workshop_name):
     filtered_df = df[df['Workshop'] == workshop_name]
     if filtered_df.empty:
         # Return a placeholder message if the workshop is not found
-        return f"## {workshop_name} Workshop\n\n**Details of this course will be confirmed soon!**\n"
+        return f"# {workshop_name} Workshop\n\n**Details of this course will be confirmed soon!**\n"
 
     # Retrieve the first row of the filtered DataFrame
     row_data = filtered_df.iloc[0]
@@ -18,7 +18,7 @@ def display_row_in_markdown(df, workshop_name):
         next_session = row_data['NextSession']
 
     # Start constructing the Markdown content with a header and session information
-    markdown_output = f"## Welcome to the {row_data['Workshop']} Workshop\n"
+    markdown_output = f"# Welcome to the {row_data['Workshop']} Workshop\n"
     markdown_output += f"**Next Session Date:** {next_session}\n\n"
     markdown_output += f"**What to Expect:**\n{row_data['Overview']}\n\n"
 

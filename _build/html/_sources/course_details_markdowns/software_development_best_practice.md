@@ -1,4 +1,4 @@
-## Welcome to the Software development best practice Workshop
+# Welcome to the Software development best practice Workshop
 **Next Session Date:**  Summer 2024
 
 **What to Expect:**
