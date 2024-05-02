@@ -333,12 +333,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/example_repo.html">An Example Repository</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/recording_changes.html">Recording Changes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/history_and_changes.html">Viewing History and Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/recording_changes_revisited.html">Recording Changes – Revisited</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/pushing_and_pulling.html">Pushing to and Pulling From the Remote Repository</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/undoing_changes.html">Undoing Changes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/ignoring_files.html">Ignoring Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/local_branches.html">Working with Local Branches</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/remote_branches_with_github.html">Remote Branches with GitHub</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/collaborating_with_branches.html">Collaborating with Branches</a></li>
+
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/merge_conflicts.html">Merge Conflicts</a></li>
 </ul>
 </li>
@@ -705,8 +707,7 @@ which is Nelle’s <strong>home directory</strong>:</p>
 <section id="home-directory-variation">
 <h2>Home Directory Variation<a class="headerlink" href="#home-directory-variation" title="Link to this heading">#</a></h2>
 <p>The home directory path will look different on different operating systems. On Linux, it may look like <code class="docutils literal notranslate"><span class="pre">/home/nelle</span></code>, and on Windows, it will be similar to <code class="docutils literal notranslate"><span class="pre">C:\Documents</span> <span class="pre">and</span> <span class="pre">Settings\nelle</span></code> or <code class="docutils literal notranslate"><span class="pre">C:\Users\nelle</span></code>. (Note that it may look slightly different for different versions of Windows.) In future examples, we’ve used Mac output as the default - Linux and Windows output may differ slightly but should be generally similar.
-We will also assume that your <code class="docutils literal notranslate"><span class="pre">pwd</span></code> command returns your user’s home directory. If <code class="docutils literal notranslate"><span class="pre">pwd</span></code> returns something different, you may need to navigate there using <code class="docutils literal notranslate"><span class="pre">cd</span></code> or some commands in this lesson will not work as written. See <a class="reference internal" href="#exploring-other-directories"><span class="xref myst">Exploring Other Directories</span></a> for more details on the <code class="docutils literal notranslate"><span class="pre">cd</span></code> command.
-{: .callout}</p>
+We will also assume that your <code class="docutils literal notranslate"><span class="pre">pwd</span></code> command returns your user’s home directory. If <code class="docutils literal notranslate"><span class="pre">pwd</span></code> returns something different, you may need to navigate there using <code class="docutils literal notranslate"><span class="pre">cd</span></code> or some commands in this lesson will not work as written. See Exploring Other Directories for more details on the <code class="docutils literal notranslate"><span class="pre">cd</span></code> command.</p>
 <p>To understand what a ‘home directory’ is,
 let’s have a look at how the file system as a whole is organized.  For the
 sake of this example, we’ll be
@@ -842,7 +843,7 @@ information on how to use the command or program.</p>
 <section id="unsupported-command-line-options">
 <h2>Unsupported command-line options<a class="headerlink" href="#unsupported-command-line-options" title="Link to this heading">#</a></h2>
 <p>If you try to use an option that is not supported, <code class="docutils literal notranslate"><span class="pre">ls</span></code> and other commands will usually print an error message similar to:</p>
-<div class="highlight-bahs notranslate"><div class="highlight"><pre><span></span>$ ls -j
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls<span class="w"> </span>-j
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span><span class="p">:</span> <span class="n">invalid</span> <span class="n">option</span> <span class="o">--</span> <span class="s1">&#39;j&#39;</span>

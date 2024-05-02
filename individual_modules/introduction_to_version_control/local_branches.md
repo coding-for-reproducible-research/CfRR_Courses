@@ -14,9 +14,8 @@ onwards. If you haven't been following along with all the examples or exercises,
 we suggest updating the files in your repository with the contents of one of
 the following archives:
 
-* As a Zip archive: <a href="{{ site.url }}/downloads/episode-13-start/git-good-practice.zip" download="">git-good-practice.zip</a>.
-
-* As a Tar archive: <a href="{{ site.url }}/downloads/episode-13-start/git-good-practice.tar" download="">git-good-practice.tar</a>.
+* As a Zip archive: [git-good-practice.zip](downloads/git-good-practice.zip)
+* As a Tar archive: [git-good-practice.zip](downloads/git-good-practice.tar)
 
 You should place the archive contents in your own `git-good-practice` repository
 (note: make sure to preserve the directory structure: the file
@@ -240,7 +239,7 @@ git merge <branch-to-bring-in>
 Here, `<branch-to-merge-in>` is the name of the branch whose commits we want
 to bring _into_ the branch we're currently on.
 
-![Merging branches]({{ site.url }}/images/merge.svg)
+![Merging branches](images/merge.svg)
 
 In our example, we need to merge the branch `branches-material` into `main`.
 To do this, we need to checkout the branch we want to merge _into_, i.e.

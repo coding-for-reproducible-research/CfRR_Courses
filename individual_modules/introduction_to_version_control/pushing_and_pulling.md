@@ -57,8 +57,7 @@ would like to be more explicit about which remote repository we are pushing to
 
 When using the `git push` command, we may be prompted to enter our Git username
 and a password. Since we set up the repository to work with HTTPs, we use the
-Personal Access Token (PAT) we generated in the
-[Setting up Git and GitHub]({{ site.url }}/04_configuring_git/index.html)
+Personal Access Token (PAT) we generated in the Setting up Git and GitHub
 episode as said password.
 
 ### Pasting the PAT
@@ -136,8 +135,7 @@ in the remote repository on your personal GitHub account.
 
 Platforms like GitHub can be used to share our code with the world. If you're
 interested in taking a closer look at someone else's code, or even making use
-of it, then you could clone their repository as explained in the
-[Making Repositories]({{ site.url }}/05_making_repos/index.html) episode. But
+of it, then you could clone their repository as explained in the Making Repositories episode. But
 what do you do if the owner of said repository makes updates at a later date?
 You can retrieve these
 updates to your local repository by using the `git pull` command. We'll cover

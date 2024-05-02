@@ -314,7 +314,6 @@ Jane creates a new file called `Collaboration-good-practice.md` in the
 `Good-practice-guides` directory (which she includes as a stand-alone commit)
 and adds the following content about the above feature branch strategy:
 
-``` bash
 # Best practice for collaboration
 
 ## A basic feature branch strategy
@@ -326,8 +325,6 @@ bug fix, some documentation, etc. In feature branching, new features are
 developed in their own, dedicated *feature branches* that branch off the
 `main` branch. When the feature is ready to be shared with others, the feature
 branch is merged back into `main`.
-
-```
 
 Like Joe, she then also pushes the new commits on her local
 `collaboration-good-practice` to the associated remote branch,

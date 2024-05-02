@@ -333,12 +333,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/example_repo.html">An Example Repository</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/recording_changes.html">Recording Changes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/history_and_changes.html">Viewing History and Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/recording_changes_revisited.html">Recording Changes – Revisited</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/pushing_and_pulling.html">Pushing to and Pulling From the Remote Repository</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/undoing_changes.html">Undoing Changes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/ignoring_files.html">Ignoring Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/local_branches.html">Working with Local Branches</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/remote_branches_with_github.html">Remote Branches with GitHub</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/collaborating_with_branches.html">Collaborating with Branches</a></li>
+
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/merge_conflicts.html">Merge Conflicts</a></li>
 </ul>
 </li>
@@ -648,7 +650,10 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performing-analysis">Performing Analysis</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-subsetting-data">Exercise 3 - Subsetting Data</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-subsetting-data">Exercise 3 - Subsetting Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-extra">Exercise 3 Extra</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing">Indexing</a><ul class="nav section-nav flex-column">
@@ -744,13 +749,13 @@ As you saw in the previous workshop Python has a range of data structures but if
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="ayBusKNXcEpB" data-shufflequestions="False"
+<div class="output text_html"><div id="DndUuvOmpbHQ" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#ayBusKNXcEpB {
+#DndUuvOmpbHQ {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -920,7 +925,7 @@ As you saw in the previous workshop Python has a range of data structures but if
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsayBusKNXcEpB=[
+</style></div><script type="application/javascript">var questionsDndUuvOmpbHQ=[
     {
         "question": "Which function is used to read a .csv file in Pandas",
         "type": "many_choice",
@@ -1696,8 +1701,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("ayBusKNXcEpB")) {
-            show_questions(questionsayBusKNXcEpB,  ayBusKNXcEpB); 
+          if(document.getElementById("DndUuvOmpbHQ")) {
+            show_questions(questionsDndUuvOmpbHQ,  DndUuvOmpbHQ); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -1706,8 +1711,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("ayBusKNXcEpB");
-        // console.log(document.getElementById("ayBusKNXcEpB"));
+        //console.log("DndUuvOmpbHQ");
+        // console.log(document.getElementById("DndUuvOmpbHQ"));
 
         try_show();
         }
@@ -1985,13 +1990,13 @@ memory usage: 2.0+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="IXZmQAHvdsSv" data-shufflequestions="False"
+<div class="output text_html"><div id="gMWuDVJsfQAg" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#IXZmQAHvdsSv {
+#gMWuDVJsfQAg {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -2161,7 +2166,7 @@ memory usage: 2.0+ MB
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsIXZmQAHvdsSv=[
+</style></div><script type="application/javascript">var questionsgMWuDVJsfQAg=[
     {
         "question": "Which function is used to read a .csv file in Pandas",
         "type": "many_choice",
@@ -2937,8 +2942,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("IXZmQAHvdsSv")) {
-            show_questions(questionsIXZmQAHvdsSv,  IXZmQAHvdsSv); 
+          if(document.getElementById("gMWuDVJsfQAg")) {
+            show_questions(questionsgMWuDVJsfQAg,  gMWuDVJsfQAg); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -2947,8 +2952,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("IXZmQAHvdsSv");
-        // console.log(document.getElementById("IXZmQAHvdsSv"));
+        //console.log("gMWuDVJsfQAg");
+        // console.log(document.getElementById("gMWuDVJsfQAg"));
 
         try_show();
         }
@@ -3329,25 +3334,17 @@ dtype: object
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##### Exercise 3 Extra </span>
-<span class="o">*</span> <span class="n">What</span> <span class="n">do</span> <span class="n">you</span> <span class="n">think</span> <span class="ow">is</span> <span class="n">happening</span> <span class="k">with</span> <span class="n">the</span> <span class="n">filtering</span> code<span class="o">?</span>
-<span class="o">*</span> <span class="n">What</span> <span class="n">do</span> <span class="n">you</span> <span class="n">get</span> <span class="k">if</span> <span class="n">you</span> <span class="nb">print</span> <span class="n">the</span> <span class="n">output</span> <span class="k">for</span><span class="p">:</span>
-    <span class="o">*</span> <span class="n">air_pollution_data</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span>
-    <span class="o">*</span> <span class="n">air_pollution_data</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2022</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">17</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-    <span class="o">*</span> <span class="n">What</span> <span class="n">do</span> <span class="n">you</span> <span class="n">get</span> <span class="k">if</span> <span class="n">you</span> <span class="nb">print</span> <span class="n">the</span> <span class="n">output</span> <span class="k">for</span><span class="p">:</span>
-           <span class="o">^</span>
-<span class="ne">SyntaxError</span>: invalid syntax
-</pre></div>
-</div>
-</div>
-</div>
+<section id="exercise-3-extra">
+<h5>Exercise 3 Extra<a class="headerlink" href="#exercise-3-extra" title="Link to this heading">#</a></h5>
+<ul class="simple">
+<li><p>What do you think is happening with the filtering code?</p></li>
+<li><p>What do you get if you print the output for:</p>
+<ul>
+<li><p>air_pollution_data[“Year”]</p></li>
+<li><p>air_pollution_data[“Year”] == 2022</p></li>
+</ul>
+</li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">air_pollution_data</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">])</span>
@@ -3540,6 +3537,7 @@ Name: Year, Length: 32832, dtype: bool
 <p>7936 rows × 8 columns</p>
 </div></div></div>
 </div>
+</section>
 </section>
 </section>
 <section id="indexing">
@@ -4384,7 +4382,10 @@ Name: Year, Length: 32832, dtype: bool
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performing-analysis">Performing Analysis</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-subsetting-data">Exercise 3 - Subsetting Data</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-subsetting-data">Exercise 3 - Subsetting Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-extra">Exercise 3 Extra</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing">Indexing</a><ul class="nav section-nav flex-column">

@@ -333,12 +333,14 @@
 <li class="toctree-l2"><a class="reference internal" href="example_repo.html">An Example Repository</a></li>
 <li class="toctree-l2"><a class="reference internal" href="recording_changes.html">Recording Changes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="history_and_changes.html">Viewing History and Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recording_changes_revisited.html">Recording Changes – Revisited</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pushing_and_pulling.html">Pushing to and Pulling From the Remote Repository</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Undoing Changes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ignoring_files.html">Ignoring Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="local_branches.html">Working with Local Branches</a></li>
 <li class="toctree-l2"><a class="reference internal" href="remote_branches_with_github.html">Remote Branches with GitHub</a></li>
 <li class="toctree-l2"><a class="reference internal" href="collaborating_with_branches.html">Collaborating with Branches</a></li>
+
 <li class="toctree-l2"><a class="reference internal" href="merge_conflicts.html">Merge Conflicts</a></li>
 </ul>
 </li>
@@ -601,6 +603,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#episode-objectives">Episode objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-files-from-the-staging-area">Removing files from the staging area</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-sure-you-know-what-you-re-committing">Make sure you know what you’re committing</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#undoing-commits">Undoing commits</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reverting-undo-a-commit-by-making-a-new-one">Reverting (undo a commit by making a new one)</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#note-on-git-revert">Note on <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">revert</span></code></a></li>
@@ -665,13 +668,12 @@ Examples:
 </pre></div>
 </div>
 <p>And we add the following to <code class="docutils literal notranslate"><span class="pre">Good-practice-guides/Commit-good-practice.md</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">## Make sure you know what you&#39;re committing</span>
-
-Take<span class="w"> </span>care<span class="w"> </span>when<span class="w"> </span>staging<span class="w"> </span>multiple<span class="w"> </span>files<span class="w"> </span>with<span class="w"> </span>e.g.<span class="w"> </span><span class="sb">`</span>git<span class="w"> </span>add<span class="w"> </span>.<span class="sb">`</span><span class="w"> </span>that<span class="w"> </span>you<span class="w"> </span>don<span class="s1">&#39;t</span>
-<span class="s1">stage changes you didn&#39;</span>t<span class="w"> </span>mean<span class="w"> </span>to.<span class="w"> </span>Always<span class="w"> </span>check<span class="w"> </span>what<span class="w"> </span>you<span class="err">&#39;</span>re<span class="w"> </span>committing<span class="w"> </span>with
-<span class="sb">`</span>git<span class="w"> </span>diff<span class="sb">`</span><span class="w"> </span>or<span class="w"> </span><span class="sb">`</span>git<span class="w"> </span>status<span class="sb">`</span>.
-</pre></div>
-</div>
+</section>
+<section id="make-sure-you-know-what-you-re-committing">
+<h2>Make sure you know what you’re committing<a class="headerlink" href="#make-sure-you-know-what-you-re-committing" title="Link to this heading">#</a></h2>
+<p>Take care when staging multiple files with e.g. <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">.</span></code> that you don’t
+stage changes you didn’t mean to. Always check what you’re committing with
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code> or <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code>.</p>
 <p>We go ahead and stage these, using our recently learnt syntax for staging
 changes to multiple files (our working directory is the repository root
 folder, as usual):</p>
@@ -995,6 +997,7 @@ sensitive data from the repository. See
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#episode-objectives">Episode objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-files-from-the-staging-area">Removing files from the staging area</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-sure-you-know-what-you-re-committing">Make sure you know what you’re committing</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#undoing-commits">Undoing commits</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reverting-undo-a-commit-by-making-a-new-one">Reverting (undo a commit by making a new one)</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#note-on-git-revert">Note on <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">revert</span></code></a></li>

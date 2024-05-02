@@ -333,12 +333,14 @@
 <li class="toctree-l2"><a class="reference internal" href="example_repo.html">An Example Repository</a></li>
 <li class="toctree-l2"><a class="reference internal" href="recording_changes.html">Recording Changes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="history_and_changes.html">Viewing History and Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recording_changes_revisited.html">Recording Changes – Revisited</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pushing_and_pulling.html">Pushing to and Pulling From the Remote Repository</a></li>
 <li class="toctree-l2"><a class="reference internal" href="undoing_changes.html">Undoing Changes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ignoring_files.html">Ignoring Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="local_branches.html">Working with Local Branches</a></li>
 <li class="toctree-l2"><a class="reference internal" href="remote_branches_with_github.html">Remote Branches with GitHub</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Collaborating with Branches</a></li>
+
 <li class="toctree-l2"><a class="reference internal" href="merge_conflicts.html">Merge Conflicts</a></li>
 </ul>
 </li>
@@ -599,6 +601,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Collaborating with Branches</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#collaborating-with-others">Collaborating with others</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-branching">Feature branching</a><ul class="nav section-nav flex-column">
@@ -624,6 +627,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jane-doe-and-her-collaboration-good-practice-feature-branch">Jane Doe and her <code class="docutils literal notranslate"><span class="pre">collaboration-good-practice</span></code> feature branch</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practice-for-collaboration">Best practice for collaboration</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-basic-feature-branch-strategy">A basic feature branch strategy</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merging">Merging</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-to-the-pass-joe">First to the pass: Joe</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jane-merging-after-changes-to-main">Jane: merging after changes to <code class="docutils literal notranslate"><span class="pre">main</span></code></a></li>
@@ -633,6 +640,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-a-graph-of-history">Viewing a graph of history</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning-up">Cleaning up</a></li>
 </ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -920,19 +930,20 @@ To<span class="w"> </span>https://github.com/jbloggs9999/git-good-practice.git
 <p>Jane creates a new file called <code class="docutils literal notranslate"><span class="pre">Collaboration-good-practice.md</span></code> in the
 <code class="docutils literal notranslate"><span class="pre">Good-practice-guides</span></code> directory (which she includes as a stand-alone commit)
 and adds the following content about the above feature branch strategy:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Best practice for collaboration</span>
-
-<span class="c1">## A basic feature branch strategy</span>
-
-A<span class="w"> </span>basic<span class="w"> </span>way<span class="w"> </span>to<span class="w"> </span>collaborate<span class="w"> </span>on<span class="w"> </span>a<span class="w"> </span>common<span class="w"> </span>repository<span class="w"> </span>is<span class="w"> </span>to<span class="w"> </span>use<span class="w"> </span>*feature<span class="w"> </span>branching*.
-A<span class="w"> </span>*feature*<span class="w"> </span><span class="k">in</span><span class="w"> </span>this<span class="w"> </span>context<span class="w"> </span>is<span class="w"> </span>any<span class="w"> </span>piece<span class="w"> </span>of<span class="w"> </span>work<span class="w"> </span>that<span class="w"> </span>adds<span class="w"> </span>to<span class="w"> </span>of<span class="w"> </span>the
-software<span class="err">&#39;</span>s<span class="w"> </span>overall<span class="w"> </span>development,<span class="w"> </span>whether<span class="w"> </span>this<span class="w"> </span>be<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>piece<span class="w"> </span>of<span class="w"> </span>functionality,<span class="w"> </span>a
-bug<span class="w"> </span>fix,<span class="w"> </span>some<span class="w"> </span>documentation,<span class="w"> </span>etc.<span class="w"> </span>In<span class="w"> </span>feature<span class="w"> </span>branching,<span class="w"> </span>new<span class="w"> </span>features<span class="w"> </span>are
-developed<span class="w"> </span><span class="k">in</span><span class="w"> </span>their<span class="w"> </span>own,<span class="w"> </span>dedicated<span class="w"> </span>*feature<span class="w"> </span>branches*<span class="w"> </span>that<span class="w"> </span>branch<span class="w"> </span>off<span class="w"> </span>the
-<span class="sb">`</span>main<span class="sb">`</span><span class="w"> </span>branch.<span class="w"> </span>When<span class="w"> </span>the<span class="w"> </span>feature<span class="w"> </span>is<span class="w"> </span>ready<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>shared<span class="w"> </span>with<span class="w"> </span>others,<span class="w"> </span>the<span class="w"> </span>feature
-branch<span class="w"> </span>is<span class="w"> </span>merged<span class="w"> </span>back<span class="w"> </span>into<span class="w"> </span><span class="sb">`</span>main<span class="sb">`</span>.
-</pre></div>
-</div>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="best-practice-for-collaboration">
+<h1>Best practice for collaboration<a class="headerlink" href="#best-practice-for-collaboration" title="Link to this heading">#</a></h1>
+<section id="a-basic-feature-branch-strategy">
+<h2>A basic feature branch strategy<a class="headerlink" href="#a-basic-feature-branch-strategy" title="Link to this heading">#</a></h2>
+<p>A basic way to collaborate on a common repository is to use <em>feature branching</em>.
+A <em>feature</em> in this context is any piece of work that adds to of the
+software’s overall development, whether this be a new piece of functionality, a
+bug fix, some documentation, etc. In feature branching, new features are
+developed in their own, dedicated <em>feature branches</em> that branch off the
+<code class="docutils literal notranslate"><span class="pre">main</span></code> branch. When the feature is ready to be shared with others, the feature
+branch is merged back into <code class="docutils literal notranslate"><span class="pre">main</span></code>.</p>
 <p>Like Joe, she then also pushes the new commits on her local
 <code class="docutils literal notranslate"><span class="pre">collaboration-good-practice</span></code> to the associated remote branch,
 <code class="docutils literal notranslate"><span class="pre">origin/collaboration-good-practice</span></code>:</p>
@@ -967,7 +978,6 @@ branches from the remote repository. This underlines the
 fact that the information about remote branches only
 gets updated in local repositories when you tell Git to retrieve updates from
 the remote, via <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span></code> or <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code>.</p>
-</section>
 </section>
 <section id="merging">
 <h2>Merging<a class="headerlink" href="#merging" title="Link to this heading">#</a></h2>
@@ -1294,6 +1304,7 @@ b9df491<span class="w"> </span>Add<span class="w"> </span>material<span class="w
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Collaborating with Branches</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#collaborating-with-others">Collaborating with others</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-branching">Feature branching</a><ul class="nav section-nav flex-column">
@@ -1319,6 +1330,10 @@ b9df491<span class="w"> </span>Add<span class="w"> </span>material<span class="w
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jane-doe-and-her-collaboration-good-practice-feature-branch">Jane Doe and her <code class="docutils literal notranslate"><span class="pre">collaboration-good-practice</span></code> feature branch</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practice-for-collaboration">Best practice for collaboration</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-basic-feature-branch-strategy">A basic feature branch strategy</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merging">Merging</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-to-the-pass-joe">First to the pass: Joe</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jane-merging-after-changes-to-main">Jane: merging after changes to <code class="docutils literal notranslate"><span class="pre">main</span></code></a></li>
@@ -1328,6 +1343,9 @@ b9df491<span class="w"> </span>Add<span class="w"> </span>material<span class="w
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-a-graph-of-history">Viewing a graph of history</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning-up">Cleaning up</a></li>
 </ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>

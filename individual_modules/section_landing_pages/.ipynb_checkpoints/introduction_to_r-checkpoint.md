@@ -20,12 +20,3 @@ This course will enable you to:
 ## Pre-requisite Knowledge
 
 This is a course for novices so there is no pre-requisite knowledge.
-
-## Feedback 
-
-Please remember to complete a feedback survey. Our workshops are under continual review and your experiences, suggestions and criticism are invaluable for shaping the direction of this initiative. This is especially important if you complete the materials in your own time as it enables us to measure impact. If you have ideas on other courses you would like to see then please contact Eilis Hannon: [E.J.hannon@exeter.ac.uk](E.J.hannon@exeter.ac.uk)
-
-## Join us 
-
-If you are interested in becoming part of our community of workshop helpers, leaders and developers please contact Eilis Hannon: [E.J.hannon@exeter.ac.uk](E.J.hannon@exeter.ac.uk)
-

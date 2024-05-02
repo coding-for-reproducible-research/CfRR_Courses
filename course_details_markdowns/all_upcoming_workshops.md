@@ -8,8 +8,6 @@ Over two sessions this workshop will introduce you to navigating the file system
 **Please register by:** No deadline specified
 **Installation Instructions:** [Click here to install]( https://uniexeterrse.github.io/intro-unix-shell/setup.html)
 
----
-
 # Welcome to the Introduction to Python Workshop
 **Next Session Date:** 1/11/2023, 8/11/2023
 
@@ -19,8 +17,6 @@ Over two sessions learn the fundamentals of Python one of the most popular progr
 **Registration Status:** Registration is currently closed.
 **Please register by:** 25/10/2023
 **Installation Instructions:** [Click here to install]( https://uniexeterrse.github.io/intro-to-python/setup.html)
-
----
 
 # Welcome to the Introduction to HPC at Exeter Workshop
 **Next Session Date:** 1/11/2023, 8/11/2023
@@ -32,8 +28,6 @@ Over two sessions learn about the high performance computing facilities at Exete
 **Please register by:** 25/10/2023
 **Installation Instructions:** [Click here to install](https://uniexeterrse.github.io/intro-to-isca/setup.html)
 
----
-
 # Welcome to the Introduction to Version Control with Git and GitHub Workshop
 **Next Session Date:** 12/12/2023, 19/12/2023
 
@@ -43,8 +37,6 @@ Over three sessions learn to use version control to manage your software develop
 **Registration Status:** Registration is currently open.
 **Please register by:** 05/12/2023
 **Installation Instructions:** [Click here to install](https://uniexeterrse.github.io/intro-version-control/setup.html)
-
----
 
 # Welcome to the Introduction to R Workshop
 **Next Session Date:**  9/1/2024, 16/1/2024, 23/1/2024
@@ -56,8 +48,6 @@ Over three sessions this workshop will provide an all-purpose introduction to th
 **Please register by:** 02/01/2024
 **Installation Instructions:** [Click here to install](https://uniexeterrse.github.io/intro-to-r/setup.html)
 
----
-
 # Welcome to the Regression analysis with R Workshop
 **Next Session Date:** 26/01/2024
 
@@ -67,8 +57,6 @@ In this hands on workshop you will learn how to fit and interpret a range of reg
 **Registration Status:** Registration is currently open.
 **Please register by:** 19/01/2024
 **Installation Instructions:** [Click here to install](https://uniexeterrse.github.io/intro-to-r/setup.html)
-
----
 
 # Welcome to the Computational Thinking Workshop
 **Next Session Date:** Summer 2024
@@ -80,8 +68,6 @@ Over two sessions this course will introduce you to some fundamental principles 
 **Please register by:** No deadline specified
 **Installation Instructions:** [Click here to install]( )
 
----
-
 # Welcome to the Software development best practice Workshop
 **Next Session Date:**  Summer 2024
 
@@ -91,6 +77,4 @@ Over two sessions learn about best practices in software development to improve 
 **Registration Status:** Registration is currently closed.
 **Please register by:** No deadline specified
 **Installation Instructions:** [Click here to install](nan)
-
----
 

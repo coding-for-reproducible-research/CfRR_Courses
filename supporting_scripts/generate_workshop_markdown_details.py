@@ -32,7 +32,8 @@ def display_row_in_markdown(df, workshop_name):
     # Provide registration closing date in a friendly format
     markdown_output += f"**Please register by:** {row_data['ClosingDate'] if pd.notna(row_data['ClosingDate']) else 'No deadline specified'}\n"
     markdown_output += f"**Installation Instructions:** [Click here to install]({row_data['InstallationLink']})\n"
-
+    
+    
     return markdown_output
 
 def main():

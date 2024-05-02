@@ -253,8 +253,7 @@ $ git log --oneline -3
 
 In order to update an upstream remote branch with new commits in the local
 tracking branch, we can use `git push` (or `git push origin`), like we did when working with
-the `main` branch in the episode
-[Pushing to and Pulling From the Remote Repository]({{ site.url }}/10_pushing_and_pulling/index.html).
+the `main` branch in the episode Pushing to and Pulling From the Remote Repository.
 Note however that this will push the commits _on the currently checked out branch_ to its upstream
 remote branch. So, in general, if you have a local branch `<foo>` that tracks a
 remote branch `origin/<foo>`, then in order to push `<foo>` to `origin/<foo>` we
@@ -360,8 +359,7 @@ Your branch is behind 'origin/main' by 2 commits, and can be fast-forwarded.
 nothing to commit, working tree clean
 ```
 
-In the
-[Pushing to and Pulling From the Remote Repository]({{ site.url }}/10_pushing_and_pulling/index.html)
+In the Pushing to and Pulling From the Remote Repository
 episode, we mentioned that `git pull` can be used to retrieve updates from the
 remote repository. To be more precise, `git pull` is used to bring in commits
 _in a remote branch into a corresponding local branch_. In general, if you have
@@ -375,7 +373,7 @@ git pull
 
 (or, to be explicit about the remote repository, `git pull origin`).
 
-#### `pull` automatically `fetch`es
+### `pull` automatically `fetch`es
 `git pull` actually performs a two step process on a branch `<branch>`. First, it runs a `git fetch` to retrieve all new commits, branches, etc. from the remote repository. Then, it merges the changes that have been fetched into the `origin/<branch>` into `<branch>`. As a result, we did not in fact need to use the `git fetch` command before using `git pull` above.
 
 We pull the changes to `origin/main` into our local `main` branch:

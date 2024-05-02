@@ -8,8 +8,6 @@ Over two sessions this course will introduce you to some fundamental principles 
 **Please register by:** No deadline specified
 **Installation Instructions:** [Click here to install]( )
 
----
-
 # Welcome to the Software development best practice Workshop
 **Next Session Date:**  Summer 2024
 
@@ -19,6 +17,4 @@ Over two sessions learn about best practices in software development to improve 
 **Registration Status:** Registration is currently closed.
 **Please register by:** No deadline specified
 **Installation Instructions:** [Click here to install](nan)
-
----
 

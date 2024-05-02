@@ -46,15 +46,11 @@ Examples:
 
 And we add the following to `Good-practice-guides/Commit-good-practice.md`:
 
-``` bash
-
 ## Make sure you know what you're committing
 
 Take care when staging multiple files with e.g. `git add .` that you don't
 stage changes you didn't mean to. Always check what you're committing with
 `git diff` or `git status`.
-
-```
 
 We go ahead and stage these, using our recently learnt syntax for staging
 changes to multiple files (our working directory is the repository root

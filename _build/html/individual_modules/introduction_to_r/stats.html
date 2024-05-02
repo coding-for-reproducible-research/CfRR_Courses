@@ -335,12 +335,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/example_repo.html">An Example Repository</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/recording_changes.html">Recording Changes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/history_and_changes.html">Viewing History and Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/recording_changes_revisited.html">Recording Changes – Revisited</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/pushing_and_pulling.html">Pushing to and Pulling From the Remote Repository</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/undoing_changes.html">Undoing Changes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/ignoring_files.html">Ignoring Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/local_branches.html">Working with Local Branches</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/remote_branches_with_github.html">Remote Branches with GitHub</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/collaborating_with_branches.html">Collaborating with Branches</a></li>
+
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/merge_conflicts.html">Merge Conflicts</a></li>
 </ul>
 </li>
@@ -678,10 +680,10 @@ document.write(`
 to perform a given test in R, it is not to discuss the merits of or scenarios in which you would use a specific test.</p>
 <section id="loading-the-dataset">
 <h2>Loading the dataset<a class="headerlink" href="#loading-the-dataset" title="Link to this heading">#</a></h2>
-<p>To do statistics we need some observed data. We will use a dataset contained in the csv file <a class="reference internal" href="#../data/bp_dataset_session4.csv"><span class="xref myst">bp_dataset.csv</span></a>. This dataset is based on a clinical trial to test the effect of two
+<p>To do statistics we need some observed data. We will use a dataset contained in the csv file <a class="reference download internal" download="" href="../../_downloads/fdddc3ebd3102a9389df1b4e38c38fa3/bp_dataset_session4.csv"><span class="xref download myst">bp_dataset.csv</span></a>. This dataset is based on a clinical trial to test the effect of two
 drugs (Drug A and Drug B), compared with an inactive control drug (placebo), on blood pressure in people who have high blood pressure. The purpose of the
 drugs is to reduce blood pressure. Some additional information about the people in the trial, such as their age and sex, is also provided (see
-<a class="reference internal" href="#../data/bp_dataset_codebook_session4.xlsx"><span class="xref myst">codebook</span></a> for further information about the variables).</p>
+<a class="reference download internal" download="" href="../../_downloads/0eb2004b995e6ae4473cc1c8c56aa0be/bp_dataset_codebook_session4.xlsx"><span class="xref download myst">codebook</span></a> for further information about the variables).</p>
 <p>Let’s start by loading the dataset. You need to ensure that the dataset is located in your current working directory.
 We will read in the csv file and assign it to a variable called <code class="docutils literal notranslate"><span class="pre">bp_dataset</span></code>. The <code class="docutils literal notranslate"><span class="pre">header=TRUE</span></code> argument means R will take the entries in the first row
 and use these to set the column headings.</p>

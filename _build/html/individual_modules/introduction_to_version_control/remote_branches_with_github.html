@@ -333,12 +333,14 @@
 <li class="toctree-l2"><a class="reference internal" href="example_repo.html">An Example Repository</a></li>
 <li class="toctree-l2"><a class="reference internal" href="recording_changes.html">Recording Changes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="history_and_changes.html">Viewing History and Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recording_changes_revisited.html">Recording Changes – Revisited</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pushing_and_pulling.html">Pushing to and Pulling From the Remote Repository</a></li>
 <li class="toctree-l2"><a class="reference internal" href="undoing_changes.html">Undoing Changes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ignoring_files.html">Ignoring Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="local_branches.html">Working with Local Branches</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Remote Branches with GitHub</a></li>
 <li class="toctree-l2"><a class="reference internal" href="collaborating_with_branches.html">Collaborating with Branches</a></li>
+
 <li class="toctree-l2"><a class="reference internal" href="merge_conflicts.html">Merge Conflicts</a></li>
 </ul>
 </li>
@@ -856,8 +858,7 @@ the log on <code class="docutils literal notranslate"><span class="pre">remote-b
 </div>
 <p>In order to update an upstream remote branch with new commits in the local
 tracking branch, we can use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code> (or <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span></code>), like we did when working with
-the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch in the episode
-[Pushing to and Pulling From the Remote Repository](/10_pushing_and_pulling/index.html).
+the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch in the episode Pushing to and Pulling From the Remote Repository.
 Note however that this will push the commits <em>on the currently checked out branch</em> to its upstream
 remote branch. So, in general, if you have a local branch <code class="docutils literal notranslate"><span class="pre">&lt;foo&gt;</span></code> that tracks a
 remote branch <code class="docutils literal notranslate"><span class="pre">origin/&lt;foo&gt;</span></code>, then in order to push <code class="docutils literal notranslate"><span class="pre">&lt;foo&gt;</span></code> to <code class="docutils literal notranslate"><span class="pre">origin/&lt;foo&gt;</span></code> we
@@ -945,8 +946,7 @@ Your<span class="w"> </span>branch<span class="w"> </span>is<span class="w"> </s
 nothing<span class="w"> </span>to<span class="w"> </span>commit,<span class="w"> </span>working<span class="w"> </span>tree<span class="w"> </span>clean
 </pre></div>
 </div>
-<p>In the
-[Pushing to and Pulling From the Remote Repository](/10_pushing_and_pulling/index.html)
+<p>In the Pushing to and Pulling From the Remote Repository
 episode, we mentioned that <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> can be used to retrieve updates from the
 remote repository. To be more precise, <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> is used to bring in commits
 <em>in a remote branch into a corresponding local branch</em>. In general, if you have

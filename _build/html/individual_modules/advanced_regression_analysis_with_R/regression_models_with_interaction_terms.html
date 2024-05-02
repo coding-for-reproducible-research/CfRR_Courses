@@ -335,12 +335,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/example_repo.html">An Example Repository</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/recording_changes.html">Recording Changes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/history_and_changes.html">Viewing History and Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/recording_changes_revisited.html">Recording Changes – Revisited</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/pushing_and_pulling.html">Pushing to and Pulling From the Remote Repository</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/undoing_changes.html">Undoing Changes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/ignoring_files.html">Ignoring Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/local_branches.html">Working with Local Branches</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/remote_branches_with_github.html">Remote Branches with GitHub</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/collaborating_with_branches.html">Collaborating with Branches</a></li>
+
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/merge_conflicts.html">Merge Conflicts</a></li>
 </ul>
 </li>
@@ -744,7 +746,7 @@ summary(model.int)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2802
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2714.5
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -762,37 +764,37 @@ summary(model.int)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     Min 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Min 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      1Q 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     1Q 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Median 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Median 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      3Q 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     3Q 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     Max 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Max 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-3.09338 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-3.4769 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.57916 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.5681 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.00372 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.0122 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.55220 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.5798 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 2.58753 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 3.6596 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -825,10 +827,10 @@ summary(model.int)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> (Intercept)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 17.4722 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 17.000  
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 4.1800  
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 4.123   
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -840,16 +842,16 @@ summary(model.int)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>            
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.9932 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1.014  
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.9966  
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1.007   
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of obs: 729, groups: 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of obs: 699, groups: 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
@@ -879,49 +881,49 @@ summary(model.int)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(Intercept)  
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  7.57536
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  8.04396
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    0.47277
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    0.47955
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  16.023
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  16.774
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>VisitNum     
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.13218
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.13622
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    0.03928
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    0.04188
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   3.365
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   3.253
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SexM         
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1.20851
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.08885
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    0.65051
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    0.64604
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   1.858
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   0.138
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>VisitNum:SexM
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -0.11350
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -0.06687
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    0.04909
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    0.05278
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  -2.312
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  -1.267
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -945,7 +947,7 @@ summary(model.int)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>VisitNum   
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -0.199
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -0.213
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       
@@ -957,10 +959,10 @@ summary(model.int)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SexM       
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -0.727
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -0.742
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.145
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.158
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       
@@ -969,13 +971,13 @@ summary(model.int)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>VisitNm:SxM
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.160
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.169
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -0.800
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -0.793
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -0.191
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -0.203
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -1015,7 +1017,7 @@ lines(x.sample, y.female, col = &quot;magenta&quot;)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/fbdf58611740573c4bcfbb24a6a1c08e0b5dac05f89c98e64774f7d86b2b8dc7.png" src="../../_images/fbdf58611740573c4bcfbb24a6a1c08e0b5dac05f89c98e64774f7d86b2b8dc7.png" />
+<img alt="../../_images/cbf048b06a68c46872d08e5b150b9fcb9ac007d414d38cb2bbe3df753d2bb9e8.png" src="../../_images/cbf048b06a68c46872d08e5b150b9fcb9ac007d414d38cb2bbe3df753d2bb9e8.png" />
 </div>
 </div>
 <p>We can see in the scatterplot that the male and female mean lines start at approximately the same place on the y-axis. This fits with the sex main effect not being significant and that there is no difference at baseline in cognitive scores. What we can also see is that the mean performance of the course of the study differs. Specifically, females scores improve at a faster rate as the pink line is steeper. While the graph is helpful to visualise this, we can also draw these conclusions by calculating the values of the intercept and slope coefficients for each sex from the regression parameters. These values are included in the table below.</p>
@@ -1072,13 +1074,13 @@ lines(x.sample, y.female, col = &quot;magenta&quot;)
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="vFlbtBzKicuD" data-shufflequestions="False"
+<div class="output text_html"><div id="twXcDarxbOkP" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#vFlbtBzKicuD {
+#twXcDarxbOkP {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1248,7 +1250,7 @@ lines(x.sample, y.female, col = &quot;magenta&quot;)
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsvFlbtBzKicuD=[
+</style></div><script type="application/javascript">var questionstwXcDarxbOkP=[
     {
         "question": "Considering the results for cognitive test A, which of the following statements are correct. Select all that apply.",
         "type": "many_choice",
@@ -2107,8 +2109,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("vFlbtBzKicuD")) {
-            show_questions(questionsvFlbtBzKicuD,  vFlbtBzKicuD); 
+          if(document.getElementById("twXcDarxbOkP")) {
+            show_questions(questionstwXcDarxbOkP,  twXcDarxbOkP); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -2117,8 +2119,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("vFlbtBzKicuD");
-        // console.log(document.getElementById("vFlbtBzKicuD"));
+        //console.log("twXcDarxbOkP");
+        // console.log(document.getElementById("twXcDarxbOkP"));
 
         try_show();
         }

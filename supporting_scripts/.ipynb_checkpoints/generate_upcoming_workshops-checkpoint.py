@@ -30,9 +30,6 @@ def display_workshops_in_markdown(df, filter_next_month=False):
         closing_date = row['ClosingDate'] if pd.notna(row['ClosingDate']) else 'No deadline specified'
         markdown_output += f"**Please register by:** {closing_date}\n"
         markdown_output += f"**Installation Instructions:** [Click here to install]({row['InstallationLink']})\n\n"
-        
-        # Add a horizontal line separator between workshops
-        markdown_output += "---\n\n"
     
     return markdown_output
 

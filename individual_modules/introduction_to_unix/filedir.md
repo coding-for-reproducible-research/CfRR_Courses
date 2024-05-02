@@ -61,8 +61,7 @@ which is Nelle's **home directory**:
 
 ## Home Directory Variation
 The home directory path will look different on different operating systems. On Linux, it may look like `/home/nelle`, and on Windows, it will be similar to `C:\Documents and Settings\nelle` or `C:\Users\nelle`. (Note that it may look slightly different for different versions of Windows.) In future examples, we've used Mac output as the default - Linux and Windows output may differ slightly but should be generally similar.
-We will also assume that your `pwd` command returns your user's home directory. If `pwd` returns something different, you may need to navigate there using `cd` or some commands in this lesson will not work as written. See [Exploring Other Directories](#exploring-other-directories) for more details on the `cd` command.
-{: .callout}
+We will also assume that your `pwd` command returns your user's home directory. If `pwd` returns something different, you may need to navigate there using `cd` or some commands in this lesson will not work as written. See Exploring Other Directories for more details on the `cd` command.
 
 To understand what a 'home directory' is,
 let's have a look at how the file system as a whole is organized.  For the
@@ -218,7 +217,7 @@ Mandatory arguments to long options are mandatory for short options, too.
 ## Unsupported command-line options
 If you try to use an option that is not supported, `ls` and other commands will usually print an error message similar to:
 
-``` bahs 
+``` bash 
 $ ls -j
 ```
 
