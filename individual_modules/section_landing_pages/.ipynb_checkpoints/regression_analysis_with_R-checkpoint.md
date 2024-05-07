@@ -12,6 +12,6 @@ This course will covering the following:
 - Be able to extract and summarise the results from a range of regression models.
 - Be able to design a regression model appropriate for addressing their specific research question.
 
-## Pre-requisite knowledge
+## Pre-requisite Knowledge
 
 Learners are expected to already be familiar with the basics of R, such as how to load a dataset from a local file and manipulate variables.

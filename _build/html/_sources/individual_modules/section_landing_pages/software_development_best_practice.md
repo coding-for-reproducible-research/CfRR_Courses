@@ -21,5 +21,8 @@ The content that is covered includes:
     - Testing
     - Collaboration & Reproducibility
 
+## Pre-requisite Knowledge
+
+There is no pre-requisite knowledge and the workshop is designed to be appropriate for anyone interested in software development. 
 
 

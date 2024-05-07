@@ -12,14 +12,14 @@ parts:
     chapters: 
     - file: where_is_my_understanding/homepage_where_is_my_understanding
       sections: 
-      - file: where_is_my_understanding/computational_thinking
-      - file: where_is_my_understanding/python_for_data_analysis
       - file: where_is_my_understanding/intro_to_python
+      - file: where_is_my_understanding/python_for_data_analysis
+      - file: where_is_my_understanding/regression_analysis_with_R
+      - file: where_is_my_understanding/advanced_regression_analysis_with_R
       - file: where_is_my_understanding/intro_to_version_control
       - file: where_is_my_understanding/intro_to_unix
-      - file: where_is_my_understanding/regression_analysis_with_R
+      - file: where_is_my_understanding/computational_thinking
       - file: where_is_my_understanding/software_development_best_practice
-      - file: where_is_my_understanding/advanced_regression_analysis_with_R
   - caption: Course Details and Delivery Dates
     chapters:
     - file: course_homepages/connected_course_homepages/theoretical
@@ -75,6 +75,12 @@ parts:
       - file: individual_modules/introduction_to_python/analysis_task_1
       - file: individual_modules/introduction_to_python/analysis_task_2
       - file: individual_modules/introduction_to_python/analysis_task_3
+    - file: individual_modules/section_landing_pages/python_for_data_analysis
+      sections:
+      - file: individual_modules/python_for_data_analysis/Python_NumPy
+      - file: individual_modules/python_for_data_analysis/Python_Pandas
+      - file: individual_modules/python_for_data_analysis/Python_Matplotlib
+      - file: individual_modules/python_for_data_analysis/Python_ScikitLearn
     - file: individual_modules/section_landing_pages/introduction_to_r
       sections:
       - file: individual_modules/introduction_to_r/gettingstarted
@@ -86,6 +92,31 @@ parts:
       - file: individual_modules/introduction_to_r/plots
       - file: individual_modules/introduction_to_r/stats
       - file: individual_modules/introduction_to_r/good_practise
+    - file: individual_modules/section_landing_pages/regression_analysis_with_R
+      sections:
+      - file: individual_modules/regression_analysis_with_R/introduction_to_regression
+      - file: individual_modules/regression_analysis_with_R/hypothesis_testing
+      - file: individual_modules/regression_analysis_with_R/multiple_linear_regression
+      - file: individual_modules/regression_analysis_with_R/logistic_regression
+      - file: individual_modules/regression_analysis_with_R/summary
+      - file: individual_modules/regression_analysis_with_R/extras
+    - file: individual_modules/section_landing_pages/advanced_regression_analysis_with_R
+      sections:
+      - file: individual_modules/advanced_regression_analysis_with_R/mixed_effects_models
+      - file: individual_modules/advanced_regression_analysis_with_R/expanding_the_mixed_effects_model_framework
+      - file: individual_modules/advanced_regression_analysis_with_R/regression_models_with_interaction_terms
+      - file: individual_modules/advanced_regression_analysis_with_R/summary
+      - file: individual_modules/advanced_regression_analysis_with_R/extras
+    - file: individual_modules/section_landing_pages/working_with_data_in_R
+      sections:
+      - file: individual_modules/working_with_data_in_R/introducing_tidyverse
+      - file: individual_modules/working_with_data_in_R/loading_data
+      - file: individual_modules/working_with_data_in_R/manipulating_a_dataframe
+      - file: individual_modules/working_with_data_in_R/piping
+      - file: individual_modules/working_with_data_in_R/combining_datasets
+      - file: individual_modules/working_with_data_in_R/reshaping_datasets
+      - file: individual_modules/working_with_data_in_R/strings_and_dates
+      - file: individual_modules/working_with_data_in_R/summary
     - file: individual_modules/section_landing_pages/introduction_to_hpc
       sections:
       - file: individual_modules/introduction_to_hpc/motivation
@@ -131,20 +162,6 @@ parts:
       - file: individual_modules/computational_thinking/abstraction
       - file: individual_modules/computational_thinking/alignment
       - file: individual_modules/computational_thinking/final_exercise
-    - file: individual_modules/section_landing_pages/regression_analysis_with_R
-      sections:
-      - file: individual_modules/regression_analysis_with_R/introduction_to_regression
-      - file: individual_modules/regression_analysis_with_R/hypothesis_testing
-      - file: individual_modules/regression_analysis_with_R/multiple_linear_regression
-      - file: individual_modules/regression_analysis_with_R/logistic_regression
-      - file: individual_modules/regression_analysis_with_R/summary
-      - file: individual_modules/regression_analysis_with_R/extras
-    - file: individual_modules/section_landing_pages/python_for_data_analysis
-      sections:
-      - file: individual_modules/python_for_data_analysis/Python_NumPy
-      - file: individual_modules/python_for_data_analysis/Python_Pandas
-      - file: individual_modules/python_for_data_analysis/Python_Matplotlib
-      - file: individual_modules/python_for_data_analysis/Python_ScikitLearn
     - file: individual_modules/section_landing_pages/software_development_best_practice
       sections:
       - file: individual_modules/software_development_best_practices/software_development_life_cycle
@@ -156,23 +173,6 @@ parts:
       - file: individual_modules/software_development_best_practices/testing
       - file: individual_modules/software_development_best_practices/collaboration
       - file: individual_modules/software_development_best_practices/reproducibility
-    - file: individual_modules/section_landing_pages/advanced_regression_analysis_with_R
-      sections:
-      - file: individual_modules/advanced_regression_analysis_with_R/mixed_effects_models
-      - file: individual_modules/advanced_regression_analysis_with_R/expanding_the_mixed_effects_model_framework
-      - file: individual_modules/advanced_regression_analysis_with_R/regression_models_with_interaction_terms
-      - file: individual_modules/advanced_regression_analysis_with_R/summary
-      - file: individual_modules/advanced_regression_analysis_with_R/extras
-    - file: individual_modules/section_landing_pages/working_with_data_in_R
-      sections:
-      - file: individual_modules/working_with_data_in_R/introducing_tidyverse
-      - file: individual_modules/working_with_data_in_R/loading_data
-      - file: individual_modules/working_with_data_in_R/manipulating_a_dataframe
-      - file: individual_modules/working_with_data_in_R/piping
-      - file: individual_modules/working_with_data_in_R/combining_datasets
-      - file: individual_modules/working_with_data_in_R/reshaping_datasets
-      - file: individual_modules/working_with_data_in_R/strings_and_dates
-      - file: individual_modules/working_with_data_in_R/summary
   - caption: Pathways
     chapters:
     - file: pathways/complete_notebooks/data_scientist
