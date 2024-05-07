@@ -1,0 +1,158 @@
+---
+title: "Introducing the Tidyverse"
+output:
+  html_document:
+    df_print: paged
+---
+
+## Outline
+
+-   What is the Tidyverse?
+-   Dataframes / tibbles
+-   Tidy data format
+
+
+## What is the Tidyverse?
+
+The Tidyverse is self-described as:
+
+> "...an opinionated collection of R packages designed for data science. All
+> packages share an underlying design philosophy, grammar, and data
+> structures'."
+>
+> — <https://www.tidyverse.org/>
+
+When you install the `tidyverse` package, you install a suite of packages. These
+include the following; we've marked the ones this course will introduce with a
+\->:
+
+-   \-> `readr`: Load 'rectangular' data into an R session (e.g. csv files).
+-   \-> `dplyr`: Manipulate data (filtering, computing summaries, etc.)
+-   \-> `tidyr`: Reshape data (e.g. into 'tidy' format).
+-   \-> `stringr`: Working with strings.
+-   \-> `lubridate`: Working with dates
+-   `ggplot2`: Visualise data.
+-   `tibble`: A modern refresh of the core R dataframe, used throughout
+    Tidyverse packages.
+-   `forcats`: Tools for working with R 'factors', often used for categorical
+    data.
+-   `purrr`: Tools for working with R objects in a functional way.
+
+These are designed to help you work with data, from cleaning and manipulation to
+plotting and modelling. The benefits of the Tidyverse include:
+
+-   They are increasingly popular with large user bases (good for support /
+    advice).
+-   The packages are generally very well documented.
+-   The packages are designed to work together seamlessly and operate well with
+    many other modern R packages.
+-   Provide features to help you write expressive code and avoid common pitfalls
+    when working with data.
+-   Built around a consistent philosophy of how to structure data for analysis
+    (the 'tidy' data format).
+
+
+## Dataframes / tibbles
+
+The key data structure that Tidyverse packages are designed to work with is the
+*dataframe*.
+
+Actually, this is not quite the whole story. As you read the documentation for
+Tidyverse packages, you'll inevitably come across the term *tibble*. This is
+essentially the same thing as a dataframe, although there are some minor
+differences. For the purposes of this course, you can consider dataframes and
+tibbles to be interchangeable and regard them as 'the same thing'.
+
+To demonstrate this, let's consider the Palmer Station penguins data related to
+three species of Antarctic penguins from Horst, Hill, and Gorman[^1]. We'll
+work with this dataset throughout this course. The data contains size
+measurements for male and female adult foraging Adélie, Chinstrap, and Gentoo
+penguins observed on islands in the Palmer Archipelago near Palmer Station,
+Antarctica between 2007-2009. Data were collected and made available by
+Dr Kristen Gorman and the Palmer Station Long Term Ecological Research (LTER)
+Program. You can read more about the package on the
+[`palmerpenguins` documentation website](https://allisonhorst.github.io/palmerpenguins/index.html). 
+
+To load the dataset, we just import the `palmerpenguins` package and look at
+the `penguins` object.
+
+```{r}
+library(palmerpenguins)  # loads `penguins` object
+penguins
+```
+
+If we look closely, we see that the class of `penguins` (i.e. the kind of object
+it is) is a tibble, indicated by the `"tbl_df"` in the output below:
+
+```{r}
+class(penguins)
+```
+
+
+## Tidy data
+
+*Tidy data* is a convention that specifies how to arrange our data into a table.
+It states that
+
+-   The columns of the table should correspond to the variables in the data.
+-   The rows of the table should correspond to observations (or samples) of the
+    variables in the data.
+
+Packages in the Tidyverse are designed to work with tidy data.
+
+You can read more about the tidy data format in [Hadley Wickham's Tidy
+Data](https://doi.org/10.18637/jss.v059.i10) paper[^2].
+
+
+### Tidy data: Example
+
+Suppose we have a pet dog and a pet cat and we want to study the average weight
+of them by year, to see if there is some kind of association between the
+species and the trend in weight variation over time. We could represent this in
+a 'matrix-like' format, with the years corresponding to rows and species
+corresponding to columns:
+
+| Year | Dog_weight_kg | Cat_weight_kg |
+|:-----|:--------------|:--------------|
+| 2021 | 21.4          | 8.7           |
+| 2022 | 20.9          | 8.4           |
+| 2023 | 21.8          | 8.1           |
+
+: Weights of pets by year (non-tidy format)
+
+However, this is not in a tidy format. The variables we're interested in
+studying are the year, animal species and weight, but here the columns
+correspond to the weights for each kind of species. Instead, we should have a
+separate column for the species:
+
+| Year | Species | Weight_kg |
+|:-----|:--------|:----------|
+| 2021 | dog     | 21.4      |
+| 2021 | cat     | 8.7       |
+| 2022 | dog     | 20.9      |
+| 2022 | cat     | 8.4       |
+| 2023 | dog     | 21.8      |
+| 2023 | cat     | 8.1       |
+
+: Weights of pets by year (tidy format)
+
+
+## Acknowledgement
+
+The material in this notebook is adapted from Eliza Wood's [Tidyverse: Data
+wrangling & visualization](https://liza-wood.github.io/tidyverse_intro/) course,
+which is licensed under [Creative Commons BY-NC-SA
+4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). This in itself is
+based on material from [UC Davis's R-DAVIS
+course](https://gge-ucd.github.io/R-DAVIS/index.html), which draws heavily on
+[Carpentries](https://datacarpentry.org/R-ecology-lesson/) R lessons.
+
+
+## Footnotes
+
+[^1]: Horst AM, Hill AP, Gorman KB (2020). palmerpenguins: Palmer Archipelago
+      (Antarctica) penguin data. R package version 0.1.1.
+      <https://allisonhorst.github.io/palmerpenguins/>. doi: 10.5281/zenodo.3960218.
+
+[^2]: Wickham, H. (2014). Tidy Data. *Journal of Statistical Software*,
+    *59*(10), 1–23. <https://doi.org/10.18637/jss.v059.i10>

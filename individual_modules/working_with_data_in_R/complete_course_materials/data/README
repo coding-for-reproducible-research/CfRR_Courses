@@ -1,0 +1,57 @@
+The following datasets in this folder were obtained from the sources listed
+below. All other datasets were artificially created for this course.
+
+
+PalmerStation_Daily_Weather.csv
+-------------------------------
+
+Palmer Station Antarctica LTER. 2023. Daily weather averages for Palmer Station,
+Antarctica (1989-2023) ver 9. Environmental Data Initiative.
+https://doi.org/10.6073/pasta/3eefb45dbfb784c3cabe3690ea46fe9e
+(accessed 2024-01-08).
+
+Intellectual Rights of the authors (as accessed from the above link on
+2024-01-08):
+
+This information is released under the Creative Commons license - Attribution
+- CC BY (https://creativecommons.org/licenses/by/4.0/). The consumer of these
+data ("Data User" herein) is required to cite it appropriately in any
+publication that results from its use. The Data User should realize that these
+data may be actively used by others for ongoing research and that coordination
+may be necessary to prevent duplicate publication. The Data User is urged to
+contact the authors of these data if any questions about methodology or results
+occur. Where appropriate, the Data User is encouraged to consider collaboration
+or co-authorship with the authors. The Data User should realize that
+misinterpretation of data may occur if used out of context of the original
+study. While substantial efforts are made to ensure the accuracy of data and
+associated documentation, complete accuracy of data sets cannot be guaranteed.
+All data are made available "as is." The Data User should be aware, however,
+that data are updated periodically and it is the responsibility of the Data User
+to check for new versions of the data. The data authors and the repository where
+these data were obtained shall not be liable for damages resulting from any use
+or misinterpretation of the data. Thank you.
+
+
+weather_annual.csv
+------------------
+
+This was derived from PalmerStation_Daily_Weather.csv, by aggregating the data
+for each year. (All aggregations are calculated after removing missing values.)
+The columns computed are:
+- Average_temp: The mean of 'Temperature Average (C)' for each year.
+- Max_temp: The maximum of 'Temperature High (C)' for each year.
+- Min_temp: The minimum of 'Temperature Low (C)' for each year.
+
+
+National_Fossil_Carbon_Emissions_2023v1.0.xlsx
+----------------------------------------------
+
+Friedlingstein, P., O'Sullivan, M., Jones, M. W., Andrew, R. M., Bakker, D. C. E., Hauck, J., Landschützer, P., Le Quéré, C., Luijkx, I. T., Peters, G. P., Peters, W., Pongratz, J., Schwingshackl, C., Sitch, S., Canadell, J. G., Ciais, P., Jackson, R. B., Alin, S. R., Anthoni, P., Barbero, L., Bates, N. R., Becker, M., Bellouin, N., Decharme, B., Bopp, L., Brasika, I. B. M., Cadule, P., Chamberlain, M. A., Chandra, N., Chau, T.-T.-T., Chevallier, F., Chini, L. P., Cronin, M., Dou, X., Enyo, K., Evans, W., Falk, S., Feely, R. A., Feng, L., Ford, D. J., Gasser, T., Ghattas, J., Gkritzalis, T., Grassi, G., Gregor, L., Gruber, N., Gürses, Ö., Harris, I., Hefner, M., Heinke, J., Houghton, R. A., Hurtt, G. C., Iida, Y., Ilyina, T., Jacobson, A. R., Jain, A., Jarníková, T., Jersild, A., Jiang, F., Jin, Z., Joos, F., Kato, E., Keeling, R. F., Kennedy, D., Klein Goldewijk, K., Knauer, J., Korsbakken, J. I., Körtzinger, A., Lan, X., Lefèvre, N., Li, H., Liu, J., Liu, Z., Ma, L., Marland, G., Mayot, N., McGuire, P. C., McKinley, G. A., Meyer, G., Morgan, E. J., Munro, D. R., Nakaoka, S.-I., Niwa, Y., O'Brien, K. M., Olsen, A., Omar, A. M., Ono, T., Paulsen, M., Pierrot, D., Pocock, K., Poulter, B., Powis, C. M., Rehder, G., Resplandy, L., Robertson, E., Rödenbeck, C., Rosan, T. M., Schwinger, J., Séférian, R., Smallman, T. L., Smith, S. M., Sospedra-Alfonso, R., Sun, Q., Sutton, A. J., Sweeney, C., Takao, S., Tans, P. P., Tian, H., Tilbrook, B., Tsujino, H., Tubiello, F., van der Werf, G. R., van Ooijen, E., Wanninkhof, R., Watanabe, M., Wimart-Rousseau, C., Yang, D., Yang, X., Yuan, W., Yue, X., Zaehle, S., Zeng, J., and Zheng, B.: Global Carbon Budget 2023, Earth Syst. Sci. Data, 15, 5301–5369, https://doi.org/10.5194/essd-15-5301-2023, 2023
+
+Fossil CO2 emissions by country (territorial) data obtained from obtained
+from https://globalcarbonbudgetdata.org/downloads/latest-data/National_Fossil_Carbon_Emissions_2023v1.0.xlsx
+(accessed 2024-02-28).
+
+We acknowledge the Global Carbon Project, which is responsible for the Global
+Carbon Budget and we thank the fossil carbon emissions modelling groups for
+producing and making available their model output.

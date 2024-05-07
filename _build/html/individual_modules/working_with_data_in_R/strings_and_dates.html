@@ -1,0 +1,1534 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Strings and Dates &#8212; Coding For Reproducible Research</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'individual_modules/working_with_data_in_R/strings_and_dates';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Summary" href="summary.html" />
+    <link rel="prev" title="Reshaping Data" href="reshaping_datasets.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../home_page.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/exeter_logo.png" class="logo__image only-light" alt="Coding For Reproducible Research - Home"/>
+    <script>document.write(`<img src="../../_static/exeter_logo.png" class="logo__image only-dark" alt="Coding For Reproducible Research - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../home_page.html">
+                    Coding for Reproducible Research
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">What is Coding For Reproducible Research?</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../about_us.html">About Us</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how_to_use_CfRR.html">How to Use This Website</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">What Courses Should I Take?</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../where_is_my_understanding/homepage_where_is_my_understanding.html">Interactive Quizzes</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../where_is_my_understanding/computational_thinking.html">Computational Thinking Quiz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../where_is_my_understanding/python_for_data_analysis.html">Python for Data Analysis Quiz</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../where_is_my_understanding/intro_to_python.html">Introduction to Python Quiz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../where_is_my_understanding/intro_to_version_control.html">Introduction to Version Control with Git and Github Quiz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../where_is_my_understanding/intro_to_unix.html">Introduction to UNIX Quiz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../where_is_my_understanding/regression_analysis_with_R.html">Regression Analysis With R Quiz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../where_is_my_understanding/software_development_best_practice.html">Software Development Best Practice Quiz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../where_is_my_understanding/advanced_regression_analysis_with_R.html">Advanced Regression Analysis with R</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Details and Delivery Dates</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/theoretical.html">Theoretical</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/computational_thinking.html">Computational Thinking</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/machine_learning.html">Machine Learning</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_machine_learning.html">Introduction to Machine Learning</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/high_performance_computing.html">High Performance Computing</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_hpc_and_isca.html">Introduction to HPC and ISCA</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/julia.html">Julia</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_julia.html">Introduction to Julia</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/unix.html">UNIX</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_unix.html">Introduction to UNIX</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/parallel_computing.html">Parallel Computing</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/intro_parallel_computing.html">Parallel Computing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/R.html">R</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_r.html">Introduction to R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/working_with_data_in_r.html">Working With Data In R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/regression_analysis_with_r.html">Regression Analysis with R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/advanced_regression_analysis.html">Advanced Regression Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/python.html">Python</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_python.html">Introduction to Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/intermediate_python.html">Intermediate Python</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/software_development.html">Software Development</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/software_development_best_practice.html">Software Development Best Practices</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/version_control.html">Version Control</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_version_control_with_git_and_github.html">Introduction to Version Control with Git and Github</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/intermediate_version_control.html">Intermediate Version Control</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Self Study Notes</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/introduction_to_python.html">Introduction to Python</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/motivation.html">Motivation and Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/fundamentals.html">Python Fundamentals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/lists.html">Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/control_flow.html">Control Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/additional_exercises.html">Additional Session 1 Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/recap.html">Session 1 Recap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/imports.html">Imports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/analysis_task_intro.html">Data Analysis Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/analysis_task_1.html">Data Analysis Task 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/analysis_task_2.html">Data Analysis Task 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/analysis_task_3.html">Data Analysis Task 3</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/introduction_to_r.html">Introduction to R</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/gettingstarted.html">Getting Up and Running with R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/basic_commands.html">Running Commands With R</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/data_types.html">Data Types and Structures</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/load_data.html">Loading Data From Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/manipulating_data.html">Manipulating Datasets</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/control_flow.html">Control Flow</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/plots.html">Plots</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/stats.html">Statistical Analysis</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/good_practise.html">Establishing Good Practices when Coding</a></li>
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/introduction_to_hpc.html">Introduction to HPC and ISCA</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/motivation.html">Why might I want to use a HPC Cluster?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/isca.html">Exeter supported HPC facilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/connection.html">How do I connect to a HPC Cluster?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/file_transfer.html">File Transfer Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/schedulers.html">Running a job on a HPC system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/modules.html">Loading software packages on HPC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/example_jobs.html">Running more complex jobs on a HPC system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/exploiting_slurm.html">Harnessing the power of the scheduler</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/introduction_to_version_control.html">Introduction to Version Control</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/motivation.html">Motivation: Why use Version Control Systems?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/git_vs_github.html">Git vs Github</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/configuring_git.html">Setting up Git and GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/making_repos.html">Making Repositories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/example_repo.html">An Example Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/recording_changes.html">Recording Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/history_and_changes.html">Viewing History and Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/recording_changes_revisited.html">Recording Changes – Revisited</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/pushing_and_pulling.html">Pushing to and Pulling From the Remote Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/undoing_changes.html">Undoing Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/ignoring_files.html">Ignoring Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/local_branches.html">Working with Local Branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/remote_branches_with_github.html">Remote Branches with GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/collaborating_with_branches.html">Collaborating with Branches</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/merge_conflicts.html">Merge Conflicts</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/introduction_to_unix.html">Introduction to UNIX</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/intro.html">Introducing the UNIX shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/filedir.html">File Directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/create.html">Working With Files and Directories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/pipefilter.html">Pipes and Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/loop.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/script.html">Shell Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/find.html">Finding Things</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/computational_thinking.html">Computational Thinking</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/introduction.html">Computational Thinking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/algorithms.html">Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/decomposition.html">Decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/pattern_recognition.html">Pattern recognition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/abstraction.html">Abstraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/alignment.html">Aligning the human solution with the computer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/final_exercise.html">Sudoku Task</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/regression_analysis_with_R.html">Regression Analysis with R</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../regression_analysis_with_R/introduction_to_regression.html">Introduction to Regression Analysis</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../regression_analysis_with_R/hypothesis_testing.html">Hypothesis Testing for Regression Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../regression_analysis_with_R/multiple_linear_regression.html">Multiple Linear Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../regression_analysis_with_R/logistic_regression.html">Logistic Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../regression_analysis_with_R/summary.html">Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../regression_analysis_with_R/extras.html">Extras</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/python_for_data_analysis.html">Python for Data Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_NumPy.html">Numpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_Pandas.html">Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_Matplotlib.html">Matplotlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_ScikitLearn.html">Scikit-Learn</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/software_development_best_practice.html">Software Development Best Practice</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../software_development_best_practices/software_development_life_cycle.html">Software Development Life Cycle &amp; Methodologies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software_development_best_practices/data_management.html">Data Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software_development_best_practices/problem_solving.html">Problem Solving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software_development_best_practices/virtual_environments_dependency_managers.html">Virtual Environment and Dependency Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software_development_best_practices/version_control.html">Version Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software_development_best_practices/readable_code_and_documentation.html">Readable Code and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software_development_best_practices/testing.html">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software_development_best_practices/collaboration.html">Collaboration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software_development_best_practices/reproducibility.html">Reproducibility</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/advanced_regression_analysis_with_R.html">Advanced Regression Analysis with R</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../advanced_regression_analysis_with_R/mixed_effects_models.html">Mixed Effects Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced_regression_analysis_with_R/expanding_the_mixed_effects_model_framework.html">Expanding the mixed effects model framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced_regression_analysis_with_R/regression_models_with_interaction_terms.html">Regression models with interaction terms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced_regression_analysis_with_R/summary.html">Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced_regression_analysis_with_R/extras.html">Extras</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../section_landing_pages/working_with_data_in_R.html">Working With Data in R</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introducing_tidyverse.html">Tidyverse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loading_data.html">Loading Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manipulating_a_dataframe.html">Manipulating A Dataframe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="piping.html">Piping and Functional Style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="combining_datasets.html">Combining Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reshaping_datasets.html">Reshaping Data</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Strings and Dates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="summary.html">Summary</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pathways</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../pathways/complete_notebooks/data_scientist.html">Data Scientist</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/berrli/CfRR_Courses" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/berrli/CfRR_Courses/issues/new?title=Issue%20on%20page%20%2Findividual_modules/working_with_data_in_R/strings_and_dates.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/individual_modules/working_with_data_in_R/strings_and_dates.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Strings and Dates</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outline">Outline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-text-heads-and-tails">Working with text - heads and tails</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning-whitespace">Cleaning whitespace</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#replacing-characters-substrings">Replacing characters / substrings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-replacing-strings">Exercise: replacing strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splitting-and-concatenating-columns">Splitting and concatenating columns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-splitting-and-concatenating-columns">Exercise: splitting and concatenating columns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-substrings">Finding substrings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-finding-substrings">Exercise: finding substrings</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-dates">Working with dates</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-from-strings">Converting from strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-timestamp-components">Accessing timestamp components</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-working-with-dates">Exercise: working with dates</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgement">Acknowledgement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#footnotes">Footnotes</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="strings-and-dates">
+<h1>Strings and Dates<a class="headerlink" href="#strings-and-dates" title="Link to this heading">#</a></h1>
+<section id="outline">
+<h2>Outline<a class="headerlink" href="#outline" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Working with strings</p>
+<ul>
+<li><p>Cleaning strings</p></li>
+<li><p>Splitting / pasting strings</p></li>
+<li><p>Extracting substrings</p></li>
+</ul>
+</li>
+<li><p>Working with dates</p>
+<ul>
+<li><p>Converting from strings</p></li>
+<li><p>Accessing timestamp components</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>In this notebook we’ll be looking at ways to work with two common kinds of
+data: text data and dates/timestamps. When we first create and collect data, it
+may not be in its cleanest form, especially when it comes to working with
+text data and timestamps. The following packages provide lots of useful
+functions for working with strings / timestamps:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">stringr</span></code>: working with strings (included with <code class="docutils literal notranslate"><span class="pre">tidyverse</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lubridate</span></code>: working with dates/timestamps (a non-core Tidyverse package).</p></li>
+</ul>
+<p>To demonstrate these packages, we’ll be working with two datasets:</p>
+<ul class="simple">
+<li><p>A toy dataset consisting of some coin flipping experiments (thrilling stuff).</p></li>
+<li><p>Weather data from the Palmer Station in Antarctica from 1989 - 2019, where
+data are available for each day<a class="footnote-reference brackets" href="#id3" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p></li>
+</ul>
+<p><strong>Note</strong> We’ll be making use of the pipe operator <code class="docutils literal notranslate"><span class="pre">|&gt;</span></code> throughout; see
+the <code class="docutils literal notranslate"><span class="pre">04_Piping.Rmd</span></code> notebook.</p>
+</section>
+<section id="working-with-text-heads-and-tails">
+<h2>Working with text - heads and tails<a class="headerlink" href="#working-with-text-heads-and-tails" title="Link to this heading">#</a></h2>
+<p>We have a toy dataset for getting familiar with working with text. The
+<code class="docutils literal notranslate"><span class="pre">heads_and_tails.csv</span></code> file contains data on some coin flipping experiments
+performed by two people, Joe Bloggs and Jane Doe. The experiments were performed
+on different days and are split up into different parts (coin flipping is
+tiring work).</p>
+<p>The data is not in a clean state:</p>
+<ul class="simple">
+<li><p>Joe and Jane’s names are recorded in multiple ways.</p></li>
+<li><p>The results are inconsistently formatted.</p></li>
+<li><p>The experiments look pretty consistent, but note that in some rows the date is
+separated from the <code class="docutils literal notranslate"><span class="pre">part</span> <span class="pre">n</span></code> bit by a colon <code class="docutils literal notranslate"><span class="pre">:</span></code> whereas in other rows it’s
+separated by a space.</p></li>
+</ul>
+<div class="cell tag_remove-input docutils container">
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+# Note: reading all columns as strings
+experiments &lt;- readr::read_csv(&quot;./data/heads_and_tales.csv&quot;,
+                               col_types = list(.default = readr::col_character()))
+experiments
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span># A tibble: 13 × 3
+   Experiment        Technician  Result                                         
+   &lt;chr&gt;             &lt;chr&gt;       &lt;chr&gt;                                          
+ 1 2024-01-04:part 1 joe bloggs  H,H,H,T,T,H,H,T,H,H,T,H,H,H,T,T,H,H,T,T        
+ 2 2024-01-04:part 2 Joe Bloggs  T,T,H,T,H,T,T,H,T,T,T,T,H,T,H,H,T,H,T,T        
+ 3 2024-01-04:part 3 Joe Bloggs  H,T,H,T,T,H,T,H,H,T,H,T,H,T,T,T,H,H,H,T,T,H,T,…
+ 4 2024-01-04 part 1 jane doe    HTHHTHTHTTHTHTHTTT                             
+ 5 2024-01-04 part 2 jane doe    HHTTTTHHHTTHTHHTHHTTT                          
+ 6 2024-01-05 part 1 Jane doe    THTTTHHTTTH                                    
+ 7 2024-01-05 part 2 Jane doe    TTTTTHTHTHTTTTTHTTHT                           
+ 8 2024-01-06:part 1 Joe Bloggs  HTHTTTTHHHHTTTHHHHHTHH                         
+ 9 2024-01-06:part 2 Joe  Bloggs TTTTTTHTTTHTH                                  
+10 2024-01-06 part 1 Jane Doe    HTTTTHHHTHHTTHHHTTTTTHTTH                      
+11 2024-01-06 part 2 Jane Doe    TTTTHHTHHTTHTHHHTHTTTH                         
+12 2024-01-06 part 3 Jane Doe    HHTHTTTTTHTTTHTHTHT                            
+13 2024-01-07:part 1 joe bloggs  TTHTTHHHHTHHHHTTTHHT                           
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’ll use some of the functions in <code class="docutils literal notranslate"><span class="pre">stringr</span></code> to clean up this dataset.</p>
+<section id="cleaning-whitespace">
+<h3>Cleaning whitespace<a class="headerlink" href="#cleaning-whitespace" title="Link to this heading">#</a></h3>
+<p>Before tidying up the columns, let’s first rename the current columns to indicate
+they contain the ‘raw’ values. We can use the function <code class="docutils literal notranslate"><span class="pre">rename</span></code> from the <code class="docutils literal notranslate"><span class="pre">dplyr</span></code>
+package to do this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+# Rename columns to *_raw
+experiments &lt;- experiments |&gt;
+  dplyr::rename(Experiment_raw = Experiment,
+                Technician_raw = Technician,
+                Result_raw = Result)
+print(colnames(experiments))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;Experiment_raw&quot; &quot;Technician_raw&quot; &quot;Result_raw&quot;    
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s first tackle cleaning up the technician’s names. Look at the unique values
+in the ‘Technician_raw’ column:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+unique(experiments$Technician_raw)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;joe bloggs&quot;  &quot;Joe Bloggs&quot;  &quot;jane doe&quot;    &quot;Jane doe&quot;    &quot;Joe  Bloggs&quot;
+[6] &quot;Jane Doe&quot;   
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s make the case consistent. There are several <code class="docutils literal notranslate"><span class="pre">stringr</span></code> functions we could
+use for this, of the form <code class="docutils literal notranslate"><span class="pre">str_to_*</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+name &lt;- &quot;aLbErt EinStEin&quot;
+print(stringr::str_to_lower(name))  # lower case
+print(stringr::str_to_upper(name))  # upper case
+print(stringr::str_to_title(name))  # title case
+print(stringr::str_to_sentence(name))  # sentence case
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;albert einstein&quot;
+[1] &quot;ALBERT EINSTEIN&quot;
+[1] &quot;Albert Einstein&quot;
+[1] &quot;Albert einstein&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s convert the technicians’ names to title case. Do we now have consistent
+names for Joe and Jane?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+experiments &lt;- experiments |&gt;
+  dplyr::mutate(Technician = stringr::str_to_title(Technician_raw))
+
+unique(experiments$Technician)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;Joe Bloggs&quot;  &quot;Jane Doe&quot;    &quot;Joe  Bloggs&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Not quite. We can replace the two spaces in the middle of “Joe  Bloggs” with a
+single space by using <code class="docutils literal notranslate"><span class="pre">stringr::str_squish</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+# Remove repeated whitespace characters
+experiments &lt;- experiments |&gt;
+  dplyr::mutate(Technician = stringr::str_squish(Technician))
+
+unique(experiments$Technician)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;Joe Bloggs&quot; &quot;Jane Doe&quot;  
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that a closely related <code class="docutils literal notranslate"><span class="pre">stringr</span></code> function, <code class="docutils literal notranslate"><span class="pre">str_trim</span></code>, can be used for only
+removing leading and trailing whitespace, if for some reason we wanted to keep
+all the whitespace between the words:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+# \t = tab character, \n = new line character
+name &lt;- &quot;\tAda    Lovelace  \n&quot;
+cat(name)
+cat(stringr::str_trim(name))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Ada    Lovelace  
+Ada    Lovelace
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="replacing-characters-substrings">
+<h3>Replacing characters / substrings<a class="headerlink" href="#replacing-characters-substrings" title="Link to this heading">#</a></h3>
+<p>Next, let’s make the ‘Result’ entries consistently formatted. We’ll remove
+the commas from the first few experiments and instead just have a string of
+<code class="docutils literal notranslate"><span class="pre">H</span></code>s and <code class="docutils literal notranslate"><span class="pre">T</span></code>s. We can view this as replacing each comma with the empty string,
+<code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>.</p>
+<p>In general, to perform text replacement, we can use one of the following
+<code class="docutils literal notranslate"><span class="pre">stringr</span></code> functions:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+vowels = &quot;a--e--i--o--u&quot;
+
+# Replace the *first* instance of &quot;--&quot; with &quot;, &quot;
+print(stringr::str_replace(vowels, pattern = &quot;--&quot;, replacement = &quot;, &quot;))  # a, e--i--o--u
+
+# Replace *all* instances of &quot;--&quot; with  &quot;, &quot;
+print(stringr::str_replace_all(vowels, pattern = &quot;--&quot;, replacement = &quot;, &quot;))  # a, e, i, o, u
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;a, e--i--o--u&quot;
+[1] &quot;a, e, i, o, u&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p>You may wonder why the parameter name ‘pattern’ is used for the string we want
+to replace. The reason is that we actually need to supply a <em>regular expression</em>
+to match on. We’ll come back to this.</p>
+<p>Let’s now clean up the ‘Result’ column by removing the commas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+experiments &lt;- experiments |&gt;
+  dplyr::mutate(Result = stringr::str_replace_all(Result_raw, &quot;,&quot;, &quot;&quot;))
+
+experiments |&gt;
+  dplyr::select(Result_raw, Result)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span># A tibble: 13 × 2
+   Result_raw                                        Result                   
+   &lt;chr&gt;                                             &lt;chr&gt;                    
+ 1 H,H,H,T,T,H,H,T,H,H,T,H,H,H,T,T,H,H,T,T           HHHTTHHTHHTHHHTTHHTT     
+ 2 T,T,H,T,H,T,T,H,T,T,T,T,H,T,H,H,T,H,T,T           TTHTHTTHTTTTHTHHTHTT     
+ 3 H,T,H,T,T,H,T,H,H,T,H,T,H,T,T,T,H,H,H,T,T,H,T,H,T HTHTTHTHHTHTHTTTHHHTTHTHT
+ 4 HTHHTHTHTTHTHTHTTT                                HTHHTHTHTTHTHTHTTT       
+ 5 HHTTTTHHHTTHTHHTHHTTT                             HHTTTTHHHTTHTHHTHHTTT    
+ 6 THTTTHHTTTH                                       THTTTHHTTTH              
+ 7 TTTTTHTHTHTTTTTHTTHT                              TTTTTHTHTHTTTTTHTTHT     
+ 8 HTHTTTTHHHHTTTHHHHHTHH                            HTHTTTTHHHHTTTHHHHHTHH   
+ 9 TTTTTTHTTTHTH                                     TTTTTTHTTTHTH            
+10 HTTTTHHHTHHTTHHHTTTTTHTTH                         HTTTTHHHTHHTTHHHTTTTTHTTH
+11 TTTTHHTHHTTHTHHHTHTTTH                            TTTTHHTHHTTHTHHHTHTTTH   
+12 HHTHTTTTTHTTTHTHTHT                               HHTHTTTTTHTTTHTHTHT      
+13 TTHTTHHHHTHHHHTTTHHT                              TTHTTHHHHTHHHHTTTHHT     
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-replacing-strings">
+<h3>Exercise: replacing strings<a class="headerlink" href="#exercise-replacing-strings" title="Link to this heading">#</a></h3>
+<p>Put the ‘Experiment’ column into a consistent format, so that the experiment is
+recorded as <code class="docutils literal notranslate"><span class="pre">&lt;date&gt;:part</span> <span class="pre">&lt;n&gt;</span></code> where <code class="docutils literal notranslate"><span class="pre">&lt;date&gt;</span></code> is a date string and <code class="docutils literal notranslate"><span class="pre">&lt;n&gt;</span></code> is a
+number 1, 2, etc.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+experiments &lt;- experiments |&gt;
+  dplyr::mutate(Experiment = stringr::str_replace(Experiment_raw, &quot; part&quot;, &quot;:part&quot;))
+
+experiments |&gt;
+  dplyr::select(Experiment_raw, Experiment)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span># A tibble: 13 × 2
+   Experiment_raw    Experiment       
+   &lt;chr&gt;             &lt;chr&gt;            
+ 1 2024-01-04:part 1 2024-01-04:part 1
+ 2 2024-01-04:part 2 2024-01-04:part 2
+ 3 2024-01-04:part 3 2024-01-04:part 3
+ 4 2024-01-04 part 1 2024-01-04:part 1
+ 5 2024-01-04 part 2 2024-01-04:part 2
+ 6 2024-01-05 part 1 2024-01-05:part 1
+ 7 2024-01-05 part 2 2024-01-05:part 2
+ 8 2024-01-06:part 1 2024-01-06:part 1
+ 9 2024-01-06:part 2 2024-01-06:part 2
+10 2024-01-06 part 1 2024-01-06:part 1
+11 2024-01-06 part 2 2024-01-06:part 2
+12 2024-01-06 part 3 2024-01-06:part 3
+13 2024-01-07:part 1 2024-01-07:part 1
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="splitting-and-concatenating-columns">
+<h3>Splitting and concatenating columns<a class="headerlink" href="#splitting-and-concatenating-columns" title="Link to this heading">#</a></h3>
+<p>With the columns cleaned up, we no longer need the ‘raw’ columns, so let’s
+remove them:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+experiments &lt;- experiments |&gt;
+  dplyr::select(-Experiment_raw, -Technician_raw, -Result_raw)
+</pre></div>
+</div>
+</div>
+</div>
+<p>It would be good to have the ‘Experiment’ column consist of a unique identifier
+for each experiment. We could just give it an integer label, but let’s do
+something more sophisticated. Each row is uniquely identifiable from the
+current ‘Experiment’ string and the name of the Technician. So let’s combine
+these together to make a new ID string, as follows:</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">Joe</span><span class="w"> </span><span class="n">Bloggs</span><span class="w">  </span><span class="o">+</span><span class="w">  </span><span class="m">2024-01-04</span><span class="o">:</span><span class="n">part</span><span class="w"> </span><span class="m">2</span><span class="w">  </span><span class="o">--&gt;</span><span class="w">  </span><span class="m">2024-01-04</span><span class="o">:</span><span class="m">2</span><span class="o">:</span><span class="n">JoeBloggs</span>
+</pre></div>
+</div>
+<p>Note that we’ve removed the “part “ string and removed the inner space in the
+name. How can we accomplish this transformation in smaller steps?</p>
+<ul class="simple">
+<li><p>First split the experiment label “2024-01-04:part 2” into two pieces:
+“2024-01-04” and “2”.</p></li>
+<li><p>Remove the space from the name, “Joe Bloggs” to “JoeBloggs”.</p></li>
+<li><p>Paste the results together using colons:
+“2024-01-04” + “2” + “JoeBloggs” –&gt; “2024-01-04:2:JoeBloggs”.</p></li>
+</ul>
+<p>We know how to do the second step (use <code class="docutils literal notranslate"><span class="pre">str_replace</span></code>), but steps 1 and 3 are new.</p>
+<p>The trick is to do this column-wise in the dataframe. Se we’ll
+<strong>make new columns</strong> containing the pieces we want to paste together, and then
+create a new column by pasting these two columns together.</p>
+<p>To perform the splitting, we can use the <code class="docutils literal notranslate"><span class="pre">separate</span></code> function from the
+<code class="docutils literal notranslate"><span class="pre">tidyr</span></code> package (not <code class="docutils literal notranslate"><span class="pre">stringr</span></code>!) to split a column on a separator. The result is
+one column for each piece of the split; we thus need to also provide names for
+the new columns:</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">tidyr</span><span class="o">::</span><span class="nf">separate</span><span class="p">(</span><span class="n">data</span><span class="p">,</span>
+<span class="w">                </span><span class="n">col</span><span class="p">,</span>
+<span class="w">                </span><span class="n">into</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;NewCol1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;NewCol2&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">...</span><span class="p">),</span>
+<span class="w">                </span><span class="n">sep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="n">string_to_split_on</span><span class="o">&gt;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To paste columns back together with a custom separator, we can use the
+<code class="docutils literal notranslate"><span class="pre">str_c</span></code> function from <code class="docutils literal notranslate"><span class="pre">stringr</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+stringr::str_c(&quot;foo&quot;, &quot;bar&quot;, &quot;baz&quot;, sep = &quot; -- &quot;)  # foo -- bar -- baz
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;foo -- bar -- baz&quot;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-splitting-and-concatenating-columns">
+<h3>Exercise: splitting and concatenating columns<a class="headerlink" href="#exercise-splitting-and-concatenating-columns" title="Link to this heading">#</a></h3>
+<p>Use <code class="docutils literal notranslate"><span class="pre">tidyr::separate</span></code> and <code class="docutils literal notranslate"><span class="pre">stringr::str_c</span></code> to create a unique experiment ID by
+pasting together:</p>
+<ul class="simple">
+<li><p>The experiment date</p></li>
+<li><p>The sub-experiment number</p></li>
+<li><p>The technician’s name (without a space)</p></li>
+</ul>
+<p>E.g.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">Joe</span><span class="w"> </span><span class="n">Bloggs</span><span class="w">  </span><span class="o">+</span><span class="w">  </span><span class="m">2024-01-04</span><span class="o">:</span><span class="n">part</span><span class="w"> </span><span class="m">2</span><span class="w">  </span><span class="o">--&gt;</span><span class="w">  </span><span class="m">2024-01-04</span><span class="o">:</span><span class="m">2</span><span class="o">:</span><span class="n">JoeBloggs</span>
+</pre></div>
+</div>
+<p>Hint: don’t try to do this all in one go. Instead, build it up step-by-step and
+use the pipe operator <code class="docutils literal notranslate"><span class="pre">|&gt;</span></code> join the steps together.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+experiments |&gt;
+  tidyr::separate(col = Experiment,
+                  into = c(&quot;Experiment_date&quot;, &quot;Sub_experiment&quot;),
+                  sep = &quot;:part &quot;) |&gt;  # don&#39;t forget the space!
+  dplyr::mutate(Experiment_id = stringr::str_c(Experiment_date,
+                                               Sub_experiment,
+                                               stringr::str_remove(Technician, &quot; &quot;),
+                                               sep = &quot;:&quot;))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span># A tibble: 13 × 5
+   Technician Result                Experiment_date Sub_experiment Experiment_id
+   &lt;chr&gt;      &lt;chr&gt;                 &lt;chr&gt;           &lt;chr&gt;          &lt;chr&gt;        
+ 1 Joe Bloggs HHHTTHHTHHTHHHTTHHTT  2024-01-04      1              2024-01-04:1…
+ 2 Joe Bloggs TTHTHTTHTTTTHTHHTHTT  2024-01-04      2              2024-01-04:2…
+ 3 Joe Bloggs HTHTTHTHHTHTHTTTHHHT… 2024-01-04      3              2024-01-04:3…
+ 4 Jane Doe   HTHHTHTHTTHTHTHTTT    2024-01-04      1              2024-01-04:1…
+ 5 Jane Doe   HHTTTTHHHTTHTHHTHHTTT 2024-01-04      2              2024-01-04:2…
+ 6 Jane Doe   THTTTHHTTTH           2024-01-05      1              2024-01-05:1…
+ 7 Jane Doe   TTTTTHTHTHTTTTTHTTHT  2024-01-05      2              2024-01-05:2…
+ 8 Joe Bloggs HTHTTTTHHHHTTTHHHHHT… 2024-01-06      1              2024-01-06:1…
+ 9 Joe Bloggs TTTTTTHTTTHTH         2024-01-06      2              2024-01-06:2…
+10 Jane Doe   HTTTTHHHTHHTTHHHTTTT… 2024-01-06      1              2024-01-06:1…
+11 Jane Doe   TTTTHHTHHTTHTHHHTHTT… 2024-01-06      2              2024-01-06:2…
+12 Jane Doe   HHTHTTTTTHTTTHTHTHT   2024-01-06      3              2024-01-06:3…
+13 Joe Bloggs TTHTTHHHHTHHHHTTTHHT  2024-01-07      1              2024-01-07:1…
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="finding-substrings">
+<h3>Finding substrings<a class="headerlink" href="#finding-substrings" title="Link to this heading">#</a></h3>
+<p>How many of the experiments features a run of 5 heads or 5 tails?</p>
+<p>We can answer this as follows:</p>
+<ul class="simple">
+<li><p>For each row, determine whether it contains a run of 5 heads or 5 tails.</p></li>
+<li><p>Filter on the result.</p></li>
+</ul>
+<p>To perform the first step, we can use <code class="docutils literal notranslate"><span class="pre">str_detect</span></code> from <code class="docutils literal notranslate"><span class="pre">stringr</span></code>. This simply
+returns <code class="docutils literal notranslate"><span class="pre">TRUE</span></code> or <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> depending on whether it finds a given pattern in
+a string:</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">stringr</span><span class="o">::</span><span class="nf">str_detect</span><span class="p">(</span><span class="n">a_string</span><span class="p">,</span><span class="w"> </span><span class="n">pattern</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">pattern</span></code> argument is interpreted as a <em>regular expression</em>. We mentioned
+this earlier when looking at <code class="docutils literal notranslate"><span class="pre">str_replace</span></code> / <code class="docutils literal notranslate"><span class="pre">str_replace_all</span></code>. Regular expressions
+are a mini-language for specifying matches on strings. We’re not going to go into
+this much here, but they are useful to know about, especially if you work with
+text data a lot; check out the great
+<a class="reference external" href="https://github.com/rstudio/cheatsheets/blob/main/strings.pdf">stringr cheat sheet</a>
+for a summary, or consult the
+<a class="reference external" href="https://r4ds.hadley.nz/regexps">chapter on regular expressions in R for Data Science (2e)</a>
+for an introduction. Here are some example regular expressions in action, using
+<code class="docutils literal notranslate"><span class="pre">str_detect</span></code> to indicate whether the given string matches or not:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+# Match on a string as-is (case sensitive)
+stringr::str_detect(&quot;Regex is cool.&quot;, pattern = &quot;ex&quot;) |&gt; print()  # true
+stringr::str_detect(&quot;Regex is cool.&quot;, pattern = &quot;COOL&quot;) |&gt; print()  # false
+
+# Match on 1 or more instances
+stringr::str_detect(&quot;Regex is cool.&quot;, pattern = &quot;o+&quot;) |&gt; print()  # true
+stringr::str_detect(&quot;Regex is cool.&quot;, pattern = &quot;coolcool+&quot;) |&gt; print()  # false
+
+# Regex-special characters need escaping e.g. to match on a period, use \\
+stringr::str_detect(&quot;Regex is cool.&quot;, pattern = &quot;\\.&quot;) |&gt; print()  # true
+
+# Match on either one pattern or another with pipe |
+stringr::str_detect(&quot;Regex is cool.&quot;, pattern = &quot;cool|meh&quot;) |&gt; print()  # true
+stringr::str_detect(&quot;Regex is meh.&quot;, pattern = &quot;cool|meh&quot;) |&gt; print()  # true
+stringr::str_detect(&quot;Regex is cool.&quot;, pattern = &quot;meh|lame&quot;) |&gt; print()  # false
+
+# Match at the beginning of the string only with ^
+stringr::str_detect(&quot;Regex is cool.&quot;, pattern = &quot;^Regex&quot;) |&gt; print()  # true
+stringr::str_detect(&quot;Regex is cool.&quot;, pattern = &quot;^cool&quot;) |&gt; print()  # false
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] TRUE
+[1] FALSE
+[1] TRUE
+[1] FALSE
+[1] TRUE
+[1] TRUE
+[1] TRUE
+[1] FALSE
+[1] TRUE
+[1] FALSE
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-finding-substrings">
+<h3>Exercise: finding substrings<a class="headerlink" href="#exercise-finding-substrings" title="Link to this heading">#</a></h3>
+<p>With the help of <code class="docutils literal notranslate"><span class="pre">str_detect</span></code> and a suitable regular expression, write code to
+work out how many experiments feature a run of at least 5 straight heads or 5
+straight tails.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+experiments |&gt;
+  dplyr::mutate(Has_run_of_5 = stringr::str_detect(Result, pattern = &quot;HHHHH|TTTTT&quot;)) |&gt;
+  dplyr::filter(Has_run_of_5) |&gt;
+  nrow()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 5
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="working-with-dates">
+<h2>Working with dates<a class="headerlink" href="#working-with-dates" title="Link to this heading">#</a></h2>
+<p>We have weather data from the Palmer Station in Antarctica from 1989 - 2019<a class="footnote-reference brackets" href="#id3" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>,
+where data are available for each day.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+weather &lt;- read.csv(&quot;./data/PalmerStation_Daily_Weather.csv&quot;)  # using base R read.csv here!
+str(weather)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;data.frame&#39;:	12477 obs. of  21 variables:
+ $ Date                       : chr  &quot;1989-04-01&quot; &quot;1989-04-02&quot; &quot;1989-04-03&quot; &quot;1989-04-04&quot; ...
+ $ Temperature.High..C.       : num  2.8 1.1 -0.6 1.1 -0.6 2.5 -1.4 -0.8 -1 -1.5 ...
+ $ Temperature.Low..C.        : num  -1 -2.7 -3.5 -4.4 -2.9 -3.1 -3.2 -4.5 -4 -3.8 ...
+ $ Temperature.Average..C.    : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ Sea.Surface.Temperature..C.: num  NA NA NA NA NA NA NA NA NA NA ...
+ $ Sea.Ice..WMO.Code.         : chr  &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; ...
+ $ Pressure.High..mbar.       : num  1004 998 998 1002 1002 ...
+ $ Pressure.Low..mbar.        : num  998 995 995 998 997 ...
+ $ Pressure.Average..mbar.    : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ Wind.Peak..knots.          : num  18 24 13 14 14 15 16 39 27 16 ...
+ $ Wind.5.Sec.Peak..knots.    : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ Wind.2.Min.Peak..knots.    : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ Wind.Average..knots.       : num  4 9 8 6 4 4 8 14 11 6 ...
+ $ Wind.Peak.Direction        : num  110 30 60 210 230 180 40 120 50 60 ...
+ $ Wind.5.Sec.Peak.Direction  : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ Wind.2.Min.Peak.Direction  : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ Wind.Prevailing.Direction  : chr  &quot;SW&quot; &quot;NE&quot; &quot;NE&quot; &quot;NW&quot; ...
+ $ Precipitation.Melted..mm.  : chr  &quot;0.0&quot; &quot;0.0&quot; &quot;0.0&quot; &quot;0.0&quot; ...
+ $ Precipitation.Snow..cm.    : chr  &quot;0&quot; &quot;0&quot; &quot;0&quot; &quot;0&quot; ...
+ $ Depth.at.Snowstake..cm.    : chr  &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; ...
+ $ Sky.Coverage..tenths.      : num  4 2 5 5 10 2 9 5 0 10 ...
+</pre></div>
+</div>
+</div>
+</div>
+<p>However, the structure of the data above indicates that the first variable ‘Date’
+is a ‘character’. This means that R is not understanding these as representing
+dates, and so it may be hard to manipulate them any further (e.g. extracting
+certain years).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+head(weather$Date)
+class(weather$Date)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;character&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p>(<strong>Note</strong>: if we’d used <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> from the <code class="docutils literal notranslate"><span class="pre">readr</span></code> package then these would
+automatically have been coerced into dates. We’re avoiding this for now to
+demonstrate how to convert raw strings into dates.)</p>
+<p>We’ll use the <code class="docutils literal notranslate"><span class="pre">lubridate</span></code> package (loaded in when we load in <code class="docutils literal notranslate"><span class="pre">tidyverse</span></code>)
+to convert these variables into dates and create a column for the year.</p>
+<section id="converting-from-strings">
+<h3>Converting from strings<a class="headerlink" href="#converting-from-strings" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">lubridate</span></code> package has very intuitive function names and argument
+structures. For instance, you can convert a string into a date type by
+using a function with letters representing the date format. In <code class="docutils literal notranslate"><span class="pre">lubridate</span></code>,
+y = year, m = month, d = day, h = hour, m = minute, s = second, etc.</p>
+<p>(You can see all of these formats by using the auto-complete box in RStudio,
+e.g. to see all functions starting with ‘y’, begin typing <code class="docutils literal notranslate"><span class="pre">lubridate::y</span></code>.)</p>
+<p>We can see that our data is formatted in the year-month-day format, and so we
+can use the <code class="docutils literal notranslate"><span class="pre">ymd</span></code> function to indicate to R what format we want it to detect as
+it converts characters to dates. If we use this function and assign the output
+to a date vector, we can then evaluate the class to see that it is a date.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+date_vector &lt;- lubridate::ymd(weather$Date)
+class(date_vector)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;Date&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Remember that manipulating a column does not mean it automatically saves into
+the dataframe. Instead, we need to explicitly overwrite our dataframe with a
+new dataframe that contains the modified column. We can use the mutate function
+to achieve this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+# Change the Date column to be a date type
+weather &lt;- weather |&gt;
+  dplyr::mutate(Date = lubridate::ymd(Date))
+
+class(weather$Date)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;Date&quot;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="accessing-timestamp-components">
+<h3>Accessing timestamp components<a class="headerlink" href="#accessing-timestamp-components" title="Link to this heading">#</a></h3>
+<p>Now that R recognizes these as dates, we can extract certain date-related
+features, such as the year, month, and day. The <code class="docutils literal notranslate"><span class="pre">lubridate</span></code> package has functions
+conveniently named <code class="docutils literal notranslate"><span class="pre">year</span></code>, <code class="docutils literal notranslate"><span class="pre">month</span></code>, <code class="docutils literal notranslate"><span class="pre">day</span></code> that can be used with a date argument,
+and that element of the date will be extracted. For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+# Extract the year
+weather &lt;- weather |&gt;
+  dplyr::mutate(Year = lubridate::year(Date))
+
+head(weather) |&gt;
+  dplyr::select(Date, Year)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        Date Year
+1 1989-04-01 1989
+2 1989-04-02 1989
+3 1989-04-03 1989
+4 1989-04-04 1989
+5 1989-04-05 1989
+6 1989-04-06 1989
+</pre></div>
+</div>
+</div>
+</div>
+<section id="exercise-working-with-dates">
+<h4>Exercise: working with dates<a class="headerlink" href="#exercise-working-with-dates" title="Link to this heading">#</a></h4>
+<p>Create a summary of the weather data that gives the maximum, minimum, and
+mean of the average temperatures for each <strong>month</strong> of the year.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+weather |&gt;
+  dplyr::mutate(Month = lubridate::month(Date)) |&gt;
+  dplyr::group_by(Month) |&gt; 
+  dplyr::summarize(Average_temp = mean(Temperature.Average..C., na.rm = TRUE),
+                   Max_temp = max(Temperature.High..C., na.rm = TRUE),
+                   Min_temp = min(Temperature.Low..C., na.rm = TRUE))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span># A tibble: 12 × 4
+   Month Average_temp Max_temp Min_temp
+   &lt;dbl&gt;        &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+ 1     1        2.14      10.6     -4  
+ 2     2        1.96      11.6     -3.6
+ 3     3        0.900     11.6     -8.5
+ 4     4       -0.692      8.5    -11.3
+ 5     5       -1.79       9      -14  
+ 6     6       -3.59       7.1    -19.9
+ 7     7       -5.01       5.8    -25.6
+ 8     8       -5.59       6.1    -26  
+ 9     9       -4.57       5.6    -24.7
+10    10       -2.29       8.3    -17.7
+11    11       -0.565      9      -16.7
+12    12        1.05      10.8     -8.9
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="acknowledgement">
+<h2>Acknowledgement<a class="headerlink" href="#acknowledgement" title="Link to this heading">#</a></h2>
+<p>The material in this notebook is adapted from Eliza Wood’s <a class="reference external" href="https://liza-wood.github.io/tidyverse_intro/">Tidyverse: Data
+wrangling &amp; visualization</a> course,
+which is licensed under <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA
+4.0</a>. This in itself is
+based on material from <a class="reference external" href="https://gge-ucd.github.io/R-DAVIS/index.html">UC Davis’s R-DAVIS
+course</a>, which draws heavily on
+<a class="reference external" href="https://datacarpentry.org/R-ecology-lesson/">Carpentries</a> R lessons.</p>
+</section>
+<section id="footnotes">
+<h2>Footnotes<a class="headerlink" href="#footnotes" title="Link to this heading">#</a></h2>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id3" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id2">2</a>)</span>
+<p>Palmer Station Antarctica LTER. 2023. Daily weather averages for Palmer
+Station, Antarctica (1989-2023) ver 9. Environmental Data Initiative.
+<a class="reference external" href="https://doi.org/10.6073/pasta/3eefb45dbfb784c3cabe3690ea46fe9e">https://doi.org/10.6073/pasta/3eefb45dbfb784c3cabe3690ea46fe9e</a> (Accessed
+2024-01-08).</p>
+</aside>
+</aside>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "berrli/CfRR_Courses",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./individual_modules/working_with_data_in_R"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="reshaping_datasets.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Reshaping Data</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="summary.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Summary</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outline">Outline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-text-heads-and-tails">Working with text - heads and tails</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning-whitespace">Cleaning whitespace</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#replacing-characters-substrings">Replacing characters / substrings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-replacing-strings">Exercise: replacing strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splitting-and-concatenating-columns">Splitting and concatenating columns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-splitting-and-concatenating-columns">Exercise: splitting and concatenating columns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-substrings">Finding substrings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-finding-substrings">Exercise: finding substrings</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-dates">Working with dates</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-from-strings">Converting from strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-timestamp-components">Accessing timestamp components</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-working-with-dates">Exercise: working with dates</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgement">Acknowledgement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#footnotes">Footnotes</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Coding For Reproducible Research Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

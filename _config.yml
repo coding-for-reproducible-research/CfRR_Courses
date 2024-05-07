@@ -6,11 +6,6 @@ author: Coding For Reproducible Research Community
 logo: images/exeter_logo.png
 copyright: "2024"
 
-# Force re-execution of notebooks on each build.
-# See https://jupyterbook.org/content/execute.html
-execute:
-  execute_notebooks: force
-
 # Define the name of the latex output file for PDF builds
 latex:
   latex_documents:
@@ -61,3 +56,33 @@ exclude_patterns:
   - pathways/descriptions/data_scientist.md
   - pathways/descriptions/software_engineer.md
 
+# Execute all notebooks by default. 
+# The R notebooks are excluded from running during the building of the book due to the formatting issues. When ran wen building the output for each of the cells will create a new code block for each space due to the R magic command.
+execute:
+  execute_notebooks: "force"
+  exclude_patterns: 
+      - 'individual_modules/introduction_to_r/basic_commands.ipynb'
+      - 'individual_modules/introduction_to_r/data_types.ipynb'
+      - 'individual_modules/introduction_to_r/load_data.ipynb'
+      - 'individual_modules/introduction_to_r/manipulating_data.ipynb'
+      - 'individual_modules/introduction_to_r/control_flow.ipynb'
+      - 'individual_modules/introduction_to_r/plots.ipynb'
+      - 'individual_modules/introduction_to_r/stats.ipynb'
+      - 'individual_modules/introduction_to_r/good_practise.ipynb'
+      - 'individual_modules/regression_analysis_with_R/hypothesis_testing.ipynb'
+      - 'individual_modules/regression_analysis_with_R/multiple_linear_regression.ipynb'
+      - 'individual_modules/regression_analysis_with_R/logistic_regression.ipynb'
+      - 'individual_modules/regression_analysis_with_R/summary.ipynb'
+      - 'individual_modules/regression_analysis_with_R/extras.ipynb'
+      - 'individual_modules/advanced_regression_analysis_with_R/expanding_the_mixed_effects_model_framework.ipynb'
+      - 'individual_modules/advanced_regression_analysis_with_R/regression_models_with_interaction_terms.ipynb'
+      - 'individual_modules/advanced_regression_analysis_with_R/summary.ipynb'
+      - 'individual_modules/advanced_regression_analysis_with_R/extras.ipynb'
+      - 'individual_modules/working_with_data_in_R/introducing_tidyverse.ipynb'
+      - 'individual_modules/working_with_data_in_R/loading_data.ipynb'
+      - 'individual_modules/working_with_data_in_R/manipulating_a_dataframe.ipynb'
+      - 'individual_modules/working_with_data_in_R/piping.ipynb'
+      - 'individual_modules/working_with_data_in_R/combining_datasets.ipynb'
+      - 'individual_modules/working_with_data_in_R/reshaping_datasets.ipynb'
+      - 'individual_modules/working_with_data_in_R/strings_and_dates.ipynb'
+      - 'individual_modules/working_with_data_in_R/summary.ipynb'
