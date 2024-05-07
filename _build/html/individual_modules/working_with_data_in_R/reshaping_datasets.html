@@ -856,34 +856,14 @@ Number of year-region pairs: 1730
 </pre></div>
 </div>
 <p>Run the code below to see if you’re correct!</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
-emissions |&gt;
-  tidyr::pivot_longer(!Africa,  # this means all columns except &#39;Africa&#39;
-                      names_to = &quot;Names_column&quot;,
-                      values_to = &quot;Territorial_emissions?&quot;)
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">R</span>
+<span class="n">emissions</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="n">tidyr</span><span class="o">::</span><span class="nf">pivot_longer</span><span class="p">(</span><span class="o">!</span><span class="n">Africa</span><span class="p">,</span><span class="w">  </span><span class="c1"># this means all columns except &#39;Africa&#39;</span>
+<span class="w">                      </span><span class="n">names_to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Names_column&quot;</span><span class="p">,</span>
+<span class="w">                      </span><span class="n">values_to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Territorial_emissions?&quot;</span><span class="p">)</span>
 </pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span># A tibble: 1,730 × 3
-   Africa Names_column    `Territorial_emissions?`
-    &lt;dbl&gt; &lt;chr&gt;                              &lt;dbl&gt;
- 1      0 Year                          1850      
- 2      0 World                           53.7    
- 3      0 Asia                             0.00360
- 4      0 Central America                  0      
- 5      0 Europe                          48.2    
- 6      0 Middle East                      0      
- 7      0 North America                    5.42   
- 8      0 Oceania                          0.0306 
- 9      0 South America                    0      
-10      0 Bunkers                          0      
-# ℹ 1,720 more rows
-# ℹ Use `print(n = ...)` to see more rows
-</pre></div>
-</div>
 </div>
 </div>
 <p>What do values in the ‘Africa’ and ‘Territorial_emissions?’ columns correspond

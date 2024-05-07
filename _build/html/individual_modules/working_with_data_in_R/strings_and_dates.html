@@ -957,36 +957,15 @@ experiments |&gt;
 <p>Put the ‘Experiment’ column into a consistent format, so that the experiment is
 recorded as <code class="docutils literal notranslate"><span class="pre">&lt;date&gt;:part</span> <span class="pre">&lt;n&gt;</span></code> where <code class="docutils literal notranslate"><span class="pre">&lt;date&gt;</span></code> is a date string and <code class="docutils literal notranslate"><span class="pre">&lt;n&gt;</span></code> is a
 number 1, 2, etc.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
-experiments &lt;- experiments |&gt;
-  dplyr::mutate(Experiment = stringr::str_replace(Experiment_raw, &quot; part&quot;, &quot;:part&quot;))
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">R</span>
+<span class="n">experiments</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">experiments</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="n">dplyr</span><span class="o">::</span><span class="nf">mutate</span><span class="p">(</span><span class="n">Experiment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stringr</span><span class="o">::</span><span class="nf">str_replace</span><span class="p">(</span><span class="n">Experiment_raw</span><span class="p">,</span><span class="w"> </span><span class="s">&quot; part&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;:part&quot;</span><span class="p">))</span>
 
-experiments |&gt;
-  dplyr::select(Experiment_raw, Experiment)
+<span class="n">experiments</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="n">dplyr</span><span class="o">::</span><span class="nf">select</span><span class="p">(</span><span class="n">Experiment_raw</span><span class="p">,</span><span class="w"> </span><span class="n">Experiment</span><span class="p">)</span>
 </pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span># A tibble: 13 × 2
-   Experiment_raw    Experiment       
-   &lt;chr&gt;             &lt;chr&gt;            
- 1 2024-01-04:part 1 2024-01-04:part 1
- 2 2024-01-04:part 2 2024-01-04:part 2
- 3 2024-01-04:part 3 2024-01-04:part 3
- 4 2024-01-04 part 1 2024-01-04:part 1
- 5 2024-01-04 part 2 2024-01-04:part 2
- 6 2024-01-05 part 1 2024-01-05:part 1
- 7 2024-01-05 part 2 2024-01-05:part 2
- 8 2024-01-06:part 1 2024-01-06:part 1
- 9 2024-01-06:part 2 2024-01-06:part 2
-10 2024-01-06 part 1 2024-01-06:part 1
-11 2024-01-06 part 2 2024-01-06:part 2
-12 2024-01-06 part 3 2024-01-06:part 3
-13 2024-01-07:part 1 2024-01-07:part 1
-</pre></div>
-</div>
 </div>
 </div>
 </section>
@@ -1065,39 +1044,18 @@ pasting together:</p>
 </div>
 <p>Hint: don’t try to do this all in one go. Instead, build it up step-by-step and
 use the pipe operator <code class="docutils literal notranslate"><span class="pre">|&gt;</span></code> join the steps together.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
-experiments |&gt;
-  tidyr::separate(col = Experiment,
-                  into = c(&quot;Experiment_date&quot;, &quot;Sub_experiment&quot;),
-                  sep = &quot;:part &quot;) |&gt;  # don&#39;t forget the space!
-  dplyr::mutate(Experiment_id = stringr::str_c(Experiment_date,
-                                               Sub_experiment,
-                                               stringr::str_remove(Technician, &quot; &quot;),
-                                               sep = &quot;:&quot;))
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">R</span>
+<span class="n">experiments</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="n">tidyr</span><span class="o">::</span><span class="nf">separate</span><span class="p">(</span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Experiment</span><span class="p">,</span>
+<span class="w">                  </span><span class="n">into</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Experiment_date&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Sub_experiment&quot;</span><span class="p">),</span>
+<span class="w">                  </span><span class="n">sep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;:part &quot;</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w">  </span><span class="c1"># don&#39;t forget the space!</span>
+<span class="w">  </span><span class="n">dplyr</span><span class="o">::</span><span class="nf">mutate</span><span class="p">(</span><span class="n">Experiment_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stringr</span><span class="o">::</span><span class="nf">str_c</span><span class="p">(</span><span class="n">Experiment_date</span><span class="p">,</span>
+<span class="w">                                               </span><span class="n">Sub_experiment</span><span class="p">,</span>
+<span class="w">                                               </span><span class="n">stringr</span><span class="o">::</span><span class="nf">str_remove</span><span class="p">(</span><span class="n">Technician</span><span class="p">,</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">),</span>
+<span class="w">                                               </span><span class="n">sep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;:&quot;</span><span class="p">))</span>
 </pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span># A tibble: 13 × 5
-   Technician Result                Experiment_date Sub_experiment Experiment_id
-   &lt;chr&gt;      &lt;chr&gt;                 &lt;chr&gt;           &lt;chr&gt;          &lt;chr&gt;        
- 1 Joe Bloggs HHHTTHHTHHTHHHTTHHTT  2024-01-04      1              2024-01-04:1…
- 2 Joe Bloggs TTHTHTTHTTTTHTHHTHTT  2024-01-04      2              2024-01-04:2…
- 3 Joe Bloggs HTHTTHTHHTHTHTTTHHHT… 2024-01-04      3              2024-01-04:3…
- 4 Jane Doe   HTHHTHTHTTHTHTHTTT    2024-01-04      1              2024-01-04:1…
- 5 Jane Doe   HHTTTTHHHTTHTHHTHHTTT 2024-01-04      2              2024-01-04:2…
- 6 Jane Doe   THTTTHHTTTH           2024-01-05      1              2024-01-05:1…
- 7 Jane Doe   TTTTTHTHTHTTTTTHTTHT  2024-01-05      2              2024-01-05:2…
- 8 Joe Bloggs HTHTTTTHHHHTTTHHHHHT… 2024-01-06      1              2024-01-06:1…
- 9 Joe Bloggs TTTTTTHTTTHTH         2024-01-06      2              2024-01-06:2…
-10 Jane Doe   HTTTTHHHTHHTTHHHTTTT… 2024-01-06      1              2024-01-06:1…
-11 Jane Doe   TTTTHHTHHTTHTHHHTHTT… 2024-01-06      2              2024-01-06:2…
-12 Jane Doe   HHTHTTTTTHTTTHTHTHT   2024-01-06      3              2024-01-06:3…
-13 Joe Bloggs TTHTTHHHHTHHHHTTTHHT  2024-01-07      1              2024-01-07:1…
-</pre></div>
-</div>
 </div>
 </div>
 </section>
@@ -1171,20 +1129,14 @@ stringr::str_detect(&quot;Regex is cool.&quot;, pattern = &quot;^cool&quot;) |&g
 <p>With the help of <code class="docutils literal notranslate"><span class="pre">str_detect</span></code> and a suitable regular expression, write code to
 work out how many experiments feature a run of at least 5 straight heads or 5
 straight tails.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
-experiments |&gt;
-  dplyr::mutate(Has_run_of_5 = stringr::str_detect(Result, pattern = &quot;HHHHH|TTTTT&quot;)) |&gt;
-  dplyr::filter(Has_run_of_5) |&gt;
-  nrow()
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">R</span>
+<span class="n">experiments</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="n">dplyr</span><span class="o">::</span><span class="nf">mutate</span><span class="p">(</span><span class="n">Has_run_of_5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stringr</span><span class="o">::</span><span class="nf">str_detect</span><span class="p">(</span><span class="n">Result</span><span class="p">,</span><span class="w"> </span><span class="n">pattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;HHHHH|TTTTT&quot;</span><span class="p">))</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="n">dplyr</span><span class="o">::</span><span class="nf">filter</span><span class="p">(</span><span class="n">Has_run_of_5</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">nrow</span><span class="p">()</span>
 </pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 5
-</pre></div>
-</div>
 </div>
 </div>
 </section>
@@ -1333,36 +1285,16 @@ head(weather) |&gt;
 <h4>Exercise: working with dates<a class="headerlink" href="#exercise-working-with-dates" title="Link to this heading">#</a></h4>
 <p>Create a summary of the weather data that gives the maximum, minimum, and
 mean of the average temperatures for each <strong>month</strong> of the year.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
-weather |&gt;
-  dplyr::mutate(Month = lubridate::month(Date)) |&gt;
-  dplyr::group_by(Month) |&gt; 
-  dplyr::summarize(Average_temp = mean(Temperature.Average..C., na.rm = TRUE),
-                   Max_temp = max(Temperature.High..C., na.rm = TRUE),
-                   Min_temp = min(Temperature.Low..C., na.rm = TRUE))
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">R</span>
+<span class="n">weather</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="n">dplyr</span><span class="o">::</span><span class="nf">mutate</span><span class="p">(</span><span class="n">Month</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lubridate</span><span class="o">::</span><span class="nf">month</span><span class="p">(</span><span class="n">Date</span><span class="p">))</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="n">dplyr</span><span class="o">::</span><span class="nf">group_by</span><span class="p">(</span><span class="n">Month</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="n">dplyr</span><span class="o">::</span><span class="nf">summarize</span><span class="p">(</span><span class="n">Average_temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">Temperature.Average..C.</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">),</span>
+<span class="w">                   </span><span class="n">Max_temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">Temperature.High..C.</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">),</span>
+<span class="w">                   </span><span class="n">Min_temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">min</span><span class="p">(</span><span class="n">Temperature.Low..C.</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">))</span>
 </pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span># A tibble: 12 × 4
-   Month Average_temp Max_temp Min_temp
-   &lt;dbl&gt;        &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
- 1     1        2.14      10.6     -4  
- 2     2        1.96      11.6     -3.6
- 3     3        0.900     11.6     -8.5
- 4     4       -0.692      8.5    -11.3
- 5     5       -1.79       9      -14  
- 6     6       -3.59       7.1    -19.9
- 7     7       -5.01       5.8    -25.6
- 8     8       -5.59       6.1    -26  
- 9     9       -4.57       5.6    -24.7
-10    10       -2.29       8.3    -17.7
-11    11       -0.565      9      -16.7
-12    12        1.05      10.8     -8.9
-</pre></div>
-</div>
 </div>
 </div>
 </section>

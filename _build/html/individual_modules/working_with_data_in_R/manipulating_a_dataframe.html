@@ -1063,52 +1063,19 @@ dplyr::filter(penguins, !is.na(sex))
 5.2kg (inclusive). Only keep the species, sex and body mass columns in the
 output. Give the numbers of resulting observations for male penguins, female
 penguins and penguins with unknown sex.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
-penguins_subset &lt;- dplyr::filter(penguins,
-                                 species == &quot;Gentoo&quot;,
-                                 4800 &lt;= body_mass_g &amp; body_mass_g &lt;= 5200)
-penguins_subset &lt;- dplyr::select(penguins_subset, species, sex, body_mass_g)
-penguins_subset
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">R</span>
+<span class="n">penguins_subset</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">dplyr</span><span class="o">::</span><span class="nf">filter</span><span class="p">(</span><span class="n">penguins</span><span class="p">,</span>
+<span class="w">                                 </span><span class="n">species</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;Gentoo&quot;</span><span class="p">,</span>
+<span class="w">                                 </span><span class="m">4800</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">body_mass_g</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">body_mass_g</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">5200</span><span class="p">)</span>
+<span class="n">penguins_subset</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">dplyr</span><span class="o">::</span><span class="nf">select</span><span class="p">(</span><span class="n">penguins_subset</span><span class="p">,</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">sex</span><span class="p">,</span><span class="w"> </span><span class="n">body_mass_g</span><span class="p">)</span>
+<span class="n">penguins_subset</span>
+
+<span class="nf">cat</span><span class="p">(</span><span class="s">&quot;Number of male penguins:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">nrow</span><span class="p">(</span><span class="n">dplyr</span><span class="o">::</span><span class="nf">filter</span><span class="p">(</span><span class="n">penguins_subset</span><span class="p">,</span><span class="w"> </span><span class="n">sex</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;male&quot;</span><span class="p">)),</span><span class="w"> </span><span class="s">&quot;\n&quot;</span><span class="p">)</span>
+<span class="nf">cat</span><span class="p">(</span><span class="s">&quot;Number of female penguins:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">nrow</span><span class="p">(</span><span class="n">dplyr</span><span class="o">::</span><span class="nf">filter</span><span class="p">(</span><span class="n">penguins_subset</span><span class="p">,</span><span class="w"> </span><span class="n">sex</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;female&quot;</span><span class="p">)),</span><span class="w"> </span><span class="s">&quot;\n&quot;</span><span class="p">)</span>
+<span class="nf">cat</span><span class="p">(</span><span class="s">&quot;Number of penguins of unknown sex:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">nrow</span><span class="p">(</span><span class="n">dplyr</span><span class="o">::</span><span class="nf">filter</span><span class="p">(</span><span class="n">penguins_subset</span><span class="p">,</span><span class="w"> </span><span class="nf">is.na</span><span class="p">(</span><span class="n">sex</span><span class="p">))),</span><span class="w"> </span><span class="s">&quot;\n&quot;</span><span class="p">)</span>
 </pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span># A tibble: 34 × 3
-   species sex    body_mass_g
-   &lt;fct&gt;   &lt;fct&gt;        &lt;int&gt;
- 1 Gentoo  female        4800
- 2 Gentoo  male          5200
- 3 Gentoo  male          5150
- 4 Gentoo  female        4800
- 5 Gentoo  female        5000
- 6 Gentoo  male          5050
- 7 Gentoo  female        5000
- 8 Gentoo  male          5100
- 9 Gentoo  female        5050
-10 Gentoo  female        5150
-# ℹ 24 more rows
-# ℹ Use `print(n = ...)` to see more rows
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
-cat(&quot;Number of male penguins:&quot;, nrow(dplyr::filter(penguins_subset, sex == &quot;male&quot;)), &quot;\n&quot;)
-cat(&quot;Number of female penguins:&quot;, nrow(dplyr::filter(penguins_subset, sex == &quot;female&quot;)), &quot;\n&quot;)
-cat(&quot;Number of penguins of unknown sex:&quot;, nrow(dplyr::filter(penguins_subset, is.na(sex))), &quot;\n&quot;)
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of male penguins: 11 
-Number of female penguins: 22 
-Number of penguins of unknown sex: 1 
-</pre></div>
-</div>
 </div>
 </div>
 </section>
@@ -1232,17 +1199,16 @@ colnames(penguins_renamed)
 <h3>Exercise: creating variables<a class="headerlink" href="#exercise-creating-variables" title="Link to this heading">#</a></h3>
 <p>Update the <code class="docutils literal notranslate"><span class="pre">penguins</span></code> dataframe so that it contains an ID column
 <em>with IDs represented as strings</em>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
-# Solution 1
-penguins &lt;- dplyr::mutate(penguins, id = as.character(1:nrow(penguins)))
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">R</span>
+<span class="c1"># Solution 1</span>
+<span class="n">penguins</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">dplyr</span><span class="o">::</span><span class="nf">mutate</span><span class="p">(</span><span class="n">penguins</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">as.character</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="nf">nrow</span><span class="p">(</span><span class="n">penguins</span><span class="p">)))</span>
 
-# Solution 2
-penguins &lt;- dplyr::mutate(penguins, id = 1:nrow(penguins))  # int IDs
-penguins &lt;- dplyr::mutate(penguins, id = as.character(id))  # update column to strings
+<span class="c1"># Solution 2</span>
+<span class="n">penguins</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">dplyr</span><span class="o">::</span><span class="nf">mutate</span><span class="p">(</span><span class="n">penguins</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="nf">nrow</span><span class="p">(</span><span class="n">penguins</span><span class="p">))</span><span class="w">  </span><span class="c1"># int IDs</span>
+<span class="n">penguins</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">dplyr</span><span class="o">::</span><span class="nf">mutate</span><span class="p">(</span><span class="n">penguins</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">as.character</span><span class="p">(</span><span class="n">id</span><span class="p">))</span><span class="w">  </span><span class="c1"># update column to strings</span>
 </pre></div>
-</div>
 </div>
 </div>
 </section>
@@ -1270,7 +1236,7 @@ penguins_sorted_flipper
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span># A tibble: 344 × 10
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span># A tibble: 344 × 9
    species island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
    &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
  1 Gentoo  Biscoe           54.3          15.7               231        5650
@@ -1284,7 +1250,7 @@ penguins_sorted_flipper
  9 Gentoo  Biscoe           49.5          16.2               229        5800
 10 Gentoo  Biscoe           49.8          15.9               229        5950
 # ℹ 334 more rows
-# ℹ 4 more variables: sex &lt;fct&gt;, year &lt;int&gt;, bill_ratio &lt;dbl&gt;, id &lt;chr&gt;
+# ℹ 3 more variables: sex &lt;fct&gt;, year &lt;int&gt;, bill_ratio &lt;dbl&gt;
 # ℹ Use `print(n = ...)` to see more rows
 </pre></div>
 </div>
@@ -1294,26 +1260,12 @@ penguins_sorted_flipper
 <h3>Exercise: sorting<a class="headerlink" href="#exercise-sorting" title="Link to this heading">#</a></h3>
 <p>Sort the <code class="docutils literal notranslate"><span class="pre">penguins</span></code> data by the id column we created in the previous exercise.
 Explain the resulting order on the id column.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
-penguins_sorted_id &lt;- dplyr::arrange(penguins, id)
-head(dplyr::select(penguins_sorted_id, id, species, year, bill_length_mm))
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">R</span>
+<span class="n">penguins_sorted_id</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">dplyr</span><span class="o">::</span><span class="nf">arrange</span><span class="p">(</span><span class="n">penguins</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">dplyr</span><span class="o">::</span><span class="nf">select</span><span class="p">(</span><span class="n">penguins_sorted_id</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">year</span><span class="p">,</span><span class="w"> </span><span class="n">bill_length_mm</span><span class="p">))</span>
 </pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span># A tibble: 6 × 4
-  id    species  year bill_length_mm
-  &lt;chr&gt; &lt;fct&gt;   &lt;int&gt;          &lt;dbl&gt;
-1 1     Adelie   2007           39.1
-2 10    Adelie   2007           42  
-3 100   Adelie   2008           43.2
-4 101   Adelie   2009           35  
-5 102   Adelie   2009           41  
-6 103   Adelie   2009           37.7
-</pre></div>
-</div>
 </div>
 </div>
 </section>
@@ -1425,35 +1377,16 @@ at the same time:</p>
 <p>Create a summary dataframe that gives the mean, range (i.e. <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">-</span> <span class="pre">min</span></code>)
 and standard deviation of the body mass for each species / sex combination, as
 well as the number of observations in each group.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
-penguins_grouped &lt;- dplyr::group_by(penguins, species, sex)
-dplyr::summarise(penguins_grouped,
-                 mean_body_mass_g = mean(body_mass_g, na.rm = TRUE),
-                 sd_body_mass_g = sd(body_mass_g, na.rm = TRUE),
-                 range_body_mass_g = max(body_mass_g, na.rm = TRUE) - min(body_mass_g, na.rm = TRUE),
-                 Group_count = dplyr::n())
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">R</span>
+<span class="n">penguins_grouped</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">dplyr</span><span class="o">::</span><span class="nf">group_by</span><span class="p">(</span><span class="n">penguins</span><span class="p">,</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">sex</span><span class="p">)</span>
+<span class="n">dplyr</span><span class="o">::</span><span class="nf">summarise</span><span class="p">(</span><span class="n">penguins_grouped</span><span class="p">,</span>
+<span class="w">                 </span><span class="n">mean_body_mass_g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">body_mass_g</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">),</span>
+<span class="w">                 </span><span class="n">sd_body_mass_g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">sd</span><span class="p">(</span><span class="n">body_mass_g</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">),</span>
+<span class="w">                 </span><span class="n">range_body_mass_g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">body_mass_g</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nf">min</span><span class="p">(</span><span class="n">body_mass_g</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">),</span>
+<span class="w">                 </span><span class="n">Group_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dplyr</span><span class="o">::</span><span class="nf">n</span><span class="p">())</span>
 </pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>`summarise()` has grouped output by &#39;species&#39;. You can override using the
-`.groups` argument.
-# A tibble: 8 × 6
-# Groups:   species [3]
-  species   sex    mean_body_mass_g sd_body_mass_g range_body_mass_g Group_count
-  &lt;fct&gt;     &lt;fct&gt;             &lt;dbl&gt;          &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
-1 Adelie    female            3369.           269.              1050          73
-2 Adelie    male              4043.           347.              1450          73
-3 Adelie    &lt;NA&gt;              3540            477.              1275           6
-4 Chinstrap female            3527.           285.              1450          34
-5 Chinstrap male              3939.           362.              1550          34
-6 Gentoo    female            4680.           282.              1250          58
-7 Gentoo    male              5485.           313.              1550          61
-8 Gentoo    &lt;NA&gt;              4588.           338.               775           5
-</pre></div>
-</div>
 </div>
 </div>
 </section>

@@ -818,30 +818,12 @@ explicitly gave the types.</p>
 <h3>Exercise: parsing data from files<a class="headerlink" href="#exercise-parsing-data-from-files" title="Link to this heading">#</a></h3>
 <p>Change the above so that the <code class="docutils literal notranslate"><span class="pre">Id</span></code> column is parsed as an integer and the
 <code class="docutils literal notranslate"><span class="pre">Date</span></code> column is parsed as a string.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
-timeseries &lt;- readr::read_csv(&quot;./data/timeseries_data.csv&quot;,col_types = list(Id = readr::col_integer(),Date = readr::col_character(),.default = readr::col_double()))
-print(timeseries)
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">R</span>
+<span class="n">timeseries</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">readr</span><span class="o">::</span><span class="nf">read_csv</span><span class="p">(</span><span class="s">&quot;./data/timeseries_data.csv&quot;</span><span class="p">,</span><span class="n">col_types</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">Id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">readr</span><span class="o">::</span><span class="nf">col_integer</span><span class="p">(),</span><span class="n">Date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">readr</span><span class="o">::</span><span class="nf">col_character</span><span class="p">(),</span><span class="n">.default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">readr</span><span class="o">::</span><span class="nf">col_double</span><span class="p">()))</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">timeseries</span><span class="p">)</span>
 </pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span># A tibble: 10 × 4
-      Id Date       X_variable Y_variable
-   &lt;int&gt; &lt;chr&gt;           &lt;dbl&gt;      &lt;dbl&gt;
- 1     1 2024-02-01     1.20         7.90
- 2     2 2024-02-02    -0.751       12.7 
- 3     3 2024-02-03    -0.785       10.3 
- 4     4 2024-02-04    -0.619       10.1 
- 5     5 2024-02-05     0.619        9.18
- 6     6 2024-02-06    -1.30         4.83
- 7     7 2024-02-07    -1.05        12.0 
- 8     8 2024-02-08     1.28         7.01
- 9     9 2024-02-09    -0.0658       3.40
-10    10 2024-02-10    -0.0746      11.6 
-</pre></div>
-</div>
 </div>
 </div>
 </section>

@@ -819,26 +819,17 @@ print(penguins4)
 </div>
 <p>Rewrite this code to use the pipe operator instead of storing each intermediate
 dataframe, storing the overall result in a new variable called <code class="docutils literal notranslate"><span class="pre">summarised</span></code>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
-summarised &lt;- penguins |&gt;
-  dplyr::select(year, species, bill_length_mm, bill_depth_mm) |&gt;
-  dplyr::filter(year == 2009) |&gt;
-  dplyr::mutate(bill_ratio = bill_length_mm / bill_depth_mm) |&gt;
-  dplyr::summarise(mean_bill_ratio = mean(bill_ratio, na.rm = TRUE))
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">R</span>
+<span class="n">summarised</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">penguins</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="n">dplyr</span><span class="o">::</span><span class="nf">select</span><span class="p">(</span><span class="n">year</span><span class="p">,</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">bill_length_mm</span><span class="p">,</span><span class="w"> </span><span class="n">bill_depth_mm</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="n">dplyr</span><span class="o">::</span><span class="nf">filter</span><span class="p">(</span><span class="n">year</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">2009</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="n">dplyr</span><span class="o">::</span><span class="nf">mutate</span><span class="p">(</span><span class="n">bill_ratio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bill_length_mm</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">bill_depth_mm</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="n">dplyr</span><span class="o">::</span><span class="nf">summarise</span><span class="p">(</span><span class="n">mean_bill_ratio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">bill_ratio</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">))</span>
 
-print(summarised)
+<span class="nf">print</span><span class="p">(</span><span class="n">summarised</span><span class="p">)</span>
 </pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span># A tibble: 1 × 1
-  mean_bill_ratio
-            &lt;dbl&gt;
-1            2.63
-</pre></div>
-</div>
 </div>
 </div>
 </section>
