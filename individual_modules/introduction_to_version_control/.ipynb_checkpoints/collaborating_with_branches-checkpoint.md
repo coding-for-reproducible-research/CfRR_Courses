@@ -70,18 +70,17 @@ resolve any issues in your feature branch:
   code relies on, deletion or moving of code your work relies on, etc.
 
 * It also gives you a chance to resolve any _merge conflicts_ that may arise
-  when you try to merge your work into the common codebase (about which more in
-  the [Merge Conflicts]({{ site.url }}/16_merge_conflicts/index.html) episode).
+  when you try to merge your work into the common codebase.
 
 An example of feature branching is depicted below:
 
-![Feature branching]({{ site.url }}/images/feature-branching.svg)
+![Feature branching](images/feature-branching.svg)
 
 
 ### Creating feature branches
 
 We will be creating feature branches using the workflow described in the previous
-episode, [Remote Branches with GitHub]({{ site.url }}/14_remote_branches_with_github/index.html):
+episode:
 feature branches will be created remotely on GitHub and then fetched in for us
 to work on locally. 
 
@@ -105,7 +104,7 @@ also a local tracking branch in our local repository.
       in your local repository before continuing, by using `git merge`.
       If there are merge conflicts, these MUST be resolved and the merge into
       `foo-feature` completed before continuing to step c) below (see the later
-      episode on [merge conflicts]({{ site.url }}/16_merge_conflicts/index.html)
+      episode on merge conflicts
       for details on how to do this). Also take the
       opportunity to make sure this merge hasn't introduced any problems into
       the codebase (e.g. inconsistencies in naming, etc.)
@@ -144,11 +143,8 @@ strategy, discussed in the previous section, to add:
 In order for two people to work on the same remote repository on GitHub, they
 each need to be listed as collaborators on the repository.
 
-> ### Collaborators on a GitHub repository
-> 
-> If you are the owner of a repository on GitHub, you can invite collaborators
-> to work on the repository using the
-> <a href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository" target="_blank" rel="external noreferrer">instructions in the GitHub documentation</a>.
+### Collaborators on a GitHub repository
+If you are the owner of a repository on GitHub, you can invite collaborators to work on the repository using the <a href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository" target="_blank" rel="external noreferrer">instructions in the GitHub documentation</a>.
 
 
 ### Exercise
@@ -163,14 +159,8 @@ common remote repository. In what follows, one of you should play the role of
 Joe Bloggs and the other of Jane Doe.
 
 
-> #### Solo work
-> 
-> If you are working through these course notes by yourself then try imagining
-> you are two different developers collaborating on the repository together. We
-> suggest you clone a fresh copy of the remote repository to a new local repository
-> on your computer, while keeping your original local repository. This will
-> help you simulate the scenario of collaborators each having their own local
-> repository.
+#### Solo work
+If you are working through these course notes by yourself then try imagining you are two different developers collaborating on the repository together. We suggest you clone a fresh copy of the remote repository to a new local repository on your computer, while keeping your original local repository. This will help you simulate the scenario of collaborators each having their own local repository.
 
 
 ## Creating the branches
@@ -193,7 +183,7 @@ Joe fetches references to the new branches in the remote repository, then
 creates a new local branch to track his remote `fetching-material` branch (and
 also checks out this new local branch):
 
-```
+``` bash
 $ git fetch
 Username for 'https://github.com': jbloggs9999
 Password for 'https://jbloggs9999@github.com':
@@ -212,7 +202,7 @@ GitHub a moment ago. In contrast, Joe only has a local branch corresponding
 to his remote `fetching-material` branch, since this is the branch he performed
 the `git checkout` on:
 
-```
+``` bash
 $ git branch -a
 * fetching-material
   main
@@ -228,7 +218,7 @@ Jane runs the analogous commands in her local repository, in this case creating
 a local tracking branch for her `collaboration-good-practice` remote branch
 instead:
 
-```
+``` bash
 $ git fetch
 Username for 'https://github.com': janedoe9999
 Password for 'https://janedoe9999@github.com':
@@ -255,7 +245,7 @@ $ git branch -a
 
 Joe adds the following content to `Git-cheatsheet.md`:
 
-```
+``` bash
 
 ## Syncing with a remote repository
 
@@ -267,7 +257,7 @@ Joe adds the following content to `Git-cheatsheet.md`:
 
 He then commits it on his (local) `fetching-material` branch:
 
-```
+``` bash
 $ git add Git-cheatsheet.md 
 
 $ git commit -m "Add entry about fetching from a remote"
@@ -278,7 +268,7 @@ $ git commit -m "Add entry about fetching from a remote"
 Checking the status, Joe confirms that his local `fetching-material` branch is 1 commit
 ahead of the associated remote branch:
 
-```
+``` bash
 $ git status
 On branch fetching-material
 Your branch is ahead of 'origin/fetching-material' by 1 commit.
@@ -291,7 +281,7 @@ In order to back up his work and give Jane a preview of what he's been doing,
 Joe pushes the changes to his local `fetching-material` branch to the remote
 `origin/fetching-material`:
 
-```
+``` bash
 $ git push
 Username for 'https://github.com': jbloggs9999
 Password for 'https://jbloggs9999@github.com':
@@ -308,7 +298,7 @@ To https://github.com/jbloggs9999/git-good-practice.git
 
 The history on Joe's `fetching-material` branch now looks like this:
 
-```
+``` bash
 $ git log --oneline -5
 1d026a8 (HEAD -> fetching-material, origin/fetching-material) Add entry about fetching from a remote
 86ebbee (origin/main, origin/collaboration-good-practice, origin/HEAD, main) Merge pull request #1 from jbloggs9999/remote-branches-material        
@@ -324,7 +314,6 @@ Jane creates a new file called `Collaboration-good-practice.md` in the
 `Good-practice-guides` directory (which she includes as a stand-alone commit)
 and adds the following content about the above feature branch strategy:
 
-```
 # Best practice for collaboration
 
 ## A basic feature branch strategy
@@ -337,13 +326,11 @@ developed in their own, dedicated *feature branches* that branch off the
 `main` branch. When the feature is ready to be shared with others, the feature
 branch is merged back into `main`.
 
-```
-
 Like Joe, she then also pushes the new commits on her local
 `collaboration-good-practice` to the associated remote branch,
 `origin/collaboration-good-practice`:
 
-```
+``` bash
 $ git push origin
 Username for 'https://github.com': janedoe9999
 Password for 'https://janedoe9999@github.com':
@@ -360,7 +347,7 @@ To https://github.com/jbloggs9999/git-good-practice.git
 
 Having done this, her `collaboration-good-practice` history looks as follows:
 
-```
+``` bash
 $ git log --oneline -5
 b9df491 (HEAD -> collaboration-good-practice, origin/collaboration-good-practice) Add material on feature branching
 687cf02 Start good practice guide on collaboration
@@ -386,7 +373,7 @@ the remote, via `git fetch` or `git pull`.
 
 Joe finishes his work before Jane does and so gets to work on merging his
 feature branch into the `main` branch. Following the strategy that was discussed
-in the episode [Remote Branches with GitHub]({{ site.url }}/14_remote_branches_with_github/index.html),
+in the episode Remote Branches with GitHub,
 he creates a pull request associated to the merge.
 
 Having done this, he checks that Jane hasn't
@@ -394,7 +381,7 @@ merged any work into the remote `main` branch. He could do this by examining
 the history of `main` on GitHub, or by checking out `main` and
 pulling in any changes from the remote:
 
-```
+``` bash
 $ git checkout main
 Switched to branch 'main'
 Your branch is up to date with 'origin/main'.
@@ -424,7 +411,7 @@ the remote version, Joe goes ahead and performs the merge of his feature branch
 into `main` on GitHub, by completing the pull request. He then updates his local
 `main` branch with the merged changes:
 
-```
+``` bash
 $ git pull
 Username for 'https://github.com': jbloggs9999
 Password for 'https://jbloggs9999@github.com':
@@ -449,7 +436,7 @@ Jane is ready to merge her `collaboration-good-practice` feature branch into
 As the feature branch protocol recommends, she checks to see whether her local
 `main` branch is up-to-date with the remote repository:
 
-```
+``` bash
 $ git checkout main
 Switched to branch 'main'
 Your branch is up to date with 'origin/main'.
@@ -475,7 +462,7 @@ Fast-forward
 GitHub.) Jane finds that there have been changes made to the `main` branch while
 she was working on her feature branch, as indicated by the line
 
-```
+``` bash
    86ebbee..4e209e9  main              -> origin/main
 ```
 
@@ -483,7 +470,7 @@ Therefore, she merges her now updated `main` branch into her feature branch, to
 ensure her feature branch includes the latest changes. (Note that she does
 this _locally_, rather than on GitHub.)
 
-```
+``` bash
 $ git checkout collaboration-good-practice 
 Switched to branch 'collaboration-good-practice'
 Your branch is up to date with 'origin/collaboration-good-practice'.
@@ -497,7 +484,7 @@ Merge made by the 'ort' strategy.
 She also then pushes her updated feature branch to the
 remote repository, so that her local and remote branches are synchronised.
 
-```
+``` bash 
 $ git push
 Username for 'https://github.com': janedoe9999
 Password for 'https://janedoe9999@github.com':
@@ -516,7 +503,7 @@ Having done this, she now effectively starts the protocol for merging a feature
 branch into `main` again. First she checks there haven't been any further updates
 to `main`:
 
-```
+``` bash
 $ git checkout main
 Switched to branch 'main'
 Your branch is up to date with 'origin/main'.
@@ -533,7 +520,7 @@ the associated pull request, thus merging her remote
 repository. Then she pulls down the new, merged changes from `origin/main` into
 her local `main` branch:
 
-```
+``` bash
 $ git pull
 Username for 'https://github.com': janedoe9999
 Password for 'https://janedoe9999@github.com':
@@ -557,7 +544,7 @@ repository until he pulls them into his local `main` branch. Having seen on
 GitHub that Jane has completed her pull request, he duly makes sure his local
 repository has these changes (making sure he's on `main` to begin with):
 
-```
+``` bash
 $ git status
 On branch main
 Your branch is up to date with 'origin/main'.
@@ -593,7 +580,7 @@ repository when multiple branches are involved is to use the `--graph` option wi
 This will pictorially represent the inter-relationships of the branches that
 are involved in the commit history:
 
-```
+``` bash
 git log [options] --graph
 ```
 
@@ -623,7 +610,7 @@ $ git log --oneline -7 --graph
 ```
 -->
 
-![Git log as a graph]({{ site.url }}/images/git-log-as-graph.png)
+![Git log as a graph](images/git-log-as-graph.png)
 
 Let's go through this output in more detail:
 
@@ -659,7 +646,7 @@ because everything has been merged into `main`, both locally and on the
 remote repository. After doing this, the log of recent history looks
 like this:
 
-```
+``` bash
 $ git log --oneline -7
 785f6f8 (HEAD -> main, origin/main, origin/HEAD) Merge pull request #3 from jbloggs9999/collaboration-good-practice
 ee1617c Merge branch 'main' into collaboration-good-practice

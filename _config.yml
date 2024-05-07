@@ -4,6 +4,7 @@
 title: Coding For Reproducible Research
 author: Coding For Reproducible Research Community
 logo: images/exeter_logo.png
+copyright: "2024"
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -32,4 +33,31 @@ html:
 
 launch_buttons:
   thebe                  : true
+
+
+# Files not to be ran when building the jupyter book
+exclude_patterns:
+  - run_scripts_for_data.ipynb
+  - README.md
+  - course_details_markdowns/advanced_regression_analysis.md
+  - course_details_markdowns/all_upcoming_workshops.md
+  - course_details_markdowns/computational_thinking.md
+  - course_details_markdowns/intermediate_python.md
+  - course_details_markdowns/intermediate_version_control.md
+  - course_details_markdowns/introduction_to_hpc_at_exeter.md
+  - course_details_markdowns/introduction_to_julia.md
+  - course_details_markdowns/introduction_to_machine_learning.md
+  - course_details_markdowns/introduction_to_python.md
+  - course_details_markdowns/introduction_to_r.md
+  - course_details_markdowns/introduction_to_unix.md
+  - course_details_markdowns/introduction_to_version_control.md
+  - course_details_markdowns/parallel_computing.md
+  - course_details_markdowns/regression_analysis_with_r.md
+  - data/admin/workshop_details.md
+  - course_details_markdowns/introduction_to_version_control_with_git_and_github.md
+  - course_details_markdowns/software_development_best_practice.md
+  - course_details_markdowns/upcoming_workshops.md
+  - course_details_markdowns/working_with_data_in_r.md
+  - pathways/descriptions/data_scientist.md
+  - pathways/descriptions/software_engineer.md
 

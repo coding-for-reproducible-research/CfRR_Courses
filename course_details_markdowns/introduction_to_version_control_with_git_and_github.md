@@ -1,4 +1,4 @@
-## Welcome to the Introduction to Version Control with Git and GitHub Workshop
+# Welcome to the Introduction to Version Control with Git and GitHub Workshop
 **Next Session Date:** 12/12/2023, 19/12/2023
 
 **What to Expect:**

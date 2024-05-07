@@ -19,7 +19,7 @@ For example in our tube navigation example crucially we are starting at Paddingt
 
 ![toEdgware](images/directions.jpg)
 
-### Activity: Caesar cypher 
+## Activity: Caesar cypher 
 
 In cryptography, a Caesar cipher is a very simple encryption technique in which each letter in the plain text is replaced by a letter some fixed number of positions down the alphabet. For example, with a shift of 3, A would be replaced by D, B would become E, and so on. The method is named after Julius Caesar, who used it to communicate with his generals. ROT-13 ("rotate by 13 places") is a widely used example of a Caesar cipher where the shift is 13. 
 

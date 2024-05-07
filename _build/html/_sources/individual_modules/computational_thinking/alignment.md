@@ -38,13 +38,13 @@ It is unlikely the game will be finished after one turn. If we knew how many tur
 For loops are great for repetitive processes that occur a fixed number of times. If instead we have a repetitive process we keep repeating until a condition is met we instead need a `while` loop. This will automatically stop once the criteria is met. In our example, the game finishes when a player lands on square 100, so `max(P) == 100`, the game continues if the current player has not yet got to the final square so `max(P) < 100`.
 
 
-![flow chart of computational solution](images/snakes_programme.png)
+![flow chart of computational solution](images/snakes-programme.png)
 
 For this programme to run we need to introduce some dice rolls. To simulate a dice, we sample from the numbers 1,2,3,4,5,6. 
 
 If you want to see this in code here is an example for R:
 
-```
+``` R
 nPlayers <- 4
 endSquare <- 100
 snakes<-data.frame("Top" = c(14,28,34,68,85,96), "Bottom" = c(3,7,12,42,23,67))
@@ -80,7 +80,7 @@ while(max(P) < endSquare){
 
 A solution in python would be
 
-```
+``` python
 import random
 nPlayers = 4
 endSquare = 100

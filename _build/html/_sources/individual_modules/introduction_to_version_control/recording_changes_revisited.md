@@ -9,8 +9,7 @@ under version control within a Git repository.
 
 ## Staging in steps
 
-The last exercise in the previous episode,
-[Viewing History and Changes]({{ site.url }}/08_history_and_changes/index.html),
+The last exercise in the previous episode, Viewing History and Changes,
 began to touch on an important point about staging changes to files. It is possible
 to stage some changes to a file, then make further changes to the _same_ file.
 

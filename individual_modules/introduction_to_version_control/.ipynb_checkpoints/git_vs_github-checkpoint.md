@@ -18,17 +18,8 @@ today, both in research and commercially. Git is simply a piece of software that
 you run on your computer. You can use it
 directly from the command line, using the command `git`.
 
-> ### Terminals
->
-> In this course we will work through examples with command line syntax that
-> you would find on most Unix-style systems (MacOS or Linux). If you are using
-> Windows and have followed the installation instructions, you will have
-> installed _Git for Windows_. This comes with the _Git Bash_ program, which
-> emulates a Unix Bash shell (e.g. it uses forward slashes `/` for path
-> separators and comes with common Unix programs like `ls` for listing the
-> contents of a directory). We recommend you use Git Bash to follow through the
-> course. You can launch Git Bash by opening the Start menu
-> and typing `Git Bash` to find the program.
+### Terminals
+In this course we will work through examples with command line syntax that you would find on most Unix-style systems (MacOS or Linux). If you are using Windows and have followed the installation instructions, you will have installed _Git for Windows_. This comes with the _Git Bash_ program, which emulates a Unix Bash shell (e.g. it uses forward slashes `/` for path separators and comes with common Unix programs like `ls` for listing the contents of a directory). We recommend you use Git Bash to follow through the course. You can launch Git Bash by opening the Start menu and typing `Git Bash` to find the program.
 
 
 If you have Git installed

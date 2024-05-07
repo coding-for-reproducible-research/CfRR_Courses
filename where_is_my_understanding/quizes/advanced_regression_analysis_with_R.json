@@ -1,0 +1,236 @@
+[
+    {
+        "question": "What is the primary advantage of using mixed effects models compared to traditional linear regression?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Ability to handle non-linear relationships",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Ability to consider multiple variables at the same time",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Ability to handle data where observations are related to each other",
+                "correct": true,
+                "feedback": "correct."
+            },
+            {
+                "answer": "Faster computation time",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What does the R syntax `(1 | ID)` represent in a mixed effects model?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "A random intercept for individual ID",
+                "correct": true,
+                "feedback": "correct."
+            },
+            {
+                "answer": "A fixed effect for ID",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "A random slope for ID",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "An interaction effect involving ID",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+        ]
+    },
+    {
+        "question": "In the context of mixed effects models, what are fixed effects typically used to estimate?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Variance components only",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Regression parameters that apply to all observations",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Random variation among groups",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "None of the above",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+        ]
+    },
+    {
+        "question": "What is the purpose of including random effects in a mixed effects model?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To fix the intercept across groups",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "To allow for individual variations around the fixed effect predicition",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "To model variance among groups or clusters in the data",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "To increase the complexity of the model without improving the fit.",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What is the key reason to use a mixed effects model in longitudinal data analysis?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To account for non-independence of repeated measures within subjects",
+                "correct": true,
+                "feedback": "correct."
+            },
+            {
+                "answer": "To simplify the analysis by treating repreated measures as indepdent",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "To redice the computational time required or analysis",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "None of the above",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "Which statement is true about fitting mixed effect models in R?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "It cannot be done without extensive programming experience",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Only linear relationships can be modeled",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "It requires the `base` package only",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "The `lme4` package is specifically designed for such models",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "Why might you choose a mixed effects model over a simple linear regression for clustered data?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To simplify the analysis",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "To provide more accurate estimates by accounting for intra-clusters correlation",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Mixed effects models are computationally less intensive",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "All of the above",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What is the role of the `glmer()` function in the context of mixed effects models?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "It is used to generate random effects only",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "It fits generalised linear mized effects models",
+                "correct": true,
+                "feedback": "correct."
+            },
+            {
+                "answer": "It is used for plotting the effects",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "None of the above",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "Which statement is true when you include an interaction term in a mixed effects model?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "It reduces the number of parameters to estimate",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "It always simplifies the model interpretation",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "It allows the effect of one variable to depend on the level of another variable",
+                "correct": true,
+                "feedback": "correct."
+            },
+            {
+                "answer": "Interaction terms are only used in linear models, not in mixed effects models",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+]

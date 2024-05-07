@@ -1,4 +1,4 @@
-## Welcome to the Introduction to R Workshop
+# Welcome to the Introduction to R Workshop
 **Next Session Date:**  9/1/2024, 16/1/2024, 23/1/2024
 
 **What to Expect:**

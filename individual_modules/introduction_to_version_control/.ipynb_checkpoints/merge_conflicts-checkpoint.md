@@ -40,7 +40,7 @@ We'll start a new feature branch called `pushing-pulling` off of our last
 commit to `main`. We create this on GitHub as a remote branch and then create
 a local tracking branch:
 
-```
+``` bash
 $ git fetch
 Username for 'https://github.com': jbloggs9999
 Password for 'https://jbloggs9999@github.com':
@@ -54,7 +54,7 @@ branch 'pushing-pulling' set up to track 'origin/pushing-pulling'.
 
 Let's now add the following content to `Git-cheatsheet.md`:
 
-```
+``` bash
 
 `git push origin` — Transfer commits in the current local branch to the
                     corresponding upstream branch in the remote repository.
@@ -68,7 +68,7 @@ We commit these changes to the `pushing-pulling` feature branch and then push
 them up to the upstream remote branch. Our log on `pushing-pulling` now looks
 like the following:
 
-```
+``` bash
 $ git log --oneline -3
 991a78b (HEAD -> pushing-pulling, origin/pushing-pulling) Add entries on 'git push' and 'git pull'
 785f6f8 (origin/main, origin/HEAD, main) Merge pull request #3 from jbloggs9999/collaboration-good-practice
@@ -82,7 +82,7 @@ of the `Git-cheatsheet.md` file. To emulate this scenario, we'll switch to the
 order of the `git push` and `git pull` entries has swapped around) and push
 those changes up to the remote `main` branch:
 
-```
+``` bash
 
 `git pull origin` — Bring commits from an upstream branch in the remote
                     repository into the current local branch.
@@ -96,7 +96,7 @@ After doing that, our log looks like the following (note that we use the `--all`
 option to view commits on all branches and display the log as a graph by using
 the `--graph` option):
 
-```
+``` bash
 $ git log --oneline --graph --all -3
 * 23e5d3a (HEAD -> main, origin/main, origin/HEAD) Add material about pulling and pushing branches
 | * 991a78b (origin/pushing-pulling, pushing-pulling) Add entries on 'git push' and 'git pull'
@@ -108,7 +108,7 @@ $ git log --oneline --graph --all -3
 Let's now switch back to the feature branch and try merging `main` into it. If
 we do that, we get the following output:
 
-```
+``` bash
 $ git checkout pushing-pulling 
 Switched to branch 'pushing-pulling'
 Your branch is up to date with 'origin/pushing-pulling'.
@@ -128,7 +128,7 @@ how to resolve this conflict.
 Before doing anything else, let's look at the current state of things with
 `git status`:
 
-```
+``` bash
 $ git status
 On branch pushing-pulling
 Your branch is up to date with 'origin/pushing-pulling'.
@@ -167,15 +167,15 @@ Git is actually giving us quite a lot of helpful information here:
 * Finally, it's saying that if we want to abort and go back to how things
   were just before running `git merge`, we can use the command
   
-  ```
-  git merge --abort
-  ```
+``` bash
+git merge --abort
+```
 
 Let's now fix the conflicts within `Git-cheatsheet.md`. If we open up the file
 in a text editor, we will see the following content towards the end of the file,
 around the place where we added content about pushing and pulling:
 
-```
+``` bash
 ## Syncing with a remote repository
 
 `git fetch origin` — Retrieve references to new remote branches, and/or commits
@@ -201,15 +201,8 @@ Git has injected some text into our file to describe the conflicting changes
 that need to be resolved.
 
 
-> ### Understanding the representation of conflicts
-> 
-> The content between the markers `<<<<<<< HEAD` and `=======` contains the changes
-> that were made on the current branch i.e. the changes as they are at `HEAD`.
-> In contrast, the content between the markers `=======` and `>>>>>>> main`
-> represents the changes that have been made on the incoming branch, which in example
-> above is `main`. (Of course, in the general case the incoming branch could be a
-> different branch, in which case the name of this branch will be used in the third
-> marker.)
+### Understanding the representation of conflicts
+The content between the markers `<<<<<<< HEAD` and `=======` contains the changes that were made on the current branch i.e. the changes as they are at `HEAD`. In contrast, the content between the markers `=======` and `>>>>>>> main` represents the changes that have been made on the incoming branch, which in example above is `main`. (Of course, in the general case the incoming branch could be a different branch, in which case the name of this branch will be used in the third marker.)
 
 
 In order to fix this conflict, we simply need to edit this text so that it contains
@@ -238,7 +231,7 @@ version as it is on `main`. All we therefore need to do is:
 Having done that, and having saved our changes to `Git-cheatsheet.md`, the
 content of `Git-cheatsheet` looks like this:
 
-```
+``` bash
 ## Syncing with a remote repository
 
 `git fetch origin` — Retrieve references to new remote branches, and/or commits
@@ -253,32 +246,25 @@ content of `Git-cheatsheet` looks like this:
 
 ```
 
-> ### Resolving a conflict
->
-> Exactly how you resolve a conflict depends on the
-> context. Sometimes you will want to accept incoming changes, other times
-> you'll want to keep the version on the current branch, and yet other times
-> you may want to combine the changes in some way.
+### Resolving a conflict
+Exactly how you resolve a conflict depends on the context. Sometimes you will want to accept incoming changes, other times you'll want to keep the version on the current branch, and yet other times you may want to combine the changes in some way.
 
 
-> ### Multiple conflicts in a file
->
-> If a file has multiple locations where there are conflicts then each one of
-> these needs to be resolved. You can find them by doing a search for
-> `<<<<<<< HEAD` or similar.
+### Multiple conflicts in a file
+If a file has multiple locations where there are conflicts then each one of these needs to be resolved. You can find them by doing a search for`<<<<<<< HEAD` or similar.
 
 
 We've now fixed our cheatsheet file to the version we'd like to keep going
 forward from the merge. The next step is to stage the changes, just like
 `git status` told us before:
 
-```
+``` bash
 $ git add Git-cheatsheet.md 
 ```
 
 Let's now check the status again:
 
-```
+``` bash
 $ git status
 On branch pushing-pulling
 Your branch is up to date with 'origin/pushing-pulling'.
@@ -299,19 +285,15 @@ in resolving the conflict we opted for changes that differ to those we'd made
 on our current branch. (If we'd instead opted to keep the version that was made
 on our current branch, we wouldn't have seen any changes staged for committal.)
 
-
-> ### Multiple conflicted files
->
-> In general, you may have multiple files with conflicts when you merge.
-> In this case, work through each file in turn, resolving the conflicts and staging
-> the changes until all files have been addressed.
+### Multiple conflicted files
+In general, you may have multiple files with conflicts when you merge. In this case, work through each file in turn, resolving the conflicts and staging the changes until all files have been addressed.
 
 
 Since there are no more
 conflicts to resolve, we can now go ahead and commit our changes to complete
 the merge.
 
-```
+``` bash
 $ git commit
 ```
 
@@ -319,7 +301,7 @@ Note how we do this without providing a message at the command line, so that
 our text editor fires up for a commit message, with the following pre-loaded
 content:
 
-```
+``` bash
 Merge branch 'main' into pushing-pulling
 
 # Conflicts:
@@ -344,7 +326,7 @@ explicit that there were merge conflicts that had to be resolved. We'll just
 keep the default message, saving and closing our text editor to complete the
 commit:
 
-```
+``` bash
 $ git commit
 [pushing-pulling c3d8b18] Merge branch 'main' into pushing-pulling
 ```
@@ -352,7 +334,7 @@ $ git commit
 This completes the merging process. We can see the result of our merge on the
 commit history of the `pushing-pulling` branch by looking at the commit graph:
 
-```
+``` bash
 $ git log --oneline --graph -4
 *   c3d8b18 (HEAD -> pushing-pulling) Merge branch 'main' into pushing-pulling
 |\
@@ -390,12 +372,12 @@ This is how VS Code marks files that have conflicts in them. Looking now at
 the open `Git-cheatsheet.md` file, we see that VS Code has highlighted the places
 where there is a conflict to resolve.
 
-![A merge conflict in VS Code]({{ site.url }}/images/vs-code-merge-conflict.png)
+![A merge conflict in VS Code](images/vs-code-merge-conflict.png)
 
 In addition to this, you can jump between unresolved conflicts using the arrows
 in the top right-hand corner of the editor pane:
 
-![Navigating conflicts in VS Code]({{ site.url }}/images/vs-code-conflict-navigation.png)
+![Navigating conflicts in VS Code](images/vs-code-conflict-navigation.png)
 
 To support the resolution of the conflicts themselves, VS Code provides some
 shortcut options above the conflict. These represent methods for resolution that
@@ -411,13 +393,13 @@ apply in the majority of cases in practice:
 * _Compare Changes_: View the differences between the changes in a side-by-side
   view.
 
-![Automatic options for resolving a conflict in VS Code]({{ site.url }}/images/vs-code-select-change.png)
+![Automatic options for resolving a conflict in VS Code](images/vs-code-select-change.png)
 
 Clicking on one of these options will apply the specified resolution, ready to
 be saved. (The screenshot below shows the result from applying the
 _Accept Incoming Change_ option.)
 
-![A resolved merge conflict in VS Code]({{ site.url }}/images/vs-code-conflict-resolution.png)
+![A resolved merge conflict in VS Code](images/vs-code-conflict-resolution.png)
 
 
 ## General advice on merge conflicts and collaboration

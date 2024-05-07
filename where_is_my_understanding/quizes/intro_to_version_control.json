@@ -1,0 +1,288 @@
+[
+    {
+        "question": "What is the primary function of git?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To track changes in text documents",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "To manage and store projects",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "To track changes in any set of files and coordinate work on those files amongst multiple people",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "To enhance the speed of the internet",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What command will create a new Git repository locally?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "git start",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "git create",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "git init",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "git new",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "How do you stage changes for a commit in Git?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "git commit add",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "git add",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "git stage",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "git setup",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "Which command is used to view the history of commits?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "git history",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "git log",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "git init",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "git commits",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "If you want to check the status of your working directory and staging area, whcih command should you use?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "git check",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "git status",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "git view",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "git log",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What does the command 'git commit -m \"message\"' do",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Adds files to the staging area with the message text",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Records changes to the repository with a commit messsage",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Messags the git user 'message' to commit changes",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Deletes the message from the commit",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "How can you make your local repository up to date with changes from a remote repository",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "git commit",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "git merge",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "git status",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "git pull",
+                "correct": true,
+                "feedback": "Correct."
+            }
+        ]
+    },
+    {
+        "question": "What is a merge conflict in Git",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "A situation where Git is unable to automatically resolve differences in code between merged commits",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "A conflict that occurs when the internet is down",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "A special commit that requires administrative privileges",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "a problem that occurs exclusively when merging branches in Github",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "How do you typically resolve merge conflicts in Git?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Delete the conflicting files and create new ones",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Manually edit the files to correct the conflicts and then commit the resolved files",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Use the command 'git solve-conflict'",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Restart the Git server",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What is the purpose of branching in Git?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To create a linear history of commits",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "To duplicate projects",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "To diverge from the main line of development and continue to work independently without disrupting the main line",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "To enhance the performance of the repository",
+                "correct": false,
+                "feedback": "Incorrect ."
+            }
+        ]
+    }, 
+    {
+        "question": "What is a pull request in the context of Git and Github?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "A request sent to the system adminstrator to pull updates from the server",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "A command in Git to request the latest changes from a remote repository",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "A method used to tell other about changes that you've pushed to a branch in a repository on Github, which can then be reviewed and potentially merged into the primary branch",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "A feature that automatically merged changes from one branch to another without review",
+                "correct": false,
+                "feedback": "Incorrect ."
+            }
+        ]
+    }
+]

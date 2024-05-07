@@ -1,0 +1,1370 @@
+---
+title: "Introduction to Regression Analysis with R"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+
+set.seed(123)
+par(mar = c(4,4,1,1))
+nSamples <- 250
+height<-rnorm(nSamples, 180, 20)
+sex<-as.factor(sample(c("male", "female"), size = nSamples, replace = TRUE, prob = c(0.45,0.55)))
+height<-height + rnorm(nSamples, 10,5)*(as.numeric(sex)-1)
+age<-floor(runif(nSamples, 40,60))
+weight<- height * 0.7 - 44 + rnorm(nSamples,0,12)
+
+weight<-weight + rnorm(nSamples, 3, 2)*(as.numeric(sex)-1) + rnorm(nSamples, 0.005, 0.001)*(as.numeric(sex)-1) * height
+weight <- weight + age * rnorm(nSamples, 0.04, 0.03)
+bmi <- weight/(height/100)^2
+
+smoker<-sample(c(0,1), size = nSamples, replace = TRUE, prob = c(0.8,0.2))
+t2diabetes <- sample(c(0,1), size = nSamples, replace = TRUE, prob = c(0.8,0.2))
+t2diabetes[sample(which(bmi > 25),10)]<-1
+t2diabetes[sample(which(smoker == 1),5)]<-1
+
+exercise_hours <- rpois(nSamples, 1) + rpois(nSamples, 2)*(1-t2diabetes) + rpois(nSamples, 1) * (as.numeric(sex)-1)
+alcohol_units <- rpois(nSamples, 3) + rpois(nSamples, 5)*(1-t2diabetes) + rpois(nSamples, 3) * (as.numeric(sex)-1) + rpois(nSamples, 1)*rpois(nSamples, 6)*(1-t2diabetes) 
+exercise_hours[which(weight < 60)]<-rpois(sum(weight < 60), 12)
+alcohol_units[which(bmi > 37)]<-alcohol_units[which(bmi > 37)] + rpois(sum(bmi > 37),5)
+alcohol_units[which(weight > 140)]<-rpois(sum(weight > 140),50)
+
+ethnicity<-sample(c("European", "Asian", "AfricanAmerican"), nSamples, replace = TRUE, prob = c(0.6,0.25,0.15))
+socioeconomic_status <- sample(c("High", "Middle", "Low"), nSamples, replace = TRUE, prob = c(0.25,0.5,0.25))
+socioeconomic_status[which(bmi > 25)] <- sample(c("High", "Middle", "Low"), sum(bmi > 25), replace = TRUE, prob = c(0.1,0.25,0.65))
+
+demoDat <-data.frame(age, height, weight, bmi, ethnicity, socioeconomic_status, smoker, exercise_hours, alcohol_units, t2diabetes)
+
+```
+
+## Overview of Workshop
+
+Welcome to Introductory Regression Analysis with R. Our aim is to provide you with a comprehensive introduction to the statistical tool regression and how to perform these analyses in R.
+
+By the end of this session you will be able to:
+
+* describe what regression is.
+* fit a range of regression models with R including:
+    * simple linear regression
+    * multiple linear regression 
+    * logistic regression
+* select the appropriate regression model for either a continuous or binary outcome
+* describe the concept behind hypothesis testing in regression analysis
+* interpret the coefficients of a regression model
+* make predictions from a regression model
+* describe the between regression and other common statistical tools
+
+
+### Pre-requisites
+
+This course will not include an introduction to R, or how to setup and use R or Rstudio. It is assumed you are comfortable coding in R and are familiar with:
+
+* how to write and execute commands in the R console
+* what type of variables are available in R and how to work with these
+
+
+
+### Course Notes
+
+This tutorial contains the course notes, example code snippets plus explanations, exercises for you to try with solutions and quiz questions to test your knowledge. Attend a workshop on this topic means there are people on hand to help if you have any questions or issues with the materials. However, these have also been designed such that you should also be able to work through them independently. 
+
+You can navigate through the section using the menu on the side. 
+
+## Introduction to Regression
+
+### What is Regression?
+
+Regression analysis is a broad category of analyses where the objective is to statistically quantify relationships between variables.
+
+It enables you to:
+
+* understand which variables affect other variables and how
+* make predictions from a new set of data
+
+It involves fitting a prespecified model to data, where model is a mathematical description of the relationship between the variables. Observed data is then used to determine what numbers or coefficients the model should have. 
+
+A regression model requires:
+
+* dependent variable(s) - the outcome or variable you are trying to predict
+* independent variable(s) - the predictors, features, covariates or explanatory variable(s)
+
+You may also know regression as fitting a line to data as in the example below. We can think of a line as a graphical representation of a model. Note by line we are not limited to just a straight line.
+
+```{r straight line example, echo = FALSE, fig.height= 4, fig.width=4}
+set.seed(123)
+par(mar = c(4,4,1,1))
+nSamples <- 25
+height<-rnorm(nSamples, 180, 20)
+weight<- height * 0.62 - 44 + rnorm(nSamples,0,5)
+
+plot(height, weight, pch = 16, col = , xlab = "Height (cm)", ylab = "Weight (kg)")
+abline(a = -44, b = 0.62)
+```
+
+
+### What is a line?
+
+To understand a bit more about regression parameters we are going to recap what a line is, specifically a straight line, in a mathematical sense. If we have two continuous variables such as height and weight, measured on the same set of individuals, we can visualise the relationship with a scatterplot like the one above.  From this plot we can try to generalise the relationship by drawing a straight line through the points. From this line we can make predictions of what weight a person might have if we know their height. 
+
+What enables us to do this, is the fact that we can represent this line and therefore this relationship as an equation. The standard equation for a straight line between two variables Y and X:
+
+$$Y = \theta_{0}  + \theta_{1} X$$
+
+You may have learnt this previously as 
+
+$$Y = c  + m X$$
+
+These two equations are equivalent we have just used different notation for the coefficients. The coefficients are the value that we multiply our predictor variables by, and what we want to estimate from our data. They are sometimes called parameters.
+
+There are two regression coefficients in this equation: 
+
+1. Intercept ($\theta_{0}$ ) - This is the value of the outcome variable when the predictor is set to 0. 
+2. Slope coefficient ($\theta_{1}$) - This is the change in the outcome variable for each unit of the predictor variable.
+
+When we know the values of these coefficients we can then input different values of X to make predictions for Y. What's more changing the values of these coefficients changes the position of the line in the graph and ultimately the relationship between X and Y. Below we showcase a number of different lines, can you characterise what is happening? 
+
+```{r straight line multiple, echo = FALSE, fig.height= 6, fig.width=8, fig.pos="center"}
+par(mar = c(4,4,1,1))
+par(mfrow = c(2,2))
+
+plot(0, 1, type = "n", col = , xlab = "X", ylab = "Y", main = "Y = 1 + 2X", xlim = c(-5,5), ylim = c(-10,10))
+abline(a = 1, b = 2, lwd = 1.5)
+abline(v = 0)
+abline(h = 0)
+
+plot(0, 1, type = "n", col = , xlab = "X", ylab = "Y", main = "Y = 1 + -2X", xlim = c(-5,5), ylim = c(-10,10), lwd = 1.5)
+abline(a = 1, b = -2, lwd = 1.5)
+abline(v = 0)
+abline(h = 0)
+
+
+plot(0, 1, type = "n", col = , xlab = "X", ylab = "Y", main = "Y = 5 + 2X", xlim = c(-5,5), ylim = c(-10,10), lwd = 1.5)
+abline(a = 5, b = 2, lwd = 1.5)
+abline(v = 0)
+abline(h = 0)
+
+plot(0, 1, type = "n", col = , xlab = "X", ylab = "Y", main = "Y = 5 + 4X", xlim = c(-5,5), ylim = c(-10,10), lwd = 1.5)
+abline(a = 5, b = 4, lwd = 1.5)
+abline(v = 0)
+abline(h = 0)
+
+```
+
+What you should observe is that changing $\theta_{1}$ changes the slope of the line: 
+
+* the direction of the line changes depending if the parameter is negative or positive
+
+* the steepness of the slope is determined by the magnitude of this coefficient. 
+
+This is the coefficient that captures the relationship between our variables X and Y and enables us to model an unlimited number of linear relationships between these variables.  
+
+You might also have observed that if we change the value of $\theta_0$, i.e the intercept, the line moves up and down. The intercept is important if we are interested in making predictions but not so important if we want to understand how changing X influences Y. 
+
+### Fitting a Simple Linear Regression Model in R
+
+We want to fit our line to a specfic set of data where we collected paired values for X and Y to enable us estimate the values of $\theta_{0}$ and $\theta_{1}$. It is out of the scope of this workshop to examine the precise mathematical details of how this is done, but it is important to understand that the principle behind the methodology is to draw the line that "best" fits the data by having the lowest total error. Here the error is defined as the difference between the observed value of Y and the predicted value of Y given X and our estimated model. 
+
+In R linear regression models can be fitted with the base function `lm()`. Let's look continue with our height and weight example. These data are available within this tutorial in the R object `demoDat`. In our R code we will use the formula style to specify the model we want to fit. You may recognise this type of syntax from other statistical functions such as `t.test()` or even plotting functions such as `boxplot()`. The equation of the line we wish to fit needs to be provided as an argument to the `lm` function:
+
+
+```{r, eval = FALSE, echo = TRUE}
+
+lm(weight ~ height, data = demoDat)
+
+```
+
+The dependent variable (taking the place of Y in the standard equation for a line above) goes on the left hand side of the `~` symbol. The predictor variable goes on the right hand side (taking the place of X in the standard equation for a line above). The code we have written is specifying the model:
+
+$$weight = \theta_0 + \theta_1 height$$
+
+Note that we did not need to explicitly specify either the 
+
+* intercept ($\theta_0$)
+
+or
+
+* regression coefficient  ($\theta_1$)
+
+R knows to add these in automatically. 
+
+Let's run this bit of code
+
+```{r, echo = TRUE}
+
+lm(weight ~ height, data = demoDat)
+
+```
+
+
+If we execute just the `lm()` function it only prints a subset of the possible output:  
+
+* the formula we called  
+* the estimates of the coefficients derived from our observed data.  
+
+From these coefficients we can specify the line that has been calculated to represent the relationship between these variables.
+
+
+```{r, echo = FALSE}
+
+model <- lm(weight ~ height, data = demoDat)
+
+```
+
+We can see that the estimated value for the intercept is `r signif(summary(model)$coefficients[1,1], 4)` and the estimated value for the height slope coefficient is `r signif(summary(model)$coefficients[2,1], 4)`. As the height parameter is positive, we can conclude that weight increases as the participants get taller. More than that we can quantify by how much. The value of the regression parameter for height tells us how much weight changes by for a one unit increase of height. To interpret this we need to know the units of our variables. In this example height is measured in cm and weight in kg, so the value of our regression coefficient means that for each extra centimetre, an individual's weight increases by a mean of `r signif(summary(model)$coefficients[2,1],2)`kg.
+
+
+```{r,echo=FALSE}
+equation = paste0("$weight =",  signif(summary(model)$coefficients[1,1],3), " + ", signif(summary(model)$coefficients[2,1],3), " * Height$")
+```
+
+
+We can write our estimated regression model as:
+
+`r equation`.
+
+
+
+### Simple Linear Regression Exercise 
+
+*Let's practice fitting and interpretting the output of a simple linear regression model.*
+
+Write the R code required to characterise how `bmi` changes as the participants `age`. Both of these variables are available in the `demoDat` object you already have loaded in this tutorial. 
+
+```{r ols, exercise=TRUE}
+
+```
+
+```{r ols-solution}
+lm(bmi ~ age, data = demoDat)
+```
+
+```{r quiz1, echo=FALSE}
+quiz(caption = "Questions on Exercise Above",
+question("What is the value of the intercept?",
+  answer("0.04", message = "This is the slope coefficient."),
+  answer("1", message = "Look at the coefficients in the output."),
+  answer("24.2", correct = TRUE),
+  answer("47.4", message = "Did you put age and bmi in the formula the correct way round?"),
+  allow_retry = TRUE
+),
+question("The slope coefficient is 0.04, which is the correct interpretation?",
+  answer("bmi increases by 0.04 per year of age", correct = TRUE),
+  answer("age increases by 0.04 year per 1 unit of bmi"),
+  allow_retry = TRUE
+), 
+question("What is the predicted BMI for a participant aged 45?",
+  answer("1.9", message = "Did you forget to add the intercept?"),
+  answer("24.2", message = "Did you forget to add the contribution from the slope parameter?"),
+  answer("25.2", message = "Did you forget to multiple the slope parameter by the age?"),
+  answer("26.1", correct = TRUE),
+  allow_retry = TRUE)
+)
+```
+
+## Hypothesis Testing for Regression Models
+
+If you have run regression models in other software or have seen the results of regression analysis presented in scientific reports you might be wondering where are the p-values? Don't worry they are there. Before we look at how you go about extracting this information we will first go over how hypothesis testing works in the context of regression.
+
+### The Theory
+
+Recall, how earlier we saw that the relationship between X and Y could be written down as a mathematical equation: 
+
+$$Y = \theta_{0}  + \theta_{1} X$$
+
+The important parameter for understanding the relationship between X and Y is $\theta_1$. Specifically the magnitude of $\theta_1$ tells us about the strength of the relationship between X and Y. When we looked at the different lines you could get by changing the values of $\theta_0$ and $\theta_1$ there were two very specific scenarios we didn't consider, when either $\theta_0 = 0$ or $\theta_1 = 0$. Let's see what happens to our equation in these situations:
+
+If $\theta_0 = 0$ then our equation becomes
+
+$$Y = 0  + \theta_{1} X = \theta_{1}X$$
+
+Recall that the intercept is the position on the y-axis when the line crosses. If $\theta_0 = 0$ then our line will cross the y-axis through the origin (i.e  the point (0,0)). 
+
+If $\theta_1 = 0$ then our equation becomes
+
+$$Y = \theta_0  + 0 X = \theta_{0}$$
+
+When you multiply anything by zero the answer is always 0. If the coefficient for our X variable is 0, regardless what the value of X is this will compute to 0. We can simplify our prediction equation and remove the X term from the equation. Our predictive equation for Y is no longer dependent on or influence by the predictor variable X.
+
+This is essentially saying that there is no relationship between X and Y. This is the concept that underlies hypothesis testing in regression analysis. If there is a relationship between X and Y the regression parameter for X needs to be non-zero. If it is non-zero, then the value of X will have some effect of the prediction of Y, albeit it potentially quite small, but an effect none the less. 
+
+
+To statistically test for a effect we requires an explicitly stated null hypothesis and alternative hypothesis. We will then use our observed data to summarise the evidence to determine if there is enough evidence to reject the null hypothesis in favour of the alternative. For each individual regression coefficient these are:
+
+$$H_{null}: \theta = 0$$
+$$H_{alternative}: \theta \neq 0$$
+To test these hypotheses with the observed data we implement the following steps:
+
+1. accumulate the evidence from the data
+2. use a statistical theory or the data to establish how normal/extreme this result is
+3. apply some criteria to draw a conclusion in the context of the proposed hypotheses
+
+
+We have already started to accumulate the evidence by estimating the values of the regression coefficient. This estimate is then converted into a t-statistic (by dividing by the estimated standard error) which enables us to use a known statistical distribution to quantify how likely it is to occur. The relevant distribution here is the Student's t-distribution. With this knowledge we can then calculate a p-value which we used to decide which hypothesis our data favours. You might recognise this distribution, if you are familar with t-tests. Hold this thought, we will revist this later.
+
+### Statistical Assumptions
+
+To enable us to complete this process, we have made a series of assumptions about the data. If these do not hold true, this process potentially falls apart. So understanding the context with which hypothesis testing has been formulated is important for deriving accurate and meaningful statistical inference.
+
+For hypothesis testing of a regression coefficient for X the assumptions are:
+
+* The dependent variable Y has a linear relationship to the independent variable X.
+* Errors (residuals) are normally distributed.
+* Samples are independent.
+* Variances in each group are equal.
+
+Let's revisit our R code to see how we can extract this information for our regression model. 
+
+### Hypothesis Testing of Regression Parameters in R 
+
+We don't actually need to get R to do any further calculations to get the p-values for our statistical hypothesis testing. This is done when you execute `lm()`. By default though it does not print the output to console. We do need to use some additional commands to extract this information. This is largely achieved with the  `summary()` function. We could chain these commands together i.e. `summary(lm()))` or we could save the output of `lm()` to a variable and run it as two lines of code as shown below:
+
+```{r}
+model<-lm(weight ~ height, data = demoDat)
+summary(model)
+
+```
+
+We can see that the `summary()` function expands on the information printed to the console compared to just running `lm()`.
+
+From top to bottom, we have:
+
+* the model formula
+* a summary of the residuals (i.e errors)
+* a table of coefficients
+* model fit statistics. 
+
+
+We are probably most interested in the coefficients table which contains a summary of each estimated regression coefficient. The results for each coefficient are provided in a separate rows, with the intercept in the top row followed by 1 row for each explanatory variable and 4 columns. It is worth noting at this point that the intercept is also a regression coefficient which we can test. However, we almost never consider this result as 
+
+1. it is virtually always significantly non-zero 
+
+and
+
+2. it doesn't tell us anything about relationships between variables  
+
+The columns in the coefficients table are as follows:
+
+| Column | Content |
+|-------|------|
+| Estimate | estimated regression coefficient | 
+| Std. Error | standard error of the estimated regression coefficient |
+| t value | The test statistic (the ratio of the previous two columns) | 
+| Pr(> t) | P-value comparing the t value to the Student's t distribution | 
+
+We can also see from the coefficients table above the slope parameter has a p-value < 0.05. Therefore we can conclude that it is significantly non-zero and reject the null hypothesis in favour of the alternative hypothesis. There is a statistically significant relationship between height and weight in this dataset.
+
+
+We can visualise this estimated model, by generating a scatterplot of the observed data and adding the fitted regression line to the plot. 
+
+```{r, fig.height= 5, fig.width=5, fig.pos="center"}
+par(mar = c(4,4,1,1))
+plot(demoDat$height, demoDat$weight, pch = 16, xlab = "Height (cm)", ylab = "Weight (kg)")
+abline(model, col = "red")
+
+```
+
+
+We can see the positively correlated relationship between height and weight. The fitted regression model appears to represent the data well but there is some noise around the fitted line. In other words the model is not perfect. Potentially there are other factors that could improve the prediction further.  
+
+
+
+### Hypothesis Testing of Regression Coefficients Exercise 
+
+*Let's see if age has a significant effect on weight.*
+
+Write the R code required, to test using a regression model, the following: 
+
+1. Is weight significantly associated with age?
+2. Is bmi significantly associated with age?
+
+```{r ols-signif, exercise=TRUE}
+
+```
+
+```{r ols-signif-solution}
+model1<-lm(weight ~ age, data = demoDat)
+summary(model1)
+
+model2<-lm(bmi ~ age, data = demoDat)
+summary(model2)
+```
+
+```{r quiz2, echo=FALSE}
+quiz(caption = "Questions on exercise above", 
+question("Which of these statements are true for the relationship between weight and age? Apply a significance threshold of 0.05. Select all that apply.",
+  answer("The intercept is significantly non-zero.", correct = TRUE),
+  answer("Age is significantly associated with weight."), allow_retry = TRUE
+),
+question("Which of these statements are true for the relationship between BMI and age? Apply a significance threshold of 0.05. Select all that apply.",
+  answer("The intercept is significantly non-zero.", correct = TRUE),
+  answer("BMI is significantly associated with weight."), allow_retry = TRUE
+)
+)
+```
+
+
+### Checking the Assumptions of Linear Regression
+
+As we mentionned before, by making assumptions about the characteristics of our data we can do significance testing. It is prudent therefore, to check whether these assumptions hold true so that we can be confident in the conclusion we have deduced. However, this is far from common practise. There are a number of reasons why. 
+
+Firstly, the assumptions are to some degree subjective and assessing them is not an exact science. It can be hard to know what to look for if you don't have much experience in fitting regression models. The underlying mathematics of regression is robust to some deviation from these assumptions. So there is some tolerence around these we can allow. Common tools to assess properties like Normality might not place the threshold for deviation in the same place as the statistical model needs. Often they are more conservative and therefore you might prematurely reject a valid result. 
+
+Secondly, (and perhaps most pertinent) it is not possible to check many of the assumptions without fitting the model first. Therefore, you run the risk that if you find a significant effect you get excited and forget to check the assumptions in favour of persuing a more exciting follow up question. However, as the assumptions are essential for deriving the formula to estimate and test the regresssion parameters, if they are violated we need to be cautious about accepting the results, especially if they are significant.
+
+Functionality to do this is provided within R. We can easily generate 4 plots, where we can visually inspect some of the assumptions of linear regression by applying the `plot()` function to the output of an `lm()` call. We can see these plots for the height and weight examples from above.
+
+```{r, fig.width = 8, fig.height = 8, fig.align = "center"}
+model<- lm(weight ~ height, data = demoDat)
+par(mfrow = c(2,2))
+plot(model)
+
+```
+
+Decisions on the validity of the results are then given by assessing these plots. Below we outline what is good and bad.
+
+##### Plot 1: Residuals vs Fitted
+
+Do the residuals show a non-linear pattern?  
+
+**Good:**   
+
+* no evidence of a relationship between these variables. (i.e. equal number of points above and 	below the line or a random scatter)
+
+**Bad:**   
+
+* a pattern in the points – may be indicative of a non-linear relationship between your outcome and independent variables. 
+	
+##### Plot 2: Normal Q-Q
+
+Are the residuals normally distributed?  
+
+**Good:**  
+
+* the points follow the dotted diagonal line
+
+**Bad:**  
+
+* the points deviate from the dotted diagonal line.
+
+##### Plot 3: Scale-Location
+
+Are the residuals equally spread across the range of predictions?  
+
+**Good:**  
+
+* horizontal line with no evidence of a relationship between these variables	
+
+**Bad:**  
+
+* a non horizontal line and more/less points in one corner of the plot, may indicate heteroscedasticity.
+	
+##### Plot 4: Residuals vs Leverage
+
+Are any samples overly influencing the fit?  
+
+**Good:**   
+
+* all inside red dashed line
+
+**Bad:**  
+
+* any values in the upper right or lower right corner or cases outside of a dashed red line, indicates samples that don’t fit the trend in the data and are biasing the result.
+
+As these require a subjective assessment of the plots, it can be difficult to decide whether the plot looks good or bad. This is particularly challenging where the data has only a small number of observations. We should also bear in mind that linear regression is fairly robust to the violation of many of the assumptions. Therefore, even if the plots don't look ideal, that does not automatically mean that the result is invalid. This is where statistics moves away from a fixed quantity and into a gray area of subjectivity. Experience is the only real aid here, the more regression models you fit and the more plots you look at enables you to gauge what is a major or minor deviation. 
+
+For contrast, let's fit another linear model where the assumptions might not hold true. Let's look at the relationship between weight and hours exercised per week (`exercise_hours`). When we asked the participants how much exercise they did each week they were effectively counting the number of hours, so this variable is a count variable. Count varibles are typically Poisson distributed and are limited to whole, positive numbers, so not a continuous variable and therefore potentially violating one of our assumptions.   
+
+
+```{r, echo = FALSE}
+hist(demoDat$exercise_hours, xlab = "Hours exercised each week", ylab = "Number of participants", main = "")
+
+```
+
+In the histogram above we can see a non-symetrical distribution with a hard boundary of 0 on the left and a long tail on the right hand side. 
+Let's take a look at what happens if we use it as a predictor variable against weight. 
+
+```{r, fig.width = 8, fig.height = 8, fig.align = "center"}
+summary(lm(weight ~ exercise_hours, data  = demoDat))
+par(mfrow = c(2,2))
+plot(lm(weight ~ exercise_hours, data  = demoDat))
+```
+
+**Plot 1: Residuals vs Fitted** We can see vertical lines of dots which is a reflection of the fact the observed X variable only contains whole numbers. On the right hand side the points appear reasonably random in the space, but perhaps some bias to the left hand side. 
+
+**Plot 2: Normal QQ** Points largely on the diagonal line int he centre of the distribution but some deviation at both extremes.
+
+**Plot 3: Scale-Location** We see the vertical lines again and more points of the right hand side.Possibly some wierd empty spaces, where points are absent on the left hand side. 
+
+**Plot 4: Residuals vs Leverage** There are some samples with extreme values (on the far right) not quite in line the rest of the points but not outside the accepted region.  
+
+So in conclusion we can see less desirable behaviour of our observed data as we try to force a discrete variable into a methodology for a continuous variable . 
+
+
+
+### Inspecting the Assumptions Exercise 
+
+*Let's have a go at creating and interpretting some diagnostic plots.*
+
+Write the R code required to determine if a regression model is an appropriate tool for assessing the relationship between:
+
+1. age and weight
+2. bmi and avearage number of alcohol units drunk per week (`alcohol_units`)
+
+```{r ols-plots, exercise=TRUE}
+
+```
+
+```{r ols-plots-solution}
+summary(lm(weight ~ age, data = demoDat))
+plot(lm(weight ~ age, data = demoDat))
+summary(lm(bmi ~ alcohol_units, data = demoDat))
+plot(lm(bmi ~ alcohol_units, data = demoDat))
+```
+
+
+## Multiple Linear Regression 
+
+### Expanding the regression framework
+
+So far we have considered a single type of regression analysis with one continuous predictor variable and one continuous outcome variable and fitting a straight line between these. This has enabled us to get to grips with the core concepts but regression can do so much more than this. It is an incredibly flexible framework that can handle
+
+* different types of variables 
+* multiple variables
+* different relationships between variables 
+
+We will now look at how we extend the methodology to allow more complex analysis designs. You should think of regression as a modular approach which you select the necessary components depending on the 
+
+* properties of the outcome variable(s)
+* properties of the predictor variable(s)
+* the relationship that you want to model between each predictor variable and outcome variable.
+
+Different types of regression analysis you may be familar with include:
+
+**Simple Linear Regression**
+
+* 1 continuous outcome variable
+* 1 predictor variable
+
+**Multiple Linear Regression**
+
+* 1 continuous outcome variable
+* $> 1$ predictor variable
+
+**Multivariate Linear Regression**
+
+* multiple correlated dependent variables
+* $> 0$ predictor variable
+
+Next, we are going to discuss *Multiple Linear Regression* which allows us to look at the effect of multiple predictor variables simultaneously on an an outcome variable. 
+
+### Multiple Linear Regression 
+
+To include multiple predictor variables in our existing regression framework, we simply need to add these additional terms to our model/equation. 
+
+For example if we have two variables $X_1$ and $X_2$ and we want to use these together to predict Y we can fit the model 
+
+$$Y = \theta_0 + \theta_1 X_1 + \theta_2 X_2 $$
+
+To accomodate the extra predictor variable we need to include an extra regression coefficient. This is still considered a linear regression model because we are combining the effects of these predictor variables in a linear (additive) manner.   
+
+
+In R we don't need any new functions to fit a multiple regression model, we can fit these models with the same `lm()` function. As before R will automatically add the right number of regression coefficients.
+
+Let's look at an example where we model the effect of both age and height on weight.
+
+```{r}
+modelM<-lm(weight ~ age + height, data = demoDat)
+summary(modelM)
+```
+
+
+To report the results of this extra regression parameter we have a third row in the coefficient's table. Each regression coefficient included in this table, regardless of how many there are, are tested under the same hypothesis framework we discussed for simple linear regression. The results for each coefficient are interpreted in the same way. From this analysis we can see that height is significantly associated with weight (p-value < 0.05) but age is not (p-value > 0.05).
+
+All of the assumptions from simple linear regression hold for multiple linear regression with the addition of one more:
+
+* The dependent variable Y has a linear relationship with the independent variables X.
+* Errors (residuals) are normally distributed.
+* Samples are independent.
+* Variances in each group are equal.
+* *Independent variables are not highly correlated with each other.*
+
+We can again use the `plot()` function to inspect these for a multiple regression model fit.
+
+
+### Multiple Regression Analysis Exercise
+
+*Let's practice fitting a regression model with multiple predictor variables.*
+
+Fit and interpret the following regress models.
+
+1. `bmi` predicted by `age` and `exercise_hours`. 
+2. `bmi` predicted by `age`, `exercise_hours` and `alcohol_units`.
+
+```{r multiple-regression, exercise = TRUE}
+
+```
+
+```{r multiple-regression-solution}
+
+summary(lm(bmi ~ age + exercise_hours))
+summary(lm(bmi ~ age + exercise_hours + alcohol_units))
+
+```
+
+
+```{r quiz3, echo=FALSE}
+quiz(caption = "Questions on exercise above", 
+question("When just looking at the effect of age and exercise on BMI, what is the effect of exercise?",
+  answer("More exercise decreases BMI, but not significantly.", correct = TRUE),
+  answer("More exercise significantly decreases BMI."),
+  answer("Less exercise decreases BMI, but not significantly."),
+  answer("Less exercise significantly decreases BMI."), allow_retry = TRUE
+),
+question("What happens to the results for exercise when alcohol is also included in the model?",
+  answer("The magnitude of the effect between exercise and bmi decreases and remains non-significant."),
+  answer("The magnitude of the effect between exercise and bmi increases but remains non-significant."),
+  answer("The magnitude of the effect between exercise and bmi decreases and is now significant."),
+  answer("The magnitude of the effect between exercise and bmi increases and is now significant.", correct = TRUE), allow_retry = TRUE)
+)
+```
+
+
+### Assessing the Effect of Multiple Predictor Variables Simultaneously
+
+There are many reasons why you might want to model multiple predictor variables simultaneously. 
+
+1. You are interested in understanding the effects of multiple different factors.
+2. You think there are some variables that might bias or confound your analysis and you want to adjust for this. 
+
+In the second scenario, some predictor variables are just included so that their effect is captured, but you are not explicitly interested in their results. 
+
+In the first scenario, you might be interested in quantifying the effect of each predictor term individually. This can be achieved by looking at the regression coefficients for each term in turn, as we did for the example above. Alternatively you might be interested in the combined effect of multiple terms in predicting an outcome. We can do this from our regression analysis by reframing the null and alternative hypothesis. 
+
+Let's define our regression model for two predictor variables $X_1$ and $X_2$ as:
+
+
+$$Y = \theta_0 + \theta_1 X_1 + \theta_2 X_2 $$
+
+Previously we were interested if a single regression coefficient was non-zero as if that was the case that regression parameter would cause some quantity to be added to our prediction. The null hypothesis for testing the joint effect of two predictors is based on the same underlying concept, that there is no effect on the outcome from the predictor variables. The mathematical definition of this needs to be changed though to reflect that we have multiple predictor variables and regression coefficients. 
+
+If there is no effect of $X_1$ and $X_2$ on Y, then the regression coefficients for both terms will be zero. Such that they both get cancelled out of the equation and it can be simplfied to just the intercept. For there to be an improvement in the predictive capability of model, at least one of the two predictive variables needs to have a non-zero coefficient. 
+
+This gives us the null hypothesis of
+
+$$H_{null}: \theta_1 = \theta_2 = 0$$
+
+and the alternative hypothesis of 
+
+$$H_{alternative}: \theta_1 \neq 0\text{ or  }\theta_2 \neq 0$$
+
+Another way of thinking about this analysis is that we are comparing two models with and without the terms of interest. Our statistical question boils down to which of these models is a better fit to the data?
+
+The more complex model 1: 
+
+$$Y = \theta_0 + \theta_1 X_1 + \theta_2 X_2 $$
+
+or 
+
+the simpler model 2: 
+
+$$Y = \theta_0 $$
+
+To perform this statistical test we need to use the F-distribution rather than the T-distribution. Our test statistic is now based around the idea of variance explained. Mention of either the F-distribution or an analysis of variance explained might trigger an association with ANOVA, analysis of variance. Indeed you are right there is a link here. In fact the R function you need to run this analysis is `anova()`. But first we need to define and fit the two models we want to compare. We use just a `1` on the right hand side of the formula to specify we just want to include an intercept term.
+
+
+
+```{r}
+## the more complex "full" model:
+model.full <- lm(weight ~ age + height, data = demoDat)
+## the simpler "null" model:
+model.null <- lm(weight ~ 1, data = demoDat)
+
+
+anova(model.null, model.full)
+```
+
+
+We can see in the output a table of test statistics where we can see an F-value is reported along with its p-value. In this example we have a (very) significant p-value. Therefore we conclude that a model with both age and height is significantly better than a model with just the intercept. From our analysis of the individual regression coefficients we know that this is predominantly due to the height variable. 
+
+Now it may be that apart from the use of the F-distribution this overlap with ANOVA does not fit with your current understanding of when you use ANOVA (typically with a categorical variable with > 2 groups). In the next section we will draw out this relationship further. 
+   
+
+### Modelling Categorical Predictor Variables
+
+So far we have only considered continuous predictor variables such as height and age, or variables not strictly continuous but can fudge to be considered as continuous variables. Next we will look at variables that it is harder to analyse as continuous variables, that is categorical variables.
+
+We will consider a categorical varible, as any scenario where the responses can be grouped into a finite number of categories or classes. In R this type of variable is called a `factor`. 
+
+First, let's consider the simplest type of categorical variable to model, one with only two options or groups. Sometimes this specific instance is called a binary variable. While in your data collection each group might have a text label to describe what the response means for that observation, for mathematical modelling we need to represent this binary variable numerically. This is acheived by recoding the variable such that one group is represented by 0 and one group by 1. With this coding it might be refered to as an indicator or dummy variable, where the 1 is used to specify the presence of some feature (like an exposure) and 0 the absence of that feature. 
+
+For example for the variable sex, we could represent females with 0 and males with 1 and the variable therefore indicates who is male. Note that in R if you include a factor variable in your regression model which has text labels to indicate the `levels`, it will automatically do this numerical recoding for you without you needing to know about it. The default behaviour is for the first category alphabetically to be assigned 0 and the second category to be assigned 1. This is important to remember for interpretation later.
+
+We the define our regression model as we did for continuous variables.
+For example to test for a relationship between sex and weight we can use the following code:
+
+```{r, eval = FALSE}
+lm(weight ~ sex, data = demoDat)
+```
+
+As before R will automatically add the relevant regression parameters so this model can be written mathematically as:
+
+$$weight = \theta_0 + \theta_1 sex$$
+We have our intercept regression coefficient, our regression "slope" coefficient for the sex variable. In this equation the variable sex takes either the value 0 or the value 1 for each observation depending if it is male or female. We also use this coding strategy to make predictions from this equation. Let's demonstrate this - for males and females we can derive an equation that will represent their prediction. 
+
+For females, $sex$ = 0. If we substitute this in we get
+
+$$weight = \theta_0 + \theta_1 0 = \theta_0$$
+
+Because the regression parameter for the sex variable is multiplied by 0, it will always equal 0, regardless of the value of $\theta_1$. So the prediction for females is the value of the intercept only. 
+
+Let's do the same thing for males, where sex = 1: 
+
+$$weight = \theta_0 + \theta_1 1 = \theta_0 + \theta_1$$
+In this equation we multiply $\theta_1$ by 1 which can be simplified to $\theta_1$. So the equation for males is the intercept plus the slope coefficient for the sex variable. 
+
+This helps us understand how we interpret the value of the regression coefficient for a binary variable. $\theta_1$ is the only part of the equation that differs between the predictions for males and females. Therefore it has to capture the nessecary (mean) difference between the groups. More than that, it is not present in the equation for females but is present in the equation for males, so it specifically captures the difference in males relative to females. That means if it is positive, males have a higher mean than females. If it is negative males have a lower mean than females. 
+
+The choice of how we code this variable is academic, the magnitude of the estimate will be the same, but the direction (i.e. the sign) would switch if instead we had males = 0 and females = 1.
+
+Let's fit this model to our data:
+
+```{r}
+lm(weight ~ sex, data = demoDat)
+
+```
+
+We can see the estimated slope coefficient is `r signif(coef(lm(weight ~ sex, data = demoDat))[2], 4)`. It is positive so we can intepret this as males have a mean increased weight of `r signif(coef(lm(weight ~ sex, data = demoDat))[2], 4)` kg.
+
+R tells us which group the coefficient refers to by appending to the name of the variable, the level that is coded as 1. In this example it is the level `male`. 
+
+But does this mean that there is a significant relationship between sex and weight? Significance testing of regression coefficients for binary variables is performed in exactly the same way as it was for continuous variables. Testing if the  coefficient is non-zero. We can display these results by saving the model and using the `summary()` function.
+
+```{r}
+model <- lm(weight ~ sex, data = demoDat)
+summary(model)
+```
+
+
+If we look at the p-value column for the second row in the coefficients table, we can see that it is less < 0.05. Therefore we can reject the null hypothesis that the regression coefficient is 0 and report that based on these data, sex does have a significant effect on weight. 
+
+Recall here that we have used the t-distribtion to test for a significant relationship between sex and weight. If you wanted to test for a difference in means between two groups, what test would you use? The t-test. If you did that here you would get an identical result.
+
+```{r}
+t.test(weight ~ sex, data = demoDat, var.equal = TRUE)
+```
+
+That is because these are mathematically equivalent. If your regression model has a continuous outcome variable and a single binary predictor variable then you have implemented a t-test. It is worth bearing in mind that regression is a much more flexible framework than a t-test. It can handle the inclusion of more than one predictor variable. So if you think a t-test is what you need but you also want to be to control for other confounders, regression will allow you to do this. 
+
+#### Categorical Variables with > 2 Groups
+
+Regardless of how many groups your categorical variable has, it needs to recoded numerically for it to be included in any regression framework. The fundamental principle here is that for a categorical variable with m different groups, we need m-1 binary variables to parsimoneously code enough unique combinations so that each group can be differentiated in the model. We saw this already for a binary categorical variables with two groups, needing the addition of one binary variable. 
+
+Let's consider a slightly more complicated example - a categorical variable with three options. Here we will use participant ethnicity as an example. In our dataset there are three groups: "African American", "Asian" and "European". To represent this numerically as a series of binary variables we would need two indicator variables. The table below shows how for each of the three options, across these two indicator variables ("Asian" and "European"), we can unique code for any of the three options. For each participant of these ethicinity we replace the categorical variable with these values for the two new indicator variables. A third indicator variable for the third group ("African American") would be redundant, and introduce a problem for hypothesis testing whereby we assume that the predictor variables are dependent.  
+
+
+| Eye Colour      | Asian | European |
+| ----------- | ----------- | ----------- |
+|  African American      | 0       | 0 |
+| Asian   | 1        | 0 |
+| European | 0 | 1 |
+
+
+To add this three level factor into our model we need to add both of these dummy variables. Each variable will also then need it's own regression coefficient. So if we were interested in the effect on weight of ethnicty our regression model would look like this:
+
+$$weight = \theta_0 + \theta_1 Asian + \theta_2 European$$
+
+As before when we specify the model we want to fit in R, we don't need to explicitly state the regression coefficients. In a similar way, we don't need to manually add the relevant dummy variables, if you tell R to fit a regression model with a categorical variable, it will automatically add the relevant number of dummy variables. It will do this, even if it is not nesscessarily coded as a factor variable. 
+
+For this example the following code is sufficient for this model.
+
+```{r}
+model <- lm(weight ~ ethnicity, data = demoDat)
+summary(model)
+```
+
+We can see from the coefficients table in the output, there are three rows for the three regression parameters: the intercept and the two slope parameters for the two dummy variables. This is despite only having one variable on the right hand side when we coded the model. We know which coefficient is which as R has appended which group that variable is an indicator for onto the row name.
+
+As these are dummy variables, the interpretation of the estimated effect (i.e. regression coefficient) for each of these is the same as for the binary variable. It captures the mean difference for that group relative to the baseline or reference group. Remember R sets the first group alphabetically as the baseline, by default. Therefore, the `ethnicityAsian` row is estimating the mean difference between Asians and African Americans, while the `ethnicityEuropean` row is estimating the mean difference between the Europeans and African Americans. In this model it is also worth remembering that the intercept gives you the mean value of the outcome (i.e. weight) when the predictor variables are equal to 0. In the table above we can see that when both predictor variables are 0, the observation is an African American. Therefore we can intepret the value of the intercept as the mean of the African Americians (i.e. the reference group). By adding on the values of either regression coefficient to the intercept we can get the mean value of the other two ethnic groups. 
+
+### Regression with Categorical Variables Exercise
+
+*Let's practice fitting a regression model with a categorical variable.*
+
+Fit a linear regression model to test for differences in weight by socioeconomic_ class_status.
+
+```{r multipleRegression, exercise=TRUE}
+
+
+```
+
+
+```{r multipleRegression-solution}
+summary(lm(weight ~ socioeconomic_status, data = demoDat))
+```
+
+
+```{r quiz4, echo=FALSE}
+quiz(caption = "Questions on the exercise above.",
+  question("What is the reference group in this example?",
+    answer("Low"),
+    answer("Middle"),
+    answer("High", correct = TRUE)
+  ),
+  question("What does the intercept represent?",
+    answer("The mean weight in the low group."),
+    answer("The mean weight in the middle group."),
+    answer("The mean weight in the high group.", correct = TRUE)
+  ),
+  question("What is the mean weight of the low income group?",
+           answer("7.49", message = "This is slope coefficient for the low group. What is it's intepretation?"),
+           answer("7.87", message = "This is the regression coefficient for the Medium Group. Re-read the question."),
+           answer("82.9", message = "Corrext process, but you've choosen the wrong regression coefficient."),
+           answer("90.4", correct = TRUE)
+)
+)
+```
+
+
+We can do significance testing for each dummy variable in the same way as we have done up to this point. Determining if the regression coefficient is non-zero means that that term significantly influences the outcome and a relationship between that variable and the outcome can be concluded. In the example above between weight and socioeconomic group, both the p-values for both dummy variables are < 0.05. Therefore we can conclude that there is a significant difference in the mean between the high socioeconomic group and the low socioeconomic groups AND there is a significant difference in the mean weight between the middle and high socioeconomic groups. In this situation it is fairly straightforward to draw a conclusion.   
+
+But often when we have a categorical variable with more than two groups our question is more broadly is there a difference across the groups? In this situation we are interesting in whether any of the dummy variables have an effect on the model. We have slightly different null hyothesis for this statistical test.
+
+For the regression model
+
+$$weight = \theta_0 + \theta_1 Middle + \theta_2 High$$
+
+if there was no relationship between socieconomic status and weight then neither regression parameter for either dummy variable would be non-zero. To remove them from the prediction equation both need to be equal to zero, which gives us the null hypothesis of:
+
+$$H_{null}: \theta_1 = \theta_2 = 0$$
+For there to be any benefit to the prediction equation of weight by knowing socioeconomic status, then we would need one of these slope coefficients to be non-zero. 
+
+So our alternative hypothesis becomes
+
+$$H_{alternative}: \text{there exists } \theta_i \neq 0,\text{ for i  = 1,2.}$$
+
+As before we are interested in the joint effect of multiple predictor variables. 
+
+
+This approach can also be thought of as testing these two models:
+
+Model 1:
+
+$$weight = \theta_0$$
+Model 2:
+
+$$weight = \theta_0 + \theta_1 Middle + \theta_2 High$$
+
+And asking whether Model 2 (the more complex model) is a significantly better predictor that Model 1 (which we sometimes refer to as the null model).
+
+We can code this statistical comparision in R as follows:
+
+```{r}
+model.null <- lm(weight ~ 1, data = demoDat)
+model.full <- lm(weight ~ socioeconomic_status, data = demoDat)
+anova(model.null, model.full)
+
+```
+
+
+We have done an ANOVA and used the F-distribution. We can see in the output a table of test statistics where we can see an F-value is reported along with its p-value. In this example we have a non-significant p-value, that is greater than 0.05.
+
+When we are testing a categorical variable with more than two groups we are asking the question is the mean of the outcome different across these groups? Posing the questions like this, might remind you of the situation you may have been told you use an ANOVA for. And indeed we did. However, this is one very specific example where an ANOVA can be used. Reframing your understanding of ANOVA for comparing regression models, makes it a much more widely usable concept. Again, like with the t-test if you think of it in this context you can then use it in combination with the other benefits of regression analysis, such as different types of outcome variables or multiple predictor variables. 
+
+We can extend this principle of testing the joint effect of multiple dummy variables to test for joint effects of any set of multiple predictor variables. For example we could test if the addition of height and ethnicity together improves the model for weight:
+
+```{r}
+model.full <- lm(weight ~ height + ethnicity, data = demoDat)
+model.null <- lm(weight ~ 1, data = demoDat)
+anova(model.null, model.full)
+
+```
+
+In fact, the null model does not have to be as simple as including just the intercept. It just needs to contain a subset of the variables in the full model. This can be a really powerful strategy if you have some variables you want to adjust for but aren't interested in their relationship on the outcome. Maybe in our example of socioeconomic status, we know that age and height might confound the effect of socioeconomic status. So in our significance testing we want to be able to adjust for them while evaluating the effect of socioeconomic status.  We can do this as follows:
+
+```{r}
+model.null <- lm(weight ~ age + height, data = demoDat)
+model.full <- lm(weight ~ socioeconomic_status + age + height, data = demoDat)
+anova(model.null, model.full)
+```
+
+We can see here, that having adjusted for the potential confounders we now have a significant relationship between socioeconomic status and weight. 
+
+#### Comparing Regression Models Exercise
+
+
+Use an F-test to evaluate the relationship between BMI and ethnicity.
+
+```{r multipleRegression2, exercise=TRUE}
+
+
+
+```
+
+```{r multipleRegression2-solution}
+
+model<-lm(bmi ~ ethnicity, data = demoDat)
+null <- lm(bmi ~ 1, data = demoDat)
+anova(null, model)
+
+```
+
+
+```{r quiz5, echo=FALSE}
+quiz(
+question("Which of these R codes is considered the null model in this example?",
+  answer("$bmi \\sim 1$", correct = TRUE),
+  answer("$bmi \\sim ethnicity$")),
+question("How many regression parameters are estimated in the null model?",
+  answer("0"),
+  answer("1", correct = TRUE, message = "1 for the intercept."),
+  answer("2"),
+  answer("3")
+  ),
+question("How many regression parameters are estimated in the full model?",
+  answer("0"),
+  answer("1"),
+  answer("2"),
+  answer("3", correct = TRUE, message = "1 for the intercept and 2 for the dummy variables for ethnicity.")
+  ),
+question("Is there a significant relationship between ethnicity and bmi?",
+  answer("P-value is > 0.05. So no significant relationship.", correct = TRUE),
+  answer("P-value is < 0.05. So no significant relationship."),
+  answer("P-value is > 0.05. So significant relationship."),
+  answer("P-value is < 0.05. So significant relationship.")
+  )
+)
+```
+
+
+## Logistic Regression
+
+So far all the examples have assumed we have a continous outcome we want to predict. But this is unlikely to be the case all of the time. What if we want to predict a binary variable, such as case control status or another type of indicator variable. We can't use the traditional linear regression techniques we have discussed so far because our outcome is now discrete (coded 0 or 1) but our linear combination of predictor variables can take value. We need to use a function to translate this continous value into our 0,1 discrete code. 
+
+To do this we use the logistic function, and hence this class of regression models is called logistic regression. 
+
+The logistic function is defined as 
+
+$$\sigma(t) = \frac{e^t}{e^t+1}$$
+
+We can visualise the transform between the right hand side and the left hand side of the equation in the graph below
+
+```{r, echo = FALSE}
+xseq <- seq(-6,6, 0.1)
+yseq <- exp(xseq)/(exp(xseq)+1)
+
+plot(xseq, yseq,type = "l", xlab = "X", ylab = "Y", lwd = 1.5)
+abline(h = 0.5, lty = 2)
+abline(h = 1)
+abline(h = 0)
+
+```
+
+
+While the combination of X variables can take any value from - infinity to infinity, the Y value is constrained to between 0 and 1. It is still a continous function, so we haven't quite got to our desired outcome of a binary 0,1 variable. With Y now constrained to fall between 0 and 1 we can interpet it as a probability, the probability of being a case. To transform this to taken either the value 0 or the value 1, we apply a threshold of 0.5. If the predicted Y > 0.5 then Y is that observation is classed as a case (i.e. Y = 1) whereas if predicted Y < 0.5, then that observation is classed as a control (i.e. Y = 0). In an ideal world we want our predictions to be definitive. So as well as being constrained to giving a value between 0 and 1, the transformation also has the desirable property of spending most of it's time at the extremes (i.e. 0 or 1) and not much time in the middle (i.e. around 0.5).
+
+After applying the link function, technically, logistic regression is estimating the log odds of being a case. So our equation becomes 
+
+$$ln(odds) = ln(\frac{p}{(1-p)}) = \beta_0 + \beta_1*x$$
+
+We are no longer in the class of linear regression, we are in a more general class of generalised linear models. These permit a more varied number of regression models with different types of outcomes.They use a link function to transform from the unbounded prediction on the right hand side to the properties of the outcome variable on the left hand side. For logistic regression the link function is the logistic function. This means we also need a new R function, `glm()` to fit them. 
+
+Let's look at an example we are going to predict Type II diabetes status from bmi.
+
+```{r}
+model.log <- glm(t2diabetes ~ bmi, data = demoDat, family = "binomial")
+
+summary(model.log)
+```
+
+The output takes a very similar format to the `lm()` output. What differences can you notice?
+
+* Instead of residuals we have deviance residuals.
+
+* Instead of t-statistics we have z-statistics.
+
+* Instead of the sums of squares statistics and F-test, we have deviance statistics and no automatic overall test for the full model.
+
+
+#### Interpretation of Regression Coefficients
+
+Remember that in the logistic regression model the response variable is log odds. So we can write the equation we are trying to fit as: 
+
+$$ln(odds) = ln(\frac{p}{(1-p)}) = \beta_0 + \beta_1BMI$$
+
+As with linear regression, the regression coefficients give the change in the predicted value for a one unit increase in the predictor variable. Except, as our predicted value is a log odds ratio, the meaning of the coefficients changes. In logistic regression, the estimated regression coefficients represent log odds ratios per a unit increase in the predictor variable. We can covert these to odds ratios by raising as a power to e, as follows:
+
+```{r}
+exp(coef(model.log))
+
+```
+
+We can see that the odds ratios is `r signif(exp(coef(model.log))["bmi"], 3)` which can be reported as for a 1 unit increase of BMI an individual is `r signif(exp(coef(model.log))["bmi"], 3)` times more likely to develop Type 2 Diabetes. This effect is not very big!
+
+Significance testing is conceptually the same as for linear regression, whereby each regression coefficient (i.e. log odds ratio) is tested to see if it is non-zero. It differs though how it is calculated. As we are no longer able to derive an exact solution, we have to use an iterative method to find the best estimates. This means you sometimes might get warnings that your model failed to converge. This means that the algorithm was not able to settle on an appropriate solution for the best regression coefficients and the result should be treated with caution. Typically, this is due to not enough data or trying to fit too many predictor variables simultaneously or a poor choice of model between X and Y. 
+
+We can get the results of hypothesis testing for the regression coefficients in the same way as we did for linear regression:
+
+```{r}
+summary(model.log)$coefficients
+```
+
+Unsurprisingly our small increase in the odds of developing Type II diabetes per unit of BMI is not significant. 
+
+To extract the confidence interval of the estimated regression coefficient we can use the inbuilt function `confint()`. The default is to provide the 95% confidence intervals, but we can tailor this function to calculate whichever percentile we want by setting the argument `level`. If we report our estimated coefficient as an odds ratio, we also need to convert the limits of confidence interval. This is done in exactly the same way as for the regression coefficients.
+
+```{r}
+## First on log odds ratio scale
+confint(model.log, level = 0.95)
+
+## Second on odds ratio scale
+exp(cbind(OR = coef(model.log), confint(model.log, level = 0.95)))
+
+```
+
+We can use the confidence interval to determine whether our estimated regression coefficient has a non-zero effect, by whether it contains the null value. For example at a significance level of $\alpha = 0.05$, if the estimated coefficient is significantly non zero (i.e. $p-value < 0.05$) then the 100(1-$\alpha$) = 95% confidence interval will not contain 0. The null value for the log(OR) is 0, and the null value for the OR is 1. Therefore, if we don't convert our confidence interval to the correct units we may draw the wrong conclusion. 
+
+Logistic regression is all about appropriately handling the non-continuous outcome variable. The predictor variables can be as complex as your dataset can handle and include categorical variables etc. in the same way as we described for linear regression. 
+
+Let's practise some examples:
+
+#### Logistic Regression with Multiple Predictor Variables Exercise
+
+*Fit a logistic regression model to test for an association between age and type 2 diabetes status*
+
+```{r logisticRegression1, exercise=TRUE}
+
+
+
+```
+
+```{r logisticRegression1-solution, exercise=TRUE}
+summary(glm(t2diabetes ~ age, data = demoDat))
+
+```
+
+
+
+```{r quiz6, echo=FALSE}
+quiz(
+question("What is the odds ratio for Type II Diabetes for each year of age?",
+  answer("0.22", message = "This is the intercept coefficient."),
+  answer("0.001", message = "This is the log odds ratio for age."),
+  answer("1.25", message = "This is the intercept coefficient."),
+  answer("1.00", correct = TRUE))
+)
+```
+
+*Fit a logistic regression model to test for an association between age, alcohol units and exercise time and type 2 diabetes status*
+
+```{r logisticRegression2, exercise=TRUE}
+
+
+
+```
+
+```{r logisticRegression2-solution, exercise=TRUE}
+
+summary(glm(t2diabetes ~ age + exercise_hours + alcohol_units, data = demoDat))
+
+```
+
+```{r quiz7, echo=FALSE}
+quiz(
+question("What is the odds ratio for Type II Diabetes per one hour of exercise?",
+  answer("1.76", message = "This is the intercept coefficient."),
+  answer("1.00", message = "This is the log odds ratio for age."),
+  answer("0.98", message = "This is the intercept coefficient."),
+  answer("0.97", correct = TRUE)), 
+question("Which of these statements is true?",
+  answer("More exercise increases the risk of Type II Diabetes", message = "The OR is < 1, so this means a decrease in exercise is associated with an increase in odds for Type II Diabetes."),
+  answer("Less exercise increases the risk of Type II Diabetes", message = "The OR is < 1, so this means a decrease in exercise is associated with an increase in odds for Type II Diabetes.", correct = TRUE))
+)
+```
+
+
+*Fit a logistic regression model to test for an association between socioeconomic status and type 2 diabetes status, controlling for age and bmi.*
+
+```{r logisticRegression3, exercise=TRUE}
+ 
+model.log.full<-
+model.log.null<-
+anova(model.log.null, model.log.full, test = "Chisq")
+
+```
+
+```{r logisticRegression3-solution, exercise=TRUE}
+
+model.log.full<-glm(t2diabetes ~ age + bmi + ethnicity, data = demoDat)
+model.log.null<-glm(t2diabetes ~ age + bmi, data = demoDat)
+anova(model.log.null, model.log.full, test = "Chisq")
+
+
+```
+
+
+```{r quiz8, echo=FALSE}
+quiz(
+question("Does socioeconomic status have a significant effect on the odds of Type II Diabetes?",
+  answer("Yes", correct = TRUE),
+  answer("No")),
+  question("Considering the estimated regression coefficients for the two binary variables for ethnicty, which of the following statements are correct? Ignore the P-values we are just interested in interpeting the regression coefficients. Select all of the following statements that apply.",
+  answer("Asians are associated with decreased risk of Type II Diabetes relative to African Americans.", correct = TRUE),
+  answer("Asians are associated with increased risk of Type II Diabetes relative to African Americans."),
+    answer("Asians are associated with decreased risk of Type II Diabetes relative to Europeans.", correct = TRUE),
+  answer("Asians are associated with increased risk of Type II Diabetes relative to Europeans")
+  )
+)
+```
+
+You may have noticed in the last example above that while the ANOVA for the ethnicity variable was significant neither of the two dummy variables were significantly associated at P < 0.05. The `ethnicityEuropean` showed a trend for significance with P~0.05. This happens sometimes becuase when you use an ANOVA to test for the joint effect of both dummy variables, you are using a 2 degree of freedom test (see third column in the ANOVA output), while in the tests for the individual coefficients you are using a 1 degree of freedom test. Mathematically the threshold for a two degree of freedom test is slightly lower to be significant. You could think of this as rather than needing a really strong effect in one variable, a small effect, but in both variables would be meaningful. In reality these results are not contradicting each other, its just a chance thing related to the fact that we have used a hard threshold to determine significance. Where you only just have enough statitstica power to detect an effect, it is chance whether it falls just above the trheshold or just below. 
+
+#### Predictions with the Logistic Regression Model
+
+We are going to make some predictions from a logiistic regression model to show how the model goes from a weighted sum of prediction variables to the binary outcome variable. 
+
+Let's revist the example of prediction type 2 diabetes as a function of alcohol units and exercise hours. First we need to fit the model.
+
+```{r}
+model.log <- glm(t2diabetes ~ exercise_hours + alcohol_units, data = demoDat)
+
+summary(model.log)$coefficients
+```
+
+Using our estimated regression coefficients we can write our fitted regression model as
+
+```{r, echo = FALSE}
+logEq<- paste0("$\frac{\text{ln(p(TypeIIDiabetes))}}{(1-p(TypeIIDiabetes))}", signif(coef(model.log)[1],2), " + ", signif(coef(model.log)[2],2), " * ExerciseHours + ", 
+        signif(coef(model.log)[3],2), " * AlcoholUnits$")
+
+```
+
+`r logEq`.
+
+Let's say we have a new observation we want to make a prediction for, we know that they exercise for on average 4 hours a week and consume 10 units of alcohol per week. We can input these values into our equation to estimate the log odds of the this individual having type 2 diabetes. 
+
+```{r}
+## calculate log odds for individual
+(logOdds <- coef(model.log)[1] + 
+              coef(model.log)[2] * 4 + 
+              coef(model.log)[3] * 10)
+
+```
+
+While by chance this value looks like a probability, we need to do some more transformations to get it to a probability. First we convert from log odds to odds:
+
+```{r}
+## convert to odds
+(odds<-exp(logOdds))
+
+```
+
+Next, we convert from odds to probability of being a case.
+
+```{r}
+## convert to a probability
+(prob<-odds/(odds+1))
+```
+
+The final step to convert this to a binary case/control status is to apply the threshold 0.5: if the probability is > 0.5 then they are classed as a case and if the probability is < 0.5 they are classed as a control. In this example the probability is just above 0.5 and therefore they would be predicted as a case. However, the estimated probability is not exactly 0, which gives a sense of how imprecise/insensitive our prediction based on this model might be. 
+
+
+
+#### Logistic regression assumptions
+
+
+The assumptions for logistic regression are:
+
+* Dependent (i.e. outcome) variable is binary
+* No outliers in continuous predictors
+* No multicollinearity between predictors
+
+
+Unlike with linear regression, R doesn't automatically generate plots to assess the validity of the model assumptions. The only real assumption we can check is that there is a linear relationship between continuous predictor variables and the logit of the outcome. This can be done by visually inspecting the scatter plot between each predictor and the logit values.
+
+
+## Quiz
+
+```{r finalQuiz, echo=FALSE}
+quiz(caption = "Have ago at these questions to test your knowledge.",
+  question("Which of these are reasons to do regression analysis? Select all that apply.",
+   answer("Clustering of data"),
+   answer("Prediction", correct = TRUE),
+   answer("Hypothesis testing", correct = TRUE),
+   answer("Data summarisation")),
+  
+  question("In simple linear regression, how many variables are involved?",
+    answer("One independent variable and one dependent variable", correct = TRUE),
+    answer("Two independent variables and one dependent variable"),
+    answer("One independent variable and two dependent variables"),
+    answer("Two independent variables and two dependent variables")),
+  
+  question("What is the interpretation of the intercept?",
+    answer("The mean of the outcome when all predictor variables equal 0.", correct = TRUE),
+    answer("The mean of the outcome when all predictor variables equal 1.")
+  ),
+  
+  question("When you have multiple predictor variables is this called:",
+           answer("Multivariate linear regression"),
+           answer("Multiple linear regression", correct = TRUE)),
+  
+  question("Which of these is the null hypothesis for significance testing of a single regression coefficient?",
+           answer("The value of the regression coefficient = 0.", correct = TRUE),
+           answer("The value of the regression coefficient is greater than 0."),
+           answer("The value of the regression coefficient is less than 0."),
+           answer("The value of the regression coefficient is not equal to 0.")),  
+  
+  question("When dealing with categorical variables in multiple linear regression, what is the typical approach for incorporating them into the model?",
+           answer("Exclude them from the analysis"),
+           answer("Convert them into dummy variables", correct = TRUE),
+           answer("Treat them as continuous variables"),
+           answer("Use them as the dependent variable instead")),
+  
+  question("When would you use logistic regression instead of linear regression?",
+    answer("When the dependent variable is categorical", correct = TRUE),
+    answer("When the dependent variable is continuous"),
+    answer("When there is only one independent variable"),
+    answer("When the data has a linear relationship")),
+  
+    question("In a logistic regression model what does the regression coefficient represent?",
+    answer("The mean difference in the outcome between the two groups."),
+    answer("Odds ratio of a one unit increase in the predictor variable."),
+    answer("Log odds ratio of a one unit increase in the predictor variable.", correct = TRUE)),
+  
+question("For the regression model $test_score ~ age + sex + study_hours $, where age and study_hours are continuous variables and sex is a binary variable, how many regression coefficients are there?",
+           answer("1"),
+           answer("2"),
+           answer("3"),
+           answer("4", correct = TRUE)),
+
+question("For the full model $y ~ age + sex + education_years$, which of this are valid null models? Select all that apply",
+           answer("$y ~ 1", correct = TRUE),
+           answer("$y ~ age + sex", correct = TRUE),
+           answer("$y ~ age + status"),
+           answer("$y ~ education_years + age", correct = TRUE),
+           answer("$y ~ age + sex + education_years$"))
+)
+```
+
+
+## Summary
+
+In this session we have covered a number of concepts:
+
+* What is regression
+* What the intercept is
+
+
+We have cover a number of different types of regression analysis:
+
+* Simple Linear Regression
+* Muliple Linear Regression
+* Logistic Regression
+
+We have looked at what hypothesis or significance testing means for a regression model to test
+
+* individual regression coefficients on an outcome
+* the joint effect of multiple predictor variables on an outcome
+
+As a consequence we have drawn out the link between regression and 
+
+* a t-test
+* ANOVA
+
+In summary regression is a modulular framework that can be used to test a endless range of analytical questions.
+
+
+## Extras
+
+#### Extracting summary statistics from a model fit in R
+
+If you are new to R, here we will just run through some details on the type of objects these data are stored in and how to access specific elements. This can be helpful for writing automated analysis scripts. Due to the need to contain different types of data in different formats and structures, the output of the regression model fit is stored in a bespoke object, with slots for the the different parts of the output. These slots are named and can be assessed using the `$`. For example to extract just the table of estimated regression coefficients, which are named `coefficients` we use the following command: 
+
+
+```{r}
+model <- lm(bmi ~ age + sex, demoDat)
+summary(model)$coefficients
+```
+
+We can determine the type of object the coefficients table is stored in, using the function `class()`. 
+
+
+```{r}
+class(summary(model)$coefficients)
+mode(summary(model)$coefficients)
+
+```
+
+
+The output of the command tells us it is stored in a matrix, which is a data-type in R, where you have rows and columns. A similar data-type is called a data.frame. The difference between these two data-types is that matrices can only contain one data type, which we can determine with the function `mode()`. Here it contains exclusively numeric values. In constrast, in a data frame each column can be a different data type. Our demoDat data is stored in a data.frame and the output of the `str()` function, tells us the data type assigned to each column. 
+
+Let's say we wanted to extract a single value from this matrix, there are a number of commands we can use. For example, let's extract the p-value for the age regression slope parameter using the slicing function `[`.
+
+We can provide the row (2nd) and column (4th) number of the matrix entry we want: 
+```{r}
+
+summary(model)$coefficients[2,4]
+
+```
+
+Alternatively we can specify either the column or row name:
+
+```{r, eval = FALSE}
+
+summary(model)$coefficients["age",4]
+
+```
+
+
+We can see a list of all components we can extract from the output of `lm()` by running `names()` on the lm object. All of these can be extracted with the `$`.
+
+```{r}
+names(model)
+model$call ## example of how to extract any of the components listed by the previous command.
+```
+
+Similarly we can run `names()` on the `summary(lm)` object as showed here to get a list of all the slots available from that object. 
+
+```{r}
+names(summary(model))
+```
+
+Note these are different to those available for the model object, for example the $R^{2}$ and $\overline{R}^{2}$ are only extractable from the `summary(model)` object. 
+
+
+```{r}
+summary(model)$r.squared
+summary(model)$adj.r.squared
+```
+
+
+Note that as well as directly assessing these slots using the `$` command, there also exist some predefined functions to extract the commonly requested outputs from the model fit. We have already taken advantage of one of these, `summary()`, others include `coef()`, `effects()`, `residuals()`, `fitted()` and `predict.lm()`.
+
+### Simple Linear Regression Link between F-test and T-test
+
+We can also use an F-test to test a single predictor variable in our model. 
+
+
+
+```{r}
+model<-lm(weight ~ height)
+summary(model)
+anova(model)
+
+```
+
+In the `summary(model)` output we can see at the bottom that the results of testing the full model with an F-test. If we want to see the full table of sums of squares statistics we can use the `anova()` function on our fitted regression model.
+
+Comparing this table with the coefficients table, we can see that the p-value from the t-test of the age regression parameter and the F-test for the full model are identical. This is not a coincidence and is always true for the specific case of simple linear regerssion.
+
+#### Extracting Variance Explained Statistics
+
+Finally, we will look at the $R^{2}$ and $\overline{R}^{2}$ statistics. We can see from the `summary(model)` output above these are automatically calculated. For the simple linear regression model we have fitted
+
+$R^{2}$ = `r summary(model)$r.squared`
+
+$\overline{R}^{2}$ = `r summary(model)$adj.r.squared`
+
+
+

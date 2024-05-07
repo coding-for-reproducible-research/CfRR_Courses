@@ -30,29 +30,25 @@ that contains six files describing some simple organic molecules.
 The `.pdb` extension indicates that these files are in Protein Data Bank format,
 a simple text format that specifies the type and position of each atom in the molecule.
 
-~~~
+``` bash
 $ ls proteins
-~~~
-{: .language-bash}
+```
 
-~~~
+```
 cubane.pdb    methane.pdb    pentane.pdb
 ethane.pdb    octane.pdb     propane.pdb
-~~~
-{: .output}
+```
 
 Let's go into that directory with `cd` and run an example  command `wc cubane.pdb`:
 
-~~~
+``` bash
 $ cd proteins
 $ wc cubane.pdb
-~~~
-{: .language-bash}
+```
 
-~~~
+```
 20  156 1158 cubane.pdb
-~~~
-{: .output}
+```
 
 `wc` is the 'word count' command:
 it counts the number of lines, words, and characters in files (from left to right, in that order).
@@ -60,12 +56,11 @@ it counts the number of lines, words, and characters in files (from left to righ
 If we run the command `wc *.pdb`, the `*` in `*.pdb` matches zero or more characters,
 so the shell turns `*.pdb` into a list of all `.pdb` files in the current directory:
 
-~~~
+``` bash
 $ wc *.pdb
-~~~
-{: .language-bash}
+```
 
-~~~
+```
   20  156  1158  cubane.pdb
   12  84   622   ethane.pdb
    9  57   422   methane.pdb
@@ -73,20 +68,18 @@ $ wc *.pdb
   21  165  1226  pentane.pdb
   15  111  825   propane.pdb
  107  819  6081  total
-~~~
-{: .output}
+```
 
 Note that `wc *.pdb` also shows the total number of all lines in the last line of the output.
 
 If we run `wc -l` instead of just `wc`,
 the output shows only the number of lines per file:
 
-~~~
+``` bash
 $ wc -l *.pdb
-~~~
-{: .language-bash}
+```
 
-~~~
+```
   20  cubane.pdb
   12  ethane.pdb
    9  methane.pdb
@@ -94,34 +87,20 @@ $ wc -l *.pdb
   21  pentane.pdb
   15  propane.pdb
  107  total
-~~~
-{: .output}
+```
 
 The `-m` and `-w` options can also be used with the `wc` command, to show
 only the number of characters or the number of words in the files.
 
 ## Why Isn't It Doing Anything?
+What happens if a command is supposed to process a file, but we don't give it a filename? For example, what if we type:
+``` bash
+$ wc -l
+```
 
-> What happens if a command is supposed to process a file, but we
-> don't give it a filename? For example, what if we type:
->
-> ~~~
-> $ wc -l
-> ~~~
-> {: .language-bash}
->
-> but don't type `*.pdb` (or anything else) after the command?
-> Since it doesn't have any filenames, `wc` assumes it is supposed to
-> process input given at the command prompt, so it just sits there and waits for us to give
-> it some data interactively. From the outside, though, all we see is it
-> sitting there: the command doesn't appear to do anything.
->
-> If you make this kind of mistake, you can escape out of this state by holding down
-> the control key (<kbd>Ctrl</kbd>) and typing the letter <kbd>C</kbd> once and
-> letting go of the <kbd>Ctrl</kbd> key.
->
-> This whole action is denoted by <kbd>Ctrl</kbd>+<kbd>C</kbd>.
-{: .callout}
+but don't type `*.pdb` (or anything else) after the command? Since it doesn't have any filenames, `wc` assumes it is supposed to process input given at the command prompt, so it just sits there and waits for us to give it some data interactively. From the outside, though, all we see is it sitting there: the command doesn't appear to do anything.
+If you make this kind of mistake, you can escape out of this state by holding down the control key (<kbd>Ctrl</kbd>) and typing the letter <kbd>C</kbd> once and letting go of the <kbd>Ctrl</kbd> key.
+This whole action is denoted by <kbd>Ctrl</kbd>+<kbd>C</kbd>.
 
 ## Capturing output from commands
 
@@ -130,10 +109,9 @@ It's an easy question to answer when there are only six files,
 but what if there were 6000?
 Our first step toward a solution is to run the command:
 
-~~~
+``` bash
 $ wc -l *.pdb > lengths.txt
-~~~
-{: .language-bash}
+```
 
 The greater than symbol, `>`, tells the shell to **redirect** the command's output
 to a file instead of printing it to the screen. (This is why there is no screen output:
@@ -144,15 +122,13 @@ silently overwritten, which may lead to data loss and thus requires
 some caution.
 `ls lengths.txt` confirms that the file exists:
 
-~~~
+``` bash
 $ ls lengths.txt
-~~~
-{: .language-bash}
+```
 
-~~~
+```
 lengths.txt
-~~~
-{: .output}
+```
 
 We can now send the content of `lengths.txt` to the screen using `cat lengths.txt`.
 The `cat` command gets its name from 'concatenate' i.e. join together,
@@ -160,12 +136,11 @@ and it prints the contents of files one after another.
 There's only one file in this case,
 so `cat` just shows us what it contains:
 
-~~~
+``` bash
 $ cat lengths.txt
-~~~
-{: .language-bash}
+```
 
-~~~
+```
   20  cubane.pdb
   12  ethane.pdb
    9  methane.pdb
@@ -173,19 +148,10 @@ $ cat lengths.txt
   21  pentane.pdb
   15  propane.pdb
  107  total
-~~~
-{: .output}
+```
 
 ## Output Page by Page
-
-> We'll continue to use `cat` in this lesson, for convenience and consistency,
-> but it has the disadvantage that it always dumps the whole file onto your screen.
-> More useful in practice is the command `less`,
-> which you use with `less lengths.txt`.
-> This displays a screenful of the file, and then stops.
-> You can go forward one screenful by pressing the spacebar,
-> or back one by pressing `b`.  Press `q` to quit.
-{: .callout}
+We'll continue to use `cat` in this lesson, for convenience and consistency, but it has the disadvantage that it always dumps the whole file onto your screen. More useful in practice is the command `less`, which you use with `less lengths.txt`. This displays a screenful of the file, and then stops. You can go forward one screenful by pressing the spacebar, or back one by pressing `b`.  Press `q` to quit.
 
 ## Filtering output
 
@@ -193,59 +159,51 @@ Next we'll use the `sort` command to sort the contents of the `lengths.txt` file
 But first we'll use an exercise to learn a little about the sort command:
 
 ## What Does `sort -n` Do?
+The file `shell-lesson-data/exercise-data/numbers.txt` contains the following lines:
+```
+10
+2
+19
+22
+6
+```
 
-> The file `shell-lesson-data/exercise-data/numbers.txt` contains the following lines:
->
-> ~~~
-> 10
-> 2
-> 19
-> 22
-> 6
-> ~~~
-> {: .source}
->
-> If we run `sort` on this file, the output is:
->
-> ~~~
-> 10
-> 19
-> 2
-> 22
-> 6
-> ~~~
-> {: .output}
->
-> If we run `sort -n` on the same file, we get this instead:
->
-> ~~~
-> 2
-> 6
-> 10
-> 19
-> 22
-> ~~~
-> {: .output}
->
-> Explain why `-n` has this effect.
->
-> > ## Solution
-> >
-> > The `-n` option specifies a numerical rather than an alphanumerical sort.
-> {: .solution}
-{: .challenge}
+If we run `sort` on this file, the output is:
+```
+10
+19
+2
+22
+6
+```
+
+
+If we run `sort -n` on the same file, we get this instead:
+
+```
+2
+6
+10
+19
+22
+```
+Explain why `-n` has this effect.
+
+`````{admonition} Solution
+:class: dropdown
+The `-n` option specifies a numerical rather than an alphanumerical sort.
+`````
 
 We will also use the `-n` option to specify that the sort is
 numerical instead of alphanumerical.
 This does *not* change the file;
 instead, it sends the sorted result to the screen:
 
-~~~
+``` bash
 $ sort -n lengths.txt
-~~~
-{: .language-bash}
+```
 
-~~~
+```
   9  methane.pdb
  12  ethane.pdb
  15  propane.pdb
@@ -253,8 +211,7 @@ $ sort -n lengths.txt
  21  pentane.pdb
  30  octane.pdb
 107  total
-~~~
-{: .output}
+```
 
 We can put the sorted list of lines in another temporary file called `sorted-lengths.txt`
 by putting `> sorted-lengths.txt` after the command,
@@ -262,16 +219,14 @@ just as we used `> lengths.txt` to put the output of `wc` into `lengths.txt`.
 Once we've done that,
 we can run another command called `head` to get the first few lines in `sorted-lengths.txt`:
 
-~~~
+``` bash
 $ sort -n lengths.txt > sorted-lengths.txt
 $ head -n 1 sorted-lengths.txt
-~~~
-{: .language-bash}
+```
 
-~~~
+```
   9  methane.pdb
-~~~
-{: .output}
+```
 
 Using `-n 1` with `head` tells it that
 we only want the first line of the file;
@@ -281,94 +236,62 @@ Since `sorted-lengths.txt` contains the lengths of our files ordered from least 
 the output of `head` must be the file with the fewest lines.
 
 ## Redirecting to the same file
-
-> It's a very bad idea to try redirecting
-> the output of a command that operates on a file
-> to the same file. For example:
->
-> ~~~
-> $ sort -n lengths.txt > lengths.txt
-> ~~~
-> {: .language-bash}
->
-> Doing something like this may give you
-> incorrect results and/or delete
-> the contents of `lengths.txt`.
-{: .callout}
+It's a very bad idea to try redirecting the output of a command that operates on a file to the same file. For example:
+``` bash
+$ sort -n lengths.txt > lengths.txt
+```
+Doing something like this may give you incorrect results and/or delete the contents of `lengths.txt`.
 
 ## What Does `>>` Mean?
+We have seen the use of `>`, but there is a similar operator `>>` which works slightly differently. We'll learn about the differences between these two operators by printing some strings. We can use the `echo` command to print strings e.g.
+``` bash
+$ echo The echo command prints text
+```
 
-> We have seen the use of `>`, but there is a similar operator `>>`
-> which works slightly differently.
-> We'll learn about the differences between these two operators by printing some strings.
-> We can use the `echo` command to print strings e.g.
->
-> ~~~
-> $ echo The echo command prints text
-> ~~~
-> {: .language-bash}
-> ~~~
-> The echo command prints text
-> ~~~
-> {: .output}
->
-> Now test the commands below to reveal the difference between the two operators:
->
-> ~~~
-> $ echo hello > testfile01.txt
-> ~~~
-> {: .language-bash}
->
-> and:
->
-> ~~~
-> $ echo hello >> testfile02.txt
-> ~~~
-> {: .language-bash}
->
-> Hint: Try executing each command twice in a row and then examining the output files.
->
-> > ## Solution
-> >
-> > In the first example with `>`, the string 'hello' is written to `testfile01.txt`,
-> > but the file gets overwritten each time we run the command.
-> >
-> > We see from the second example that the `>>` operator also writes 'hello' to a file
-> > (in this case`testfile02.txt`),
-> > but appends the string to the file if it already exists
-> > (i.e. when we run it for the second time).
-> {: .solution}
-{: .challenge}
+```
+The echo command prints text
+```
+
+Now test the commands below to reveal the difference between the two operators:
+
+``` bash
+$ echo hello > testfile01.txt
+```
+
+and:
+
+``` bash
+$ echo hello >> testfile02.txt
+```
+
+Hint: Try executing each command twice in a row and then examining the output files.
+
+`````{admonition} Solution
+:class: dropdown
+In the first example with `>`, the string 'hello' is written to `testfile01.txt`, but the file gets overwritten each time we run the command. We see from the second example that the `>>` operator also writes 'hello' to a file (in this case`testfile02.txt`), but appends the string to the file if it already exists (i.e. when we run it for the second time).
+
+`````
 
 ## Appending Data
+We have already met the `head` command, which prints lines from the start of a file. `tail` is similar, but prints lines from the end of a file instead.
+Consider the file `shell-lesson-data/exercise-data/animal-counts/animals.csv`. After these commands, select the answer that corresponds to the file `animals-subset.csv`:
+``` bash
+$ head -n 3 animals.csv > animals-subset.csv
+$ tail -n 2 animals.csv >> animals-subset.csv
+``` 
 
-> We have already met the `head` command, which prints lines from the start of a file.
-> `tail` is similar, but prints lines from the end of a file instead.
->
-> Consider the file `shell-lesson-data/exercise-data/animal-counts/animals.csv`.
-> After these commands, select the answer that
-> corresponds to the file `animals-subset.csv`:
->
-> ~~~
-> $ head -n 3 animals.csv > animals-subset.csv
-> $ tail -n 2 animals.csv >> animals-subset.csv
-> ~~~
-> {: .language-bash}
->
-> 1. The first three lines of `animals.csv`
-> 2. The last two lines of `animals.csv`
-> 3. The first three lines and the last two lines of `animals.csv`
-> 4. The second and third lines of `animals.csv`
->
-> > ## Solution
-> >
-> > Option 3 is correct.
-> > For option 1 to be correct we would only run the `head` command.
-> > For option 2 to be correct we would only run the `tail` command.
-> > For option 4 to be correct we would have to pipe the output of `head` into `tail -n 2`
-> > by doing `head -n 3 animals.csv | tail -n 2 > animals-subset.csv`
-> {: .solution}
-{: .challenge}
+1. The first three lines of `animals.csv`
+2. The last two lines of `animals.csv`
+3. The first three lines and the last two lines of `animals.csv`
+4. The second and third lines of `animals.csv`
+
+`````{admonition} Solution
+:class: dropdown
+Option 3 is correct.
+For option 1 to be correct we would only run the `head` command.
+For option 2 to be correct we would only run the `tail` command.
+For option 4 to be correct we would have to pipe the output of `head` into `tail -n 2` by doing `head -n 3 animals.csv | tail -n 2 > animals-subset.csv`
+`````
 
 ## Passing output to another command
 
@@ -379,15 +302,13 @@ even once you understand what `wc`, `sort`, and `head` do,
 those intermediate files make it hard to follow what's going on.
 We can make it easier to understand by running `sort` and `head` together:
 
-~~~
+``` bash
 $ sort -n lengths.txt | head -n 1
-~~~
-{: .language-bash}
+```
 
-~~~
+```
   9  methane.pdb
-~~~
-{: .output}
+```
 
 The vertical bar, `|`, between the two commands is called a **pipe**.
 It tells the shell that we want to use
@@ -405,12 +326,11 @@ This removes the need for any intermediate files.
 
 We'll start by using a pipe to send the output of `wc` to `sort`:
 
-~~~
+```
 $ wc -l *.pdb | sort -n
-~~~
-{: .language-bash}
+```
 
-~~~
+```
    9 methane.pdb
   12 ethane.pdb
   15 propane.pdb
@@ -418,20 +338,17 @@ $ wc -l *.pdb | sort -n
   21 pentane.pdb
   30 octane.pdb
  107 total
-~~~
-{: .output}
+```
 
 We can then send that output through another pipe, to `head`, so that the full pipeline becomes:
 
-~~~
+``` bash
 $ wc -l *.pdb | sort -n | head -n 1
-~~~
-{: .language-bash}
+```
 
-~~~
+```
    9  methane.pdb
-~~~
-{: .output}
+```
 
 This is exactly like a mathematician nesting functions like *log(3x)*
 and saying 'the log of three times *x*'.
@@ -440,32 +357,27 @@ the calculation is 'head of sort of line count of `*.pdb`'.
 
 The redirection and pipes used in the last few commands are illustrated below:
 
-[Redirects and Pipes of different commands: "wc -l *.pdb" will direct the
+![Redirects and Pipes of different commands: "wc -l *.pdb" will direct the
 output to the shell. "wc -l *.pdb > lengths" will direct output to the file
 "lengths". "wc -l *.pdb | sort -n | head -n 1" will build a pipeline where the
 output of the "wc" command is the input to the "sort" command, the output of
 the "sort" command is the input to the "head" command and the output of the
-"head" command is directed to the shell](../fig/redirects-and-pipes.svg)
+"head" command is directed to the shell](fig/redirects-and-pipes.svg)
 
 ## Piping Commands Together
+In our current directory, we want to find the 3 files which have the least number of lines. Which command listed below would work?
 
-> In our current directory, we want to find the 3 files which have the least number of
-> lines. Which command listed below would work?
->
-> 1. `wc -l * > sort -n > head -n 3`
-> 2. `wc -l * | sort -n | head -n 1-3`
-> 3. `wc -l * | head -n 3 | sort -n`
-> 4. `wc -l * | sort -n | head -n 3`
->
-> > ## Solution
-> >
-> > Option 4 is the solution.
-> > The pipe character `|` is used to connect the output from one command to
-> > the input of another.
-> > `>` is used to redirect standard output to a file.
-> > Try it in the `shell-lesson-data/exercise-data/proteins` directory!
-> {: .solution}
-{: .challenge}
+1. `wc -l * > sort -n > head -n 3`
+2. `wc -l * | sort -n | head -n 1-3`
+3. `wc -l * | head -n 3 | sort -n`
+4. `wc -l * | sort -n | head -n 3`
+
+`````{admonition} Solution
+:class: dropdown
+Option 4 is the solution.
+The pipe character `|` is used to connect the output from one command to the input of another. `>` is used to redirect standard output to a file.
+Try it in the `shell-lesson-data/exercise-data/proteins` directory!
+`````
 
 ## Tools designed to work together
 
@@ -490,123 +402,84 @@ You can *and should* write your programs this way
 so that you and other people can put those programs into pipes to multiply their power.
 
 ## Pipe Reading Comprehension
+A file called `animals.csv` (in the `shell-lesson-data/exercise-data/animal-counts` folder) contains the following data:
+``` 
+2012-11-05,deer,5
+2012-11-05,rabbit,22
+2012-11-05,raccoon,7
+2012-11-06,rabbit,19
+2012-11-06,deer,2
+2012-11-06,fox,4
+2012-11-07,rabbit,16
+2012-11-07,bear,1
+``` 
+What text passes through each of the pipes and the final redirect in the pipeline below? Note, the `sort -r` command sorts in reverse order.
+```  bash 
+$ cat animals.csv | head -n 5 | tail -n 3 | sort -r > final.txt
+```
+Hint: build the pipeline up one command at a time to test your understanding
 
-> A file called `animals.csv` (in the `shell-lesson-data/exercise-data/animal-counts` folder)
-> contains the following data:
->
-> ~~~
-> 2012-11-05,deer,5
-> 2012-11-05,rabbit,22
-> 2012-11-05,raccoon,7
-> 2012-11-06,rabbit,19
-> 2012-11-06,deer,2
-> 2012-11-06,fox,4
-> 2012-11-07,rabbit,16
-> 2012-11-07,bear,1
-> ~~~
-> {: .source}
->
-> What text passes through each of the pipes and the final redirect in the pipeline below?
-> Note, the `sort -r` command sorts in reverse order.
->
-> ~~~
-> $ cat animals.csv | head -n 5 | tail -n 3 | sort -r > final.txt
-> ~~~
-> {: .language-bash}
-> Hint: build the pipeline up one command at a time to test your understanding
->
-> > ## Solution
-> >
-> > The `head` command extracts the first 5 lines from `animals.csv`.
-> > Then, the last 3 lines are extracted from the previous 5 by using the `tail` command.
-> > With the `sort -r` command those 3 lines are sorted in reverse order and finally,
-> > the output is redirected to a file `final.txt`.
-> > The content of this file can be checked by executing `cat final.txt`.
-> > The file should contain the following lines:
-> > ~~~
-> > 2012-11-06,rabbit,19
-> > 2012-11-06,deer,2
-> > 2012-11-05,raccoon,7
-> > ~~~
-> > {: .source}
-> {: .solution}
-{: .challenge}
+`````{admonition} Solution
+:class: dropdown
+The `head` command extracts the first 5 lines from `animals.csv`. Then, the last 3 lines are extracted from the previous 5 by using the `tail` command. With the `sort -r` command those 3 lines are sorted in reverse order and finally, the output is redirected to a file `final.txt`. The content of this file can be checked by executing `cat final.txt`. The file should contain the following lines:
+```
+2012-11-06,rabbit,19
+2012-11-06,deer,2
+2012-11-05,raccoon,7
+```
+`````
 
 ## Pipe Construction
+For the file `animals.csv` from the previous exercise, consider the following command:
 
-> For the file `animals.csv` from the previous exercise, consider the following command:
->
-> ~~~
-> $ cut -d , -f 2 animals.csv
-> ~~~
-> {: .language-bash}
->
-> The `cut` command is used to remove or 'cut out' certain sections of each line in the file,
-> and `cut` expects the lines to be separated into columns by a <kbd>Tab</kbd> character.
-> A character used in this way is a called a **delimiter**.
-> In the example above we use the `-d` option to specify the comma as our delimiter character.
-> We have also used the `-f` option to specify that we want to extract the second field (column).
-> This gives the following output:
->
-> ~~~
-> deer
-> rabbit
-> raccoon
-> rabbit
-> deer
-> fox
-> rabbit
-> bear
-> ~~~
-> {: .output}
->
-> The `uniq` command filters out adjacent matching lines in a file.
-> How could you extend this pipeline (using `uniq` and another command) to find
-> out what animals the file contains (without any duplicates in their
-> names)?
->
-> > ## Solution
-> >
-> > ~~~
-> > $ cut -d , -f 2 animals.csv | sort | uniq
-> > ~~~
-> > {: .language-bash}
-> {: .solution}
-{: .challenge}
+``` bash
+$ cut -d , -f 2 animals.csv
+```
+The `cut` command is used to remove or 'cut out' certain sections of each line in the file, and `cut` expects the lines to be separated into columns by a <kbd>Tab</kbd> character. A character used in this way is a called a **delimiter**. In the example above we use the `-d` option to specify the comma as our delimiter character. We have also used the `-f` option to specify that we want to extract the second field (column). This gives the following output:
+
+```
+deer
+rabbit
+raccoon
+rabbit
+deer
+fox
+rabbit
+bear
+```
+
+The `uniq` command filters out adjacent matching lines in a file. How could you extend this pipeline (using `uniq` and another command) to find out what animals the file contains (without any duplicates in their names)?
+
+`````{admonition} Solution
+:class: dropdown
+``` bash
+$ cut -d , -f 2 animals.csv | sort | uniq
+```
+`````
 
 ## Which Pipe?
+The file `animals.csv` contains 8 lines of data formatted as follows:
 
-> The file `animals.csv` contains 8 lines of data formatted as follows:
->
-> ~~~
-> 2012-11-05,deer,5
-> 2012-11-05,rabbit,22
-> 2012-11-05,raccoon,7
-> 2012-11-06,rabbit,19
-> ...
-> ~~~
-> {: .output}
->
-> The `uniq` command has a `-c` option which gives a count of the
-> number of times a line occurs in its input.  Assuming your current
-> directory is `shell-lesson-data/exercise-data/animal-counts`,
-> what command would you use to produce a table that shows
-> the total count of each type of animal in the file?
->
-> 1. `sort animals.csv | uniq -c`
-> 2. `sort -t, -k2,2 animals.csv | uniq -c`
-> 3. `cut -d, -f 2 animals.csv | uniq -c`
-> 4. `cut -d, -f 2 animals.csv | sort | uniq -c`
-> 5. `cut -d, -f 2 animals.csv | sort | uniq -c | wc -l`
->
-> > ## Solution
-> >
-> > Option 4. is the correct answer.
-> > If you have difficulty understanding why, try running the commands, or sub-sections of
-> > the pipelines (make sure you are in the `shell-lesson-data/exercise-data/animal-counts`
-> > directory).
-> {: .solution}
-{: .challenge}
+```
+2012-11-05,deer,5
+2012-11-05,rabbit,22
+2012-11-05,raccoon,7
+2012-11-06,rabbit,19
+...
+```
+
+The `uniq` command has a `-c` option which gives a count of the number of times a line occurs in its input.  Assuming your current directory is `shell-lesson-data/exercise-data/animal-counts`, what command would you use to produce a table that shows the total count of each type of animal in the file?
+
+1. `sort animals.csv | uniq -c`
+2. `sort -t, -k2,2 animals.csv | uniq -c`
+3. `cut -d, -f 2 animals.csv | uniq -c`
+4. `cut -d, -f 2 animals.csv | sort | uniq -c`
+5. `cut -d, -f 2 animals.csv | sort | uniq -c | wc -l`
+
+`````{admonition} Solution
+:class: dropdown
+Option 4. is the correct answer. If you have difficulty understanding why, try running the commands, or sub-sections of the pipelines (make sure you are in the `shell-lesson-data/exercise-data/animal-counts` directory).
+`````
 
 ## Nelle's Pipeline: Checking Files
 
@@ -614,15 +487,14 @@ Nelle has run her samples through the assay machines
 and created 17 files in the `north-pacific-gyre` directory described earlier.
 As a quick check, starting from the `shell-lesson-data` directory, Nelle types:
 
-~~~
+``` bash
 $ cd north-pacific-gyre
 $ wc -l *.txt
-~~~
-{: .language-bash}
+```
 
 The output is 18 lines that look like this:
 
-~~~
+```
 300 NENE01729A.txt
 300 NENE01729B.txt
 300 NENE01736A.txt
@@ -630,24 +502,21 @@ The output is 18 lines that look like this:
 300 NENE01751B.txt
 300 NENE01812A.txt
 ... ...
-~~~
-{: .output}
+```
 
 Now she types this:
 
-~~~
+``` bash
 $ wc -l *.txt | sort -n | head -n 5
-~~~
-{: .language-bash}
+```
 
-~~~
+```
  240 NENE02018B.txt
  300 NENE01729A.txt
  300 NENE01729B.txt
  300 NENE01736A.txt
  300 NENE01751A.txt
-~~~
-{: .output}
+```
 
 Whoops: one of the files is 60 lines shorter than the others.
 When she goes back and checks it,
@@ -657,19 +526,17 @@ and she forgot to reset it.
 Before re-running that sample,
 she checks to see if any files have too much data:
 
-~~~
+``` bash
 $ wc -l *.txt | sort -n | tail -n 5
-~~~
-{: .language-bash}
+```
 
-~~~
+```
  300 NENE02040B.txt
  300 NENE02040Z.txt
  300 NENE02043A.txt
  300 NENE02043B.txt
 5040 total
-~~~
-{: .output}
+```
 
 Those numbers look good --- but what's that 'Z' doing there in the third-to-last line?
 All of her samples should be marked 'A' or 'B';
@@ -677,15 +544,13 @@ by convention,
 her lab uses 'Z' to indicate samples with missing information.
 To find others like it, she does this:
 
-~~~
+``` bash
 $ ls *Z.txt
-~~~
-{: .language-bash}
+```
 
-~~~
+```
 NENE01971Z.txt    NENE02040Z.txt
-~~~
-{: .output}
+```
 
 Sure enough,
 when she checks the log on her laptop,
@@ -698,26 +563,17 @@ so instead, she'll have to be careful later on to select files using the wildcar
 `NENE*A.txt NENE*B.txt`.
 
 ## Removing Unneeded Files
+Suppose you want to delete your processed data files, and only keep your raw files and processing script to save storage. The raw files end in `.dat` and the processed files end in `.txt`. Which of the following would remove all the processed data files, and *only* the processed data files?
 
-> Suppose you want to delete your processed data files, and only keep
-> your raw files and processing script to save storage.
-> The raw files end in `.dat` and the processed files end in `.txt`.
-> Which of the following would remove all the processed data files,
-> and *only* the processed data files?
->
-> 1. `rm ?.txt`
-> 2. `rm *.txt`
-> 3. `rm * .txt`
-> 4. `rm *.*`
->
-> > ## Solution
-> >
-> > 1. This would remove `.txt` files with one-character names
-> > 2. This is the correct answer
-> > 3. The shell would expand `*` to match everything in the current directory,
-> > so the command would try to remove all matched files and an additional
-> > file called `.txt`
-> > 4. The shell would expand `*.*` to match all files with any extension,
-> > so this command would delete all files
-> {: .solution}
-{: .challenge}
+1. `rm ?.txt`
+2. `rm *.txt`
+3. `rm * .txt`
+4. `rm *.*`
+
+`````{admonition} Solution
+:class: dropdown
+1. This would remove `.txt` files with one-character names
+2. This is the correct answer
+3. The shell would expand `*` to match everything in the current directory, so the command would try to remove all matched files and an additional file called `.txt`
+4. The shell would expand `*.*` to match all files with any extension, so this command would delete all files
+`````

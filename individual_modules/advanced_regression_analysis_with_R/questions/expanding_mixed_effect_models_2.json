@@ -1,0 +1,80 @@
+[
+    {
+        "question": "Which cognitive tests significantly influence mental well being? Select all that apply",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Cognition A",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Cognition B",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Cognition C",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "None",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "Which cognitive tests are associated with increasing mental well being from low to high? You can ignore whether they are significant or not. Select all that apply.",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Cognition A",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Cognition B",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Cognition C",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "None",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What is the intepretation of the coefficient for each cognition test?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "It represents the change in cognitive score needed to go from low mental well being to high mental well being.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "It represents the change in cognitive score needed to go from high mental well being to low mental well being.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "It represents the log odds ratio of change in mental wellbeing from low to high per one point on the cognitive test.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "It represents the log odds ratio of change in mental wellbeing from high to low per one point on the cognitive test.",
+                "correct": true,
+                "feedback": "Correct."
+            }
+        ]
+    }
+]

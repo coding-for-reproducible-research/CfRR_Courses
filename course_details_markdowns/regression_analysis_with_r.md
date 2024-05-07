@@ -1,4 +1,4 @@
-## Welcome to the Regression analysis with R Workshop
+# Welcome to the Regression analysis with R Workshop
 **Next Session Date:** 26/01/2024
 
 **What to Expect:**

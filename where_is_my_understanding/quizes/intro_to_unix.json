@@ -1,0 +1,262 @@
+[
+    {
+        "question": "What is the purpose of the command 'cd'",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To change the current directory",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "To list the contents of a directory",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "To create a new directory",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "To delete a file",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "Which command is used to list all files and directories within the working directory?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "'ls'",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "'rm'",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "'touch'",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "'mkdir'",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "How can you display the contents of a file in the terminal",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "'ls'",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "'cat'",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "'mkdir'",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "'cd'",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What symbol is used to redirect the output of a command to a file",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": ">",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "<",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "|",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "&",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "Which command is used to create a new empty file?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "'ls'",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "'rm'",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "'touch'",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "'cd'",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What does the pipe '| symbol do",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Redirect the output to a file",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Runs commands in the background",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Transfers the output of one command to the input of another command",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Change the file permissions",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "How would you delete a directory and all of its contents",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "'rm -r'",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "'rmdir'",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "'mkdir -d'",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "'ls -d'",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What command is used to print the current working directory?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "'pwd'",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "'cd'",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "'dir'",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "'ls'",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "In shell scripting, what is the correct syntax to start a for loop",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "'for i in {1..5}'",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "'loop i from 1 to 5'",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "'repeat 5 times'",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "'foreach i (1..5)",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "Which command allows you to view the manual entry for other commands",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "'man'",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "'help'",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "'info'",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "'doc'",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    }
+]

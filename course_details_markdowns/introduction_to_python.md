@@ -1,4 +1,4 @@
-## Welcome to the Introduction to Python Workshop
+# Welcome to the Introduction to Python Workshop
 **Next Session Date:** 1/11/2023, 8/11/2023
 
 **What to Expect:**

@@ -1,16 +1,12 @@
 # Why might I want to use a HPC Cluster?
 
 ## Questions
-
-    Why would I be interested in High Performance Computing (HPC)?
-
-    What can I expect to learn from this course?
+- Why would I be interested in High Performance Computing (HPC)?
+- What can I expect to learn from this course?
 
 ## Objectives
-
-    Describe what an HPC system is.
-
-    Identify how an HPC system could benefit your research.
+- Describe what an HPC system is.
+- Identify how an HPC system could benefit your research.
 
 ## The need for High Performance Computing Systems 
 
