@@ -1,0 +1,262 @@
+[
+    {
+        "question": "What command is commonly used to submit jobs to a SLURM scheduler?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "srun",
+                "correct": false,
+                "feedback": "incorrect."
+            },
+            {
+                "answer": "sbatch",
+                "correct": true,
+                "feedback": "correct."
+            },
+            {
+                "answer": "squeue",
+                "correct": false,
+                "feedback": "incorrect."
+            },
+            {
+                "answer": "scancel",
+                "correct": false,
+                "feedback": "incorrect."
+            }
+        ]
+    },
+    {
+        "question": "When using the SLURM scheduler, which directive specifies the maximum wall time for a job?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "`#SBATCH --nodes`",
+                "correct": false,
+                "feedback": "incorrect."
+            },
+            {
+                "answer": "`#SBATCH --ntasks-per-node`",
+                "correct": false,
+                "feedback": "incorrect."
+            },
+            {
+                "answer": "`#SBATCH --time`",
+                "correct": true,
+                "feedback": "correct."
+            },
+            {
+                "answer": "`#SBATCH --job-name`",
+                "correct": false,
+                "feedback": "incorrect."
+            }
+        ]
+    },
+    {
+        "question": "How can you cancel a job in SLURM?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "srun",
+                "correct": false,
+                "feedback": "incorrect."
+            },
+            {
+                "answer": "squeue",
+                "correct": false,
+                "feedback": "incorrect."
+            },
+            {
+                "answer": "scancel",
+                "correct": true,
+                "feedback": "correct."
+            },
+            {
+                "answer": "sbatch",
+                "correct": false,
+                "feedback": "incorrect."
+            }
+        ]
+    },
+    {
+        "question": "Which command is used to transfer fils to an HPC system using SSH?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "scancel",
+                "correct": false,
+                "feedback": "incorrect."
+            },
+            {
+                "answer": "scp",
+                "correct": true,
+                "feedback": "correct."
+            },
+            {
+                "answer": "sftp",
+                "correct": false,
+                "feedback": "incorrect."
+            },
+            {
+                "answer": "sbatch",
+                "correct": false,
+                "feedback": "incorrect."
+            }
+        ]
+    },
+    {
+        "question": "In SLURM, which flag is used to specify the number of nodes for a job?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "`#SBATCH --job-name`",
+                "correct": false,
+                "feedback": "incorrect."
+            },
+            {
+                "answer": "`#SBATCH --ntasks-per-node`",
+                "correct": false,
+                "feedback": "incorrect."
+            },
+            {
+                "answer": "`#SBATCH --time`",
+                "correct": false,
+                "feedback": "incorrect."
+            },
+            {
+                "answer": "`#SBATCH --nodes`",
+                "correct": true,
+                "feedback": "correct."
+            }
+        ]
+    },
+    {
+        "question": "Which command is used to load a software module on an HPC system?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "unload",
+                "correct": false,
+                "feedback": "incorrect."
+            },
+            {
+                "answer": "load",
+                "correct": true,
+                "feedback": "correct."
+            },
+            {
+                "answer": "source",
+                "correct": false,
+                "feedback": "incorrect."
+            },
+            {
+                "answer": "module",
+                "correct": false,
+                "feedback": "incorrect."
+            }
+        ]
+    },
+    {
+        "question": "In SLURM, what does the directive `#SBATCH --mail-type` specify?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "The conditions under which an email should be sent.",
+                "correct": true,
+                "feedback": "correct."
+            },
+            {
+                "answer": "The type of email notification system used.",
+                "correct": false,
+                "feedback": "incorrect."
+            },
+            {
+                "answer": "The email address to send notifications to.",
+                "correct": false,
+                "feedback": "incorrect."
+            },
+            {
+                "answer": "The email provider to use for notifications.",
+                "correct": false,
+                "feedback": "incorrect."
+            }
+        ]
+    },
+    {
+        "question": "Which command provides information about currently running jobs in SLURM?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "srun",
+                "correct": false,
+                "feedback": "incorrect."
+            },
+            {
+                "answer": "sbatch",
+                "correct": false,
+                "feedback": "incorrect."
+            },
+            {
+                "answer": "squeue",
+                "correct": true,
+                "feedback": "correct."
+            },
+            {
+                "answer": "scancel",
+                "correct": false,
+                "feedback": "incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What does he acronym HPC stand for in the context of computing?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Highly Powerful Computing",
+                "correct": false,
+                "feedback": "incorrect."
+            },
+            {
+                "answer": "High Performance Computing",
+                "correct": false,
+                "feedback": "incorrect."
+            },
+            {
+                "answer": "High Precision Calculation",
+                "correct": false,
+                "feedback": "incorrect."
+            },
+            {
+                "answer": "Hyper Parallel Computing",
+                "correct": false,
+                "feedback": "incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What is the primary benefit of using a resource manager and batch scheduler in an HPC system?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Reducing electricity consumption",
+                "correct": false,
+                "feedback": "incorrect."
+            },
+            {
+                "answer": "Efficiently allocating computing resources",
+                "correct": true,
+                "feedback": "correct."
+            },
+            {
+                "answer": "Improving network speed",
+                "correct": false,
+                "feedback": "incorrect."
+            },
+            {
+                "answer": "enhancing system security",
+                "correct": false,
+                "feedback": "incorrect."
+            }
+        ]
+    },
+]
