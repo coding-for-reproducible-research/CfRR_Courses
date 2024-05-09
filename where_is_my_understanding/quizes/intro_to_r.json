@@ -1,0 +1,257 @@
+[
+    {
+        "question": "What function would you use to create a sequence from 1 to 10 in R?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "`seq(1,10)`",
+                "correct": true,
+                "feedback": "correct."
+            },
+            {
+                "answer": "`1:10",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "`np.range(10)",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "`linseq(1,10)`",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "Which function allows you to read a CSV file in R?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "`load.csv()`",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "`read.csv()`",
+                "correct": true,
+                "feedback": "correct."
+            },
+            {
+                "answer": "`csv.read()`",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "`file.read()`",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What is the purpose of the `ifelse` function in R?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To create a loop.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "To check multiple conditions.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "To perform vectorized conditional operations.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "To provide an inline alternative to if-else statements",
+                "correct": true,
+                "feedback": "correct."
+            }
+        ]
+    },
+    {
+        "question": "How do you create a factor in R?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "`factor()`",
+                "correct": true,
+                "feedback": "correct."
+            },
+            {
+                "answer": "`as.factor()`",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "`make_factor()`",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "`categorize()`",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "Which function is used to load Excel files into R?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "`read.excel()`",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "`readxl::read_excel()`",
+                "correct": true,
+                "feedback": "correct."
+            },
+            {
+                "answer": "`excel.read()`",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "`load_excel()`",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What does the `head()` function do in R?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Shows the first few rows of a dataset.",
+                "correct": true,
+                "feedback": "correct."
+            },
+            {
+                "answer": "Shows the last few rows of a dataset.",
+                "correct": false,
+                "feedback": "incorrect."
+            },
+            {
+                "answer": "Shows the last few rows of a dataset.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Summarises a dataset.",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "How do you subset a dataframe in R based on a condition?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "`df[condition,]`",
+                "correct": true,
+                "feedback": "correct."
+            },
+            {
+                "answer": "`df(condition)",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "df.subset(condition)",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "Which package is primarily used for data manipulation in R?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "`dplyr`",
+                "correct": true,
+                "feedback": "correct."
+            },
+            {
+                "answer": "ggplot2",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "`stringr`",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "`lubridate`",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "How cna you add a title to a plot in R?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "`plot(title='My Title')`",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "`plot(main='My Title')`",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "`title('My Title')`",
+                "correct": true,
+                "feedback": "correct."
+            },
+            {
+                "answer": "`main('My Title')`",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "How should you structure your R project directory for best practices?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Separate data, scripts, and documents intro respetive folders.",
+                "correct": true,
+                "feedback": "correct."
+            },
+            {
+                "answer": "Keep everything in one folder.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Use separate folders only for data and scripts.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Organize based on file size.",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+]
