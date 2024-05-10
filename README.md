@@ -1,1 +1,4 @@
-# Everything you need to know about maintaining this jupyter book.
+# Navigating This Jupyter Book
+
+
+# Contributing to the training program
