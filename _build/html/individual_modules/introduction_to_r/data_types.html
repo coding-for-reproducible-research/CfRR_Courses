@@ -28,7 +28,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -42,7 +42,7 @@
   <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
@@ -203,7 +203,7 @@
 </ul>
 </li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">How courses relate</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pathways</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../related_courses.html">How do these courses relate?</a></li>
 </ul>
@@ -433,11 +433,6 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing to Coding For Reproducible Research</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pathways</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../pathways/complete_notebooks/data_scientist.html">Data Scientist</a></li>
-
-</ul>
 
     </div>
 </nav></div>
@@ -491,7 +486,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/berrli/CfRR_Courses/main?urlpath=tree/individual_modules/introduction_to_r/data_types.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/coding-for-reproducible-research/CfRR_Courses/main?urlpath=tree/individual_modules/introduction_to_r/data_types.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -540,7 +535,7 @@
       
       
       
-      <li><a href="https://github.com/berrli/CfRR_Courses" target="_blank"
+      <li><a href="https://github.com/coding-for-reproducible-research/CfRR_Courses" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -557,7 +552,7 @@
       
       
       
-      <li><a href="https://github.com/berrli/CfRR_Courses/issues/new?title=Issue%20on%20page%20%2Findividual_modules/introduction_to_r/data_types.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/coding-for-reproducible-research/CfRR_Courses/issues/new?title=Issue%20on%20page%20%2Findividual_modules/introduction_to_r/data_types.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -733,116 +728,123 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output text_html"><h3>Data sets</h3>
 <table class="dataframe">
-<caption>A data.frame: 104 × 3</caption>
+<caption>A data.frame: 111 × 3</caption>
 <thead>
 	<tr><th scope=col>Package</th><th scope=col>Item</th><th scope=col>Title</th></tr>
 	<tr><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
 </thead>
 <tbody>
-	<tr><td>datasets</td><td>AirPassengers         </td><td>Monthly Airline Passenger Numbers 1949-1960                    </td></tr>
-	<tr><td>datasets</td><td>BJsales               </td><td>Sales Data with Leading Indicator                              </td></tr>
-	<tr><td>datasets</td><td>BJsales.lead (BJsales)</td><td>Sales Data with Leading Indicator                              </td></tr>
-	<tr><td>datasets</td><td>BOD                   </td><td>Biochemical Oxygen Demand                                      </td></tr>
-	<tr><td>datasets</td><td>CO2                   </td><td>Carbon Dioxide Uptake in Grass Plants                          </td></tr>
-	<tr><td>datasets</td><td>ChickWeight           </td><td>Weight versus age of chicks on different diets                 </td></tr>
-	<tr><td>datasets</td><td>DNase                 </td><td>Elisa assay of DNase                                           </td></tr>
-	<tr><td>datasets</td><td>EuStockMarkets        </td><td>Daily Closing Prices of Major European Stock Indices, 1991-1998</td></tr>
-	<tr><td>datasets</td><td>Formaldehyde          </td><td>Determination of Formaldehyde                                  </td></tr>
-	<tr><td>datasets</td><td>HairEyeColor          </td><td>Hair and Eye Color of Statistics Students                      </td></tr>
-	<tr><td>datasets</td><td>Harman23.cor          </td><td>Harman Example 2.3                                             </td></tr>
-	<tr><td>datasets</td><td>Harman74.cor          </td><td>Harman Example 7.4                                             </td></tr>
-	<tr><td>datasets</td><td>Indometh              </td><td>Pharmacokinetics of Indomethacin                               </td></tr>
-	<tr><td>datasets</td><td>InsectSprays          </td><td>Effectiveness of Insect Sprays                                 </td></tr>
-	<tr><td>datasets</td><td><span style=white-space:pre-wrap>JohnsonJohnson        </span></td><td><span style=white-space:pre-wrap>Quarterly Earnings per Johnson &amp; Johnson Share                 </span></td></tr>
-	<tr><td>datasets</td><td>LakeHuron             </td><td>Level of Lake Huron 1875-1972                                  </td></tr>
-	<tr><td>datasets</td><td>LifeCycleSavings      </td><td>Intercountry Life-Cycle Savings Data                           </td></tr>
-	<tr><td>datasets</td><td>Loblolly              </td><td>Growth of Loblolly pine trees                                  </td></tr>
-	<tr><td>datasets</td><td>Nile                  </td><td>Flow of the River Nile                                         </td></tr>
-	<tr><td>datasets</td><td>Orange                </td><td>Growth of Orange Trees                                         </td></tr>
-	<tr><td>datasets</td><td>OrchardSprays         </td><td>Potency of Orchard Sprays                                      </td></tr>
-	<tr><td>datasets</td><td>PlantGrowth           </td><td>Results from an Experiment on Plant Growth                     </td></tr>
-	<tr><td>datasets</td><td>Puromycin             </td><td>Reaction Velocity of an Enzymatic Reaction                     </td></tr>
-	<tr><td>datasets</td><td>Seatbelts             </td><td>Road Casualties in Great Britain 1969-84                       </td></tr>
-	<tr><td>datasets</td><td>Theoph                </td><td>Pharmacokinetics of Theophylline                               </td></tr>
-	<tr><td>datasets</td><td>Titanic               </td><td>Survival of passengers on the Titanic                          </td></tr>
-	<tr><td>datasets</td><td>ToothGrowth           </td><td>The Effect of Vitamin C on Tooth Growth in Guinea Pigs         </td></tr>
-	<tr><td>datasets</td><td>UCBAdmissions         </td><td>Student Admissions at UC Berkeley                              </td></tr>
-	<tr><td>datasets</td><td>UKDriverDeaths        </td><td>Road Casualties in Great Britain 1969-84                       </td></tr>
-	<tr><td>datasets</td><td>UKgas                 </td><td>UK Quarterly Gas Consumption                                   </td></tr>
-	<tr><td>datasets</td><td>USAccDeaths           </td><td>Accidental Deaths in the US 1973-1978                          </td></tr>
-	<tr><td>datasets</td><td>USArrests             </td><td>Violent Crime Rates by US State                                </td></tr>
-	<tr><td>datasets</td><td>USJudgeRatings        </td><td>Lawyers' Ratings of State Judges in the US Superior Court      </td></tr>
-	<tr><td>datasets</td><td>USPersonalExpenditure </td><td>Personal Expenditure Data                                      </td></tr>
-	<tr><td>datasets</td><td>UScitiesD             </td><td>Distances Between European Cities and Between US Cities        </td></tr>
-	<tr><td>datasets</td><td>VADeaths              </td><td>Death Rates in Virginia (1940)                                 </td></tr>
-	<tr><td>datasets</td><td>WWWusage              </td><td>Internet Usage per Minute                                      </td></tr>
-	<tr><td>datasets</td><td>WorldPhones           </td><td>The World's Telephones                                         </td></tr>
-	<tr><td>datasets</td><td>ability.cov           </td><td>Ability and Intelligence Tests                                 </td></tr>
-	<tr><td>datasets</td><td>airmiles              </td><td>Passenger Miles on Commercial US Airlines, 1937-1960           </td></tr>
-	<tr><td>datasets</td><td>airquality            </td><td>New York Air Quality Measurements                              </td></tr>
-	<tr><td>datasets</td><td>anscombe              </td><td>Anscombe's Quartet of 'Identical' Simple Linear Regressions    </td></tr>
-	<tr><td>datasets</td><td>attenu                </td><td>The Joyner-Boore Attenuation Data                              </td></tr>
-	<tr><td>datasets</td><td>attitude              </td><td>The Chatterjee-Price Attitude Data                             </td></tr>
-	<tr><td>datasets</td><td>austres               </td><td>Quarterly Time Series of the Number of Australian Residents    </td></tr>
-	<tr><td>datasets</td><td>beaver1 (beavers)     </td><td>Body Temperature Series of Two Beavers                         </td></tr>
-	<tr><td>datasets</td><td>beaver2 (beavers)     </td><td>Body Temperature Series of Two Beavers                         </td></tr>
-	<tr><td>datasets</td><td>cars                  </td><td>Speed and Stopping Distances of Cars                           </td></tr>
-	<tr><td>datasets</td><td>chickwts              </td><td>Chicken Weights by Feed Type                                   </td></tr>
-	<tr><td>datasets</td><td>co2                   </td><td>Mauna Loa Atmospheric CO2 Concentration                        </td></tr>
-	<tr><td>datasets</td><td>crimtab               </td><td>Student's 3000 Criminals Data                                  </td></tr>
-	<tr><td>datasets</td><td>discoveries           </td><td>Yearly Numbers of Important Discoveries                        </td></tr>
-	<tr><td>datasets</td><td>esoph                 </td><td>Smoking, Alcohol and (O)esophageal Cancer                      </td></tr>
-	<tr><td>datasets</td><td>euro                  </td><td>Conversion Rates of Euro Currencies                            </td></tr>
-	<tr><td>datasets</td><td>euro.cross (euro)     </td><td>Conversion Rates of Euro Currencies                            </td></tr>
-	<tr><td>datasets</td><td>eurodist              </td><td>Distances Between European Cities and Between US Cities        </td></tr>
-	<tr><td>datasets</td><td>faithful              </td><td>Old Faithful Geyser Data                                       </td></tr>
-	<tr><td>datasets</td><td>fdeaths (UKLungDeaths)</td><td>Monthly Deaths from Lung Diseases in the UK                    </td></tr>
-	<tr><td>datasets</td><td>freeny                </td><td>Freeny's Revenue Data                                          </td></tr>
-	<tr><td>datasets</td><td>freeny.x (freeny)     </td><td>Freeny's Revenue Data                                          </td></tr>
-	<tr><td>datasets</td><td>freeny.y (freeny)     </td><td>Freeny's Revenue Data                                          </td></tr>
-	<tr><td>datasets</td><td>infert                </td><td>Infertility after Spontaneous and Induced Abortion             </td></tr>
-	<tr><td>datasets</td><td>iris                  </td><td>Edgar Anderson's Iris Data                                     </td></tr>
-	<tr><td>datasets</td><td>iris3                 </td><td>Edgar Anderson's Iris Data                                     </td></tr>
-	<tr><td>datasets</td><td>islands               </td><td>Areas of the World's Major Landmasses                          </td></tr>
-	<tr><td>datasets</td><td>ldeaths (UKLungDeaths)</td><td>Monthly Deaths from Lung Diseases in the UK                    </td></tr>
-	<tr><td>datasets</td><td>lh                    </td><td>Luteinizing Hormone in Blood Samples                           </td></tr>
-	<tr><td>datasets</td><td>longley               </td><td>Longley's Economic Regression Data                             </td></tr>
-	<tr><td>datasets</td><td>lynx                  </td><td>Annual Canadian Lynx trappings 1821-1934                       </td></tr>
-	<tr><td>datasets</td><td>mdeaths (UKLungDeaths)</td><td>Monthly Deaths from Lung Diseases in the UK                    </td></tr>
-	<tr><td>datasets</td><td>morley                </td><td>Michelson Speed of Light Data                                  </td></tr>
-	<tr><td>datasets</td><td>mtcars                </td><td>Motor Trend Car Road Tests                                     </td></tr>
-	<tr><td>datasets</td><td>nhtemp                </td><td>Average Yearly Temperatures in New Haven                       </td></tr>
-	<tr><td>datasets</td><td>nottem                </td><td>Average Monthly Temperatures at Nottingham, 1920-1939          </td></tr>
-	<tr><td>datasets</td><td>npk                   </td><td>Classical N, P, K Factorial Experiment                         </td></tr>
-	<tr><td>datasets</td><td>occupationalStatus    </td><td>Occupational Status of Fathers and their Sons                  </td></tr>
-	<tr><td>datasets</td><td>precip                </td><td>Annual Precipitation in US Cities                              </td></tr>
-	<tr><td>datasets</td><td>presidents            </td><td>Quarterly Approval Ratings of US Presidents                    </td></tr>
-	<tr><td>datasets</td><td>pressure              </td><td>Vapor Pressure of Mercury as a Function of Temperature         </td></tr>
-	<tr><td>datasets</td><td>quakes                </td><td>Locations of Earthquakes off Fiji                              </td></tr>
-	<tr><td>datasets</td><td>randu                 </td><td>Random Numbers from Congruential Generator RANDU               </td></tr>
-	<tr><td>datasets</td><td>rivers                </td><td>Lengths of Major North American Rivers                         </td></tr>
-	<tr><td>datasets</td><td>rock                  </td><td>Measurements on Petroleum Rock Samples                         </td></tr>
-	<tr><td>datasets</td><td>sleep                 </td><td>Student's Sleep Data                                           </td></tr>
-	<tr><td>datasets</td><td>stack.loss (stackloss)</td><td>Brownlee's Stack Loss Plant Data                               </td></tr>
-	<tr><td>datasets</td><td>stack.x (stackloss)   </td><td>Brownlee's Stack Loss Plant Data                               </td></tr>
-	<tr><td>datasets</td><td>stackloss             </td><td>Brownlee's Stack Loss Plant Data                               </td></tr>
-	<tr><td>datasets</td><td>state.abb (state)     </td><td>US State Facts and Figures                                     </td></tr>
-	<tr><td>datasets</td><td>state.area (state)    </td><td>US State Facts and Figures                                     </td></tr>
-	<tr><td>datasets</td><td>state.center (state)  </td><td>US State Facts and Figures                                     </td></tr>
-	<tr><td>datasets</td><td>state.division (state)</td><td>US State Facts and Figures                                     </td></tr>
-	<tr><td>datasets</td><td>state.name (state)    </td><td>US State Facts and Figures                                     </td></tr>
-	<tr><td>datasets</td><td>state.region (state)  </td><td>US State Facts and Figures                                     </td></tr>
-	<tr><td>datasets</td><td>state.x77 (state)     </td><td>US State Facts and Figures                                     </td></tr>
-	<tr><td>datasets</td><td>sunspot.month         </td><td>Monthly Sunspot Data, from 1749 to "Present"                   </td></tr>
-	<tr><td>datasets</td><td>sunspot.year          </td><td>Yearly Sunspot Data, 1700-1988                                 </td></tr>
-	<tr><td>datasets</td><td>sunspots              </td><td>Monthly Sunspot Numbers, 1749-1983                             </td></tr>
-	<tr><td>datasets</td><td>swiss                 </td><td>Swiss Fertility and Socioeconomic Indicators (1888) Data       </td></tr>
-	<tr><td>datasets</td><td>treering              </td><td>Yearly Treering Data, -6000-1979                               </td></tr>
-	<tr><td>datasets</td><td>trees                 </td><td>Diameter, Height and Volume for Black Cherry Trees             </td></tr>
-	<tr><td>datasets</td><td>uspop                 </td><td>Populations Recorded by the US Census                          </td></tr>
-	<tr><td>datasets</td><td>volcano               </td><td>Topographic Information on Auckland's Maunga Whau Volcano      </td></tr>
-	<tr><td>datasets</td><td>warpbreaks            </td><td>The Number of Breaks in Yarn during Weaving                    </td></tr>
-	<tr><td>datasets</td><td>women                 </td><td>Average Heights and Weights for American Women                 </td></tr>
+	<tr><td>datasets</td><td>AirPassengers              </td><td>Monthly Airline Passenger Numbers 1949-1960                    </td></tr>
+	<tr><td>datasets</td><td>BJsales                    </td><td>Sales Data with Leading Indicator                              </td></tr>
+	<tr><td>datasets</td><td>BJsales.lead (BJsales)     </td><td>Sales Data with Leading Indicator                              </td></tr>
+	<tr><td>datasets</td><td>BOD                        </td><td>Biochemical Oxygen Demand                                      </td></tr>
+	<tr><td>datasets</td><td>CO2                        </td><td>Carbon Dioxide Uptake in Grass Plants                          </td></tr>
+	<tr><td>datasets</td><td>ChickWeight                </td><td>Weight versus age of chicks on different diets                 </td></tr>
+	<tr><td>datasets</td><td>DNase                      </td><td>Elisa assay of DNase                                           </td></tr>
+	<tr><td>datasets</td><td>EuStockMarkets             </td><td>Daily Closing Prices of Major European Stock Indices, 1991-1998</td></tr>
+	<tr><td>datasets</td><td>Formaldehyde               </td><td>Determination of Formaldehyde                                  </td></tr>
+	<tr><td>datasets</td><td>HairEyeColor               </td><td>Hair and Eye Color of Statistics Students                      </td></tr>
+	<tr><td>datasets</td><td>Harman23.cor               </td><td>Harman Example 2.3                                             </td></tr>
+	<tr><td>datasets</td><td>Harman74.cor               </td><td>Harman Example 7.4                                             </td></tr>
+	<tr><td>datasets</td><td>Indometh                   </td><td>Pharmacokinetics of Indomethacin                               </td></tr>
+	<tr><td>datasets</td><td>InsectSprays               </td><td>Effectiveness of Insect Sprays                                 </td></tr>
+	<tr><td>datasets</td><td><span style=white-space:pre-wrap>JohnsonJohnson             </span></td><td><span style=white-space:pre-wrap>Quarterly Earnings per Johnson &amp; Johnson Share                 </span></td></tr>
+	<tr><td>datasets</td><td>LakeHuron                  </td><td>Level of Lake Huron 1875-1972                                  </td></tr>
+	<tr><td>datasets</td><td>LifeCycleSavings           </td><td>Intercountry Life-Cycle Savings Data                           </td></tr>
+	<tr><td>datasets</td><td>Loblolly                   </td><td>Growth of Loblolly pine trees                                  </td></tr>
+	<tr><td>datasets</td><td>Nile                       </td><td>Flow of the River Nile                                         </td></tr>
+	<tr><td>datasets</td><td>Orange                     </td><td>Growth of Orange Trees                                         </td></tr>
+	<tr><td>datasets</td><td>OrchardSprays              </td><td>Potency of Orchard Sprays                                      </td></tr>
+	<tr><td>datasets</td><td>PlantGrowth                </td><td>Results from an Experiment on Plant Growth                     </td></tr>
+	<tr><td>datasets</td><td>Puromycin                  </td><td>Reaction Velocity of an Enzymatic Reaction                     </td></tr>
+	<tr><td>datasets</td><td>Seatbelts                  </td><td>Road Casualties in Great Britain 1969-84                       </td></tr>
+	<tr><td>datasets</td><td>Theoph                     </td><td>Pharmacokinetics of Theophylline                               </td></tr>
+	<tr><td>datasets</td><td>Titanic                    </td><td>Survival of passengers on the Titanic                          </td></tr>
+	<tr><td>datasets</td><td>ToothGrowth                </td><td>The Effect of Vitamin C on Tooth Growth in Guinea Pigs         </td></tr>
+	<tr><td>datasets</td><td>UCBAdmissions              </td><td>Student Admissions at UC Berkeley                              </td></tr>
+	<tr><td>datasets</td><td>UKDriverDeaths             </td><td>Road Casualties in Great Britain 1969-84                       </td></tr>
+	<tr><td>datasets</td><td>UKgas                      </td><td>UK Quarterly Gas Consumption                                   </td></tr>
+	<tr><td>datasets</td><td>USAccDeaths                </td><td>Accidental Deaths in the US 1973-1978                          </td></tr>
+	<tr><td>datasets</td><td>USArrests                  </td><td>Violent Crime Rates by US State                                </td></tr>
+	<tr><td>datasets</td><td>USJudgeRatings             </td><td>Lawyers' Ratings of State Judges in the US Superior Court      </td></tr>
+	<tr><td>datasets</td><td>USPersonalExpenditure      </td><td>Personal Expenditure Data                                      </td></tr>
+	<tr><td>datasets</td><td>UScitiesD                  </td><td>Distances Between European Cities and Between US Cities        </td></tr>
+	<tr><td>datasets</td><td>VADeaths                   </td><td>Death Rates in Virginia (1940)                                 </td></tr>
+	<tr><td>datasets</td><td>WWWusage                   </td><td>Internet Usage per Minute                                      </td></tr>
+	<tr><td>datasets</td><td>WorldPhones                </td><td>The World's Telephones                                         </td></tr>
+	<tr><td>datasets</td><td>ability.cov                </td><td>Ability and Intelligence Tests                                 </td></tr>
+	<tr><td>datasets</td><td>airmiles                   </td><td>Passenger Miles on Commercial US Airlines, 1937-1960           </td></tr>
+	<tr><td>datasets</td><td>airquality                 </td><td>New York Air Quality Measurements                              </td></tr>
+	<tr><td>datasets</td><td>anscombe                   </td><td>Anscombe's Quartet of 'Identical' Simple Linear Regressions    </td></tr>
+	<tr><td>datasets</td><td>attenu                     </td><td>The Joyner-Boore Attenuation Data                              </td></tr>
+	<tr><td>datasets</td><td>attitude                   </td><td>The Chatterjee-Price Attitude Data                             </td></tr>
+	<tr><td>datasets</td><td>austres                    </td><td>Quarterly Time Series of the Number of Australian Residents    </td></tr>
+	<tr><td>datasets</td><td>beaver1 (beavers)          </td><td>Body Temperature Series of Two Beavers                         </td></tr>
+	<tr><td>datasets</td><td>beaver2 (beavers)          </td><td>Body Temperature Series of Two Beavers                         </td></tr>
+	<tr><td>datasets</td><td>cars                       </td><td>Speed and Stopping Distances of Cars                           </td></tr>
+	<tr><td>datasets</td><td>chickwts                   </td><td>Chicken Weights by Feed Type                                   </td></tr>
+	<tr><td>datasets</td><td>co2                        </td><td>Mauna Loa Atmospheric CO2 Concentration                        </td></tr>
+	<tr><td>datasets</td><td>crimtab                    </td><td>Student's 3000 Criminals Data                                  </td></tr>
+	<tr><td>datasets</td><td>discoveries                </td><td>Yearly Numbers of Important Discoveries                        </td></tr>
+	<tr><td>datasets</td><td>esoph                      </td><td>Smoking, Alcohol and (O)esophageal Cancer                      </td></tr>
+	<tr><td>datasets</td><td>euro                       </td><td>Conversion Rates of Euro Currencies                            </td></tr>
+	<tr><td>datasets</td><td>euro.cross (euro)          </td><td>Conversion Rates of Euro Currencies                            </td></tr>
+	<tr><td>datasets</td><td>eurodist                   </td><td>Distances Between European Cities and Between US Cities        </td></tr>
+	<tr><td>datasets</td><td>faithful                   </td><td>Old Faithful Geyser Data                                       </td></tr>
+	<tr><td>datasets</td><td>fdeaths (UKLungDeaths)     </td><td>Monthly Deaths from Lung Diseases in the UK                    </td></tr>
+	<tr><td>datasets</td><td>freeny                     </td><td>Freeny's Revenue Data                                          </td></tr>
+	<tr><td>datasets</td><td>freeny.x (freeny)          </td><td>Freeny's Revenue Data                                          </td></tr>
+	<tr><td>datasets</td><td>freeny.y (freeny)          </td><td>Freeny's Revenue Data                                          </td></tr>
+	<tr><td>datasets</td><td>infert                     </td><td>Infertility after Spontaneous and Induced Abortion             </td></tr>
+	<tr><td>datasets</td><td>iris                       </td><td>Edgar Anderson's Iris Data                                     </td></tr>
+	<tr><td>datasets</td><td>iris3                      </td><td>Edgar Anderson's Iris Data                                     </td></tr>
+	<tr><td>datasets</td><td>islands                    </td><td>Areas of the World's Major Landmasses                          </td></tr>
+	<tr><td>datasets</td><td>ldeaths (UKLungDeaths)     </td><td>Monthly Deaths from Lung Diseases in the UK                    </td></tr>
+	<tr><td>datasets</td><td>lh                         </td><td>Luteinizing Hormone in Blood Samples                           </td></tr>
+	<tr><td>datasets</td><td>longley                    </td><td>Longley's Economic Regression Data                             </td></tr>
+	<tr><td>datasets</td><td>lynx                       </td><td>Annual Canadian Lynx trappings 1821-1934                       </td></tr>
+	<tr><td>datasets</td><td>mdeaths (UKLungDeaths)     </td><td>Monthly Deaths from Lung Diseases in the UK                    </td></tr>
+	<tr><td>datasets</td><td>morley                     </td><td>Michelson Speed of Light Data                                  </td></tr>
+	<tr><td>datasets</td><td>mtcars                     </td><td>Motor Trend Car Road Tests                                     </td></tr>
+	<tr><td>datasets</td><td>nhtemp                     </td><td>Average Yearly Temperatures in New Haven                       </td></tr>
+	<tr><td>datasets</td><td>nottem                     </td><td>Average Monthly Temperatures at Nottingham, 1920-1939          </td></tr>
+	<tr><td>datasets</td><td>npk                        </td><td>Classical N, P, K Factorial Experiment                         </td></tr>
+	<tr><td>datasets</td><td>occupationalStatus         </td><td>Occupational Status of Fathers and their Sons                  </td></tr>
+	<tr><td>datasets</td><td>precip                     </td><td>Annual Precipitation in US Cities                              </td></tr>
+	<tr><td>datasets</td><td>presidents                 </td><td>Quarterly Approval Ratings of US Presidents                    </td></tr>
+	<tr><td>datasets</td><td>pressure                   </td><td>Vapor Pressure of Mercury as a Function of Temperature         </td></tr>
+	<tr><td>datasets</td><td>quakes                     </td><td>Locations of Earthquakes off Fiji                              </td></tr>
+	<tr><td>datasets</td><td>randu                      </td><td>Random Numbers from Congruential Generator RANDU               </td></tr>
+	<tr><td>datasets</td><td>rivers                     </td><td>Lengths of Major North American Rivers                         </td></tr>
+	<tr><td>datasets</td><td>rock                       </td><td>Measurements on Petroleum Rock Samples                         </td></tr>
+	<tr><td>datasets</td><td>sleep                      </td><td>Student's Sleep Data                                           </td></tr>
+	<tr><td>datasets</td><td>stack.loss (stackloss)     </td><td>Brownlee's Stack Loss Plant Data                               </td></tr>
+	<tr><td>datasets</td><td>stack.x (stackloss)        </td><td>Brownlee's Stack Loss Plant Data                               </td></tr>
+	<tr><td>datasets</td><td>stackloss                  </td><td>Brownlee's Stack Loss Plant Data                               </td></tr>
+	<tr><td>datasets</td><td>state.abb (state)          </td><td>US State Facts and Figures                                     </td></tr>
+	<tr><td>datasets</td><td>state.area (state)         </td><td>US State Facts and Figures                                     </td></tr>
+	<tr><td>datasets</td><td>state.center (state)       </td><td>US State Facts and Figures                                     </td></tr>
+	<tr><td>datasets</td><td>state.division (state)     </td><td>US State Facts and Figures                                     </td></tr>
+	<tr><td>datasets</td><td>state.name (state)         </td><td>US State Facts and Figures                                     </td></tr>
+	<tr><td>datasets</td><td>state.region (state)       </td><td>US State Facts and Figures                                     </td></tr>
+	<tr><td>datasets</td><td>state.x77 (state)          </td><td>US State Facts and Figures                                     </td></tr>
+	<tr><td>datasets</td><td>sunspot.month              </td><td>Monthly Sunspot Data, from 1749 to "Present"                   </td></tr>
+	<tr><td>datasets</td><td>sunspot.year               </td><td>Yearly Sunspot Data, 1700-1988                                 </td></tr>
+	<tr><td>datasets</td><td>sunspots                   </td><td>Monthly Sunspot Numbers, 1749-1983                             </td></tr>
+	<tr><td>datasets</td><td>swiss                      </td><td>Swiss Fertility and Socioeconomic Indicators (1888) Data       </td></tr>
+	<tr><td>datasets</td><td>treering                   </td><td>Yearly Treering Data, -6000-1979                               </td></tr>
+	<tr><td>datasets</td><td>trees                      </td><td>Diameter, Height and Volume for Black Cherry Trees             </td></tr>
+	<tr><td>datasets</td><td>uspop                      </td><td>Populations Recorded by the US Census                          </td></tr>
+	<tr><td>datasets</td><td>volcano                    </td><td>Topographic Information on Auckland's Maunga Whau Volcano      </td></tr>
+	<tr><td>datasets</td><td>warpbreaks                 </td><td>The Number of Breaks in Yarn during Weaving                    </td></tr>
+	<tr><td>datasets</td><td>women                      </td><td>Average Heights and Weights for American Women                 </td></tr>
+	<tr><td>.       </td><td>bp_dataset_session4        </td><td>                                                               </td></tr>
+	<tr><td>.       </td><td>code_session2              </td><td>                                                               </td></tr>
+	<tr><td>.       </td><td>plotting_arguments         </td><td>                                                               </td></tr>
+	<tr><td>.       </td><td>r_training_session_2_script</td><td>                                                               </td></tr>
+	<tr><td>.       </td><td>r_training_session_3_script</td><td>                                                               </td></tr>
+	<tr><td>.       </td><td>r_training_session_4       </td><td>                                                               </td></tr>
+	<tr><td>.       </td><td>worms                      </td><td>                                                               </td></tr>
 </tbody>
 </table>
 
@@ -1480,7 +1482,7 @@ coerce it into a factor.</p>
     {
         requestKernel: true,
         binderOptions: {
-            repo: "berrli/CfRR_Courses",
+            repo: "coding-for-reproducible-research/CfRR_Courses",
             ref: "main",
         },
         codeMirrorConfig: {
