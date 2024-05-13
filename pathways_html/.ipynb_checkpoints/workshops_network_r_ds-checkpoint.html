@@ -226,8 +226,8 @@ function highlightFilter(filter) {
         <style type="text/css">
 
              #mynetwork {
-                 width: 750px;
-                 height: 750px;
+                 width: 1000px;
+                 height: 500px;
                  background-color: #ffffff;
                  border: 1px solid lightgray;
                  position: relative;
@@ -282,8 +282,8 @@ function highlightFilter(filter) {
                   
 
                   // parsing and collecting nodes and edges from the python
-                  nodes = new vis.DataSet([{"color": "#FFD700", "id": "Introduction to Unix", "label": "Introduction to Unix", "shape": "dot", "size": 10, "title": "Introduction to Unix"}, {"color": "#FFD700", "id": "Introduction to Version Control with Git and GitHub", "label": "Introduction to Version Control with Git and GitHub", "shape": "dot", "size": 10, "title": "Introduction to Version Control with Git and GitHub"}]);
-                  edges = new vis.DataSet([{"from": "Introduction to Unix", "to": "Introduction to Version Control with Git and GitHub", "width": 1}]);
+                  nodes = new vis.DataSet([{"color": "#32CD32", "id": "Introduction to R", "label": "Introduction to R", "shape": "dot", "size": 10, "title": "Introduction to R"}, {"color": "#32CD32", "id": "Regression analysis with R", "label": "Regression analysis with R", "shape": "dot", "size": 10, "title": "Regression analysis with R"}, {"color": "#32CD32", "id": "Working With Data In R", "label": "Working With Data In R", "shape": "dot", "size": 10, "title": "Working With Data In R"}, {"color": "#32CD32", "id": "Advanced Regression Analysis With R ", "label": "Advanced Regression Analysis With R ", "shape": "dot", "size": 10, "title": "Advanced Regression Analysis With R "}, {"color": "#32CD32", "id": "Introduction to Unix", "label": "Introduction to Unix", "shape": "dot", "size": 10, "title": "Introduction to Unix"}, {"color": "#32CD32", "id": "Introduction to Version Control with Git and GitHub", "label": "Introduction to Version Control with Git and GitHub", "shape": "dot", "size": 10, "title": "Introduction to Version Control with Git and GitHub"}]);
+                  edges = new vis.DataSet([{"from": "Introduction to R", "to": "Regression analysis with R", "width": 1}, {"from": "Introduction to R", "to": "Working With Data In R", "width": 1}, {"from": "Regression analysis with R", "to": "Advanced Regression Analysis With R ", "width": 1}, {"from": "Introduction to Unix", "to": "Introduction to Version Control with Git and GitHub", "width": 1}]);
 
                   nodeColors = {};
                   allNodes = nodes.get({ returnType: "Object" });

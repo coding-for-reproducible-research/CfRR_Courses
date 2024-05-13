@@ -226,8 +226,8 @@ function highlightFilter(filter) {
         <style type="text/css">
 
              #mynetwork {
-                 width: 750px;
-                 height: 750px;
+                 width: 800px;
+                 height: 800px;
                  background-color: #ffffff;
                  border: 1px solid lightgray;
                  position: relative;
@@ -282,8 +282,8 @@ function highlightFilter(filter) {
                   
 
                   // parsing and collecting nodes and edges from the python
-                  nodes = new vis.DataSet([{"color": "#4682B4", "id": "Introduction to Unix", "label": "Introduction to Unix", "shape": "dot", "size": 10, "title": "Introduction to Unix"}, {"color": "#4682B4", "id": "Introduction to Version Control with Git and GitHub", "label": "Introduction to Version Control with Git and GitHub", "shape": "dot", "size": 10, "title": "Introduction to Version Control with Git and GitHub"}, {"color": "#4682B4", "id": "Introduction to Julia ", "label": "Introduction to Julia ", "shape": "dot", "size": 10, "title": "Introduction to Julia "}]);
-                  edges = new vis.DataSet([{"from": "Introduction to Unix", "to": "Introduction to Version Control with Git and GitHub", "width": 1}]);
+                  nodes = new vis.DataSet([{"color": "#FFD700", "id": "Introduction to Unix", "label": "Introduction to Unix", "shape": "dot", "size": 10, "title": "Course Name: Introduction to Unix\nCourse Pre-reqs: None\nSubsequent Courses: Introduction to Version Control with Git and GitHub"}, {"color": "#FFD700", "id": "Introduction to Version Control with Git and GitHub", "label": "Introduction to Version Control with Git and GitHub", "shape": "dot", "size": 10, "title": "Course Name: Introduction to Version Control with Git and GitHub\nCourse Pre-reqs: Introduction to Unix\nSubsequent Courses: None"}]);
+                  edges = new vis.DataSet([{"arrows": "to", "from": "Introduction to Unix", "to": "Introduction to Version Control with Git and GitHub", "width": 1}]);
 
                   nodeColors = {};
                   allNodes = nodes.get({ returnType: "Object" });
