@@ -17,7 +17,7 @@ bibtex_bibfiles:
 
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/berrli/CfRR_Courses  # Online location of your book
+  url: https://github.com/coding-for-reproducible-research/CfRR_Courses  # Online location of your book
   branch: main  # Which branch of the repository should be used when creating links (optional)
 
 # Add GitHub buttons to your book
@@ -28,6 +28,7 @@ html:
 
 launch_buttons:
   thebe                  : true
+  binderhub_url: "https://mybinder.org"  # The URL for your BinderHub (e.g., https://mybinder.org)
 
 
 # Files not to be ran when building the jupyter book
@@ -61,6 +62,7 @@ exclude_patterns:
 execute:
   execute_notebooks: "force"
   exclude_patterns: 
+      - 'related_courses.ipynb'
       - 'individual_modules/introduction_to_r/basic_commands.ipynb'
       - 'individual_modules/introduction_to_r/data_types.ipynb'
       - 'individual_modules/introduction_to_r/load_data.ipynb'
@@ -69,6 +71,7 @@ execute:
       - 'individual_modules/introduction_to_r/plots.ipynb'
       - 'individual_modules/introduction_to_r/stats.ipynb'
       - 'individual_modules/introduction_to_r/good_practise.ipynb'
+      - 'individual_modules/regression_analysis_with_R/introduction_to_regression.ipynb'
       - 'individual_modules/regression_analysis_with_R/hypothesis_testing.ipynb'
       - 'individual_modules/regression_analysis_with_R/multiple_linear_regression.ipynb'
       - 'individual_modules/regression_analysis_with_R/logistic_regression.ipynb'

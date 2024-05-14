@@ -23,6 +23,12 @@ parts:
       - file: where_is_my_understanding/intro_to_unix
       - file: where_is_my_understanding/computational_thinking
       - file: where_is_my_understanding/software_development_best_practice
+  - caption: Pathways
+    chapters:
+      - file : pathways/related_courses
+      - file : pathways/hpc
+      - file : pathways/r_ds
+      - file : pathways/python_ds
   - caption: Course Details and Delivery Dates
     chapters:
     - file: course_homepages/connected_course_homepages/theoretical
@@ -176,9 +182,16 @@ parts:
       - file: individual_modules/software_development_best_practices/testing
       - file: individual_modules/software_development_best_practices/collaboration
       - file: individual_modules/software_development_best_practices/reproducibility
-  - caption: Pathways
-    chapters:
-    - file: pathways/complete_notebooks/data_scientist
+    - file: individual_modules/section_landing_pages/introduction_to_julia
+      sections:
+      - file: individual_modules/introduction_to_julia/introduction_to_julia
+      - file: individual_modules/introduction_to_julia/variables
+      - file: individual_modules/introduction_to_julia/operations
+      - file: individual_modules/introduction_to_julia/control_flow
+  - caption: Join Us!
+    chapters: 
+    - file: contributing
+    - file: developing_a_course
       
 
 
