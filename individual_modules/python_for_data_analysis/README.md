@@ -26,9 +26,10 @@ More advanced Python features, including usage of virtual environments, tools to
 
   * List and generator comprehensions
 
+  * Classes
+
   * Operator overloading
 
-  * Classes
 
 * Virtual environments
 
