@@ -60,6 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'contributing';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Developing a Course Guidance" href="developing_a_course.html" />
     <link rel="prev" title="Control Flow" href="individual_modules/introduction_to_julia/control_flow.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -202,7 +203,10 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Pathways</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="related_courses.html">How do these courses relate?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pathways/related_courses.html">How do these courses relate?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pathways/hpc.html">High Performance Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pathways/r_ds.html">R Data Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pathways/python_ds.html">Python Data Science</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Details and Delivery Dates</span></p>
 <ul class="nav bd-sidenav">
@@ -429,6 +433,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Join Us!</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Contributing to CfRR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developing_a_course.html">Developing a Course Guidance</a></li>
 </ul>
 
     </div>
@@ -677,10 +682,28 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-i-contribute">How Do I Contribute?</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#become-a-helper">Become a helper</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#highlighting-issues">Highlighting Issues</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-an-github-issue">Creating an GitHub Issue</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-issue">Types of Issue</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-an-github-issue">Creating an GitHub Issue</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#github-issue-button">Github Issue Button</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#github-issue-example">Github Issue Example</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#making-changes">Making Changes</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#making-changes">Making Changes</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-forked-repository">Create a Forked Repository</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#fork-repository-button">Fork Repository Button</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-fork-form">Creating a Fork Form</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#make-changes-in-forked-repository">Make Changes in Forked Repository</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#contribute-back-to-the-main-cfrr-repository">Contribute back to the Main CfRR Repository</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#pull-request-banner">Pull Request Banner</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#pull-request-form">Pull Request Form</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -702,7 +725,7 @@ document.write(`
 </section>
 <section id="how-do-i-contribute">
 <h2>How Do I Contribute?<a class="headerlink" href="#how-do-i-contribute" title="Link to this heading">#</a></h2>
-<p>There are a range of different ways for you to engage with the CfRR training program depending on the skillset you currently have, and the skillset you want to develop. There are three key ways in which you can engage with the CfRR training program, including (1) becoming a helper within workshops and helping to deliver training workshops to individual across the university, (2) identify and highlight issues with the current material on the website, or (3) create and contribute your own course to the CfRR program. Each of these different methods of contributing to the program are discussed in more depth below.</p>
+<p>There are a range of different ways for you to engage with the CfRR training program depending on the skillset you currently have, and the skillset you want to develop. There are three key ways in which you can engage with the CfRR training program, including <strong>(1)</strong> becoming a helper within workshops and helping to deliver training workshops to individual across the university, <strong>(2)</strong> identify and highlight issues with the current material on the website, or <strong>(3)</strong> create and contribute your own course to the CfRR program. Each of these different methods of contributing to the program are discussed in more depth below.</p>
 <section id="become-a-helper">
 <h3>Become a helper<a class="headerlink" href="#become-a-helper" title="Link to this heading">#</a></h3>
 <p>When the CfRR delivers a workshop, the general format that is followed is to have a course leader who is responsible for delivering the content itself, in the form of being the individual who stands at the front of the workshop and talks through the content, conducting the live programming examples and providing overall management for the workshop. Alongside the course leader, we have several course helpers who answer any questions during the workshop, ensuring that no one who attends the workshop gets left behind. If you have experience in some of the offered content and would be interested in becoming a course helper, please get in touch with the team at our email address below. To help us manage the emails better, we would be grateful if you could start the email subject as ‘EOI Course Helper: {Course Name} {Your Name}”.</p>
@@ -710,7 +733,10 @@ document.write(`
 </section>
 <section id="highlighting-issues">
 <h3>Highlighting Issues<a class="headerlink" href="#highlighting-issues" title="Link to this heading">#</a></h3>
-<p>If you would like to contribute to the program but don’t have the time to become a helper or develop course content. Auditing the course content is an excellent way to refresh your understanding of content and help improve the CfRR program. While due care is taken to ensure that the program’s material is accurate and up to date, mistakes do happen, and some of the content on the website may be incorrect. It might also be the case that you think there is a better way to explain a concept or add additional context to part of a course. We want to make the CfRR content the best possible, so it’s better to raise it and verify even if you are unsure if the content needs changing. We are a very friendly bunch, so we are more than happy to have feedback on the program. Some of the potential things that could be highlighted include:</p>
+<p>If you would like to contribute to the program but don’t have the time to become a helper or develop course content. Auditing the course content is an excellent way to refresh your understanding of content and help improve the CfRR program. While due care is taken to ensure that the program’s material is accurate and up to date, mistakes do happen, and some of the content on the website may be incorrect. It might also be the case that you think there is a better way to explain a concept or add additional context to part of a course. We want to make the CfRR content the best possible, so it’s better to raise it and verify even if you are unsure if the content needs changing. We are a very friendly bunch, so we are more than happy to have feedback on the program.</p>
+<section id="types-of-issue">
+<h4>Types of Issue<a class="headerlink" href="#types-of-issue" title="Link to this heading">#</a></h4>
+<p>Some of the potential things that could be highlighted include:</p>
 <ol class="arabic simple">
 <li><p><strong>Typographical Errors</strong>: Misspelling, incorrect punctuation, grammatical error and spacing issues etc.</p></li>
 <li><p><strong>Factual Errors</strong>: Incorrect scientific or mathematical data, misstated principles, incorrect citation or attribution etc.</p></li>
@@ -721,9 +747,13 @@ document.write(`
 <li><p><strong>Outdated Content</strong>: Information not reflecting the latest research or developments, old statistics or data, References to outdated technologies or practices etc.</p></li>
 <li><p><strong>Logical Fallacies or Reasoning Errors</strong>: Oversimplification, Hasty generalizations, Contradictions or inconsistencies in content etc.</p></li>
 </ol>
+<p>The above list is meant to provide some examples, but is not meant to be exhaustive. If you find an issue that is not on the list please do still raise it, and we can add that type of issue to the list!</p>
+</section>
 <section id="creating-an-github-issue">
 <h4>Creating an GitHub Issue<a class="headerlink" href="#creating-an-github-issue" title="Link to this heading">#</a></h4>
 <p>If while going through the content of the website you notice that there is an error then the way in which to let us know is to raise a GitHub Issue. You are able to do this easily from the website, simply click the Github Icon in the top right of the page where the issue is, and click <code class="docutils literal notranslate"><span class="pre">Open</span> <span class="pre">Issue</span></code>, as shown below.</p>
+<section id="github-issue-button">
+<h5>Github Issue Button<a class="headerlink" href="#github-issue-button" title="Link to this heading">#</a></h5>
 <p><img alt="GitHub Issue Button" src="_images/github_issue_button.png" /></p>
 <p>Once you have clicked the button a new tab will open taking you into a ready made GitHub Issue form that you can then add content to explain the issue in more depth. The button will automatically populate the title with page that the issue is on, please leave that in the title as it makes it easier for whoever fixes the issue to find the issue being discussed.</p>
 <p>The two primary elements that are needed to raise a Github Issue are:</p>
@@ -735,11 +765,62 @@ document.write(`
 <p>Once you are happy with the content of the issue, then click <code class="docutils literal notranslate"><span class="pre">Submit</span> <span class="pre">new</span> <span class="pre">issue</span></code>.</p>
 <p>At this stage the issue wil then be added to the GitHub repository and the central CfRR team will be able to see the issue, triage it and put into motion the needed elements to fix the issue.</p>
 <p>As an example issue, we raised the problem that when discussing the process of highlighting issues in this exact webpage, no example issues were given, which could be confusing for individual who have never audited educational material before. As such we raised the issue and then a subsequent fix could be implemented, in this case added example to the webpage. A screenshot of the webpage with the implemented solution can be seen below, with the link to the webpage of the now closed issue can be found here: <a class="reference external" href="https://github.com/coding-for-reproducible-research/CfRR_Courses/issues/22">Highlight Issues Example Issue</a></p>
+</section>
+<section id="github-issue-example">
+<h5>Github Issue Example<a class="headerlink" href="#github-issue-example" title="Link to this heading">#</a></h5>
 <p><img alt="GitHub Issue Example" src="_images/github_issue_example.png" /></p>
+</section>
 </section>
 </section>
 <section id="making-changes">
 <h3>Making Changes<a class="headerlink" href="#making-changes" title="Link to this heading">#</a></h3>
+<p>The final way to contribute to the CfRR program is to make changes to the content of CfRR yourself. We request that you make use of the forks of the central CfRR repository to do this. The steps you will need to follow are below, but if you are struggling with them, it might be worthwhile to refer to the <code class="docutils literal notranslate"><span class="pre">Introduction</span> <span class="pre">to</span> <span class="pre">Version</span> <span class="pre">Control</span> <span class="pre">with</span> <span class="pre">Git</span> <span class="pre">and</span> <span class="pre">GitHub</span></code> course delivered within the CfRR program.</p>
+<section id="create-a-forked-repository">
+<h4>Create a Forked Repository<a class="headerlink" href="#create-a-forked-repository" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Access Original Repository</strong>: Navigate to the CfRR repository, found here: <a class="github reference external" href="https://github.com/coding-for-reproducible-research/CfRR_Courses/tree/main">coding-for-reproducible-research/CfRR_Courses</a></p></li>
+<li><p><strong>Fork the Original Repository</strong>: Click on the <code class="docutils literal notranslate"><span class="pre">Fork</span></code> button at the top right corner of the repository page. This will create a copy of the repository under your personal GitHub account.</p></li>
+<li><p><strong>Access Fork Repository</strong>: Find the forked repository in your GitHub profile.</p></li>
+<li><p><strong>Clone Fork Repository</strong>: Click on the <code class="docutils literal notranslate"><span class="pre">Code</span></code> button, copy the URL, and run the following command within your terminal to clone the forked repository to your local machine: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/YOUR-USERNAME/REPO-NAME.git</span></code></p></li>
+</ul>
+<section id="fork-repository-button">
+<h5>Fork Repository Button<a class="headerlink" href="#fork-repository-button" title="Link to this heading">#</a></h5>
+<p><img alt="Fork Repository Button" src="_images/fork_button.png" /></p>
+</section>
+<section id="creating-a-fork-form">
+<h5>Creating a Fork Form<a class="headerlink" href="#creating-a-fork-form" title="Link to this heading">#</a></h5>
+<p><img alt="Creating a Fork Form" src="_images/creating_a_fork_form.png" /></p>
+</section>
+</section>
+<section id="make-changes-in-forked-repository">
+<h4>Make Changes in Forked Repository<a class="headerlink" href="#make-changes-in-forked-repository" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Navigate to Repository Directory</strong>: On your local machine, you will then need to navigate to the repository directory that has just been downloaded, achieved with: <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">REPO-NAME</span></code></p></li>
+<li><p><strong>Create a New Branch</strong>: Create a new branch for the changes you want to make within the repository, achieved with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">-b</span> <span class="pre">your-branch-name</span></code></p></li>
+<li><p><strong>Make Changes</strong>: Make the necessary changes to the content, such as fixing issues, adding a new course etc.</p></li>
+<li><p><strong>Stage your changes</strong>: Add the files you have changed to the staging area; this can be done for all files within the current repository with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">.</span></code></p></li>
+<li><p><strong>Commit your changes</strong>: Commit the changes to the branch with the following command: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-m</span> <span class="pre">&quot;Description</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">changes</span> <span class="pre">you</span> <span class="pre">made</span></code></p></li>
+<li><p><strong>Push your changes</strong>: Push the changes that have been made to your forked repository on GitHub with the following command: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span> <span class="pre">your-branch-name</span></code></p></li>
+</ul>
+</section>
+<section id="contribute-back-to-the-main-cfrr-repository">
+<h4>Contribute back to the Main CfRR Repository<a class="headerlink" href="#contribute-back-to-the-main-cfrr-repository" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Github Forked Repository</strong>: Navigate to the repository on GitHub where you pushed the branch.</p></li>
+<li><p><strong>Create a Pull Request</strong>: At the top of the GitHub page, you should see a prompt to create a pull request for the branch you pushed; click on <code class="docutils literal notranslate"><span class="pre">Compare</span> <span class="pre">and</span> <span class="pre">Pull</span> <span class="pre">Request</span></code>.</p></li>
+<li><p><strong>Complete Pull Request Form</strong> Provide both a title and a description for the pull request.</p></li>
+<li><p><strong>Select the base repository and branch</strong>: Ensure that the base repository is set to the original repository and the base branch is the branch you want to merge into (<code class="docutils literal notranslate"><span class="pre">main</span></code> for CfRR_Courses).</p></li>
+<li><p><strong>Submit the Pull Request</strong>: Click on <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">Pull</span> <span class="pre">Request</span></code> to submit the pull request and allow us, the central CfRR, to integrate the changes into the main materials.</p></li>
+</ul>
+<section id="pull-request-banner">
+<h5>Pull Request Banner<a class="headerlink" href="#pull-request-banner" title="Link to this heading">#</a></h5>
+<p><img alt="Pull Request Banner" src="_images/pull_request_banner.png" /></p>
+</section>
+<section id="pull-request-form">
+<h5>Pull Request Form<a class="headerlink" href="#pull-request-form" title="Link to this heading">#</a></h5>
+<p><img alt="Pull Request Form" src="_images/pull_request_submission_form.png" /></p>
+</section>
+</section>
 </section>
 </section>
 </section>
@@ -783,6 +864,15 @@ document.write(`
         <p class="prev-next-title">Control Flow</p>
       </div>
     </a>
+    <a class="right-next"
+       href="developing_a_course.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Developing a Course Guidance</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -803,10 +893,28 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-i-contribute">How Do I Contribute?</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#become-a-helper">Become a helper</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#highlighting-issues">Highlighting Issues</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-an-github-issue">Creating an GitHub Issue</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-issue">Types of Issue</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-an-github-issue">Creating an GitHub Issue</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#github-issue-button">Github Issue Button</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#github-issue-example">Github Issue Example</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#making-changes">Making Changes</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#making-changes">Making Changes</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-forked-repository">Create a Forked Repository</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#fork-repository-button">Fork Repository Button</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-fork-form">Creating a Fork Form</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#make-changes-in-forked-repository">Make Changes in Forked Repository</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#contribute-back-to-the-main-cfrr-repository">Contribute back to the Main CfRR Repository</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#pull-request-banner">Pull Request Banner</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#pull-request-form">Pull Request Form</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

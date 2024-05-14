@@ -282,8 +282,8 @@ function highlightFilter(filter) {
                   
 
                   // parsing and collecting nodes and edges from the python
-                  nodes = new vis.DataSet([{"color": "#4682B4", "id": "Introduction to Python", "label": "Introduction to Python", "shape": "dot", "size": 10, "title": "Course Name: Introduction to Python\nCourse Pre-reqs: None\nSubsequent Courses: Python for Data Analysis "}, {"color": "#4682B4", "id": "Python for Data Analysis ", "label": "Python for Data Analysis ", "shape": "dot", "size": 10, "title": "Course Name: Python for Data Analysis \nCourse Pre-reqs: Introduction to Python\nSubsequent Courses: None"}, {"color": "#4682B4", "id": "Introduction to Unix", "label": "Introduction to Unix", "shape": "dot", "size": 10, "title": "Course Name: Introduction to Unix\nCourse Pre-reqs: None\nSubsequent Courses: Introduction to Version Control with Git and GitHub"}, {"color": "#4682B4", "id": "Introduction to Version Control with Git and GitHub", "label": "Introduction to Version Control with Git and GitHub", "shape": "dot", "size": 10, "title": "Course Name: Introduction to Version Control with Git and GitHub\nCourse Pre-reqs: Introduction to Unix\nSubsequent Courses: None"}]);
-                  edges = new vis.DataSet([{"arrows": "to", "from": "Introduction to Python", "to": "Python for Data Analysis ", "width": 1}, {"arrows": "to", "from": "Introduction to Unix", "to": "Introduction to Version Control with Git and GitHub", "width": 1}]);
+                  nodes = new vis.DataSet([{"color": "#4682B4", "id": "Introduction to Unix", "label": "Introduction to Unix", "level": 1, "shape": "dot", "size": 10, "title": "Course Name: Introduction to Unix\nCourse Pre-reqs: None\nSubsequent Courses: Introduction to Version Control with Git and GitHub"}, {"color": "#4682B4", "id": "Introduction to Version Control with Git and GitHub", "label": "Introduction to Version Control with Git and GitHub", "level": 2, "shape": "dot", "size": 10, "title": "Course Name: Introduction to Version Control with Git and GitHub\nCourse Pre-reqs: Introduction to Unix\nSubsequent Courses: None"}, {"color": "#4682B4", "id": "Introduction to Python", "label": "Introduction to Python", "level": 1, "shape": "dot", "size": 10, "title": "Course Name: Introduction to Python\nCourse Pre-reqs: None\nSubsequent Courses: Python for Data Analysis "}, {"color": "#4682B4", "id": "Python for Data Analysis ", "label": "Python for Data Analysis ", "level": 2, "shape": "dot", "size": 10, "title": "Course Name: Python for Data Analysis \nCourse Pre-reqs: Introduction to Python\nSubsequent Courses: None"}]);
+                  edges = new vis.DataSet([{"arrows": "to", "from": "Introduction to Unix", "to": "Introduction to Version Control with Git and GitHub", "width": 1}, {"arrows": "to", "from": "Introduction to Python", "to": "Python for Data Analysis ", "width": 1}]);
 
                   nodeColors = {};
                   allNodes = nodes.get({ returnType: "Object" });
@@ -294,35 +294,7 @@ function highlightFilter(filter) {
                   // adding nodes and edges to the graph
                   data = {nodes: nodes, edges: edges};
 
-                  var options = {
-    "configure": {
-        "enabled": false
-    },
-    "edges": {
-        "color": {
-            "inherit": true
-        },
-        "smooth": {
-            "enabled": true,
-            "type": "dynamic"
-        }
-    },
-    "interaction": {
-        "dragNodes": true,
-        "hideEdgesOnDrag": false,
-        "hideNodesOnDrag": false
-    },
-    "physics": {
-        "enabled": true,
-        "stabilization": {
-            "enabled": true,
-            "fit": true,
-            "iterations": 1000,
-            "onlyDynamicEdges": false,
-            "updateInterval": 50
-        }
-    }
-};
+                  var options = {"layout": {"hierarchical": {"enabled": true, "levelSeparation": 150, "nodeSpacing": 250, "treeSpacing": 300, "blockShifting": true, "edgeMinimization": true, "parentCentralization": true, "direction": "UD", "sortMethod": "hubsize"}}, "interaction": {"navigationButtons": true, "keyboard": true}, "physics": {"enabled": false}};
 
                   
 

@@ -282,7 +282,7 @@ function highlightFilter(filter) {
                   
 
                   // parsing and collecting nodes and edges from the python
-                  nodes = new vis.DataSet([{"color": "#FF6347", "id": "Introduction to R", "label": "Introduction to R", "shape": "dot", "size": 10, "title": "Course Name: Introduction to R\nCourse Pre-reqs: None\nSubsequent Courses: Regression analysis with R, Working With Data In R"}, {"color": "#FF6347", "id": "Regression analysis with R", "label": "Regression analysis with R", "shape": "dot", "size": 10, "title": "Course Name: Regression analysis with R\nCourse Pre-reqs: Introduction to R\nSubsequent Courses: Advanced Regression Analysis With R "}, {"color": "#FF6347", "id": "Working With Data In R", "label": "Working With Data In R", "shape": "dot", "size": 10, "title": "Course Name: Working With Data In R\nCourse Pre-reqs: Introduction to R\nSubsequent Courses: None"}, {"color": "#FF6347", "id": "Advanced Regression Analysis With R ", "label": "Advanced Regression Analysis With R ", "shape": "dot", "size": 10, "title": "Course Name: Advanced Regression Analysis With R \nCourse Pre-reqs: Regression analysis with R\nSubsequent Courses: None"}, {"color": "#FF6347", "id": "Introduction to Unix", "label": "Introduction to Unix", "shape": "dot", "size": 10, "title": "Course Name: Introduction to Unix\nCourse Pre-reqs: None\nSubsequent Courses: Introduction to Version Control with Git and GitHub"}, {"color": "#FF6347", "id": "Introduction to Version Control with Git and GitHub", "label": "Introduction to Version Control with Git and GitHub", "shape": "dot", "size": 10, "title": "Course Name: Introduction to Version Control with Git and GitHub\nCourse Pre-reqs: Introduction to Unix\nSubsequent Courses: None"}]);
+                  nodes = new vis.DataSet([{"color": "#FF6347", "id": "Introduction to R", "label": "Introduction to R", "level": 1, "shape": "dot", "size": 10, "title": "Course Name: Introduction to R\nCourse Pre-reqs: None\nSubsequent Courses: Regression analysis with R, Working With Data In R"}, {"color": "#FF6347", "id": "Regression analysis with R", "label": "Regression analysis with R", "level": 2, "shape": "dot", "size": 10, "title": "Course Name: Regression analysis with R\nCourse Pre-reqs: Introduction to R\nSubsequent Courses: Advanced Regression Analysis With R "}, {"color": "#FF6347", "id": "Working With Data In R", "label": "Working With Data In R", "level": 2, "shape": "dot", "size": 10, "title": "Course Name: Working With Data In R\nCourse Pre-reqs: Introduction to R\nSubsequent Courses: None"}, {"color": "#FF6347", "id": "Advanced Regression Analysis With R ", "label": "Advanced Regression Analysis With R ", "level": 3, "shape": "dot", "size": 10, "title": "Course Name: Advanced Regression Analysis With R \nCourse Pre-reqs: Regression analysis with R\nSubsequent Courses: None"}, {"color": "#FF6347", "id": "Introduction to Unix", "label": "Introduction to Unix", "level": 1, "shape": "dot", "size": 10, "title": "Course Name: Introduction to Unix\nCourse Pre-reqs: None\nSubsequent Courses: Introduction to Version Control with Git and GitHub"}, {"color": "#FF6347", "id": "Introduction to Version Control with Git and GitHub", "label": "Introduction to Version Control with Git and GitHub", "level": 2, "shape": "dot", "size": 10, "title": "Course Name: Introduction to Version Control with Git and GitHub\nCourse Pre-reqs: Introduction to Unix\nSubsequent Courses: None"}]);
                   edges = new vis.DataSet([{"arrows": "to", "from": "Introduction to R", "to": "Regression analysis with R", "width": 1}, {"arrows": "to", "from": "Introduction to R", "to": "Working With Data In R", "width": 1}, {"arrows": "to", "from": "Regression analysis with R", "to": "Advanced Regression Analysis With R ", "width": 1}, {"arrows": "to", "from": "Introduction to Unix", "to": "Introduction to Version Control with Git and GitHub", "width": 1}]);
 
                   nodeColors = {};
@@ -294,35 +294,7 @@ function highlightFilter(filter) {
                   // adding nodes and edges to the graph
                   data = {nodes: nodes, edges: edges};
 
-                  var options = {
-    "configure": {
-        "enabled": false
-    },
-    "edges": {
-        "color": {
-            "inherit": true
-        },
-        "smooth": {
-            "enabled": true,
-            "type": "dynamic"
-        }
-    },
-    "interaction": {
-        "dragNodes": true,
-        "hideEdgesOnDrag": false,
-        "hideNodesOnDrag": false
-    },
-    "physics": {
-        "enabled": true,
-        "stabilization": {
-            "enabled": true,
-            "fit": true,
-            "iterations": 1000,
-            "onlyDynamicEdges": false,
-            "updateInterval": 50
-        }
-    }
-};
+                  var options = {"layout": {"hierarchical": {"enabled": true, "levelSeparation": 150, "nodeSpacing": 250, "treeSpacing": 300, "blockShifting": true, "edgeMinimization": true, "parentCentralization": true, "direction": "UD", "sortMethod": "hubsize"}}, "interaction": {"navigationButtons": true, "keyboard": true}, "physics": {"enabled": false}};
 
                   
 
