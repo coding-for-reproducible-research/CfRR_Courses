@@ -1,4 +1,4 @@
-# Welcome to Coding For Reproducible Research
+# Welcome to Coding For Reproducible Research Website Content README
 
 Here, you will find all the materials used for the Coding For Reproducible Research (CfRR) training program. The primary purpose of this repository is to provide the content that is used for the [Jupyter Book ](https://jupyterbook.org/en/stable/intro.html) website that is used to present all of the content required by the CfRR training program, such as: 
 **CfRR About Us**: General details about the program itself and who delivers it
