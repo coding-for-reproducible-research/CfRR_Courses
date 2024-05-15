@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'individual_modules/section_landing_pages/python_for_data_analysis';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Numpy" href="../python_for_data_analysis/Python_NumPy.html" />
+    <link rel="next" title="Python Language Features" href="../python_for_data_analysis/Python_Language_features.html" />
     <link rel="prev" title="Data Analysis Task 3" href="../introduction_to_python/analysis_task_3.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -276,6 +276,11 @@
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Python for Data Analysis</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_Language_features.html">Python Language Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_Virtual_environments.html">Virtual environments</a></li>
+
+
+
 <li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_NumPy.html">Numpy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_Pandas.html">Pandas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_Matplotlib.html">Matplotlib</a></li>
@@ -434,6 +439,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing to CfRR</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developing_a_course.html">Developing a Course Guidance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../suggestions_form.html">Suggestions for Improvements, Additions</a></li>
 </ul>
 
     </div>
@@ -629,9 +635,15 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-objectives">Course Objectives</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-requisite-knowledge">Pre-requisite Knowledge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-overview">Course overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-content">Course content</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1">Part 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2">Part 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3">Part 3</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -645,14 +657,62 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="python-for-data-analysis">
 <h1>Python for Data Analysis<a class="headerlink" href="#python-for-data-analysis" title="Link to this heading">#</a></h1>
-<section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h2>
+<p>An understanding and experience of Python programming from, for example, attending Intro to Python.</p>
+<p>Participants should have experience running Python commands and scripts on their machines.</p>
 </section>
-<section id="course-objectives">
-<h2>Course Objectives<a class="headerlink" href="#course-objectives" title="Link to this heading">#</a></h2>
+<section id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Link to this heading">#</a></h2>
+<p>A working Python environment (3.10 or later)</p>
+<p>An IDE (Anaconda, PyCharm, VS Code)</p>
 </section>
-<section id="pre-requisite-knowledge">
-<h2>Pre-requisite Knowledge<a class="headerlink" href="#pre-requisite-knowledge" title="Link to this heading">#</a></h2>
+<section id="course-overview">
+<h2>Course overview<a class="headerlink" href="#course-overview" title="Link to this heading">#</a></h2>
+<p>More advanced Python features, including usage of virtual environments, tools to check and test Python code, object orientation, and some commonly seen coding patterns. We will move on to working with Python libraries for data analysis, such as Pandas and Numpy, using libraries for visualising data, such as matplotlib, and create data pipelines.</p>
+</section>
+<section id="course-content">
+<h2>Course content<a class="headerlink" href="#course-content" title="Link to this heading">#</a></h2>
+<section id="part-1">
+<h3>Part 1<a class="headerlink" href="#part-1" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Language features</p>
+<ul>
+<li><p>Annotating code - docstrings, type-hints</p></li>
+<li><p>List and generator comprehensions</p></li>
+<li><p>Classes</p></li>
+<li><p>Operator overloading</p></li>
+</ul>
+</li>
+<li><p>Virtual environments</p>
+<ul>
+<li><p>poetry</p></li>
+<li><p>venv and pipenv</p></li>
+</ul>
+</li>
+<li><p>Checking and testing code</p>
+<ul>
+<li><p>mypy</p></li>
+<li><p>pytest</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="part-2">
+<h3>Part 2<a class="headerlink" href="#part-2" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>NumPy</p></li>
+<li><p>Pandas</p></li>
+<li><p>ScikitLean</p></li>
+</ul>
+</section>
+<section id="part-3">
+<h3>Part 3<a class="headerlink" href="#part-3" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Matplotlib</p></li>
+<li><p>Plotly?</p></li>
+</ul>
+</section>
 </section>
 <div class="toctree-wrapper compound">
 </div>
@@ -698,11 +758,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="../python_for_data_analysis/Python_NumPy.html"
+       href="../python_for_data_analysis/Python_Language_features.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Numpy</p>
+        <p class="prev-next-title">Python Language Features</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -722,9 +782,15 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-objectives">Course Objectives</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-requisite-knowledge">Pre-requisite Knowledge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-overview">Course overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-content">Course content</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1">Part 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2">Part 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3">Part 3</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
