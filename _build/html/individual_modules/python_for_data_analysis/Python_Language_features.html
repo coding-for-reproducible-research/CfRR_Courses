@@ -1537,33 +1537,12 @@ ValueError: could not convert string to float: &#39;one&#39;
 </section>
 <section id="exercise">
 <h2>Exercise<a class="headerlink" href="#exercise" title="Link to this heading">#</a></h2>
+<p>Uncomment the following code.</p>
 <p>Add a try-except clause to this code sample.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_num</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;type a number &#39;</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">my_num</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">my_num</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;type a number &#39;</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">my_num</span><span class="p">)</span>
-
-<span class="nn">File ~/miniconda3/envs/CfRR/lib/python3.9/site-packages/ipykernel/kernelbase.py:1281,</span> in <span class="ni">Kernel.raw_input</span><span class="nt">(self, prompt)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1279</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1280</span>     <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1281</span>     <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1282</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1283</span>     <span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1284</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_parent_ident</span><span class="p">[</span><span class="s2">&quot;shell&quot;</span><span class="p">],</span>
-<span class="g g-Whitespace">   </span><span class="mi">1285</span>     <span class="bp">self</span><span class="o">.</span><span class="n">get_parent</span><span class="p">(</span><span class="s2">&quot;shell&quot;</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1286</span>     <span class="n">password</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1287</span> <span class="p">)</span>
-
-<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># my_num = float(input(&#39;type a number &#39;))</span>
+<span class="c1"># print(my_num)</span>
 </pre></div>
 </div>
 </div>
@@ -1594,15 +1573,14 @@ ValueError: could not convert string to float: &#39;one&#39;
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Carry on regardless...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;/var/folders/79/nkc7chg17vz5kdlf2mdlh8zw0000gq/T/ipykernel_30981/2643476507.py&quot;, line 11, in &lt;module&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;/var/folders/r7/wblx0jw96hz08nvjz9p3zsgr0000gp/T/ipykernel_68924/2841111012.py&quot;, line 11, in &lt;module&gt;
     always_bad()
-  File &quot;/var/folders/79/nkc7chg17vz5kdlf2mdlh8zw0000gq/T/ipykernel_30981/2643476507.py&quot;, line 8, in always_bad
+  File &quot;/var/folders/r7/wblx0jw96hz08nvjz9p3zsgr0000gp/T/ipykernel_68924/2841111012.py&quot;, line 8, in always_bad
     raise Exception(&quot;Never happy&quot;)
 Exception: Never happy
+
+Carry on regardless...
 </pre></div>
 </div>
 </div>
@@ -1611,12 +1589,12 @@ Exception: Never happy
 <section id="list-comprehensions">
 <h2>List comprehensions<a class="headerlink" href="#list-comprehensions" title="Link to this heading">#</a></h2>
 <p>A list comprehension is shorthand for</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">some_list</span><span class="p">:</span>
         <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">[</span><span class="n">some_function</span><span class="p">(</span><span class="n">x</span><span class="p">)]</span>
 </pre></div>
 </div>
-<p>Actually the input does not need to be a list, any ‘iterable’ will do. For example a tuple, or a file.</p>
+<p>The input to the for statement does not need to be a list, any ‘iterable’ will do. For example a tuple, or a file.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">days</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;mon&#39;</span><span class="p">,</span> <span class="s1">&#39;tue&#39;</span><span class="p">,</span> <span class="s1">&#39;wed&#39;</span><span class="p">,</span> <span class="s1">&#39;thu&#39;</span><span class="p">,</span> <span class="s1">&#39;fri&#39;</span><span class="p">,</span> <span class="s1">&#39;sat&#39;</span><span class="p">,</span> <span class="s1">&#39;sun&#39;</span><span class="p">)]</span>
@@ -1683,13 +1661,19 @@ world
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Why does this fail?</span>
 <span class="c1"># How could we fix it?</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/rows.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">data</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/rows.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">data</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">traceback</span><span class="o">.</span><span class="n">print_exc</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;/var/folders/r7/wblx0jw96hz08nvjz9p3zsgr0000gp/T/ipykernel_68924/679916601.py&quot;, line 5, in &lt;module&gt;
+    print(len(data))
+TypeError: object of type &#39;_io.TextIOWrapper&#39; has no len()
 </pre></div>
 </div>
 </div>
@@ -1777,30 +1761,6 @@ world
 <li><p>Encapsulation (information hiding)</p></li>
 <li><p>Easier code re-use</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
-<span class="n">my_name</span> <span class="o">=</span> <span class="s2">&quot;michael&quot;</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">my_name</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">my_name</span><span class="p">)</span>
-
-<span class="c1"># or</span>
-<span class="n">my_name</span> <span class="o">=</span> <span class="s2">&quot;michael&quot;</span>
-<span class="n">my_name</span> <span class="o">=</span> <span class="n">my_name</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">my_name</span><span class="p">)</span>
-
-<span class="c1"># or</span>
-<span class="n">my_name</span> <span class="o">=</span> <span class="n">upper</span><span class="p">(</span><span class="s2">&quot;michael&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">my_name</span><span class="p">)</span>
-
-
-
-<span class="k">def</span> <span class="nf">upper_case_str</span><span class="p">(</span><span class="nb">input</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
-    <span class="k">return</span> <span class="nb">input</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_name</span> <span class="o">=</span> <span class="s2">&quot;michael&quot;</span>
@@ -1815,6 +1775,13 @@ world
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MICHAEL
+michael
+MICHAEL
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1824,6 +1791,11 @@ world
 
 <span class="n">my_name</span> <span class="o">=</span> <span class="n">upper</span><span class="p">(</span><span class="s2">&quot;michael&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">my_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MICHAEL
 </pre></div>
 </div>
 </div>
@@ -1842,11 +1814,6 @@ world
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MICHAEL
-michael
-MICHAEL
-MICHAEL
-MICHAEL_abcd
-MICHAEL
 &lt;class &#39;__main__.Upper&#39;&gt;
 </pre></div>
 </div>
@@ -1881,7 +1848,7 @@ MICHAEL
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;__main__.Upper&#39;&gt; hello
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;__main__.Upper&#39;&gt; HELLO
 &lt;class &#39;str&#39;&gt; hello
 &lt;class &#39;str&#39;&gt; HELLO
 </pre></div>
@@ -1909,23 +1876,14 @@ MICHAEL
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;,&#39;</span> <span class="o">*</span> <span class="mi">6</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="mi">6</span> <span class="o">*</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;,&#39;</span> <span class="o">*</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="c1">## What about the following?</span>
+<span class="c1"># print(&#39;,&#39; * &#39;,&#39;)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>,,,,,,
 ,,,,,,
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">64</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;,&#39;</span> <span class="o">*</span> <span class="mi">6</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="mi">6</span> <span class="o">*</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;,&#39;</span> <span class="o">*</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span>
-
-<span class="ne">TypeError</span>: can&#39;t multiply sequence by non-int of type &#39;str&#39;
 </pre></div>
 </div>
 </div>
