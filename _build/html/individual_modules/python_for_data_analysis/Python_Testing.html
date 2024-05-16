@@ -281,6 +281,10 @@
 
 
 
+
+
+
+
 <li class="toctree-l2"><a class="reference internal" href="Python_NumPy.html">Numpy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Python_Pandas.html">Pandas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Python_Matplotlib.html">Matplotlib</a></li>
@@ -687,9 +691,18 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-software">Testing software</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-level-testing">System level testing</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defect-testing">Defect testing</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">Discussion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-tests">Unit-tests</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-driven-development-tdd">Test Driven Development (TDD)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#refactoring">Refactoring</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unittest">unittest</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pytest">Pytest</a></li>
 </ul>
             </nav>
         </div>
@@ -717,15 +730,88 @@ document.write(`
 <section id="testing-software">
 <h2>Testing software<a class="headerlink" href="#testing-software" title="Link to this heading">#</a></h2>
 <p>Although we cannot prove our code is free of defects, or bugs, we can, and should, establish that it behaves as intended.</p>
-<p>In a research environment it is often the case that there is no explicit specification for the software we create.</p>
 <section id="system-level-testing">
 <h3>System level testing<a class="headerlink" href="#system-level-testing" title="Link to this heading">#</a></h3>
 <p>Once we have completed our software we should ensure that it works as intended.  This is referred to as - validation testing.  Typically this will involve taking a sample of input data and ensuring that the output of our software is as expected for the given input.</p>
 <p>This <em>validation</em> testing will tell us in the overall system runs, and produces valid results.  Such tests should be repeated when changes are made to the software, to ensure the changes have not introduced errors.</p>
+<p>Changes that can impact your software are diverse and include</p>
+<ul class="simple">
+<li><p>new Python language releases</p></li>
+<li><p>upgrades to imported libraries</p></li>
+<li><p>operating system updates.</p></li>
+</ul>
 </section>
-<section id="id1">
-<h3><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<section id="defect-testing">
+<h3>Defect testing<a class="headerlink" href="#defect-testing" title="Link to this heading">#</a></h3>
+<p>In a research environment it is often the case that there is no explicit specification for the software we create.</p>
+<p>By specification we mean something like</p>
+<ul class="simple">
+<li><p>Written statement of user requirements - typically “user stories”</p></li>
+<li><p>Functional requirements - e.g what file formats are to be supported</p></li>
+<li><p>Non-functional requirements - e.g. subject data must be encrypted</p></li>
+</ul>
 </section>
+</section>
+<section id="discussion">
+<h2>Discussion<a class="headerlink" href="#discussion" title="Link to this heading">#</a></h2>
+<p>If you don’t have a specification for your software, how might you establish suitable tests to find and resolve defects?</p>
+</section>
+<section id="unit-tests">
+<h2>Unit-tests<a class="headerlink" href="#unit-tests" title="Link to this heading">#</a></h2>
+<p>Unit-tests are small tests that test the behaviours of our functions and classes.</p>
+<p>Unit-tests are typically run within a testing framework or test-runner that automates testing, often inside our IDE.</p>
+<section id="test-driven-development-tdd">
+<h3>Test Driven Development (TDD)<a class="headerlink" href="#test-driven-development-tdd" title="Link to this heading">#</a></h3>
+<p>TDD is an approach to software design, it is not software testing. TDD uses unit-tests to create a software design, especially when the design is created incrementally, as with Agile.</p>
+</section>
+<section id="refactoring">
+<h3>Refactoring<a class="headerlink" href="#refactoring" title="Link to this heading">#</a></h3>
+<p>Whether or not you adopt TDD, refactoring - changing the implementation of your code without changing its behaviour, is something that you are certain to do. If only to remove print statements, or change the names of variables.</p>
+<p>Refactoring code without appropriate tests can easily introduce new errors.</p>
+</section>
+<section id="unittest">
+<h3>unittest<a class="headerlink" href="#unittest" title="Link to this heading">#</a></h3>
+<p>Python 3 distributions include the unittest module.  See <a class="reference external" href="https://docs.python.org/3/library/unittest.html">https://docs.python.org/3/library/unittest.html</a></p>
+<p>Here is the example included in the Python documentation.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">unittest</span>
+
+<span class="k">class</span> <span class="nc">TestStringMethods</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">test_upper</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span> <span class="s1">&#39;FOO&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_isupper</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="s1">&#39;FOO&#39;</span><span class="o">.</span><span class="n">isupper</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertFalse</span><span class="p">(</span><span class="s1">&#39;Foo&#39;</span><span class="o">.</span><span class="n">isupper</span><span class="p">())</span>
+
+    <span class="k">def</span> <span class="nf">test_split</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;hello world&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(),</span> <span class="p">[</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;world&#39;</span><span class="p">])</span>
+        <span class="c1"># check that s.split fails when the separator is not a string</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">TypeError</span><span class="p">):</span>
+            <span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="exercise">
+<h2>Exercise<a class="headerlink" href="#exercise" title="Link to this heading">#</a></h2>
+<p>Using the above as template create a test for the Upper class we used earlier.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Upper</span><span class="p">(</span><span class="nb">str</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">text</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="pytest">
+<h2>Pytest<a class="headerlink" href="#pytest" title="Link to this heading">#</a></h2>
+<p>Pytest makes it easier to write and run tests.</p>
+<p>Pytest uses file and function naming conventions to discover test.  You will rarely need to run a test directly as the framework will find and run tests for you when you modify your code.</p>
+<p>Follow the instruction here to install pytest  - use a virtual environment.</p>
+<p><a class="reference external" href="https://docs.pytest.org/en/8.2.x/getting-started.html">https://docs.pytest.org/en/8.2.x/getting-started.html</a></p>
 </section>
 </section>
 
@@ -778,9 +864,18 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-software">Testing software</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-level-testing">System level testing</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defect-testing">Defect testing</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">Discussion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-tests">Unit-tests</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-driven-development-tdd">Test Driven Development (TDD)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#refactoring">Refactoring</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unittest">unittest</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pytest">Pytest</a></li>
 </ul>
   </nav></div>
 

@@ -281,6 +281,10 @@
 
 
 
+
+
+
+
 <li class="toctree-l2"><a class="reference internal" href="Python_NumPy.html">Numpy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Python_Pandas.html">Pandas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Python_Matplotlib.html">Matplotlib</a></li>
@@ -689,13 +693,15 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docstrings">Docstrings</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#type-hints">Type-hints</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docstring-exercise">Docstring Exercise</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introspection">Introspection</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#typing-exercise">Typing exercise</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decorators">Decorators</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-techniques">Useful techniques</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#casting">Casting</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introspection">Introspection</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#try-except-and-raise">try-except  (and raise)</a></li>
 </ul>
 </li>
@@ -761,679 +767,68 @@ document.write(`
 <section id="docstring-exercise">
 <h3>Docstring Exercise<a class="headerlink" href="#docstring-exercise" title="Link to this heading">#</a></h3>
 <p>All standard Python modules have docstrings that describe the module and exported classes and functions.  They can be accessed using the built-in <code class="docutils literal notranslate"><span class="pre">help()</span></code> function.</p>
-<p>Here is an example docstring for the random module. Find the Python code for this module and compare the text with the doc() output.</p>
+<p>Here is an example docstring for the random module. Find the Python code for this module and compare the text with the help() output.</p>
 <p>Hint: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">site</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
 
-<span class="n">help</span><span class="p">(</span><span class="n">random</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on module random:
-
-NAME
-    random - Random variable generators.
-
-MODULE REFERENCE
-    https://docs.python.org/3.9/library/random
-    
-    The following documentation is automatically generated from the Python
-    source files.  It may be incomplete, incorrect or include features that
-    are considered implementation detail and may vary between Python
-    implementations.  When in doubt, consult the module reference at the
-    location listed above.
-
-DESCRIPTION
-        bytes
-        -----
-               uniform bytes (values between 0 and 255)
-    
-        integers
-        --------
-               uniform within range
-    
-        sequences
-        ---------
-               pick random element
-               pick random sample
-               pick weighted random sample
-               generate random permutation
-    
-        distributions on the real line:
-        ------------------------------
-               uniform
-               triangular
-               normal (Gaussian)
-               lognormal
-               negative exponential
-               gamma
-               beta
-               pareto
-               Weibull
-    
-        distributions on the circle (angles 0 to 2pi)
-        ---------------------------------------------
-               circular uniform
-               von Mises
-    
-    General notes on the underlying Mersenne Twister core generator:
-    
-    * The period is 2**19937-1.
-    * It is one of the most extensively tested generators in existence.
-    * The random() method is implemented in C, executes in a single Python step,
-      and is, therefore, threadsafe.
-
-CLASSES
-    _random.Random(builtins.object)
-        Random
-            SystemRandom
-    
-    class Random(_random.Random)
-     |  Random(x=None)
-     |  
-     |  Random number generator base class used by bound module functions.
-     |  
-     |  Used to instantiate instances of Random to get generators that don&#39;t
-     |  share state.
-     |  
-     |  Class Random can also be subclassed if you want to use a different basic
-     |  generator of your own devising: in that case, override the following
-     |  methods:  random(), seed(), getstate(), and setstate().
-     |  Optionally, implement a getrandbits() method so that randrange()
-     |  can cover arbitrarily large ranges.
-     |  
-     |  Method resolution order:
-     |      Random
-     |      _random.Random
-     |      builtins.object
-     |  
-     |  Methods defined here:
-     |  
-     |  __getstate__(self)
-     |      # Issue 17489: Since __reduce__ was defined to fix #759889 this is no
-     |      # longer called; we leave it here because it has been here since random was
-     |      # rewritten back in 2001 and why risk breaking something.
-     |  
-     |  __init__(self, x=None)
-     |      Initialize an instance.
-     |      
-     |      Optional argument x controls seeding, as for Random.seed().
-     |  
-     |  __reduce__(self)
-     |      Helper for pickle.
-     |  
-     |  __setstate__(self, state)
-     |  
-     |  betavariate(self, alpha, beta)
-     |      Beta distribution.
-     |      
-     |      Conditions on the parameters are alpha &gt; 0 and beta &gt; 0.
-     |      Returned values range between 0 and 1.
-     |  
-     |  choice(self, seq)
-     |      Choose a random element from a non-empty sequence.
-     |  
-     |  choices(self, population, weights=None, *, cum_weights=None, k=1)
-     |      Return a k sized list of population elements chosen with replacement.
-     |      
-     |      If the relative weights or cumulative weights are not specified,
-     |      the selections are made with equal probability.
-     |  
-     |  expovariate(self, lambd)
-     |      Exponential distribution.
-     |      
-     |      lambd is 1.0 divided by the desired mean.  It should be
-     |      nonzero.  (The parameter would be called &quot;lambda&quot;, but that is
-     |      a reserved word in Python.)  Returned values range from 0 to
-     |      positive infinity if lambd is positive, and from negative
-     |      infinity to 0 if lambd is negative.
-     |  
-     |  gammavariate(self, alpha, beta)
-     |      Gamma distribution.  Not the gamma function!
-     |      
-     |      Conditions on the parameters are alpha &gt; 0 and beta &gt; 0.
-     |      
-     |      The probability distribution function is:
-     |      
-     |                  x ** (alpha - 1) * math.exp(-x / beta)
-     |        pdf(x) =  --------------------------------------
-     |                    math.gamma(alpha) * beta ** alpha
-     |  
-     |  gauss(self, mu, sigma)
-     |      Gaussian distribution.
-     |      
-     |      mu is the mean, and sigma is the standard deviation.  This is
-     |      slightly faster than the normalvariate() function.
-     |      
-     |      Not thread-safe without a lock around calls.
-     |  
-     |  getstate(self)
-     |      Return internal state; can be passed to setstate() later.
-     |  
-     |  lognormvariate(self, mu, sigma)
-     |      Log normal distribution.
-     |      
-     |      If you take the natural logarithm of this distribution, you&#39;ll get a
-     |      normal distribution with mean mu and standard deviation sigma.
-     |      mu can have any value, and sigma must be greater than zero.
-     |  
-     |  normalvariate(self, mu, sigma)
-     |      Normal distribution.
-     |      
-     |      mu is the mean, and sigma is the standard deviation.
-     |  
-     |  paretovariate(self, alpha)
-     |      Pareto distribution.  alpha is the shape parameter.
-     |  
-     |  randbytes(self, n)
-     |      Generate n random bytes.
-     |  
-     |  randint(self, a, b)
-     |      Return random integer in range [a, b], including both end points.
-     |  
-     |  randrange(self, start, stop=None, step=1)
-     |      Choose a random item from range(start, stop[, step]).
-     |      
-     |      This fixes the problem with randint() which includes the
-     |      endpoint; in Python this is usually not what you want.
-     |  
-     |  sample(self, population, k, *, counts=None)
-     |      Chooses k unique random elements from a population sequence or set.
-     |      
-     |      Returns a new list containing elements from the population while
-     |      leaving the original population unchanged.  The resulting list is
-     |      in selection order so that all sub-slices will also be valid random
-     |      samples.  This allows raffle winners (the sample) to be partitioned
-     |      into grand prize and second place winners (the subslices).
-     |      
-     |      Members of the population need not be hashable or unique.  If the
-     |      population contains repeats, then each occurrence is a possible
-     |      selection in the sample.
-     |      
-     |      Repeated elements can be specified one at a time or with the optional
-     |      counts parameter.  For example:
-     |      
-     |          sample([&#39;red&#39;, &#39;blue&#39;], counts=[4, 2], k=5)
-     |      
-     |      is equivalent to:
-     |      
-     |          sample([&#39;red&#39;, &#39;red&#39;, &#39;red&#39;, &#39;red&#39;, &#39;blue&#39;, &#39;blue&#39;], k=5)
-     |      
-     |      To choose a sample from a range of integers, use range() for the
-     |      population argument.  This is especially fast and space efficient
-     |      for sampling from a large population:
-     |      
-     |          sample(range(10000000), 60)
-     |  
-     |  seed(self, a=None, version=2)
-     |      Initialize internal state from a seed.
-     |      
-     |      The only supported seed types are None, int, float,
-     |      str, bytes, and bytearray.
-     |      
-     |      None or no argument seeds from current time or from an operating
-     |      system specific randomness source if available.
-     |      
-     |      If *a* is an int, all bits are used.
-     |      
-     |      For version 2 (the default), all of the bits are used if *a* is a str,
-     |      bytes, or bytearray.  For version 1 (provided for reproducing random
-     |      sequences from older versions of Python), the algorithm for str and
-     |      bytes generates a narrower range of seeds.
-     |  
-     |  setstate(self, state)
-     |      Restore internal state from object returned by getstate().
-     |  
-     |  shuffle(self, x, random=None)
-     |      Shuffle list x in place, and return None.
-     |      
-     |      Optional argument random is a 0-argument function returning a
-     |      random float in [0.0, 1.0); if it is the default None, the
-     |      standard random.random will be used.
-     |  
-     |  triangular(self, low=0.0, high=1.0, mode=None)
-     |      Triangular distribution.
-     |      
-     |      Continuous distribution bounded by given lower and upper limits,
-     |      and having a given mode value in-between.
-     |      
-     |      http://en.wikipedia.org/wiki/Triangular_distribution
-     |  
-     |  uniform(self, a, b)
-     |      Get a random number in the range [a, b) or [a, b] depending on rounding.
-     |  
-     |  vonmisesvariate(self, mu, kappa)
-     |      Circular data distribution.
-     |      
-     |      mu is the mean angle, expressed in radians between 0 and 2*pi, and
-     |      kappa is the concentration parameter, which must be greater than or
-     |      equal to zero.  If kappa is equal to zero, this distribution reduces
-     |      to a uniform random angle over the range 0 to 2*pi.
-     |  
-     |  weibullvariate(self, alpha, beta)
-     |      Weibull distribution.
-     |      
-     |      alpha is the scale parameter and beta is the shape parameter.
-     |  
-     |  ----------------------------------------------------------------------
-     |  Class methods defined here:
-     |  
-     |  __init_subclass__(**kwargs) from builtins.type
-     |      Control how subclasses generate random integers.
-     |      
-     |      The algorithm a subclass can use depends on the random() and/or
-     |      getrandbits() implementation available to it and determines
-     |      whether it can generate random integers from arbitrarily large
-     |      ranges.
-     |  
-     |  ----------------------------------------------------------------------
-     |  Data descriptors defined here:
-     |  
-     |  __dict__
-     |      dictionary for instance variables (if defined)
-     |  
-     |  __weakref__
-     |      list of weak references to the object (if defined)
-     |  
-     |  ----------------------------------------------------------------------
-     |  Data and other attributes defined here:
-     |  
-     |  VERSION = 3
-     |  
-     |  ----------------------------------------------------------------------
-     |  Methods inherited from _random.Random:
-     |  
-     |  getrandbits(self, k, /)
-     |      getrandbits(k) -&gt; x.  Generates an int with k random bits.
-     |  
-     |  random(self, /)
-     |      random() -&gt; x in the interval [0, 1).
-     |  
-     |  ----------------------------------------------------------------------
-     |  Static methods inherited from _random.Random:
-     |  
-     |  __new__(*args, **kwargs) from builtins.type
-     |      Create and return a new object.  See help(type) for accurate signature.
-    
-    class SystemRandom(Random)
-     |  SystemRandom(x=None)
-     |  
-     |  Alternate random number generator using sources provided
-     |  by the operating system (such as /dev/urandom on Unix or
-     |  CryptGenRandom on Windows).
-     |  
-     |   Not available on all systems (see os.urandom() for details).
-     |  
-     |  Method resolution order:
-     |      SystemRandom
-     |      Random
-     |      _random.Random
-     |      builtins.object
-     |  
-     |  Methods defined here:
-     |  
-     |  getrandbits(self, k)
-     |      getrandbits(k) -&gt; x.  Generates an int with k random bits.
-     |  
-     |  getstate = _notimplemented(self, *args, **kwds)
-     |  
-     |  randbytes(self, n)
-     |      Generate n random bytes.
-     |  
-     |  random(self)
-     |      Get the next random number in the range [0.0, 1.0).
-     |  
-     |  seed(self, *args, **kwds)
-     |      Stub method.  Not used for a system random number generator.
-     |  
-     |  setstate = _notimplemented(self, *args, **kwds)
-     |  
-     |  ----------------------------------------------------------------------
-     |  Methods inherited from Random:
-     |  
-     |  __getstate__(self)
-     |      # Issue 17489: Since __reduce__ was defined to fix #759889 this is no
-     |      # longer called; we leave it here because it has been here since random was
-     |      # rewritten back in 2001 and why risk breaking something.
-     |  
-     |  __init__(self, x=None)
-     |      Initialize an instance.
-     |      
-     |      Optional argument x controls seeding, as for Random.seed().
-     |  
-     |  __reduce__(self)
-     |      Helper for pickle.
-     |  
-     |  __setstate__(self, state)
-     |  
-     |  betavariate(self, alpha, beta)
-     |      Beta distribution.
-     |      
-     |      Conditions on the parameters are alpha &gt; 0 and beta &gt; 0.
-     |      Returned values range between 0 and 1.
-     |  
-     |  choice(self, seq)
-     |      Choose a random element from a non-empty sequence.
-     |  
-     |  choices(self, population, weights=None, *, cum_weights=None, k=1)
-     |      Return a k sized list of population elements chosen with replacement.
-     |      
-     |      If the relative weights or cumulative weights are not specified,
-     |      the selections are made with equal probability.
-     |  
-     |  expovariate(self, lambd)
-     |      Exponential distribution.
-     |      
-     |      lambd is 1.0 divided by the desired mean.  It should be
-     |      nonzero.  (The parameter would be called &quot;lambda&quot;, but that is
-     |      a reserved word in Python.)  Returned values range from 0 to
-     |      positive infinity if lambd is positive, and from negative
-     |      infinity to 0 if lambd is negative.
-     |  
-     |  gammavariate(self, alpha, beta)
-     |      Gamma distribution.  Not the gamma function!
-     |      
-     |      Conditions on the parameters are alpha &gt; 0 and beta &gt; 0.
-     |      
-     |      The probability distribution function is:
-     |      
-     |                  x ** (alpha - 1) * math.exp(-x / beta)
-     |        pdf(x) =  --------------------------------------
-     |                    math.gamma(alpha) * beta ** alpha
-     |  
-     |  gauss(self, mu, sigma)
-     |      Gaussian distribution.
-     |      
-     |      mu is the mean, and sigma is the standard deviation.  This is
-     |      slightly faster than the normalvariate() function.
-     |      
-     |      Not thread-safe without a lock around calls.
-     |  
-     |  lognormvariate(self, mu, sigma)
-     |      Log normal distribution.
-     |      
-     |      If you take the natural logarithm of this distribution, you&#39;ll get a
-     |      normal distribution with mean mu and standard deviation sigma.
-     |      mu can have any value, and sigma must be greater than zero.
-     |  
-     |  normalvariate(self, mu, sigma)
-     |      Normal distribution.
-     |      
-     |      mu is the mean, and sigma is the standard deviation.
-     |  
-     |  paretovariate(self, alpha)
-     |      Pareto distribution.  alpha is the shape parameter.
-     |  
-     |  randint(self, a, b)
-     |      Return random integer in range [a, b], including both end points.
-     |  
-     |  randrange(self, start, stop=None, step=1)
-     |      Choose a random item from range(start, stop[, step]).
-     |      
-     |      This fixes the problem with randint() which includes the
-     |      endpoint; in Python this is usually not what you want.
-     |  
-     |  sample(self, population, k, *, counts=None)
-     |      Chooses k unique random elements from a population sequence or set.
-     |      
-     |      Returns a new list containing elements from the population while
-     |      leaving the original population unchanged.  The resulting list is
-     |      in selection order so that all sub-slices will also be valid random
-     |      samples.  This allows raffle winners (the sample) to be partitioned
-     |      into grand prize and second place winners (the subslices).
-     |      
-     |      Members of the population need not be hashable or unique.  If the
-     |      population contains repeats, then each occurrence is a possible
-     |      selection in the sample.
-     |      
-     |      Repeated elements can be specified one at a time or with the optional
-     |      counts parameter.  For example:
-     |      
-     |          sample([&#39;red&#39;, &#39;blue&#39;], counts=[4, 2], k=5)
-     |      
-     |      is equivalent to:
-     |      
-     |          sample([&#39;red&#39;, &#39;red&#39;, &#39;red&#39;, &#39;red&#39;, &#39;blue&#39;, &#39;blue&#39;], k=5)
-     |      
-     |      To choose a sample from a range of integers, use range() for the
-     |      population argument.  This is especially fast and space efficient
-     |      for sampling from a large population:
-     |      
-     |          sample(range(10000000), 60)
-     |  
-     |  shuffle(self, x, random=None)
-     |      Shuffle list x in place, and return None.
-     |      
-     |      Optional argument random is a 0-argument function returning a
-     |      random float in [0.0, 1.0); if it is the default None, the
-     |      standard random.random will be used.
-     |  
-     |  triangular(self, low=0.0, high=1.0, mode=None)
-     |      Triangular distribution.
-     |      
-     |      Continuous distribution bounded by given lower and upper limits,
-     |      and having a given mode value in-between.
-     |      
-     |      http://en.wikipedia.org/wiki/Triangular_distribution
-     |  
-     |  uniform(self, a, b)
-     |      Get a random number in the range [a, b) or [a, b] depending on rounding.
-     |  
-     |  vonmisesvariate(self, mu, kappa)
-     |      Circular data distribution.
-     |      
-     |      mu is the mean angle, expressed in radians between 0 and 2*pi, and
-     |      kappa is the concentration parameter, which must be greater than or
-     |      equal to zero.  If kappa is equal to zero, this distribution reduces
-     |      to a uniform random angle over the range 0 to 2*pi.
-     |  
-     |  weibullvariate(self, alpha, beta)
-     |      Weibull distribution.
-     |      
-     |      alpha is the scale parameter and beta is the shape parameter.
-     |  
-     |  ----------------------------------------------------------------------
-     |  Class methods inherited from Random:
-     |  
-     |  __init_subclass__(**kwargs) from builtins.type
-     |      Control how subclasses generate random integers.
-     |      
-     |      The algorithm a subclass can use depends on the random() and/or
-     |      getrandbits() implementation available to it and determines
-     |      whether it can generate random integers from arbitrarily large
-     |      ranges.
-     |  
-     |  ----------------------------------------------------------------------
-     |  Data descriptors inherited from Random:
-     |  
-     |  __dict__
-     |      dictionary for instance variables (if defined)
-     |  
-     |  __weakref__
-     |      list of weak references to the object (if defined)
-     |  
-     |  ----------------------------------------------------------------------
-     |  Data and other attributes inherited from Random:
-     |  
-     |  VERSION = 3
-     |  
-     |  ----------------------------------------------------------------------
-     |  Static methods inherited from _random.Random:
-     |  
-     |  __new__(*args, **kwargs) from builtins.type
-     |      Create and return a new object.  See help(type) for accurate signature.
-
-FUNCTIONS
-    betavariate(alpha, beta) method of Random instance
-        Beta distribution.
-        
-        Conditions on the parameters are alpha &gt; 0 and beta &gt; 0.
-        Returned values range between 0 and 1.
-    
-    choice(seq) method of Random instance
-        Choose a random element from a non-empty sequence.
-    
-    choices(population, weights=None, *, cum_weights=None, k=1) method of Random instance
-        Return a k sized list of population elements chosen with replacement.
-        
-        If the relative weights or cumulative weights are not specified,
-        the selections are made with equal probability.
-    
-    expovariate(lambd) method of Random instance
-        Exponential distribution.
-        
-        lambd is 1.0 divided by the desired mean.  It should be
-        nonzero.  (The parameter would be called &quot;lambda&quot;, but that is
-        a reserved word in Python.)  Returned values range from 0 to
-        positive infinity if lambd is positive, and from negative
-        infinity to 0 if lambd is negative.
-    
-    gammavariate(alpha, beta) method of Random instance
-        Gamma distribution.  Not the gamma function!
-        
-        Conditions on the parameters are alpha &gt; 0 and beta &gt; 0.
-        
-        The probability distribution function is:
-        
-                    x ** (alpha - 1) * math.exp(-x / beta)
-          pdf(x) =  --------------------------------------
-                      math.gamma(alpha) * beta ** alpha
-    
-    gauss(mu, sigma) method of Random instance
-        Gaussian distribution.
-        
-        mu is the mean, and sigma is the standard deviation.  This is
-        slightly faster than the normalvariate() function.
-        
-        Not thread-safe without a lock around calls.
-    
-    getrandbits(k, /) method of Random instance
-        getrandbits(k) -&gt; x.  Generates an int with k random bits.
-    
-    getstate() method of Random instance
-        Return internal state; can be passed to setstate() later.
-    
-    lognormvariate(mu, sigma) method of Random instance
-        Log normal distribution.
-        
-        If you take the natural logarithm of this distribution, you&#39;ll get a
-        normal distribution with mean mu and standard deviation sigma.
-        mu can have any value, and sigma must be greater than zero.
-    
-    normalvariate(mu, sigma) method of Random instance
-        Normal distribution.
-        
-        mu is the mean, and sigma is the standard deviation.
-    
-    paretovariate(alpha) method of Random instance
-        Pareto distribution.  alpha is the shape parameter.
-    
-    randbytes(n) method of Random instance
-        Generate n random bytes.
-    
-    randint(a, b) method of Random instance
-        Return random integer in range [a, b], including both end points.
-    
-    random() method of Random instance
-        random() -&gt; x in the interval [0, 1).
-    
-    randrange(start, stop=None, step=1) method of Random instance
-        Choose a random item from range(start, stop[, step]).
-        
-        This fixes the problem with randint() which includes the
-        endpoint; in Python this is usually not what you want.
-    
-    sample(population, k, *, counts=None) method of Random instance
-        Chooses k unique random elements from a population sequence or set.
-        
-        Returns a new list containing elements from the population while
-        leaving the original population unchanged.  The resulting list is
-        in selection order so that all sub-slices will also be valid random
-        samples.  This allows raffle winners (the sample) to be partitioned
-        into grand prize and second place winners (the subslices).
-        
-        Members of the population need not be hashable or unique.  If the
-        population contains repeats, then each occurrence is a possible
-        selection in the sample.
-        
-        Repeated elements can be specified one at a time or with the optional
-        counts parameter.  For example:
-        
-            sample([&#39;red&#39;, &#39;blue&#39;], counts=[4, 2], k=5)
-        
-        is equivalent to:
-        
-            sample([&#39;red&#39;, &#39;red&#39;, &#39;red&#39;, &#39;red&#39;, &#39;blue&#39;, &#39;blue&#39;], k=5)
-        
-        To choose a sample from a range of integers, use range() for the
-        population argument.  This is especially fast and space efficient
-        for sampling from a large population:
-        
-            sample(range(10000000), 60)
-    
-    seed(a=None, version=2) method of Random instance
-        Initialize internal state from a seed.
-        
-        The only supported seed types are None, int, float,
-        str, bytes, and bytearray.
-        
-        None or no argument seeds from current time or from an operating
-        system specific randomness source if available.
-        
-        If *a* is an int, all bits are used.
-        
-        For version 2 (the default), all of the bits are used if *a* is a str,
-        bytes, or bytearray.  For version 1 (provided for reproducing random
-        sequences from older versions of Python), the algorithm for str and
-        bytes generates a narrower range of seeds.
-    
-    setstate(state) method of Random instance
-        Restore internal state from object returned by getstate().
-    
-    shuffle(x, random=None) method of Random instance
-        Shuffle list x in place, and return None.
-        
-        Optional argument random is a 0-argument function returning a
-        random float in [0.0, 1.0); if it is the default None, the
-        standard random.random will be used.
-    
-    triangular(low=0.0, high=1.0, mode=None) method of Random instance
-        Triangular distribution.
-        
-        Continuous distribution bounded by given lower and upper limits,
-        and having a given mode value in-between.
-        
-        http://en.wikipedia.org/wiki/Triangular_distribution
-    
-    uniform(a, b) method of Random instance
-        Get a random number in the range [a, b) or [a, b] depending on rounding.
-    
-    vonmisesvariate(mu, kappa) method of Random instance
-        Circular data distribution.
-        
-        mu is the mean angle, expressed in radians between 0 and 2*pi, and
-        kappa is the concentration parameter, which must be greater than or
-        equal to zero.  If kappa is equal to zero, this distribution reduces
-        to a uniform random angle over the range 0 to 2*pi.
-    
-    weibullvariate(alpha, beta) method of Random instance
-        Weibull distribution.
-        
-        alpha is the scale parameter and beta is the shape parameter.
-
-DATA
-    __all__ = [&#39;Random&#39;, &#39;SystemRandom&#39;, &#39;betavariate&#39;, &#39;choice&#39;, &#39;choices...
-
-FILE
-    /Users/lb788/miniconda3/envs/CfRR/lib/python3.9/random.py
+<span class="c1"># help(random)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
+</section>
+<section id="introspection">
+<h2>Introspection<a class="headerlink" href="#introspection" title="Link to this heading">#</a></h2>
+<p>The help() function uses introspection to establish the signature of functions.</p>
+<p>For example</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_add_two</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add the value 2.0</span>
+
+<span class="sd">    argument:</span>
+<span class="sd">    a -- input value</span>
+
+<span class="sd">    return:</span>
+<span class="sd">    a + 2.0</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="mf">2.0</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">my_add_two</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function my_add_two in module __main__:
+
+my_add_two(a)
+    Add the value 2.0
+    
+    argument:
+    a -- input value
+    
+    return:
+    a + 2.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Other introspection functions</span>
+
+<span class="c1"># help(dir) </span>
+
+<span class="c1"># help(type)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <section id="typing-exercise">
 <h3>Typing exercise<a class="headerlink" href="#typing-exercise" title="Link to this heading">#</a></h3>
 <p>Copy the following code fragment into your IDE.  If type checking is enabled you should see a warning message.</p>
@@ -1483,19 +878,14 @@ Found 2 errors in 1 file (checked 1 source file)
 </section>
 <section id="useful-techniques">
 <h2>Useful techniques<a class="headerlink" href="#useful-techniques" title="Link to this heading">#</a></h2>
+<p>We have already seen dir() and type() for <strong>introspection</strong></p>
+<p>Another useful technique is</p>
 <section id="casting">
 <h3>Casting<a class="headerlink" href="#casting" title="Link to this heading">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">float</span><span class="p">(</span><span class="s2">&quot;6.4&quot;</span><span class="p">)</span>
 <span class="nb">list</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;12&quot;</span><span class="p">)</span>
 <span class="nb">str</span><span class="p">()</span> <span class="c1"># Though print() does this by default</span>
-</pre></div>
-</div>
-</section>
-<section id="introspection">
-<h3>Introspection<a class="headerlink" href="#introspection" title="Link to this heading">#</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">()</span>
-<span class="nb">type</span><span class="p">()</span>
 </pre></div>
 </div>
 <div class="cell docutils container">
@@ -1574,9 +964,9 @@ ValueError: could not convert string to float: &#39;one&#39;
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;/var/folders/r7/wblx0jw96hz08nvjz9p3zsgr0000gp/T/ipykernel_68924/2841111012.py&quot;, line 11, in &lt;module&gt;
+  File &quot;/var/folders/r7/wblx0jw96hz08nvjz9p3zsgr0000gp/T/ipykernel_95848/2841111012.py&quot;, line 11, in &lt;module&gt;
     always_bad()
-  File &quot;/var/folders/r7/wblx0jw96hz08nvjz9p3zsgr0000gp/T/ipykernel_68924/2841111012.py&quot;, line 8, in always_bad
+  File &quot;/var/folders/r7/wblx0jw96hz08nvjz9p3zsgr0000gp/T/ipykernel_95848/2841111012.py&quot;, line 8, in always_bad
     raise Exception(&quot;Never happy&quot;)
 Exception: Never happy
 
@@ -1671,7 +1061,7 @@ world
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;/var/folders/r7/wblx0jw96hz08nvjz9p3zsgr0000gp/T/ipykernel_68924/679916601.py&quot;, line 5, in &lt;module&gt;
+  File &quot;/var/folders/r7/wblx0jw96hz08nvjz9p3zsgr0000gp/T/ipykernel_95848/679916601.py&quot;, line 5, in &lt;module&gt;
     print(len(data))
 TypeError: object of type &#39;_io.TextIOWrapper&#39; has no len()
 </pre></div>
@@ -1960,13 +1350,15 @@ MICHAEL
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docstrings">Docstrings</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#type-hints">Type-hints</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docstring-exercise">Docstring Exercise</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introspection">Introspection</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#typing-exercise">Typing exercise</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decorators">Decorators</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-techniques">Useful techniques</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#casting">Casting</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introspection">Introspection</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#try-except-and-raise">try-except  (and raise)</a></li>
 </ul>
 </li>
