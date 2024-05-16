@@ -24,6 +24,12 @@ More advanced Python features, including usage of virtual environments, tools to
 
   * Annotating code - docstrings, type-hints
 
+  * Decorators
+
+  * Introspection
+
+  * Try/Except
+
   * List and generator comprehensions
 
   * Classes
@@ -57,3 +63,5 @@ More advanced Python features, including usage of virtual environments, tools to
 * Matplotlib
 
 * Plotly?
+
+See [section_landing_pages](../section_landing_pages/python_for_data_analysis.md)
