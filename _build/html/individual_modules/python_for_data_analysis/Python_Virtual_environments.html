@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Virtual environments &#8212; Coding For Reproducible Research</title>
+    <title>Python - Virtual environments &#8212; Coding For Reproducible Research</title>
   
   
   
@@ -277,7 +277,8 @@
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../section_landing_pages/python_for_data_analysis.html">Python for Data Analysis</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="Python_Language_features.html">Python Language Features</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Virtual environments</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Python - Virtual environments</a></li>
+
 
 
 
@@ -678,7 +679,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Virtual environments</h1>
+    <h1>Python - Virtual environments</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -688,7 +689,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Virtual environments</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Python - Virtual environments</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-we-need-virtual-environments">Why do we need virtual environments?</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control">Control</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#freedom-to-update">Freedom to update</a></li>
@@ -697,7 +699,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#why-not-use-virtual-machines-or-containers">Why not use virtual machines or containers?</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#i-have-admin-rights-so-i-can-install-libraries-and-new-python-version-for-all-users">I have admin rights so I can install libraries and new Python version for all users</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#yes-but">Yes, but</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#venv">venv</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conda">Conda</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pipenv">Pipenv</a></li>
@@ -714,13 +716,15 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="virtual-environments">
-<h1>Virtual environments<a class="headerlink" href="#virtual-environments" title="Link to this heading">#</a></h1>
+  <section id="python-virtual-environments">
+<h1>Python - Virtual environments<a class="headerlink" href="#python-virtual-environments" title="Link to this heading">#</a></h1>
+</section>
+<section id="learning-objectives">
+<h1>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h1>
+<p>At the end of this lesson you will be able to:</p>
 <ul class="simple">
-<li><p>Should be used per project, to keep project dependencies separate.</p></li>
-<li><p>They allow you to keep your base Python environment clean.</p></li>
-<li><p>They can be managed with tools such as Anaconda, Poetry, Virtualenv, Pipenv, and others.</p></li>
-<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/venv.html">For more information</a>.</p></li>
+<li><p>Explain the benefits of virtual environments</p></li>
+<li><p>Configure virtual environments in your chosen development environment</p></li>
 </ul>
 </section>
 <section id="why-do-we-need-virtual-environments">
@@ -748,21 +752,40 @@ Typically this means you will be using the latest versions of Python and librari
 <p>These have their own place in development and deployment of software.  We are not going to cover them here, except to note -</p>
 <p>If you find yourself having to do complicated or unusual things with virtual environments, or virtual environments do not provide the facilities or security your software requires, then consider alternatives such as Docker.</p>
 </section>
-<section id="i-have-admin-rights-so-i-can-install-libraries-and-new-python-version-for-all-users">
-<h1>I have admin rights so I can install libraries and new Python version for all users<a class="headerlink" href="#i-have-admin-rights-so-i-can-install-libraries-and-new-python-version-for-all-users" title="Link to this heading">#</a></h1>
+<section id="yes-but">
+<h1>Yes, but<a class="headerlink" href="#yes-but" title="Link to this heading">#</a></h1>
+<p><strong>I have admin rights so I can install libraries and new Python version for all users.</strong></p>
 <p><strong>Just don’t!</strong></p>
 </section>
 <section id="venv">
 <h1>venv<a class="headerlink" href="#venv" title="Link to this heading">#</a></h1>
+<p>Tutorial <a class="reference external" href="https://docs.python.org/3/tutorial/venv.html">https://docs.python.org/3/tutorial/venv.html</a></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+</pre></div>
+</div>
+<p>Though in practice your IDE, e.g. VS Code will typically activate environments for you.</p>
 </section>
 <section id="conda">
 <h1>Conda<a class="headerlink" href="#conda" title="Link to this heading">#</a></h1>
+<p><a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html</a></p>
 </section>
 <section id="pipenv">
 <h1>Pipenv<a class="headerlink" href="#pipenv" title="Link to this heading">#</a></h1>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>.venv
+pipenv<span class="w"> </span>install<span class="w"> </span>numpy
+pipenv<span class="w"> </span>shell
+</pre></div>
+</div>
 </section>
 <section id="poetry">
 <h1>Poetry<a class="headerlink" href="#poetry" title="Link to this heading">#</a></h1>
+<p><a class="reference external" href="https://python-poetry.org/docs/">https://python-poetry.org/docs/</a></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pipx<span class="w"> </span>install<span class="w"> </span>poetry
+</pre></div>
+</div>
+<p><a class="reference external" href="https://python-poetry.org/docs/basic-usage/">https://python-poetry.org/docs/basic-usage/</a></p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -829,7 +852,8 @@ Typically this means you will be using the latest versions of Python and librari
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Virtual environments</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Python - Virtual environments</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-we-need-virtual-environments">Why do we need virtual environments?</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control">Control</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#freedom-to-update">Freedom to update</a></li>
@@ -838,7 +862,7 @@ Typically this means you will be using the latest versions of Python and librari
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#why-not-use-virtual-machines-or-containers">Why not use virtual machines or containers?</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#i-have-admin-rights-so-i-can-install-libraries-and-new-python-version-for-all-users">I have admin rights so I can install libraries and new Python version for all users</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#yes-but">Yes, but</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#venv">venv</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conda">Conda</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pipenv">Pipenv</a></li>

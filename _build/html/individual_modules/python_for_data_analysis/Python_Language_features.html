@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'individual_modules/python_for_data_analysis/Python_Language_features';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Virtual environments" href="Python_Virtual_environments.html" />
+    <link rel="next" title="Python - Virtual environments" href="Python_Virtual_environments.html" />
     <link rel="prev" title="Python for Data Analysis" href="../section_landing_pages/python_for_data_analysis.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -277,7 +277,8 @@
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../section_landing_pages/python_for_data_analysis.html">Python for Data Analysis</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Python Language Features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Python_Virtual_environments.html">Virtual environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Python_Virtual_environments.html">Python - Virtual environments</a></li>
+
 
 
 
@@ -706,14 +707,16 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lambda-functions">Lambda functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Exercise</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list-comprehensions">List comprehensions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generators">Generators</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generators">Generators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question">Question</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consuming-generator-output">Consuming generator output</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#or-better-use-a-for-loop">Or better - use a for loop</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yield-and-next">yield and next()</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generator-comprehensions">generator comprehensions</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#miscelaneous">Miscelaneous</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#with">with</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes">Classes</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-and-objects">classes and objects</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-string-class">the string class</a></li>
@@ -724,6 +727,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#features-of-our-new-class">Features of our new class</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pros-and-cons-of-inheritance">Pros and cons of inheritance</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operator-overloading">Operator overloading</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Exercise</a></li>
 </ul>
             </nav>
         </div>
@@ -964,9 +968,9 @@ ValueError: could not convert string to float: &#39;one&#39;
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;/var/folders/r7/wblx0jw96hz08nvjz9p3zsgr0000gp/T/ipykernel_95848/2841111012.py&quot;, line 11, in &lt;module&gt;
+  File &quot;/var/folders/r7/wblx0jw96hz08nvjz9p3zsgr0000gp/T/ipykernel_447/2841111012.py&quot;, line 11, in &lt;module&gt;
     always_bad()
-  File &quot;/var/folders/r7/wblx0jw96hz08nvjz9p3zsgr0000gp/T/ipykernel_95848/2841111012.py&quot;, line 8, in always_bad
+  File &quot;/var/folders/r7/wblx0jw96hz08nvjz9p3zsgr0000gp/T/ipykernel_447/2841111012.py&quot;, line 8, in always_bad
     raise Exception(&quot;Never happy&quot;)
 Exception: Never happy
 
@@ -975,6 +979,27 @@ Carry on regardless...
 </div>
 </div>
 </div>
+</section>
+<section id="lambda-functions">
+<h2>Lambda functions<a class="headerlink" href="#lambda-functions" title="Link to this heading">#</a></h2>
+<p>A lambda function is a small function that is defined with the <code class="docutils literal notranslate"><span class="pre">lambda</span></code> keyword. It can take any number of arguments, but can only have one expression.  In other programming languages these are sometimes called anonymous functions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">add</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">add</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id1">
+<h2>Exercise<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>Write a lambda function that returns the value of its only argument if it is an odd number,or the next odd number if it is an even number.</p>
 </section>
 <section id="list-comprehensions">
 <h2>List comprehensions<a class="headerlink" href="#list-comprehensions" title="Link to this heading">#</a></h2>
@@ -1006,43 +1031,95 @@ Carry on regardless...
 </section>
 <section id="generators">
 <h2>Generators<a class="headerlink" href="#generators" title="Link to this heading">#</a></h2>
+<p>In the previous example we used a list comprehension to capitalise all the lines in a file.</p>
+<p>An alternative approach is to use a generator comprehension.</p>
+<p>The syntax is almost identical, but the result seems quite different.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/rows.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">myFile</span><span class="p">:</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">myFile</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object &lt;genexpr&gt; at 0x103da86d0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="question">
+<h2>Question<a class="headerlink" href="#question" title="Link to this heading">#</a></h2>
+<p>What do we need to do to get the lines from the generator?</p>
+</section>
+<section id="consuming-generator-output">
+<h2>Consuming generator output<a class="headerlink" href="#consuming-generator-output" title="Link to this heading">#</a></h2>
+<p>Although generator output can converted to a list, the intended use is with next()</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/rows.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">data</span><span class="p">:</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="p">)</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">lines</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">line</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello
+World
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="or-better-use-a-for-loop">
+<h2>Or better - use a for loop<a class="headerlink" href="#or-better-use-a-for-loop" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/rows.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">data</span><span class="p">:</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello
+World
+</pre></div>
+</div>
+</div>
+</div>
 <section id="yield-and-next">
 <h3>yield and next()<a class="headerlink" href="#yield-and-next" title="Link to this heading">#</a></h3>
-</section>
-<section id="generator-comprehensions">
-<h3>generator comprehensions<a class="headerlink" href="#generator-comprehensions" title="Link to this heading">#</a></h3>
-</section>
-</section>
-<section id="miscelaneous">
-<h2>Miscelaneous<a class="headerlink" href="#miscelaneous" title="Link to this heading">#</a></h2>
-</section>
-<section id="with">
-<h2>with<a class="headerlink" href="#with" title="Link to this heading">#</a></h2>
+<p>Although the generator comprehension and list comprehension syntax is almost identical, it is clear that the generator mechanism is quite different.</p>
+<p>Generators in their long form are functions rather than a loop. However rather than a return statement there is a yield statement. Yield may be called as many times as you wish, indeed it could yield - FOREVER</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/rows.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">data</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hello
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/rows.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">data</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hello
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_gen</span><span class="p">():</span>
+    <span class="k">yield</span> <span class="s2">&quot;hello&quot;</span>
+    <span class="k">yield</span> <span class="kc">None</span>
+    <span class="c1"># Calling a generator function from within a generator function is allowed</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="n">i</span>
+    <span class="k">yield</span> <span class="mf">1.414</span>
 
-world
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">my_gen</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hello
+None
+0
+1
+2
+1.414
 </pre></div>
 </div>
 </div>
@@ -1061,7 +1138,7 @@ world
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;/var/folders/r7/wblx0jw96hz08nvjz9p3zsgr0000gp/T/ipykernel_95848/679916601.py&quot;, line 5, in &lt;module&gt;
+  File &quot;/var/folders/r7/wblx0jw96hz08nvjz9p3zsgr0000gp/T/ipykernel_447/679916601.py&quot;, line 5, in &lt;module&gt;
     print(len(data))
 TypeError: object of type &#39;_io.TextIOWrapper&#39; has no len()
 </pre></div>
@@ -1083,6 +1160,7 @@ TypeError: object of type &#39;_io.TextIOWrapper&#39; has no len()
 </div>
 </div>
 </div>
+</section>
 </section>
 <section id="classes">
 <h2>Classes<a class="headerlink" href="#classes" title="Link to this heading">#</a></h2>
@@ -1256,28 +1334,59 @@ MICHAEL
 </section>
 <section id="operator-overloading">
 <h2>Operator overloading<a class="headerlink" href="#operator-overloading" title="Link to this heading">#</a></h2>
-<p>Although a separate concept to classes and object orientation a common feature of object oriented programming languages is operator overloading. This is something that you will already be familiar with from Python strings.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
-<span class="n">my_string</span> <span class="o">=</span> <span class="s1">&#39;hello&#39;</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="s1">&#39;world&#39;</span>
-<span class="n">commas</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span> <span class="o">*</span> <span class="mi">6</span>
-</pre></div>
-</div>
+<p>Although a separate concept to classes, and object orientation, a common feature of object oriented programming languages is operator overloading. This is something that you will already be familiar with from Python strings.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;,&#39;</span> <span class="o">*</span> <span class="mi">6</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">6</span> <span class="o">*</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span>
-<span class="c1">## What about the following?</span>
-<span class="c1"># print(&#39;,&#39; * &#39;,&#39;)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="s1">&#39;world&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">11</span> <span class="o">*</span> <span class="s1">&#39;_&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>,,,,,,
-,,,,,,
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hello world
+___________
 </pre></div>
 </div>
 </div>
 </div>
+<p>Let’s implement something similar for our Upper class -</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Upper</span><span class="p">(</span><span class="nb">str</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">text</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+    
+    <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Upper</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">Upper</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;world&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HELLO_WORLD
+</pre></div>
+</div>
+</div>
+</div>
+<p>How about this -</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span> <span class="o">+</span> <span class="n">Upper</span><span class="p">(</span><span class="s2">&quot;world&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>helloWORLD
+</pre></div>
+</div>
+</div>
+</div>
+<p>Oh no!!</p>
+</section>
+<section id="id2">
+<h2>Exercise<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>Fix it!</p>
 </section>
 </section>
 
@@ -1325,7 +1434,7 @@ MICHAEL
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Virtual environments</p>
+        <p class="prev-next-title">Python - Virtual environments</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1363,14 +1472,16 @@ MICHAEL
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lambda-functions">Lambda functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Exercise</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list-comprehensions">List comprehensions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generators">Generators</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generators">Generators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question">Question</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consuming-generator-output">Consuming generator output</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#or-better-use-a-for-loop">Or better - use a for loop</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yield-and-next">yield and next()</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generator-comprehensions">generator comprehensions</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#miscelaneous">Miscelaneous</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#with">with</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes">Classes</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-and-objects">classes and objects</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-string-class">the string class</a></li>
@@ -1381,6 +1492,7 @@ MICHAEL
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#features-of-our-new-class">Features of our new class</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pros-and-cons-of-inheritance">Pros and cons of inheritance</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operator-overloading">Operator overloading</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Exercise</a></li>
 </ul>
   </nav></div>
 
