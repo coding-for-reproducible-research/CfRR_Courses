@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'individual_modules/python_for_data_analysis/Python_Pandas';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Matplotlib" href="Python_Matplotlib.html" />
+    <link rel="next" title="Scikit-Learn" href="Python_ScikitLearn.html" />
     <link rel="prev" title="Numpy" href="Python_NumPy.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -283,8 +283,8 @@
 
 <li class="toctree-l2"><a class="reference internal" href="Python_NumPy.html">Numpy</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Pandas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Python_Matplotlib.html">Matplotlib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Python_ScikitLearn.html">Scikit-Learn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Python_Matplotlib.html">Matplotlib</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/introduction_to_r.html">Introduction to R</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -432,6 +432,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/variables.html">Variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/operations.html">Operations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/control_flow.html">Control Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/arrays_and_matrices.html">Arrays and Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/io.html">Input Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/package_management.html">Package Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/visualisation.html">Plotting and Visualisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/performant_code.html">Performant Code</a></li>
 </ul>
 </li>
 </ul>
@@ -801,13 +807,13 @@ As you saw in the previous workshop Python has a range of data structures but if
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="GhRXMSGcvQjR" data-shufflequestions="False"
+<div class="output text_html"><div id="zwZoEfXAGqpI" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#GhRXMSGcvQjR {
+#zwZoEfXAGqpI {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -977,7 +983,7 @@ As you saw in the previous workshop Python has a range of data structures but if
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsGhRXMSGcvQjR=[
+</style></div><script type="application/javascript">var questionszwZoEfXAGqpI=[
     {
         "question": "Which function is used to read a .csv file in Pandas",
         "type": "many_choice",
@@ -1753,8 +1759,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("GhRXMSGcvQjR")) {
-            show_questions(questionsGhRXMSGcvQjR,  GhRXMSGcvQjR); 
+          if(document.getElementById("zwZoEfXAGqpI")) {
+            show_questions(questionszwZoEfXAGqpI,  zwZoEfXAGqpI); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -1763,8 +1769,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("GhRXMSGcvQjR");
-        // console.log(document.getElementById("GhRXMSGcvQjR"));
+        //console.log("zwZoEfXAGqpI");
+        // console.log(document.getElementById("zwZoEfXAGqpI"));
 
         try_show();
         }
@@ -2042,13 +2048,13 @@ memory usage: 2.0+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="mOpAyhzylXQL" data-shufflequestions="False"
+<div class="output text_html"><div id="PeSKNodxnkPj" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#mOpAyhzylXQL {
+#PeSKNodxnkPj {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -2218,7 +2224,7 @@ memory usage: 2.0+ MB
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsmOpAyhzylXQL=[
+</style></div><script type="application/javascript">var questionsPeSKNodxnkPj=[
     {
         "question": "Which function is used to read a .csv file in Pandas",
         "type": "many_choice",
@@ -2994,8 +3000,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("mOpAyhzylXQL")) {
-            show_questions(questionsmOpAyhzylXQL,  mOpAyhzylXQL); 
+          if(document.getElementById("PeSKNodxnkPj")) {
+            show_questions(questionsPeSKNodxnkPj,  PeSKNodxnkPj); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -3004,8 +3010,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("mOpAyhzylXQL");
-        // console.log(document.getElementById("mOpAyhzylXQL"));
+        //console.log("PeSKNodxnkPj");
+        // console.log(document.getElementById("PeSKNodxnkPj"));
 
         try_show();
         }
@@ -4392,11 +4398,11 @@ Name: Year, Length: 32832, dtype: bool
       </div>
     </a>
     <a class="right-next"
-       href="Python_Matplotlib.html"
+       href="Python_ScikitLearn.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Matplotlib</p>
+        <p class="prev-next-title">Scikit-Learn</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

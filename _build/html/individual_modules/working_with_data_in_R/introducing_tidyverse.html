@@ -283,8 +283,8 @@
 
 <li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_NumPy.html">Numpy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_Pandas.html">Pandas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_Matplotlib.html">Matplotlib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_ScikitLearn.html">Scikit-Learn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_Matplotlib.html">Matplotlib</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/introduction_to_r.html">Introduction to R</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -432,6 +432,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/variables.html">Variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/operations.html">Operations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/control_flow.html">Control Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/arrays_and_matrices.html">Arrays and Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/io.html">Input Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/package_management.html">Package Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/visualisation.html">Plotting and Visualisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/performant_code.html">Performant Code</a></li>
 </ul>
 </li>
 </ul>
@@ -692,7 +698,6 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgement">Acknowledgement</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#footnotes">Footnotes</a></li>
 </ul>
             </nav>
         </div>
@@ -758,7 +763,7 @@ essentially the same thing as a dataframe, although there are some minor
 differences. For the purposes of this course, you can consider dataframes and
 tibbles to be interchangeable and regard them as ‘the same thing’.</p>
 <p>To demonstrate this, let’s consider the Palmer Station penguins data related to
-three species of Antarctic penguins from Horst, Hill, and Gorman<a class="footnote-reference brackets" href="#id3" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>. We’ll
+three species of Antarctic penguins from Horst, Hill, and Gorman<span id="id1">[<a class="reference internal" href="strings_and_dates.html#id5" title="Allison M. Horst, Alison P. Hill, and Kristen B. Gorman. Palmerpenguins: palmer archipelago (antarctica) penguin data. R package version 0.1.1, 2020. URL: https://allisonhorst.github.io/palmerpenguins/, doi:10.5281/zenodo.3960218.">HHG20</a>]</span>. We’ll
 work with this dataset throughout this course. The data contains size
 measurements for male and female adult foraging Adélie, Chinstrap, and Gentoo
 penguins observed on islands in the Palmer Archipelago near Palmer Station,
@@ -825,7 +830,7 @@ variables in the data.</p></li>
 </ul>
 <p>Packages in the Tidyverse are designed to work with tidy data.</p>
 <p>You can read more about the tidy data format in <a class="reference external" href="https://doi.org/10.18637/jss.v059.i10">Hadley Wickham’s Tidy
-Data</a> paper<a class="footnote-reference brackets" href="#id4" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
+Data</a> paper<span id="id2">[<a class="reference internal" href="strings_and_dates.html#id6" title="Hadley Wickham. Tidy data. Journal of Statistical Software, 59(10):1–23, 2014. URL: https://doi.org/10.18637/jss.v059.i10, doi:10.18637/jss.v059.i10.">Wic14</a>]</span>.</p>
 <section id="tidy-data-example">
 <h3>Tidy data: Example<a class="headerlink" href="#tidy-data-example" title="Link to this heading">#</a></h3>
 <p>Suppose we have a pet dog and a pet cat and we want to study the average weight
@@ -906,23 +911,26 @@ which is licensed under <a class="reference external" href="https://creativecomm
 based on material from <a class="reference external" href="https://gge-ucd.github.io/R-DAVIS/index.html">UC Davis’s R-DAVIS
 course</a>, which draws heavily on
 <a class="reference external" href="https://datacarpentry.org/R-ecology-lesson/">Carpentries</a> R lessons.</p>
-</section>
-<section id="footnotes">
-<h2>Footnotes<a class="headerlink" href="#footnotes" title="Link to this heading">#</a></h2>
-<hr class="footnotes docutils" />
-<aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id3" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
-<p>Horst AM, Hill AP, Gorman KB (2020). palmerpenguins: Palmer Archipelago
-(Antarctica) penguin data. R package version 0.1.1.
-<a class="reference external" href="https://allisonhorst.github.io/palmerpenguins/">https://allisonhorst.github.io/palmerpenguins/</a>. doi: 10.5281/zenodo.3960218.</p>
-</aside>
-<aside class="footnote brackets" id="id4" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
-<p>Wickham, H. (2014). Tidy Data. <em>Journal of Statistical Software</em>,
-<em>59</em>(10), 1–23. <a class="reference external" href="https://doi.org/10.18637/jss.v059.i10">https://doi.org/10.18637/jss.v059.i10</a></p>
-</aside>
-</aside>
+<div class="docutils container" id="id3">
+<div role="list" class="citation-list">
+<div class="citation" id="id7" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>eal23<span class="fn-bracket">]</span></span>
+<p>Friedlingstein et al. Global carbon budget 2023. Excel workbook obtained from <a class="reference external" href="https://globalcarbonbudgetdata.org/downloads/latest-data/National_Fossil_Carbon_Emissions_2023v1.0.xlsx">https://globalcarbonbudgetdata.org/downloads/latest-data/National_Fossil_Carbon_Emissions_2023v1.0.xlsx</a>, 2023. Accessed: 2024-02-28.</p>
+</div>
+<div class="citation" id="id5" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">HHG20</a><span class="fn-bracket">]</span></span>
+<p>Allison M. Horst, Alison P. Hill, and Kristen B. Gorman. Palmerpenguins: palmer archipelago (antarctica) penguin data. R package version 0.1.1, 2020. URL: <a class="reference external" href="https://allisonhorst.github.io/palmerpenguins/">https://allisonhorst.github.io/palmerpenguins/</a>, <a class="reference external" href="https://doi.org/10.5281/zenodo.3960218">doi:10.5281/zenodo.3960218</a>.</p>
+</div>
+<div class="citation" id="id4" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>LTE23<span class="fn-bracket">]</span></span>
+<p>Palmer Station Antarctica LTER. Daily weather averages for palmer station, antarctica (1989-2023) ver 9. 2023. Accessed: 2024-05-16. URL: <a class="reference external" href="https://doi.org/10.6073/pasta/3eefb45dbfb784c3cabe3690ea46fe9e">https://doi.org/10.6073/pasta/3eefb45dbfb784c3cabe3690ea46fe9e</a>.</p>
+</div>
+<div class="citation" id="id6" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">Wic14</a><span class="fn-bracket">]</span></span>
+<p>Hadley Wickham. Tidy data. <em>Journal of Statistical Software</em>, 59(10):1–23, 2014. URL: <a class="reference external" href="https://doi.org/10.18637/jss.v059.i10">https://doi.org/10.18637/jss.v059.i10</a>, <a class="reference external" href="https://doi.org/10.18637/jss.v059.i10">doi:10.18637/jss.v059.i10</a>.</p>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -998,7 +1006,6 @@ course</a>, which draws heavily on
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgement">Acknowledgement</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#footnotes">Footnotes</a></li>
 </ul>
   </nav></div>
 

@@ -60,6 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'individual_modules/introduction_to_julia/arrays_and_matrices';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Input Output" href="io.html" />
+    <link rel="prev" title="Functions" href="functions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -120,8 +122,6 @@
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -257,7 +257,7 @@
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Self Study Notes</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/introduction_to_python.html">Introduction to Python</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/motivation.html">Motivation and Background</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/fundamentals.html">Python Fundamentals</a></li>
@@ -283,8 +283,8 @@
 
 <li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_NumPy.html">Numpy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_Pandas.html">Pandas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_Matplotlib.html">Matplotlib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_ScikitLearn.html">Scikit-Learn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_Matplotlib.html">Matplotlib</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/introduction_to_r.html">Introduction to R</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -427,11 +427,17 @@
 <li class="toctree-l2"><a class="reference internal" href="../software_development_best_practices/reproducibility.html">Reproducibility</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/introduction_to_julia.html">Introduction to Julia</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../section_landing_pages/introduction_to_julia.html">Introduction to Julia</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="introduction_to_julia.html">Introduction to Julia</a></li>
 <li class="toctree-l2"><a class="reference internal" href="variables.html">Variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="operations.html">Operations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="control_flow.html">Control Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html">Functions</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Arrays and Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="io.html">Input Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package_management.html">Package Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="visualisation.html">Plotting and Visualisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performant_code.html">Performant Code</a></li>
 </ul>
 </li>
 </ul>
@@ -747,7 +753,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 1, 5297370112]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 1, 5386155008]
 </pre></div>
 </div>
 </div>
@@ -803,10 +809,10 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array of zeroes: [0.0, 0.0, 0.0]
 Array of ones: [1.0, 1.0, 1.0]
-Array of random values between 0 and 1: [0.7289573172797004, 0.2659291986354896, 0.2766398016578333]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array of random values normally distributed: :[0.49169467704176145, -0.13274173718758464, -1.1224497630304153]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array of random values between 0 and 1: [0.5779397972239004, 0.6249608922252273, 0.07074784171409176]
+Array of random values normally distributed: :[0.8050119387316955, -0.7741521470083318, -0.22569420946426869]
 </pre></div>
 </div>
 </div>
@@ -838,7 +844,7 @@ Array of random values between 0 and 1: [0.7289573172797004, 0.2659291986354896,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1 5167285392 5167285456; 3 4 5167285520; 5167285328 7 5297370112]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1 5184062608 5184062672; 3 4 5184062736; 5184062544 7 5386155008]
 </pre></div>
 </div>
 </div>
@@ -862,8 +868,8 @@ Array of random values between 0 and 1: [0.7289573172797004, 0.2659291986354896,
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array of zeroes: [0.0 0.0 0.0; 0.0 0.0 0.0; 0.0 0.0 0.0]
 Array of ones: [1.0 1.0 1.0; 1.0 1.0 1.0; 1.0 1.0 1.0]
-Array of random values between 0 and 1: [0.2527196586409092 0.5795440171959542 0.5271431493011614; 0.38138984567982137 0.3812567332490616 0.9451010706664983; 0.8444118191235355 0.08035626079919167 0.3317360622835448]
-Array of random values normally distributed: :[-0.9844211795357012 -1.556006286252181 1.338661869939072; 0.49338877658313807 -0.18928296982661952 0.9625271884490435; 0.07991957898911212 0.33750379203537806 -0.22519538037585446]
+Array of random values between 0 and 1: [0.4302825729552421 0.3434621936791893 0.8036247690571842; 0.9778791733048559 0.7916016781632095 0.6094788427639053; 0.47503956465877795 0.3827827945553727 0.7474396799527241]
+Array of random values normally distributed: :[0.612614833846255 0.18124009294042445 -0.7996695681782161; 0.2098679564192615 -0.6102418088011922 -1.2944087801690514; 0.8674978498670805 0.8772901896901067 1.288753707730649]
 </pre></div>
 </div>
 </div>
@@ -931,6 +937,24 @@ Array of random values normally distributed: :[-0.9844211795357012 -1.5560062862
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="functions.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Functions</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="io.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Input Output</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               

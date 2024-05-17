@@ -283,8 +283,8 @@
 
 <li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_NumPy.html">Numpy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_Pandas.html">Pandas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_Matplotlib.html">Matplotlib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_ScikitLearn.html">Scikit-Learn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_Matplotlib.html">Matplotlib</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/introduction_to_r.html">Introduction to R</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -432,6 +432,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/variables.html">Variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/operations.html">Operations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/control_flow.html">Control Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/arrays_and_matrices.html">Arrays and Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/io.html">Input Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/package_management.html">Package Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/visualisation.html">Plotting and Visualisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/performant_code.html">Performant Code</a></li>
 </ul>
 </li>
 </ul>
@@ -684,7 +690,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outline">Outline</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#joining-datasets">Joining datasets</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#left-joins">Left joins</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-left-join-practice">Exercise: left join practice</a></li>
@@ -696,7 +701,6 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgement">Acknowledgement</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#footnotes">Footnotes</a></li>
 </ul>
             </nav>
         </div>
@@ -708,14 +712,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="combining-datasets">
+  <div class="cell tag_remove-input docutils container">
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="combining-datasets">
 <h1>Combining Datasets<a class="headerlink" href="#combining-datasets" title="Link to this heading">#</a></h1>
-<section id="outline">
-<h2>Outline<a class="headerlink" href="#outline" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Joining datasets</p></li>
-</ul>
-</section>
 <section id="joining-datasets">
 <h2>Joining datasets<a class="headerlink" href="#joining-datasets" title="Link to this heading">#</a></h2>
 <p>In your data wrangling journey, you will often find yourself wanting to combine
@@ -747,8 +747,6 @@ the ‘left’ dataframe (i.e. the first one) and joining the other dataframe <e
 the ‘left’ one.</p>
 <p>It’s helpful to use small, toy dataframes to explore how joins work (or remind
 yourself after a period of time away).</p>
-<div class="cell tag_remove-input docutils container">
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
@@ -849,10 +847,10 @@ be? Check your guess with code below.</p>
 </div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+Now what if you swap the order of `df1` and `df2`? Guess the output of
+`dplyr::left_join(df2, df1, by = &quot;colA&quot;)` and check your answer below.
 </pre></div>
 </div>
-<p>Now what if you swap the order of <code class="docutils literal notranslate"><span class="pre">df1</span></code> and <code class="docutils literal notranslate"><span class="pre">df2</span></code>? Guess the output of
-<code class="docutils literal notranslate"><span class="pre">dplyr::left_join(df2,</span> <span class="pre">df1,</span> <span class="pre">by</span> <span class="pre">=</span> <span class="pre">&quot;colA&quot;)</span></code> and check your answer below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
@@ -902,7 +900,10 @@ df2 &lt;- data.frame(colA = c(1, 3),
 </pre></div>
 </div>
 </div>
-<p>Now what if we swap the roles of <code class="docutils literal notranslate"><span class="pre">df1</span></code> and <code class="docutils literal notranslate"><span class="pre">df2</span></code>?</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+Now what if we swap the roles of `df1` and `df2`?
+</pre></div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
@@ -955,7 +956,7 @@ dplyr::left_join(x, y, by = &quot;colA&quot;)
 <h3>Exercise: joining penguin and weather data<a class="headerlink" href="#exercise-joining-penguin-and-weather-data" title="Link to this heading">#</a></h3>
 <p>Recall the penguin data from the <code class="docutils literal notranslate"><span class="pre">palmerpenguins</span></code> package. We’re going to join
 this with some annual weather data, taken from the Palmer Station in Antarctica
-from 1989 - 2019<a class="footnote-reference brackets" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
+from 1989 - 2019 <span id="id1">[<a class="reference internal" href="strings_and_dates.html#id4" title="Palmer Station Antarctica LTER. Daily weather averages for palmer station, antarctica (1989-2023) ver 9. 2023. Accessed: 2024-05-16. URL: https://doi.org/10.6073/pasta/3eefb45dbfb784c3cabe3690ea46fe9e.">LTE23</a>]</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
@@ -1019,6 +1020,9 @@ weather_cleaned &lt;- weather |&gt;
 </pre></div>
 </div>
 </div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </section>
 </section>
 <section id="acknowledgement">
@@ -1030,21 +1034,26 @@ which is licensed under <a class="reference external" href="https://creativecomm
 based on material from <a class="reference external" href="https://gge-ucd.github.io/R-DAVIS/index.html">UC Davis’s R-DAVIS
 course</a>, which draws heavily on
 <a class="reference external" href="https://datacarpentry.org/R-ecology-lesson/">Carpentries</a> R lessons.</p>
-</section>
-<section id="footnotes">
-<h2>Footnotes<a class="headerlink" href="#footnotes" title="Link to this heading">#</a></h2>
-<hr class="footnotes docutils" />
-<aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id2" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
-<p>The dataset was derived from the following dataset: Palmer Station
-Antarctica LTER. 2023. Daily weather averages for Palmer
-Station, Antarctica (1989-2023) ver 9. Environmental Data Initiative.
-<a class="reference external" href="https://doi.org/10.6073/pasta/3eefb45dbfb784c3cabe3690ea46fe9e">https://doi.org/10.6073/pasta/3eefb45dbfb784c3cabe3690ea46fe9e</a> (Accessed
-2024-01-08). See the README in the data folder accompanying these
-notebooks for more details.</p>
-</aside>
-</aside>
+<div class="docutils container" id="id2">
+<div role="list" class="citation-list">
+<div class="citation" id="id6" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>eal23<span class="fn-bracket">]</span></span>
+<p>Friedlingstein et al. Global carbon budget 2023. Excel workbook obtained from <a class="reference external" href="https://globalcarbonbudgetdata.org/downloads/latest-data/National_Fossil_Carbon_Emissions_2023v1.0.xlsx">https://globalcarbonbudgetdata.org/downloads/latest-data/National_Fossil_Carbon_Emissions_2023v1.0.xlsx</a>, 2023. Accessed: 2024-02-28.</p>
+</div>
+<div class="citation" id="id4" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>HHG20<span class="fn-bracket">]</span></span>
+<p>Allison M. Horst, Alison P. Hill, and Kristen B. Gorman. Palmerpenguins: palmer archipelago (antarctica) penguin data. R package version 0.1.1, 2020. URL: <a class="reference external" href="https://allisonhorst.github.io/palmerpenguins/">https://allisonhorst.github.io/palmerpenguins/</a>, <a class="reference external" href="https://doi.org/10.5281/zenodo.3960218">doi:10.5281/zenodo.3960218</a>.</p>
+</div>
+<div class="citation" id="id3" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">LTE23</a><span class="fn-bracket">]</span></span>
+<p>Palmer Station Antarctica LTER. Daily weather averages for palmer station, antarctica (1989-2023) ver 9. 2023. Accessed: 2024-05-16. URL: <a class="reference external" href="https://doi.org/10.6073/pasta/3eefb45dbfb784c3cabe3690ea46fe9e">https://doi.org/10.6073/pasta/3eefb45dbfb784c3cabe3690ea46fe9e</a>.</p>
+</div>
+<div class="citation" id="id5" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Wic14<span class="fn-bracket">]</span></span>
+<p>Hadley Wickham. Tidy data. <em>Journal of Statistical Software</em>, 59(10):1–23, 2014. URL: <a class="reference external" href="https://doi.org/10.18637/jss.v059.i10">https://doi.org/10.18637/jss.v059.i10</a>, <a class="reference external" href="https://doi.org/10.18637/jss.v059.i10">doi:10.18637/jss.v059.i10</a>.</p>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -1112,7 +1121,6 @@ notebooks for more details.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outline">Outline</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#joining-datasets">Joining datasets</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#left-joins">Left joins</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-left-join-practice">Exercise: left join practice</a></li>
@@ -1124,7 +1132,6 @@ notebooks for more details.</p>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgement">Acknowledgement</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#footnotes">Footnotes</a></li>
 </ul>
   </nav></div>
 

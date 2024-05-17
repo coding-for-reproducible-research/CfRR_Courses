@@ -283,8 +283,8 @@
 
 <li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_NumPy.html">Numpy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_Pandas.html">Pandas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_Matplotlib.html">Matplotlib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_ScikitLearn.html">Scikit-Learn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_Matplotlib.html">Matplotlib</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/introduction_to_r.html">Introduction to R</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -432,6 +432,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/variables.html">Variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/operations.html">Operations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/control_flow.html">Control Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/arrays_and_matrices.html">Arrays and Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/io.html">Input Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/package_management.html">Package Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/visualisation.html">Plotting and Visualisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/performant_code.html">Performant Code</a></li>
 </ul>
 </li>
 </ul>
@@ -695,7 +701,6 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acnowledgements">Acnowledgements</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#footnotes">Footnotes</a></li>
 </ul>
             </nav>
         </div>
@@ -721,7 +726,7 @@ document.write(`
 which we mean to change the structure of the columns and/or rows. The <code class="docutils literal notranslate"><span class="pre">tidyr</span></code>
 package contains functions to support this.</p>
 <p>As an example dataset for reshaping, we’ll use data on territorial fossil CO2
-emissions by country (Friedlingstein et al. 2023)<a class="footnote-reference brackets" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
+emissions by country (Friedlingstein et al. 2023)<span id="id1">[<a class="reference internal" href="strings_and_dates.html#id7" title="Friedlingstein et al. Global carbon budget 2023. Excel workbook obtained from https://globalcarbonbudgetdata.org/downloads/latest-data/National_Fossil_Carbon_Emissions_2023v1.0.xlsx, 2023. Accessed: 2024-02-28.">eal23</a>]</span>.</p>
 <p><strong>Note:</strong> To read the data, we’ll use a call to the <code class="docutils literal notranslate"><span class="pre">read_excel</span></code> function from
 the <code class="docutils literal notranslate"><span class="pre">readxl</span></code> package. We only touched on this in notebook 2, so don’t worry
 about understanding exactly how the data is read in. Treat this as a glimpse of
@@ -995,18 +1000,26 @@ emissions_tidy |&gt;
 <p>We acknowledge the Global Carbon Project, which is responsible for the Global
 Carbon Budget and we thank the fossil carbon emissions modelling groups for
 producing and making available their model output.</p>
-</section>
-<section id="footnotes">
-<h2>Footnotes<a class="headerlink" href="#footnotes" title="Link to this heading">#</a></h2>
-<hr class="footnotes docutils" />
-<aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id2" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
-<p>Taken from Global Carbon Budget 2023 (Friedlingstein et al., 2023, ESSD).
-Excel workbook obtained from <a class="reference external" href="https://globalcarbonbudgetdata.org/downloads/latest-data/National_Fossil_Carbon_Emissions_2023v1.0.xlsx">https://globalcarbonbudgetdata.org/downloads/latest-data/National_Fossil_Carbon_Emissions_2023v1.0.xlsx</a>
-(accessed 2024-02-28).</p>
-</aside>
-</aside>
+<div class="docutils container" id="id2">
+<div role="list" class="citation-list">
+<div class="citation" id="id6" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">eal23</a><span class="fn-bracket">]</span></span>
+<p>Friedlingstein et al. Global carbon budget 2023. Excel workbook obtained from <a class="reference external" href="https://globalcarbonbudgetdata.org/downloads/latest-data/National_Fossil_Carbon_Emissions_2023v1.0.xlsx">https://globalcarbonbudgetdata.org/downloads/latest-data/National_Fossil_Carbon_Emissions_2023v1.0.xlsx</a>, 2023. Accessed: 2024-02-28.</p>
+</div>
+<div class="citation" id="id4" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>HHG20<span class="fn-bracket">]</span></span>
+<p>Allison M. Horst, Alison P. Hill, and Kristen B. Gorman. Palmerpenguins: palmer archipelago (antarctica) penguin data. R package version 0.1.1, 2020. URL: <a class="reference external" href="https://allisonhorst.github.io/palmerpenguins/">https://allisonhorst.github.io/palmerpenguins/</a>, <a class="reference external" href="https://doi.org/10.5281/zenodo.3960218">doi:10.5281/zenodo.3960218</a>.</p>
+</div>
+<div class="citation" id="id3" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>LTE23<span class="fn-bracket">]</span></span>
+<p>Palmer Station Antarctica LTER. Daily weather averages for palmer station, antarctica (1989-2023) ver 9. 2023. Accessed: 2024-05-16. URL: <a class="reference external" href="https://doi.org/10.6073/pasta/3eefb45dbfb784c3cabe3690ea46fe9e">https://doi.org/10.6073/pasta/3eefb45dbfb784c3cabe3690ea46fe9e</a>.</p>
+</div>
+<div class="citation" id="id5" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Wic14<span class="fn-bracket">]</span></span>
+<p>Hadley Wickham. Tidy data. <em>Journal of Statistical Software</em>, 59(10):1–23, 2014. URL: <a class="reference external" href="https://doi.org/10.18637/jss.v059.i10">https://doi.org/10.18637/jss.v059.i10</a>, <a class="reference external" href="https://doi.org/10.18637/jss.v059.i10">doi:10.18637/jss.v059.i10</a>.</p>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -1085,7 +1098,6 @@ Excel workbook obtained from <a class="reference external" href="https://globalc
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acnowledgements">Acnowledgements</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#footnotes">Footnotes</a></li>
 </ul>
   </nav></div>
 
