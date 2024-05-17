@@ -1,5 +1,9 @@
 # Python for Data Analysis
 
+### May 2024
+
+### Collaborative doc: https://tinyurl.com/2v573z6j
+
 ## Prerequisites
 
 An understanding and experience of Python programming from, for example, attending Intro to Python. 
