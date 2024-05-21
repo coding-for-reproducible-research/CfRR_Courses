@@ -56,6 +56,8 @@ exclude_patterns:
   - course_details_markdowns/working_with_data_in_r.md
   - pathways/descriptions/data_scientist.md
   - pathways/descriptions/software_engineer.md
+  - tutorial_directory/example_markdown.md
+  - tutorial_directory/example_notebook.ipynb
 
 # Execute all notebooks by default. 
 # The R notebooks are excluded from running during the building of the book due to the formatting issues. When ran wen building the output for each of the cells will create a new code block for each space due to the R magic command.

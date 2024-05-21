@@ -66,6 +66,9 @@ parts:
       sections:
       - file: course_homepages/standalone_courses/introduction_to_version_control_with_git_and_github
       - file: course_homepages/standalone_courses/intermediate_version_control
+  - caption: Help us improve!
+    chapters:
+      - file: course_review
   - caption: Self Study Notes
     chapters:
     - file: individual_modules/section_landing_pages/introduction_to_python
@@ -90,8 +93,8 @@ parts:
       - file: individual_modules/python_for_data_analysis/Python_Virtual_environments
       - file: individual_modules/python_for_data_analysis/Python_NumPy
       - file: individual_modules/python_for_data_analysis/Python_Pandas
-      - file: individual_modules/python_for_data_analysis/Python_Matplotlib
       - file: individual_modules/python_for_data_analysis/Python_ScikitLearn
+      - file: individual_modules/python_for_data_analysis/Python_Matplotlib
     - file: individual_modules/section_landing_pages/introduction_to_r
       sections:
       - file: individual_modules/introduction_to_r/gettingstarted
@@ -190,11 +193,19 @@ parts:
       - file: individual_modules/introduction_to_julia/variables
       - file: individual_modules/introduction_to_julia/operations
       - file: individual_modules/introduction_to_julia/control_flow
+      - file: individual_modules/introduction_to_julia/functions
+      - file: individual_modules/introduction_to_julia/arrays_and_matrices
+      - file: individual_modules/introduction_to_julia/io
+      - file: individual_modules/introduction_to_julia/package_management
+      - file: individual_modules/introduction_to_julia/visualisation
+      - file: individual_modules/introduction_to_julia/performant_code
+    - file: bibliography
   - caption: Join Us!
     chapters: 
     - file: contributing
     - file: developing_a_course
     - file: suggestions_form
+    
       
 
 
