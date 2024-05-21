@@ -1,5 +1,9 @@
 # Python for Data Analysis
 
+## May 2024
+
+### Collaborative doc: https://tinyurl.com/2v573z6j
+
 ## Prerequisites
 
 An understanding and experience of Python programming from, for example, attending Intro to Python. 
@@ -20,40 +24,22 @@ More advanced Python features, including usage of virtual environments, tools to
 
 ### Part 1
 
-* Language features
+* [Language features](../python_for_data_analysis/Python_Language_features.ipynb)
 
-  * Annotating code - docstrings, type-hints
+* [Virtual environments](../python_for_data_analysis/Python_Virtual_environments.ipynb)
 
-  * List and generator comprehensions
-
-  * Classes
-
-  * Operator overloading
-
-
-* Virtual environments
-
-  * poetry
-
-  * venv and pipenv
-
-* Checking and testing code
-
-  * mypy
-
-  * pytest
-
+* [Checking and testing code](../python_for_data_analysis/Python_Testing.ipynb)
 
 ### Part 2
 
-* NumPy
+* [NumPy](../python_for_data_analysis/Python_NumPy.ipynb)
 
-* Pandas
+* [Pandas](../python_for_data_analysis/Python_Pandas.ipynb)
 
-* ScikitLean
+* [ScikitLean](../python_for_data_analysis/Python_ScikitLearn.ipynb)
 
 ### Part 3
 
-* Matplotlib
+* [Matplotlib]()
 
-* Plotly?
+* [Plotly]()
