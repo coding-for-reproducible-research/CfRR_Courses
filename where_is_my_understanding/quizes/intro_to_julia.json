@@ -1,0 +1,314 @@
+[
+    {
+        "question": "What is the primary function used to define a function in Julia?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "define",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "func",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "function",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "def",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "Which symbol is used to denote element-wise operations on arrays and matrices?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "&",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "|",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "@",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": ".",
+                "correct": true,
+                "feedback": "Correct."
+            }
+        ]
+    },
+    {
+        "question": "Which package in Julia is used for data visualization and plotting?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Pandas",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "ggplot2",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Plots.jl",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Matplotlib",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What is the command to install a package in Julia?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Pkg.add(\"PackageName\")",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "install.package(\"PackageName\")",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "library(\"PackageName\")",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "use(\"PackageName\")",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "How do you create a 2x2 identity matrix in Julia?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "I = Matrix{Float64}(I, 2, 2)",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "I = eye(2)",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "I = identity(2, 2)",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "I = IdentityMatrix(2, 2)",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "Which keyword is used in Julia for conditional execution of code?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "switch",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "if",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "case",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "select",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What function reads a CSV file into a DataFrame?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "read.csv",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "load_csv",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "CSV.read",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "import_csv",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What is the purpose of the `@time` macro?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To set a timer",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "To create a  timestamp",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "To measure the execution time of an expression",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "To schedule a task",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "How do you create a range from 1 to 10?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "range(1,10)",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "seq(1,10)",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "1:10",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "1..10",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "Which function is used to concatenate arrays along a specified dimension?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "merge",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "cat",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "join",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "union",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "How do you declare a mutable struct?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "mutable struct MyStruct",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "struct MyStruct mutable",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "struct mutable MyStruct",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "class MyStruct mutable",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "Which function is used to save a plot as a PNG file?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "savepng",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "save_plot",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "export_png",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "savefig",
+                "correct": true,
+                "feedback": "Correct."
+            }
+        ]
+    }
+]
