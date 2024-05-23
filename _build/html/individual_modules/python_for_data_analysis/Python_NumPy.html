@@ -1,0 +1,1578 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Numpy &#8212; Coding For Reproducible Research</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'individual_modules/python_for_data_analysis/Python_NumPy';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Pandas" href="Python_Pandas.html" />
+    <link rel="prev" title="Python - Checking and Testing Code" href="Python_Testing.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../home_page.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/exeter_logo.png" class="logo__image only-light" alt="Coding For Reproducible Research - Home"/>
+    <script>document.write(`<img src="../../_static/exeter_logo.png" class="logo__image only-dark" alt="Coding For Reproducible Research - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../home_page.html">
+                    Coding for Reproducible Research
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">What is Coding For Reproducible Research?</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../about_us.html">About Us</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how_to_use_CfRR.html">How to Use This Website</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">What Courses Should I Take?</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../where_is_my_understanding/homepage_where_is_my_understanding.html">Interactive Quizzes</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../where_is_my_understanding/intro_to_python.html">Introduction to Python Quiz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../where_is_my_understanding/python_for_data_analysis.html">Python for Data Analysis Quiz</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../where_is_my_understanding/intro_to_r.html">Introduction to R Quiz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../where_is_my_understanding/regression_analysis_with_R.html">Regression Analysis With R Quiz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../where_is_my_understanding/advanced_regression_analysis_with_R.html">Advanced Regression Analysis with R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../where_is_my_understanding/working_with_data_in_r.html">Working With Data in R Quiz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../where_is_my_understanding/intro_to_hpc.html">Introduction to HPC Quiz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../where_is_my_understanding/intro_to_version_control.html">Introduction to Version Control with Git and Github Quiz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../where_is_my_understanding/intro_to_unix.html">Introduction to UNIX Quiz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../where_is_my_understanding/computational_thinking.html">Computational Thinking Quiz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../where_is_my_understanding/software_development_best_practice.html">Software Development Best Practice Quiz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../where_is_my_understanding/introduction_to_julia.html">Introduction to Julia</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pathways</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../pathways/related_courses.html">How do these courses relate?</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../pathways/hpc.html">High Performance Computing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pathways/r_ds.html">R Data Science</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pathways/python_ds.html">Python Data Science</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Details and Delivery Dates</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/theoretical.html">Theoretical</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/computational_thinking.html">Computational Thinking</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/machine_learning.html">Machine Learning</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_machine_learning.html">Introduction to Machine Learning</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/high_performance_computing.html">High Performance Computing</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_hpc_and_isca.html">Introduction to HPC and ISCA</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/julia.html">Julia</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_julia.html">Introduction to Julia</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/unix.html">UNIX</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_unix.html">Introduction to UNIX</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/parallel_computing.html">Parallel Computing</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/intro_parallel_computing.html">Parallel Computing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/R.html">R</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_r.html">Introduction to R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/working_with_data_in_r.html">Working With Data In R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/regression_analysis_with_r.html">Regression Analysis with R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/advanced_regression_analysis.html">Advanced Regression Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/python.html">Python</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_python.html">Introduction to Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/intermediate_python.html">Intermediate Python</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/software_development.html">Software Development</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/software_development_best_practice.html">Software Development Best Practices</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_homepages/connected_course_homepages/version_control.html">Version Control</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/introduction_to_version_control_with_git_and_github.html">Introduction to Version Control with Git and Github</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_homepages/standalone_courses/intermediate_version_control.html">Intermediate Version Control</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Help us improve!</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../course_review.html">Course Review</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Self Study Notes</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/introduction_to_python.html">Introduction to Python</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/motivation.html">Motivation and Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/fundamentals.html">Python Fundamentals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/lists.html">Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/control_flow.html">Control Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/additional_exercises.html">Additional Session 1 Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/recap.html">Session 1 Recap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/imports.html">Imports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/analysis_task_intro.html">Data Analysis Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/analysis_task_1.html">Data Analysis Task 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/analysis_task_2.html">Data Analysis Task 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_python/analysis_task_3.html">Data Analysis Task 3</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../section_landing_pages/python_for_data_analysis.html">Python for Data Analysis</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Python_Language_features.html">Python Language Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Python_Virtual_environments.html">Python - Virtual environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Python_Testing.html">Python - Checking and Testing Code</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Numpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Python_Pandas.html">Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Python_ScikitLearn.html">Scikit-Learn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Python_Matplotlib.html">Matplotlib</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/introduction_to_r.html">Introduction to R</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/gettingstarted.html">Getting Up and Running with R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/basic_commands.html">Running Commands With R</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/data_types.html">Data Types and Structures</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/load_data.html">Loading Data From Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/manipulating_data.html">Manipulating Datasets</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/control_flow.html">Control Flow</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/plots.html">Plots</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/stats.html">Statistical Analysis</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/good_practise.html">Establishing Good Practices when Coding</a></li>
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/regression_analysis_with_R.html">Regression Analysis with R</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../regression_analysis_with_R/introduction_to_regression.html">Introduction to Regression Analysis</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../regression_analysis_with_R/hypothesis_testing.html">Hypothesis Testing for Regression Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../regression_analysis_with_R/multiple_linear_regression.html">Multiple Linear Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../regression_analysis_with_R/logistic_regression.html">Logistic Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../regression_analysis_with_R/summary.html">Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../regression_analysis_with_R/extras.html">Extras</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/advanced_regression_analysis_with_R.html">Advanced Regression Analysis with R</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../advanced_regression_analysis_with_R/mixed_effects_models.html">Mixed Effects Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced_regression_analysis_with_R/expanding_the_mixed_effects_model_framework.html">Expanding the mixed effects model framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced_regression_analysis_with_R/regression_models_with_interaction_terms.html">Regression models with interaction terms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced_regression_analysis_with_R/summary.html">Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced_regression_analysis_with_R/extras.html">Extras</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/working_with_data_in_R.html">Working With Data in R</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_data_in_R/introducing_tidyverse.html">Tidyverse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_data_in_R/loading_data.html">Loading Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_data_in_R/manipulating_a_dataframe.html">Manipulating A Dataframe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_data_in_R/piping.html">Piping and Functional Style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_data_in_R/combining_datasets.html">Combining Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_data_in_R/reshaping_datasets.html">Reshaping Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_data_in_R/strings_and_dates.html">Strings and Dates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_data_in_R/summary.html">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/introduction_to_hpc.html">Introduction to HPC and ISCA</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/motivation.html">Why might I want to use a HPC Cluster?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/isca.html">Exeter supported HPC facilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/connection.html">How do I connect to a HPC Cluster?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/file_transfer.html">File Transfer Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/schedulers.html">Running a job on a HPC system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/modules.html">Loading software packages on HPC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/example_jobs.html">Running more complex jobs on a HPC system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_hpc/exploiting_slurm.html">Harnessing the power of the scheduler</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/introduction_to_version_control.html">Introduction to Version Control</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/motivation.html">Motivation: Why use Version Control Systems?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/git_vs_github.html">Git vs Github</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/configuring_git.html">Setting up Git and GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/making_repos.html">Making Repositories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/example_repo.html">An Example Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/recording_changes.html">Recording Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/history_and_changes.html">Viewing History and Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/recording_changes_revisited.html">Recording Changes – Revisited</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/pushing_and_pulling.html">Pushing to and Pulling From the Remote Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/undoing_changes.html">Undoing Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/ignoring_files.html">Ignoring Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/local_branches.html">Working with Local Branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/remote_branches_with_github.html">Remote Branches with GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/collaborating_with_branches.html">Collaborating with Branches</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/merge_conflicts.html">Merge Conflicts</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/introduction_to_unix.html">Introduction to UNIX</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/intro.html">Introducing the UNIX shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/filedir.html">File Directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/create.html">Working With Files and Directories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/pipefilter.html">Pipes and Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/loop.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/script.html">Shell Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_unix/find.html">Finding Things</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/computational_thinking.html">Computational Thinking</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/introduction.html">Computational Thinking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/algorithms.html">Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/decomposition.html">Decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/pattern_recognition.html">Pattern recognition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/abstraction.html">Abstraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/alignment.html">Aligning the human solution with the computer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational_thinking/final_exercise.html">Sudoku Task</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/software_development_best_practice.html">Software Development Best Practice</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../software_development_best_practices/software_development_life_cycle.html">Software Development Life Cycle &amp; Methodologies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software_development_best_practices/data_management.html">Data Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software_development_best_practices/problem_solving.html">Problem Solving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software_development_best_practices/virtual_environments_dependency_managers.html">Virtual Environment and Dependency Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software_development_best_practices/version_control.html">Version Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software_development_best_practices/readable_code_and_documentation.html">Readable Code and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software_development_best_practices/testing.html">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software_development_best_practices/collaboration.html">Collaboration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software_development_best_practices/reproducibility.html">Reproducibility</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/introduction_to_julia.html">Introduction to Julia</a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/introduction_to_julia.html">Introduction to Julia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/variables.html">Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/operations.html">Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/control_flow.html">Control Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/arrays_and_matrices.html">Arrays and Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/io.html">Input Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/package_management.html">Package Management</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/performant_code.html">Performant Code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">Bibliography</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Join Us!</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing to CfRR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developing_a_course.html">Developing a Course Guidance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../suggestions_form.html">Suggestions for Courses, Improvements and Additions</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/coding-for-reproducible-research/CfRR_Courses/main?urlpath=tree/individual_modules/python_for_data_analysis/Python_NumPy.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/coding-for-reproducible-research/CfRR_Courses" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/coding-for-reproducible-research/CfRR_Courses/issues/new?title=Issue%20on%20page%20%2Findividual_modules/python_for_data_analysis/Python_NumPy.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/individual_modules/python_for_data_analysis/Python_NumPy.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Numpy</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-numpy">What is Numpy?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-numpy">Importing Numpy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-data-types-and-arrays">Understanding Data Types and Arrays</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#array-creation">Array Creation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#from-a-list">From a list</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#zeros-and-ones">Zeros and Ones</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-range">A Range</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-creating-an-array">Exercise 1 - Creating an array</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#other-methods">Other Methods</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-output">File Output</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-saving-to-a-text-file">Exercise 2 - Saving to a text file</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-input">File Input</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#array-attributes">Array Attributes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#array-indexing">Array Indexing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#array-slicing">Array Slicing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#array-operations">Array Operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetic-operations">Arithmetic Operations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-operations">Matrix Operations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dot-product">Dot Product</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-operations">Statistical Operations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-operations">Logical Operations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shape-manipulations">Shape Manipulations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-operations">Set Operations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#broadcasting">Broadcasting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-performing-analysis">Exercise 3 - Performing Analysis</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="numpy">
+<h1>Numpy<a class="headerlink" href="#numpy" title="Link to this heading">#</a></h1>
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>At the end of this lesson you will be able to:</p>
+<ul class="simple">
+<li><p>Create and initialise Numpy arrays, including loading data from files</p></li>
+<li><p>Save data to text files</p></li>
+<li><p>Perform arithmetic on arrays and subsets of arrays</p></li>
+</ul>
+</section>
+<section id="what-is-numpy">
+<h2>What is Numpy?<a class="headerlink" href="#what-is-numpy" title="Link to this heading">#</a></h2>
+<p>Numpy is a key Python package for scientific computing. Numpy provides support for large, multi-dimensional arrays and matrices, alongside mathematical functions to operate on these arrays, with applications across numerical analysis, linear algebra, Fourier transform and random number capabilities.</p>
+<section id="importing-numpy">
+<h3>Importing Numpy<a class="headerlink" href="#importing-numpy" title="Link to this heading">#</a></h3>
+<p>The first step is to import the package into the current environment.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="understanding-data-types-and-arrays">
+<h2>Understanding Data Types and Arrays<a class="headerlink" href="#understanding-data-types-and-arrays" title="Link to this heading">#</a></h2>
+<section id="array-creation">
+<h3>Array Creation<a class="headerlink" href="#array-creation" title="Link to this heading">#</a></h3>
+<p>The main data structure within numpy is an array, providing efficient storage and manipulation for large numerical datasets.</p>
+<section id="from-a-list">
+<h4>From a list<a class="headerlink" href="#from-a-list" title="Link to this heading">#</a></h4>
+<p>A simple way of creating a numpy array is by passing a list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array_from_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+<span class="n">display</span><span class="p">(</span><span class="n">array_from_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 2, 3, 4, 5])
+</pre></div>
+</div>
+</div>
+</div>
+<section id="zeros-and-ones">
+<h5>Zeros and Ones<a class="headerlink" href="#zeros-and-ones" title="Link to this heading">#</a></h5>
+<p>However there are also a range of different ways to create arrays with the same value such as having a numpy array of ones (<code class="docutils literal notranslate"><span class="pre">np.ones</span></code>), array of zeros (<code class="docutils literal notranslate"><span class="pre">np.zeros</span></code>). In this case we pass an arguement with the number of elements that are desired.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zeros_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">zeros_array</span><span class="p">)</span>
+
+<span class="n">ones_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">ones_array</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.])
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="a-range">
+<h4>A Range<a class="headerlink" href="#a-range" title="Link to this heading">#</a></h4>
+<p>It is also possible to create more complex arrays without having to manually input the values via a list. For example it is possible to create a range of values with the use of <code class="docutils literal notranslate"><span class="pre">np.arange()</span></code>. Of note is that by default the array will start from zero.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">range_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">range_array</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-1-creating-an-array">
+<h4>Exercise 1 - Creating an array<a class="headerlink" href="#exercise-1-creating-an-array" title="Link to this heading">#</a></h4>
+<p>Usin the .arange function, create this numpy array: [5,8,11,14,17,20]. It may be helpful to refer to the numpy .arange() documentation, avaliable <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.arange.html">here</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#custom_range_array = *your code here*</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Exercise 1 Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">custom_range_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</section>
+<section id="other-methods">
+<h4>Other Methods<a class="headerlink" href="#other-methods" title="Link to this heading">#</a></h4>
+<p>There are also a range of other methods that can be used to create numpy arrays that will most likely be benefical depending on the particular task you are working on. All of the details for each function are contained in the documentation, but arrays can be based on <a class="reference external" href="https://numpy.org/doc/stable/reference/random/index.html">random numbers</a> or  <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.identity.html">identity matrix</a> as two of the many that are avaliable.</p>
+</section>
+</section>
+<section id="file-output">
+<h3>File Output<a class="headerlink" href="#file-output" title="Link to this heading">#</a></h3>
+<p>If we wanted to save the data that we have created so far, then we could make use of <code class="docutils literal notranslate"><span class="pre">np.save</span></code>, which will save an array to a binary file with the .npy extension.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">range_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;data/example_range_array.npy&#39;</span><span class="p">,</span> <span class="n">range_array</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="exercise-2-saving-to-a-text-file">
+<h4>Exercise 2 - Saving to a text file<a class="headerlink" href="#exercise-2-saving-to-a-text-file" title="Link to this heading">#</a></h4>
+<p>There are also a range of other file formats that can be used for storing numpy arrays. Engage with the documentation for numpy and save the numpy array to another file format, potentially a .txt file.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Exercise 2 Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s1">&#39;data/example_range_array.txt&#39;</span><span class="p">,</span> <span class="n">range_array</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="file-input">
+<h3>File Input<a class="headerlink" href="#file-input" title="Link to this heading">#</a></h3>
+<p>It is also possible to use <code class="docutils literal notranslate"><span class="pre">np.load</span></code> to read in an array from another .npy file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">downloaded_numpy_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;data/multidimensional_array.npy&#39;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">downloaded_numpy_array</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1, 2, 3],
+       [4, 5, 6],
+       [7, 8, 9]])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="array-attributes">
+<h3>Array Attributes<a class="headerlink" href="#array-attributes" title="Link to this heading">#</a></h3>
+<p>It is a common occurence that you will be sent data that you want to analyse, such as in the case above of loading in just the data file itself. In this situation one of the first things you may wish to do is to get an idea of the data by accessing the arrays attributes.
+The number of dimensions of an array can be found with the use of <code class="docutils literal notranslate"><span class="pre">.ndim</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="s2">&quot;The number of dimensions in the array is: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">downloaded_numpy_array</span><span class="o">.</span><span class="n">ndim</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;The number of dimensions in the array is: 2&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>The overall shape of the array can be found with the use of <code class="docutils literal notranslate"><span class="pre">.shape</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="s2">&quot;The overall shape of the array is: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">downloaded_numpy_array</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;The overall shape of the array is: (3, 3)&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>The number of values of the array can be found with the use of <code class="docutils literal notranslate"><span class="pre">.size</span></code>, giving an overview of the raw number of values within the array.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="s2">&quot;The overall size of the array is: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">downloaded_numpy_array</span><span class="o">.</span><span class="n">size</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;The overall size of the array is: 9&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>As arrays can have a range of different data types it is key to ensure that the data is in the form that you desire it to be, which can be found with the use of <code class="docutils literal notranslate"><span class="pre">.dtype</span></code>. One of the reasons you may wish to know the data type itself is to understand the number of bytes each element in the array takes, found via <code class="docutils literal notranslate"><span class="pre">.itemsize</span></code>. As the dataset grows larger and larger the amount of memory used will become of key importance with the whole data structure memory footprint being found via <code class="docutils literal notranslate"><span class="pre">.nbytes</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="s2">&quot;The datatype within the array is: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">downloaded_numpy_array</span><span class="o">.</span><span class="n">dtype</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;The memory footprint for each of the elements of the array is: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">downloaded_numpy_array</span><span class="o">.</span><span class="n">itemsize</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;The overall memory footprint of the array is: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">downloaded_numpy_array</span><span class="o">.</span><span class="n">nbytes</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;The datatype within the array is: int64&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;The memory footprint for each of the elements of the array is: 8&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;The overall memory footprint of the array is: 72&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="data-types">
+<h3>Data Types<a class="headerlink" href="#data-types" title="Link to this heading">#</a></h3>
+<p>Within numpy there are a range of different data types that elements within an array can be, including:</p>
+<ul class="simple">
+<li><p>Boolean (<code class="docutils literal notranslate"><span class="pre">bool_</span></code>): Used for storing <code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code> values.</p></li>
+<li><p>Integer (<code class="docutils literal notranslate"><span class="pre">int_</span></code>, <code class="docutils literal notranslate"><span class="pre">int8</span></code>, <code class="docutils literal notranslate"><span class="pre">int16</span></code>, <code class="docutils literal notranslate"><span class="pre">int32</span></code>, <code class="docutils literal notranslate"><span class="pre">int64</span></code>): Signed integer types of various sizes</p></li>
+<li><p>Unsigned Integer (<code class="docutils literal notranslate"><span class="pre">uint8</span></code>, <code class="docutils literal notranslate"><span class="pre">uint16</span></code>, <code class="docutils literal notranslate"><span class="pre">uint32</span></code>, <code class="docutils literal notranslate"><span class="pre">uint64</span></code>): Unsigned integer types of various sizes.</p></li>
+<li><p>Floating Point (<code class="docutils literal notranslate"><span class="pre">float16</span></code>, <code class="docutils literal notranslate"><span class="pre">float32</span></code>, <code class="docutils literal notranslate"><span class="pre">float64</span></code>): Floating point numbers of various precisions.</p></li>
+<li><p>Complex Numbers (<code class="docutils literal notranslate"><span class="pre">complex64</span></code>, <code class="docutils literal notranslate"><span class="pre">complex128</span></code>): Complex numbers with floating point real and imaginary parts.</p></li>
+<li><p>Fized length strings (<code class="docutils literal notranslate"><span class="pre">sring_</span></code>): Used for text data.</p></li>
+<li><p>Object (<code class="docutils literal notranslate"><span class="pre">object_</span></code>): Used for arrays of python objects.</p></li>
+</ul>
+<p>Examples for each of these different types can be seen below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Boolean array</span>
+<span class="n">bool_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">bool_</span><span class="p">)</span>
+
+<span class="c1"># Integer array</span>
+<span class="n">int_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+
+<span class="c1"># Floating point array</span>
+<span class="n">float_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+
+<span class="c1"># Complex number array</span>
+<span class="n">complex_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="n">j</span><span class="p">,</span> <span class="mi">3</span><span class="o">+</span><span class="mi">4</span><span class="n">j</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">)</span>
+
+<span class="c1"># String array</span>
+<span class="n">string_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;cherry&quot;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">string_</span><span class="p">)</span>
+
+<span class="c1"># Object array</span>
+<span class="n">object_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;two&quot;</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">object_</span><span class="p">)</span>
+
+<span class="c1"># Print the arrays and their data types</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Boolean Array:&quot;</span><span class="p">,</span> <span class="n">bool_arr</span><span class="p">,</span> <span class="s2">&quot;Data Type:&quot;</span><span class="p">,</span> <span class="n">bool_arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Integer Array:&quot;</span><span class="p">,</span> <span class="n">int_arr</span><span class="p">,</span> <span class="s2">&quot;Data Type:&quot;</span><span class="p">,</span> <span class="n">int_arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Floating Point Array:&quot;</span><span class="p">,</span> <span class="n">float_arr</span><span class="p">,</span> <span class="s2">&quot;Data Type:&quot;</span><span class="p">,</span> <span class="n">float_arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Complex Number Array:&quot;</span><span class="p">,</span> <span class="n">complex_arr</span><span class="p">,</span> <span class="s2">&quot;Data Type:&quot;</span><span class="p">,</span> <span class="n">complex_arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;String Array:&quot;</span><span class="p">,</span> <span class="n">string_arr</span><span class="p">,</span> <span class="s2">&quot;Data Type:&quot;</span><span class="p">,</span> <span class="n">string_arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Object Array:&quot;</span><span class="p">,</span> <span class="n">object_arr</span><span class="p">,</span> <span class="s2">&quot;Data Type:&quot;</span><span class="p">,</span> <span class="n">object_arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Boolean Array: [ True False  True] Data Type: bool
+Integer Array: [1 2 3] Data Type: int32
+Floating Point Array: [1. 2. 3.] Data Type: float64
+Complex Number Array: [1.+2.j 3.+4.j] Data Type: complex128
+String Array: [b&#39;apple&#39; b&#39;banana&#39; b&#39;cherry&#39;] Data Type: |S6
+Object Array: [1 &#39;two&#39; 3.0] Data Type: object
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="array-indexing">
+<h2>Array Indexing<a class="headerlink" href="#array-indexing" title="Link to this heading">#</a></h2>
+<p>Array indexing is the process of accessing individual or groups of elements from an array. Within numpy there are a range of different methods of indexing elements, as shown below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="s2">&quot;The complete array is: &quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">downloaded_numpy_array</span><span class="p">)</span>
+<span class="c1"># Single element indexing </span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Single element indexing: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">downloaded_numpy_array</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+<span class="c1"># Multi-dimensional indexing </span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Multi-dimensional element indexing: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">downloaded_numpy_array</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]))</span>
+<span class="c1"># Boolean indexing </span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Boolean conditions: &quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">downloaded_numpy_array</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Boolean indexing: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">downloaded_numpy_array</span><span class="p">[</span><span class="n">downloaded_numpy_array</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">]))</span>
+<span class="c1"># Complex Indexing </span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Complex indexing: &quot;</span> <span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">downloaded_numpy_array</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;The complete array is: &#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1, 2, 3],
+       [4, 5, 6],
+       [7, 8, 9]])
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Single element indexing: [7 8 9]&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Multi-dimensional element indexing: 8&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Boolean conditions: &#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[False, False, False],
+       [False,  True,  True],
+       [ True,  True,  True]])
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Boolean indexing: [5 6 7 8 9]&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Complex indexing: &#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[4, 5, 6],
+       [7, 8, 9]])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="array-slicing">
+<h2>Array Slicing<a class="headerlink" href="#array-slicing" title="Link to this heading">#</a></h2>
+<p>Array slicing works in a similar way to slicing for python lists, with some additional capabilities. Some examples of slicing can be seen below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="s2">&quot;Simple slicing: &quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">downloaded_numpy_array</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Multi-dimensional slicing: &quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">downloaded_numpy_array</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:])</span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Step slicing: &quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">downloaded_numpy_array</span><span class="p">[::</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Negative slicing:&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">downloaded_numpy_array</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Simple slicing: &#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[4, 5, 6],
+       [7, 8, 9]])
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Multi-dimensional slicing: &#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[2, 3],
+       [5, 6],
+       [8, 9]])
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Step slicing: &#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1, 2, 3],
+       [7, 8, 9]])
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Negative slicing:&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[7, 8, 9]])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="array-operations">
+<h2>Array Operations<a class="headerlink" href="#array-operations" title="Link to this heading">#</a></h2>
+<section id="arithmetic-operations">
+<h3>Arithmetic Operations<a class="headerlink" href="#arithmetic-operations" title="Link to this heading">#</a></h3>
+<p>Numpy has the ability to perform a range of element wise arithmetic operations on arrays, such as addition, subtraction, multiplications and division as seen below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+<span class="n">array_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Array 1: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">array_1</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Array 2: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">array_2</span><span class="p">))</span>
+
+<span class="c1"># Addition </span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Adding Array 1 to Array 2: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">array_1</span> <span class="o">+</span> <span class="n">array_2</span><span class="p">))</span>
+
+<span class="c1"># Subtraction </span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Subtracting Array 2 from Array 1: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">array_1</span> <span class="o">-</span> <span class="n">array_2</span><span class="p">))</span>
+
+<span class="c1"># Multiplication</span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Multiplying Array 1 and 2 together: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">array_1</span> <span class="o">*</span> <span class="n">array_2</span><span class="p">))</span>
+
+<span class="c1"># Division </span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Dividing Array 1 by Array 2: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">array_1</span> <span class="o">/</span> <span class="n">array_2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Array 1: [1 2 3 4 5]&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Array 2: [3 3 3 3 3]&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Adding Array 1 to Array 2: [4 5 6 7 8]&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Subtracting Array 2 from Array 1: [-2 -1  0  1  2]&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Multiplying Array 1 and 2 together: [ 3  6  9 12 15]&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Dividing Array 1 by Array 2: [0.33333333 0.66666667 1.         1.33333333 1.66666667]&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="matrix-operations">
+<h3>Matrix Operations<a class="headerlink" href="#matrix-operations" title="Link to this heading">#</a></h3>
+<p>Further to operations on simple arrays, Numpy offers support for operations on more complex data structure such as matricies.</p>
+</section>
+<section id="dot-product">
+<h3>Dot Product<a class="headerlink" href="#dot-product" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="s2">&quot;Dot product of array 1 and array 2:&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">array_1</span><span class="p">,</span> <span class="n">array_2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Dot product of array 1 and array 2:&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>45
+</pre></div>
+</div>
+</div>
+</div>
+<p>The dot product can then also be computed for two-dimensional arrays.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dot for two-dimensional arrays</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">))</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 4 10]
+ [16 36]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="statistical-operations">
+<h3>Statistical Operations<a class="headerlink" href="#statistical-operations" title="Link to this heading">#</a></h3>
+<p>Numpy provides a range of different functions that can perform statistics on a given array, with some key ones seen below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">input_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">21</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">47</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">])</span>
+
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Mean: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">input_array</span><span class="p">)))</span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Median: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">input_array</span><span class="p">)))</span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Standard Deviation: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">input_array</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Mean: 19.625&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Median: 10.0&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Standard Deviation: 20.6212117733173&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="logical-operations">
+<h3>Logical Operations<a class="headerlink" href="#logical-operations" title="Link to this heading">#</a></h3>
+<p>Numpy also capacity to perform logical operations on arrays that contains boolean elements.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">])</span>
+
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;AND logical operations:&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;OR logical operations:&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">logical_or</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;AND logical operations:&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([False, False, False, False, False])
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;OR logical operations:&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ True,  True,  True, False,  True])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="shape-manipulations">
+<h3>Shape Manipulations<a class="headerlink" href="#shape-manipulations" title="Link to this heading">#</a></h3>
+<p>It is also possible to alter the shape of a given array without modify the data that is within the array. Two keys operations to manipulate the shape of an array are shown below with <code class="docutils literal notranslate"><span class="pre">.reshape</span></code> and <code class="docutils literal notranslate"><span class="pre">.flatten</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reshape_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]])</span>
+<span class="n">display</span><span class="p">(</span><span class="n">reshape_array</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Reshape the array from 3x2 to 2x3:&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">reshape_array</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Convert from 2D to 1D:&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">reshape_array</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1,  5,  2],
+       [ 7,  9, 10]])
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Reshape the array from 3x2 to 2x3:&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1,  5],
+       [ 2,  7],
+       [ 9, 10]])
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Convert from 2D to 1D:&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1,  5,  2,  7,  9, 10])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="set-operations">
+<h3>Set Operations<a class="headerlink" href="#set-operations" title="Link to this heading">#</a></h3>
+<p>Numpy also offers support for set operations, such as getting both the union and the intersection of elements for different arrays as shown below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+<span class="n">array_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Union of array 1 and array 2: &quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">union1d</span><span class="p">(</span><span class="n">array_1</span><span class="p">,</span> <span class="n">array_2</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Intersection of array 1 and array 2: &quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">intersect1d</span><span class="p">(</span><span class="n">array_1</span><span class="p">,</span> <span class="n">array_2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Union of array 1 and array 2: &#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 2, 3, 4, 5])
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Intersection of array 1 and array 2: &#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2, 3, 5])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="broadcasting">
+<h3>Broadcasting<a class="headerlink" href="#broadcasting" title="Link to this heading">#</a></h3>
+<p>Broadcasting in numpy allows operations to be performed on arrays of different shapes, sizs and dimensions. Different examples of broadcasting are shown below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Adding a scale to an array </span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Scalar addition to an array: &quot;</span> <span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+
+<span class="c1"># Adding a one dimensional array to a two dimensional array</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">19</span><span class="p">],</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">26</span><span class="p">,</span><span class="mi">27</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">29</span><span class="p">]])</span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Adding a one dimensional array to a two dimensional array: &quot;</span> <span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Scalar addition to an array: &#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([10, 11, 12, 13, 14, 15, 16, 17, 18, 19])
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Adding a one dimensional array to a two dimensional array: &#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[10, 12, 14, 16, 18, 20, 22, 24, 26, 28],
+       [20, 22, 24, 26, 28, 30, 32, 34, 36, 38]])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-3-performing-analysis">
+<h3>Exercise 3 - Performing Analysis<a class="headerlink" href="#exercise-3-performing-analysis" title="Link to this heading">#</a></h3>
+<p>Given the dataset loaded into the <code class="docutils literal notranslate"><span class="pre">input_data</span></code> below answer the following five questions, some of which may require engaging with the Numpy documentation.</p>
+<ul class="simple">
+<li><p>What is theaverage values of the elements in the array?</p></li>
+<li><p>How many unique numbers are there in the array?</p></li>
+<li><p>What is the standard deviation of the array values?</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">input_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;data/exercise_3_array.npy&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Exercise 3 Solution</p>
+<p>The average value for the dataset is 490.99, with 622 unique numbers and a standard deviation of 287.4. The python code using Numpy to compute the results is shown below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Calculate the average value of the elements</span>
+<span class="n">average_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">input_data</span><span class="p">)</span>
+
+<span class="c1"># 2. Find all unique numbers and their count</span>
+<span class="n">unique_numbers</span><span class="p">,</span> <span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">input_data</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># 5. Compute the standard deviation of the array values</span>
+<span class="n">standard_deviation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">input_data</span><span class="p">)</span>
+
+<span class="c1"># Printing the results</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Average value:&quot;</span><span class="p">,</span> <span class="n">average_value</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Unique numbers count:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">unique_numbers</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Standard deviation:&quot;</span><span class="p">,</span> <span class="n">standard_deviation</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "coding-for-reproducible-research/CfRR_Courses",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./individual_modules/python_for_data_analysis"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Python_Testing.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Python - Checking and Testing Code</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Python_Pandas.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Pandas</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-numpy">What is Numpy?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-numpy">Importing Numpy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-data-types-and-arrays">Understanding Data Types and Arrays</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#array-creation">Array Creation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#from-a-list">From a list</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#zeros-and-ones">Zeros and Ones</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-range">A Range</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-creating-an-array">Exercise 1 - Creating an array</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#other-methods">Other Methods</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-output">File Output</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-saving-to-a-text-file">Exercise 2 - Saving to a text file</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-input">File Input</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#array-attributes">Array Attributes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#array-indexing">Array Indexing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#array-slicing">Array Slicing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#array-operations">Array Operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetic-operations">Arithmetic Operations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-operations">Matrix Operations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dot-product">Dot Product</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-operations">Statistical Operations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-operations">Logical Operations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shape-manipulations">Shape Manipulations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-operations">Set Operations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#broadcasting">Broadcasting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-performing-analysis">Exercise 3 - Performing Analysis</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Coding For Reproducible Research Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
