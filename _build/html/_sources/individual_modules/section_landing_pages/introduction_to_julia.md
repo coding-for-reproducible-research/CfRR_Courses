@@ -1,0 +1,2 @@
+# Introduction to Julia 
+Welcome to the Introduction to Julia course! This course has been created to give you an idea about Julia's particular language features; it assumes that you are already comfortable with the basics of programming, allowing for more interesting topics to be discussed outside the basics. To be able to best engage with this course it is recommended that you have gone through the material for both "Introduction to Python" and "Python for Data Analysis".
