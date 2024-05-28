@@ -31,6 +31,7 @@ parts:
       - file : pathways/hpc
       - file : pathways/r_ds
       - file : pathways/python_ds
+      - file : pathways/performant_code
   - caption: Course Details and Delivery Dates
     chapters:
     - file: course_homepages/connected_course_homepages/theoretical
@@ -161,6 +162,17 @@ parts:
       - file: individual_modules/introduction_to_version_control/remote_branches_with_github
       - file: individual_modules/introduction_to_version_control/collaborating_with_branches
       - file: individual_modules/introduction_to_version_control/merge_conflicts
+    - file: individual_modules/section_landing_pages/intermediate_version_control
+      sections:
+      - file: individual_modules/intermediate_version_control/introduction
+      - file: individual_modules/intermediate_version_control/typical_workflow
+      - file: individual_modules/intermediate_version_control/config_git
+      - file: individual_modules/intermediate_version_control/basic_git
+      - file: individual_modules/intermediate_version_control/branches_and_merging
+      - file: individual_modules/intermediate_version_control/remotes
+      - file: individual_modules/intermediate_version_control/github_workflows
+      - file: individual_modules/intermediate_version_control/rewriting_history
+      - file: individual_modules/intermediate_version_control/further_topics
     - file: individual_modules/section_landing_pages/introduction_to_unix
       sections:
       - file: individual_modules/introduction_to_unix/intro
