@@ -1,0 +1,80 @@
+[
+    {
+        "question": "what is the correct way to call a function named `calculate` with the parameter `10`?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "`calculate:10`",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "`def calculate(10)`",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "`calculate(10)`",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "`function calculate(10)`",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Which keyword is used to define a function in Python?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "`func`",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "`function`",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "`def`",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "`declare`",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What is the purpose of the `return` statement in a function?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To print the output of a function",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To define the function parameters",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To send a result back to the caller of the function",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "To end the function definition",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]

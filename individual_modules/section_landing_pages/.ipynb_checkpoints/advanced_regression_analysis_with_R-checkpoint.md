@@ -4,7 +4,6 @@
 Welcome to Advanced Regression Analysis with R. Our aim is to build on your existing knowledge of regression to fit more complex models that can handle more complicated data sets. In this session you will learn about different types of regression analysis, when to use them and how to interpret the results.
 
 ## Course Objectives 
-By the end of the session you will be able to :
 -   Use regression answer to answer a wide range of research questions.
 -   Be able to fit a regression model with interactions between predictor variables.
 -   Be able to fit multi-level regression models.

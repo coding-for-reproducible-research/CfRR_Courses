@@ -1,0 +1,80 @@
+[
+    {
+        "question": "Which of the following statement is true about lists in Python?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Lists in Python are immutable.",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Lists in Python can contain any type of Python object, including other lists.",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "Lists are created using curly braces `{}`.",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Lists cannot be changed once they are created.",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "How can ou access the last element of a list named `odds`?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "`odds[0]`",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "`odds[-1]",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "`odds[1]",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "`odds[last]",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Which of the following correctly creates a list and accesses its second element?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "`my_list = (1, 2, 3); print(my_list[2])",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "`my_list = [1, 2, 3]; print(my_list[1])`",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "`my_list = {1, 2, 3}; print(my_list[1])`",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "`my_list = [1, 2, 3]; print(my_list[2])`",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]
