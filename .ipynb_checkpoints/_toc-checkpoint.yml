@@ -31,43 +31,43 @@ parts:
       - file : pathways/hpc
       - file : pathways/r_ds
       - file : pathways/python_ds
-  - caption: Course Details and Delivery Dates
-    chapters:
-    - file: course_homepages/connected_course_homepages/theoretical
-      sections:
-      - file: course_homepages/standalone_courses/computational_thinking
-    - file: course_homepages/connected_course_homepages/machine_learning
-      sections:
-      - file: course_homepages/standalone_courses/introduction_to_machine_learning
-    - file: course_homepages/connected_course_homepages/high_performance_computing
-      sections:
-      - file: course_homepages/standalone_courses/introduction_to_hpc_and_isca
-    - file: course_homepages/connected_course_homepages/julia
-      sections:
-      - file: course_homepages/standalone_courses/introduction_to_julia
-    - file: course_homepages/connected_course_homepages/unix
-      sections:
-      - file: course_homepages/standalone_courses/introduction_to_unix
-    - file: course_homepages/connected_course_homepages/parallel_computing
-      sections:
-      - file: course_homepages/standalone_courses/intro_parallel_computing
-    - file: course_homepages/connected_course_homepages/R
-      sections:
-      - file: course_homepages/standalone_courses/introduction_to_r
-      - file: course_homepages/standalone_courses/working_with_data_in_r
-      - file: course_homepages/standalone_courses/regression_analysis_with_r
-      - file: course_homepages/standalone_courses/advanced_regression_analysis
-    - file: course_homepages/connected_course_homepages/python
-      sections:
-      - file: course_homepages/standalone_courses/introduction_to_python
-      - file: course_homepages/standalone_courses/intermediate_python
-    - file: course_homepages/connected_course_homepages/software_development
-      sections:
-      - file: course_homepages/standalone_courses/software_development_best_practice
-    - file: course_homepages/connected_course_homepages/version_control
-      sections:
-      - file: course_homepages/standalone_courses/introduction_to_version_control_with_git_and_github
-      - file: course_homepages/standalone_courses/intermediate_version_control
+  # - caption: Course Details and Delivery Dates
+  #   chapters:
+  #   - file: course_homepages/connected_course_homepages/theoretical
+  #     sections:
+  #     - file: course_homepages/standalone_courses/computational_thinking
+  #   - file: course_homepages/connected_course_homepages/machine_learning
+  #     sections:
+  #     - file: course_homepages/standalone_courses/introduction_to_machine_learning
+  #   - file: course_homepages/connected_course_homepages/high_performance_computing
+  #     sections:
+  #     - file: course_homepages/standalone_courses/introduction_to_hpc_and_isca
+  #   - file: course_homepages/connected_course_homepages/julia
+  #     sections:
+  #     - file: course_homepages/standalone_courses/introduction_to_julia
+  #   - file: course_homepages/connected_course_homepages/unix
+  #     sections:
+  #     - file: course_homepages/standalone_courses/introduction_to_unix
+  #   - file: course_homepages/connected_course_homepages/parallel_computing
+  #     sections:
+  #     - file: course_homepages/standalone_courses/intro_parallel_computing
+  #   - file: course_homepages/connected_course_homepages/R
+  #     sections:
+  #     - file: course_homepages/standalone_courses/introduction_to_r
+  #     - file: course_homepages/standalone_courses/working_with_data_in_r
+  #     - file: course_homepages/standalone_courses/regression_analysis_with_r
+  #     - file: course_homepages/standalone_courses/advanced_regression_analysis
+  #   - file: course_homepages/connected_course_homepages/python
+  #     sections:
+  #     - file: course_homepages/standalone_courses/introduction_to_python
+  #     - file: course_homepages/standalone_courses/intermediate_python
+  #   - file: course_homepages/connected_course_homepages/software_development
+  #     sections:
+  #     - file: course_homepages/standalone_courses/software_development_best_practice
+  #   - file: course_homepages/connected_course_homepages/version_control
+  #     sections:
+  #     - file: course_homepages/standalone_courses/introduction_to_version_control_with_git_and_github
+  #     - file: course_homepages/standalone_courses/intermediate_version_control
   - caption: Help us improve!
     chapters:
       - file: course_review
@@ -96,8 +96,10 @@ parts:
       - file: individual_modules/python_for_data_analysis/Python_Testing
       - file: individual_modules/python_for_data_analysis/Python_NumPy
       - file: individual_modules/python_for_data_analysis/Python_Pandas
-      - file: individual_modules/python_for_data_analysis/Python_ScikitLearn
       - file: individual_modules/python_for_data_analysis/Python_Matplotlib
+      - file: individual_modules/python_for_data_analysis/data-analysis-task
+      - file: individual_modules/python_for_data_analysis/data-analysis-plotly
+      - file: individual_modules/python_for_data_analysis/Python_ScikitLearn
     - file: individual_modules/section_landing_pages/introduction_to_r
       sections:
       - file: individual_modules/introduction_to_r/gettingstarted
