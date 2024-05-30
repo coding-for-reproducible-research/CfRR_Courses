@@ -1,0 +1,80 @@
+[
+    {
+        "question": "What does the t.test() function in R test for?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "The variance of a dataset",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "The mean of a continuous variable against a pre-specified value",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "The correlation between two variables",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "The maximum value of a dataset",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "When conducting a paired t-test, what arguement must be included to specify the paired nature of the data?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "paired = TRUE",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "var.equal = TRUE",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "alternative = \"two.sided\"",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "mu = 0",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What does the cor.test() function in R calculate?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "The mean of a dataset",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "The correlation coefficient and its significance",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "The variance of a dataset",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "A frequency table",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]
