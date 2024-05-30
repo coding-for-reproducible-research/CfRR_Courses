@@ -1,0 +1,80 @@
+[
+    {
+        "question": "What is the primary purpose of logistic regression?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "TO predict a continuous outcome",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To predict a binary outcome",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "To calculate the mean of a dataset",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To determine the variance of a dataset",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "How do you interpret the coefficients in a logistic regression model?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "As changes in the mean outcome",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "As log odds ratios",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "As variance estimates",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "As correlation coefficients",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What does a p-value less than 0.05 indicate in the context of logistic regression?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "The coefficient is significantly different from zero",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "The model is invalid",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "The predictor variable is not normally distributed",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "The residuals are normally distributed",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]
