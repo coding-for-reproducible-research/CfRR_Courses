@@ -5,9 +5,6 @@
 Version control systems are an incredibly valuable tool for organising software development. They are essential for producing reproducible and transparent research software, coming into their own for facilitating collaborative work. This course will give an introduction to Git, one of the most widely used version control systems in academia and industry. It will also give an introduction to internet platforms such as GitHub and GitLab, which are built on top of Git and designed to facilitate collaboration between software developers and the sharing of code. A key component of the course will be hands-on practice using Git and GitHub, working through theoretical concepts that will be explained with the aid of live demonstrations. By the end of the course, it is intended participants will be comfortable using the basic features of Git and GitHub to keep a record of their day-to-day code development and share their work with others.
 
 ## Course Objectives
-
-On completion of this series of workshops, participants will be able to:
-
 - Use Git to manage their software development.
 - Explain what repositories and commits are in Git.
 - Apply standard Git commands as part of their development workflow: cloning, pulling from and pushing to repositories; adding and committing file changes.

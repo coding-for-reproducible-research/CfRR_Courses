@@ -1,0 +1,80 @@
+[
+    {
+        "question": "In R, what value is used to represent missing data?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "NULL",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "NaN",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "NA",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "Missing",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What would the following R code do? for (i in 1:5) { print(i) }",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Print numbers from 0 to 4",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Print numbers from 1 to 5",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "Prints the number 5, five times",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Causes an error",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Which of the following is the correct syntax for a for loop in R?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "for (variable in collection) { do things with variable }",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "for variable in collection: { do things with variable }",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "foreach variable in collection { do things with variable }",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "loop (variable in collection) { do things with variable }",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]

@@ -1,0 +1,80 @@
+[
+    {
+        "question": "Which function is used to read CSV files into R using the `readr` package?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "read.table()",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "read.csv()",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "read_csv()",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "readLines()",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What is the advantage of using the `readr` package over base R functions for reading data?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "It is slower but more reliable",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "It provides better default interpretations and is more explicit about assumptions",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "It does not require specifying data types",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "It automatically corrects data errors",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Which arguement in the `read_csv` function is used to specify the data types of column explicitly?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "col_classes",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "col_types",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "column_types",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "types",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]

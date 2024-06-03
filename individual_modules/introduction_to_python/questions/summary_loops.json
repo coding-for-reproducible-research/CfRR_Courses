@@ -1,0 +1,80 @@
+[
+    {
+        "question": "Which statement about the loop variable in a `for` loop is correct?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "The loop variable must always be named `num`",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "The loop variable can be any valid variable name",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "The loop variable must be a string",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "The loop variable is predefined and cannot be changed",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What is the main advantage of using a `for` loop over multiple `print` statement to print list elements?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "It makes the code less readable",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "It is more robust and easier to maintain",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "It is always faster than using `print` statements",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "It can only be used with numeric lists",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Which of the following correct demonstrates a `for` loop to print all elements in the list `odds`?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "`for num in odds {print(num)}",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "`for num in odds: print(num)`",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "`for num in odds print(num)`",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "`for num in odds: { print(num) }",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]

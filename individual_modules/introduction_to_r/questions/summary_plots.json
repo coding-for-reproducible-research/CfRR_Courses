@@ -1,0 +1,80 @@
+[
+    {
+        "question": "Which arguement is used to customize the x-axis label in an R plot?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "xlab",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "ylab",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "main",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "xaxis",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "How can you change the color of the points in a plot to red?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "plot(x, y, color = \"red\")",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "plot(x, y, col = \"red\")",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "plot(x, y, colour = \"red\")",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "plot(x, y, pointcolor = \"red\")",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What happens if you provide a vector of colors shorter than the number of points in a plot?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "R return an error",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Only the first few points are colored",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "The colors are recycled",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "The points are all black",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]

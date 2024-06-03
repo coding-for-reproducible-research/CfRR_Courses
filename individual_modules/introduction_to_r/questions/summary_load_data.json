@@ -1,0 +1,80 @@
+[
+    {
+        "question": "What arguement is used to specify the file name in the `read.csv` function?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "data",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "path",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "file",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "filename",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What is the default value of the `header` arguement in the `read.csv` function?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "FALSE",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "NULL",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "NA",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "TRUE",
+                "correct": true,
+                "feedback": "Correct"
+            }
+        ]
+    },
+    {
+        "question": "What happens if you forget to set the `header` arguement to `FALSE` when the CSV file does not have a header?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "The function will return an error",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "The first row of data will be treated as column names",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "The first column will be skipped",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "The data will be loaded incorrect without any warning",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]

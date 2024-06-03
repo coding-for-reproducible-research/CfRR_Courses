@@ -11,16 +11,6 @@ This course comprises two two-hour sessions. The course is designed to be intera
     - be able to improve the reproducibility of our research by understanding how to make our code useful to others.
     - have the necessary foundations for intermediate level courses that will delve deeper into software development topics.
 
-The content that is covered includes:
-    - Software Development Life Cycle & Methodologies
-    - Data Management
-    - Problem Solving
-    - Virtual Environments & Dependency Managers
-    - Version Control
-    - Readable Code & Documentation
-    - Testing
-    - Collaboration & Reproducibility
-
 ## Pre-requisite Knowledge
 
 There is no pre-requisite knowledge and the workshop is designed to be appropriate for anyone interested in software development. 

@@ -1,0 +1,80 @@
+[
+    {
+        "question": "Which is a key characteristic of a dictionary in Python?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "It only stores numeric values.",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "It supports key-value storage of data.",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "It cannot be modified once created.",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "It is always ordered",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "How do you retrieve the value associated with a key in a dictionary?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "`value = dictionary.key`",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "`value= dictionary['key']`",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "`value = dictionary(key)`",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "value = dictionary.get[key]`",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Which statement is true about modifying a dictionary in Python?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "You cannot change the value of an existing key.",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "You can add a new key-value pair by assignment.",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "Dictionary values are immutable",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "You must use a special method to update values. ",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]
