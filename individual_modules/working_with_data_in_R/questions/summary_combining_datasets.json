@@ -1,0 +1,80 @@
+[
+    {
+        "question": "What is the primary purpose of joining datasets?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To delete rows with missing values",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To combine multiple datasets based on common values",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "To sort data in a dataframe",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To filter rows based on a condition",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "In a left join, what happens to the rows in the elft dataframe that do not have matching values in the right dataframe?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "They are removed",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "They are retained with `NA` values fo the column from the right dataframe",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "They are duplicated",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "They are sorted",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What is a potential issue with joining datasets on columns of type double?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "They results in faster joins",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "They may cause numerical imprecision and incorrect matches",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "They automatically resolve missing values",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "They are not supported by the `dplyr` package",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]
