@@ -28,8 +28,6 @@ More advanced Python features, including usage of virtual environments, tools to
 
 * [Virtual environments](../python_for_data_analysis/Python_Virtual_environments.ipynb)
 
-* [Checking and testing code](../python_for_data_analysis/Python_Testing.ipynb)
-
 ### Part 2
 
 * [NumPy](../python_for_data_analysis/Python_NumPy.ipynb)
@@ -43,3 +41,7 @@ More advanced Python features, including usage of virtual environments, tools to
 * [Matplotlib]()
 
 * [Plotly]()
+
+* [Testing and checking code](../python_for_data_analysis/Python_Testing.ipynb)
+
+* [Testing exercise](../python_for_data_analysis/Python_Testing_exercise.ipynb)
