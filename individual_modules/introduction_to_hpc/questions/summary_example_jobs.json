@@ -1,0 +1,80 @@
+[
+    {
+        "question": "What is the purpose of the #SBATCH directives in a jib submission script?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To execute the main commands of the job",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To specify parameters for the job such as queue, time, and resources",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "To load necessary software modules",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To handle errors in the script",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What is the main role of the module load command in a job script?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To execute a job script",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To submit the job to the HPC queue",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To load the necessary software environment for the job",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "To specify job parameters such as time and resources",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What does the `date -u` command do in the context of a job script?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Speciifies the job queue",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Loads the unix environment",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Prints the current date and time in UTC",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "Ends the job script",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]

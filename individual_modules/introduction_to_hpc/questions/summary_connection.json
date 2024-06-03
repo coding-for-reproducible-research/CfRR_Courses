@@ -1,0 +1,80 @@
+[
+    {
+        "question": "What is the primary method to connect to a remote HPC server?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "FTP",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "HTTP",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "SSH",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "Telnet",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Which of the following commands is used to create an SSH `config` file in a UNIX terminal?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "touch ~/.ssh/config",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "mkdir ~/.ssh/config",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "nano ~/.ssh/config",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "rm ~/.ssh/config",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What should you do if you see a security warning when logging into a server for the first time?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Ignore the warning and proceed",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Check the IP aaddress and key fingerprint to ensure they match the expected values",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "Contact your internet service provider",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Restart your computer adn try again",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]
