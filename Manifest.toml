@@ -2,7 +2,7 @@
 
 julia_version = "1.10.3"
 manifest_format = "2.0"
-project_hash = "4fd3db679117e1cf423d8dfa2e91589e6a26b4ab"
+project_hash = "ef0f0e3a90a6d86910ced55437e11e9d58cd6dcc"
 
 [[deps.AbstractFFTs]]
 deps = ["LinearAlgebra"]
@@ -900,6 +900,12 @@ uuid = "9abbd945-dff8-562f-b5e8-e1ebf5ef1b79"
 git-tree-sha1 = "077664975d750757f30e739c870fbbdc01db7913"
 uuid = "43287f4e-b6f4-7ad1-bb20-aadabca52c3d"
 version = "1.1.0"
+
+[[deps.PyCall]]
+deps = ["Conda", "Dates", "Libdl", "LinearAlgebra", "MacroTools", "Serialization", "VersionParsing"]
+git-tree-sha1 = "9816a3826b0ebf49ab4926e2b18842ad8b5c8f04"
+uuid = "438e738f-606a-5dbb-bf0a-cddfbfd45ab0"
+version = "1.96.4"
 
 [[deps.Qt6Base_jll]]
 deps = ["Artifacts", "CompilerSupportLibraries_jll", "Fontconfig_jll", "Glib_jll", "JLLWrappers", "Libdl", "Libglvnd_jll", "OpenSSL_jll", "Vulkan_Loader_jll", "Xorg_libSM_jll", "Xorg_libXext_jll", "Xorg_libXrender_jll", "Xorg_libxcb_jll", "Xorg_xcb_util_cursor_jll", "Xorg_xcb_util_image_jll", "Xorg_xcb_util_keysyms_jll", "Xorg_xcb_util_renderutil_jll", "Xorg_xcb_util_wm_jll", "Zlib_jll", "libinput_jll", "xkbcommon_jll"]

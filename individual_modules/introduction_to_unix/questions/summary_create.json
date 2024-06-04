@@ -1,0 +1,80 @@
+[
+    {
+        "question": "Which cmmmand is used to create a new directory in UNIX?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "mkdir",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "newdir",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "createdir",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "makedir",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Which command is used to delete a file in UNIX?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "rm",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "del",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "erase",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "delete",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What is the correct way to create a nested directory structure in UNIX?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "mkdir dir1/dir2/dir3",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "mkdir -p dir1/dir2/dir3",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "mkdir --nested dir1/dir2/dir3",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "mkdir -n dir1/dir2/dir3",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]
