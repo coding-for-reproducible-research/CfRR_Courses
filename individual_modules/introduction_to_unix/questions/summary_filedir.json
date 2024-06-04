@@ -1,0 +1,80 @@
+[
+    {
+        "question": "Which command is used to print the current working directory in UNIX?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "ls",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "cd",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "pwd",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "dir",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Which of the following paths is an absolute path?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "./Documents",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "../Documents",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "/Users/nelle/Documents",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "Documents",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What does the .. symbol represent in the UNIX file system paths?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "The current directory",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "The root directory",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "The parent directory",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "The home directory",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]

@@ -1,0 +1,80 @@
+[
+    {
+        "question": "What command would you use to search for a specific pattern in a text file?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "find",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "grep",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "sort",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "wc",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "How can you use the output of one command as the input for another command?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Using a for loop",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Using a while loop",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Using a pipe (|)",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "Using an if statement",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Which command would you use to count the number of lines in a file?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "grep",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "wc -l",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "find",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "sort",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]

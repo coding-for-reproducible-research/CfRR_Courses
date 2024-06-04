@@ -1,0 +1,80 @@
+[
+    {
+        "question": "What is the purpose of saving commands in files (shell scripts)?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To avoid the use of the command line",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To reuse commands and ensure reproducibility",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "To execute commands only once",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To compile code into binaries",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Which command is used to run a shell script names script.sh?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "run script.sh",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "bash script.sh",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "sh script.sh",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "execute script.sh",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "In a shell script, what does \$1 represent?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "The scripts names",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "The first arguement passed to the script",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "The first line of the script",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "The current directory",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]
