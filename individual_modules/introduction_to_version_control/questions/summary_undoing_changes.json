@@ -1,0 +1,80 @@
+[
+    {
+        "question": "Which command is used to unstage a file that was accidentally staged?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "git unstage <file>",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git reset HEAD <file>",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "git revert <file>",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git restore --staged <file>",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What is the risk associated with pushing after a reset?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "There is no risk; it is always safe",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "It can lead to a detached HEAD state",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "It can rewrite commit history and cause conflicts with remote repositories",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "It can delete the repository",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Which command creates a new commit that undoes the changes made in a specific commit?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "git reset --hard <commmit>",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git revert <commit>",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "git reset --soft <commit>",
+                "correct": false,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "git reset HEAD~1",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]

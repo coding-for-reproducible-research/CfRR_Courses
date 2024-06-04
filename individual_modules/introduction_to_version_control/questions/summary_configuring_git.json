@@ -1,0 +1,80 @@
+[
+    {
+        "question": "Which command is used to set the global username in Git?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "git config --global core.editor \"nano -w\"",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git config --global user.name \"Joe Bloggs\"",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "git config --global user.email \"joe.bloggs@example.net\"",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git config --global init.defaultBranch main",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Why might you want to keep your email address private when using GitHub?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To avoid receiving spam",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To prevent unauthorized access to your GitHub account",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To ensure commits are attributed to the correct user",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To use a generic email provided by GitHub for privacy reasons",
+                "correct": true,
+                "feedback": "Correct"
+            }
+        ]
+    },
+    {
+        "question": "What is the recommended default branch name for new Git repositories",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "master",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "main",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "default",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "primary",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]

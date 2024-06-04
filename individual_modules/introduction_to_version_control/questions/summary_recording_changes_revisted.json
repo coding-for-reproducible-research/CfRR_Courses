@@ -1,0 +1,80 @@
+[
+    {
+        "question": "If you have made changes to a file and want to stage only part of those changes, what should you do?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Use git add to stage all changes, then unstage the unwanted changes",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Stage the desired changes, make further changes, and stage again",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "Commit the changes immediately without staging",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Delete the file and start over",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Which command stages changes to all files in the current directory and all its subdirectories?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "git stage",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git add .",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "git add *",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git stage all",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "How can you rename a file that is under version control in a Git repository?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Use git mv <source-file> <destination>",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "Use mv <source-file> <destination> followed by git add <destination>",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Use git rename <source-file> <destination>",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Delete the file and create a new one with the desired name",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]

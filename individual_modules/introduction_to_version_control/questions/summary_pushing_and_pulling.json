@@ -1,0 +1,80 @@
+[
+    {
+        "question": "What command is used to push changes from a local repository to a remote repository?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "git commit",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git pull",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git push",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "git status",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "How can you explicitly specify the remote repository when pushing changes?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "git push upstream",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git push -u",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git push origin",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "git push remote",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What is the purpose of the git pull command?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To commit changes to the local repository",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To retrieve updates from a remote repository to a local repository",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "To create a new branch",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To view the commit history on GitHub",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]

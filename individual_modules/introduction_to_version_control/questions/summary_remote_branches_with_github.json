@@ -1,0 +1,54 @@
+[
+    {
+        "question": "What is the correct command to list all branches, both local and remote in a Git repository?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "git branch",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git branch -r",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git branch -a",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "git remote add new-branch",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "How can you delete a remote branch on GitHub?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "git branch -d remote-branch",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git push origin --delete remote-branch",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "git remote rm remote-branch",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git branch --delete origin remote-branch",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]

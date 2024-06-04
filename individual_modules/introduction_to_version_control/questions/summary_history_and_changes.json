@@ -1,0 +1,80 @@
+[
+    {
+        "question": "Which command is used to view the history of commits in a Git repository?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "git status",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git commit",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git log",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "git push",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What does the --oneline option do when used with the git log command?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Displays each commit on a single line",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "Shows detailed information for each commit",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Limits the log to a single commit",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Filters log entries by the authors name",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Which command would you use to see the differences between two specific commits?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "git log <commit1> <commit2>",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git diff <commit1> <commit2> <files>",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "git status <commit1> <commit2>",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git show <commit1> <commit2>",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]

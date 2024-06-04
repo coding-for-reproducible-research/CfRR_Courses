@@ -1,0 +1,80 @@
+[
+    {
+        "question": "What is the purpose of a .gitignore file?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "TO list all the files in the repository",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To specify files and directories that Git should ignore",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "To track changes in binary files",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To list all the commits in the repository",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "How can you add comments in a .gitignore file?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "By starting the line with '\\'",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "By starting the line with '##'",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "By enclosing the comment in '/* */'",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "By starting the line with '--'",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "what type fo files should tpyically be ignored in a Git repository",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Source code files",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Generated files and build artifacts",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "Documentation files",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Configuartion files",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]
