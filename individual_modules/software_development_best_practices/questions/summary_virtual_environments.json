@@ -1,0 +1,80 @@
+[
+    {
+        "question": "Why are external libraries used in Python projects?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To make the code longer",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To provide specific functionalities that are not avaliable in the standard library",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "To reduce the need for coding",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To avoid using virtual environments",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What is the main purpose of a virtual environment in Python?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To install python itself",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To create a separate environment for each project to manage dependencies and avoid conflicts.",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "To increase the speed of the project",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To compile Python code",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What command is used to generate a requirements.txt file from the current environment?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "pip generate requirements.txt",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "python3 -m pip freeze > requireemnts.txt",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "pip freeze > requirements.txt",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "python3 -m generate requriements.txt",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]
