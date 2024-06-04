@@ -1,0 +1,80 @@
+[
+    {
+        "question": "What is a merge conflict in Git?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "A situation where two branches can be merged automatically",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "A situation where Git cannot automtically resolve differences betwen branches",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "An error tat occurs when there is no internet connection",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "A command used to merge two branches",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Which command is used to abort a merge and return the previous state?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "git reset --hard",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git merge --continue",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git merge --abort",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "git revert",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "How does Git idnicate the conflicting sections in a file during a merge conflict?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "By using color codes",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "By adding markers like <<<<<<<, =======, and >>>>>>>.",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "By creating a seperate conflict file",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "By deleting the conflicting file",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]

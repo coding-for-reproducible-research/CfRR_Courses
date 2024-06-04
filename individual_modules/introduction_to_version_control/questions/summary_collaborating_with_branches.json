@@ -1,0 +1,80 @@
+[
+    {
+        "question": "What is the main advantage of using feature brnaching in collaborative development?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "It allows developers to work on the same codebase without any risk of conlficts",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "It enables developers to work on different features concurrently without affecting the main codebase",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "It ensures that all changes are immediately visible to all collaborators",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "It eliminates the need for code reviews and testing",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What is the correct sequence of steps to merge a feature branch into the main branch?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Create a pull request, merge main into the feature branch, push changes, complete the pull request.",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "Create a pull request, push changes, merge feature branch into main, complete the pull request.",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Push changes, create a pull request, complete the pull request, merge main into the feature branch.",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Merge feature branch into main, create a pull request, push changes, complete the pull request.",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Which command is used to fetch references to new remote branches in a git repository?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "git pull",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git clone",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git fetch",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "git merge",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]

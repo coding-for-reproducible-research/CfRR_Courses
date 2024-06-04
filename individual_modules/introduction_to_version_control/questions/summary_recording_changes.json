@@ -1,0 +1,80 @@
+[
+    {
+        "question": "Which command is used to check the status of a Git repository?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "git add",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git commit",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git status",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "git log",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What is the purpose of the git add command?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To check the status of the repository",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To add changes to the staging area for the next commit",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "To commit changes to the repository",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To view the commit history",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What should be included in a good commit message according to best practices?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Detailed descriptions of changes made, including file paths and line numbers",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "A brief statement (usually <50 characters) about the changes made, with optional additional notes",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "A simple \"update\" or \"fix\" message without additional details",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Personal comments about the development process",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]

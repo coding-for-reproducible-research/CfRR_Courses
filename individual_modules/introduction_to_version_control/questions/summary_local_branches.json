@@ -1,0 +1,80 @@
+[
+    {
+        "question": "What is the general command to create a new branch in a local repository?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "git new-brnach <branch-name>",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git create <branch-name>",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git branch <branch-name>",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "git branch-create <branch-name>",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Which command is used to switch to a different branch?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "git change <branch>",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git checkout <branch>",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "git switch <branch>",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git move <branch>",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What command is used to merge changes from one branch into the current branch?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "git combine <branch>",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git merge <branch>",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "git join <branch>",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git integrate <branch>",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]
