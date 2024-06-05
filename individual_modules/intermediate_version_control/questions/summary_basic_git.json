@@ -1,0 +1,80 @@
+[
+    {
+        "question": "Which command initializes a new Git repository?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "git start",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git new",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git init",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "git create",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "To see the current status of your working directory adn staging area, which command should you use?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "git log",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git diff",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git info",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git status",
+                "correct": true,
+                "feedback": "Correct"
+            }
+        ]
+    },
+    {
+        "question": "What is the purpose of the .gitignore file?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To delete files from the repository",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To specify files and directories that Git should ignore",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "To merge branches",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To track changes in ignored files",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]

@@ -1,0 +1,262 @@
+[
+    {
+        "question": "What is the purpose of the .gitignore file in a Git repository?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To store the commit history",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To specify files and directories that Git should ignore",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "To list all contributors to the project",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To define branch permissions",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Which command is used to create a new branch in Git?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "git create branch",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git branch <branch-name>",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "git new branch",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git branch create",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What does the git relog command do?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Shows the commit history",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Records updates to the tip of branches",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "Lists all remote branches",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Shows differences between commits",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "How do you configure a global username in Git?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "git config username <name>",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git set username <name>",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git config --global user.name \"<name>\"",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "git global config user.name <name>",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Which command is used to push local commmits to a remote repository?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "git send",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git upload",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git commit",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git push",
+                "correct": true,
+                "feedback": "Correct"
+            }
+        ]
+    },
+    {
+        "question": "What is a fast-forward merge in Git?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "A merge that creates a new commit",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "A merge that simply moves the branch pointer forward",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "A merge that discards conflicts",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "A merge that rewrites history",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "How do you fetch changes from a remote repository in Git?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "git pull",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git update",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git merge",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git fetch",
+                "correct": true,
+                "feedback": "Correct"
+            }
+        ]
+    },
+    {
+        "question": "What is the use of git bisect?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To list all commits in a branch",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To create a new branch",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To find the commit that introduced a bug",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "To delete a branch",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Which command do you use to view the commit history?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "git status",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git log",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "git diff",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git history",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What does the git reset --hard <commit> command do?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Updates the remote repository",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Resets the working directory and index to match the specified commit",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "Stashes the local changes",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Rebases the current branch",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]

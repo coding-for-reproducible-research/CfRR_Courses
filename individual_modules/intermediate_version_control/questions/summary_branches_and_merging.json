@@ -1,0 +1,80 @@
+[
+    {
+        "question": "Which command creates a new branch named 'feature-branch'?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "git switch feature-branch",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git brnach create feature-branch",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git new branch feature-branch",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git branch feature-branch",
+                "correct": true,
+                "feedback": "Correct"
+            }
+        ]
+    },
+    {
+        "question": "What does the command git tag v1.0 do?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Deletes the tag v1.0",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Creates a lightweight tag v1.0",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "Switches to the tag v1.0",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Merges the tag v1.0",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What happens if there are conflicts during a merge?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Git automatically resolves all conflicts",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "You must manually resolve the conflicts and then commit the changes",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "The merge is aborted, and you need to start over",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Git ignores the conflicts and proceds with the merge",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]

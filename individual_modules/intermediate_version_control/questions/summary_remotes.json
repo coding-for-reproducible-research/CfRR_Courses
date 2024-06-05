@@ -1,0 +1,80 @@
+[
+    {
+        "question": "Which command shows the details fo a remote repository named 'origin'?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "git remote list origin",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git remote show origin",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "git remote view origin",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git remote details origin",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "How do you fetch updates from a remote repository?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "git update origin",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git fetch origin",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "git pull origin",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git sync origin",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What is the purpose of the -u flag in the command git push -u origin branch-name?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To upload only untracked files",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To force push changes",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To set the upstream branch for tracking",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "To push all local branches",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]
