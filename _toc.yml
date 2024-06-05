@@ -6,8 +6,8 @@ root: home_page
 parts:
   - caption: What is Coding For Reproducible Research?
     chapters:
-      - file : about_us 
-      - file : how_to_use_CfRR
+      - file : cfrr_program_details/about_us 
+      - file : cfrr_program_details/how_to_use_CfRR
   - caption: What Courses Should I Take?
     chapters: 
     - file: where_is_my_understanding/homepage_where_is_my_understanding
@@ -34,44 +34,44 @@ parts:
       - file : pathways/python_ds
   # - caption: Course Details and Delivery Dates
   #   chapters:
-  #   - file: course_homepages/connected_course_homepages/theoretical
+  #   - file: course_homepages/theoretical
   #     sections:
-  #     - file: course_homepages/standalone_courses/computational_thinking
-  #   - file: course_homepages/connected_course_homepages/machine_learning
+  #     - file: course_homepages/computational_thinking
+  #   - file: course_homepages/machine_learning
   #     sections:
-  #     - file: course_homepages/standalone_courses/introduction_to_machine_learning
-  #   - file: course_homepages/connected_course_homepages/high_performance_computing
+  #     - file: course_homepages/introduction_to_machine_learning
+  #   - file: course_homepages/high_performance_computing
   #     sections:
-  #     - file: course_homepages/standalone_courses/introduction_to_hpc_and_isca
-  #   - file: course_homepages/connected_course_homepages/julia
+  #     - file: course_homepages/introduction_to_hpc_and_isca
+  #   - file: course_homepages/julia
   #     sections:
-  #     - file: course_homepages/standalone_courses/introduction_to_julia
-  #   - file: course_homepages/connected_course_homepages/unix
+  #     - file: course_homepages/introduction_to_julia
+  #   - file: course_homepages/unix
   #     sections:
-  #     - file: course_homepages/standalone_courses/introduction_to_unix
-  #   - file: course_homepages/connected_course_homepages/parallel_computing
+  #     - file: course_homepages/introduction_to_unix
+  #   - file: course_homepages/parallel_computing
   #     sections:
-  #     - file: course_homepages/standalone_courses/intro_parallel_computing
-  #   - file: course_homepages/connected_course_homepages/R
+  #     - file: course_homepages/intro_parallel_computing
+  #   - file: course_homepages/R
   #     sections:
-  #     - file: course_homepages/standalone_courses/introduction_to_r
-  #     - file: course_homepages/standalone_courses/working_with_data_in_r
-  #     - file: course_homepages/standalone_courses/regression_analysis_with_r
-  #     - file: course_homepages/standalone_courses/advanced_regression_analysis
-  #   - file: course_homepages/connected_course_homepages/python
+  #     - file: course_homepages/introduction_to_r
+  #     - file: course_homepages/working_with_data_in_r
+  #     - file: course_homepages/regression_analysis_with_r
+  #     - file: course_homepages/advanced_regression_analysis
+  #   - file: course_homepages/python
   #     sections:
-  #     - file: course_homepages/standalone_courses/introduction_to_python
-  #     - file: course_homepages/standalone_courses/intermediate_python
-  #   - file: course_homepages/connected_course_homepages/software_development
+  #     - file: course_homepages/introduction_to_python
+  #     - file: course_homepages/intermediate_python
+  #   - file: course_homepages/software_development
   #     sections:
-  #     - file: course_homepages/standalone_courses/software_development_best_practice
-  #   - file: course_homepages/connected_course_homepages/version_control
+  #     - file: course_homepages/software_development_best_practice
+  #   - file: course_homepages/version_control
   #     sections:
-  #     - file: course_homepages/standalone_courses/introduction_to_version_control_with_git_and_github
-  #     - file: course_homepages/standalone_courses/intermediate_version_control
+  #     - file: course_homepages/introduction_to_version_control_with_git_and_github
+  #     - file: course_homepages/intermediate_version_control
   - caption: Help us improve!
     chapters:
-      - file: course_review
+      - file: cfrr_program_details/course_review
   - caption: Self Study Notes
     chapters:
     - file: individual_modules/section_landing_pages/introduction_to_python
@@ -221,9 +221,10 @@ parts:
     - file: bibliography
   - caption: Join Us!
     chapters: 
-    - file: contributing
-    - file: developing_a_course
-    - file: suggestions_form
+    - file: contributing/contributing
+    - file: contributing/developing_a_course
+    - file: contributing/suggestions_form
+    - file: contributing/roles
     
       
 
