@@ -1,0 +1,80 @@
+[
+    {
+        "question": "What is the first line a good commit message supposed to be?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "A detailed description of the changes made",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "A short summary in the imperative of what the commit will do if applied",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "The authors name and date",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "A list of all files changes",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What is a pull request used for on GitHub?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To delete branches",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To request that changes from your branch be merged into another branch",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "To clone repositories",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To reset commits",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "How can issues be linked to pull requests on GitHub?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "By creating a new repository",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "By writing a commit message",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "By referencing the issue ID in the pull request description",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "By using git issue link command",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]
