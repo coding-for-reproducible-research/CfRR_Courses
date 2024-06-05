@@ -1,0 +1,80 @@
+[
+    {
+        "question": "What is the primary purpose of the pivot_longer function in the tidyr package?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To merge two datasets",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To spit a dataset into multiple datasets",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To convert matrix format data inot tidy format",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "To sort data in ascending order",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Which areguement in the pivot_wider function specifies the column whose values will become the names of new columns?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "names_to",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "values_to",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "names_from",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "values_from",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Which function is used to convert a tidy dataframe back into a matrix format?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "pivot_longer",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "pivot_wider",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "gather",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "spread",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]

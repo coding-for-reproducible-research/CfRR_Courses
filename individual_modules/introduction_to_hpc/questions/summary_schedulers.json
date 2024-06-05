@@ -1,0 +1,80 @@
+[
+    {
+        "question": "What is the primary role of a job scheduler in an HPC system?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To provide internet access to nodes",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To manage which jobs run where and when",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "To monitor user activity on the cluster",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To backup data on the cluster",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What does the #SBATCH --output=hello-world.o directive specify in a job script?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "The job name",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "The error file name",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "The output file name",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "The number of nodes",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What is a common error if your job script contains incorrect end-of-line characters?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Job exceeds memory limit",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Script runs indefinitely",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Scheduler does not recognize the job script",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "Jobs runs on the login node instead of the compute node",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]

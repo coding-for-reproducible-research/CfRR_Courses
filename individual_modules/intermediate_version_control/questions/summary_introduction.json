@@ -1,0 +1,80 @@
+[
+    {
+        "question": "Which command is used to check the version of Git installed on your system?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "git check",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git --version",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "git verify",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git version",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What information is necessary to configure Git for a new user?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "User name and email address",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "User phone number and address",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "User username and password",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "User date of birth and GitHub URL",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Which commmand is used to check the current git configuration for user name and email?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "git config --list",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git config --global --list",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "git config --user",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git config --check",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]

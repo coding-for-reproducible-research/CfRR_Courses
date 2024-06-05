@@ -1,0 +1,80 @@
+[
+    {
+        "question": "Which command is used to stage changes to be committed in Git?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "git stage",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git commit",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git add",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "git push",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Which command is used to push the 'main' branch to the remote repository named 'origin'?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "git push origin",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git push origin main",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "git commit push main",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git upload origin main",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "How do you switch to a branch names 'feature'?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "git switch feature",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "git change feature",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git checkout feature",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git move feature",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]

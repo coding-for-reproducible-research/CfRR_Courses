@@ -1,0 +1,80 @@
+[
+    {
+        "question": "What is the primary reason fr using environment modules on an HPC system?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To improve internet connectivity",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To manage software incompatibilities, versioning, and dependencis",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "To increase the systems storage capacity",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To provide user authentication",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Which command lists all available software modules on the system?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "module load",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "module list",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "module avail",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "module unload",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "If a required software package is not available on the HPC system, which of the following is NOT a recommended solution?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Log an enquiry and request the ISCA support team to install it",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Download and install the software in your home directory",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Use a pakcage manager like Anaconda to install the software",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Reinstall the entire operating system to include the software",
+                "correct": true,
+                "feedback": "Correct"
+            }
+        ]
+    }
+]

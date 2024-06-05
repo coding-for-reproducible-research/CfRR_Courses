@@ -1,0 +1,80 @@
+[
+    {
+        "question": "When is it generally safe to rewrite git history?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "On the main branch",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "On a remote branch",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "On a local brnach that hasnt been pushed to a remote repository",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "On any branch after it has been pushed",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "How do you amend the most recent commit in Git?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "git commit --edit",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git commit --modify",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git commit --amend",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "git commit --update",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What does the command git reset --hard <commit-sha> do?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Unstages changes but keeps them in the working directory.",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Resets the branch to the specified commit and updates the working directory.",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "Stashes changes and resets the branch.",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Moves the specified comit to a new branch",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]

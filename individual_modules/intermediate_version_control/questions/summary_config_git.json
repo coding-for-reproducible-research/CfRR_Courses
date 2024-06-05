@@ -1,0 +1,80 @@
+[
+    {
+        "question": "Which command can be used to display help information for the git config command?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "git config -h",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "git config --info",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git config help",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git config -help",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Where are the global Git configuration settings stored?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": ".bashrc",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": ".gitconfig",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": ".gitignore",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": ".config",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Which command creates an alias mylog that displays a one-line log of all commits in a graph format?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "git config --global alias.mylog 'log --oneline --all --graph'",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "git config --global alias.mylog log oneline all graph",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git alias --global mylog 'log --oneline --all --graph'",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "git alias --global mylog log oneline all graph",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]

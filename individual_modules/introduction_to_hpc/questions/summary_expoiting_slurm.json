@@ -1,0 +1,80 @@
+[
+    {
+        "question": "What is the purpose of the `SLURM_SUBMIT_DIR` variable in a Slurm job script?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To specify the number of nodes required",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To store the directory from which the job was submitted",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "To set the job name",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To specify the jobs output file",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Which Slurm directive is used to export all environment variables to a batch job?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "#SBATCH --time",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "#SBATCH --nodes",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "#SBATCH --export=ALL",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "#SBATCH --output",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What is the primary benefit of using job arrays in Slurm?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To increase the memory allocation for a job",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To submit multiple similar jobs with a single command",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "To reduce the execution time of a single job",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To run jobs in a specific order",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]

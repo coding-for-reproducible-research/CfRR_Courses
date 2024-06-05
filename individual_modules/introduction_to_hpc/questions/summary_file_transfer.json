@@ -1,0 +1,80 @@
+[
+    {
+        "question": "Which command is used to download files from the internet directly to the HPC?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "scp",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "wget",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "rsync",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "curl",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What is the purpose of the scp command in file transfer?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To compress files",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To securely copy files between local and remote systems using SSH",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "To rename files on the remote server",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To monitor file system usage",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Which options would you use with the rsync command to preserve file timestamps and permissions, and compress files during transfer?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "-rvz",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "-avzP",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "-cp",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "-xz",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]
