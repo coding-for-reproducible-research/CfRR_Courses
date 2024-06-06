@@ -1,0 +1,80 @@
+[
+    {
+        "question": "What function is used to read a CSV file into a Pandas dataframe?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "pd.read_csv()",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "pd.load_csv()",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "pd.read_file()",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "pd.load_file()",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What is the primary data structure in Pandas for handling tabular data?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Series",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Dataframe",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "List",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Dictionary",
+                "correct": true,
+                "feedback": "Correct"
+            }
+        ]
+    },
+    {
+        "question": "How do you group data in a Pandas dataframe by a specific column?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "df.group_by(column)",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "df.groupby(column)",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "df.split(column)",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "df.aggregate(column)",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]

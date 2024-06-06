@@ -1,0 +1,80 @@
+[
+    {
+        "question": "What is one of the main benefits of using virtual environments in Python?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Improved performance of the Python interpreter",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Control over the version of Python and installed libraries",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "Automatic code optimization",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Built-in version control for the code",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Why is it recommended not to modify the sytsem Python installation directly?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "It is protected by the operating system and cannot be changed",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Modifying system Python can break system tools that depends on it",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "System Python is always the latest version and does not need changes",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "It is automatically updated and does not require manual changes",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Which of the following commands is used to create a virtual environment using venv?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "python -m venv env",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "conda create --name env",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "pipenv install",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "poetry new",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]

@@ -1,47 +1,17 @@
 # Python for Data Analysis
 
-## May 2024
+## Overview 
+This course provides an in-depth exploration of Python for data analysis, focusing on essential libraries and tools such as NumPy, Pandas, Matplotlib, and Plotly. Additionally, it covers critical software development practices, including testing, virtual environments, and version control, to ensure code reproducibility and collaboration in research projects. By the end of the course, participants will be adept at performing data manipulation, analysis, and visualisation tasks, and will have a solid understanding of maintaining and sharing their code efficiently.
 
-### Collaborative doc: https://tinyurl.com/2v573z6j
+## Course Objectives
+- Grasp the fundamentals of Python programming, including data types, control structures, and functions
+- Learn how to load, clean, and manipulate data using Pandas for effective data analysis
+- Learn to use NumPy for numerical operations and handling large datasets efficiently
+- Understand the use of Pandas for handling research problem datasets 
+- Create a variety of static and interactive visualisations to represent data insights, covering Matplotlib and Plotly
+- Apply machine learning techniques using Scikit-Learn for predictive modelling
+- Implement testing framework, manage dependencies with virtual environment
+- Learn methods to ensure that research and analyses can be reproduced and validated by other 
 
-## Prerequisites
-
-An understanding and experience of Python programming from, for example, attending Intro to Python. 
-
-Participants should have experience running Python commands and scripts on their machines.
-
-## Setup
-
-A working Python environment (3.10 or later)
-
-An IDE (Anaconda, PyCharm, VS Code)
-
-## Course overview
-
-More advanced Python features, including usage of virtual environments, tools to check and test Python code, object orientation, and some commonly seen coding patterns. We will move on to working with Python libraries for data analysis, such as Pandas and Numpy, using libraries for visualising data, such as matplotlib, and create data pipelines. 
-
-## Course content
-
-### Part 1
-
-* [Language features](../python_for_data_analysis/Python_Language_features.ipynb)
-
-* [Virtual environments](../python_for_data_analysis/Python_Virtual_environments.ipynb)
-
-### Part 2
-
-* [NumPy](../python_for_data_analysis/Python_NumPy.ipynb)
-
-* [Pandas](../python_for_data_analysis/Python_Pandas.ipynb)
-
-* [ScikitLean](../python_for_data_analysis/Python_ScikitLearn.ipynb)
-
-### Part 3
-
-* [Matplotlib]()
-
-* [Plotly]()
-
-* [Testing and checking code](../python_for_data_analysis/Python_Testing.ipynb)
-
-* [Testing exercise](../python_for_data_analysis/Python_Testing_exercise.ipynb)
+## Pre-requisite Knowledge
+Attendees should have taken the Introduction to Python course.
