@@ -37,7 +37,7 @@ The repository is organized into several directories:
 
 ## Contributing
 
-We welcome contributions to improve and expand the CfRR training materials. Please visit the [contributing guidance]([https://coding-for-reproducible-research.github.io/CfRR_Courses/contributing.html](https://coding-for-reproducible-research.github.io/CfRR_Courses/contributing/contributing.html)) on the CfRR website that explains the steps to take to contribute to this repo.
+We welcome contributions to improve and expand the CfRR training materials. Please visit the [contributing guidance]([https://coding-for-reproducible-research.github.io/CfRR_Courses/contributing.html](https://coding-for-reproducible-research.github.io/CfRR_Courses/contributing/contributing.html) on the CfRR website that explains the steps to take to contribute to this repo.
 
 ## License
 
