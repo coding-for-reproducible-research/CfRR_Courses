@@ -1,7 +1,7 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: Coding For Reproducible Research
+title: Home Page
 author: Coding For Reproducible Research Community
 logo: exeter_logo.png
 copyright: "2024"
@@ -25,6 +25,10 @@ repository:
 html:
   use_repository_button: true
   use_issues_button: true
+  use_navigation_shortcuts: false
+  extra_css:
+      - _static/style.css
+      - style.css
 
 launch_buttons:
   thebe                  : true
