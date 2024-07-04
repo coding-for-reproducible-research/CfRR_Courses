@@ -45,51 +45,42 @@ parts:
         sections:
           - file: pathways/hpc
           - file: pathways/r_ds
-          - file: pathways/python_ds
-  # Uncomment and adjust as needed
-  # - caption: Course Details and Delivery Dates
-  #   chapters:
-  #     - file: course_homepages/theoretical
-  #       sections:
-  #         - file: course_homepages/computational_thinking
-  #     - file: course_homepages/machine_learning
-  #       sections:
-  #         - file: course_homepages/introduction_to_machine_learning
-  #     - file: course_homepages/high_performance_computing
-  #       sections:
-  #         - file: course_homepages/introduction_to_hpc_and_isca
-  #     - file: course_homepages/julia
-  #       sections:
-  #         - file: course_homepages/introduction_to_julia
-  #     - file: course_homepages/unix
-  #       sections:
-  #         - file: course_homepages/introduction_to_unix
-  #     - file: course_homepages/parallel_computing
-  #       sections:
-  #         - file: course_homepages/intro_parallel_computing
-  #     - file: course_homepages/R
-  #       sections:
-  #         - file: course_homepages/introduction_to_r
-  #         - file: course_homepages/working_with_data_in_r
-  #         - file: course_homepages/regression_analysis_with_r
-  #         - file: course_homepages/advanced_regression_analysis
-  #     - file: course_homepages/python
-  #       sections:
-  #         - file: course_homepages/introduction_to_python
-  #         - file: course_homepages/intermediate_python
-  #     - file: course_homepages/software_development
-  #       sections:
-  #         - file: course_homepages/software_development_best_practice
-  #     - file: course_homepages/version_control
-  #       sections:
-  #         - file: course_homepages/introduction_to_version_control_with_git_and_github
-  #         - file: course_homepages/intermediate_version_control
-  - caption: Help us improve!
-    chapters:
-      - file: cfrr_program_details/course_review
+          - file: pathways/python_ds     
   - caption: Courses We Offer
     chapters:
-      - file: cfrr_program_details/courses
+      - file: cfrr_program_details/courses_overview
+      - file: programme_information/programme_information
+        sections:
+          - file: programme_information/python
+            sections:
+              - file: programme_information/intro_to_python
+              - file: programme_information/python_for_data_analysis
+          - file: programme_information/R
+            sections:
+              - file: programme_information/intro_to_r
+              - file: programme_information/regression_analysis_with_r
+              - file: programme_information/advanced_regression_analysis_with_r
+              - file: programme_information/working_with_data_in_r
+          - file: programme_information/high_performance_computing
+            sections:
+              - file: programme_information/intro_to_hpc
+          - file: programme_information/version_control
+            sections:
+              - file: programme_information/intro_to_version_control
+              - file: programme_information/intermediate_version_control
+          - file: programme_information/unix
+            sections:
+              - file: programme_information/intro_to_unix
+          - file: programme_information/computational_thinking_overview
+            sections:
+              - file: programme_information/computational_thinking
+          - file: programme_information/software_development
+            sections:
+              - file: programme_information/software_development_best_practice
+          - file: programme_information/julia
+            sections:
+              - file: programme_information/intro_to_julia
+      - file: cfrr_program_details/course_review
       - file: cfrr_program_details/self_study_notes
         sections:
           - file: course_homepages/python
@@ -255,5 +246,8 @@ parts:
     chapters: 
       - file: contributing/contributing
       - file: contributing/developing_a_course
-      - file: contributing/suggestions_form
       - file: contributing/roles
+      - file: contributing/suggestions_form
+  - caption: Community Guidelines
+    chapters: 
+      - file: cfrr_program_details/code_of_conduct
