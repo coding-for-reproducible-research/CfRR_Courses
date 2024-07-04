@@ -184,7 +184,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">What Courses Should I Take?</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../where_is_my_understanding/homepage_where_is_my_understanding.html">Interactive Quizzes</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../where_is_my_understanding/homepage_where_is_my_understanding.html">Where Is My Understanding Quizzes</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../where_is_my_understanding/python.html">Python</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../where_is_my_understanding/intro_to_python.html">Introduction to Python Quiz</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../where_is_my_understanding/python_for_data_analysis.html">Python for Data Analysis Quiz</a></li>
@@ -497,8 +497,9 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../contributing/contributing.html">Contributing to CfRR</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributing/developing_a_course.html">Developing a Course Guidance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/contributing_guidelines.html">Contributor Guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributing/roles.html">Roles</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../contributing/suggestions_form.html">Suggestions for Courses, Improvements and Additions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/suggestions_form.html">Feedback</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Community Guidelines</span></p>
 <ul class="nav bd-sidenav">
@@ -748,11 +749,33 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-description">Course Description</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-guide">Installation Guide</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-objectives">Course Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-requisite-knowledge">Pre-requisite Knowledge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-guide">Installation Guide</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-git">Installing Git</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mac-os">Mac OS</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#linux">Linux</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get-a-github-account">Get a GitHub account</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#text-editors-ides">Text editors / IDEs</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-vs-code">Installing VS Code</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#self-study-material-link">Self Study Material Link</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license-info">License Info</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#developers">Developers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license-info">License Info</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instructional-material">Instructional Material</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#software">Software</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -768,21 +791,242 @@ document.write(`
 <h1>Introduction to Version Control<a class="headerlink" href="#introduction-to-version-control" title="Link to this heading">#</a></h1>
 <section id="course-description">
 <h2>Course Description<a class="headerlink" href="#course-description" title="Link to this heading">#</a></h2>
+<p>Version control systems are an incredibly valuable tool for organising software development. They are essential for producing reproducible and transparent research software, coming into their own for facilitating collaborative work. This course will give an introduction to Git, one of the most widely used version control systems in academia and industry. It will also give an introduction to internet platforms such as GitHub and GitLab, which are built on top of Git and designed to facilitate collaboration between software developers and the sharing of code. A key component of the course will be hands-on practice using Git and GitHub, working through theoretical concepts that will be explained with the aid of live demonstrations. By the end of the course, it is intended participants will be comfortable using the basic features of Git and GitHub to keep a record of their day-to-day code development and share their work with others.</p>
+</section>
+<section id="course-objectives">
+<h2>Course Objectives<a class="headerlink" href="#course-objectives" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Use Git to manage their software development.</p></li>
+<li><p>Explain what repositories and commits are in Git.</p></li>
+<li><p>Apply standard Git commands as part of their development workflow: cloning, pulling from and pushing to repositories; adding and committing file changes.</p></li>
+<li><p>Give examples of what should and should not be included in Git repositories.</p></li>
+<li><p>Describe how Git and platforms like GitHub and GitLab relate to each other and their differences.</p></li>
+<li><p>Understand how to share their work with others and/or make it publicly available through GitHub.</p></li>
+<li><p>Have the confidence to learn more advanced features of Git and GitHub as required for their work, such as working with branches and pull requests.</p></li>
+</ul>
+</section>
+<section id="pre-requisite-knowledge">
+<h2>Pre-requisite Knowledge<a class="headerlink" href="#pre-requisite-knowledge" title="Link to this heading">#</a></h2>
+<p>A willingness to work with Git and GitHub in a hands-on way throughout the sessions.</p>
+<p>Basic familiarity of working at a Unix command line (e.g. Apple Terminal, a terminal running Bash) is helpful but not essential. We have included a cheat sheet on basic commands that will be useful for this course on the resources page. A good introduction to this topic more generally can be found at the sister course Introduction to Unix Shell.</p>
+<p>Version control systems are primarily used for source code development, so experience writing some code (e.g. R, Python, LaTeX, bash scripts, C,…) is helpful though not essential.</p>
 </section>
 <section id="installation-guide">
 <h2>Installation Guide<a class="headerlink" href="#installation-guide" title="Link to this heading">#</a></h2>
+<p>In order to fully participate in this course, you should make sure you
+have the following in place <strong>before</strong> the first workshop.</p>
+<ul class="simple">
+<li><p>An <a class="reference internal" href="#installing-git"><span class="xref myst">installation of Git</span></a> on your computer.</p></li>
+<li><p>A <a class="reference internal" href="#get-a-github-account"><span class="xref myst">GitHub account</span></a>.</p></li>
+<li><p>A <a class="reference internal" href="#text-editors--ides"><span class="xref myst">text editor or integrated development environment (IDE)</span></a>
+to use for working with source code / text files.
+<a href="https://code.visualstudio.com/" target="_blank" rel="external noreferrer">Visual Studio Code</a>
+is recommended as it will be used during the workshop sessions, but you
+can use another program if you prefer; <a class="reference internal" href="#text-editors--ides"><span class="xref myst">see the discussion below</span></a> for
+more information.</p></li>
+</ul>
+<p>This page gives more details on these requirements.</p>
+<p><em>Please note that installing software, such as Git or a text editor, may require
+administrative privileges. If you need support due to not having these
+privileges on your computer then please contact the University’s IT department.</em></p>
+<p>For those struggling to install the required software or sign up to GitHub,
+there will be an opportunity to get support from the course organisers in drop-in
+sessions shortly before the start of the course. The time available in these
+sessions is limited, so please only attend if you have already tried following the
+instructions below.</p>
+<section id="installing-git">
+<h3>Installing Git<a class="headerlink" href="#installing-git" title="Link to this heading">#</a></h3>
+<p>You should first check whether you have Git installed on your computer, according
+to your operating system:</p>
+<ul>
+<li><p><strong>Windows:</strong> Search for the application <em>Git Bash</em> on your computer. (You can
+open up a new search by pressing the Windows and <kbd>S</kbd> keys together.) If you
+find <em>Git Bash</em> as an application, then you already have Git installed.</p></li>
+<li><p><strong>MacOS &amp; Linux:</strong> Open a terminal and run the command <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">--version</span></code>. If
+you get a response that looks something like</p>
+<div class="highlight-output notranslate"><div class="highlight"><pre><span></span><span class="go">git version 2.25.1</span>
+</pre></div>
+</div>
+<p>then you have Git installed (your version number may differ). On the other
+hand, if you get a response that says something like</p>
+<div class="highlight-output notranslate"><div class="highlight"><pre><span></span><span class="go">Command &#39;git&#39; not found</span>
+</pre></div>
+</div>
+<p>then Git is not installed.</p>
+</li>
+</ul>
+<p>If you don’t have Git installed then you will need install it. Instructions and
+recommended sources for doing this are provided below, according to operating
+systems.</p>
+<section id="windows">
+<h4>Windows<a class="headerlink" href="#windows" title="Link to this heading">#</a></h4>
+<p>Download and install the latest version of <em>Git for Windows</em> from
+<a href="https://git-scm.com/download/win" target="_blank" rel="external noreferrer">https://git-scm.com/download/win</a>.
+Accept the default settings while running the installer, with the following
+optional exceptions:</p>
+<ul class="simple">
+<li><p>On the <em>Select Components</em> pane, you may wish to select the option to
+<em>Check daily for Git for Windows updates</em>. Selecting this will mean Git for
+Windows will tell you when a new update for it is available.</p></li>
+<li><p>On the <em>Choosing the default editor used by Git</em> pane, you can select
+a different text editor that will be used to write
+‘commit messages’ in Git. The default text editor, Vim, is difficult to
+use if you’re not used to it. Nano is a much simpler text editor that works
+from the command line, so our recommendation would be to switch to that. The
+choice of text editor can be changed later once Git is installed, so you’re not
+tied in by your choice here.</p></li>
+</ul>
+</section>
+<section id="mac-os">
+<h4>Mac OS<a class="headerlink" href="#mac-os" title="Link to this heading">#</a></h4>
+<p>We recommend installing Git through the
+<em>Xcode Command Line Tools</em>. This is a collection of software, curated by
+Apple, that is useful for developing code on MacOS; Git is one of the programs
+included. Daniel Kehoe has
+<a href="https://mac.install.guide/commandlinetools/index.html" target="_blank" rel="external noreferrer">a very good guide</a>
+on the Xcode Command Line Tools. Daniel’s guide recommends installing the
+<a href="https://brew.sh/" target="_blank" rel="external noreferrer">Homebrew</a>
+package manager at the same time as the Xcode Command Line Tools,
+however this is not required for installing Git, so we instead recommend following
+<a href="https://mac.install.guide/commandlinetools/4.html" target="_blank" rel="external noreferrer"> the version of his instructions that avoids installing Homebrew</a>.</p>
+</section>
+<section id="linux">
+<h4>Linux<a class="headerlink" href="#linux" title="Link to this heading">#</a></h4>
+<p>Install Git using your operating system’s package manager. See
+<a href="https://git-scm.com/download/linux" target="_blank" rel="external noreferrer">https://git-scm.com/download/linux</a>
+for instructions.</p>
+</section>
+</section>
+<section id="get-a-github-account">
+<h3>Get a GitHub account<a class="headerlink" href="#get-a-github-account" title="Link to this heading">#</a></h3>
+<p>To set up an account, go to
+<a href="https://github.com/" target="_blank" rel="external noreferrer">https://github.com/</a>
+and click on <em>Sign Up</em> in the top right-hand corner. Make sure you know your
+username and password for the start of the course!</p>
+</section>
+<section id="text-editors-ides">
+<h3>Text editors / IDEs<a class="headerlink" href="#text-editors-ides" title="Link to this heading">#</a></h3>
+<p>You should also have a text editor or integrated development environment (IDE)
+installed on your computer, to give you a means of editing text files and source
+code. Throughout this course we will be using
+<a href="https://code.visualstudio.com/" target="_blank" rel="external noreferrer">Visual Studio Code</a>
+(a.k.a. VS Code) because it has nice integration with Git (it’s also free and
+works on most operating systems). One or two parts of the course will use
+features in VS Code to better visualise what is going on with Git (such as
+visualising differences between file versions), so you will likely find it
+simplest to use VS Code to follow along in this course.</p>
+<p>However, if you don’t want to use VS Code then you can use whatever text editor / IDE
+you feel comfortable with. Examples include:</p>
+<ul class="simple">
+<li><p>Notepad++</p></li>
+<li><p>Sublime Text</p></li>
+<li><p>Emacs</p></li>
+<li><p>RStudio (includes Git integration)</p></li>
+<li><p>PyCharm (includes Git integration)</p></li>
+<li><p>(At the command line) Vim, Nano</p></li>
+</ul>
+<p>You may wish to see if your preferred text editor / IDE has integrations
+with Git, or if there are plugins or other extensions that add capabilities for
+working with Git from within your text editor / IDE.</p>
+<section id="installing-vs-code">
+<h4>Installing VS Code<a class="headerlink" href="#installing-vs-code" title="Link to this heading">#</a></h4>
+<p>Head to <a href="https://code.visualstudio.com/" target="_blank" rel="external noreferrer">https://code.visualstudio.com</a> to download and install VS Code for your operating system.
+Windows users can also install it from the Microsoft Store.</p>
+</section>
+</section>
 </section>
 <section id="self-study-material-link">
 <h2>Self Study Material Link<a class="headerlink" href="#self-study-material-link" title="Link to this heading">#</a></h2>
-</section>
-<section id="license-info">
-<h2>License Info<a class="headerlink" href="#license-info" title="Link to this heading">#</a></h2>
+<p>The self-study material for this course is available <a class="reference internal" href="#../individual_modules/section_landing_pages/introduction_to_version_control.ipynb"><span class="xref myst">here</span></a>.</p>
 </section>
 <section id="acknowledgements">
 <h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
+<p>This course has been adapted from Software Carpentry’s
+<a href="https://swcarpentry.github.io/git-novice/" target="_blank" rel="external noreferrer">Version Control with Git</a>
+course [<a class="footnote-reference brackets" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>] (retrieved from <a href="https://swcarpentry.github.io/git-novice/" target="_blank" rel="external noreferrer">https://swcarpentry.github.io/git-novice/</a>
+and <a href="http://erdavenport.github.io/git-lessons/10-branching.html" target="_blank" rel="external noreferrer">http://erdavenport.github.io/git-lessons/10-branching.html</a>), which is © <a href="https://software-carpentry.org/" target="_blank" rel="external noreferrer">Software Carpentry</a> and licensed
+under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="external noreferrer">Creative Commons BY 4.0</a>.
+Changes have been made from the original content.</p>
+<section id="references">
+<h3>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h3>
+</section>
 </section>
 <section id="developers">
 <h2>Developers<a class="headerlink" href="#developers" title="Link to this heading">#</a></h2>
+<p>This workshop was developed by
+<a href="https://www.exeter.ac.uk/research/services/contact/staff/profile/index.php?web_id=Thomas_Hawes" target="_blank" rel="external noreferrer">Dr Thomas Hawes</a>
+with the help of <a href="https://www.exeter.ac.uk/research/services/contact/staff/profile/index.php?web_id=Fliss_Guest" target="_blank" rel="external noreferrer">Dr Fliss Guest</a>,
+<a href="https://www.exeter.ac.uk/research/services/contact/staff/profile/index.php?web_id=Matt_Johns" target="_blank" rel="external noreferrer">Dr Matt Johns</a>
+and <a href="https://www.exeter.ac.uk/research/services/contact/staff/profile/index.php?web_id=Ed_Hone" target="_blank" rel="external noreferrer">Dr Ed Hone</a>.</p>
+</section>
+<section id="license-info">
+<h2>License Info<a class="headerlink" href="#license-info" title="Link to this heading">#</a></h2>
+<section id="instructional-material">
+<h3>Instructional Material<a class="headerlink" href="#instructional-material" title="Link to this heading">#</a></h3>
+<p>The instructional material in this course is copyright © 2024 University of Exeter
+and is made available under the Creative Commons Attribution 4.0 International
+licence (<a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a>). Instructional material
+consists of material that is contained within the “individual_modules/introduction_to_version_control”
+folders in this repository, with the exception of code snippets and example
+programs found in files within these folders. Such code snippets and example
+programs are considered software for the purposes of this licence.</p>
+</section>
+<section id="software">
+<h3>Software<a class="headerlink" href="#software" title="Link to this heading">#</a></h3>
+<p>Except where otherwise noted, software provided in this repository is made
+available under the MIT licence (<a class="reference external" href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>).</p>
+<p>Copyright © 2024 University of Exeter</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the “Software”), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</p>
+<p>The software in this repository is adapted from software that is covered by the
+following copyright and permission notice:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Copyright © 2024 Software Carpentry
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+&quot;Software&quot;), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+</pre></div>
+</div>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id2" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Ivan Gonzalez; Daisie Huang;  Nima Hejazi;  Katherine Koziar;
+Madicken Munk (eds): “Software Carpentry: Version Control with Git.”<br />
+Version 2019.06.1, July 2019,
+<a href="https://github.com/swcarpentry/git-novice">https://github.com/swcarpentry/git-novice</a>,
+10.5281/zenodo.3264950</p>
+</aside>
+</aside>
+</section>
 </section>
 </section>
 
@@ -851,11 +1095,33 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-description">Course Description</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-guide">Installation Guide</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-objectives">Course Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-requisite-knowledge">Pre-requisite Knowledge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-guide">Installation Guide</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-git">Installing Git</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mac-os">Mac OS</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#linux">Linux</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get-a-github-account">Get a GitHub account</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#text-editors-ides">Text editors / IDEs</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-vs-code">Installing VS Code</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#self-study-material-link">Self Study Material Link</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license-info">License Info</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#developers">Developers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license-info">License Info</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instructional-material">Instructional Material</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#software">Software</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

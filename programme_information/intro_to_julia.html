@@ -184,7 +184,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">What Courses Should I Take?</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../where_is_my_understanding/homepage_where_is_my_understanding.html">Interactive Quizzes</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../where_is_my_understanding/homepage_where_is_my_understanding.html">Where Is My Understanding Quizzes</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../where_is_my_understanding/python.html">Python</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../where_is_my_understanding/intro_to_python.html">Introduction to Python Quiz</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../where_is_my_understanding/python_for_data_analysis.html">Python for Data Analysis Quiz</a></li>
@@ -497,8 +497,9 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../contributing/contributing.html">Contributing to CfRR</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributing/developing_a_course.html">Developing a Course Guidance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/contributing_guidelines.html">Contributor Guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributing/roles.html">Roles</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../contributing/suggestions_form.html">Suggestions for Courses, Improvements and Additions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/suggestions_form.html">Feedback</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Community Guidelines</span></p>
 <ul class="nav bd-sidenav">
@@ -748,11 +749,12 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-description">Course Description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-objectives">Course Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-requisite-knowledge">Pre-requisite Knowledge</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-guide">Installation Guide</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#self-study-material-link">Self Study Material Link</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license-info">License Info</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#developers">Developers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license-info">License Info</a></li>
 </ul>
             </nav>
         </div>
@@ -768,21 +770,35 @@ document.write(`
 <h1>Introduction to Julia<a class="headerlink" href="#introduction-to-julia" title="Link to this heading">#</a></h1>
 <section id="course-description">
 <h2>Course Description<a class="headerlink" href="#course-description" title="Link to this heading">#</a></h2>
+<p>Welcome to the Introduction to Julia course! This course has been created to give you an idea about Julia’s particular language features; it assumes that you are already comfortable with the basics of programming, allowing for more interesting topics to be discussed outside the basics. To be able to best engage with this course it is recommended that you have gone through the material for both “Introduction to Python” and “Python for Data Analysis”.</p>
+</section>
+<section id="course-objectives">
+<h2>Course Objectives<a class="headerlink" href="#course-objectives" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Understand Julia’s high-level and high-performance goals, including multiple dispatch.</p></li>
+<li><p>Learn to create and manipulate one-dimensional and multi-dimensional arrays using various functions and comprehensions.</p></li>
+<li><p>Use conditional statements and loops (for and while) to control the flow of programs.</p></li>
+<li><p>Create functions with different parameter types and return values, including exploring multiple dispatch and lambda functions.</p></li>
+<li><p>Perform input and output operations, including reading from and writing to various file types such as text, CSV, Excel, and JSON.</p></li>
+</ul>
+</section>
+<section id="pre-requisite-knowledge">
+<h2>Pre-requisite Knowledge<a class="headerlink" href="#pre-requisite-knowledge" title="Link to this heading">#</a></h2>
+<p>Attendees of the workshop should already be familiar with a programming language such as Python and should have already installed and been able to run an example of a Julia code snippet.</p>
 </section>
 <section id="installation-guide">
 <h2>Installation Guide<a class="headerlink" href="#installation-guide" title="Link to this heading">#</a></h2>
+<p>This course has been designed to be ran from within the CfRR website, and so there are no installation instructions.</p>
 </section>
 <section id="self-study-material-link">
 <h2>Self Study Material Link<a class="headerlink" href="#self-study-material-link" title="Link to this heading">#</a></h2>
-</section>
-<section id="license-info">
-<h2>License Info<a class="headerlink" href="#license-info" title="Link to this heading">#</a></h2>
-</section>
-<section id="acknowledgements">
-<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
+<p>The self-study material for this course is available <a class="reference internal" href="#../individual_modules/section_landing_pages/introduction_to_julia.ipynb"><span class="xref myst">here</span></a>.</p>
 </section>
 <section id="developers">
 <h2>Developers<a class="headerlink" href="#developers" title="Link to this heading">#</a></h2>
+</section>
+<section id="license-info">
+<h2>License Info<a class="headerlink" href="#license-info" title="Link to this heading">#</a></h2>
 </section>
 </section>
 
@@ -851,11 +867,12 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-description">Course Description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-objectives">Course Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-requisite-knowledge">Pre-requisite Knowledge</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-guide">Installation Guide</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#self-study-material-link">Self Study Material Link</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license-info">License Info</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#developers">Developers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license-info">License Info</a></li>
 </ul>
   </nav></div>
 

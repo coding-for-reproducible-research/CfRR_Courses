@@ -184,7 +184,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">What Courses Should I Take?</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../where_is_my_understanding/homepage_where_is_my_understanding.html">Interactive Quizzes</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../where_is_my_understanding/homepage_where_is_my_understanding.html">Where Is My Understanding Quizzes</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../where_is_my_understanding/python.html">Python</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../where_is_my_understanding/intro_to_python.html">Introduction to Python Quiz</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../where_is_my_understanding/python_for_data_analysis.html">Python for Data Analysis Quiz</a></li>
@@ -497,8 +497,9 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../contributing/contributing.html">Contributing to CfRR</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributing/developing_a_course.html">Developing a Course Guidance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/contributing_guidelines.html">Contributor Guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributing/roles.html">Roles</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../contributing/suggestions_form.html">Suggestions for Courses, Improvements and Additions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/suggestions_form.html">Feedback</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Community Guidelines</span></p>
 <ul class="nav bd-sidenav">
@@ -748,11 +749,21 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-description">Course Description</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-guide">Installation Guide</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-objectives">Course Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-requisite-knowledge">Pre-requisite Knowledge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-guide">Installation Guide</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-install-r">How to Install R?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-install-rstudio">How to Install RStudio?</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#self-study-material-link">Self Study Material Link</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license-info">License Info</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#developers">Developers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license-info">License Info</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instructional-material">Instructional Material</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#software">Software</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -768,21 +779,135 @@ document.write(`
 <h1>Introduction to R<a class="headerlink" href="#introduction-to-r" title="Link to this heading">#</a></h1>
 <section id="course-description">
 <h2>Course Description<a class="headerlink" href="#course-description" title="Link to this heading">#</a></h2>
+<p>R is a programming language and software environment primarily focused on performing statistics, data analysis and visualisation. This course will provide an all-purpose introduction to the R programming language and may provide an accessible entry to computer programming in general. Throughout the workshop learners will be taught using RStudio and introduced to best practices from the beginning including how to document your work in a script. Over three sessions you will learn how to import, manage and process data for statistical analysis and visualisation. At the end of the workshop the participants will have a solid understanding of how to run R commands and the properties of R objects, providing a solid basis for self-guided learning of more complex analyses.</p>
+</section>
+<section id="course-objectives">
+<h2>Course Objectives<a class="headerlink" href="#course-objectives" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>how to use Rstudio to write scripts and run R commands</p></li>
+<li><p>the different types of objects for storing data and the importance of different data types</p></li>
+<li><p>how to read in data, manipulate it and save the output</p></li>
+<li><p>how to visualise data in commonly used figures</p></li>
+<li><p>how to perform some basic inferential statistical tests</p></li>
+<li><p>definitions of fundamental programming terminology and concepts such as variable, function, for loops that is transferable to other programming languages</p></li>
+</ul>
+</section>
+<section id="pre-requisite-knowledge">
+<h2>Pre-requisite Knowledge<a class="headerlink" href="#pre-requisite-knowledge" title="Link to this heading">#</a></h2>
+<p>This is a course for novices so there is no pre-requisite knowledge.</p>
 </section>
 <section id="installation-guide">
 <h2>Installation Guide<a class="headerlink" href="#installation-guide" title="Link to this heading">#</a></h2>
+<p>Because R and RStudio work together, you need to install them both. The steps in this section should guide you through the process. Once installed, you will be working with RStudio and R will be running in the background.</p>
+<section id="how-to-install-r">
+<h3>How to Install R?<a class="headerlink" href="#how-to-install-r" title="Link to this heading">#</a></h3>
+<p>Installing R in 5  steps:</p>
+<ul class="simple">
+<li><p><strong>Step 1.</strong> Go to: <a class="reference external" href="https://www.r-project.org/">https://www.r-project.org/</a></p></li>
+<li><p><strong>Step 2</strong>: Click on <strong>CRAN</strong> or <strong>download R</strong>.</p>
+<ul>
+<li><p><em>Note:</em> You’ll only do this once, although, eventually you’ll have to update to the most recent version. Follow the same procedure as today.</p></li>
+</ul>
+</li>
+<li><p><strong>Step 3.</strong> Select a mirror. A <em>Mirror</em> is a server somewhere in the world with a copy of the program. Choose the mirror closest to you. For example, if you are in the UK, you can select the one from University of Bristol. Don’t worry too much about this.</p></li>
+<li><p><strong>Step 4.</strong> Select the download appropriate for your computer (Microsoft, Mac or Linux)</p></li>
+<li><p><strong>Step 5.</strong> Open the program you downloaded and follow the instructions</p>
+<ul>
+<li><p><em>Note</em> - There is another tutorial identical to this one that shows the process you need to follow if you have a mac.</p></li>
+</ul>
+</li>
+</ul>
+<p align="center">
+  <img src="images/gif_windows.gif" alt="Alt Text">
+</p>
+</section>
+<section id="how-to-install-rstudio">
+<h3>How to Install RStudio?<a class="headerlink" href="#how-to-install-rstudio" title="Link to this heading">#</a></h3>
+<p>Yes, you need to install both R and RStudio. Follow this four steps:</p>
+<ul class="simple">
+<li><p><strong>Step 1</strong>: Go to: <a class="reference external" href="https://www.rstudio.com/products/rstudio/download/">https://www.rstudio.com/products/rstudio/download/</a></p></li>
+<li><p><strong>Step 2</strong>: Click on the free version <strong>Download</strong> button</p></li>
+<li><p><strong>Step 2</strong> Select your download accordingly.</p></li>
+<li><p><strong>Step 3</strong> Click on the download and follow the installation instructions</p></li>
+</ul>
+<p align="center">
+  <img src="images/rstudio_windows.gif" alt="Alt Text">
+</p>
+</section>
 </section>
 <section id="self-study-material-link">
 <h2>Self Study Material Link<a class="headerlink" href="#self-study-material-link" title="Link to this heading">#</a></h2>
-</section>
-<section id="license-info">
-<h2>License Info<a class="headerlink" href="#license-info" title="Link to this heading">#</a></h2>
+<p>The self-study material for this course is available <a class="reference internal" href="#../individual_modules/section_landing_pages/introduction_to_r.ipynb"><span class="xref myst">here</span></a>.</p>
 </section>
 <section id="acknowledgements">
 <h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
+<p>Inspired by and adapted from:</p>
+<p>John Blischak, Daniel Chen, Harriet Dashnow, and Denis Haine (eds): “Software Carpentry: Programming with R.” Version 2016.06, June 2016, <a class="github reference external" href="https://github.com/swcarpentry/r-novice-inflammation">swcarpentry/r-novice-inflammation</a>, 10.5281/zenodo.57541.</p>
+<p>Jenny Bryan: <a class="reference external" href="https://jennybc.github.io/purrr-tutorial">https://jennybc.github.io/purrr-tutorial</a></p>
+<p>Manuel Gimond: <a class="reference external" href="https://mgimond.github.io/ES218/Week02a.html">https://mgimond.github.io/ES218/Week02a.html</a></p>
+<p>Damaris Zurell (Ecology &amp; Macroecology Lab, Univ. Potsdam 2020-2022): <a class="reference external" href="https://damariszurell.github.io/EEC-R-prep/index.html">https://damariszurell.github.io/EEC-R-prep/index.html</a></p>
 </section>
 <section id="developers">
 <h2>Developers<a class="headerlink" href="#developers" title="Link to this heading">#</a></h2>
+<p>This workshop was developed by Laura Roldan Gomez, Rebecca Smith, Theresa Wacker, Emma Walker and Fiona Warren.</p>
+</section>
+<section id="license-info">
+<h2>License Info<a class="headerlink" href="#license-info" title="Link to this heading">#</a></h2>
+<section id="instructional-material">
+<h3>Instructional Material<a class="headerlink" href="#instructional-material" title="Link to this heading">#</a></h3>
+<p>The instructional material in this course is copyright © 2024 University of Exeter
+and is made available under the Creative Commons Attribution 4.0 International
+licence (<a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a>). Instructional material
+consists of material that is contained within the “individual_modules/introduction_to_r” folder in
+this repository, with the exception of code snippets and example programs found
+in files within these folders. Such code snippets and example programs are
+considered software for the purposes of this licence.</p>
+</section>
+<section id="software">
+<h3>Software<a class="headerlink" href="#software" title="Link to this heading">#</a></h3>
+<p>Except where otherwise noted, software provided in this repository is made
+available under the MIT licence (<a class="reference external" href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>).</p>
+<p>Copyright © 2024 University of Exeter</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the “Software”), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</p>
+<p>The software in this repository is adapted from software that is covered by the
+following copyright and permission notice:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Copyright © 2024 Software Carpentry
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+&quot;Software&quot;), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+</pre></div>
+</div>
+</section>
 </section>
 </section>
 
@@ -851,11 +976,21 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-description">Course Description</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-guide">Installation Guide</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-objectives">Course Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-requisite-knowledge">Pre-requisite Knowledge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-guide">Installation Guide</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-install-r">How to Install R?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-install-rstudio">How to Install RStudio?</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#self-study-material-link">Self Study Material Link</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license-info">License Info</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#developers">Developers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license-info">License Info</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instructional-material">Instructional Material</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#software">Software</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

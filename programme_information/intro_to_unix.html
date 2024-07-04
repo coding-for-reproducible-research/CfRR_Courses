@@ -184,7 +184,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">What Courses Should I Take?</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../where_is_my_understanding/homepage_where_is_my_understanding.html">Interactive Quizzes</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../where_is_my_understanding/homepage_where_is_my_understanding.html">Where Is My Understanding Quizzes</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../where_is_my_understanding/python.html">Python</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../where_is_my_understanding/intro_to_python.html">Introduction to Python Quiz</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../where_is_my_understanding/python_for_data_analysis.html">Python for Data Analysis Quiz</a></li>
@@ -497,8 +497,9 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../contributing/contributing.html">Contributing to CfRR</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributing/developing_a_course.html">Developing a Course Guidance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/contributing_guidelines.html">Contributor Guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributing/roles.html">Roles</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../contributing/suggestions_form.html">Suggestions for Courses, Improvements and Additions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/suggestions_form.html">Feedback</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Community Guidelines</span></p>
 <ul class="nav bd-sidenav">
@@ -748,11 +749,23 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-description">Course Description</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-guide">Installation Guide</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-objectives">Course Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-requisite-knowledge">Pre-requisite Knowledge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-guide">Installation Guide</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-files">Download files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-software">Install software</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#macos">MacOS</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#linux">Linux</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-a-new-shell">Open a new shell</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#self-study-material-link">Self Study Material Link</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license-info">License Info</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#developers">Developers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license-info">License Info</a></li>
 </ul>
             </nav>
         </div>
@@ -768,21 +781,106 @@ document.write(`
 <h1>Introduction to UNIX<a class="headerlink" href="#introduction-to-unix" title="Link to this heading">#</a></h1>
 <section id="course-description">
 <h2>Course Description<a class="headerlink" href="#course-description" title="Link to this heading">#</a></h2>
+<p>The Unix system and the shell predate most computational interfaces (e.g. the graphical user interface). Although very old, Unix based systems and the shell are one of the most powerful ways to use computers whether it is your laptop or a supercomputer. This course is an introduction to navigating your way around the shell and demonstrating how it can improve your workflow. This can be in the form of data processing, executing code, using a huge range of built-in tools, and creating pipelines.</p>
+</section>
+<section id="course-objectives">
+<h2>Course Objectives<a class="headerlink" href="#course-objectives" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Describe what the shell is and how you access it</p></li>
+<li><p>Navigate around the unix filesystem</p></li>
+<li><p>Inspect and manipulate files</p></li>
+<li><p>Automate tasks via scripts</p></li>
+<li><p>Run programs outside of IDEs and notebooks</p></li>
+</ul>
+</section>
+<section id="pre-requisite-knowledge">
+<h2>Pre-requisite Knowledge<a class="headerlink" href="#pre-requisite-knowledge" title="Link to this heading">#</a></h2>
+<p>No pre-requisite knowledge required. The attendees will require access to a Unix-like system. There are number of options here: MacOS, WSL2 on Windows, Linux, HPC (ISCA).</p>
 </section>
 <section id="installation-guide">
 <h2>Installation Guide<a class="headerlink" href="#installation-guide" title="Link to this heading">#</a></h2>
+<section id="download-files">
+<h3>Download files<a class="headerlink" href="#download-files" title="Link to this heading">#</a></h3>
+<p>You need to download some files to follow this lesson.</p>
+<ol class="arabic simple">
+<li><p>Download [course_materials/shell-lesson-data.zip][zip-file] and move the file to your Desktop.</p></li>
+<li><p>Unzip/extract the file.
+<strong>Let your instructor know if you need help with this step</strong>.
+You should end up with a new folder called <strong><code class="docutils literal notranslate"><span class="pre">shell-lesson-data</span></code></strong> on your Desktop.</p></li>
+</ol>
+</section>
+<section id="install-software">
+<h3>Install software<a class="headerlink" href="#install-software" title="Link to this heading">#</a></h3>
+<p>If you do not already have the shell software installed, you will need to download and install it.</p>
+<section id="windows">
+<h4>Windows<a class="headerlink" href="#windows" title="Link to this heading">#</a></h4>
+<p>Computers with Windows operating systems do not automatically have a Unix Shell program
+installed.</p>
+<p>In this lesson, we encourage you to use an emulator included in [Git for Windows][install_shell],
+which gives you access to both Bash shell commands and Git.
+Once installed, you can open a terminal by running the program Git Bash from the Windows start
+menu.</p>
+<p><strong>For advanced users</strong>, as an alternative to Git for Windows, you may wish to [Install the Windows Subsystem for Linux][wsl] which gives access to a Bash shell command-line tool in Windows 10.
+Please note that commands in the Windows Subsystem for Linux (WSL) may differ slightly from those shown in the lesson or presented in the workshop.</p>
+</section>
+<section id="macos">
+<h4>MacOS<a class="headerlink" href="#macos" title="Link to this heading">#</a></h4>
+<p>For a Mac computer running macOS Mojave or earlier releases, the default Unix Shell is Bash.
+For a Mac computer running macOS Catalina or later releases, the default Unix Shell is Zsh.
+Your default shell is available via the Terminal program within your Utilities folder.</p>
+<p>To open Terminal, try one or both of the following:</p>
+<ul class="simple">
+<li><p>In Finder, select the Go menu, then select Utilities.
+Locate Terminal in the Utilities folder and open it.</p></li>
+<li><p>Use the Mac ‘Spotlight’ computer search function.
+Search for: <code class="docutils literal notranslate"><span class="pre">Terminal</span></code> and press <kbd>Return</kbd>.</p></li>
+</ul>
+<p>To check if your machine is set up to use something other than Bash,
+type <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">$SHELL</span></code> in your terminal window.</p>
+<p>If your machine is set up to use something other than Bash,
+you can run it by opening a terminal and typing <code class="docutils literal notranslate"><span class="pre">bash</span></code>.</p>
+<p>Here are instruction on [how to Use Terminal on a Mac][mac-terminal]</p>
+</section>
+<section id="linux">
+<h4>Linux<a class="headerlink" href="#linux" title="Link to this heading">#</a></h4>
+<p>The default Unix Shell for Linux operating systems is usually Bash.
+On most versions of Linux, it is accessible by running the
+[Gnome Terminal][gnome-terminal] or [KDE Konsole][kde-konsole] or [xterm][xterm],
+which can be found via the applications menu or the search bar.
+If your machine is set up to use something other than Bash,
+you can run it by opening a terminal and typing <code class="docutils literal notranslate"><span class="pre">bash</span></code>.</p>
+</section>
+</section>
+<section id="open-a-new-shell">
+<h3>Open a new shell<a class="headerlink" href="#open-a-new-shell" title="Link to this heading">#</a></h3>
+<p>After installing the software
+3. Open a terminal.
+If you’re not sure how to open a terminal on your operating system, see the instructions under
+<strong>Install Software</strong> above.
+4. In the terminal type <code class="docutils literal notranslate"><span class="pre">cd</span></code> then press the <kbd>Return</kbd> key.
+This step will make sure you start with your home folder as your working directory.</p>
+<p>In the lesson, you will find out how to access the data files in this folder.</p>
+<p>[zip-file]: /data/shell-lesson-data.zip
+[wsl]: <a class="reference external" href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">https://docs.microsoft.com/en-us/windows/wsl/install-win10</a>
+[mac-terminal]: <a class="reference external" href="http://www.macworld.co.uk/feature/mac-software/how-use-terminal-on-mac-3608274/">http://www.macworld.co.uk/feature/mac-software/how-use-terminal-on-mac-3608274/</a>
+[gnome-terminal]: <a class="reference external" href="https://help.gnome.org/users/gnome-terminal/stable/">https://help.gnome.org/users/gnome-terminal/stable/</a>
+[kde-konsole]: <a class="reference external" href="https://konsole.kde.org/">https://konsole.kde.org/</a>
+[xterm]: <a class="reference external" href="https://en.wikipedia.org/wiki/Xterm">https://en.wikipedia.org/wiki/Xterm</a>
+[install_shell]: <a class="reference external" href="https://carpentries.github.io/workshop-template/#shell">https://carpentries.github.io/workshop-template/#shell</a></p>
+</section>
 </section>
 <section id="self-study-material-link">
 <h2>Self Study Material Link<a class="headerlink" href="#self-study-material-link" title="Link to this heading">#</a></h2>
-</section>
-<section id="license-info">
-<h2>License Info<a class="headerlink" href="#license-info" title="Link to this heading">#</a></h2>
+<p>The self-study material for this course is available <a class="reference internal" href="#../individual_modules/section_landing_pages/introduction_to_unix.ipynb"><span class="xref myst">here</span></a>.</p>
 </section>
 <section id="acknowledgements">
 <h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
 </section>
 <section id="developers">
 <h2>Developers<a class="headerlink" href="#developers" title="Link to this heading">#</a></h2>
+</section>
+<section id="license-info">
+<h2>License Info<a class="headerlink" href="#license-info" title="Link to this heading">#</a></h2>
 </section>
 </section>
 
@@ -851,11 +949,23 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-description">Course Description</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-guide">Installation Guide</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-objectives">Course Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-requisite-knowledge">Pre-requisite Knowledge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-guide">Installation Guide</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-files">Download files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-software">Install software</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#macos">MacOS</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#linux">Linux</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-a-new-shell">Open a new shell</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#self-study-material-link">Self Study Material Link</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license-info">License Info</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#developers">Developers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license-info">License Info</a></li>
 </ul>
   </nav></div>
 

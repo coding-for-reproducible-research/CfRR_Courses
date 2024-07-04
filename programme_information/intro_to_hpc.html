@@ -184,7 +184,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">What Courses Should I Take?</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../where_is_my_understanding/homepage_where_is_my_understanding.html">Interactive Quizzes</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../where_is_my_understanding/homepage_where_is_my_understanding.html">Where Is My Understanding Quizzes</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../where_is_my_understanding/python.html">Python</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../where_is_my_understanding/intro_to_python.html">Introduction to Python Quiz</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../where_is_my_understanding/python_for_data_analysis.html">Python for Data Analysis Quiz</a></li>
@@ -497,8 +497,9 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../contributing/contributing.html">Contributing to CfRR</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributing/developing_a_course.html">Developing a Course Guidance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/contributing_guidelines.html">Contributor Guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributing/roles.html">Roles</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../contributing/suggestions_form.html">Suggestions for Courses, Improvements and Additions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/suggestions_form.html">Feedback</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Community Guidelines</span></p>
 <ul class="nav bd-sidenav">
@@ -748,11 +749,21 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-description">Course Description</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-guide">Installation Guide</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-objectives">Course Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-requisite-knowledge">Pre-requisite Knowledge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-guide">Installation Guide</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#required-software">Required Software</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isca-account">ISCA Account</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#self-study-material-link">Self Study Material Link</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license-info">License Info</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#developers">Developers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license-info">License Info</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instructional-material">Instructional Material</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#software">Software</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -768,21 +779,115 @@ document.write(`
 <h1>Introduction to HPC<a class="headerlink" href="#introduction-to-hpc" title="Link to this heading">#</a></h1>
 <section id="course-description">
 <h2>Course Description<a class="headerlink" href="#course-description" title="Link to this heading">#</a></h2>
+<p>A high performance computing (HPC) cluster is an essential tool for computational tasks that are too intensive for a personal computer, for example analysing large datasets. This course will introduce ISCA, the Exeter’s HPC cluster, and teach participants how to design a HPC workflow, interrogate the Slurm scheduling system, and run simple applications on cluster. At the end of this interactive course, participants will be able to translate what they have learnt to improve the efficiency of their computational research. This course is aimed at those who plan to use ISCA to perform their computational research or who wish to learn what ISCA could enable them to do.</p>
+</section>
+<section id="course-objectives">
+<h2>Course Objectives<a class="headerlink" href="#course-objectives" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>what an high performance computing (HPC) cluster is and what type of tasks it is suited to.</p></li>
+<li><p>what computing resources are necessary to run a large workload.</p></li>
+<li><p>how to log on to the cluster and navigate around the file system</p></li>
+<li><p>how to submit and manage job tasks in the scheduler’s queue.</p></li>
+<li><p>the array jobs syntax, a tool to efficiently parallel repetitive tasks.</p></li>
+</ul>
+</section>
+<section id="pre-requisite-knowledge">
+<h2>Pre-requisite Knowledge<a class="headerlink" href="#pre-requisite-knowledge" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>An account on ISCA</p></li>
+<li><p>Some experience with the command line (e.g. attended an Introduction to Unix Course).</p></li>
+</ul>
 </section>
 <section id="installation-guide">
 <h2>Installation Guide<a class="headerlink" href="#installation-guide" title="Link to this heading">#</a></h2>
+<section id="required-software">
+<h3>Required Software<a class="headerlink" href="#required-software" title="Link to this heading">#</a></h3>
+<p>To complete the activities in the workshop you will need access to some software on your machine. All of these are available for free via the internet, and it should be as easy as downloading the relevant version and double clicking the download to launch the installation process. It should be fairly quick.</p>
+<ul class="simple">
+<li><p>A terminal. Mac users will already have one available via Applications – so no need to do anything. Windows users will need to install/download one. We recommend MobaXterm. An alternative is PuTTY.</p></li>
+<li><p>A file transfer client. If you download MobaXterm for (1) then a file transfer client is included in this software. If you are on a Mac or prefer to use an alternative terminal on windows we recommend FileZilla. Alternatives include Cyberduck or Winscp (for windows).</p></li>
+<li><p>A text editor. You likely have a basic text editor already installed (e.g. Notepad or WordPad) and there is a text editor inbuilt into MobaXterm but you may prefer to use one that has some enhanced features for writing code, such as syntax highlighting. We recommend Notepad++ or VSCode.</p></li>
+</ul>
+</section>
+<section id="isca-account">
+<h3>ISCA Account<a class="headerlink" href="#isca-account" title="Link to this heading">#</a></h3>
+<p>If you have been offered a place on the course we are in the process of setting this up for you.</p>
+</section>
 </section>
 <section id="self-study-material-link">
 <h2>Self Study Material Link<a class="headerlink" href="#self-study-material-link" title="Link to this heading">#</a></h2>
-</section>
-<section id="license-info">
-<h2>License Info<a class="headerlink" href="#license-info" title="Link to this heading">#</a></h2>
+<p>The self-study material for this course is available <a class="reference internal" href="#../individual_modules/section_landing_pages/introduction_to_hpc.ipynb"><span class="xref myst">here</span></a>.</p>
 </section>
 <section id="acknowledgements">
 <h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
+<p>These materials were adapted from the Carpentries. Specifically we have developed the <a class="reference external" href="https://github.com/hpc-carpentry/hpc-shell">HPC Carpentry Intro to HPC Shell lessons</a> adding our own custom content to reflect the HPC systems at Exeter. The materials were developed by a team of researchers at the University who are enthusiastic about sharing their skills with the wider research community. Its provision is dependent on the time of these individuals. If you have benefitted in any way from this course and want to support its long term sustainability then please take the time to complete our feedback survey, recommend it to your colleagues, and enthuse about it to your senior leadership team.</p>
+<p>This workshop is brought to you by:</p>
+<p>The University of Exeter Research Software Engineering Group
+The Institute of Data Science and Artificial Intelligence
+The University of Exeter Researcher Development Programme
+The University of Exeter Doctoral College</p>
 </section>
 <section id="developers">
 <h2>Developers<a class="headerlink" href="#developers" title="Link to this heading">#</a></h2>
+<p>This course was developed by Ed Hone</p>
+</section>
+<section id="license-info">
+<h2>License Info<a class="headerlink" href="#license-info" title="Link to this heading">#</a></h2>
+<section id="instructional-material">
+<h3>Instructional Material<a class="headerlink" href="#instructional-material" title="Link to this heading">#</a></h3>
+<p>The instructional material in this course is copyright © 2024 University of Exeter
+and is made available under the Creative Commons Attribution 4.0 International
+licence (<a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a>). Instructional material
+consists of material that is contained within the “individual_modules/introduction_to_hpc” folders in
+this repository, with the exception of code snippets and example programs found
+in files within these folders. Such code snippets and example programs are
+considered software for the purposes of this licence.</p>
+</section>
+<section id="software">
+<h3>Software<a class="headerlink" href="#software" title="Link to this heading">#</a></h3>
+<p>Except where otherwise noted, software provided in this repository is made
+available under the MIT licence (<a class="reference external" href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>).</p>
+<p>Copyright © 2024 University of Exeter</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the “Software”), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</p>
+<p>The software in this repository is adapted from software that is covered by the
+following copyright and permission notice:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Copyright © 2024 Software Carpentry
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+&quot;Software&quot;), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+</pre></div>
+</div>
+</section>
 </section>
 </section>
 
@@ -851,11 +956,21 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-description">Course Description</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-guide">Installation Guide</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-objectives">Course Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-requisite-knowledge">Pre-requisite Knowledge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-guide">Installation Guide</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#required-software">Required Software</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isca-account">ISCA Account</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#self-study-material-link">Self Study Material Link</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license-info">License Info</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#developers">Developers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license-info">License Info</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instructional-material">Instructional Material</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#software">Software</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
