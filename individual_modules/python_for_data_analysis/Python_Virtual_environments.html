@@ -761,6 +761,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-not-use-virtual-machines-or-containers">Why not use virtual machines or containers?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yes-but">Yes, but</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#venv">venv</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#virtualenv">Virtualenv</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conda">Conda</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pipenv">Pipenv</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#poetry">Poetry</a></li>
@@ -827,9 +828,81 @@ Typically this means you will be using the latest versions of Python and librari
 </div>
 <p>Though in practice your IDE, e.g. VS Code will typically activate environments for you.</p>
 </section>
+<section id="virtualenv">
+<h2>Virtualenv<a class="headerlink" href="#virtualenv" title="Link to this heading">#</a></h2>
+<p>Tutorial: <a class="reference external" href="https://virtualenv.pypa.io/en/latest/user_guide.html">https://virtualenv.pypa.io/en/latest/user_guide.html</a></p>
+<p>Virtualenv is a tool that can be used to set up a virtual environment. If it is not already on your machine, you’ll need to install it such as by:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>virtualenv
+</pre></div>
+</div>
+<p>To create a new environment:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>virtualenv<span class="w"> </span>env_name
+</pre></div>
+</div>
+<p>To activate and deactivate the environment:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>env_name/bin/activate
+deactivate
+</pre></div>
+</div>
+<p>To install packages into the environment, a great method is to store all dependencies listed in a <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> (rather than directly installing them with <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">package_name</span></code>). This is because you can save and share this file alongside your repository, and it allows others to easily see and make a copy of the environment you used for your analysis - and for yourself to reproduce that environment, when you return to your code years later!</p>
+<p>An example <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nv">jupyter</span><span class="o">==</span><span class="m">1</span>.0.0
+<span class="nv">pandas</span><span class="o">==</span><span class="m">2</span>.2.2
+</pre></div>
+</div>
+<p>To install the packages from <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> into your environment:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+<p>To update your environment (such as if you have add a new package to the requirements file):</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt<span class="w"> </span>--upgrade
+</pre></div>
+</div>
+<p>To delete your environment, use the command below - but be careful! Do not name your environment with the same name as a folder in your current location. If so, you could accidentally permanently delete that folder rather than your environment…</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>rm<span class="w"> </span>-r<span class="w"> </span>env_name
+</pre></div>
+</div>
+</section>
 <section id="conda">
 <h2>Conda<a class="headerlink" href="#conda" title="Link to this heading">#</a></h2>
-<p><a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html</a></p>
+<p>Tutorial: <a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html</a></p>
+<p>Conda is another popular tool for environment management in Python. If not already on your machine, follow these <a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/install/index.html">installation instructions</a> to install conda.</p>
+<p>You can save the dependencies needed for in your Python environment using an <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file. Other people can then build an environment with the same dependencies based on that file. Within this file, you can just list the packages needed, or you can include specific versions (if you want people to use the same environment as you).</p>
+<p>Example file:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>name:<span class="w"> </span>shoaib2022
+channels:
+<span class="w">  </span>-<span class="w"> </span>defaults
+dependencies:
+<span class="w">  </span>-<span class="w"> </span><span class="nv">matplotlib</span><span class="o">=</span><span class="m">3</span>.3.4
+<span class="w">  </span>-<span class="w"> </span><span class="nv">pytest</span><span class="o">=</span><span class="m">7</span>.4.4
+<span class="w">  </span>-<span class="w"> </span>pip:
+<span class="w">    </span>-<span class="w"> </span>pytest-xdist<span class="o">==</span><span class="m">3</span>.6.1
+</pre></div>
+</div>
+<p>To create environment from the file:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>env_name<span class="w"> </span>--file<span class="w"> </span>environment.yml
+</pre></div>
+</div>
+<p>To activate the environment:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate<span class="w"> </span>env_name
+</pre></div>
+</div>
+<p>To see packages in the current environment:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>list
+</pre></div>
+</div>
+<p>To see the conda environments on your machine:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>env<span class="w"> </span>list
+</pre></div>
+</div>
+<p>To update the current environment from a <code class="docutils literal notranslate"><span class="pre">.yml</span></code> file (such as if you have changed the dependencies or versions listed):</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>conva<span class="w"> </span>env<span class="w"> </span>update<span class="w"> </span>--file<span class="w"> </span>environment.yml<span class="w"> </span>--prune
+</pre></div>
+</div>
+<p>To delete the environment:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>remove<span class="w"> </span>-n<span class="w"> </span>env_name<span class="w"> </span>--all
+</pre></div>
+</div>
 </section>
 <section id="pipenv">
 <h2>Pipenv<a class="headerlink" href="#pipenv" title="Link to this heading">#</a></h2>
@@ -848,13 +921,13 @@ pipenv<span class="w"> </span>shell
 <p><a class="reference external" href="https://python-poetry.org/docs/basic-usage/">https://python-poetry.org/docs/basic-usage/</a></p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="lQInaZHgaHeT" data-shufflequestions="False"
+<div class="output text_html"><div id="NOqcjLjJbpfH" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#lQInaZHgaHeT {
+#NOqcjLjJbpfH {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1024,7 +1097,7 @@ pipenv<span class="w"> </span>shell
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionslQInaZHgaHeT=[
+</style></div><script type="application/javascript">var questionsNOqcjLjJbpfH=[
     {
         "question": "What is one of the main benefits of using virtual environments in Python?",
         "type": "many_choice",
@@ -1852,8 +1925,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("lQInaZHgaHeT")) {
-            show_questions(questionslQInaZHgaHeT,  lQInaZHgaHeT); 
+          if(document.getElementById("NOqcjLjJbpfH")) {
+            show_questions(questionsNOqcjLjJbpfH,  NOqcjLjJbpfH); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -1862,8 +1935,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("lQInaZHgaHeT");
-        // console.log(document.getElementById("lQInaZHgaHeT"));
+        //console.log("NOqcjLjJbpfH");
+        // console.log(document.getElementById("NOqcjLjJbpfH"));
 
         try_show();
         }
@@ -1947,6 +2020,7 @@ if (typeof version == 'undefined') {
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-not-use-virtual-machines-or-containers">Why not use virtual machines or containers?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yes-but">Yes, but</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#venv">venv</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#virtualenv">Virtualenv</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conda">Conda</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pipenv">Pipenv</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#poetry">Poetry</a></li>

@@ -789,6 +789,8 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pytest">Pytest</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-pytest">Introduction to pytest</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-test-comparing-csv-files">Example test: comparing csv files</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coverage">Coverage</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pytest-notebook">pytest-notebook</a></li>
 </ul>
@@ -819,7 +821,7 @@ document.write(`
 <li><p>Understand the importance and limitations of software testing</p></li>
 <li><p>Recognize different types of testing such as system-level and defect testing</p></li>
 <li><p>Learn how to implement and interpret assert statement in python code</p></li>
-<li><p>Understand when and why to use assert staements</p></li>
+<li><p>Understand when and why to use assert statements</p></li>
 <li><p>Understand the concept of unit testing and Test Driven Development (TDD)</p></li>
 <li><p>Write and execute unit tests using the unit test module</p></li>
 <li><p>Learn the purpose and implementation of fixtures and mocks in testing</p></li>
@@ -1056,10 +1058,96 @@ document.write(`
 </section>
 <section id="pytest">
 <h2>Pytest<a class="headerlink" href="#pytest" title="Link to this heading">#</a></h2>
-<p>Pytest makes it easier to write and run tests.</p>
+<section id="introduction-to-pytest">
+<h3>Introduction to pytest<a class="headerlink" href="#introduction-to-pytest" title="Link to this heading">#</a></h3>
+<p>Pytest is another popular tool for testing in Python which makes it easier to write and run tests.</p>
 <p>Pytest uses file and function naming conventions to discover test.  You will rarely need to run a test directly as the framework will find and run tests for you when you modify your code.</p>
-<p>Follow the instruction here to install pytest  - use a virtual environment.</p>
-<p><a class="reference external" href="https://docs.pytest.org/en/8.2.x/getting-started.html">https://docs.pytest.org/en/8.2.x/getting-started.html</a></p>
+<p>Pytest is a package that you install into your environment from conda or PyPI. For example:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>pytest
+</pre></div>
+</div>
+<p>You should then create a directory containing your tests called <code class="docutils literal notranslate"><span class="pre">tests</span></code>.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>tests
+</pre></div>
+</div>
+<p>Within tests, you can create python scripts containing tests - e.g. <code class="docutils literal notranslate"><span class="pre">example_test.py</span></code>.</p>
+</section>
+<section id="example-test-comparing-csv-files">
+<h3>Example test: comparing csv files<a class="headerlink" href="#example-test-comparing-csv-files" title="Link to this heading">#</a></h3>
+<p>There are a wide variety of applications for testing. Below is an example of a test where we are running some code to generate a <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file, and then confirming if the results are as expected.</p>
+<p>This could come in handy if you have produced code for a model, and are concerned that others running on the model on a different machine could be getting slightly different results.</p>
+<p>In this example, we start the <code class="docutils literal notranslate"><span class="pre">.py</span></code> file by importing:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pytest</span></code> (to run the tests)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> (to manage the csv files)</p></li>
+<li><p>Our model (imagining a scenario where we have a file <code class="docutils literal notranslate"><span class="pre">model_code</span></code> inside a folder <code class="docutils literal notranslate"><span class="pre">scripts/</span></code>, which is a sister folder to <code class="docutils literal notranslate"><span class="pre">tests/</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tempfile</span></code> (to save our model results to a temporary directory)</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pytest</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">scripts</span> <span class="kn">import</span> <span class="n">model_code</span>
+<span class="kn">import</span> <span class="nn">tempfile</span>
+</pre></div>
+</div>
+<p>We then provide file paths at the start of our script:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">EXP_FOLDER</span> <span class="o">=</span> <span class="s1">&#39;exp_results&#39;</span>
+<span class="n">TEMP_FOLDER</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">mkdtemp</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Assuming we might be running the model with two different parameters (so producing two <code class="docutils literal notranslate"><span class="pre">.csv</span></code> files, and comparing each of those), we can use <code class="docutils literal notranslate"><span class="pre">parametrise</span></code> to run the same test with two different inputs. First, we can define our parameters for the model:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;arrivals&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+        <span class="s1">&#39;file&#39;</span><span class="p">:</span> <span class="s1">&#39;result100.csv&#39;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;arrivals&#39;</span><span class="p">:</span> <span class="mi">150</span><span class="p">,</span>
+        <span class="s1">&#39;file&#39;</span><span class="p">:</span> <span class="s1">&#39;result150.csv&#39;</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>For the file paths, we should set these up as fixtures:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
+<span class="k">def</span> <span class="nf">exp_folder</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">EXP_FOLDER</span>
+
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
+<span class="k">def</span> <span class="nf">temp_folder</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">TEMP_FOLDER</span>
+</pre></div>
+</div>
+<p>We can then write our test function, and use the file names from parameters as the ID for each test:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s1">&#39;param&#39;</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span>
+                         <span class="n">ids</span><span class="o">=</span><span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;file&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">parameters</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">test_equal_df</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="n">temp_folder</span><span class="p">,</span> <span class="n">exp_folder</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Test that model results are consistent with the expected</span>
+<span class="sd">    results (which are saved in the EXP_FOLDER)</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># Run the model (assuming the function has inputs for our</span>
+    <span class="c1"># parameter dictionary and for a save location for the .csv file)</span>
+    <span class="n">model_code</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="o">**</span><span class="n">param</span><span class="p">,</span> <span class="n">temp_folder</span><span class="p">)</span>
+
+    <span class="c1"># Import the test and expected results (we can use the filename from the</span>
+    <span class="c1"># parameter dictionary, and then the folder name)</span>
+    <span class="n">test_result</span> <span class="o">=</span> <span class="n">import_xls</span><span class="p">(</span><span class="n">temp_folder</span><span class="p">,</span> <span class="n">param</span><span class="p">[</span><span class="s1">&#39;file&#39;</span><span class="p">])</span>
+    <span class="n">exp_result</span> <span class="o">=</span> <span class="n">import_xls</span><span class="p">(</span><span class="n">exp_folder</span><span class="p">,</span> <span class="n">param</span><span class="p">[</span><span class="s1">&#39;file&#39;</span><span class="p">])</span>
+
+    <span class="c1"># Check that the dataframes are equal</span>
+    <span class="n">pd</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_frame_equal</span><span class="p">(</span><span class="n">test_result</span><span class="p">,</span> <span class="n">exp_result</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>With our <code class="docutils literal notranslate"><span class="pre">.py</span></code> file now complete, we can run our tests from the terminal. Ensuring you are located in the parent folder to <code class="docutils literal notranslate"><span class="pre">tests/</span></code>, run the command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pytest
+</pre></div>
+</div>
+<p>If your tests take a long time to run, you may want to explore parallelising them. You can install <code class="docutils literal notranslate"><span class="pre">pytest-xdist</span></code>, which is a package that parallelises your pytests using multiple CPUs. With this package installed, you can run the command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pytest<span class="w"> </span>-n<span class="w"> </span>auto
+</pre></div>
+</div>
+</section>
 <section id="coverage">
 <h3>Coverage<a class="headerlink" href="#coverage" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://pypi.org/project/pytest-cov/">https://pypi.org/project/pytest-cov/</a></p>
@@ -1103,13 +1191,13 @@ document.write(`
 </ul>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="UeXZTJWqzzyz" data-shufflequestions="False"
+<div class="output text_html"><div id="dJRODmRMJuIe" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#UeXZTJWqzzyz {
+#dJRODmRMJuIe {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1279,7 +1367,7 @@ document.write(`
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsUeXZTJWqzzyz=[
+</style></div><script type="application/javascript">var questionsdJRODmRMJuIe=[
     {
         "question": "What is the primary goal of software testing?",
         "type": "many_choice",
@@ -2107,8 +2195,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("UeXZTJWqzzyz")) {
-            show_questions(questionsUeXZTJWqzzyz,  UeXZTJWqzzyz); 
+          if(document.getElementById("dJRODmRMJuIe")) {
+            show_questions(questionsdJRODmRMJuIe,  dJRODmRMJuIe); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -2117,8 +2205,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("UeXZTJWqzzyz");
-        // console.log(document.getElementById("UeXZTJWqzzyz"));
+        //console.log("dJRODmRMJuIe");
+        // console.log(document.getElementById("dJRODmRMJuIe"));
 
         try_show();
         }
@@ -2230,6 +2318,8 @@ if (typeof version == 'undefined') {
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pytest">Pytest</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-pytest">Introduction to pytest</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-test-comparing-csv-files">Example test: comparing csv files</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coverage">Coverage</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pytest-notebook">pytest-notebook</a></li>
 </ul>
