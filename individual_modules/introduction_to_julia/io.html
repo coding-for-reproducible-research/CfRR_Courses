@@ -837,7 +837,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DATA APPEND DATA
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DATA
 </pre></div>
 </div>
 </div>
@@ -894,7 +894,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DATA APPEND DATA
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DATAAPPEND DATA APPEND DATA
 </pre></div>
 </div>
 </div>
@@ -911,14 +911,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Green">    Updating</span> registry at `~/.julia/registries/General.toml`
-</pre></div>
-</div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Green">   Resolving</span> package versions...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Green">  No Changes</span> to `~/Documents/CfRR/CfRR_Courses_Build_Version/CfRR_Courses/Project.toml`
-<span class=" -Color -Color-Bold -Color-Bold-Green">  No Changes</span> to `~/Documents/CfRR/CfRR_Courses_Build_Version/CfRR_Courses/Manifest.toml`
+<span class=" -Color -Color-Bold -Color-Bold-Green">  No Changes</span> to `~/Documents/CfRR/CfRR_Courses/Project.toml`
+<span class=" -Color -Color-Bold -Color-Bold-Green">  No Changes</span> to `~/Documents/CfRR/CfRR_Courses/Manifest.toml`
 </pre></div>
 </div>
 </div>
@@ -941,9 +936,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CSV.File(&quot;data/exeter_university_weather.csv&quot;):
 Size: 5 x 6
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tables.Schema:
+Tables.Schema:
  :Date                 Dates.Date
  :Temperature_C        Float64
  Symbol(&quot;Humidity_%&quot;)  Int64
@@ -963,10 +956,8 @@ Size: 5 x 6
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Green">   Resolving</span> package versions...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Green">  No Changes</span> to `~/Documents/CfRR/CfRR_Courses_Build_Version/CfRR_Courses/Project.toml`
-<span class=" -Color -Color-Bold -Color-Bold-Green">  No Changes</span> to `~/Documents/CfRR/CfRR_Courses_Build_Version/CfRR_Courses/Manifest.toml`
+<span class=" -Color -Color-Bold -Color-Bold-Green">  No Changes</span> to `~/Documents/CfRR/CfRR_Courses/Project.toml`
+<span class=" -Color -Color-Bold -Color-Bold-Green">  No Changes</span> to `~/Documents/CfRR/CfRR_Courses/Manifest.toml`
 </pre></div>
 </div>
 </div>
@@ -993,6 +984,54 @@ Size: 5 x 6
    3 │ 2024-05-22           14.8          80               14               0.0          1011
    4 │ 2024-05-23           15.0          83               10               0.5          1013
    5 │ 2024-05-24           16.3          79               13               0.0          1012
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">KERNEL</span> <span class="n">EXCEPTION</span>
+<span class="ne">KeyError</span>: key &quot;debug_request&quot; not found
+
+<span class="ne">Stacktrace</span>:
+ <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">getindex</span><span class="p">(</span><span class="n">h</span><span class="p">::</span><span class="n">Dict</span><span class="p">{</span><span class="n">String</span><span class="p">,</span> <span class="n">Function</span><span class="p">},</span> <span class="n">key</span><span class="p">::</span><span class="n">String</span><span class="p">)</span>
+   <span class="o">@</span> <span class="n">Base</span> <span class="o">./</span><span class="nb">dict</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">498</span>
+ <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="n">eventloop</span><span class="p">(</span><span class="n">socket</span><span class="p">::</span><span class="n">ZMQ</span><span class="o">.</span><span class="n">Socket</span><span class="p">)</span>
+   <span class="o">@</span> <span class="n">IJulia</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">IJulia</span><span class="o">/</span><span class="n">Vo51o</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">eventloop</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">8</span>
+ <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="p">(::</span><span class="n">IJulia</span><span class="o">.</span><span class="n">var</span><span class="s2">&quot;#14#17&quot;</span><span class="p">)()</span>
+   <span class="o">@</span> <span class="n">IJulia</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">IJulia</span><span class="o">/</span><span class="n">Vo51o</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">eventloop</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">37</span>
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">KERNEL</span> <span class="n">EXCEPTION</span>
+<span class="ne">KeyError</span>: key &quot;debug_request&quot; not found
+
+<span class="ne">Stacktrace</span>:
+ <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">getindex</span><span class="p">(</span><span class="n">h</span><span class="p">::</span><span class="n">Dict</span><span class="p">{</span><span class="n">String</span><span class="p">,</span> <span class="n">Function</span><span class="p">},</span> <span class="n">key</span><span class="p">::</span><span class="n">String</span><span class="p">)</span>
+   <span class="o">@</span> <span class="n">Base</span> <span class="o">./</span><span class="nb">dict</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">498</span>
+ <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="n">eventloop</span><span class="p">(</span><span class="n">socket</span><span class="p">::</span><span class="n">ZMQ</span><span class="o">.</span><span class="n">Socket</span><span class="p">)</span>
+   <span class="o">@</span> <span class="n">IJulia</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">IJulia</span><span class="o">/</span><span class="n">Vo51o</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">eventloop</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">8</span>
+ <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="p">(::</span><span class="n">IJulia</span><span class="o">.</span><span class="n">var</span><span class="s2">&quot;#14#17&quot;</span><span class="p">)()</span>
+   <span class="o">@</span> <span class="n">IJulia</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">IJulia</span><span class="o">/</span><span class="n">Vo51o</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">eventloop</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">37</span>
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">KERNEL</span> <span class="n">EXCEPTION</span>
+<span class="ne">KeyError</span>: key &quot;debug_request&quot; not found
+
+<span class="ne">Stacktrace</span>:
+ <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">getindex</span><span class="p">(</span><span class="n">h</span><span class="p">::</span><span class="n">Dict</span><span class="p">{</span><span class="n">String</span><span class="p">,</span> <span class="n">Function</span><span class="p">},</span> <span class="n">key</span><span class="p">::</span><span class="n">String</span><span class="p">)</span>
+   <span class="o">@</span> <span class="n">Base</span> <span class="o">./</span><span class="nb">dict</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">498</span>
+ <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="n">eventloop</span><span class="p">(</span><span class="n">socket</span><span class="p">::</span><span class="n">ZMQ</span><span class="o">.</span><span class="n">Socket</span><span class="p">)</span>
+   <span class="o">@</span> <span class="n">IJulia</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">IJulia</span><span class="o">/</span><span class="n">Vo51o</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">eventloop</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">8</span>
+ <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="p">(::</span><span class="n">IJulia</span><span class="o">.</span><span class="n">var</span><span class="s2">&quot;#14#17&quot;</span><span class="p">)()</span>
+   <span class="o">@</span> <span class="n">IJulia</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">IJulia</span><span class="o">/</span><span class="n">Vo51o</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">eventloop</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">37</span>
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">KERNEL</span> <span class="n">EXCEPTION</span>
+<span class="ne">KeyError</span>: key &quot;debug_request&quot; not found
+
+<span class="ne">Stacktrace</span>:
+ <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">getindex</span><span class="p">(</span><span class="n">h</span><span class="p">::</span><span class="n">Dict</span><span class="p">{</span><span class="n">String</span><span class="p">,</span> <span class="n">Function</span><span class="p">},</span> <span class="n">key</span><span class="p">::</span><span class="n">String</span><span class="p">)</span>
+   <span class="o">@</span> <span class="n">Base</span> <span class="o">./</span><span class="nb">dict</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">498</span>
+ <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="n">eventloop</span><span class="p">(</span><span class="n">socket</span><span class="p">::</span><span class="n">ZMQ</span><span class="o">.</span><span class="n">Socket</span><span class="p">)</span>
+   <span class="o">@</span> <span class="n">IJulia</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">IJulia</span><span class="o">/</span><span class="n">Vo51o</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">eventloop</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">8</span>
+ <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="p">(::</span><span class="n">IJulia</span><span class="o">.</span><span class="n">var</span><span class="s2">&quot;#14#17&quot;</span><span class="p">)()</span>
+   <span class="o">@</span> <span class="n">IJulia</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">IJulia</span><span class="o">/</span><span class="n">Vo51o</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">eventloop</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">37</span>
 </pre></div>
 </div>
 </div>
