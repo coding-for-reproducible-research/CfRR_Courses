@@ -78,7 +78,7 @@
         ]
     },
     {
-        "question": "How would you filter out rows where the colun `sex` has missing data in `dplyr`?",
+        "question": "How would you use 'dplyr' to remove rows where the column `sex` has missing data?",
         "type": "many_choice",
         "answers": [
             {
@@ -104,26 +104,26 @@
         ]
     },
     {
-        "question": "How would you extract data for Gentoo penguins with weight between 4.8kg and 5.2kg (inclusive) using `dplyr?`",
+        "question": "How would you use `dplyr` to extract data for Gentoo penguins with weight between 4.8kg and 5.2kg (inclusive)?",
         "type": "many_choice",
         "answers": [
             {
-                "answer": "`dplyr::filter(penguins, species == 'Gentoo', 4800 <= body_mass_g & body_mass_g <= 5200)`",
+                "answer": "`dplyr::filter(penguins, species == 'Gentoo', body_mass_g >= 4800 & body_mass_g <= 5200)`",
                 "correct": true,
                 "feedback": "correct."
             },
             {
-                "answer": "`dplyr::filter(penguins, species == 'Gentoo', 4.8 <= body_mass_kg & body_mass_kg <= 5.2)`",
+                "answer": "`dplyr::filter(penguins, species == 'Gentoo', body_mass_g >= 4800 && body_mass_g <= 5200)`",
                 "correct": false,
                 "feedback": "incorrect."
             },
             {
-                "answer": "`dplyr::filter(penguins, species == 'Gentoo', 4.8 <= body_mass_g & body_mass_g <= 5.2)`",
+                "answer": "`dplyr::filter(penguins$Gentoo, body_mass_g >= 4800 & body_mass_g <= 5200)`",
                 "correct": false,
                 "feedback": "incorrect."
             },
             {
-                "answer": "`dplyr::filter(penguins, species == 'Gentoo', 480 <= body_mass_g & body_mass_g <= 520)`",
+                "answer": "`dplyr::filter(penguins, species == 'Gentoo', body_mass_g > 4800 & body_mass_g < 5200)`",
                 "correct": false,
                 "feedback": "incorrect."
             }
@@ -182,7 +182,7 @@
         ]
     },
     {
-        "question": "How can you transform a column to the interger type?",
+        "question": "How can you transform a column to the integer type?",
         "type": "many_choice",
         "answers": [
             {
@@ -208,13 +208,13 @@
         ]
     },
     {
-        "question": "Which function is commonly used to reac a CSV file in R?",
+        "question": "Which function is commonly used to read a CSV file in R?",
         "type": "many_choice",
         "answers": [
             {
                 "answer": "`read.csv()`",
                 "correct": false,
-                "feedback": "incorrect."
+                "feedback": "correct."
             },
             {
                 "answer": "`read.table()`",
@@ -229,7 +229,7 @@
             {
                 "answer": "`readr::read_csv()`",
                 "correct": false,
-                "feedback": "incorrect."
+                "feedback": "correct."
             }
         ]
     },
@@ -238,9 +238,9 @@
         "type": "many_choice",
         "answers": [
             {
-                "answer": "`nrow(filter(penguins_subset, sex == 'male'))`",
+                "answer": "`nrow(filter(penguins_subset, 'sex' == male))`",
                 "correct": true,
-                "feedback": "correct."
+                "feedback": "incorrect."
             },
             {
                 "answer": "`length(filter(penguins_subset, sex == 'male'))`",
@@ -248,14 +248,14 @@
                 "feedback": "incorrect."
             },
             {
-                "answer": "`nrow(filter(penguins_subset, gender == 'male'))`",
+                "answer": "`count(filter(penguins_subset, sex == 'male'))`",
                 "correct": false,
-                "feedback": "incorrect."
+                "feedback": "correct."
             },
             {
-                "answer": "`length(filter(penguins_subset, gender == 'male'))`",
+                "answer": "`nrow(filter(penguins_subset, sex == 'male'))`",
                 "correct": false,
-                "feedback": "incorrect."
+                "feedback": "correct."
             }
         ]
     },
