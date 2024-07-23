@@ -1,17 +1,13 @@
-name: deploy-book
+name: Deploy Book
 
-# Run this on push to main branches and on pull requests
+# Run this on push to main branch
 on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
-# This job installs dependencies, builds the book, and pushes it to `gh-pages`
 jobs:
-  build-book:
+  deploy-book:
     runs-on: ubuntu-latest
     permissions:
       pages: write
@@ -30,9 +26,6 @@ jobs:
         pip install -r requirements.txt
 
     # (optional) Cache your executed notebooks between runs
-    # if you have config:
-    # execute:
-    #   execute_notebooks: cache
     - name: Cache executed notebooks
       uses: actions/cache@v3
       with:
@@ -46,31 +39,11 @@ jobs:
 
     # Upload the book's HTML as an artifact
     - name: Upload artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-pages-artifact@v2
       with:
-        name: jupyter-book-html
-        path: "_build/html"
-
-  deploy-book:
-    needs: build-book
-    runs-on: ubuntu-latest
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    permissions:
-      pages: write
-      id-token: write
-    steps:
-    - uses: actions/checkout@v3
-
-    # Download the built book artifact
-    - name: Download artifact
-      uses: actions/download-artifact@v3
-      with:
-        name: jupyter-book-html
         path: "_build/html"
 
     # Deploy the book's HTML to GitHub Pages
     - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v2
-      with:
-        path: "_build/html"
