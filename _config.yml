@@ -24,21 +24,21 @@ repository:
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
   use_repository_button: true
+  use_edit_page_button: true
   use_issues_button: true
   use_navigation_shortcuts: false
   extra_css:
-      - _static/style.css
-      - style.css
+      - _static/remove_prev_next_bottom_buttons.css
 
 launch_buttons:
   thebe                  : true
   binderhub_url: "https://mybinder.org"  # The URL for your BinderHub (e.g., https://mybinder.org)
-
-
+      
 # Files not to be ran when building the jupyter book
 exclude_patterns:
   - README.md
   - individual_modules/python_for_data_analysis/data-analysis-task-solutions.ipynb
+
 
 # Execute all notebooks by default. 
 # The R notebooks are excluded from running during the building of the book due to the formatting issues. When ran wen building the output for each of the cells will create a new code block for each space due to the R magic command.
