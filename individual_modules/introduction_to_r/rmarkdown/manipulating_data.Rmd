@@ -1,0 +1,194 @@
+---
+layout: page
+title: Manipulating datasets
+order: 6
+session: 1
+length: 20
+toc: true
+adapted: false
+attrib_name: Programming with R
+attrib_link: https://github.com/swcarpentry/r-novice-inflammation
+attrib_copywrite: Software Carpentry
+attrib_license: CC-BY 4.0
+attrib_license_link: https://creativecommons.org/licenses/by/4.0/
+---
+
+Often we need to manipulate or extract parts of our dataset prior to doing any analysis or plotting with it.
+
+
+
+# Conditional subsetting
+
+We have already looked at slicing subsets, where we knew the indexs of the rows or columns of the entries we wanted. 
+There may be times when, instead we want to select rows based on a specific condition. This would require a conditional 
+statement. Conditional commands check if criteria is met and return either TRUE or FALSE in response.
+
+Let's find which rows of ```iris``` have a ```Sepal.Length``` less than 7.
+
+```{r}
+iris$Sepal.Length < 6
+```
+
+Where is says TRUE means the criteria have been met and FALSE not. We can use this to subset the rows of iris
+
+```{r}
+iris[iris$Sepal.Length < 6,]
+
+```
+
+# Matching
+
+There are several circumstances we will need to check for matching and use that information. There are several ways 
+we can do this using R depending on what we need.
+
+Using identical(), we can check if values or collections of values are identical.
+
+```{r echo=T}
+# Checking if the first and second row values in the "Species" column of iris are identical
+identical(iris$Species[1], iris$Species[2])
+# Checking if the first and 51st row values in the "Species" column of iris are identical
+identical(iris$Species[1], iris$Species[51])
+```
+
+Using all.equal() is similar to identical(), but allows for some tolerance in how similar values can be. For example, we may want to check two numbers with lots of decimal places, but only need them to be within 0.01 of each other. Therefore we can give a tolerance of 0.01
+
+``` {r echo=T}
+x1 <- 1.232529
+x2 <- 1.23366
+all.equal(x1, x2, tolerance=0.01)
+all.equal(x1, x2, tolerance=0.0001)
+```
+
+We can use "==" as a selector to pull all matching entries. We can give a numeric value or a character in quotations.
+
+```{r echo=T}
+iris[iris$Species == "setosa", ]
+```
+
+We can use objects or parts of objects to select rows and columns within [ ] using the "%in%".   
+
+```{r echo=T}
+select <- "versicolor"
+iris[iris$Species %in% select, ]
+```
+
+
+
+# Merging and binding 
+
+We will often need to bring multiple two-dimensional objects together. We can do this multiple ways. 
+
+Using rbind() and cbind(), we can combine objects together. rbind() allows us to bind together rows.
+
+```{r echo=T}
+# First we look at the dimension of "iris"
+dim(iris)
+# Using rbind() to put together two copies of  causing double rows
+rbind(iris, iris) -> iris.r
+dim(iris.r)
+iris.r[ ,1]
+```
+
+cbind() allows us to bind together columns.
+
+```{r echo=T}
+# First we look at the dimension of "iris"
+dim(iris)
+# Using cbind() to put together two copies of iris causing double columns
+cbind(iris, iris) -> iris.c
+dim(iris.c)
+iris.c[1,]
+```
+
+Both rbind and cbind will work, if you try to combine vectors of different lengths. In this case it will recycle the shorted vector
+until it matches the length of the longer vector. You will get a warning in this situation. 
+
+Using merge(), we can merge objects together assigning what we bind by using "by =". For example, we can bind using the rownames of our objects using "by = row.names", we can merge by a specific column present in both objects (e.g. by = "Name"), or different columns in each object (by.x = "Species", by.y = "Name").
+
+``` {r echo=T}
+# First we look at the dimension of "iris"
+dim(iris)
+# Merging iris by row names
+merge(iris, iris, by = "row.names") -> iris.double
+dim(iris.double)
+iris.double[1, ]
+```
+
+## Activity 
+
+Create two objects, one containing numbers 1-10, one containing numbers 11-20
+
+* Bind them together to make an object of two rows, row 1 being 1:10, row 2 being 11-20
+* Bind them together to make an object of two columns, columns 1 being 11-20, column 2 being 1-10
+
+
+# Paste
+
+The function ```paste()``` is a way to concatenating together vectors. It can be applied to a characters or numbers, 
+vector and column(s) of a data frame or matrix. You can define what you want the separator to be (sep =), or use 
+```paste0()``` or ```paste()``` with the argument sep = "" for no space. You can also prodvide a string as an argument
+to add the same component to a character or vector.
+
+``` {r echo=T}
+# Adding text to a value in iris
+paste("Species", iris$Species[1])
+# Pasting together two columns of iris
+paste(iris$Species[1:10], iris$Sepal.Length[1:10], sep = ":")
+```
+
+
+# Renaming columns and rows 
+
+By using rownames() and colnames(), we can look at what the rownames and colnames of an object are. We can also use this 
+to replace the rownames and colnames of the object by assigning using ```<-```.
+
+``` {r echo=T}
+# Renaming the colnames in iris
+iris -> iris2
+colnames(iris2)
+colnames(iris2) <- c("S.Length", "S.Width", "P.Length", "P.Width", "Type")
+colnames(iris2)
+```
+
+
+# Adding and removing variables
+
+Adding data to your objects can be very useful. Adding an extra column is very easy using the assignment operator
+and giving the new column a name.
+
+``` {r echo=T}
+# Adding a new column
+iris -> iris2
+iris2$new.column <- 1:nrow(iris2)
+
+head(iris2)
+```
+
+Removing a column can be done by assigning the relevant column the "NULL" value.
+
+``` {r echo=T}
+# Removing a column
+iris2$new.column <- NULL
+```
+
+
+# Generating a sequence of numbers
+
+To generate regular sequences, we can use ```seq()```. We provide it a value to start from (from =), and where to 
+end (to =) abd then a value to increase by (by =).
+
+``` {r echo=T}
+# Create a sequence from 0 to 100 increasing by 5 each time
+seq(from = 0, to = 100, by = 5)
+```
+
+***
+
+## Activity
+
+Create a copy of ```iris```
+
+* Rename the columns of ```iris``` by prefixing with the word "flower" and the separator "_"
+* In your copy, duplicate the ```Species``` column
+* Add a column to your copy which contains the numbers from 4 to 600 increasing by 4 each time
+
