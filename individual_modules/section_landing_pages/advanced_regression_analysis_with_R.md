@@ -24,3 +24,16 @@ We also assume that you are comfortable with fitting in R and interpreting the o
 -   logistic regression
 
 If not we recommend that you consult our pre-requisite course [Introductory Regression Analysis with R](regression_analysis_with_R.md).
+
+## Install necessary R packages
+
+There are three packages need for this workshop. The first two (devtools & learnr) are available from CRAN. The third is a package we have developed with the course materials in and is available from GitHub (cfrrRTutorials). 
+
+This code will install these three packages.
+
+```
+install.packages("devtools") 
+install.packages("learnr") 
+library(devtools)
+devtools::install_github("ejh243/cfrr-r-tutorials")
+```
