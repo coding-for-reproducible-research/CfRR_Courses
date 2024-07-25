@@ -1,0 +1,192 @@
+---
+title: "Reshaping data with `tidyr`"
+output: html_notebook
+---
+
+## Outline
+
+-   Converting to/from tidy format
+
+## Introduction
+
+There are often cases where you'd like to change the shape of your data, by
+which we mean to change the structure of the columns and/or rows. The `tidyr`
+package contains functions to support this.
+
+As an example dataset for reshaping, we'll use data on territorial fossil CO2
+emissions by country (Friedlingstein et al. 2023)[^1].
+
+**Note:** To read the data, we'll use a call to the `read_excel` function from
+the `readxl` package. We only touched on this in notebook 2, so don't worry
+about understanding exactly how the data is read in. Treat this as a glimpse of
+seeing the Tidyverse in action 'in the wild'. You can read up about `read_excel`
+as extra homework, if you're keen :-)
+
+```{r}
+emissions <- readxl::read_excel("data/National_Fossil_Carbon_Emissions_2023v1.0.xlsx",
+                                sheet = "Territorial Emissions",
+                                skip = 11) |>
+  dplyr::rename(Year = `...1`) |>  # missing column name in data got assigned name `...1` when reading
+  dplyr::select(Year, World, Africa, Asia, `Central America`, Europe,
+                `Middle East`, `North America`, Oceania, `South America`,
+                Bunkers) |>
+  dplyr::mutate(Year = as.integer(Year))
+
+print(emissions)
+```
+
+## Converting to/from tidy format
+
+One scenario for reshaping data is when we receive data that is not in tidy
+format and want to transform it so that it is tidy.
+
+In the emissions data above, notice how each column other than 'Year'
+corresponds to a region of the world (or the category 'Bunkers'):
+
+```{r}
+colnames(emissions)
+```
+
+This is not in tidy format. The observations correspond to year-region pairs,
+while the variable being measured is territorial emissions. But the data is
+structured as a matrix, where to get the emissions value for a region and year
+you look up the entry for the appropriate row and column.
+
+What we'd like to do is create a dataframe with columns 'Year', 'Country' and
+'Territorial_emissions' columns, with rows corresponding to year-region pairs.
+
+
+### Matrix format to tidy format with `pivot_longer`
+
+We can use the function `pivot_longer` from the `tidyr` package to help us make
+the required transformation. Like most of the Tidyverse functions, there are a
+lot of possible parameters to use in this function, but we only need to use it
+as follows:
+
+```         
+tidyr::pivot_longer(data, <columns-to-gather>, names_to = "Name_for_gathered_columns", values_to = "Variable_name")
+```
+
+where
+
+-   `data` is the dataframe to transform.
+-   `<columns-to-gather>` is a specification of the columns that should be
+    gathered into a new column.
+-   `names_to` defines the name of the new column to create, whose values will
+    be the names in `<columns-to-gather>`.
+-   `values_to` is the name of a new column that contains the values that were
+    in the columns `<columns-to-gather>` (i.e. the variable that the original
+    data was giving).
+
+**Note**: More specifically, `<columns-to-gather>` is a so-called 'tidy-select'.
+This is a way of specifying collections of columns within the Tidyverse.
+Unfortunately details of this are outside the scope of this course, but you can
+learn more by running `?tidyr::tidyr_tidy_select` in the R console. We will
+explain our use of 'tidy-select' in code comments below.
+
+The behaviour of `pivot_longer` is much easier to see with an example. The
+following creates a new column called 'Region' that contains all the column
+names in `emissions` from 'World' to 'Bunkers'. The values from these columns
+are put into a new column called 'Territorial_emissions'.
+
+```{r}
+emissions_tidy <- emissions |>
+  tidyr::pivot_longer(World:Bunkers,  # All columns from 'World' to 'Bunkers'
+                      names_to = "Region",
+                      values_to = "Territorial_emissions")
+
+print(emissions_tidy)
+```
+
+Notice how each row corresponds to a year-region pair. The
+'Territorial_emissions' values line up with the year and region they
+corresponded to in the original data.
+
+Notice that the number of rows is equal to the number of regions multiplied by
+the number of years, as we'd expect:
+
+```{r}
+# Number of rows in tidy dataframe
+cat("Number of rows in emissions_tidy:", nrow(emissions_tidy), "\n")
+
+# Number of year-region pairs
+# (Use ncol(emissions) - 1 so not to include the year column)
+cat("Number of year-region pairs:", length(emissions$Year) * (ncol(emissions) - 1), "\n")
+```
+
+In general, `pivot_longer` is called such because it make the table of data
+'longer' i.e. have more rows.
+
+
+#### Exercise: pivoting
+
+What do you think the output of the following `pivot_longer` will be?
+
+```         
+emissions |>
+  tidyr::pivot_longer(!Africa,  # this means all columns except 'Africa'
+                      names_to = "Names_column",
+                      values_to = "Territorial_emissions?")
+```
+
+Run the code below to see if you're correct!
+
+```{r}
+emissions |>
+  tidyr::pivot_longer(!Africa,  # this means all columns except 'Africa'
+                      names_to = "Names_column",
+                      values_to = "Territorial_emissions?")
+```
+
+What do values in the 'Africa' and 'Territorial_emissions?' columns correspond
+to in the following output?
+
+```{r}
+emissions |>
+  tidyr::pivot_longer(!Africa,  # this means all columns except 'Africa'
+                      names_to = "Names_column",
+                      values_to = "Territorial_emissions?") |>
+  dplyr::filter(Names_column == "Year")
+```
+
+
+### Tidy format to matrix format with `pivot_wider`
+
+What if we want to go the other way, i.e. turn a tidy dataframe into a matrix
+format? In that case, we can use `pivot_wider` from the `tidyr` package.
+
+```         
+tidyr::pivot_wider(data, names_from = <column-to-make-new-columns-from>, values_from = <column-of-variable>)
+```
+
+where
+
+-   `data` is the dataframe to transform.
+-   `names_from` is the column whose values will be the names of new columns in
+    the new dataframe.
+-   `values_from` is the name of a column whose values will go into the 'cells'
+    of the new dataframe.
+
+To see this in action, the following use of `pivot_wider` will take our tidied
+emissions data and put it back into the original 'matrix' format, where regions
+corresponded to columns and the entries gave the emissions for each year-region
+combination.
+
+```{r}
+emissions_tidy |>
+  tidyr::pivot_wider(names_from = Region, values_from = Territorial_emissions)
+```
+
+
+## Acnowledgements
+
+We acknowledge the Global Carbon Project, which is responsible for the Global
+Carbon Budget and we thank the fossil carbon emissions modelling groups for
+producing and making available their model output.
+
+
+## Footnotes
+
+[^1]: Taken from Global Carbon Budget 2023 (Friedlingstein et al., 2023, ESSD).
+      Excel workbook obtained from https://globalcarbonbudgetdata.org/downloads/latest-data/National_Fossil_Carbon_Emissions_2023v1.0.xlsx
+      (accessed 2024-02-28).

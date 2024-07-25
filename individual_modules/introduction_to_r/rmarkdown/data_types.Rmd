@@ -1,0 +1,369 @@
+---
+layout: page
+title: Data types and structures
+order: 4
+session: 1
+length: 20
+toc: true
+adapted: true
+attrib_name: Programming with R
+attrib_link: https://github.com/swcarpentry/r-novice-inflammation
+attrib_copywrite: Software Carpentry
+attrib_license: CC-BY 4.0
+attrib_license_link: https://creativecommons.org/licenses/by/4.0/
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Inbuilt datasets
+
+R has a number of datasets included for you to practice with. 
+We can get a list of these by running the command ```data()```
+
+```{r echo=TRUE}
+data()
+```
+
+This command won't produce any output but open a file in the scripts pane that lists the available datasets.
+
+In this session, we will be using the built-in R data sets stored in the variables ```iris``` & ```mtcars```. 
+By having our data stored in a variable means we can easily use it with R functions and start to
+manipulate or process it. Note that we are using the word data very loosely, it can refer to any form of 
+information we want to store.
+
+# Exploring datasets
+
+Let's take a closer look at the `iris` data.
+
+First, let's ask what type of thing `iris` is using the function ```class()```
+
+```{r}
+class(iris)
+```
+
+The output tells us that it is a data frame. A data frame is an example of R object, and can be defined by certain properties.
+A data frame is comparable to a spreadsheet in MS Excel as it is a 2 dimensional object (i.e. has rows and columns).
+Data frames are very useful for storing data, especially if you are used to work with your data in tables. 
+A typical data frame of experimental data contains individual observations in rows and variables in columns.
+
+We can see the shape, or dimensions, of the data frame with the function ```dim()```:
+
+```{r}
+dim(iris)
+```
+
+This tells us that our data frame, `iris`, has `r nrow(iris)` rows and `r ncol(iris)` columns.
+
+
+To explore data frames, there are a number of relevant functions:
+
+* ```head()``` - shows first 6 rows
+* ```tail()``` - shows last 6 rows
+* ```dim()``` - returns the dimensions of data frame (i.e. number of rows and number of columns)
+* ```nrow()``` - number of rows
+* ```ncol()```- number of columns
+* ```str()``` - structure of data frame - name, type and preview of data in each column
+* ```names()``` or ```colnames()``` - both show the names attribute for a data frame
+
+
+
+# Subsetting data
+
+There are many occasions we want to "look" at some part of the data. Extract a subset is known as slicing.
+If we want to get a single value from the data frame, we can index a specific position using square brackets.
+If you are familiar with matrices we index in the same way. For example, to get the element in the top left corner, i.e.
+in the first row and first column we run:
+
+```{r}
+iris[1, 1]
+```
+
+We can use this principle to extract any entry of the matrix. For example the 30th row and 3rd column
+
+```{r}
+iris[30, 3]
+```
+
+An index like ``[30, 3]``` selects a single element of a data frame, but we can select larger sections as well.
+For example, we can select the first three columns of values for the first four rows like this:
+
+```{r}
+iris[1:4, 1:3]
+```
+
+The slice ```1:4``` means, "Start at index 1 and go to index 4."
+
+The slice does not need to start at 1, e.g. the line below selects rows 5 through 10:
+
+```{r}
+iris[5:10, 1:3]
+```
+
+We can use the function ```c()```, which stands for **c**ombine, to select non-contiguous entries:
+
+```{r}
+iris[c(3, 8, 37, 56), c(1,3)]
+```
+
+We also don't have to provide a slice for either the rows or the columns.
+If we don't include a slice for the rows, R returns all the rows; if we don't include a slice for the columns, 
+R returns all the columns.
+If we don't provide a slice for either rows or columns, e.g. `iris[, ]`, R returns the full data frame.
+
+```{r}
+# All columns from row 5
+iris[5, ]
+# All rows from column 2
+iris[, 2]
+```
+
+<details>
+	<summary> Addressing Columns by Name </summary>
+	<pre>
+
+    Columns can also be addressed by name, with either the ```$``` operator (i.e. ```iris$Petal.Length```) 
+    or square brackets (ie. ```iris[,'Petal.Length']```).
+ 
+    </pre>
+</details>
+
+
+
+# Data types 
+
+One key feature of a data frame is each column is classed as a specific data type. 
+
+*Data types*, or modes, define what the values are and how they can be used. 
+
+There are __*5 core data types*:__
+
+* Numeric - all real numbers e.g. 7.5
+* Integer - e.g. 2
+* Complex - numbers with real and imaginary parts e.g. 1+4i
+* Character - consists of letters or numbers or symbols or a combination of these e.g. "a", "f5", "datatypes", "Learning R is fun".
+* Logical - only takes TRUE or FALSE
+
+
+These data types are also used to characterise other one dimensional R objects such as individual values or vectors 
+(more on these later). R provides a number of functions to examine the features of variables or objects. 
+
+Some examples:
+
+* ```typeof()``` - what is the object’s data type (on the data storage level ("what the computer sees"))?
+* ```class()``` - what is the object's data type (on the abstract type level("what R sees"))?
+* ```mode()``` - what is the object's data type (on the data storage level ("what the computer sees"))?
+* ```length()```- how long is it? 
+* ```attributes()``` - does it have any metadata? 
+* ```str``` - display the internal structure of an object.
+* ```is.numeric()```, ```is.character()```, ```is.complex()```, ```is.logical()``` - returns TRUE when an object is the datatype queried, FALSE if not
+
+Let's define some variables we can use R to profile the charateristics of
+
+```{r, echo=TRUE, eval=TRUE, error=TRUE}
+x <- "dataset"
+typeof(x)
+```
+
+```{r, echo=TRUE, eval=TRUE, error=TRUE}
+y <- 1:10
+y
+```
+```{r, echo=TRUE, eval=TRUE, error=TRUE}
+typeof(y)
+class(y)
+```
+
+```{r, echo=TRUE, eval=TRUE, error=TRUE}
+length(y)
+```
+
+
+# Converting between data types
+
+It can be critical that R has correctly assigned the right data type to your variable. If it has not you may run into 
+errors when processing it. You therefore may want to convert between different data types. This can be done with the 
+series of functions ```as.numeric```, ```as.character``` etc. 
+
+For example, let's convert our numeric variable `y` into a character. 
+
+```{r, echo=TRUE, eval=TRUE, error=TRUE}
+y <- as.character(y)
+typeof(y)
+```
+
+## Activity: Determining data types
+
+Create a variable with the numbers 9,2,200, and 14.
+What class do you predict this variable to be? Use an R function to confirm your answer.
+If it is not the data type you expected, can you force R to convert it to an integer?
+Divide each element of the variable in half. Does this change the type of variable?
+
+
+# Data structures
+
+R has a number of inbuilt structures that can be used to store datasets. We have encountered one of these already 
+the data.frame. Other include: 
+
+* strings
+* vectors 
+* data frames
+* matrices
+* arrays
+* lists
+* factors
+
+### Strings
+
+A string is a run of characters. e.g. "hello". or "a189jde2mjo". They are enclosed in quotes.
+
+### Vectors
+
+A vector is the most common and basic data structure in R. They are an ordered collection of basic data types of 
+a given length. They are one-dimensional. We can think of each column of a data frame as a vector. 
+
+The concatenate or combine ```c()``` function will explicitly __construct__ a vector. 
+
+```{r, echo=TRUE, eval=TRUE, error=TRUE}
+v_num <- c(9,20,12)
+v_log <- c(TRUE, FALSE, FALSE, TRUE)
+```
+
+As we create these vectors you should see them listed in your environment pane. We can then call the name of the varible to see what the value is at that point in time. 
+
+```{r, echo=TRUE, eval=TRUE, error=TRUE}
+v_num 
+v_log 
+```
+
+The function ```c()``` can also be used to __add elements__ to a vector.
+
+
+```{r, echo=TRUE, eval=TRUE, error=TRUE}
+v_name <- c("Sarah", "Tracy", "Jon")
+v_name <- c(v_name, "Annette")
+v_name
+```
+
+If we want to create a series of numbers, like 1 to 140, we can bypass the `c()` constructor and just write
+
+
+```{r, echo=TRUE, eval=TRUE, error=TRUE}
+(v_int <- 1:4)
+```
+
+
+When we call a vector *atomic*, we mean that the vector only holds data of a single data type.
+
+### Data Frame
+
+A data frame is a two dimensional structure consisting of rows and columns. 
+
+We can create a data frames using the function `data.frame()`. We will use the predefined vector `letter` 
+to get the first ten letters in the alphabet.
+
+```{r, echo=TRUE, eval=TRUE, error=TRUE}
+dat <- data.frame(id = letters[1:10], x = 1:10, y = 11:20)
+dat
+```
+
+Columns are variables, and each column will have a specified data type, which all entries must adhere to. 
+Rows are observations. Rows and columns will have `rownames` and `colnames` that you can use to extract 
+specific rows or columns respectively. 
+
+If you read in a table of data from a file, it will typically be represented by a data.frame.
+
+<details>
+	<summary> Functions to explore data frames </summary>
+	<pre>
+		
+* ```head()``` - shows first 6 rows
+* ```tail()``` - shows last 6 rows
+* ```dim()``` - returns the dimensions of data frame (i.e. number of rows and number of columns)
+* ```nrow()``` - number of rows
+* ```ncol()```- number of columns
+* ```str()``` - structure of data frame - name, type and preview of data in each column
+* ```names()``` or ```colnames()``` - both show the names attribute for a data frame
+
+    </pre>
+</details>
+
+
+### Matrices
+
+A matrix is another two dimensional object, but it differs to a data.frame as all columns/entries must be of the same type. 
+It is more efficient memory wise than a data.frame, but can not be used as a substitute to all data.frames.
+
+We can construct a matrix as follows:
+
+```{r, echo=TRUE, eval=TRUE, error=TRUE}
+m<-matrix(1:6, nrow=2, ncol=3)
+m
+```
+
+When creating a __matrix__, it is important to remember that matrices __*are filled column-wise*__ If that is not what you want, you can use the ```byrow``` argument (a logical: can be ```TRUE``` or ```FALSE```) to specify how the matrix is filled
+
+```{r, echo=TRUE, eval=TRUE, error=TRUE}
+m<-matrix(1:6, nrow=2, ncol=3, byrow=TRUE)
+m
+```
+
+We can confirm the data type of a matrix with the function `class`.
+
+```{r, echo=TRUE, eval=TRUE, error=TRUE}
+class(m)
+```
+
+### Arrays
+
+Arrays are n dimensional storage structures. A one dimensional array is a vector, a two dimensional array is a matrix. 
+
+We will not be using this type of object, but it is included for completeness.
+
+### Lists
+
+A list in R is a collection of objects and elements, which themselves can be a heterogeneous mix of other objects 
+including vectors, matrices, data.frames, functions, strings, numbers. They tend to be used to collate different 
+data types connected in some way. 
+
+We can create a list of the vectors, data.frames we have already constructed as follows.
+
+
+```{r, echo=TRUE, eval=TRUE, error=TRUE}
+l <- list(v_log, v_num, v_it, iris)
+l
+```
+
+
+### Factors
+
+Sometimes considered as a data type, as confusingly it is a possible response to the function `type`, and therefore
+a valid option for columns in a data frame. A factor is designed for categorical variables. They have a finite number of 
+"levels", which are the options that any element of that vector can take. They are actually stored as integers 
+which can make them quite powerful for subsetting. 
+
+It is very easy for character vectors to be inappropriately stored as factors and vice versa. In fact, R's default 
+when loading data is to store a string as a factor. Conversely if we define a vector we have to explicit convert 
+it to a vector
+
+For example, if we define a vector of months, the default is to class it as a vector of characters. We have to actively 
+coerce it into a factor. 
+
+```{r, echo=TRUE, eval=TRUE, error=TRUE}
+a      <- c("March","February","February","November","February","March","March","March","February","November")
+class(a)
+fact <- as.factor(a)
+class(a)
+```
+
+
+
+## Activity: Data Exploration
+
+Use these functions to explore the mtcars dataset
+
+* How large is the dataset?
+* What type is the object?
+* What value is in the 6th row of the 4th column?

@@ -13,3 +13,16 @@ Regression analysis is a fundamental statistical technique used to model the rel
 ## Pre-requisite Knowledge
 
 Learners are expected to already be familiar with the basics of R, such as how to load a dataset from a local file and manipulate variables.
+
+## Install nessescary R packages
+
+There are three packages need for this workshop. The first two (devtools & learnr) are available from CRAN. The third is a package we have developed with the course materials in and is available from GitHub (cfrrRTutorials). 
+
+This code will install these three packages.
+
+```
+install.packages("devtools") 
+install.packages("learnr") 
+library(devtools)
+devtools::install_github("ejh243/cfrr-r-tutorials")
+```

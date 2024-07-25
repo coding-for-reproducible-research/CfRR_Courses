@@ -1,0 +1,125 @@
+---
+title: "Piping and functional style"
+output: html_notebook
+---
+
+## Outline
+
+- The functional philosophy of Tidyverse
+- Piping operator
+
+
+## The functional philosophy of Tidyverse
+
+The Tidyverse packages are built around a philosophy of having functions that
+work well together. Let's look at some of the functions we've seen so far:
+
+| Package | Function    | Data input type               | Output type                   |
+|---------|-------------|-------------------------------|-------------------------------|
+| `tidyr` | `read_csv`  | string                        | dataframe                     |
+| `dplyr` | `filter`    | dataframe                     | dataframe                     |
+| `dplyr` | `select`    | dataframe                     | dataframe                     |
+| `dplyr` | `mutate`    | dataframe                     | dataframe                     |
+| `dplyr` | `relocate`  | dataframe                     | dataframe                     |
+| `dplyr` | `arrange`   | dataframe                     | dataframe                     |
+| `dplyr` | `summarise` | dataframe / grouped dataframe | dataframe / grouped dataframe |
+| `dplyr` | `group_by`  | dataframe                     | grouped dataframe             |
+
+Notice how consistent these are in accepting a dataframe as input and returning
+a dataframe (or something like a dataframe) as output. It is this consistency
+that makes it easy to compose functions.
+
+In addition, it's important to note that none of the functions we've seen so
+far modify the input dataframe 'in place', they always return a new dataframe.
+(This is even the case for the `mutate` function, despite the name!) This
+encourages a 'pipeline' approach, where we successively take the output
+of one function and feed it in as the input to another function.
+
+
+## Piping operator
+
+Since version 4.1, R has had a pipe operator `|>` which facilitates chaining
+function calls.
+
+**Note:** Before a pipe operator was introduced into the base R language, people
+used another pipe operator `%>%` from the `magrittr` package. It is still very
+common to see people using the `magrittr` pipe and it behaves in a similar way
+to base R's `|>` (though there are some minor differences). You can use
+whichever you like, though for this course we'll use the base R pipe.
+
+The pipe operator takes the value in the left hand side and 'feeds it into' the
+_first_ argument of a function call on the right hand side. So, using
+`dplyr::select` as an example, the following two expressions are equivalent ways
+to select two columns `colA` and `colB` from a dataframe `data`:
+
+```
+dplyr::select(data, colA, colB)     data |> dplyr::select(colA, colB)
+```
+
+Notice how it looks like the dataframe argument to `dplyr::select` is missing
+in the second expression. The pipe takes care of putting `data` into the first
+argument slot, and the remaining slots are available for all other arguments
+(in this case, the column names  `colA` and `colB`).
+
+We can now chain multiple pipe calls together, like so:
+
+```
+data |> dplyr::select(colA, colB) |> dplyr::filter(colA > 10)
+```
+
+In words, the above expression
+
+1. takes a variable `data`, then
+2. selects columns `colA` and `colB`, then
+3. takes the result of 2 and filters it to keep rows where `colA > 10`,
+
+
+Usually, people will put successive pipe calls on new lines to make it easier to
+read, like so:
+
+```
+data |>
+  dplyr::select(colA, colB) |>
+  dplyr::filter(colA > 10)
+```
+
+If we want to store the overall result in a new variable `data_transformed`,
+we can do so by putting the assignment `data_transformed <- ` at the beginning
+of the chain, like this:
+
+```
+data_transformed <- data |>
+  dplyr::select(colA, colB) |>
+  dplyr::filter(colA > 10)
+```
+
+
+### Exercise: piping
+
+The following code calculates the average bill ratio for penguins observed in
+the year 2009.
+
+```{r}
+library(palmerpenguins)  # loads `penguins` data
+
+# Select species, year, bill_length_mm, bill_depth_mm
+penguins1 <- dplyr::select(penguins, year, species, bill_length_mm, bill_depth_mm)
+
+# Filter to keep year 2009 data only
+penguins2 <- dplyr::filter(penguins1, year == 2009)
+
+# Compute new bill_ratio column
+penguins3 <- dplyr::mutate(penguins2, bill_ratio = bill_length_mm / bill_depth_mm)
+
+# Compute average bill ratio
+penguins4 <- dplyr::summarise(penguins3, mean_bill_ratio = mean(bill_ratio, na.rm = TRUE))
+
+print(penguins4)
+```
+
+Rewrite this code to use the pipe operator instead of storing each intermediate
+dataframe, storing the overall result in a new variable called `summarised`.
+
+```{r}
+
+```
