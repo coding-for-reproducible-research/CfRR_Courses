@@ -24,6 +24,17 @@
         'manipulating_data.html',
         'plots.html',
         'stats.html',
+        'regression_analysis_with_r_extras.html',
+        'hypothesis_testing.html',
+        'introduction_to_regression.html',
+        'logistic_regression.html',
+        'multiple_linear_regression.html',
+        'regression_analysis_with_r_summary.html',
+        'advanced_regression_analysis_with_R_extras.html',
+        'advanced_regression_analysis_with_R_summary.html',
+        'expanding_the_mixed_effects_model_framework.html',
+        'mixed_effects_models.html',
+        'regression_models_with_interaction_terms.html'
     ];
 
     // Function to get the current page's filename
