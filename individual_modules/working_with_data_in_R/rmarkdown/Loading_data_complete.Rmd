@@ -1,0 +1,131 @@
+---
+title: "Loading data into R with `readr`"
+output: html_notebook
+---
+
+## Outline
+
+- Loading data from a csv file
+- Other file formats (Excel workbook, Google Sheets)
+
+
+## Introduction
+
+The package `readr` provides functions for reading data from 'flat' files,
+such as csv or other delimited files. The functionality provided by `readr`
+offers some advantages over the base R functions available for performing the
+same task.
+
+
+## Loading data from a csv file
+
+You may have used the R function `read.csv` to load data from a csv file into
+a dataframe:
+
+```{r}
+# Read in ./data/timeseries_data.csv
+timeseries <- read.csv("./data/timeseries_data.csv")
+print(timeseries)
+```
+
+This is fine in a lot of cases, however, note some assumptions have been made.
+For example, in the above, the `Id` column is read as an integer and the `Date`
+column is read in as a string. In fact, the original data file records the Id
+with padded zeros, like so:
+
+```
+Id,Date,X_variable,Y_variable
+001,2024-02-01,1.1967837194583961,7.900464364159182
+002,2024-02-02,-0.7507563344053951,12.690405000912477
+003,2024-02-03,-0.7850492689583279,10.280088829160382
+004,2024-02-04,-0.6185457481359723,10.073199260115578
+005,2024-02-05,0.6188251316696602,9.183892504016947
+006,2024-02-06,-1.295559729374875,4.830591718912964
+007,2024-02-07,-1.0478610080617479,11.950495760617637
+008,2024-02-08,1.2772821688688454,7.008456322119265
+009,2024-02-09,-0.06582643175389392,3.4034822391265145
+010,2024-02-10,-0.07455295463910701,11.6370557133845
+```
+
+What we really want is to read the Id as a string and the Date as a date
+object.
+
+The `read_csv` function from the `readr` package is more 'shouty' about
+assumptions made when parsing the data, and can have better default
+interpretations. For example:
+
+```{r}
+timeseries <- readr::read_csv("./data/timeseries_data.csv")
+```
+
+Notice how it has explicitly told us that
+
+- `Id` is parsed as a string (which is what we wanted!)
+- `Date` is parsed as a date (more about dates later in the course).
+- `X_variable` and `Y_variable` are parsed as doubles, as expected.
+
+In general, it's good practice to be explicit about how we parse data from
+files, rather than assuming the defaults will work. For example, we've no way of
+knowing whether the `readr` package maintainers will decide in the future to
+interpret padded numbers as in the `Id` column as integers.
+
+We can be explicit about how columns are parsed by using the `col_types`
+optional argument. The general way to do this is to supply a list with names
+being the column names and values being a _column specifier_,
+`readr::col_<data-type>()`:
+
+```
+readr::read_csv("path/to/data.csv",
+                col_types = list(colA = readr::col_logical(),    # column colA is a boolean
+                                 colB = readr::col_integer(),    # column colB is an integer
+                                 colC = readr::col_double(),     # column colC is a floating point number
+                                 colD = readr::col_character(),  # column colD is a string
+                                 colE = readr::col_date(),       # column colE is a date
+                                 .default = readr::col_double()  # columns are floating point numbers
+                                                                 # unless specified otherwise
+                                 ))
+```
+
+**Note:** For a full list of the available column specifiers, run
+`vignette("readr")` in the R console.
+
+So, to specify that we want to read the `Id` column as a string, the `Date`
+column as a date, and the remaining columns as floating point numbers:
+
+```{r}
+timeseries <- readr::read_csv("./data/timeseries_data.csv",
+                              col_types = list(Id = readr::col_character(),
+                                               Date = readr::col_date(),
+                                               .default = readr::col_double()))
+print(timeseries)
+```
+
+
+Notice how the informational message about parsing has gone away, because we
+explicitly gave the types.
+
+
+### Exercise: parsing data from files
+
+Change the above so that the `Id` column is parsed as an integer and the
+`Date` column is parsed as a string.
+
+```{r}
+timeseries <- readr::read_csv("./data/timeseries_data.csv",
+                              col_types = list(Id = readr::col_integer(),
+                                               Date = readr::col_character(),
+                                               .default = readr::col_double()))
+print(timeseries)
+```
+
+
+## Other file formats
+
+There are related packages in the Tidyverse ecosystem that provide support for
+reading data from file types other than csv:
+
+- `readxl`: package for reading data from Excel workbooks.
+- `googlesheets4`: package for reading data from Google Sheets spreadsheets.
+
+We also mention here the `ncdf4` package for reading NetCDF files (not part of
+the Tidyverse).

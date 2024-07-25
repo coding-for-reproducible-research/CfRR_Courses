@@ -1,0 +1,417 @@
+---
+title: "Manipulating a dataframe with `dplyr`"
+output: html_notebook
+---
+
+## Outline
+
+- Sub-setting data
+- Creating new variables
+- Sorting
+- Summarising data
+
+
+## Introduction
+
+The package `dplyr` from the Tidyverse contains functions for manipulating
+dataframes. We will use the `penguins` dataset contained in the `palmerpenguins`
+package. Note that this data is already in tidy format.
+
+```{r}
+
+```
+
+
+## Sub-setting data
+
+For taking subsets of data, we can use the functions `select` and
+`filter` from `dplyr`:
+
+- `dplyr::select` is used to keep only specified **columns** of the dataframe,
+  i.e. to 'select' certain variables from the data.
+- `dplyr::filter` is used to keep **rows** that meet some specified condition,
+  i.e. to 'filter' the observations in the data.
+
+
+### Selecting columns
+
+To use `select`, name the columns to keep after supplying the dataframe
+(or tibble), like so:
+
+```
+dplyr::select(data, column1, column2, ...)
+```
+
+**Note**: We _don't_ use strings to specify the columns! Instead, we write them
+as if they were variables e.g. `dplyr::select(data, column1)` instead of
+`dplyr::select(data, "column1")`.
+
+Let's first check the column names in our tibble:
+
+```{r}
+
+```
+
+Now let's select the 'species', 'year', 'sex', and 'body mass' columns:
+
+```{r}
+# Select species, year, sex, and body mass
+
+```
+
+The `select` function can also be used to _remove_ columns by using the `-`
+operator. For example, we may want to remove only two columns, 'island' and
+'year':
+
+```{r}
+# Remove the island and year columns by using `-`.
+
+# Take a look at the columns
+
+```
+
+
+### Filtering rows
+
+The `filter` function from `dplyr` is used to keep rows from a dataframe/tibble
+that meet a _predicate condition_ in terms of the column values, i.e. a
+statement that is either `TRUE` or `FALSE`.
+
+
+#### Comparitive operators
+
+One way to create predicate conditions is to use the
+[comparative operators](https://www.w3schools.com/r/r_operators.asp), which
+should be familiar:
+
+```
+x == y   : equal
+x != y   : not equal
+x > y    : greater than
+x < y    : less than
+x >= y   : greater than or equal
+x <= y   : less than or equal
+```
+
+For example, suppose we want to keep all penguin data only from the year
+2008. In base R, we could accomplish this by indexing on a boolean vector
+created using the `==` operator:
+
+```{r}
+# Create boolean vector indicating where year = 2008
+
+```
+
+```{r}
+# Index on this vector
+
+```
+
+The `filter` function works by specifying the predicate condition for filtering
+in terms of the column names, like so:
+
+```
+dplyr::filter(data, condition)  # keep rows satisfying 'condition'
+```
+
+So to filter the penguins data to keep only the 2008 observations:
+
+```{r}
+
+```
+
+
+#### Logical operators
+
+We can build more complicated predicate conditions by using the
+[logical operators](https://www.w3schools.com/r/r_operators.asp) on columns:
+
+```
+A & B   : A AND B   e.g. col1 == 2 & col2 == 10
+A | B   : A OR B    e.g. col1 > 2 | col2 != 10
+!A      : NOT A     e.g. !(col1 < 2)
+```
+
+In addition, `filter` allows us to specify multiple AND operations by listing
+out multiple predicate conditions:
+
+```
+dplyr::filter(data, condition1, condition2, ...)  # keep rows satisfying
+                                                  # 'condition1' AND 'condition2' AND ...
+```
+
+Some examples on the penguin data:
+
+```{r}
+# Observations of male penguins from the year 2008:
+  # using &
+  # listing multiple conditions in filter
+
+# Observations of penguins with bill length > 40mm or bill depth < 20mm 
+
+# Observations except those of male penguins on the island of Biscoe
+
+```
+
+
+#### Filtering missing values
+
+There are other functions we can use to evaluate columns and get a true/false
+output. An important one is `is.na()`. This function evaluates a column and
+reports back a `TRUE` value when there is an `NA` in that column's row. For
+example, we can use the `head()` function to look at the top 6 values of the
+`sex` column, and see that there is an NA in the fourth row.
+
+```{r}
+
+```
+
+The `is.na` function evaluates the whole column and gives us `TRUE`s whenever it
+sees an NA. Not surprisingly, we see a `TRUE` in the fourth observation.  
+
+```{r}
+
+```
+
+Since `is.na()` gives us a `TRUE`/`FALSE` vector, we can use it with `filter`.
+The following gives us all rows where the sex column has missing data (i.e. is
+set to `NA`):
+
+```{r}
+
+```
+
+To do the reverse, i.e. keep only the observations where the sex value is not
+missing, combine `is.na` with the NOT operator:
+
+```{r}
+
+```
+
+### Exercise: subsetting data
+
+Write code to extract data for Gentoo penguins with weight between 4.8kg and
+5.2kg (inclusive). Only keep the species, sex and body mass columns in the
+output. Give the numbers of resulting observations for male penguins, female
+penguins and penguins with unknown sex.
+
+```{r}
+
+```
+
+```{r}
+cat("Number of male penguins:", FILL_IN_HERE, "\n")
+cat("Number of female penguins:", FILL_IN_HERE, "\n")
+cat("Number of penguins of unknown sex:", FILL_IN_HERE, "\n")
+```
+
+
+## Creating new variables
+
+We often want to make a new column with some updated or transformed value. We
+can use the `mutate` function in `dplyr` for this:
+
+```
+# value1, value2,... are expressions, possibly involving column names
+
+dplyr::mutate(data, new_column1 = value1, new_column2 = value2, ...)
+```
+
+For example, to add a column of IDs for identifying each row in the data:
+
+```{r}
+# Add column of ID numbers
+
+# Optional: Put the ID column at the beginning of the dataframe
+
+```
+
+Another example: if we wanted to calculate a new value, the ratio of bill length
+to bill depth, we could do the following
+
+```{r}
+
+```
+
+**Note**: the output of mutate is not just a new column on its own,
+but the whole dataframe with the new column appended. To update `penguins` to
+have the new column, we need to overwrite it:
+
+```{r}
+
+```
+
+When we just want to change the name of a column, we can use the `rename`
+function in `dplyr`:
+
+```
+dplyr::rename(data, New_column_name1 = Old_column_name1, New_column_name2 = Old_column_name2, ...)
+```
+
+For example, we could change the name of some variables to remove the units
+(probably not recommended in general, but it serves as an example):
+
+```{r}
+
+```
+
+
+### Exercise: creating variables
+
+Update the `penguins` dataframe so that it contains an ID column
+_with IDs represented as strings_.
+
+```{r}
+
+```
+
+
+## Sorting observations
+
+We can sort the rows of data by the value of a particular column using the
+`arrange` function in `dplyr`. By default, the sorting is performed in increasing
+order, although we can use the `desc()` function on the column to sort in
+descending order:
+
+```
+dplyr::arrange(data, col)  # sort rows by ascending order of values from column
+                           # `col`
+
+dplyr::arrange(data, dplyr::desc(col))  # sort rows by descending order of
+                                        # values from column `col`
+```
+
+For example, to sort the `penguins` data by descending value of flipper length:
+
+```{r}
+
+```
+
+
+### Exercise: sorting
+
+Sort the `penguins` data by the id column we created in the previous exercise.
+Explain the resulting order on the id column.
+
+```{r}
+
+```
+
+
+## Summarising / aggregating data
+
+Often we want to aggregate data at certain levels to better understand
+differences across groups. For instance, does flipper length differ by species?
+Does body mass change between years?
+
+
+### Summarising all the data
+
+First, we can use `summarise` on its own, without any grouping, to get a single
+summary from all the rows in the dataframe. Here are some examples using the
+flipper length variable:
+
+```{r}
+# Count number of observations
+
+# Count number of different years in the data
+
+# Get the min and max year
+
+# calculate the sum of flipper lengths for the whole data frame
+```
+
+If the result is `NA`, it's likely because the column contained missing values.
+We include the `na.rm = TRUE` optional argument to tell `summarise` to remove
+`NA`s before calculating:
+
+```{r}
+# With missing values removed
+
+```
+
+
+### Summarising grouped data
+
+More generally, we can compute summaries for subgroups of the data by combining
+the `group_by` and `summarise` (or `summarize`) functions in `dplyr`. The steps
+to do this are:
+
+1. First use `group_by` to declare the column (or columns) that you want to
+   group the data by.
+2. Then use `summarise` to actually do the summarising on each of the subgroups
+   from step 1. The resulting dataframe will have one summary per subgroup.
+
+For example, to get the average flipper length of each sex:
+
+```{r}
+# First group the data by sex
+
+# Then find the mean flipper length for each sex
+```
+
+
+These functions are powerful. We can group by multiple columns at once to create
+pairwise groups. As we saw above, we can also create several summary variables
+at the same time:
+
+```
+dplyr::group_by(data, col1, col2, ...)  # group by combinations of values in
+                                        # col1, col2, ...
+
+# Compute multiple summaries on the same data
+dplyr::summarise(grouped_data, summary1 = <...>, summary2 = <...>, ...)
+```
+
+
+### Exercise: grouping and summarising
+
+Create a summary dataframe that gives the mean, range (i.e. `max - min`)
+and standard deviation of the body mass for each species / sex combination, as
+well as the number of observations in each group.
+
+```{r}
+
+```
+
+
+### An unimportant detail: grouped dataframes
+
+`dplyr::group_by` returns a 'grouped dataframe' (`dplyr::grouped_df`). These
+behave just like tibbles/dataframes except they have some extra information
+about the grouping attached to them.
+
+When you group by multiple columns, the result of `summarise` will typically
+also be a grouped dataframe. Usually, the groups are given by all columns except
+the last one in the grouped dataframe supplied to `summarise`. By default, you
+get a console message telling you on which columns the output is grouped by (see
+the result of the exercise above).
+
+The upshot of this is that it allows us to do successive summaries without
+having to keep regrouping the data. For example, the code below will produce a
+'max of averages':
+
+```{r}
+# Group by sex and species
+
+# Average mass for each species / sex combination
+# Result is grouped by sex (see console output)
+
+# Max of the average mass over species, for each sex
+
+```
+
+In practice, you don't have to worry about this detail. If you want to get back
+to a plain old tibble/dataframe, use the `dplyr::ungroup` function on a grouped
+dataframe.
+
+
+## Acknowledgement
+
+The material in this notebook is adapted from Eliza Wood's [Tidyverse: Data
+wrangling & visualization](https://liza-wood.github.io/tidyverse_intro/) course,
+which is licensed under [Creative Commons BY-NC-SA
+4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). This in itself is
+based on material from [UC Davis's R-DAVIS
+course](https://gge-ucd.github.io/R-DAVIS/index.html), which draws heavily on
+[Carpentries](https://datacarpentry.org/R-ecology-lesson/) R lessons.

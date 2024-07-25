@@ -1,0 +1,210 @@
+---
+title: "Combining datasets with `dplyr`"
+output: html_notebook
+---
+
+## Outline
+
+- Joining datasets
+
+
+## Joining datasets
+
+In your data wrangling journey, you will often find yourself wanting to combine
+one dataframe with some kind of supplementary or partner dataframe. In our
+case, we have the penguins and weather data stored separately, but if we ever
+wanted to explore any relationships between them, we'd ideally want them in a
+single dataframe. This requires lining up the observations and variables
+in the datasets appropriately, something which is accomplished by performing
+appropriate **joins**.  
+  
+The key to joining is to identify the variables by which you want to join the
+data. That is, we want to ask the question: which columns in each data are the
+ones that link them together? In some cases these may be one-to-one matches
+(e.g. ID numbers to IDs numbers), or in other cases there is data at different
+levels that need to be lined up.
+
+
+### Left joins
+
+There are several kinds of join function in `dplyr`, but we'll just focus on
+`left_join` and leave you to explore the others for yourself.
+
+Like all the join functions, `left_join` takes three arguments: the two dataframes
+you'd like to join, and the name of the column (or columns) by which to join.
+
+```
+dplyr::left_join(data_left, data_right, by = <cols_to_join_on>)
+```
+
+The way `left_join` works is to match up the columns given in the `by` column
+and create a new dataframe by pasting new columns from `data_right` alongside
+the columns from `data_left`. As many rows from `data_right` are brought in as
+possible. The 'left' in `left_join` indicates that we're keeping everything from
+the 'left' dataframe (i.e. the first one) and joining the other dataframe *onto*
+the 'left' one.
+
+It's helpful to use small, toy dataframes to explore how joins work (or remind
+yourself after a period of time away).
+
+```{r}
+df1 <- data.frame(colA = c(1, 2, 3, 4),
+                  colB = c(2021, 2022, 2023, 2024),
+                  colC = c('a', 'b', 'c', 'd'))
+
+df2 <- data.frame(colA = c(1, 3),
+                  colD = c('foo', 'bar'),
+                  colE = c('dog', 'cat'))
+```
+
+```{r}
+df1
+```
+
+```{r}
+df2
+```
+
+Now let's join `df2` onto `df1` by the column `colA`:
+
+```{r}
+
+```
+
+Notice:
+
+- All the data from the left-hand dataframe, `df1`, is kept (columns `colA` -- `colC`).
+
+- The data from the right-hand dataframe `df2` has been brought over
+  for the rows where the 'by' column `colA` has matching values in the
+  left-hand dataframe `df1`.
+  
+- The rows where there aren't matching values in the 'by' column `colA` have
+  missing values for the other right-hand dataframe columns (`colD` and `colE`
+  in this case).
+
+
+### Exercise: left join practice
+
+Suppose now the right hand dataframe is as follows:
+
+```{r}
+df2 <- data.frame(colA = c(1, 3, 2, 4, 5),
+                  colD = c('foo', 'bar', 'baz', 'qux', 'foo'),
+                  colE = c('dog', 'cat', 'mouse', 'rabbit', 'horse'))
+```
+
+Can you guess what the output of `dplyr::left_join(df1, df2, by = "colA")` will
+be? Check your guess with code below.
+
+```{r}
+df1 |>
+  dplyr::left_join(df2, by = "colA")
+```
+
+Now what if you swap the order of `df1` and `df2`? Guess the output of
+`dplyr::left_join(df2, df1, by = "colA")` and check your answer below.
+
+```{r}
+df2 |>
+  dplyr::left_join(df1, by = "colA")
+```
+
+
+### Optional exercise: repeated keys
+
+The values in the 'by' column(s) are sometimes called _keys_ for the join. The
+rules we described in the above example are not the whole story and can be
+complicated by the presence of repeated keys.
+
+What do you think happens if there are repeated keys? For example, try to
+guess the output of the following code:
+
+```{r}
+df1 <- data.frame(colA = c(1, 2, 3, 3),  # repeated key 3
+                  colB = c(2021, 2022, 2023, 2024),
+                  colC = c('a', 'b', 'c', 'd'))
+
+df2 <- data.frame(colA = c(1, 3),
+                  colD = c('foo', 'bar'),
+                  colE = c('dog', 'cat'))
+
+df1 |>
+  dplyr::left_join(df2, by = "colA")
+```
+
+Now what if we swap the roles of `df1` and `df2`?
+
+```{r}
+df2 |>
+  dplyr::left_join(df1, by = "colA")
+```
+
+
+#### Warning about doubles
+
+It's generally not a good idea to join on a 'by' column (or columns)
+that are of type double. This is because matching in the join will be done
+by an exact equality test on the doubles, which can create strange
+results due to numerical imprecision and be difficult to reproduce. Example: in
+the following, two doubles that look distinct are considered equal to
+`1 / 3 = 0.333...`, so 'match' on the `1 / 3` entry in data frame `x`.
+
+```{r}
+x <- data.frame(colA = c(1 / 3, 2 / 3),
+                colB = c(1000, 2000))
+
+y <- data.frame(colA = c(0.33333333333333331, 0.33333333333333334),
+                colB = c("foo", "bar"))
+
+dplyr::left_join(x, y, by = "colA")
+```
+
+
+### Exercise: joining penguin and weather data
+
+Recall the penguin data from the `palmerpenguins` package. We're going to join
+this with some annual weather data, taken from the Palmer Station in Antarctica
+from 1989 - 2019[^1].
+
+```{r}
+library(palmerpenguins)  # loads `penguins` data
+weather <- readr::read_csv("./data/weather_annual.csv")
+
+penguins
+weather
+```
+
+Use a join to create a single dataframe that has all the penguin data and
+weather data combined. Hint: there are some subtleties to be aware of:
+
+- First think about which column(s) to join on -- a call to `dplyr::rename`
+  might be in order!
+
+- We should make sure that the 'by' column(s) to join on are of the same type.
+  Examine the kind of data in each dataframe closely and coerce if necessary!
+
+```{r}
+
+```
+
+
+## Acknowledgement
+
+The material in this notebook is adapted from Eliza Wood's [Tidyverse: Data
+wrangling & visualization](https://liza-wood.github.io/tidyverse_intro/) course,
+which is licensed under [Creative Commons BY-NC-SA
+4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). This in itself is
+based on material from [UC Davis's R-DAVIS
+course](https://gge-ucd.github.io/R-DAVIS/index.html), which draws heavily on
+[Carpentries](https://datacarpentry.org/R-ecology-lesson/) R lessons.
+
+
+## Footnotes
+
+[^1]: The dataset was derived from the following dataset: Palmer Station
+      Antarctica LTER. 2023. Daily weather averages for Palmer
+      Station, Antarctica (1989-2023) ver 9. Environmental Data Initiative.
+      https://doi.org/10.6073/pasta/3eefb45dbfb784c3cabe3690ea46fe9e (Accessed
+      2024-01-08). See the README in the data folder accompanying these
+      notebooks for more details.

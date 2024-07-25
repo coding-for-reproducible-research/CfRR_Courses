@@ -1,0 +1,439 @@
+---
+title: "Working with strings and dates with `stringr` and `lubridate`"
+output: html_notebook
+---
+
+## Outline
+
+- Working with strings
+  - Cleaning strings
+  - Splitting / pasting strings
+  - Extracting substrings
+- Working with dates
+  - Converting from strings
+  - Accessing timestamp components
+
+
+## Introduction
+
+In this notebook we'll be looking at ways to work with two common kinds of
+data: text data and dates/timestamps. When we first create and collect data, it
+may not be in its cleanest form, especially when it comes to working with
+text data and timestamps. The following packages provide lots of useful
+functions for working with strings / timestamps:
+
+- `stringr`: working with strings (included with `tidyverse`).
+- `lubridate`: working with dates/timestamps (a non-core Tidyverse package).
+
+To demonstrate these packages, we'll be working with two datasets:
+
+- A toy dataset consisting of some coin flipping experiments (thrilling stuff).
+- Weather data from the Palmer Station in Antarctica from 1989 - 2019, where
+  data are available for each day[^1].
+
+**Note** We'll be making use of the pipe operator `|>` throughout; see
+the `04_Piping.Rmd` notebook.
+
+
+## Working with text - heads and tails
+
+We have a toy dataset for getting familiar with working with text. The
+`heads_and_tails.csv` file contains data on some coin flipping experiments
+performed by two people, Joe Bloggs and Jane Doe. The experiments were performed
+on different days and are split up into different parts (coin flipping is
+tiring work).
+
+The data is not in a clean state:
+- Joe and Jane's names are recorded in multiple ways.
+- The results are inconsistently formatted.
+- The experiments look pretty consistent, but note that in some rows the date is
+  separated from the `part n` bit by a colon `:` whereas in other rows it's
+  separated by a space.
+
+```{r}
+# Note: reading all columns as strings
+experiments <- readr::read_csv("./data/heads_and_tales.csv",
+                               col_types = list(.default = readr::col_character()))
+experiments
+```
+
+We'll use some of the functions in `stringr` to clean up this dataset.
+
+
+### Cleaning whitespace
+
+Before tidying up the columns, let's first rename the current columns to indicate
+they contain the 'raw' values. We can use the function `rename` from the `dplyr`
+package to do this:
+
+```{r}
+# Rename columns to *_raw
+experiments <- experiments |>
+  dplyr::rename(Experiment_raw = Experiment,
+                Technician_raw = Technician,
+                Result_raw = Result)
+print(colnames(experiments))
+```
+
+Let's first tackle cleaning up the technician's names. Look at the unique values
+in the 'Technician_raw' column:
+
+```{r}
+unique(experiments$Technician_raw)
+```
+
+Let's make the case consistent. There are several `stringr` functions we could
+use for this, of the form `str_to_*`
+
+```{r}
+name <- "aLbErt EinStEin"
+print(stringr::str_to_lower(name))  # lower case
+print(stringr::str_to_upper(name))  # upper case
+print(stringr::str_to_title(name))  # title case
+print(stringr::str_to_sentence(name))  # sentence case
+```
+Let's convert the technicians' names to title case. Do we now have consistent
+names for Joe and Jane?
+
+```{r}
+experiments <- experiments |>
+  dplyr::mutate(Technician = stringr::str_to_title(Technician_raw))
+
+unique(experiments$Technician)
+```
+
+Not quite. We can replace the two spaces in the middle of "Joe  Bloggs" with a
+single space by using `stringr::str_squish`:
+
+```{r}
+# Remove repeated whitespace characters
+experiments <- experiments |>
+  dplyr::mutate(Technician = stringr::str_squish(Technician))
+
+unique(experiments$Technician)
+```
+
+Note that a closely related `stringr` function, `str_trim`, can be used for only
+removing leading and trailing whitespace, if for some reason we wanted to keep
+all the whitespace between the words:
+
+```{r}
+# \t = tab character, \n = new line character
+name <- "\tAda    Lovelace  \n"
+cat(name)
+cat(stringr::str_trim(name))
+```
+
+
+### Replacing characters / substrings
+
+Next, let's make the 'Result' entries consistently formatted. We'll remove
+the commas from the first few experiments and instead just have a string of
+`H`s and `T`s. We can view this as replacing each comma with the empty string,
+`""`. 
+
+In general, to perform text replacement, we can use one of the following
+`stringr` functions:
+
+```{r}
+vowels = "a--e--i--o--u"
+
+# Replace the *first* instance of "--" with ", "
+print(stringr::str_replace(vowels, pattern = "--", replacement = ", "))  # a, e--i--o--u
+
+# Replace *all* instances of "--" with  ", "
+print(stringr::str_replace_all(vowels, pattern = "--", replacement = ", "))  # a, e, i, o, u
+```
+
+You may wonder why the parameter name 'pattern' is used for the string we want
+to replace. The reason is that we actually need to supply a *regular expression*
+to match on. We'll come back to this.
+
+Let's now clean up the 'Result' column by removing the commas:
+
+```{r}
+experiments <- experiments |>
+  dplyr::mutate(Result = stringr::str_replace_all(Result_raw, ",", ""))
+
+experiments |>
+  dplyr::select(Result_raw, Result)
+```
+
+
+### Exercise: replacing strings
+
+Put the 'Experiment' column into a consistent format, so that the experiment is
+recorded as `<date>:part <n>` where `<date>` is a date string and `<n>` is a
+number 1, 2, etc.
+
+```{r}
+experiments <- experiments |>
+  dplyr::mutate(Experiment = stringr::str_replace(Experiment_raw, " part", ":part"))
+
+experiments |>
+  dplyr::select(Experiment_raw, Experiment)
+```
+
+
+### Splitting and concatenating columns
+
+With the columns cleaned up, we no longer need the 'raw' columns, so let's
+remove them:
+
+```{r}
+experiments <- experiments |>
+  dplyr::select(-Experiment_raw, -Technician_raw, -Result_raw)
+```
+
+It would be good to have the 'Experiment' column consist of a unique identifier
+for each experiment. We could just give it an integer label, but let's do
+something more sophisticated. Each row is uniquely identifiable from the
+current 'Experiment' string and the name of the Technician. So let's combine
+these together to make a new ID string, as follows:
+
+```
+Joe Bloggs  +  2024-01-04:part 2  -->  2024-01-04:2:JoeBloggs
+```
+
+Note that we've removed the "part " string and removed the inner space in the
+name. How can we accomplish this transformation in smaller steps?
+
+- First split the experiment label "2024-01-04:part 2" into two pieces:
+  "2024-01-04" and "2".
+  
+- Remove the space from the name, "Joe Bloggs" to "JoeBloggs".
+
+- Paste the results together using colons:
+  "2024-01-04" + "2" + "JoeBloggs" --> "2024-01-04:2:JoeBloggs".
+
+We know how to do the second step (use `str_replace`), but steps 1 and 3 are new.
+
+The trick is to do this column-wise in the dataframe. Se we'll
+**make new columns** containing the pieces we want to paste together, and then
+create a new column by pasting these two columns together.
+
+To perform the splitting, we can use the `separate` function from the
+`tidyr` package (not `stringr`!) to split a column on a separator. The result is
+one column for each piece of the split; we thus need to also provide names for
+the new columns:
+
+```
+tidyr::separate(data,
+                col,
+                into = c("NewCol1", "NewCol2", ...),
+                sep = <string_to_split_on>)
+```
+
+To paste columns back together with a custom separator, we can use the
+`str_c` function from `stringr`:
+
+```{r}
+stringr::str_c("foo", "bar", "baz", sep = " -- ")  # foo -- bar -- baz
+```
+
+
+### Exercise: splitting and concatenating columns
+
+Use `tidyr::separate` and `stringr::str_c` to create a unique experiment ID by
+pasting together:
+
+- The experiment date
+- The sub-experiment number
+- The technician's name (without a space)
+
+E.g.
+```
+Joe Bloggs  +  2024-01-04:part 2  -->  2024-01-04:2:JoeBloggs
+```
+
+Hint: don't try to do this all in one go. Instead, build it up step-by-step and
+use the pipe operator `|>` join the steps together.
+
+```{r}
+experiments |>
+  tidyr::separate(col = Experiment,
+                  into = c("Experiment_date", "Sub_experiment"),
+                  sep = ":part ") |>  # don't forget the space!
+  dplyr::mutate(Experiment_id = stringr::str_c(Experiment_date,
+                                               Sub_experiment,
+                                               stringr::str_remove(Technician, " "),
+                                               sep = ":"))
+```
+
+
+### Finding substrings
+
+How many of the experiments features a run of 5 heads or 5 tails?
+
+We can answer this as follows:
+
+- For each row, determine whether it contains a run of 5 heads or 5 tails.
+- Filter on the result.
+
+To perform the first step, we can use `str_detect` from `stringr`. This simply
+returns `TRUE` or `FALSE` depending on whether it finds a given pattern in
+a string:
+
+```
+stringr::str_detect(a_string, pattern)
+```
+
+The `pattern` argument is interpreted as a _regular expression_. We mentioned
+this earlier when looking at `str_replace` / `str_replace_all`. Regular expressions
+are a mini-language for specifying matches on strings. We're not going to go into
+this much here, but they are useful to know about, especially if you work with
+text data a lot; check out the great
+[stringr cheat sheet](https://github.com/rstudio/cheatsheets/blob/main/strings.pdf)
+for a summary, or consult the
+[chapter on regular expressions in R for Data Science (2e)](https://r4ds.hadley.nz/regexps)
+for an introduction. Here are some example regular expressions in action, using
+`str_detect` to indicate whether the given string matches or not:
+
+```{r}
+# Match on a string as-is (case sensitive)
+stringr::str_detect("Regex is cool.", pattern = "ex") |> print()  # true
+stringr::str_detect("Regex is cool.", pattern = "COOL") |> print()  # false
+
+# Match on 1 or more instances
+stringr::str_detect("Regex is cool.", pattern = "o+") |> print()  # true
+stringr::str_detect("Regex is cool.", pattern = "coolcool+") |> print()  # false
+
+# Regex-special characters need escaping e.g. to match on a period, use \\
+stringr::str_detect("Regex is cool.", pattern = "\\.") |> print()  # true
+
+# Match on either one pattern or another with pipe |
+stringr::str_detect("Regex is cool.", pattern = "cool|meh") |> print()  # true
+stringr::str_detect("Regex is meh.", pattern = "cool|meh") |> print()  # true
+stringr::str_detect("Regex is cool.", pattern = "meh|lame") |> print()  # false
+
+# Match at the beginning of the string only with ^
+stringr::str_detect("Regex is cool.", pattern = "^Regex") |> print()  # true
+stringr::str_detect("Regex is cool.", pattern = "^cool") |> print()  # false
+```
+
+
+### Exercise: finding substrings
+
+With the help of `str_detect` and a suitable regular expression, write code to
+work out how many experiments feature a run of at least 5 straight heads or 5
+straight tails.
+
+```{r}
+experiments |>
+  dplyr::mutate(Has_run_of_5 = stringr::str_detect(Result, pattern = "HHHHH|TTTTT")) |>
+  dplyr::filter(Has_run_of_5) |>
+  nrow()
+```
+
+## Working with dates
+
+We have weather data from the Palmer Station in Antarctica from 1989 - 2019[^1],
+where data are available for each day.
+
+```{r}
+weather <- read.csv("./data/PalmerStation_Daily_Weather.csv")  # using base R read.csv here!
+str(weather)
+```
+
+However, the structure of the data above indicates that the first variable 'Date'
+is a 'character'. This means that R is not understanding these as representing
+dates, and so it may be hard to manipulate them any further (e.g. extracting
+certain years).
+
+```{r}
+head(weather$Date)
+class(weather$Date)
+```
+
+(**Note**: if we'd used `read_csv` from the `readr` package then these would
+automatically have been coerced into dates. We're avoiding this for now to
+demonstrate how to convert raw strings into dates.)
+
+We'll use the `lubridate` package (loaded in when we load in `tidyverse`)
+to convert these variables into dates and create a column for the year.
+
+
+### Converting from strings
+
+The `lubridate` package has very intuitive function names and argument
+structures. For instance, you can convert a string into a date type by
+using a function with letters representing the date format. In `lubridate`,
+y = year, m = month, d = day, h = hour, m = minute, s = second, etc.
+
+(You can see all of these formats by using the auto-complete box in RStudio,
+e.g. to see all functions starting with 'y', begin typing `lubridate::y`.)
+
+We can see that our data is formatted in the year-month-day format, and so we
+can use the `ymd` function to indicate to R what format we want it to detect as
+it converts characters to dates. If we use this function and assign the output
+to a date vector, we can then evaluate the class to see that it is a date.  
+
+```{r}
+date_vector <- lubridate::ymd(weather$Date)
+class(date_vector)
+```
+
+Remember that manipulating a column does not mean it automatically saves into
+the dataframe. Instead, we need to explicitly overwrite our dataframe with a
+new dataframe that contains the modified column. We can use the mutate function
+to achieve this:
+
+```{r}
+# Change the Date column to be a date type
+weather <- weather |>
+  dplyr::mutate(Date = lubridate::ymd(Date))
+
+class(weather$Date)
+```
+
+
+### Accessing timestamp components
+
+Now that R recognizes these as dates, we can extract certain date-related
+features, such as the year, month, and day. The `lubridate` package has functions
+conveniently named `year`, `month`, `day` that can be used with a date argument,
+and that element of the date will be extracted. For example:
+
+```{r}
+# Extract the year
+weather <- weather |>
+  dplyr::mutate(Year = lubridate::year(Date))
+
+head(weather) |>
+  dplyr::select(Date, Year)
+```
+
+
+#### Exercise: working with dates  
+
+Create a summary of the weather data that gives the maximum, minimum, and
+mean of the average temperatures for each **month** of the year.
+
+```{r}
+weather |>
+  dplyr::mutate(Month = lubridate::month(Date)) |>
+  dplyr::group_by(Month) |> 
+  dplyr::summarize(Average_temp = mean(Temperature.Average..C., na.rm = TRUE),
+                   Max_temp = max(Temperature.High..C., na.rm = TRUE),
+                   Min_temp = min(Temperature.Low..C., na.rm = TRUE))
+
+```
+
+
+## Acknowledgement
+
+The material in this notebook is adapted from Eliza Wood's [Tidyverse: Data
+wrangling & visualization](https://liza-wood.github.io/tidyverse_intro/) course,
+which is licensed under [Creative Commons BY-NC-SA
+4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). This in itself is
+based on material from [UC Davis's R-DAVIS
+course](https://gge-ucd.github.io/R-DAVIS/index.html), which draws heavily on
+[Carpentries](https://datacarpentry.org/R-ecology-lesson/) R lessons.
+
+
+## Footnotes
+
+[^1]: Palmer Station Antarctica LTER. 2023. Daily weather averages for Palmer
+      Station, Antarctica (1989-2023) ver 9. Environmental Data Initiative.
+      https://doi.org/10.6073/pasta/3eefb45dbfb784c3cabe3690ea46fe9e (Accessed
+      2024-01-08).
