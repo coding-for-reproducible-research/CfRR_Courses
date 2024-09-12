@@ -7,6 +7,7 @@ This training programme provides a series of workshops to support researchers at
 
 You can contact the CfRR team at the following email: [codingforreproducibleresearch@exeter.ac.uk](mailto:codingforreproducibleresearch@exeter.ac.uk)
 
-Please [register your interest in a particular course by completing this form](https://forms.office.com/pages/responsepage.aspx?id=d10qkZj77k6vMhM02PBKU6c8tNVRoxhAjFFJWmm07JtUOFUxN05CWFdQQTVTWVc4SDBGSjBKSVUxRy4u).
+Please register your interest in a particular course by completing the relevant form on the Workshop Schedule and Signup page available [here](cfrr_program_details/courses_overview.ipynb).
+
 
 For more details on the structure and use of this website, please go to ['How to use this website'](cfrr_program_details/how_to_use_CfRR.ipynb).
