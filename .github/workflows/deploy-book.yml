@@ -1,10 +1,14 @@
 name: Deploy Book
 
-# Run this on push to main branch
+# Run on push to main branch, on a schedule, and allow manual trigger
 on:
   push:
     branches:
       - main
+  schedule:
+    # Runs at 1 AM UTC every day
+    - cron: '0 1 * * *'
+  workflow_dispatch:  # Allows manual trigger from the GitHub Actions tab
 
 jobs:
   deploy-book:
