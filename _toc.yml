@@ -8,6 +8,7 @@ parts:
     chapters:
       - file: cfrr_program_details/about_us
       - file: cfrr_program_details/how_to_use_CfRR
+
   - caption: What Courses Should I Take?
     chapters: 
       - file: where_is_my_understanding/homepage_where_is_my_understanding
@@ -45,204 +46,214 @@ parts:
         sections:
           - file: pathways/hpc
           - file: pathways/r_ds
-          - file: pathways/python_ds     
+          - file: pathways/python_ds
+
   - caption: Courses We Offer
     chapters:
       - file: cfrr_program_details/courses_overview
       - file: programme_information/programme_information
         sections:
-          - file: programme_information/python
+          - file: programme_information/coding_languages
             sections:
-              - file: programme_information/intro_to_python
-              - file: programme_information/python_for_data_analysis
-          - file: programme_information/R
+              - file: programme_information/julia
+                sections:
+                  - file: programme_information/intro_to_julia
+              - file: programme_information/python
+                sections:
+                  - file: programme_information/intro_to_python
+                  - file: programme_information/python_for_data_analysis
+              - file: programme_information/R
+                sections:
+                  - file: programme_information/intro_to_r
+                  - file: programme_information/regression_analysis_with_r
+                  - file: programme_information/advanced_regression_analysis_with_r
+                  - file: programme_information/working_with_data_in_r
+              - file: programme_information/unix
+                sections:
+                  - file: programme_information/intro_to_unix
+          - file: programme_information/coding_practices
             sections:
-              - file: programme_information/intro_to_r
-              - file: programme_information/regression_analysis_with_r
-              - file: programme_information/advanced_regression_analysis_with_r
-              - file: programme_information/working_with_data_in_r
-          - file: programme_information/high_performance_computing
-            sections:
-              - file: programme_information/intro_to_hpc
-          - file: programme_information/version_control
-            sections:
-              - file: programme_information/intro_to_version_control
-              - file: programme_information/intermediate_version_control
-          - file: programme_information/unix
-            sections:
-              - file: programme_information/intro_to_unix
-          - file: programme_information/computational_thinking_overview
-            sections:
-              - file: programme_information/computational_thinking
-          - file: programme_information/software_development
-            sections:
-              - file: programme_information/software_development_best_practices
-          - file: programme_information/julia
-            sections:
-              - file: programme_information/intro_to_julia
+              - file: programme_information/computational_thinking_overview
+                sections:
+                  - file: programme_information/computational_thinking
+              - file: programme_information/high_performance_computing
+                sections:
+                  - file: programme_information/intro_to_hpc
+              - file: programme_information/software_development
+                sections:
+                  - file: programme_information/software_development_best_practices
+              - file: programme_information/version_control
+                sections:
+                  - file: programme_information/intro_to_version_control
+                  - file: programme_information/intermediate_version_control
       - file: cfrr_program_details/course_feedback
       - file: cfrr_program_details/self_study_notes
         sections:
-          - file: course_homepages/python
+          - file: cfrr_program_details/coding_languages_self_study
             sections:
-              - file: individual_modules/section_landing_pages/introduction_to_python
+              - file: course_homepages/julia
                 sections:
-                  - file: individual_modules/introduction_to_python/motivation
-                  - file: individual_modules/introduction_to_python/fundamentals
-                  - file: individual_modules/introduction_to_python/lists
-                  - file: individual_modules/introduction_to_python/dictionaries
-                  - file: individual_modules/introduction_to_python/control_flow
-                  - file: individual_modules/introduction_to_python/loops
-                  - file: individual_modules/introduction_to_python/additional_exercises
-                  - file: individual_modules/introduction_to_python/recap
-                  - file: individual_modules/introduction_to_python/functions
-                  - file: individual_modules/introduction_to_python/imports
-                  - file: individual_modules/introduction_to_python/analysis_task_intro
-                  - file: individual_modules/introduction_to_python/analysis_task_1
-                  - file: individual_modules/introduction_to_python/analysis_task_2
-                  - file: individual_modules/introduction_to_python/analysis_task_3
-              - file: individual_modules/section_landing_pages/python_for_data_analysis
+                  - file: individual_modules/section_landing_pages/introduction_to_julia
+                    sections:
+                      - file: individual_modules/introduction_to_julia/introduction_to_julia
+                      - file: individual_modules/introduction_to_julia/variables
+                      - file: individual_modules/introduction_to_julia/operations
+                      - file: individual_modules/introduction_to_julia/control_flow
+                      - file: individual_modules/introduction_to_julia/functions
+                      - file: individual_modules/introduction_to_julia/arrays_and_matrices
+                      - file: individual_modules/introduction_to_julia/io
+                      - file: individual_modules/introduction_to_julia/package_management
+                      - file: individual_modules/introduction_to_julia/visualisation
+                      - file: individual_modules/introduction_to_julia/performant_code
+              - file: course_homepages/python
                 sections:
-                  - file: individual_modules/python_for_data_analysis/Python_Language_features
-                  - file: individual_modules/python_for_data_analysis/Python_Virtual_environments
-                  - file: individual_modules/python_for_data_analysis/Python_NumPy
-                  - file: individual_modules/python_for_data_analysis/Python_Pandas
-                  - file: individual_modules/python_for_data_analysis/Python_Matplotlib
-                  - file: individual_modules/python_for_data_analysis/Python_ScikitLearn
-                  - file: individual_modules/python_for_data_analysis/data-analysis-plotly
-                  - file: individual_modules/python_for_data_analysis/Python_Testing
-                  - file: individual_modules/python_for_data_analysis/data-analysis-task
-          - file: course_homepages/R
+                  - file: individual_modules/section_landing_pages/introduction_to_python
+                    sections:
+                      - file: individual_modules/introduction_to_python/motivation
+                      - file: individual_modules/introduction_to_python/fundamentals
+                      - file: individual_modules/introduction_to_python/lists
+                      - file: individual_modules/introduction_to_python/dictionaries
+                      - file: individual_modules/introduction_to_python/control_flow
+                      - file: individual_modules/introduction_to_python/loops
+                      - file: individual_modules/introduction_to_python/additional_exercises
+                      - file: individual_modules/introduction_to_python/recap
+                      - file: individual_modules/introduction_to_python/functions
+                      - file: individual_modules/introduction_to_python/imports
+                      - file: individual_modules/introduction_to_python/analysis_task_intro
+                      - file: individual_modules/introduction_to_python/analysis_task_1
+                      - file: individual_modules/introduction_to_python/analysis_task_2
+                      - file: individual_modules/introduction_to_python/analysis_task_3
+                  - file: individual_modules/section_landing_pages/python_for_data_analysis
+                    sections:
+                      - file: individual_modules/python_for_data_analysis/Python_Language_features
+                      - file: individual_modules/python_for_data_analysis/Python_Virtual_environments
+                      - file: individual_modules/python_for_data_analysis/Python_NumPy
+                      - file: individual_modules/python_for_data_analysis/Python_Pandas
+                      - file: individual_modules/python_for_data_analysis/Python_Matplotlib
+                      - file: individual_modules/python_for_data_analysis/Python_ScikitLearn
+                      - file: individual_modules/python_for_data_analysis/data-analysis-plotly
+                      - file: individual_modules/python_for_data_analysis/Python_Testing
+                      - file: individual_modules/python_for_data_analysis/data-analysis-task
+              - file: course_homepages/R
+                sections:
+                  - file: individual_modules/section_landing_pages/introduction_to_r
+                    sections:
+                      - file: individual_modules/introduction_to_r/gettingstarted
+                      - file: individual_modules/introduction_to_r/basic_commands
+                      - file: individual_modules/introduction_to_r/data_types
+                      - file: individual_modules/introduction_to_r/load_data
+                      - file: individual_modules/introduction_to_r/manipulating_data
+                      - file: individual_modules/introduction_to_r/control_flow
+                      - file: individual_modules/introduction_to_r/plots
+                      - file: individual_modules/introduction_to_r/stats
+                      - file: individual_modules/introduction_to_r/good_practise
+                  - file: individual_modules/section_landing_pages/regression_analysis_with_R
+                    sections:
+                      - file: individual_modules/regression_analysis_with_R/introduction_to_regression
+                      - file: individual_modules/regression_analysis_with_R/hypothesis_testing
+                      - file: individual_modules/regression_analysis_with_R/multiple_linear_regression
+                      - file: individual_modules/regression_analysis_with_R/logistic_regression
+                      - file: individual_modules/regression_analysis_with_R/regression_analysis_with_r_summary.ipynb
+                      - file: individual_modules/regression_analysis_with_R/regression_analysis_with_r_extras
+                  - file: individual_modules/section_landing_pages/advanced_regression_analysis_with_R
+                    sections:
+                      - file: individual_modules/advanced_regression_analysis_with_R/mixed_effects_models
+                      - file: individual_modules/advanced_regression_analysis_with_R/expanding_the_mixed_effects_model_framework
+                      - file: individual_modules/advanced_regression_analysis_with_R/regression_models_with_interaction_terms
+                      - file: individual_modules/advanced_regression_analysis_with_R/advanced_regression_analysis_with_R_summary
+                      - file: individual_modules/advanced_regression_analysis_with_R/advanced_regression_analysis_with_R_extras
+                  - file: individual_modules/section_landing_pages/working_with_data_in_R
+                    sections:
+                      - file: individual_modules/working_with_data_in_R/introducing_tidyverse
+                      - file: individual_modules/working_with_data_in_R/loading_data
+                      - file: individual_modules/working_with_data_in_R/manipulating_a_dataframe
+                      - file: individual_modules/working_with_data_in_R/piping
+                      - file: individual_modules/working_with_data_in_R/combining_datasets
+                      - file: individual_modules/working_with_data_in_R/reshaping_datasets
+                      - file: individual_modules/working_with_data_in_R/strings_and_dates
+                      - file: individual_modules/working_with_data_in_R/summary
+              - file: course_homepages/unix
+                sections:
+                  - file: individual_modules/section_landing_pages/introduction_to_unix
+                    sections:
+                      - file: individual_modules/introduction_to_unix/intro
+                      - file: individual_modules/introduction_to_unix/filedir
+                      - file: individual_modules/introduction_to_unix/create
+                      - file: individual_modules/introduction_to_unix/pipefilter
+                      - file: individual_modules/introduction_to_unix/loop
+                      - file: individual_modules/introduction_to_unix/script
+                      - file: individual_modules/introduction_to_unix/find
+                      - file: individual_modules/introduction_to_unix/additional
+          - file: cfrr_program_details/coding_practices_self_study
             sections:
-              - file: individual_modules/section_landing_pages/introduction_to_r
+              - file: course_homepages/computational_thinking
                 sections:
-                  - file: individual_modules/introduction_to_r/gettingstarted
-                  - file: individual_modules/introduction_to_r/basic_commands
-                  - file: individual_modules/introduction_to_r/data_types
-                  - file: individual_modules/introduction_to_r/load_data
-                  - file: individual_modules/introduction_to_r/manipulating_data
-                  - file: individual_modules/introduction_to_r/control_flow
-                  - file: individual_modules/introduction_to_r/plots
-                  - file: individual_modules/introduction_to_r/stats
-                  - file: individual_modules/introduction_to_r/good_practise
-              - file: individual_modules/section_landing_pages/regression_analysis_with_R
+                  - file: individual_modules/section_landing_pages/computational_thinking
+                    sections:
+                      - file: individual_modules/computational_thinking/introduction
+                      - file: individual_modules/computational_thinking/algorithms
+                      - file: individual_modules/computational_thinking/decomposition
+                      - file: individual_modules/computational_thinking/pattern_recognition
+                      - file: individual_modules/computational_thinking/abstraction
+                      - file: individual_modules/computational_thinking/alignment
+                      - file: individual_modules/computational_thinking/final_exercise
+              - file: course_homepages/high_performance_computing
                 sections:
-                  - file: individual_modules/regression_analysis_with_R/introduction_to_regression
-                  - file: individual_modules/regression_analysis_with_R/hypothesis_testing
-                  - file: individual_modules/regression_analysis_with_R/multiple_linear_regression
-                  - file: individual_modules/regression_analysis_with_R/logistic_regression
-                  - file: individual_modules/regression_analysis_with_R/regression_analysis_with_r_summary.ipynb
-                  - file: individual_modules/regression_analysis_with_R/regression_analysis_with_r_extras
-              - file: individual_modules/section_landing_pages/advanced_regression_analysis_with_R
+                  - file: individual_modules/section_landing_pages/introduction_to_hpc
+                    sections:
+                      - file: individual_modules/introduction_to_hpc/motivation
+                      - file: individual_modules/introduction_to_hpc/isca
+                      - file: individual_modules/introduction_to_hpc/connection
+                      - file: individual_modules/introduction_to_hpc/file_transfer
+                      - file: individual_modules/introduction_to_hpc/schedulers
+                      - file: individual_modules/introduction_to_hpc/modules
+                      - file: individual_modules/introduction_to_hpc/example_jobs
+                      - file: individual_modules/introduction_to_hpc/exploiting_slurm
+              - file: course_homepages/software_development
                 sections:
-                  - file: individual_modules/advanced_regression_analysis_with_R/mixed_effects_models
-                  - file: individual_modules/advanced_regression_analysis_with_R/expanding_the_mixed_effects_model_framework
-                  - file: individual_modules/advanced_regression_analysis_with_R/regression_models_with_interaction_terms
-                  - file: individual_modules/advanced_regression_analysis_with_R/advanced_regression_analysis_with_R_summary
-                  - file: individual_modules/advanced_regression_analysis_with_R/advanced_regression_analysis_with_R_extras
-              - file: individual_modules/section_landing_pages/working_with_data_in_R
+                  - file: individual_modules/section_landing_pages/software_development_best_practice
+                    sections:
+                      - file: individual_modules/software_development_best_practices/software_development_life_cycle
+                      - file: individual_modules/software_development_best_practices/data_management
+                      - file: individual_modules/software_development_best_practices/problem_solving
+                      - file: individual_modules/software_development_best_practices/virtual_environments_dependency_managers
+                      - file: individual_modules/software_development_best_practices/version_control
+                      - file: individual_modules/software_development_best_practices/readable_code_and_documentation
+                      - file: individual_modules/software_development_best_practices/testing
+                      - file: individual_modules/software_development_best_practices/collaboration
+                      - file: individual_modules/software_development_best_practices/reproducibility
+              - file: course_homepages/version_control
                 sections:
-                  - file: individual_modules/working_with_data_in_R/introducing_tidyverse
-                  - file: individual_modules/working_with_data_in_R/loading_data
-                  - file: individual_modules/working_with_data_in_R/manipulating_a_dataframe
-                  - file: individual_modules/working_with_data_in_R/piping
-                  - file: individual_modules/working_with_data_in_R/combining_datasets
-                  - file: individual_modules/working_with_data_in_R/reshaping_datasets
-                  - file: individual_modules/working_with_data_in_R/strings_and_dates
-                  - file: individual_modules/working_with_data_in_R/summary
-          - file: course_homepages/high_performance_computing
-            sections:
-              - file: individual_modules/section_landing_pages/introduction_to_hpc
-                sections:
-                  - file: individual_modules/introduction_to_hpc/motivation
-                  - file: individual_modules/introduction_to_hpc/isca
-                  - file: individual_modules/introduction_to_hpc/connection
-                  - file: individual_modules/introduction_to_hpc/file_transfer
-                  - file: individual_modules/introduction_to_hpc/schedulers
-                  - file: individual_modules/introduction_to_hpc/modules
-                  - file: individual_modules/introduction_to_hpc/example_jobs
-                  - file: individual_modules/introduction_to_hpc/exploiting_slurm
-          - file: course_homepages/version_control
-            sections:
-              - file: individual_modules/section_landing_pages/introduction_to_version_control
-                sections:
-                  - file: individual_modules/introduction_to_version_control/motivation
-                  - file: individual_modules/introduction_to_version_control/git_vs_github
-                  - file: individual_modules/introduction_to_version_control/configuring_git
-                  - file: individual_modules/introduction_to_version_control/making_repos
-                  - file: individual_modules/introduction_to_version_control/example_repo
-                  - file: individual_modules/introduction_to_version_control/recording_changes
-                  - file: individual_modules/introduction_to_version_control/history_and_changes
-                  - file: individual_modules/introduction_to_version_control/recording_changes_revisited
-                  - file: individual_modules/introduction_to_version_control/pushing_and_pulling
-                  - file: individual_modules/introduction_to_version_control/undoing_changes
-                  - file: individual_modules/introduction_to_version_control/ignoring_files
-                  - file: individual_modules/introduction_to_version_control/local_branches
-                  - file: individual_modules/introduction_to_version_control/remote_branches_with_github
-                  - file: individual_modules/introduction_to_version_control/collaborating_with_branches
-                  - file: individual_modules/introduction_to_version_control/merge_conflicts
-              - file: individual_modules/section_landing_pages/intermediate_version_control
-                sections:
-                  - file: individual_modules/intermediate_version_control/introduction
-                  - file: individual_modules/intermediate_version_control/config_git
-                  - file: individual_modules/intermediate_version_control/basic_git
-                  - file: individual_modules/intermediate_version_control/typical_workflow
-                  - file: individual_modules/intermediate_version_control/branches_and_merging
-                  - file: individual_modules/intermediate_version_control/remotes
-                  - file: individual_modules/intermediate_version_control/github_workflows
-                  - file: individual_modules/intermediate_version_control/rewriting_history
-                  - file: individual_modules/intermediate_version_control/further_topics
-          - file: course_homepages/unix
-            sections:
-              - file: individual_modules/section_landing_pages/introduction_to_unix
-                sections:
-                  - file: individual_modules/introduction_to_unix/intro
-                  - file: individual_modules/introduction_to_unix/filedir
-                  - file: individual_modules/introduction_to_unix/create
-                  - file: individual_modules/introduction_to_unix/pipefilter
-                  - file: individual_modules/introduction_to_unix/loop
-                  - file: individual_modules/introduction_to_unix/script
-                  - file: individual_modules/introduction_to_unix/find
-                  - file: individual_modules/introduction_to_unix/additional
-          - file: course_homepages/computational_thinking
-            sections:
-              - file: individual_modules/section_landing_pages/computational_thinking
-                sections:
-                  - file: individual_modules/computational_thinking/introduction
-                  - file: individual_modules/computational_thinking/algorithms
-                  - file: individual_modules/computational_thinking/decomposition
-                  - file: individual_modules/computational_thinking/pattern_recognition
-                  - file: individual_modules/computational_thinking/abstraction
-                  - file: individual_modules/computational_thinking/alignment
-                  - file: individual_modules/computational_thinking/final_exercise
-          - file: course_homepages/software_development
-            sections:
-              - file: individual_modules/section_landing_pages/software_development_best_practice
-                sections:
-                  - file: individual_modules/software_development_best_practices/software_development_life_cycle
-                  - file: individual_modules/software_development_best_practices/data_management
-                  - file: individual_modules/software_development_best_practices/problem_solving
-                  - file: individual_modules/software_development_best_practices/virtual_environments_dependency_managers
-                  - file: individual_modules/software_development_best_practices/version_control
-                  - file: individual_modules/software_development_best_practices/readable_code_and_documentation
-                  - file: individual_modules/software_development_best_practices/testing
-                  - file: individual_modules/software_development_best_practices/collaboration
-                  - file: individual_modules/software_development_best_practices/reproducibility
-          - file: course_homepages/julia
-            sections:
-              - file: individual_modules/section_landing_pages/introduction_to_julia
-                sections:
-                  - file: individual_modules/introduction_to_julia/introduction_to_julia
-                  - file: individual_modules/introduction_to_julia/variables
-                  - file: individual_modules/introduction_to_julia/operations
-                  - file: individual_modules/introduction_to_julia/control_flow
-                  - file: individual_modules/introduction_to_julia/functions
-                  - file: individual_modules/introduction_to_julia/arrays_and_matrices
-                  - file: individual_modules/introduction_to_julia/io
-                  - file: individual_modules/introduction_to_julia/package_management
-                  - file: individual_modules/introduction_to_julia/visualisation
-                  - file: individual_modules/introduction_to_julia/performant_code
+                  - file: individual_modules/section_landing_pages/introduction_to_version_control
+                    sections:
+                      - file: individual_modules/introduction_to_version_control/motivation
+                      - file: individual_modules/introduction_to_version_control/git_vs_github
+                      - file: individual_modules/introduction_to_version_control/configuring_git
+                      - file: individual_modules/introduction_to_version_control/making_repos
+                      - file: individual_modules/introduction_to_version_control/example_repo
+                      - file: individual_modules/introduction_to_version_control/recording_changes
+                      - file: individual_modules/introduction_to_version_control/history_and_changes
+                      - file: individual_modules/introduction_to_version_control/recording_changes_revisited
+                      - file: individual_modules/introduction_to_version_control/pushing_and_pulling
+                      - file: individual_modules/introduction_to_version_control/undoing_changes
+                      - file: individual_modules/introduction_to_version_control/ignoring_files
+                      - file: individual_modules/introduction_to_version_control/local_branches
+                      - file: individual_modules/introduction_to_version_control/remote_branches_with_github
+                      - file: individual_modules/introduction_to_version_control/collaborating_with_branches
+                      - file: individual_modules/introduction_to_version_control/merge_conflicts
+                  - file: individual_modules/section_landing_pages/intermediate_version_control
+                    sections:
+                      - file: individual_modules/intermediate_version_control/introduction
+                      - file: individual_modules/intermediate_version_control/config_git
+                      - file: individual_modules/intermediate_version_control/basic_git
+                      - file: individual_modules/intermediate_version_control/typical_workflow
+                      - file: individual_modules/intermediate_version_control/branches_and_merging
+                      - file: individual_modules/intermediate_version_control/remotes
+                      - file: individual_modules/intermediate_version_control/github_workflows
+                      - file: individual_modules/intermediate_version_control/rewriting_history
+                      - file: individual_modules/intermediate_version_control/further_topics
           - file: bibliography
+
   - caption: Join Us!
     chapters: 
       - file: contributing/contributing
@@ -250,6 +261,7 @@ parts:
       - file: contributing/contributing_guidelines
       - file: contributing/developing_a_course
       - file: contributing/suggestions_form
+
   - caption: Community Guidelines
     chapters: 
       - file: cfrr_program_details/code_of_conduct
