@@ -9,6 +9,46 @@ parts:
       - file: cfrr_program_details/about_us
       - file: cfrr_program_details/how_to_use_CfRR
 
+  - caption: Courses We Offer
+    chapters:
+      - file: cfrr_program_details/courses_overview
+      - file: programme_information/programme_information
+        sections:
+          - file: programme_information/coding_languages
+            sections:
+              - file: programme_information/julia
+                sections:
+                  - file: programme_information/intro_to_julia
+              - file: programme_information/python
+                sections:
+                  - file: programme_information/intro_to_python
+                  - file: programme_information/python_for_data_analysis
+              - file: programme_information/R
+                sections:
+                  - file: programme_information/intro_to_r
+                  - file: programme_information/regression_analysis_with_r
+                  - file: programme_information/advanced_regression_analysis_with_r
+                  - file: programme_information/working_with_data_in_r
+              - file: programme_information/unix
+                sections:
+                  - file: programme_information/intro_to_unix
+          - file: programme_information/coding_practices
+            sections:
+              - file: programme_information/computational_thinking_overview
+                sections:
+                  - file: programme_information/computational_thinking
+              - file: programme_information/high_performance_computing
+                sections:
+                  - file: programme_information/intro_to_hpc
+              - file: programme_information/software_development
+                sections:
+                  - file: programme_information/software_development_best_practices
+              - file: programme_information/version_control
+                sections:
+                  - file: programme_information/intro_to_version_control
+                  - file: programme_information/intermediate_version_control
+      - file: cfrr_program_details/course_feedback
+
   - caption: What Courses Should I Take?
     chapters: 
       - file: where_is_my_understanding/homepage_where_is_my_understanding
@@ -51,46 +91,6 @@ parts:
           - file: pathways/hpc
           - file: pathways/r_ds
           - file: pathways/python_ds
-
-  - caption: Courses We Offer
-    chapters:
-      - file: cfrr_program_details/courses_overview
-      - file: programme_information/programme_information
-        sections:
-          - file: programme_information/coding_languages
-            sections:
-              - file: programme_information/julia
-                sections:
-                  - file: programme_information/intro_to_julia
-              - file: programme_information/python
-                sections:
-                  - file: programme_information/intro_to_python
-                  - file: programme_information/python_for_data_analysis
-              - file: programme_information/R
-                sections:
-                  - file: programme_information/intro_to_r
-                  - file: programme_information/regression_analysis_with_r
-                  - file: programme_information/advanced_regression_analysis_with_r
-                  - file: programme_information/working_with_data_in_r
-              - file: programme_information/unix
-                sections:
-                  - file: programme_information/intro_to_unix
-          - file: programme_information/coding_practices
-            sections:
-              - file: programme_information/computational_thinking_overview
-                sections:
-                  - file: programme_information/computational_thinking
-              - file: programme_information/high_performance_computing
-                sections:
-                  - file: programme_information/intro_to_hpc
-              - file: programme_information/software_development
-                sections:
-                  - file: programme_information/software_development_best_practices
-              - file: programme_information/version_control
-                sections:
-                  - file: programme_information/intro_to_version_control
-                  - file: programme_information/intermediate_version_control
-      - file: cfrr_program_details/course_feedback
 
   - caption: Self Study Notes
     chapters:
