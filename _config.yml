@@ -3,7 +3,7 @@
 
 title: Home Page
 author: Coding For Reproducible Research Community
-logo: exeter_logo.png
+logo: _static/exeter_logo.png
 copyright: "2024"
 
 # Define the name of the latex output file for PDF builds
@@ -46,7 +46,6 @@ exclude_patterns:
 execute:
   execute_notebooks: "force"
   exclude_patterns: 
-      - 'related_courses.ipynb'
       - 'individual_modules/introduction_to_r/basic_commands.ipynb'
       - 'individual_modules/introduction_to_r/data_types.ipynb'
       - 'individual_modules/introduction_to_r/load_data.ipynb'
