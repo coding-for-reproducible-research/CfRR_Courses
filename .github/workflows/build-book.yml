@@ -33,3 +33,12 @@ jobs:
     - name: Build the book
       run: |
         jupyter-book build .
+      continue-on-error: true
+
+    # Upload error logs if build fails
+    - name: Upload error logs
+      if: failure()  # This will only run if the previous step fails
+      uses: actions/upload-artifact@v3
+      with:
+        name: error-logs
+        path: _build/html/reports/pathways/related_courses.err.log
