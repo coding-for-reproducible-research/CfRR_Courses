@@ -2,6 +2,8 @@
 
 ## Overview 
 
+The course is designed to be interactive, though all related resources are available on the following pages.
+
 This course comprises two two-hour sessions. The course is designed to be interactive and so will be delivered within a seminar style with live demonstrations and activities. We have allowed plenty of time for discussion and questions throughout - please simply shout out any questions/comments you have or raise your physical/virtual hand. We will also have a short comfort break approximately three quarters of the way through the session. We will also share the slides and there is a list of resources on the website for this course.
 
 ## Course Objectives 
