@@ -29,8 +29,6 @@ There are also several files within the root directory; these include:
 - **_config.yml**: This file customizes the appearance and behaviour of the overall Jupyter Book. 
 - **_toc.yml**: This file organizes the structure and overall navigation of the content of the Jupyter Book that is built.
 - **CITATION.cff**: Provides citation information for the CfRR website, and the course content aggregated throughout the website. 
-- **Manifest.toml**: Specifies the dependencies and environment configuration for the Julia kernel used.
-- **Project.toml**: Records the exact versions of all Julia dependencies, ensuring reproducibility of the project environment. 
 - **references.bib**: Used to store bibliographic references throughout all of the content on the website. 
 - **requirements.txt**: A file that specifies the dependencies of the Python kernel used in the website.  
 
