@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "Coding for Reproducible Research Courses"
+description = "Coding for Reproducible Research: Courses and Training Materials"
+authors = ["CfRR Contributors"]
+repository = "https://github.com/coding-for-reproducible-research/CfRR_Courses"
+homepage = "https://coding-for-reproducible-research.github.io/CfRR_Courses/home_page.html"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+numpy = "1.26.4"
+pandas = "^latest"
+jupyter-book = "^latest"
+ghp-import = "^latest"
+jupyterquiz = "^latest"
+matplotlib = "^latest"
+scikit-learn = "^latest"
+pyvis = "^latest"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
