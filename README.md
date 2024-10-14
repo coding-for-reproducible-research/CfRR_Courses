@@ -30,7 +30,7 @@ There are also several files within the root directory; these include:
 - **_toc.yml**: This file organizes the structure and overall navigation of the content of the Jupyter Book that is built.
 - **CITATION.cff**: Provides citation information for the CfRR website, and the course content aggregated throughout the website. 
 - **references.bib**: Used to store bibliographic references throughout all of the content on the website. 
-- **pyproject.yml**: A file that specifies the dependencies of the Python kernel used in the website.
+- **pyproject.toml**: A file that specifies the dependencies of the Python kernel used in the website.
 
 ## Contributing
 
