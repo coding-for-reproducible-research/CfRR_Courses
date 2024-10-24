@@ -1,0 +1,80 @@
+[
+    {
+        "question": "What is the primary purpose of MPI broadcasting in a parallel program?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To send a message to a specific rank",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To send a message from one rank to all other ranks",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "To send a message from all ranks to one rank",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To distribute data across ranks in segments",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What is MPI scatter used for?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Sending the same message to all ranks",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Distributing sections of an array to different ranks",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "Gathering results from all ranks into one",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Broadcasting data to all ranks",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What is the role of comm.barrier() in the context of MPI communication?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To synchronize all processes before proceeding",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "To broadcast data to all ranks",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To gather data from all processes",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To shut down the MPI program",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]

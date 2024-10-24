@@ -1,0 +1,80 @@
+[
+    {
+        "question": "In MPI, what method is used to send data from one rank to another?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "recv",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "send",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "broadcast",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "gather",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Which function in MPI is used to receieve a message sent by another process?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "send",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "scatter",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "recv",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "reduce",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What is the significance of using comm.Get_rank() in the MPI program?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "It retrieves the total number of processes",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "It returns the rank (ID) of the current process",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "It broadcasts a message to all ranks",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "It initializes the communicator",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]
