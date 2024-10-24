@@ -1,0 +1,80 @@
+[
+    {
+        "question": "What is the primary purpose of a communicator in an MPI program?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To handle input/output operations",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To control the execution time of the program",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To group processes and manage communication between them",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "To increase the speed of serial code execution",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "In MPI, what does the term `rank` refer to?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "The priority level of a process",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "The number of processes initiated by the user",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "The identifier assigned to each process in a communicator",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "The memory size allocated to each process",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Which function is used in MPI to get the rank of a process in a communicator?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "comm.Get_size()",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "comm.Get_rank()",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "MPI.COMM_WORLD()",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "comm.Rank()",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]
