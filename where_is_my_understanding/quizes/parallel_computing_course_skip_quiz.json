@@ -1,0 +1,262 @@
+[
+    {
+        "question": "What is the primary goal of parallel computing?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To increase the number of processes",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "To simplify the strcture of algorithms",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "To reduce the time taken to solve a problem by distributing work across multiple processors",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "To decrease the memory usage",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    }, 
+    {
+        "question": "What type of parallelism involves dividing tasks into independent parts that can be run simultaneously?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Pipeline parallelism",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Embarrassingly parallel",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Task parallelism",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Data dependency",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "In parallel computing, what does 'scalability' refer to?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "The ability of the code to work with different programming languages",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "The ability of a parallel system to increase performance with additional resources",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "The systems capacity to handle larger input sizes",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "The reduction in code complexity",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What is the role of a communicator in MPI (Message Passing Interface)?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To define a group of processes that can communicate with each other",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "To manage memory allocation",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "To synchronize processes",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "To send and recieve data packets",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "In MPI, what is a rank?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "The priority level of a process",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "The total number of processes",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "The size of the data being transmitted",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "An identifier for each process in a communicator",
+                "correct": true,
+                "feedback": "Correct."
+            }
+        ]
+    },
+    {
+        "question": "What is the purpose of broadcasting in parallel computing?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To collect data from all processes",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "To send data from one process to all other processes",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "To synchronize all processes",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "To reduce data from multiple processes",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "In MPI, how does the send operation work?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "It synchronizes all processes",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "It transmits data from one process to another specified process",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "It broadcasts data to all processes",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "It collects data from all processes",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What is the main difference between send and broadcast in MPI?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Send is faster than broadcasting",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Send transmits data to one processs, while broadcast send data to all processes",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Broadcast is synchronous, but send is asynchronous",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Broadcast only works with arrays, while send works with variables",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What is a typical use case for the reduce operation in MPI?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To gather data from all processes into one",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "To perform a collective operation (like sum or max) on data from all processes and send the result to one process",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "To scatter data to multiple processes",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "To broadcast a result to all processes",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What is the advantage of collective communication in parallel computing?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "It minimizes the need for inter-process communication",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "It enables efficient communication between all processes using a single function call",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "It increases the complexity of the code",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "It allows processes to run independently",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    }
+]
