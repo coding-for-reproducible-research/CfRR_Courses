@@ -7,7 +7,6 @@
 This course will provide an introduction to parallel programming. Participants will gain practical experience in writing parallel software, understanding how to decompose problems for efficient execution across multiple processes and threads.
 
 ## Course Objectives 
-On completion of this series of workshops, participants will:
 - Be able to explain what is meant by distributed and shared-memory parallelism.
 - Know how to write software that can run across multiple processes using MPI.
 - Be able to write code that utilizes multithreading for parallel execution.
