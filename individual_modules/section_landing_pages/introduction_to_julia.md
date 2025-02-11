@@ -12,4 +12,4 @@ Welcome to the Introduction to Julia course! This course has been created to giv
 
 ## Pre-requisite Knowledge
 
-Attendees of the workshop should already be familiar with a programming language such as Python and should have already installed and been able to run an example of a Julia code snippet. 
+Attendees of the workshop should already be familiar with a programming language and should have already installed and been able to run an example of a Julia code snippet. 
