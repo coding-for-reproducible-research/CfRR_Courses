@@ -16,8 +16,6 @@ Version control systems are an incredibly valuable tool for organising software 
 
 ## Pre-requisite Knowledge
 
-A willingness to work with Git and GitHub in a hands-on way throughout the sessions.
-
-Basic familiarity of working at a Unix command line (e.g. Apple Terminal, a terminal running Bash) is helpful but not essential. We have included a cheat sheet on basic commands that will be useful for this course on the resources page. A good introduction to this topic more generally can be found at the sister course Introduction to Unix Shell.
+Basic familiarity with working at a Unix command line (e.g. Apple Terminal, a terminal running Bash) is helpful but not essential. A good introduction to this topic more generally can be found at the sister course Introduction to Unix.
 
 Version control systems are primarily used for source code development, so experience writing some code (e.g. R, Python, LaTeX, bash scripts, C,…) is helpful though not essential.
