@@ -19,7 +19,7 @@ Welcome to Intro to Machine Learning, a course designed to introduce you to core
 
 ## Session content
 
-This course will be delivered via slides and the tutorials via Jupyter Notebooks.
+This course will be delivered via slides, which can be found [here](https://github.com/coding-for-reproducible-research/CfRR_Courses/tree/main/individual_modules/introduction_to_machine_learning/slides), and the tutorials via Jupyter Notebooks (these are the self-study notes).
 
 ### Session 1
 
