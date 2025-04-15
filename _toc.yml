@@ -31,6 +31,7 @@ parts:
                   - file: programme_information/intermediate_regression_analysis_with_r
                   - file: programme_information/advanced_regression_analysis_with_r
                   - file: programme_information/working_with_data_in_r
+                  - file: programme_information/improve_your_r_code
               - file: programme_information/unix
                 sections:
                   - file: programme_information/intro_to_unix
@@ -146,7 +147,6 @@ parts:
                   - file: individual_modules/introduction_to_machine_learning/2_model_selection
                   - file: individual_modules/introduction_to_machine_learning/3_pipeline_task
                   - file: individual_modules/introduction_to_machine_learning/4_unsupervised_learning
-                  
           - file: course_homepages/R
             sections:
               - file: individual_modules/section_landing_pages/introduction_to_r
@@ -185,6 +185,15 @@ parts:
                   - file: individual_modules/working_with_data_in_R/reshaping_datasets
                   - file: individual_modules/working_with_data_in_R/strings_and_dates
                   - file: individual_modules/working_with_data_in_R/summary
+              - file: individual_modules/section_landing_pages/improve_your_r_code
+                sections:
+                  - file: individual_modules/improve_your_r_code/introduction
+                  - file: individual_modules/improve_your_r_code/style
+                  - file: individual_modules/improve_your_r_code/microbenchmark
+                  - file: individual_modules/improve_your_r_code/vectorisation
+                  - file: individual_modules/improve_your_r_code/data_table
+                  - file: individual_modules/improve_your_r_code/parallelisation
+                  - file: individual_modules/improve_your_r_code/rcpp
           - file: course_homepages/unix
             sections:
               - file: individual_modules/section_landing_pages/introduction_to_unix
