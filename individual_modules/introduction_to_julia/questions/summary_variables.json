@@ -1,79 +1,79 @@
 [
     {
-        "question": "",
+        "question": "What happens if you reassign a variable in Julia to a different type than it originally held?",
         "type": "many_choice",
         "answers": [
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "Julia throws a type error and stops execution.",
+                "correct": false,
+                "feedback": "Incorrect"
             },
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "Julia accepts the new value and updates the variable's type dynamically.",
+                "correct": true,
+                "feedback": "Correct"
             },
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "The variable keeps its original type and discards the new value.",
+                "correct": false,
+                "feedback": "Incorrect"
             },
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "Julia requires a manual type conversion function before reassignment.",
+                "correct": false,
+                "feedback": "Incorrect"
             }
         ]
     },
     {
-        "question": "",
+        "question": "What is the default data type for an integer value assigned to a variable in Julia?",
         "type": "many_choice",
         "answers": [
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "Int32",
+                "correct": false,
+                "feedback": "Incorrect"
             },
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "Int64",
+                "correct": true,
+                "feedback": "Correct"
             },
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "Integer",
+                "correct": false,
+                "feedback": "Incorrect"
             },
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "Int with unspecified bit size",
+                "correct": false,
+                "feedback": "Incorrect"
             }
         ]
     },
     {
-        "question": "",
+        "question": "Which of the following code snippets will output Float64 in Julia?",
         "type": "many_choice",
         "answers": [
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "x = \"3.14\"; println(typeof(x))",
+                "correct": false,
+                "feedback": "Incorrect"
             },
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "x = 3; println(typeof(x))",
+                "correct": false,
+                "feedback": "Incorrect"
             },
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "x = 3.14; println(typeof(x))",
+                "correct": true,
+                "feedback": "Correct"
             },
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "x = true; println(typeof(x))",
+                "correct": false,
+                "feedback": "Incorrect"
             }
         ]
     }
