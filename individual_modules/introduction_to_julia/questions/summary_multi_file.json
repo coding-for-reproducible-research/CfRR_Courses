@@ -1,0 +1,54 @@
+[
+    {
+        "question": "What is the correct Julia keyword used to bring in code from another file or module into your current script?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "include_from",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "require",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "include",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "import_file",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "After using include(\"filename.jl\"), how do you access functions or variables defined in that file?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "They must be called with a special prefix",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "They must be re-imported with import",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "They are available directly in the current namespace",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "You can only access them via using filename",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]
