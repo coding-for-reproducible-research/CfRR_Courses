@@ -4,11 +4,16 @@
 Welcome to the Introduction to Julia course! This course has been created to give you an idea about Julia's particular language features; it assumes that you are already comfortable with the basics of programming, allowing for more interesting topics to be discussed outside the basics. To be able to best engage with this course it is recommended that you have gone through the material for both "Introduction to Python" and "Python for Data Analysis".
 
 ## Course Objectives
-- Understand Julia's high-level and high-performance goals, including multiple dispatch.
-- Learn to create and manipulate one-dimensional and multi-dimensional arrays using various functions and comprehensions.
-- Use conditional statements and loops (for and while) to control the flow of programs.
-- Create functions with different parameter types and return values, including exploring multiple dispatch and lambda functions.
-- Perform input and output operations, including reading from and writing to various file types such as text, CSV, Excel, and JSON.
+- Understand Julia’s design philosophy and interact fluently with its REPL, including both the package and help modes.
+- Define and manipulate basic data types and variables, and apply control-flow constructs (`if`, `for`, `while`) to express algorithmic logic.  
+- Encapsulate functionality in Julia functions, leveraging multiple dispatch to write clean, type-specific methods.  
+- Work with arrays and matrices, perform element-wise and linear algebra operations, and harness Julia’s native array abstractions for efficient numerical computing.  
+- Read from and write to external data sources using Julia’s I/O facilities, and parse or format data in common file formats.  
+- Create informative visualizations of data and simulation output with `Plots.jl` (and other graphics packages).  
+- Manage project dependencies and packages using Julia’s built-in package manager (`Pkg`), and organize your code into multi-file, reproducible projects.  
+- Diagnose and eliminate performance bottlenecks by profiling your code, preallocating buffers, using `@inbounds`/`@simd`, and choosing efficient data structures (e.g. `BitMatrix`).  
+- Apply your skills to a capstone project, implementing and optimizing Conway’s Game of Life from first principles, and extending it with custom rules, GUIs, or advanced visualizations.  
+
 
 ## Pre-requisite Knowledge
 
