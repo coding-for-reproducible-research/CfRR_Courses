@@ -3,11 +3,11 @@
 ## Getting started with Markdown in R
 
 ### What are the benefits of using Markdown in R?
-
+(INSERT TEXT)
 ### How is Markdown implemented in R?
 Markdown is implemented in R *via* a dedicated R package called `rmarkdown`.
 
-#### Installing the RMarkdown package:
+#### Installing the `rmarkdown` package:
 The `rmarkdown` package is available for download and installation through the Comprehensive R Archive Network (CRAN). This process can be undertaken by first opening RStudio and then performing the following click-button steps:
 
 1. Click `Tools` at the top of the screen
@@ -31,5 +31,5 @@ Once the `rmarkdown` package has been installed, a new, blank RMarkdown document
 4. Clicking `Create Empty Document`
 
 Completing the above four steps should result in an RStudio window that looks like the following:
-![Blank RMarkdown file]()
+![Blank RMarkdown file](Embedded_Display_Items/Blank_RMarkdown_View.png)
 
