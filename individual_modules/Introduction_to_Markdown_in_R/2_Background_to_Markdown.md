@@ -10,7 +10,7 @@ Markdown is a special type of language that can be used to create formatted text
 Markdown offers several broad advantages, such as:
 
 | Benefit        | Description |
-| :------------: | ----------- |
+| :------------: | :---------- |
 | Simplicity     | Markdown syntax is very easy to read, write and learn |
 | Speed          | Markdown syntax can be implemeneted quickly and efficiently |
 | Portability    | Markdown files are lightweight and can be opened and edited on any device |
