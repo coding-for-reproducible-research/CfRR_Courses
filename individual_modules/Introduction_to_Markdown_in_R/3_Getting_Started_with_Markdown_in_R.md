@@ -28,7 +28,7 @@ Once the `rmarkdown` package has been installed, a new, blank RMarkdown document
 1. Clicking `File` at the top of the screen
 2. Selecting `New File`
 3. Choosing `R Markdown...`
-4. Clicking `Create Empty Document`
+4. Clicking `Create Empty Document` on the resultant pop-up screen
 
 Completing the above four steps should result in an RStudio window that looks like the following:
 ![Blank RMarkdown file](Embedded_Display_Items/Blank_RMarkdown_View.png)
