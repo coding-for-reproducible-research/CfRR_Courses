@@ -14,4 +14,4 @@ The above image provides a snapshot of the core components that make up an R Mar
 2. Formatted plain text
 3. Embedded code
 
-We will explore each of these further during the course of this workshop.
+We will explore each of these in more detail throughout the course of this workshop.
