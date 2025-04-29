@@ -23,8 +23,8 @@ Alternitively, after opening RStudio, `rmarkdown` can be downloaded and installe
 install.packages('rmarkdown')
 ```
 
-#### Creating a new RMarkdown document:
-Once the `rmarkdown` package has been installed, a new, blank RMarkdown document can be created in RStudio by:
+#### Creating a new R Markdown document:
+Once the `rmarkdown` package has been installed, a new, blank R Markdown document can be created in RStudio by:
 1. Clicking `File` at the top of the screen
 2. Selecting `New File`
 3. Choosing `R Markdown...`
