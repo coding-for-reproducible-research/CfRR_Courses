@@ -49,11 +49,22 @@ date: "`r Sys.Date()`"
 output: word_document
 ---
 ```
-Some output options can be leveraged regardless of output format, whereas other are only valid for specific types of output format. The most common output types and options when defining the `output` key of a YAML header are as follows (sourced from [posit](https://posit.co/wp-content/uploads/2022/10/rmarkdown-1.pdf):
 
+Some output options can be leveraged regardless of output format, whereas other are only valid for specific types of output format. The most common output types and options when defining the `output` key of a YAML header are as follows (sourced from [posit](https://posit.co/wp-content/uploads/2022/10/rmarkdown-1.pdf)):
 
-depends on type of output
+![rmarkdown outputs](Embedded_Display_Items/rmarkdown_cheat_sheet_outputs.png)
 
-Embed keys for output example
+It is worthwhile noting that when specifying additional options for outputs *via* the `output` YAML key, it is convention to specify additional options (which can be considered as 'sub-keys') each on a new line with tab spacing implemented. For example, if we wished to ultimately produce a HTML output that includes a table of contents, we could use the following YAML header in our R Markdown document:
+
+```r
+---
+title: "My html document"
+author: "John Smith"
+date: "`r Sys.Date()`"
+output: html_document:
+  toc: TRUE
+---
+```
 
 ### Task
+In your working R Markdown file, create a YAML header that will give your output the title "Intro to Markdown in R", incude your name as the author, provide whatever the current date is when the .rmd gets processed, and produce a HTML output when processed.
