@@ -10,7 +10,7 @@ Implementing Markdown in R provides many benefits, for example:
 ***Reproducibility.*** Having R code and plain text together in a single document means that you can provide more detailed descriptions on what the code is doing and the theorical thinking behind things. This is helpful not only for your own understanding but also when sharing your code with others. Reproducibility of R code-based piplelines is therefore enhanced *via* implementation of Markdown in R. Perhaps the best demonstration of this is the fact that many of the tutorials for R packages you might have come across will have been produced using Markdown in R. Reproducibility is also facilitated by the fact that whenever your Markdown file in R is processed, your code will be re-run from top to bottom, ensuring that the output reflects the most up-to-date data and analysis.
 
 ***Felixble outputs.***
-Through implementation of Markdown in R, your R code and plain text can be together in a variety of different output formats, from interactive HTML reports that can be viewed in a browser, to print-friendly PDF files, editable Microsoft Word documents and even Microsoft Powerpoint Presentation format. As such,
+Through implementation of Markdown in R, your R code and plain text can be together in a variety of different output formats, from interactive HTML reports that can be viewed in a browser, to print-friendly PDF files, editable Microsoft Word documents and even Microsoft Powerpoint Presentation format. As such, you have the flexibility to be able to present and share your R code in a way that you most prefer or that is best suited to the context at hand.
 
 - ***Multiple languages:-***
 
