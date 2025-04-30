@@ -5,11 +5,12 @@
 ### What are the benefits of using Markdown in R?
 Implementing Markdown in R provides many benefits, for example:
 
-- ***Dynamic document creation.*** Using Markdown in R offers a platform to be able to integrate descriptive text, R code and its outputs into a single resource. This enables you to create notebooks for your coding projects in a similar way that a biologist might have a physical notepad for documenting their laboratory experiments. (running code)
+***Dynamic document creation.*** Using Markdown in R offers a platform to be able to integrate descriptive text, R code and its outputs into a single resource. This enables you to create notebooks for your coding projects in a similar way that a biologist might have a physical notepad for documenting their laboratory experiments. (RUNNING CODE IN REAL TIME)
 
-- ***Reproducibility:-***
+***Reproducibility.*** Having R code and plain text together in a single document means that you can provide more detailed descriptions on what the code is doing and the theorical thinking behind things. This is helpful not only for your own understanding but also when sharing your code with others. Reproducibility of R code-based piplelines is therefore enhanced *via* implementation of Markdown in R. Perhaps the best demonstration of this is the fact that many of the tutorials for R packages you might have come across will have been produced using Markdown in R. Reproducibility is also facilitated by the fact that whenever your Markdown file in R is processed, your code will be re-run from top to bottom, ensuring that the output reflects the most up-to-date data and analysis.
 
-- ***Felixble outputs:-***
+***Felixble outputs.***
+Through implementation of Markdown in R, your R code and plain text can be together in a variety of different output formats, from interactive HTML reports that can be viewed in a browser, to print-friendly PDF files, editable Microsoft Word documents and even Microsoft Powerpoint Presentation format. As such,
 
 - ***Multiple languages:-***
 
