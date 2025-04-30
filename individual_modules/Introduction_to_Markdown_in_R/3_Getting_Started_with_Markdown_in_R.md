@@ -3,7 +3,16 @@
 ## Getting started with Markdown in R
 
 ### What are the benefits of using Markdown in R?
-(INSERT TEXT)
+Implementing Markdown in R provides many benefits, for example:
+
+- ***Dynamic document creation.*** Using Markdown in R offers a platform to be able to integrate descriptive text, R code and its outputs into a single resource. This enables you to create notebooks for your coding projects in a similar way that a biologist might have a physical notepad for documenting their laboratory experiments. (running code)
+
+- ***Reproducibility:-***
+
+- ***Felixble outputs:-***
+
+- ***Multiple languages:-***
+
 ### How is Markdown implemented in R?
 Markdown is predominantly implemented in R *via* RStudio using a dedicated R package called `rmarkdown`.
 
