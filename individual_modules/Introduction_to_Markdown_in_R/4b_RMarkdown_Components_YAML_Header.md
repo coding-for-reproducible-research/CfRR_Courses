@@ -49,6 +49,7 @@ date: "`r Sys.Date()`"
 output: word_document
 ---
 ```
+Some output options can be leveraged regardless of output format, whereas other are only valid for specific types of output format. The most common output types and options when defining the `output` key of a YAML header are as follows (sourced from [posit](https://posit.co/wp-content/uploads/2022/10/rmarkdown-1.pdf):
 
 
 depends on type of output
