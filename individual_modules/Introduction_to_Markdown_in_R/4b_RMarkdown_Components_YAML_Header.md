@@ -36,7 +36,7 @@ date: "`r Sys.Date()`"
 output: html_document
 ---
 ```
-The `r Sys.Date()` syntax used here also provides an example of how R code can embedded into R Markdown documents. We will explore this more later on in the workshop.
+The `r Sys.Date()` syntax used here also provides an example of how R code can embedded into R Markdown documents. We will explore this in more detail later on in the workshop.
 
 ### Is HTML the only `output` option in a YAML header? 
 The `title`, `author` and `date` fields are core metadata keys of a YAML header in R Markdown documents. Nevertheless, if desired, each can be ignored by setting the assigned value to `NULL` or by simply removing the corresponding line of code. While we will focus on HTML outputs in this workshop for simplicity (can be viewed on a web browser), there are many other possible options that exist when it comes to controlling the output format in a YAML header using the `output` key. For example, we can instruct for a Microsoft Word file (.docx) to get produced when the R Markdown file is processed *via* the following:
