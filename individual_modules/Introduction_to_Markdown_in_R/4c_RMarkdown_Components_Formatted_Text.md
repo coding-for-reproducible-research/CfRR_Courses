@@ -6,13 +6,22 @@ Many of the features that you might implement in other text-based applications l
 
 ### How is plain text added to an R Markdown document?
 
-Adding text to an R Markdown document is as straightforward as typing what you want to write at any point in the file below the YAML header, for example:
+Adding text to an R Markdown document is as straightforward as typing what you want to write in any of the white space below the YAML header, for example:
 
 ```r
+---
+title: "My html document"
+author: "John Smith"
+date: "`r Sys.Date()`"
+output: html_document
+---
+This is my very first R Markdown document.
+```
+
+Any plain text that is written in the white space below the YAML header of the R Markdown file will then ultimately be included as normal text in the output document when the R Markdown file gets processed. In the case of the above example, the output would look like as follows (opened in Google Chrome):
 
 
-
-### How can the aestics of text be adusted? ###
+### How can the aethetics of plain text be adjusted in R Markdown?
 
 
 headers,
