@@ -101,7 +101,7 @@ Even more text.
 
 ```
 
-The resultant HTML output generated upon processing the above in an R Markdown file would subsequently look like:
+The HTML output generated upon processing the above in an R Markdown file would subsequently look like:
 
 ![multiple headers]()
 
@@ -223,7 +223,7 @@ When processed, the above R Markdown syntax would generate a HTML output that lo
 
 ![table unjustified]()
 
-The `:` symbol can further be implemented to control text justification in the table:
+The `:` symbol enables for control of text justification (left, centre or right) in the table:
 
 ```rmarkdown
 ---
@@ -235,9 +235,10 @@ output: html_document
 
 | Header 1 | Header 2 | Header 3 |
 | :------- | :------: | -------: |
-| Text     | Text     | Text     |
-| Text     | Text     | Text     |
 | Left     | Centre   | Right    |
+| Aligned  | Aligned  | Aligned  |
+| Text     | Text     | Text     |
+
 
 ```
 
@@ -248,16 +249,11 @@ The HTML output generated upon processing the above would subsequently look like
 #### Embedding external images:
 Both web-based images and locally saved images can be embedded into an R Markdown document.
 
-!!! TEXT BASED TABLES ###
-Tables
-Images
-hyperlinks
-bibliography?
-paragraphing & line breaks
-Note on underline and changing colour
-OTHER LIKE STRIKETHROUGH
-visual items: tables, images
 
-!!! ESCAPING
+!!! hyperlinks
+!!! bibliography?
 
-!!! TASK
+### Can Markdown annotation symbols be displayed as normal characters?
+!!! Escaping
+
+### Task
