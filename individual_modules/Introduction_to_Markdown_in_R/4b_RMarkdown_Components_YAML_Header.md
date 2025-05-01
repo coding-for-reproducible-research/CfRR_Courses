@@ -67,4 +67,9 @@ output: html_document:
 ```
 
 ### Task
-In your working R Markdown file, create a YAML header that will give your output the title "Intro to Markdown in R", incude your name as the author, dynamically provide the current date, and that produces a HTML output when the `.Rmd` file is processed.
+In your working R Markdown file, create a YAML header that will:
+
+- Give your output the title "Intro to Markdown in R"
+- Incude your name as the author
+- Provide the whatever current date anytime the `.Rmd` file gets processed
+- Produces a HTML output when the `.Rmd` file is processed
