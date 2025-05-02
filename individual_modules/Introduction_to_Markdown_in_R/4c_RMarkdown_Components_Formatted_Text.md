@@ -48,7 +48,22 @@ When processed, the above would then produce a HTML output looking like the foll
 
 ![written text output with spacing]()
 
-!!! LINE BREAK WITH SINGLE SENTENCE OVER TWO LINES
+Line break syntax can even be used to split a single sentence over multiple lines. For example:
+
+```rmarkdown
+---
+title: "My html document"
+author: "John Smith"
+date: "`r Sys.Date()`"
+output: html_document
+---
+Background: <br>
+This is my very first <br>
+R Markdown document.
+
+```
+
+Here, the sentence "This is my very first R Markdown document." will then appear over two lines in the output.
 
 ### How can the aethetics of plain text be adjusted in R Markdown?
 
@@ -110,7 +125,7 @@ The lower the level of the heading, the smaller the header text is outputted. Al
 
 #### Font formatting:
 
-Aside from the `#` symbol for invoking headers, dedicated Markdown annotation syntax also exists for boldening and/or italicising text (*via* the `*` symbol), as well as striking through text( *via* the `~` symbol), as follows:
+Aside from the `#` symbol for invoking headers, dedicated Markdown annotation syntax also exists for boldening and/or italicising text (*via* the `*` symbol), as well as striking through text (*via* the `~` symbol), as follows:
 
 ```rmarkdown
 ---
@@ -313,15 +328,63 @@ The HTML output generated when the above R Markdown syntax is processed would lo
 
 ### How are references embedded into R Markdown documents?
 
-If you are using R Markdown to generate complete reports, it likely that you will intend to include references to literature where necessary.
+If you are using R Markdown to generate complete reports, it likely that you will intend to include references to literature where necessary. To embed references into R Markdown, it is first required to construct a bibliography file in BibTeX  (`.bib`) format that contains the references. BibTeX files can be created using any text editor by saving the file the file with a `.bib` extension. References within BibTeX files are formatted as follows:
 
+```bibtex
+@article{distefano2018,
+  title={Effects of exercise and aging on skeletal muscle},
+  author={Distefano, Giovanna and Goodpaster, Bret H},
+  journal={Cold Spring Harbor perspectives in medicine},
+  volume={8},
+  number={3},
+  pages={a029785},
+  year={2018},
+  publisher={Cold Spring Harbor Laboratory Press}
+}
+```
 
+With your BibTeX file saved in the same directory as your `.Rmd` file, you can then embed references into your R Markdown document by pointing to the `.bib` file in the YAML header using the `bibliography` YAML key, and using the citation key syntax in-text to pull a specific reference from the `.bib` file. For example:
 
+```rmarkdown
+---
+title: "My html document"
+author: "John Smith"
+date: "`r Sys.Date()`"
+output: html_document
+bibliography: myreferences.bib
+---
 
-!!! bibliography?
+Muscle mass declines at a rate of approximately 10% per decade after the age of 30 [@distefano2018].
+
+```
+
+In the resultant HTML output, this would display as the following:
+
+![references]()
+
+By default, the Chicago author-date format is applied in R Markdown when embedding references. To use a different referencing style, you will need to download (e.g., from the Zotero Style repository) the associated `.csl` file for that style and then as sign it to the value of the `.csl` key in the YAML header.
 
 ### Can Markdown annotation symbols be displayed as normal characters?
-!!! Escaping
+Sometimes you might need to display special characters (like *, _, or #) in your R Markdown text without them being interpreted as annotation symbols. To do this, you can escape the character by placing a backslash (\) before it. For example:
+
+```rmarkdown
+---
+title: "My html document"
+author: "John Smith"
+date: "`r Sys.Date()`"
+output: html_document
+bibliography: myreferences.bib
+---
+
+- List item 1
+
+\- display symbol normally
+
+```
+
+The above will translate into the below utput HTML when processed:
+
+![escaping]()
 
 ### Task
 (INSERT TEXT)
