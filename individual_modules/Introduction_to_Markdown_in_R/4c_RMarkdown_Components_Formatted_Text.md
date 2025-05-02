@@ -365,7 +365,7 @@ In the resultant HTML output, this would display as the following:
 By default, the Chicago author-date format is applied in R Markdown when embedding references. To use a different referencing style, you will need to download (e.g., from the Zotero Style repository) the associated `.csl` file for that style and then as sign it to the value of the `.csl` key in the YAML header.
 
 ### Can Markdown annotation symbols be displayed as normal characters?
-Sometimes you might need to display special characters (like *, _, or #) in your R Markdown text without them being interpreted as annotation symbols. To do this, you can escape the character by placing a backslash (\) before it. For example:
+Sometimes you might need to display special characters (like `*`, `_`, or `#`) in your R Markdown text without them being interpreted as annotation symbols. To do this, you can escape the character by placing a backslash (\) before it. For example:
 
 ```rmarkdown
 ---
