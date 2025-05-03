@@ -119,7 +119,7 @@ Even more text.
 
 The HTML output generated upon processing the above in an R Markdown file would subsequently look like:
 
-![multiple headers](Embedded_Display_Items/multiple_headers.png)
+![multiple headers](Embedded_Display_Items/multiple_headers_2.png)
 
 The lower the level of the heading, the smaller the header text is outputted. Also notice how unlike the case for unformatted plain text, when a header is invoked in R Markdown, the subsequent line is automatically treated as a new line in the output when the `.Rmd` file is processed. Further, if the table of contents (`TOC`) option is set to `TRUE` in the YAML header, the formatted text headers and subheaders will form the resultant table of contents in the output.
 
