@@ -356,6 +356,7 @@ bibliography: myreferences.bib
 
 Muscle mass declines at a rate of approximately 10% per decade after the age of 30 [@distefano2018].
 
+#### References:
 ```
 
 In the resultant HTML output, this would display as the following:
