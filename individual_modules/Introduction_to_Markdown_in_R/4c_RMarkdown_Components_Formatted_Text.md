@@ -21,7 +21,7 @@ This is my very first R Markdown document.
 
 Any plain text that is written in the white space below the YAML header of the R Markdown file will then ultimately be included as normal text in the output document when the R Markdown file gets processed. In the case of the above example, the output would look like as follows:
 
-![initial written text output]()
+![initial text](Embedded_Display_Items/initial_written_text.png)
 
 Notice how, despite typing the text over two lines in R Markdown itself, it all falls on the same line in the HTML output. To display unformatted plain text in a `.Rmd` file on seperate lines in the processed output, you can use the Markdown line break syntax `<br>` (only works for HTML), end the above of the lines with two spaces, or (for a slightly larger gap) simply include a blank line (both the latter work for HTML, Word and PDF outputs). For example: 
 
@@ -46,7 +46,7 @@ This is my very first R Markdown document (blank line in-between).
 
 When processed, the above would then produce a HTML output looking like the following:
 
-![written text output with spacing]()
+![line break](Embedded_Display_Items/line_break.png)
 
 Line break syntax can even be used to split a single sentence over multiple lines. For example:
 
@@ -86,7 +86,7 @@ This is my very first R Markdown document.
 
 Notice how the plain text on the line starting with the `#` now appears blue. This is an example of annotation syntax highlighting in R Markdown, which usefully makes the specific bits of text being formatted stand out. Processing the above in an R Markdown file would then generate a HTML output that displays like the following:
 
-![single header]()
+![single header](Embedded_Display_Items/single_header.png)
 
 In the above case we used a single `#` symbol to induce a header. Nevertheless, it is also possible to invoke sub-headings by adding multiple `#` symbols at the start of the required text. The number of `#` symbols used at the start of a given line then determines the level of the heading. For example:
 
@@ -119,7 +119,7 @@ Even more text.
 
 The HTML output generated upon processing the above in an R Markdown file would subsequently look like:
 
-![multiple headers]()
+![multiple headers](Embedded_Display_Items/multiple_headers.png)
 
 The lower the level of the heading, the smaller the header text is outputted. Also notice how unlike the case for unformatted plain text, when a header is invoked in R Markdown, the subsequent line is automatically treated as a new line in the output when the `.Rmd` file is processed. Further, if the table of contents (`TOC`) option is set to `TRUE` in the YAML header, the formatted text headers and subheaders will form the resultant table of contents in the output.
 
@@ -149,7 +149,7 @@ output: html_document
 
 When processed, the above R Markdown syntax would generate a HTML output looking like the below:
 
-![font formatting]()
+![font formatting](Embedded_Display_Items/font_formatting.png)
 
 #### Lists:
 
@@ -173,7 +173,7 @@ output: html_document
 
 The resultant HTML output generated upon processing the above in an R Markdown file would subsequently look like:
 
-![unordered lists]()
+![unordered lists](Embedded_Display_Items/unordered_list.png)
 
 Ordered (numerical) lists just as easily implemented by starting a given line with a number joined to a `.` symbol. Ordered sublists are also possible using this convention, but require at least four spaces to invoke the indentation:
 
