@@ -14,4 +14,4 @@ The rendering process iself is akin to the following series of steps:
 
 #### Rendering programatically:
 
-Rendering can be undertaken programatically by calling the `render` function from the `rmarkdown` package in console, specifying the path to the `.Rmd` file to be rendered. For example, to render an R Markdown file called `my_file.Rmd` 
+Rendering can be undertaken programatically by calling the `render` function from the `rmarkdown` package in console, specifying the path to the `.Rmd` file to be rendered. For example, to render an R Markdown file called `my_file.Rmd` saved in the downloads folder of a local user's profile
