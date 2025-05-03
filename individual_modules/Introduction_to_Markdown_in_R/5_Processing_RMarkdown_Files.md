@@ -26,7 +26,7 @@ This will automatically produce the output format type as defined in the YAML he
 
 RStudio offers an alternative, user-friendly functionality for rendering R Markdown files, known as **knitting**. Strictly speaking the knitting process operates programatically, but does so under the hood, enabling the user to complete the rendering process simply by clicking buttons.
 
-Knitting a `.Rmd` file in RStudio can be performed by clicking the ![insert pic]() button. Clicking directly on the blue ball of wool will automatically render the output format type as defined in the YAML header of the R Markdown file. Neverthless, clicking on the drop down arrow part of the button will bring up alternative output format options should they be desired. 
+Knitting a `.Rmd` file in RStudio can be performed by clicking the <img src = "Embedded_Display_Items/knit_button.png" alt = "knit button" height = "25" style = "vertical-align:middle;"> button. Clicking directly on the blue ball of wool will automatically render the output format type as defined in the YAML header of the R Markdown file. Neverthless, clicking on the drop down arrow part of the button will bring up alternative output format options should they be desired. 
 
 It is worth noting that regardless of whether you choose to render programatically or using the RStudio knitting tool, rendering to PDF output format requires LateX to work.
 
