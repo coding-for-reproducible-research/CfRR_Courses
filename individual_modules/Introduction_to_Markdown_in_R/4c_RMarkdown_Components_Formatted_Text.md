@@ -103,16 +103,16 @@ This is my very first R Markdown document.
 ## Section 1
 Some text.
 
-### Section 1, subsection 1
+### Subsection 1
 Some more text.
 
 ## Section 2
 Some text.
 
-### Section 2, subsection 1
+### Subsection 1
 Some more text.
 
-### Section 2, subsection 2
+### Subsection 2
 Even more text.
 
 ```
@@ -195,7 +195,7 @@ output: html_document
 
 The above, when processed, will generate an output that looks like:
 
-![ordered lists]()
+![ordered lists](Embedded_Display_Items/ordered_list.png)
 
 Finally, it is possible to create task lists in R Markdown by implementing the following Markdown annotation syntax:
 
@@ -214,7 +214,7 @@ output: html_document
 
 In the resultant HTML output, this would display as the following:
 
-![task lists]()
+![task lists](Embedded_Display_Items/task_list.png)
 
 ### How can tables and images be embedded in an R Markdown document?
 
@@ -241,7 +241,7 @@ output: html_document
 
 When processed, the above R Markdown syntax would generate a HTML output that looks like the following:
 
-![table unjustified]()
+![table unjustified](Embedded_Display_Items/unjustified_table.png)
 
 The `:` symbol then enables for control of text justification (left, centre or right) in the table:
 
@@ -263,7 +263,7 @@ output: html_document
 
 The HTML output generated upon processing the above would subsequently look like:
 
-![table justified]()
+![table justified](Embedded_Display_Items/justified_table.png)
 
 #### Embedding external images:
 
@@ -284,7 +284,7 @@ The below figure illustrates how muscle strength changes with ageing: <br>
 
 The HTML output when the above is processed within an R Markdown document is then as follows:
 
-![embed web image]()
+![embed web image](Embedded_Display_Items/embedded_web_image.png)
 
 It is worth noting in the above example, the `<br>` notation was used to make the image appear below the preceding line of unformatted plain text. If you were to instead leave a blank line between the unformatted text and the annotation syntax for embedding the image, then the brief textual description contained within the `[ ]` brackets will show as an image caption in the resultant output. 
 
@@ -324,7 +324,7 @@ An illustration of how muscle mass and strength change with ageing can he found 
 
 The HTML output generated when the above R Markdown syntax is processed would look like the following:
 
-![embed hyperlink]()
+![embed hyperlink](Embedded_Display_Items/embedded_hyperlink.png)
 
 ### How are references embedded into R Markdown documents?
 
@@ -361,7 +361,7 @@ Muscle mass declines at a rate of approximately 10% per decade after the age of 
 
 In the resultant HTML output, this would display as the following:
 
-![references]()
+![references](Embedded_Display_Items/bibliography.png)
 
 By default, the Chicago author-date format is applied in R Markdown when embedding references. To use a different referencing style, you will need to download (e.g., from the Zotero Style repository) the associated `.csl` file for that style and then as sign it to the value of the `.csl` key in the YAML header.
 
@@ -385,7 +385,7 @@ bibliography: myreferences.bib
 
 The above will translate into the below utput HTML when processed:
 
-![escaping]()
+![escaping](Embedded_Display_Items/escaping.png)
 
 ### Task
 (INSERT TEXT)
