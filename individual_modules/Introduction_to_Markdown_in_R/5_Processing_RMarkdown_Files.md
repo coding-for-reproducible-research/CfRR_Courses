@@ -30,4 +30,4 @@ Knitting a `.Rmd` file in RStudio can be performed by clicking the ![insert pic]
 
 It is worth noting that regardless of whether you choose to render programatically or using the RStudio knitting tool, rendering to PDF output format requires LateX to work.
 
-## Task
+### Task
