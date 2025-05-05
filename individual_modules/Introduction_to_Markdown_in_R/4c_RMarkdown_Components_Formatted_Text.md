@@ -343,6 +343,8 @@ If you are using R Markdown to generate complete reports, it likely that you wil
 }
 ```
 
+You can get the metadata for a research output in the above format by locating its Google Scholar entry, clicking `Cite` and selecting `BibTeX`. This can then be copy and pasted into your own BibTex file. 
+
 With your BibTeX file saved in the same directory as your `.Rmd` file, you can then embed references into your R Markdown document by pointing to the `.bib` file in the YAML header using the `bibliography` YAML key, and using the citation key syntax in-text to pull a specific reference from the `.bib` file. For example:
 
 ```rmarkdown
@@ -387,4 +389,7 @@ The above will translate into the below utput HTML when processed:
 ![escaping](Embedded_Display_Items/escaping.png)
 
 ### Task
-(INSERT TEXT)
+Below is a HTML output generated using R Markdown. Try to reproduce this in your open R Markdown document. You can check the formatting effects you apply in real time by toggling from `Source` view to `Visual` view in the top left corner of the RStudio script pane. The Google Scholar entry for the utilised journal article can be found [here](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Integrative+effects+of+resistance+training+and+endurance+training+on+mitochondrial+remodeling+in+skeletal+muscle&btnG=). You will need to create a `.bib` file containing the reference and also obtain the URL for the image directly from the journal artical webpage.
+
+![formatting task output]()
+
