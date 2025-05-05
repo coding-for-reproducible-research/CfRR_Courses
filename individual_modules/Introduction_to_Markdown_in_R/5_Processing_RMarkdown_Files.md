@@ -31,3 +31,6 @@ Knitting a `.Rmd` file in RStudio can be performed by clicking the <img src = "E
 It is worth noting that regardless of whether you choose to render programatically or using the RStudio knitting tool, rendering to PDF output format requires LateX to work.
 
 ### Task
+Try to render your R Markdown file. Note that the rendered output should automatically save in the same location on your computer that your `.Rmd` file is saved in.
+
+
