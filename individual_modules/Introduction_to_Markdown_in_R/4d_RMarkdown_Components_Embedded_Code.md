@@ -68,11 +68,11 @@ Will display in a HTML output as:
 
 ![eval T echo T](Embedded_Display_Items/evalT_echoT.png)
 
-Using `eval = TRUE` and `echo = FALSE` will run the code chunk when the R Markdown file is processed, but only show the result of the code in the final output. For the above example, this would display in HTML format as:
+Using `eval = TRUE` and `echo = FALSE` will run the code chunk when the R Markdown file is processed, but only show the result of the code in the final output. For the above example, this would display in a HTML output as:
 
 ![eval T echo F](Embedded_Display_Items/evalT_echoF.png)
 
-Just having the result of a code chunk in the output but not the code itself is particularly useful when wanting to display figures produced using R code. Nevertheless, it can also be helful sometimes to display the contents of code chunk in the output but not have it ran when the `.Rmd` file is processed, for example when drafting and debugging code, or simply show example code without running it. In which case, the combination of `eval = FALSE` and `echo = TRUE` can be used. For the above example, this would display in HTML format as:
+Just having the result of a code chunk in the output but not the code itself is particularly useful when wanting to display figures produced using R code. Nevertheless, it can also be helful sometimes to display the contents of code chunk in the output but not have it ran when the `.Rmd` file is processed, for example when drafting and debugging code, or simply show example code without running it. In which case, the combination of `eval = FALSE` and `echo = TRUE` can be used. For the above example, this would display in a HTML output as:
 
 ![eval F echo T](Embedded_Display_Items/evalF_echoT.png)
 
