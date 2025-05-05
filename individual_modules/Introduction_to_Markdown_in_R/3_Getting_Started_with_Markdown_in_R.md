@@ -3,6 +3,7 @@
 ## Getting started with Markdown in R
 
 ### What are the benefits of using Markdown in R?
+
 Implementing Markdown in R provides many benefits, for example:
 
 | Benefit  | Description |
@@ -13,9 +14,11 @@ Implementing Markdown in R provides many benefits, for example:
 |Multiple languages| While the most logical implementation of Markdown in R is to produce dynamic documents of R code with formatted text, it is also possible to integrate and run other programming languages through Markdown in R, such a Python. This can be very useful in cases where you might need to leverage functions or libraries in the same pipeline that are native to different coding languages. |
 
 ### How is Markdown implemented in R?
+
 Markdown is predominantly implemented in R *via* RStudio using a dedicated R package called `rmarkdown`.
 
 #### Installing the `rmarkdown` package:
+
 The `rmarkdown` package is available for download and installation through the Comprehensive R Archive Network (CRAN). This process can be undertaken by first opening RStudio and then performing the following click-button steps:
 
 1. Click `Tools` at the top of the screen
@@ -32,6 +35,7 @@ install.packages('rmarkdown')
 ```
 
 #### Creating a new R Markdown document:
+
 Once the `rmarkdown` package has been installed, a new, blank R Markdown document can be created in RStudio by:
 1. Clicking `File` at the top of the screen
 2. Selecting `New File`
@@ -41,3 +45,6 @@ Once the `rmarkdown` package has been installed, a new, blank R Markdown documen
 Completing the above four steps should result in an RStudio window that looks like the following:
 ![Blank RMarkdown file](Embedded_Display_Items/Blank_RMarkdown_View.png)
 
+### Saving a (new) R Markdown document:
+
+After initialising a new R Markdown document, it can be saved by clicking `File` at the top of the screen and selecting `Save`, Alternatively, the save process can be performed by clicking the ![floppy disk]() button. It is also good practice to repeat the save process regularly when putting together an R Markdown document so that no progress is lost.
