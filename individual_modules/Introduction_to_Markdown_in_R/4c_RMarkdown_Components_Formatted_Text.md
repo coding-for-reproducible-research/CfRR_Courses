@@ -389,7 +389,7 @@ The above will translate into the below utput HTML when processed:
 ![escaping](Embedded_Display_Items/escaping.png)
 
 ### Task
-Below is a HTML output generated using R Markdown. Try to reproduce this in your open R Markdown document. You can check the formatting effects you apply in real time by toggling from `Source` view to `Visual` view in the top left corner of the RStudio script pane. The Google Scholar entry for the utilised journal article can be found [here](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Integrative+effects+of+resistance+training+and+endurance+training+on+mitochondrial+remodeling+in+skeletal+muscle&btnG=). You will need to create a `.bib` file containing the reference and also obtain the URL for the image directly from the journal artical webpage.
+Below is a HTML output generated using R Markdown that summarised how skeletal muscle adapts to different exercise types. Try to reproduce this in your open R Markdown document. You can check the formatting effects you apply in real time by toggling from `Source` view to `Visual` view in the top left corner of the RStudio script pane. The Google Scholar entry for the utilised journal article can be found [here](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Integrative+effects+of+resistance+training+and+endurance+training+on+mitochondrial+remodeling+in+skeletal+muscle&btnG=). You will need to create a `.bib` file containing the reference and also obtain the URL for the image directly from the journal artical webpage.
 
 ![formatting task output]()
 
