@@ -83,9 +83,9 @@ Since the last task, some further content has been added to the "Phenotypic diff
 
 - A code chunk to simulate an example plot of how muscle mass changes over time in response to twelve weeks of resistance *versus* endurance training
 - A sentence above the code chunk in formatted plain text that introduces the plot
-- A sentence below the code chunk that gives the final amount of muscle mass change per exercise type, with the values generated *via* in-line R code using the simulated data.
+- A sentence below the code chunk that gives the final amount of muscle mass change *per* exercise type, with the values generated *via* in-line R code using the simulated data.
 
-Try to implement this new content to your own R Markdown file.
+Try to implement this new content in your own R Markdown file.
 
 ![code task output]()
 
