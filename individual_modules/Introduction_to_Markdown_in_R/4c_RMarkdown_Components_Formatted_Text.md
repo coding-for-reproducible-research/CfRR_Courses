@@ -374,7 +374,6 @@ title: "My html document"
 author: "John Smith"
 date: "`r Sys.Date()`"
 output: html_document
-bibliography: myreferences.bib
 ---
 
 - List item 1
