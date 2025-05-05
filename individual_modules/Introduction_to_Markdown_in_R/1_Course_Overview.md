@@ -3,14 +3,14 @@
 ## Course overview
 
 ### About this course
-Reproducibility is a core feature of successful research software development and data science projects. Fully reproducable workflows can be created by integrating data with code and outputs using a special type of text language called "markdown". This course will introduce you to the markdown langauge and conceptualise the benefits towards ensuring reproducibility in coding-based research activities.You will also gain hands-on experience of creating reproducible workflows with markdown using R: a popular coding environment used in research software development and data science projects.
+Reproducibility is a core feature of successful research software development and data science projects. Fully reproducable workflows can be created by integrating data with code and outputs using a special type of text language called "Markdown". This course will introduce you to the Markdown langauge and conceptualise the benefits towards ensuring reproducibility in coding-based research activities.You will also gain hands-on experience of creating reproducible Markdown documents using R: a popular coding environment used in research software development and data science projects.
 
 ### Learning outcomes
 By the end of this workshop you will be able to:
-1. Describe what markdown is and why it is useful
-2. Recognise the main components of a markdown document
-3. Use basic markdown syntax
-4. Generate markdown documents using R/RStudio
+1. Describe what Markdown is and why it is useful
+2. Recognise the main components of a Markdown document
+3. Use basic Markdown syntax
+4. Generate Markdown documents using R/RStudio
 
 ### Pre-requisites
 
