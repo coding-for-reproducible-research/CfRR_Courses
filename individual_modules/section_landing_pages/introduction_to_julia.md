@@ -17,4 +17,4 @@ Welcome to the Introduction to Julia course! This course has been created to giv
 
 ## Pre-requisite Knowledge
 
-Attendees of the workshop should already be familiar with a programming language and should have already installed and been able to run an example of a Julia code snippet. 
+Attendees of the workshop should already be familiar with a programming language and should have already installed and been able to run an example of a Julia code snippet. The guidance for doing this is available via the [Intro to Julia Workshop Information Page](../../programme_information/intro_to_julia.ipynb).
