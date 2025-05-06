@@ -324,7 +324,7 @@ An illustration of how muscle mass and strength change with ageing can he found 
 
 The HTML output generated when the above R Markdown syntax is processed would look like the following:
 
-![embed hyperlink](Embedded_Display_Items/embedded_hyperlink.png)
+![embed hyperlink](Embedded_Display_Items/embedded_hyperlink-2.png)
 
 ### How are references embedded into R Markdown documents?
 
@@ -368,7 +368,7 @@ In the resultant HTML output, this would display as the following:
 By default, the Chicago author-date format is applied in R Markdown when embedding references. To use a different referencing style, you will need to download (e.g., from the Zotero Style repository) the associated `.csl` file for that style and then as sign it to the value of the `.csl` key in the YAML header.
 
 ### Can Markdown annotation symbols be displayed as normal characters?
-Sometimes you might need to display special characters (like `*`, `_`, or `#`) in your R Markdown text without them being interpreted as annotation symbols. To do this, you can escape the character by placing a backslash (\) before it. For example:
+Sometimes you might need to display special characters (like `*`, `_`, or `#`) in your R Markdown text without them being interpreted as annotation symbols. To do this, you can place a backslash (\) before the character in question. For example:
 
 ```rmarkdown
 ---
