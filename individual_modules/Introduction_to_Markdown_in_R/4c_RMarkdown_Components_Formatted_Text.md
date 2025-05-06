@@ -315,9 +315,6 @@ date: "`r Sys.Date()`"
 output: html_document
 ---
 
-The below figure illustrates how muscle mass and strength change with ageing: <br>
-![muscle strength with age](https://ars.els-cdn.com/content/image/1-s2.0-S1279770723023655-gr1.jpg)
-
 An illustration of how muscle mass and strength change with ageing can he found [here](https://ars.els-cdn.com/content/image/1-s2.0-S1279770723023655-gr1.jpg).
 
 ```
