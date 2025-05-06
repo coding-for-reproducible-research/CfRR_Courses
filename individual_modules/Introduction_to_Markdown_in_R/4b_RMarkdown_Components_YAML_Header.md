@@ -30,7 +30,7 @@ In this particular example, the following YAML key-value pairs have been used:
 
 Here, the `title`, `author` and `date` YAML keys act to define metadata for the file and their assigned values will get displayed in the resultant output. The output format is itself controlled by the `output` YAML key, which in this case has been assigned the value `html_document` (note the lack of quotation marks) so that a HTML output gets produced.
 
-It is worthwile noting that the `date` key does not necessarily have to be assigned a physical value. If you'd prefer to set things up so that the current date is always given in the output when the R Markdown file gets processed, you could replace the written date as follows:
+It is worthwile noting that the `date` key does not necessarily have to be assigned a fixed value. If you'd prefer to set things up so that the current date is always given in the output when the R Markdown file gets processed, you could replace the written date as follows:
 
 ```rmarkdown
 ---
@@ -76,7 +76,7 @@ output: html_document:
 
 In your working R Markdown file, create a YAML header that will:
 
-- Give your output the title "Intro to Markdown in R"
+- Give your output the title "Skeletal Muscle and Exercise"
 - Incude your name as the author
-- Provide the whatever current date anytime the `.Rmd` file gets processed
+- Generate whatever the current date is anytime the `.Rmd` file gets processed
 - Produces a HTML output when the `.Rmd` file is processed
