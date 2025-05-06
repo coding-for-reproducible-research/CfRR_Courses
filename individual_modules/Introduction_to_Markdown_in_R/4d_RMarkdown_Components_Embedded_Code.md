@@ -2,14 +2,14 @@
 
 ## Components of an R Markdown document: embedded code
 
-As mentioned earlier on in this workshop, one of the primary benefits of R Markdown is the ability to integrate formatted plain text with R code and its outputs into a single dynamic document. Code can be embedded into R Markdown documents in two different forms:
+As mentioned earlier in this workshop, one of the primary benefits of R Markdown is the ability to integrate formatted plain text with R code and its outputs into a single dynamic document. Code can be embedded into R Markdown documents in two different forms:
 
 1. In-line code
 2. Code chunks
 
 ### How is in-line code embedded into an R Markdown document?
 
-In-line code refers to snippets of code that is embedded withn the text element of the R Markdown document. This can be helpful for when results or values need to be dynamically inserted without breaking the textual flow. The Markdown syntax for adding in-line R code in R Markdown is `` `r <your code>` ``, for example:
+In-line code refers to snippets of code that are embedded within the plain text element of the R Markdown document. This can be helpful for when results or values need to be dynamically inserted without breaking the textual flow. The Markdown syntax for adding in-line R code in R Markdown is `` `r <your code>` ``, for example:
 
 ``` rmarkdown
 ---
@@ -23,7 +23,7 @@ The number pi equals `r round(x = pi, digits = 3)` when rounded to three decimal
 
 ```
 
-Whenever an `.Rmd` file with in-line code is processed, the code is evaluated and the result displayed in its place within the output. For the above example, the resultant HTML output would look like:
+Whenever a `.Rmd` file with in-line code is processed, the code gets evaluated, and the result is displayed in place of the code within the output. For the above example, the resultant HTML output would look like:
 
 ![in-line code](Embedded_Display_Items/inline_code.png)
 
@@ -43,7 +43,7 @@ Here, the R code chunk is initiated by starting a new line with `` ```{r} ``. R 
 - Using the keyboard shortcut `Ctrl + Alt + I` (or `Cmd + Option + I` on a Mac)
 - Clicking the <img src = "Embedded_Display_Items/add_code_chunk.png" alt = "add chunk" width = "30" style = "vertical-align:middle;"> button in RStudio and then selecting <img src = "Embedded_Display_Items/select_r_code_chunk.png" alt = "r chunk" width = "40" style = "vertical-align:middle;">
 
-By default, when a `.Rmd` file gets processed, code chunks are evaluated and displayed alonside their results in the final output document. This behaviour can, however, be controlled *via* optional arguments definable within the `{r}` part of the code chunk. Some important custom options for code chunks in R Markdown are:
+By default, when a `.Rmd` file gets processed, code chunks are evaluated and displayed alongside their results in the final output document. This behaviour can, however, be controlled *via* optional arguments definable within the `{r}` part of the code chunk. Some important custom options for code chunks in R Markdown are:
 
 | Argument  | Description | Default value |
 | :-------: | :---------- | :-----------: |
@@ -68,20 +68,21 @@ Will display in a HTML output as:
 
 ![eval T echo T](Embedded_Display_Items/evalT_echoT.png)
 
-Using `eval = TRUE` and `echo = FALSE` will run the code chunk when the R Markdown file is processed, but only show the result of the code in the final output. For the above example, this would display in a HTML output as:
+Using `eval = TRUE` and `echo = FALSE` will run the code chunk when the R Markdown file is processed, but only show the result of the code chunk in the final output. For the above example, this would display in a HTML output as:
 
 ![eval T echo F](Embedded_Display_Items/evalT_echoF.png)
 
-Just having the result of a code chunk in the output but not the code itself is particularly useful when wanting to display figures produced using R code. Nevertheless, it can also be helful sometimes to display the contents of code chunk in the output but not have it ran when the `.Rmd` file is processed, for example when drafting and debugging code, or simply show example code without running it. In which case, the combination of `eval = FALSE` and `echo = TRUE` can be used. For the above example, this would display in a HTML output as:
+Just having the result of a code chunk in the output but not the code itself is particularly useful when wanting to display figures produced using R code. Nevertheless, it can also be helpful sometimes to display the contents of code chunk in the output but not have it ran when the `.Rmd` file is processed, for example when drafting and debugging code, or showing example code without running it. In which case, the combination of `eval = FALSE` and `echo = TRUE` can be used. For the above example, this would display in a HTML output as:
 
 ![eval F echo T](Embedded_Display_Items/evalF_echoT.png)
 
 Multiple code chunks can be embedded into a single R Markdown document, and it is good practice to partition your whole code into smaller, sensible code chunks that fit in and round descriptive formatted plain text to improve readability. It is also possible to run code chunks in real time within an R Markdown document itself. For a given code chunk in a `.Rmd` file, clicking <img src = "Embedded_Display_Items/run_code_chunks_above.png" alt = "run above chunks" width = "20" height = "20" style = "vertical-align:middle;"> will run all code chunks above it in real time, while clicking <img src = "Embedded_Display_Items/run_current_chunk.png" alt = "run current chunk" height = "20" style = "vertical-align:middle;"> will run that code chunk itself in real time. This is helpful when dynamically trialing and testing code while you write it into the R Markdown document. Note that if a code chunk depends on an output generated by any code chunk above it, the depending code chunk(s) above will need to be ran first.
 
 ### Task
-Since the last task, some further content has been added to the "Phenotypic differences" subsection of the practice R Markdown file (HTML output given below). This includes:
 
-- A code chunk to simulate an example plot of how muscle mass changes over time in response to twelve weeks of resistance *versus* endurance training
+Since the last task, some further content has been added to the "Phenotypic differences" sub-section of the practice R Markdown file (HTML output given below). This includes:
+
+- A code chunk to simulate an example plot of how muscle mass changes over time in response to 12 weeks of resistance *versus* endurance training
 - A sentence above the code chunk in formatted plain text that introduces the plot
 - A sentence below the code chunk that gives the final amount of muscle mass change *per* exercise type, with the values generated *via* in-line R code using the simulated data.
 
