@@ -87,6 +87,8 @@ Since the last task, some further content has been added to the "Phenotypic diff
 
 Try to implement this new content in your own R Markdown file.
 
-![code task output]()
+#### *Task HTML output:*
+
+![code task output](Embedded_Display_Items/Embedding_Code_Task_HTML_Output.png)
 
 
