@@ -6,7 +6,7 @@
 
 - The Markdown language is a useful tool for altering the format and structure of plain text
 - Markdown is best implemented in R *via* RStudio using the `rmarkdown` R package
-- R Markdown documents permit dynamic integration of formatted plain text, R code and its outputs, in turn supporting reproducible data science analysis and workflows
+- R Markdown documents permit dynamic integration of formatted plain text, R code and its outputs, in turn supporting reproducible software development, data analysis and workflows
 
 ### Acknowledgements and additional resources
 
