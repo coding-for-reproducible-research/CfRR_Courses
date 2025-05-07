@@ -1,14 +1,12 @@
-# Introduction to Markdown in R
-
-## Components of an R Markdown document: formatted plain text
+# Formatted Plain Text - Components of an R Markdown Document
 
 Many of the features that you might implement in other text-based applications like Microsoft Word can also be easily implemented in R Markdown documents. This could range from basic alterations to text aesthetics, through to the addition of tables and images, or even the inclusion of hyperlinks.
 
-### How is plain text added to an R Markdown document?
+## How is plain text added to an R Markdown document?
 
 Adding text to an R Markdown document is as straightforward as typing what you want to write in any of the white space below the YAML header, for example:
 
-```rmarkdown
+```r
 ---
 title: "My html document"
 author: "John Smith"
@@ -25,7 +23,7 @@ Any plain text that is written in the white space below the YAML header of the R
 
 Notice how, despite typing the text over two lines in R Markdown itself, it all falls on the same line in the HTML output. To display unformatted plain text in a `.Rmd` file on seperate lines in the processed output, you can use the Markdown line break syntax `<br>` (only works for HTML), end the above of the lines with two spaces, or (for a slightly larger gap) simply include a blank line (both the latter work for HTML, Word and PDF outputs). For example: 
 
-```rmarkdown
+```r
 ---
 title: "My html document"
 author: "John Smith"
@@ -50,7 +48,7 @@ When processed, the above would then produce a HTML output looking like the foll
 
 Line break syntax can even be used to split a single sentence over multiple lines. For example:
 
-```rmarkdown
+```r
 ---
 title: "My html document"
 author: "John Smith"
@@ -65,15 +63,15 @@ R Markdown document.
 
 Here, the sentence "This is my very first R Markdown document." will then appear over two lines in the output.
 
-### How can the aethetics of plain text be adjusted in R Markdown?
+## How can the aethetics of plain text be adjusted in R Markdown?
 
 The aethetics of plain text written in an R Markdown document can be easily modified by applying the annotation syntax that underlies the Markdown language. This can include making headers, boldening and/or italicising text, and creating lists.
 
-#### Adding headers:
+### Adding headers:
 
 In Markdown language, a line of plain text can be converted into a header by placing a `#` symbol at the start of that line (making sure there is a space between the `#` symbol and the first letter of text). For example: 
 
-```rmarkdown
+```r
 ---
 title: "My html document"
 author: "John Smith"
@@ -90,7 +88,7 @@ Notice how the plain text on the line starting with the `#` now appears blue. Th
 
 In the above case we used a single `#` symbol to induce a header. Nevertheless, it is also possible to invoke sub-headings by adding multiple `#` symbols at the start of the required text. The number of `#` symbols used at the start of a given line then determines the level of the heading. For example:
 
-```rmarkdown
+```r
 ---
 title: "My html document"
 author: "John Smith"
@@ -123,11 +121,11 @@ The HTML output generated upon processing the above in an R Markdown file would 
 
 The lower the level of the heading, the smaller the header text is outputted. Also notice how (unlike the case for unformatted plain text) when a header is invoked in R Markdown, the subsequent line is automatically treated as a new line in the output when the `.Rmd` file is processed. Further, if the table of contents (`TOC`) option is set to `TRUE` in the YAML header, the formatted text headers and sub-headers will form the resultant table of contents in the output.
 
-#### Font formatting:
+### Font formatting:
 
 Aside from the `#` symbol for invoking headers, dedicated Markdown annotation syntax also exists for boldening and/or italicising text (*via* the `*` symbol), as well as striking through text (*via* the `~` symbol), as follows:
 
-```rmarkdown
+```r
 ---
 title: "My html document"
 author: "John Smith"
@@ -151,11 +149,11 @@ When processed, the above R Markdown syntax would generate a HTML output looking
 
 ![font formatting](Embedded_Display_Items/font_formatting.png)
 
-#### Lists:
+### Lists:
 
 Various types of lists can also be implemented in R Markdown. Unordered (bullet point) lists can be produced by starting a line with the `-` symbol, with it further possible to introduce sub-listing by indenting the `-` symbol with at least two spaces. For example:
 
-```rmarkdown
+```r
 ---
 title: "My html document"
 author: "John Smith"
@@ -177,7 +175,7 @@ The resultant HTML output generated upon processing the above in an R Markdown f
 
 Ordered (numerical) lists can just as easily be implemented by starting a line with a number joined to a `.` symbol. Ordered sub-lists are also possible using this convention, but require at least four spaces to invoke the indentation:
 
-```rmarkdown
+```r
 ---
 title: "My html document"
 author: "John Smith"
@@ -199,7 +197,7 @@ The above, when processed, will generate an output that looks like:
 
 Finally, it is possible to create task lists in R Markdown by implementing the following Markdown annotation syntax:
 
-```rmarkdown
+```r
 ---
 title: "My html document"
 author: "John Smith"
@@ -216,15 +214,15 @@ In the resultant HTML output, this would display as the following:
 
 ![task lists](Embedded_Display_Items/task_list.png)
 
-### How can tables and images be embedded in an R Markdown document?
+## How can tables and images be embedded in an R Markdown document?
 
 When creating an R Markdown document, it is likely that the output will include tables and figures that are directly generated by the R code that is within the document. However, it is also possible to manually create text-based tables and integrate in external image files.
 
-#### Embedding text-based tables:
+### Embedding text-based tables:
 
 Tables can be manually created in R Markdown by using a mix of the `|`, `-` and `:` symbols. The `|` symbol is used to demarcate columns, while the `-` symbol is used to seperate table headers from normal table text. For example:
 
-```rmarkdown
+```r
 ---
 title: "My html document"
 author: "John Smith"
@@ -245,7 +243,7 @@ When processed, the above R Markdown syntax would generate a HTML output that lo
 
 The `:` symbol then enables for control of text justification (left, centre or right) in the table:
 
-```rmarkdown
+```r
 ---
 title: "My html document"
 author: "John Smith"
@@ -265,11 +263,11 @@ The HTML output generated upon processing the above would subsequently look like
 
 ![table justified](Embedded_Display_Items/justified_table.png)
 
-#### Embedding external images:
+### Embedding external images:
 
 Both web-based images and locally saved images can be embedded into an R Markdown document. The Markdown annotation for embedding a web-based image is `![brief textual description](image URL)`, where a short description of the image is given in `[ ]` brackets for screen readers, and the image URL given in the `( )` brackets. For example:
 
-```rmarkdown
+```r
 ---
 title: "My html document"
 author: "John Smith"
@@ -290,7 +288,7 @@ It is worth noting that, in the above example, the `<br>` notation was used to m
 
 Locally saved images are also embedded into R Markdown documents using the same Markdown annotation syntax as for web-based images, but by instead feeding the path to the image's location on the computer. For example, if the above image were saved in the downloads folder of a local user's (User1) profile, the annotation syntax would be:
 
-```rmarkdown
+```r
 ---
 title: "My html document"
 author: "John Smith"
@@ -303,11 +301,11 @@ The below figure illustrates how  muscle mass and strength change with ageing: <
 
 ```
 
-### How are hyperlinks embedded into R Markdown documents?
+## How are hyperlinks embedded into R Markdown documents?
 
 Clickable hyperlinks can be embedded into R Markdown documents using similar Markdown annotation syntax as is used for embedding images, but without a `!` symbol prior to the `[ ]` brackets. Moreover, the plain text that is entered within the `[ ]` will be the text that acts as a clickable hyperlink in the output. For example:
 
-```rmarkdown
+```r
 ---
 title: "My html document"
 author: "John Smith"
@@ -323,7 +321,7 @@ The HTML output generated when the above R Markdown syntax is processed would lo
 
 ![embed hyperlink](Embedded_Display_Items/embedded_hyperlink-2.png)
 
-### How are references embedded into R Markdown documents?
+## How are references embedded into R Markdown documents?
 
 If you are using R Markdown to generate complete reports, it likely that you will intend to include references to literature where necessary. To embed references into R Markdown, it is first required to construct a bibliography file in BibTeX (`.bib`) format that contains the references. BibTeX files can be created using any text editor by saving the file with a `.bib` extension. References within BibTeX files are formatted as follows:
 
@@ -344,7 +342,7 @@ You can get the metadata for a research output in the above format by locating i
 
 With your BibTeX file saved in the same directory as your `.Rmd` file, you can then embed references into your R Markdown document by pointing to the `.bib` file in the YAML header using the `bibliography` YAML key, and using the citation syntax in-text to pull a specific reference from the `.bib` file. For example:
 
-```rmarkdown
+```r
 ---
 title: "My html document"
 author: "John Smith"
@@ -369,7 +367,7 @@ By default, the Chicago author-date format is applied in R Markdown when embeddi
 
 Sometimes you might need to display special characters (like `*`, `_`, or `#`) in your R Markdown text without them being interpreted as annotation symbols. To do this, you can place a backslash (`\`) before the character in question. For example:
 
-```rmarkdown
+```r
 ---
 title: "My html document"
 author: "John Smith"
