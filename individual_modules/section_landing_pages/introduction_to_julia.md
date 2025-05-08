@@ -9,9 +9,9 @@ Welcome to the Introduction to Julia course! This course has been created to giv
 - Encapsulate functionality in Julia functions, leveraging multiple dispatch to write clean, type-specific methods.  
 - Work with arrays and matrices, perform element-wise and linear algebra operations, and harness Julia’s native array abstractions for efficient numerical computing.  
 - Read from and write to external data sources using Julia’s I/O facilities, and parse or format data in common file formats.  
-- Create informative visualizations of data and simulation output with `Plots.jl` (and other graphics packages).  
-- Manage project dependencies and packages using Julia’s built-in package manager (`Pkg`), and organize your code into multi-file, reproducible projects.  
-- Diagnose and eliminate performance bottlenecks by profiling your code, preallocating buffers, using `@inbounds`/`@simd`, and choosing efficient data structures (e.g. `BitMatrix`).  
+- Create informative visualisations of data and simulation output with `Plots.jl` (and other graphics packages).  
+- Manage project dependencies and packages using Julia’s built-in package manager (`Pkg`), and organise your code into multi-file, reproducible projects.  
+- Diagnose and eliminate performance bottlenecks by profiling your code.
 - Apply your skills to a capstone project, implementing and optimizing Conway’s Game of Life from first principles, and extending it with custom rules, GUIs, or advanced visualizations.  
 
 
