@@ -47,4 +47,6 @@ Completing the above four steps should result in an RStudio window that looks li
 
 ### Saving a (new) R Markdown document:
 
-After initialising a new R Markdown document, it can be saved by clicking `File` at the top of the screen and selecting `Save`. Alternatively, the save process can be performed by clicking the <img src = "Embedded_Display_Items/floppy_disk.png" alt = "floppy disk" width = "25" style = "vertical-align:middle;"> button. It is also good practice to repeat the save process regularly when putting together an R Markdown document so that no progress is lost.
+After initialising a new R Markdown document, it can be saved by clicking `File` at the top of the screen and selecting `Save`. Alternatively, the save process can be performed by clicking the ![Floppy Disk](./Embedded_Display_Items/floppy_disk.png) button. It is also good practice to repeat the save process regularly when putting together an R Markdown document so that no progress is lost.
+
+
