@@ -14,7 +14,7 @@ By the end of this course, you will:
 - Make use of packages such as `data.table`, `parallel`, `parallelly`, and `Rcpp` to write faster R programs.
 - Understand and apply reproducible and stylistic practices using tools like `styler`.
 
-## Pre-requisite Knowlede
+## Pre-requisite Knowledge
 
 This workshop is designed for learners who:
 
