@@ -1,51 +1,51 @@
 [
     {
-        "question": "What keyword does Julia use to close a conditional or loop block?",
+        "question": "What is the correct Julia keyword used to bring in code from another file or module into your current script?",
         "type": "many_choice",
         "answers": [
             {
-                "answer": "done",
+                "answer": "include_from",
                 "correct": false,
                 "feedback": "Incorrect"
             },
             {
-                "answer": "endif",
+                "answer": "require",
                 "correct": false,
                 "feedback": "Incorrect"
             },
             {
-                "answer": "end",
+                "answer": "include",
                 "correct": true,
                 "feedback": "Correct"
             },
             {
-                "answer": "close",
+                "answer": "import_file",
                 "correct": false,
                 "feedback": "Incorrect"
             }
         ]
     },
     {
-        "question": "Which of the following correctly describes the syntax of a for loop in Julia?",
+        "question": "After using include(\"filename.jl\"), how do you access functions or variables defined in that file?",
         "type": "many_choice",
         "answers": [
             {
-                "answer": "for (i = 1; i <= 5; i++) { println(i) }",
+                "answer": "They must be called with a special prefix",
                 "correct": false,
                 "feedback": "Incorrect"
             },
             {
-                "answer": "for (i = 1; i <= 5; i++) { println(i) }",
+                "answer": "They must be re-imported with import",
                 "correct": false,
                 "feedback": "Incorrect"
             },
             {
-                "answer": "for i in 1:5 println(i) end",
+                "answer": "They are available directly in the current namespace",
                 "correct": true,
                 "feedback": "Correct"
             },
             {
-                "answer": "loop i in 1:5 println(i) end",
+                "answer": "You can only access them via using filename",
                 "correct": false,
                 "feedback": "Incorrect"
             }
