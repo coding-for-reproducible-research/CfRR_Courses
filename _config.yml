@@ -40,6 +40,9 @@ exclude_patterns:
   - README.md
   - individual_modules/python_for_data_analysis/data-analysis-task-solutions.ipynb
 
+parse:
+  myst_enable_extensions:  # default extensions to enable in the myst parser. See https://myst
+    - strikethrough
 
 # Execute all notebooks by default. 
 # The R notebooks are excluded from running during the building of the book due to the formatting issues. When ran wen building the output for each of the cells will create a new code block for each space due to the R magic command.
