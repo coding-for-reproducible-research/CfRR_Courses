@@ -23,6 +23,10 @@ This course will be taught using Jupyter Lab but participants are welcome to use
 
 - Prerequisite Course: Complete the ["Introduction to Python"](https://coding-for-reproducible-research.github.io/CfRR_Courses/programme_information/intro_to_python.html) course.  
 
-- Software and Requirements (optional): Install JupyterLab, ensuring Python and pip are set up on your system. Follow the installation instructions on the above-mentioned CfRR website. 
+## Installation guide
 
-- Markdown in JupyterLab: No additional installation needed for basic Markdown support in JupyterLab. 
+- All CfRR courses require attendees to use their own computer/laptop to follow workshop activities and take effective notes.
+
+- Install JupyterLab, ensuring Python and pip are set up on your system. Follow the [installation instructions](https://coding-for-reproducible-research.github.io/CfRR_Courses/programme_information/intro_to_python.html) on the CfRR website.
+
+- Markdown in JupyterLab: No additional installation is needed for basic Markdown support in JupyterLab.
