@@ -50,11 +50,12 @@ To create a Markdown file within the JupyterLab interface:
    - if you're already running it, go to your browser window.
    - if not, launch it from your terminal with 'jupyter lab'.
 3. Click the file menu.
-   - At the top left, select File > New > Text File.
-4. Rename the File to `.md`.
+   - At the top left, select File > New > Markdown File.
+4. Rename the File.
    - In the file browser on the left, right-click the new text file and choose `Rename`.
 5. Start Writing Markdown!
-   - the rest of this section will guide you through the various formatting features you can use to present your content effectively.
+   - Right-click on the file and choose `Show Makdown Preview` from the drop-down menu.
+   - The rest of this section will guide you through the various formatting features you can use to present your content effectively.
 
 
 ## 1. Headings 
