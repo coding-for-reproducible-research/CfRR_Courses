@@ -10,7 +10,7 @@ In this section, write a short paragraph explaining what the document is about o
 > Lorem ipsum dolor sit amet. At excepturi ipsam aut tempora fugit ut porro facilis et aspernatur totam vel voluptatem quisquam qui recusandae quidem. Ut facilis dolor et ipsum error et voluptates sint aut nesciunt inventore et delectus enim et quidem animi. Sed repellat deleniti id maiores temporibus ea doloremque fuga. Vel laboriosam galisum in corrupti vero qui inventore voluptatibus.
 
 
-Lorem Ipsum is meaningless placeholder text used in design and publishing to mimic the look of real written content without conveying any actual meaning. Use it here to practise applying the formatting features we’ve discussed.
+`Lorem Ipsum` is meaningless placeholder text used in design and publishing to mimic the look of real written content without conveying any actual meaning. Use it here to practise applying the formatting features we’ve discussed.
 
 For example: 
 * Use bold or italic formatting for emphasis.
@@ -19,7 +19,7 @@ For example:
 
 2. Methods (`## Methods`)
 
-Describe how Markdown works, you can use Lorem ipsum again.
+Describe how Markdown works, you can use `Lorem ipsum` again.
 
 * Use an ordered list to explain the steps of opening a MD document.
 * Include examples of different text formatting like **bold text**.

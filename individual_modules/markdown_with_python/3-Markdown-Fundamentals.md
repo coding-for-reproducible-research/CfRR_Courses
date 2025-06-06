@@ -50,11 +50,12 @@ To create a Markdown file within the JupyterLab interface:
    - if you're already running it, go to your browser window.
    - if not, launch it from your terminal with 'jupyter lab'.
 3. Click the file menu.
-   - At the top left, select File > New > Text File.
-4. Rename the File to `.md`.
+   - At the top left, select File > New > Markdown File.
+4. Rename the File.
    - In the file browser on the left, right-click the new text file and choose `Rename`.
 5. Start Writing Markdown!
-   - the rest of this section will guide you through the various formatting features you can use to present your content effectively.
+   - Right-click on the file and choose `Show Makdown Preview` from the drop-down menu.
+   - The rest of this section will guide you through the various formatting features you can use to present your content effectively.
 
 
 ## 1. Headings 
@@ -92,7 +93,7 @@ A line break within a paragraph is created by adding two spaces at the end of a 
 
 To create a full paragraph break (a blank line between paragraphs), you simply press Enter twice.
 
-Here is an example:
+Here is **an example:**
 
 ```
 This is the first paragraph.  
@@ -101,7 +102,7 @@ This is the second paragraph with a
 line break inside.
 ```
 
-### Output:
+**Output:**
 This is the first paragraph.  
 
 This is the second paragraph with a  
@@ -132,7 +133,7 @@ Lists are a great way to make your documents easier to scan and helps readers fi
 ### Unordered Lists (Bullets)
 To make a bullet point, start a line with `-`, `+`, or `*`. It is of note that the different symbols you can use to create a bulleted list are all treated the same by the Markdown processor and will therefore render identically as a disc bullet. Whilst they render the same, for consistency we recommend you use the same symbol within a list and not mix between them, because some Markdown parsers or linters may warn about inconsistent style. You can also create sublists by indenting with at least two spaces.
 
-Example:
+**Example:**
 ```
 - Item 1
 - Item 2
@@ -141,7 +142,7 @@ Example:
 
 ```
 
-### Output:
+**Output:**
 - Item 1
 - Item 2
   - Subitem 2.1
@@ -158,7 +159,7 @@ To make a numbered list, just start each line with a number followed by a full s
    2. Subitem 2.2
 ```
 
-### Output:
+**Output:**
 1. First item
 2. Second item
    1. Subitem 2.1
@@ -171,14 +172,14 @@ Task lists are useful when you want to show items that need to be completed — 
 - to make an unchecked box, use `- []`.
 - to make a checked box, use `- [x]`.
 
-Example:
+**Example:**
 ```
 - [ ] Task 1
 - [x] Task 2
 
 ```
 
-### Output:
+**Output:**
 
 - [ ] Task 1
 - [x] Task 2
@@ -191,13 +192,13 @@ Blockquotes are used to highlight quotes, important information, or notes in you
 
 To create a blockquote, start a line with a `>` symbol. If you want to create a nested blockquote (a quote inside a quote), use `>>`.
 
-Example:
+**Example:**
 ```
 > This is a blockquote.
 >> This is a nested blockquote.
 ```
 
-### Output:
+**Output:**
 > This is a blockquote.
 >> This is a nested blockquote.
 
@@ -210,12 +211,12 @@ Markdown makes it easy to format code, whether it's a single line or multiple li
 
 To format a short piece of code inline, wrap it in single backticks (`).
 
-Example:
+**Example**:
 ```
 Use the `print()` function in Python. 
 ```
 
-### Output:
+**Output:**
 Use the `print()` function in Python. 
 
 
@@ -223,14 +224,14 @@ Use the `print()` function in Python.
 
 For longer code or multi-line code blocks, use triple backticks (```) to create a block. You can also specify the programming language after the first set of backticks to enable syntax highlighting.
 
-Example:
+**Example**:
 ```
 ```python
 def greet():
     print("Hello, World!")
 ```
 
-### Output:
+**Output:**
 
 ```python
 def greet():
@@ -251,7 +252,7 @@ Tables help make data clearer and more structured, especially when you need to p
 
 ```
 
-### Output
+**Output:**
 
 | Name  | Age | Job       |
 |-------|-----|----------|
@@ -267,7 +268,7 @@ Horizontal lines are used to separate sections of your document, providing a cle
 ---
 ```
 
-### Output
+**Output:**
 ---
 
 
@@ -279,12 +280,12 @@ Adding links and images is a great way to enrich your documents. In Markdown, ad
 
 To create a link, use the format `[text](URL)`. This will display the text as a clickable link that directs to the specified URL.
 
-Example:
+**Example:**
 ```
 [Link text](https://www.exeter.ac.uk/)
 ```
 
-### Output
+**Output:**
 [Link text](https://www.exeter.ac.uk/)
 
 **Images - Web** 
@@ -295,7 +296,7 @@ To add an image from the web, use the format `![alt text](image URL)`. The '!' a
 ![alt text for screen readers](https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187.jpg?w=1436&h=958)
 ```
 
-### Output
+**Output:**
 ![alt text for screen readers](https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187.jpg?w=1436&h=958)
 
 **Images - Local** 
@@ -308,7 +309,7 @@ Format: `![alt text](image path)`.
 ![alt text for screen readers](cat_pic.png)
 ```
 
-### Output
+**Output:**
 ![alt text for screen readers](cat_pic.png)
 
 ## 11. Escaping
@@ -316,11 +317,13 @@ Sometimes, you might want to display special characters (like `*`, `_`, or `#`) 
 
 For example, if you want to display `*` before a word without it making the text italic, use `\*`.
 
-Example:
+**Example:**
 `\*Not italicized\*`
 
-### Output:
+**Output:**
 \*Not italicized\*
 
+## Final Thoughts
+These are the basics of Markdown formatting, most often used when creating a `README.md` file. A `README.md` file explains the purpose, setup, and usage of a coding project. It serves as the project's main documentation and is usually the first thing users see in a repository. Every Git repository typically includes one, making Markdown a great way to document and showcase your work clearly and effectively.
 
-
+While `md` files support rich formatting, `README` can also be plain `txt` files, though they won't include formatting like headings or lists. 

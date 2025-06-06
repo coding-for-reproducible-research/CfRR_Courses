@@ -77,11 +77,11 @@ import pandas as pd
 
 Importing packages will give you access to external libraries like pandas, numpy or matplotlib. You may see an error when importing a package, this usually means the package isn't installed yet. 
 
-### Error Package Not Installed
+**Error Package Not Installed**
 
 ![Alt text](errorPack2.png)
 
-### Solution
+**Solution**
 - Install package
     - in Jupyter Notebook: `!pip install pandas`
     - in a terminal: `pip install pandas`
@@ -201,7 +201,7 @@ Once you have executed this in a cell and the graph is displayed, have a play wi
 
 Embedding Python in Markdown transforms static documents into interactive, dynamic tools that enhance data analysis, storytelling, and reproducibility.
 
-## Note on Sensitive Data
+## Notes on Sensitive Data
 Before sharing or publishing your notebooks, ensure they do not contain any sensitive or restricted information. This includes:
 
 - Personal identifiers (e.g. names, addresses, NHS numbers).
