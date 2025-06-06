@@ -42,7 +42,7 @@ A `.md` file is a plain text file that contains Markdown-formatted text. The `.m
 
 A common example you’ll see is `README.md`, which often appears in GitHub repositories. This file usually contains an introduction to a project, instructions, or other relevant notes, and is automatically rendered as formatted text when viewed on GitHub.
 
-## Creating an `.md` File in JupyterLab
+## Creating an `.md` file in JupyterLab
 
 To create a Markdown file within the JupyterLab interface:
 
@@ -51,9 +51,9 @@ To create a Markdown file within the JupyterLab interface:
    - if not, launch it from your terminal with 'jupyter lab'.
 3. Click the file menu.
    - At the top left, select File > New > Markdown File.
-4. Rename the File.
+4. Rename the file.
    - In the file browser on the left, right-click the new text file and choose `Rename`.
-5. Start Writing Markdown!
+5. Start writing Markdown!
    - Right-click on the file and choose `Show Makdown Preview` from the drop-down menu.
    - The rest of this section will guide you through the various formatting features you can use to present your content effectively.
 
