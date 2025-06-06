@@ -269,6 +269,7 @@ Horizontal lines are used to separate sections of your document, providing a cle
 ```
 
 **Output:**
+
 ---
 
 
