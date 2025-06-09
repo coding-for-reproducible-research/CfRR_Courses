@@ -40,6 +40,9 @@ exclude_patterns:
   - README.md
   - individual_modules/python_for_data_analysis/data-analysis-task-solutions.ipynb
 
+parse:
+  myst_enable_extensions:  # default extensions to enable in the myst parser. See https://myst
+    - strikethrough
 
 # Execute all notebooks by default. 
 # The R notebooks are excluded from running during the building of the book due to the formatting issues. When ran wen building the output for each of the cells will create a new code block for each space due to the R magic command.
@@ -94,3 +97,11 @@ execute:
       - 'individual_modules/improve_your_r_code/data_table.ipynb'
       - 'individual_modules/improve_your_r_code/parallelisation.ipynb'
       - 'individual_modules/improve_your_r_code/rcpp.ipynb'
+      - 'individual_modules/Introduction_to_Markdown_in_R/Background_to_Markdown.md'
+      - 'individual_modules/Introduction_to_Markdown_in_R/Course_Outro.md'
+      - 'individual_modules/Introduction_to_Markdown_in_R/Getting_Started_with_Markdown_in_R.md'
+      - 'individual_modules/Introduction_to_Markdown_in_R/Processing_RMarkdown_Files.md'
+      - 'individual_modules/Introduction_to_Markdown_in_R/RMarkdown_Components_Embedded_Code.md'
+      - 'individual_modules/Introduction_to_Markdown_in_R/RMarkdown_Components_Formatted_Text.md'
+      - 'individual_modules/Introduction_to_Markdown_in_R/RMarkdown_Components_Visual_Prelude.md'
+      - 'individual_modules/Introduction_to_Markdown_in_R/RMarkdown_Components_YAML_Header.md'
