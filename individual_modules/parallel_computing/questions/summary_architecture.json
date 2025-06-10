@@ -1,77 +1,77 @@
 [
     {
-        "question": "In Python's multithreading model:",
+        "question": "What are the internal data stores in a CPU called",
         "type": "many_choice",
         "answers": [
             {
-                "answer": "Multiple threads run on separate CPU cores",
+                "answer": "Random Access Memory (RAM)",
                 "correct": false,
                 "feedback": "Incorrect"
             },
             {
-                "answer": "Threads run concurrently on a single CPU core",
+                "answer": "Registers",
                 "correct": true,
                 "feedback": "Correct"
             },
             {
-                "answer": "Threads run sequentially on a single CPU core",
+                "answer": "Cache",
                 "correct": false,
                 "feedback": "Incorrect"
             },
             {
-                "answer": "The number of threads is fixed to the number CPU cores available",
+                "answer": "Read-only Memory (ROM)",
                 "correct": false,
                 "feedback": "Incorrect"
             }
         ]
     },
     {
-        "question": "In Python's multithreading model, how many Python interpreters are running at the same time?",
+        "question": "In many modern multicore CPUs memory access across the cores can be:",
         "type": "many_choice",
         "answers": [
             {
-                "answer": "The same as the number of threads running",
+                "answer": "Slow",
                 "correct": false,
                 "feedback": "Incorrect"
             },
             {
-                "answer": "Two",
+                "answer": "Uniform",
                 "correct": false,
                 "feedback": "Incorrect"
             },
             {
-                "answer": "One",
+                "answer": "Non-uniform",
                 "correct": true,
                 "feedback": "Correct"
             },
             {
-                "answer": "It depends on the number of cores on the cpu",
+                "answer": "Unreliable",
                 "correct": false,
                 "feedback": "Incorrect"
             }
         ]
     },
     {
-        "question": "In Python's multithreading model is more suitable to use for:",
+        "question": "Place in order of increasing data store access speed:",
         "type": "many_choice",
         "answers": [
             {
-                "answer": "CPU bound problems",
+                "answer": "RAM, registers, L1 cache, L2 cache",
                 "correct": false,
                 "feedback": "Incorrect"
             },
             {
-                "answer": "IO bound problems",
+                "answer": "RAM, L2 cache, L1 cache, registers",
                 "correct": true,
                 "feedback": "Correct"
             },
             {
-                "answer": "Problems in the network domain",
+                "answer": "registers, RAM, L1 cache, L2 cache",
                 "correct": false,
                 "feedback": "Incorrect"
             },
             {
-                "answer": "All of the above",
+                "answer": "L3 cache, L2 cache, L1 cache, RAM",
                 "correct": false,
                 "feedback": "Incorrect"
             }
