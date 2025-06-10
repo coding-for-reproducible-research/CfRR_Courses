@@ -120,13 +120,13 @@ True parallelism happens when multiple threads/processes/tasks run at exactly th
 
 In Python's multithreading it is left up the operating system to manage swithcing
 
-In summary Python's multithreading model runs only on a single core/processor and is only suitable for some concurrency applications. Its multiprocessing model is suitable for true parallelism on multicore CPUs, however note its only suitable for running on a SMP and not across multiple CPUs that do not share memory.
+In summary Python's multithreading model runs only on a single processor and is only suitable for some concurrency applications. Its multiprocessing model is suitable for true parallelism on multicore CPUs, however note its only suitable for running on say a SMP and not across multiple CPUs that do not share memory.
 
 ## Brief detour: Python asyncio module
 
 Python also as a asyncio module that is very much suited to many of the problems that the multithreading module is suitable for. It allows the developer to control when the switching between tasks is allowed to occur. We won't touch on the asyncio module in this course, but its very much something worth looking into as it can sometimes perform significantly better than multithreading.
 
-## IO bound and Compute bound problems
+## IO bound and CPU bound problems
 
 I/O bound problems refer to a condition in which the time it takes to complete a computation is determined mainly by the period spent waiting for input/output operations to be completed. This situation arises when more time is spent requesting data than processing it. For such problems Python's multithreading model would be suitable, e.g. whilst one thread is waiting for data from disk or over a data connection after requesting it, another thread can process some data in memory or do a some computation in the interim.
 
