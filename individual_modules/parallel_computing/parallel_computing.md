@@ -1,4 +1,4 @@
-# Parallel computing
+# Welcome to Intro to Parallel Computing
 
 This course is a very gentle introduction to parallel computing, using the Python language. Before diving directly into coding, one first has to have some understanding of modern computing architecture. For this course we will focus on the CPU architecture. The assumption will be that learners will have very rudimentary or no knowledge of modern CPU architectures, and we will give a fairly high level view description of this architecture here. 
 
@@ -6,13 +6,13 @@ Once this basic foundation of modern architectures has been laid, we will dive i
 
 ## The modern CPU architecture
 
-A computer is a machine that follows instructions to manipulate data. Figure 1 shows two very important components, a processor and memory. The memory, or RAM (Random Access Memory), is where we write the instructions. It also stores the data to operate on. The processor, or CPU (Central Processing Unit), gets instructions and data from the memory and performs the required calculations. 
+A computer is a machine that follows instructions to manipulate data. Figure 1 shows two very important components, a processor and memory. The memory, or RAM (Random Access Memory), is where we write the instructions. It also stores the data to operate on. The processor, or CPU (Central Processing Unit), gets instructions and data from the memory and performs the required instructions. 
 
 ![Alt text](./images/cpu-ram.png "Figure 1: A high level view of a CPU and RAM")
 
 ### The RAM
 
-Memory (or RAM) is divided into many cells. Each cell stores a tiny amount of data, and each cell has an address. Reading and writing data in memory is done through operations that affect one cell at a time. To read/write to a specific memory cell. we muct communicate its numerical address. RAM is an electrical component, we transmit cell addresses via wires. Each wire transmit a binary digit (0 or 1). Wires are set at a higher voltage for the "1" signal or lower voltage for the "0" signal. Figure 2 schemetic illustrates all of this.
+Memory, or RAM, is divided into many cells. Each cell stores a tiny amount of data, and each cell has an address. Reading and writing data in memory is done through operations that affect one cell at a time. To read/write to a specific memory cell, we must communicate its numerical address. RAM is an electrical component, we transmit cell addresses via wires. Each wire transmit a binary digit (0 or 1). Wires are set at a higher voltage for the "1" signal or lower voltage for the "0" signal. Figure 2 schemetic illustrates all of this.
 
 ![Alt text](./images/ram-read-write.png "Figure 2: Reading and writing from RAM")
 
@@ -20,13 +20,13 @@ There are two things the memory can do with a given's cell's address; either get
 
 Usually each memory cell stores an 8-digit binary number, which is called a byte. In "read" mode, the memory retrieves the byte stored in a cell, and outputs it in eight data-transmitting wires.
 
-When the memory is in "write" mode, it gets a byte from these wires and writes it to the informed cell. A group of wires used for transmitting the same data is a calles a bus. The eight wires used to transmit address form the address bus. The other eight wires used to transmit data to and form cells for the data bus. The adress bus is unidirectional (only used by memory to recieve data). The data bus is bi-directional (used ot send and receive data).
+When the memory is in "write" mode, it gets a byte from these wires and writes it to the informed cell. A group of wires used for transmitting the same data is a called a bus. The eight wires used to transmit address from the address bus. The other eight wires are used to transmit data to and from cells via the data bus. The address bus is only used by memory to recieve data. The data bus is used to send and receive data.
 
-In any computer the CPU and RAM are constantly exchanging data. The CPU keeps fetching instructions and data from memory, and occasionally stores outputs and partial calculations in memory.
+The CPU and RAM are constantly exchanging data. The CPU fetches instructions and data from memory, and occasionally stores outputs and partial calculations in memory.
 
 ### The CPU - a high level view
 
-The CPU has some internal memory cells called registers. It can perform simple mathematical operations with binary numbers stored in these registers, and do so at an extremely fast rate. The CPU can also move data between RAM and its registers. Modern CPUs also have additional internal data stores, called caches, but more about that later.
+The CPU has some internal memory cells called registers. It can perform extremely fast simple mathematical operations with binary numbers stored in the registers. The CPU also moves data between RAM and its registers. Modern CPUs also have additional internal data stores, called caches, but more about that later.
 
 Typical operations a CPU can perform could be for example:
 
@@ -35,12 +35,12 @@ Typical operations a CPU can perform could be for example:
 
 The collection of all operations a CPU can perform is called its instruction set. Each operation in the instruction set is an assigned number. Computer code is essentially a sequence of number representing CPU operations. These operations are stored as numbers in the RAM. Input/output data, partially complete calculations, and computer code are all mixed up in the RAM.
 
-The very first CPUs had a small, yet sufficiently complete, instruction set. With advances in CPU manufacturing, CPUs kept on supporting more operations. The instruction set of modern CPUs is huge. As an aside note Alan Turing, the father of computing, discovered that simple machines can be powerful enougth to compute anything that is computable, given sufficient time. For a machine to have universal computing power, it must be able to follow a program containing instructions to:
+The very first CPUs had a small, yet sufficiently complete, instruction set. With advances in CPU manufacturing, CPUs kept on supporting more operations. The instruction set of modern CPUs is huge. As an aside note Alan Turing, the father of computing, discovered that simple machines can be powerful enough to compute anything that is computable, given sufficient time. For a machine to have universal computing power, it must be able to follow a program containing instructions to:
 
 - Read and write data in memory,
 - Perform conditional branching: if a memory address has a given value, jump to another point in the program.
 
-The CPU works in a never-ending loop, always fethcing and executing an instruction from memory. At the core of this cycle in the PC register, or Program Counter. Its a special register that containes the memory address of the next instruction to execute. The CPU will in a (nearly endless) loop:
+The CPU works in a never-ending loop, always fetching and executing an instruction from memory. At the core of this cycle in the PC register, or Program Counter. Its a special register that contains the memory address of the next instruction to execute. The CPU will in a (nearly endless) loop:
 
 - Fetch an instruction at the memory address given by the PC,
 - Incrememnt the PC by 1,
@@ -53,9 +53,9 @@ Arcade games in the 1980s, like Space Invaders became super popular. Space Invad
 
 Modern laptops and desktops have ~2 GHz CPUs, which can perform hundreds of millions of machine instructions every second. Many modern CPUs are multi-core. A quad-core 2 GHz CPU can theoretically perform close to a billion machine instructions per second.
 
-Not all CPUs have the same instruction set. The x86 architecture is pretty standard in most personal computers. Phones and tablets have CPUs with different achitectures that ar emore energy efficient. A different CPU architecture, means a different instruction set. So numbers that translate as instructions for your laptop CPU don't represent valid instructions for the CPU on your cell phone for instance. It is also the reason why you cannot play a PlayStation CD directly on you laptop computer. There are special programs called emulators, which one can use to get around this issue. Emulators are computationally more expensive to run because the instructions needs to be first decoded by the emulator and then executed within the emulated machine.
+Not all CPUs have the same instruction set. The x86 architecture is pretty standard in most personal computers. Phones and tablets have CPUs with different achitectures that are more energy efficient. A different CPU architecture, means a different instruction set. So numbers that translate as instructions for your laptop CPU don't represent valid instructions for the CPU on your cell phone for instance. It is also the reason why you cannot play a PlayStation CD directly on you laptop computer. There are special programs called emulators, which one can use to get around this issue. Emulators are computationally more expensive to run because the instructions needs to be first decoded by the emulator and then executed within the emulated machine.
 
-The first CPU, called Intel 4004, was built on a 4-bit architecture. This means it could operate (sum, compare, move) binary number of up to 4 digits in a single machine instruction. The 4004 had data and address buses with only four wires. Technological progress over time led to 8-bit CPUs followed by 16-bit and then 32-bit CPUs which thus had registers that could hold 32-bit numbers. These larger registers mean larer data and address buses. An address bus with 32 wires allows addressing 2^32 bytes (4 GB) of memory (remember each address location in RAM correspond to 1 byte of data).
+The first CPU, called Intel 4004, was built on a 4-bit architecture. This means it could operate (sum, compare, move) binary number of up to 4 digits in a single machine instruction. The 4004 had data and address buses with only four wires. Technological progress over time led to 8-bit CPUs followed by 16-bit and then 32-bit CPUs which thus had registers that could hold 32-bit numbers. These larger registers mean larger data and address buses. An address bus with 32 wires allows addressing 2^32 bytes (4 GB) of memory (remember each address location in RAM correspond to 1 byte of data).
 
 Over time computer programs became more complex, and started using more RAM. Addressing over 4 GB of memory with addresses that fit only in 32-bit registers are tricky. Modern day CPUs have 64-bit architectures. Such CPUs can work with extremely large numbers in their registers. These registers can store addresses in a enourmously large memory space: 2^64 bytes which is over 17 billion GB.
 
@@ -117,8 +117,6 @@ Threads refer to a sequence of instructions that run in a particular order. Each
 As mentioned previously Python threads always run on a single core/processor, which mean they really only can run one at a time. The reason why this is so, is because of Python's GIL (Global Interpreter Lock) at the core of Python itself. In the latest versions of Python one can remove the GIL, but this is still very much in the experimental phase. Removing the GIL means one needs to carefully manage, in code, multiple threads' data access to Python objects and data structures. All of this means using Python's multithreading model (with the GIL in place) is only suitable for certain types of concurrency applications - more about this later. This is different from how multithreading models in other programming languages are defined, which is more similar to Python's multiprocessing model in a sense. In Python's multithreading model it is left up the operating system to manage switching between threads. 
 
 True parallelism happens when multiple threads/processes/tasks run at exactly the same time, independently of each other. A process can be thought of as almost a completely different program instance (most likely a clone of an existing program). More technically it is usually defined as a collection of resources, including memory, file handles, etc. In Python each process runs its own Python interpreter on a different core/processor, which gets aroung the GIL issue. 
-
-In Python's multithreading it is left up the operating system to manage swithcing
 
 In summary Python's multithreading model runs only on a single processor and is only suitable for some concurrency applications. Its multiprocessing model is suitable for true parallelism on multicore CPUs, however note its only suitable for running on say a SMP and not across multiple CPUs that do not share memory.
 
