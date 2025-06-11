@@ -1,79 +1,53 @@
 [
     {
-        "question": "",
+        "question": "Which of the following is the most memory-efficient way to read a very large text file line-by-line in Julia?",
         "type": "many_choice",
         "answers": [
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "read(file, String)",
+                "correct": false,
+                "feedback": "Incorrect"
             },
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "readline(file)",
+                "correct": false,
+                "feedback": "Incorrect"
             },
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "eachline(file)",
+                "correct": true,
+                "feedback": "Correct"
             },
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "readlines(file)",
+                "correct": false,
+                "feedback": "Incorrect"
             }
         ]
     },
     {
-        "question": "",
+        "question": "In Julia, what is the recommended way to ensure a file is always closed after reading or writing, even if an error occurs during processing?",
         "type": "many_choice",
         "answers": [
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "Manually call close(file) after reading/writing.",
+                "correct": false,
+                "feedback": "Incorrect"
             },
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "Use try..catch..finally to close the file",
+                "correct": false,
+                "feedback": "Incorrect"
             },
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "Use the do block form of open()",
+                "correct": true,
+                "feedback": "Correct"
             },
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
-            }
-        ]
-    },
-    {
-        "question": "",
-        "type": "many_choice",
-        "answers": [
-            {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
-            },
-            {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
-            },
-            {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
-            },
-            {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "Let Julias garbage collector handle it",
+                "correct": false,
+                "feedback": "Incorrect"
             }
         ]
     }

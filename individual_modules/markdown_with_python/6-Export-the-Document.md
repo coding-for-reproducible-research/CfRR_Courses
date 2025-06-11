@@ -23,12 +23,3 @@ When working with Jupyter Notebooks, it’s important to know how to save your w
 * They can be easily viewed in any web browser without requiring Jupyter or Python.
 
 * To export, go to the menu: `File > Save and Export Notebook as > HTML (.html)`.
-
-### 3. Exporting as PDF
-* Exporting as a PDF creates a document suitable for printing or formal sharing.
-
-* Like HTML, it’s a static snapshot of your notebook with all visible code, text, and outputs.
-
-* PDFs are widely accepted in academic and professional settings.
-
-* Export via `File > Save and Export Notebook as > PDF via LaTeX (.pdf)`.

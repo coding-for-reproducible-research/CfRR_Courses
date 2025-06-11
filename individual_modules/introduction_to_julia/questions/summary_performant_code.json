@@ -1,79 +1,79 @@
 [
     {
-        "question": "",
+        "question": "Which function is recommended for pre-allocating an array of zeros in Julia for better performance?",
         "type": "many_choice",
         "answers": [
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "array_zeros()",
+                "correct": false,
+                "feedback": "Incorrect"
             },
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "zeros()",
+                "correct": true,
+                "feedback": "Correct"
             },
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "preallocate()",
+                "correct": false,
+                "feedback": "Incorrect"
             },
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "fill(0, dims...)",
+                "correct": false,
+                "feedback": "Incorrect"
             }
         ]
     },
     {
-        "question": "",
+        "question": "In Julia, why should you avoid growing arrays inside a loop without pre-allocation?",
         "type": "many_choice",
         "answers": [
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "It uses too much memory instantly",
+                "correct": false,
+                "feedback": "Incorrect"
             },
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "It causes syntax errors",
+                "correct": false,
+                "feedback": "Incorrect"
             },
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "It results in repeated memory reallocation, which slows down the code",
+                "correct": true,
+                "feedback": "Correct"
             },
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "It leads to incorrect computation results",
+                "correct": false,
+                "feedback": "Incorrect"
             }
         ]
     },
     {
-        "question": "",
+        "question": "What is a general tip for writing more performant Julia code when using loops?",
         "type": "many_choice",
         "answers": [
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "Always use global variables inside loops",
+                "correct": false,
+                "feedback": "Incorrect"
             },
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "Minimise memory allocation inside loops",
+                "correct": true,
+                "feedback": "Correct"
             },
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "Nest as many loops as possible",
+                "correct": false,
+                "feedback": "Incorrect"
             },
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "Prefer string operations over numerical operations",
+                "correct": false,
+                "feedback": "Incorrect"
             }
         ]
     }

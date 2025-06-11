@@ -40,6 +40,9 @@ exclude_patterns:
   - README.md
   - individual_modules/python_for_data_analysis/data-analysis-task-solutions.ipynb
 
+parse:
+  myst_enable_extensions:  # default extensions to enable in the myst parser. See https://myst
+    - strikethrough
 
 # Execute all notebooks by default. 
 # The R notebooks are excluded from running during the building of the book due to the formatting issues. When ran wen building the output for each of the cells will create a new code block for each space due to the R magic command.
@@ -77,11 +80,14 @@ execute:
       - 'individual_modules/introduction_to_julia/arrays_and_matrices.ipynb'
       - 'individual_modules/introduction_to_julia/control_flow.ipynb'
       - 'individual_modules/introduction_to_julia/functions.ipynb'
+      - 'individual_modules/introduction_to_julia/implemented_game_of_life.ipynb'
       - 'individual_modules/introduction_to_julia/introduction_to_julia.ipynb'
       - 'individual_modules/introduction_to_julia/io.ipynb'
+      - 'individual_modules/introduction_to_julia/multi_file_project.ipynb'
       - 'individual_modules/introduction_to_julia/operations.ipynb'
       - 'individual_modules/introduction_to_julia/package_management.ipynb'
       - 'individual_modules/introduction_to_julia/performant_code.ipynb'
+      - 'individual_modules/introduction_to_julia/project_game_of_life.ipynb'
       - 'individual_modules/introduction_to_julia/variables.ipynb'
       - 'individual_modules/introduction_to_julia/visualisation.ipynb'
       - 'individual_modules/improve_your_r_code/introduction.ipynb'

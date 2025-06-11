@@ -32,5 +32,7 @@ import ipywidgets as widgets
 widgets.IntSlider(min=0, max=10, step=1, value=5)
 ```
 
+Try it on!
+
 ## Always remember!
 Clear structure, consistent naming, and clean outputs make notebooks easier to share and maintain. 

@@ -1,79 +1,53 @@
 [
     {
-        "question": "",
+        "question": "Which operator would you use in Julia for exponentiation (raising to a power)?",
         "type": "many_choice",
         "answers": [
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "**",
+                "correct": false,
+                "feedback": "Incorrect"
             },
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "^",
+                "correct": true,
+                "feedback": "Correct"
             },
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "pow()",
+                "correct": false,
+                "feedback": "Incorrect"
             },
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "^^",
+                "correct": false,
+                "feedback": "Incorrect"
             }
         ]
     },
     {
-        "question": "",
+        "question": "What is the result of the expression `10 < 5 || 2 + 2 == 4` in Julia?",
         "type": "many_choice",
         "answers": [
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "true",
+                "correct": true,
+                "feedback": "Correct"
             },
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "false",
+                "correct": false,
+                "feedback": "Incorrect"
             },
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "An error",
+                "correct": false,
+                "feedback": "Incorrect"
             },
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
-            }
-        ]
-    },
-    {
-        "question": "",
-        "type": "many_choice",
-        "answers": [
-            {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
-            },
-            {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
-            },
-            {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
-            },
-            {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "false && true",
+                "correct": false,
+                "feedback": "Incorrect"
             }
         ]
     }

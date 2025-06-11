@@ -1,79 +1,79 @@
 [
     {
-        "question": "",
+        "question": "What is the result of the expression v[2:4] in Julia, given v = [10, 20, 30, 40, 50]?",
         "type": "many_choice",
         "answers": [
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "[10, 30, 50]",
+                "correct": false,
+                "feedback": "Incorrect"
             },
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "[20, 30, 40]",
+                "correct": true,
+                "feedback": "Correct"
             },
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "[2, 3, 4]",
+                "correct": false,
+                "feedback": "Incorrect"
             },
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "[30, 40, 50]",
+                "correct": false,
+                "feedback": "Incorrect"
             }
         ]
     },
     {
-        "question": "",
+        "question": "Which of the following correctly creates a 2x3 matrix in Julia?",
         "type": "many_choice",
         "answers": [
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "M = [1, 2, 3; 4, 5, 6]",
+                "correct": false,
+                "feedback": "Incorrect"
             },
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "M = [[1, 2, 3]; [4, 5, 6]]",
+                "correct": false,
+                "feedback": "Incorrect"
             },
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "M = [1 2 3; 4 5 6]",
+                "correct": true,
+                "feedback": "Correct"
             },
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "M = [1; 2; 3; 4; 5; 6]",
+                "correct": false,
+                "feedback": "Incorrect"
             }
         ]
     },
     {
-        "question": "",
+        "question": "How do you perform element-wise multiplication between two arrays u and v in Julia?",
         "type": "many_choice",
         "answers": [
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "u * v",
+                "correct": false,
+                "feedback": "Incorrect"
             },
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "dot(u, v)",
+                "correct": false,
+                "feedback": "Incorrect"
             },
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "u .^ v",
+                "correct": false,
+                "feedback": "Incorrect"
             },
             {
-                "answer": "",
-                "correct": ,
-                "feedback": ""
+                "answer": "u .* v",
+                "correct": true,
+                "feedback": "Correct"
             }
         ]
     }
