@@ -251,10 +251,13 @@ parts:
                   - file: individual_modules/introduction_to_hpc/exploiting_slurm
               - file: individual_modules/section_landing_pages/parallel_computing
                 sections:
-                  - file: individual_modules/parallel_computing/hello_world
-                  - file: individual_modules/parallel_computing/simple_communication
-                  - file: individual_modules/parallel_computing/collective_comms
-                  - file: individual_modules/parallel_computing/parallel_fractal
+                  - file: individual_modules/parallel_computing/architecture_and_concurrency
+                  - file: individual_modules/parallel_computing/multithreading_io
+                  - file: individual_modules/parallel_computing/multiprocessing_fractal
+                  - file: individual_modules/parallel_computing/mpi_hello_world
+                  - file: individual_modules/parallel_computing/mpi_simple_communication
+                  - file: individual_modules/parallel_computing/mpi_collective_comms
+                  - file: individual_modules/parallel_computing/mpi_parallel_fractal
           - file: course_homepages/software_development
             sections:
               - file: individual_modules/section_landing_pages/software_development_best_practice
