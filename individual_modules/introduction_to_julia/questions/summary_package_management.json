@@ -1,32 +1,32 @@
 [
     {
-        "question": "What is the correct way to add the Plots package in Julia?",
+        "question": "What is the correct way to add the Plots package in Pkg REPL?",
         "type": "many_choice",
         "answers": [
             {
-                "answer": "add(\"Plots\")",
+                "answer": "update Plots",
                 "correct": false,
                 "feedback": "Incorrect"
             },
             {
-                "answer": "Pkg.install(\"Plots\")",
+                "answer": "install Plots",
                 "correct": false,
                 "feedback": "Incorrect"
             },
             {
-                "answer": "using Pkg; Pkg.add(\"Plots\")",
+                "answer": "add Plots",
                 "correct": true,
                 "feedback": "Correct"
             },
             {
-                "answer": "Pkg.load(\"Plots\")",
+                "answer": "load Plots",
                 "correct": false,
                 "feedback": "Incorrect"
             }
         ]
     },
     {
-        "question": "Why should you consider using Pkg.activate(\"MyProject\") before installing packages?",
+        "question": "Why should you consider using \"activate MyProject\" before installing packages?",
         "type": "many_choice",
         "answers": [
             {
@@ -40,7 +40,7 @@
                 "feedback": "Incorrect"
             },
             {
-                "answer": "It creates a project-specific environmetn with its own \"Project.toml\"",
+                "answer": "It creates a project-specific environment",
                 "correct": true,
                 "feedback": "Correct"
             },
