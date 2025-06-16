@@ -1,0 +1,80 @@
+[
+    {
+        "question": "In Python's multiprocessing model:",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Threads run concurrently on a single CPU core",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Processes run on separate CPU cores",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "Processes run sequentially on a single CPU core",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "The number of processes is fixed to the number CPU cores available",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "In Python's multiprocessing model, how many Python interpreters are running at the same time?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "One",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Two",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "The same as the number of processes/cores requested",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "It depends on the number of cores on the cpu",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "In Python's multiprocessing model is ideal for:",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "CPU bound problems",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "IO bound problems",
+                "correct": false,
+                "feedback": "Inorrect"
+            },
+            {
+                "answer": "Problems in the network domain",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "All of the above",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]
