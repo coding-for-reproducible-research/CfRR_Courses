@@ -1,4 +1,4 @@
-# A Visual Prelude - Components of an R Markdown Document
+# Components of an R Markdown Document - A Visual Prelude
 
 So far we have installed the `rmarkdown` package for producing Markdown documents in R, and used it to initialise a blank R Markdown document. It is worthwhile noting that, whereas standard Markdown files hold the `.md` file extention, raw R Markdown documents instead carry the `.Rmd` file extension. 
 

@@ -24,6 +24,7 @@ parts:
                   - file: programme_information/intro_to_python
                   - file: programme_information/python_for_data_analysis
                   - file: programme_information/introduction_to_machine_learning
+                  - file: programme_information/markdown_with_python
               - file: programme_information/R
                 sections:
                   - file: programme_information/intro_to_r
@@ -114,8 +115,11 @@ parts:
                   - file: individual_modules/introduction_to_julia/arrays_and_matrices
                   - file: individual_modules/introduction_to_julia/io
                   - file: individual_modules/introduction_to_julia/package_management
-                  - file: individual_modules/introduction_to_julia/visualisation
                   - file: individual_modules/introduction_to_julia/performant_code
+                  - file: individual_modules/introduction_to_julia/project_game_of_life
+                  - file: individual_modules/introduction_to_julia/implemented_game_of_life
+                  - file: individual_modules/introduction_to_julia/visualisation
+                  - file: individual_modules/introduction_to_julia/multi_file_project
           - file: course_homepages/python
             sections:
               - file: individual_modules/section_landing_pages/introduction_to_python
@@ -148,6 +152,15 @@ parts:
                   - file: individual_modules/introduction_to_machine_learning/2_model_selection
                   - file: individual_modules/introduction_to_machine_learning/3_pipeline_task
                   - file: individual_modules/introduction_to_machine_learning/4_unsupervised_learning
+              - file: individual_modules/section_landing_pages/markdown_with_python
+                sections:
+                  - file: individual_modules/markdown_with_python/2-Motivation-and-Background
+                  - file: individual_modules/markdown_with_python/3-Markdown-Fundamentals
+                  - file: individual_modules/markdown_with_python/4-Markdown-Task-1
+                  - file: individual_modules/markdown_with_python/5-How-to-embed-Python-Code-in-Markdown
+                  - file: individual_modules/markdown_with_python/6-Export-the-Document
+                  - file: individual_modules/markdown_with_python/7-Markdown-Task-2
+                  - file: individual_modules/markdown_with_python/8-Further-Knowledge
           - file: course_homepages/R
             sections:
               - file: individual_modules/section_landing_pages/introduction_to_r
@@ -243,10 +256,13 @@ parts:
                   - file: individual_modules/introduction_to_hpc/exploiting_slurm
               - file: individual_modules/section_landing_pages/parallel_computing
                 sections:
-                  - file: individual_modules/parallel_computing/hello_world
-                  - file: individual_modules/parallel_computing/simple_communication
-                  - file: individual_modules/parallel_computing/collective_comms
-                  - file: individual_modules/parallel_computing/parallel_fractal
+                  - file: individual_modules/parallel_computing/architecture_and_concurrency
+                  - file: individual_modules/parallel_computing/multithreading_io
+                  - file: individual_modules/parallel_computing/multiprocessing_cpu
+                  - file: individual_modules/parallel_computing/mpi_hello_world
+                  - file: individual_modules/parallel_computing/mpi_simple_communication
+                  - file: individual_modules/parallel_computing/mpi_collective_comms
+                  - file: individual_modules/parallel_computing/mpi_parallel_fractal
           - file: course_homepages/software_development
             sections:
               - file: individual_modules/section_landing_pages/software_development_best_practice
@@ -300,6 +316,7 @@ parts:
 
   - caption: Join Us!
     chapters: 
+      - file: contributing/community
       - file: contributing/new_course_checklist_timeline
       - file: contributing/contributing
       - file: contributing/roles

@@ -1,4 +1,4 @@
-# A general background to Markdown
+# A General Background to Markdown
 
 ## What is Markdown?
 

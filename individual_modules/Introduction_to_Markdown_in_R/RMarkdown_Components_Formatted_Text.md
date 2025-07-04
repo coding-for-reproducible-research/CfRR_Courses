@@ -1,4 +1,4 @@
-# Formatted Plain Text - Components of an R Markdown Document
+# Components of an R Markdown Document - Formatted Plain Text
 
 Many of the features that you might implement in other text-based applications like Microsoft Word can also be easily implemented in R Markdown documents. This could range from basic alterations to text aesthetics, through to the addition of tables and images, or even the inclusion of hyperlinks.
 
@@ -82,7 +82,7 @@ output: html_document
 This is my very first R Markdown document.
 ```
 
-Notice how the plain text on the line starting with the `#` now appears blue. This is an example of annotation syntax highlighting in R Markdown, which usefully makes the specific bits of text being formatted stand out. Processing the above in an R Markdown file would then generate a HTML output that displays like the following:
+Notice how the plain text on the line starting with the `#` now appears blue. This is an example of annotation syntax highlighting in R Markdown, which usefully makes the specific bits of text being formatted stand out. This is an example of annotation syntax highlighting in R Markdown, which usefully makes the specific bits of text being formatted stand out. Processing the above in an R Markdown file would then generate a HTML output that displays like the following:
 
 ![single header](Embedded_Display_Items/single_header.png)
 
@@ -387,7 +387,7 @@ The above will translate into the below output HTML when processed:
 
 ### Task
 
-Below is a HTML output generated using R Markdown that summarises how skeletal muscle adapts to different exercise types. Try to reproduce this in your open R Markdown document. You can check the formatting effects you apply in real time by toggling from `Source` view to `Visual` view in the top left corner of the RStudio script pane. The Google Scholar entry for the utilised journal article can be found [here](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Integrative+effects+of+resistance+training+and+endurance+training+on+mitochondrial+remodeling+in+skeletal+muscle&btnG=). You will need to create a `.bib` file containing the reference and also obtain the URL for the image directly from the journal article webpage.
+Below is a HTML output generated using R Markdown that summarises how skeletal muscle adapts to different exercise types. Try to reproduce this in your open R Markdown document. You can check the formatting effects you apply in real time by toggling from `Source` view to `Visual` view in the top left corner of the RStudio script pane. The Google Scholar entry for the utilised journal article can be found by searching the journal title in Google Scholar itself. You will need to create a `.bib` file containing the reference and also obtain the URL for the image directly from the journal article webpage.
 
 #### *Task HTML output:*
 

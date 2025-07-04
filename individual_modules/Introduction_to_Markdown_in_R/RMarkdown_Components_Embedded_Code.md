@@ -1,4 +1,4 @@
-# Embedded Code - Components of an R Markdown Document
+# Components of an R Markdown Document - Embedded Code
 
 As mentioned earlier in this workshop, one of the primary benefits of R Markdown is the ability to integrate formatted plain text with R code and its outputs into a single dynamic document. Code can be embedded into R Markdown documents in two different forms:
 

@@ -1,0 +1,80 @@
+[
+    {
+        "question": "What are the internal data stores in a CPU called",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Random Access Memory (RAM)",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Registers",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "Cache",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Read-only Memory (ROM)",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "In many modern multicore CPUs memory access across the cores can be:",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Slow",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Uniform",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Non-uniform",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "Unreliable",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Place in order of increasing data store access speed:",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "RAM, registers, L1 cache, L2 cache",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "RAM, L2 cache, L1 cache, registers",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "registers, RAM, L1 cache, L2 cache",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "L3 cache, L2 cache, L1 cache, RAM",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]

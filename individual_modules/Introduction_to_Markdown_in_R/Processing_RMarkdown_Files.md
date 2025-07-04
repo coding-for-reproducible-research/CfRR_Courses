@@ -1,4 +1,4 @@
-# Processing R Markdown 
+# Processing R Markdown Documents
 
 Throughout this workshop, the gap between what syntax looks like in a `.Rmd` file and how things appear in the final output document has been bridged using vague phrases like "*The HTML output generated upon processing the R Markdown document*...". To be more precise, the overall procedure of going from a `.Rmd` file to a final output document is called **rendering**.
 

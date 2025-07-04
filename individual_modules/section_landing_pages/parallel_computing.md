@@ -1,15 +1,13 @@
 # Parallel Computing
 
-**Please note that the content for this course is still in active development.**
-
 ## Overview 
 
-This course will provide an introduction to parallel programming. Participants will gain practical experience in writing parallel software, understanding how to decompose problems for efficient execution across multiple processes and threads.
+This course will provide an introduction to parallel programming. Participants will gain practical experience in writing parallel software, understanding how to decompose problems for efficient execution across multiple threads and processes.
 
 ## Course Objectives 
 - Be able to explain what is meant by distributed and shared-memory parallelism.
-- Know how to write software that can run across multiple processes using MPI.
-- Be able to write code that utilizes multithreading for parallel execution.
+- Be able to write Python code that utilizes multithreading and multiprocessing for parallel execution.
+- Know how to write Python software that can run across multiple processors using MPI.
 - Be able to identify how a problem can be divided and parallelised effectively.
 - Gain hands-on experience writing and optimizing parallel code.
 
