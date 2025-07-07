@@ -80,7 +80,9 @@ jupyter-book build
 
 This will generate the static site under the `_build/html/` directory, which you can open in a browser to view the book offline. (This step requires the `jupyter-book` package, which is included in the requirements.) 
 
-3. **Launch on Binder** (Interactive Online Environment): If you prefer not to set up anything locally, you can try out the notebooks in an interactive environment using Binder. Click the Binder link below to open the repository in an online Jupyter environment (no installation needed, runs in your browser): [Launch Binder](https://mybinder.org/v2/gh/coding-for-reproducible-research/CfRR_Courses/main)
+### Launch on Binder (Interactive Online Environment)
+
+If you prefer not to set up anything locally, you can try out the notebooks in an interactive environment using Binder. Click the Binder link below to open the repository in an online Jupyter environment (no installation needed, runs in your browser): [Launch Binder](https://mybinder.org/v2/gh/coding-for-reproducible-research/CfRR_Courses/main)
 
 ## Contributing 
 
