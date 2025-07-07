@@ -79,7 +79,7 @@ Importing packages will give you access to external libraries like pandas, numpy
 
 **Error Package Not Installed**
 
-![Alt text](errorPack2.png)
+![A screenshot of a console output displaying a ModuleNotFoundError in a light red background, indicating an error. The traceback shows the error occurred on line 1 with the code import pandas as pd. The specific error message "ModuleNotFoundError: No module named 'pandas'" is displayed at the bottom, and a "Collapse Output" button overlays part of the text.](errorPack2.png)
 
 **Solution**
 - Install package

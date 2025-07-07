@@ -19,7 +19,8 @@ This is my very first R Markdown document.
 
 Any plain text that is written in the white space below the YAML header of the R Markdown file will then ultimately be included as normal text in the output document when the R Markdown file gets processed. In the case of the above example, the output would look like as follows:
 
-![initial text](Embedded_Display_Items/initial_written_text.png)
+![--- title: "My html document" author: John Smith date: 2025-05-01 output: html_document --- Background: This is my very first R Markdown document.
+](Embedded_Display_Items/initial_written_text.png)
 
 Notice how, despite typing the text over two lines in R Markdown itself, it all falls on the same line in the HTML output. To display unformatted plain text in a `.Rmd` file on seperate lines in the processed output, you can use the Markdown line break syntax `<br>` (only works for HTML), end the above of the lines with two spaces, or (for a slightly larger gap) simply include a blank line (both the latter work for HTML, Word and PDF outputs). For example: 
 
@@ -44,7 +45,8 @@ This is my very first R Markdown document (blank line in-between).
 
 When processed, the above would then produce a HTML output looking like the following:
 
-![line break](Embedded_Display_Items/line_break.png)
+![--- title: "My html document" author: John Smith date: 2025-05-01 output: html_document --- Background: This is my very first R Markdown document (Markdown line break syntax). Background: This is my very first R Markdown document (two spaces at end of the above line). Background: This is my very first R Markdown document (blank line in-between).
+](Embedded_Display_Items/line_break.png)
 
 Line break syntax can even be used to split a single sentence over multiple lines. For example:
 
@@ -84,7 +86,8 @@ This is my very first R Markdown document.
 
 Notice how the plain text on the line starting with the `#` now appears blue. This is an example of annotation syntax highlighting in R Markdown, which usefully makes the specific bits of text being formatted stand out. This is an example of annotation syntax highlighting in R Markdown, which usefully makes the specific bits of text being formatted stand out. Processing the above in an R Markdown file would then generate a HTML output that displays like the following:
 
-![single header](Embedded_Display_Items/single_header.png)
+![Screenshot of an HTML document rendered from R Markdown. The title reads "My html document" in large bold text. Below that, the author "John Smith" and the date "2025-05-01" are displayed. A large bold heading "Background:" follows, and underneath it is a line of text: "This is my very first R Markdown document."
+](Embedded_Display_Items/single_header.png)
 
 In the above case we used a single `#` symbol to induce a header. Nevertheless, it is also possible to invoke sub-headings by adding multiple `#` symbols at the start of the required text. The number of `#` symbols used at the start of a given line then determines the level of the heading. For example:
 
@@ -117,7 +120,8 @@ Even more text.
 
 The HTML output generated upon processing the above in an R Markdown file would subsequently look like:
 
-![multiple headers](Embedded_Display_Items/multiple_headers_2.png)
+![Screenshot of an HTML document generated from R Markdown. The title "My html document" appears at the top, followed by the author "John Smith" and the date "2025-05-01". A large bold heading "Background:" is followed by the text "This is my very first R Markdown document." Below that are
+](Embedded_Display_Items/multiple_headers_2.png)
 
 The lower the level of the heading, the smaller the header text is outputted. Also notice how (unlike the case for unformatted plain text) when a header is invoked in R Markdown, the subsequent line is automatically treated as a new line in the output when the `.Rmd` file is processed. Further, if the table of contents (`TOC`) option is set to `TRUE` in the YAML header, the formatted text headers and sub-headers will form the resultant table of contents in the output.
 
@@ -147,7 +151,8 @@ output: html_document
 
 When processed, the above R Markdown syntax would generate a HTML output looking like the below:
 
-![font formatting](Embedded_Display_Items/font_formatting.png)
+![Screenshot of an HTML document generated from R Markdown. The document is titled "My html document", authored by "John Smith", dated "2025-05-01". It contains several lines demonstrating text
+](Embedded_Display_Items/font_formatting.png)
 
 ### Lists:
 
@@ -171,7 +176,8 @@ output: html_document
 
 The resultant HTML output generated upon processing the above in an R Markdown file would subsequently look like:
 
-![unordered lists](Embedded_Display_Items/unordered_list.png)
+![Screenshot of an HTML document titled "My html document", authored by "John Smith", dated "2025-05-01". The document contains an unordered list with three main elements: "list element 1", "list element 2", and "list element 3". "List element 2" has two nested sub-elements: "list element 2, sub-element 1" and "list element 2, sub-element 2".
+](Embedded_Display_Items/unordered_list.png)
 
 Ordered (numerical) lists can just as easily be implemented by starting a line with a number joined to a `.` symbol. Ordered sub-lists are also possible using this convention, but require at least four spaces to invoke the indentation:
 
@@ -193,7 +199,8 @@ output: html_document
 
 The above, when processed, will generate an output that looks like:
 
-![ordered lists](Embedded_Display_Items/ordered_list.png)
+![Screenshot of an HTML document titled "My html document", authored by "John Smith", dated "2025-05-01". The document displays an ordered list with three main items: 1. list element 1, 2. list element 2, and 3. list element 3. Item 2 includes a nested ordered list with two sub-items: 1. list element 2, sub-element
+](Embedded_Display_Items/ordered_list.png)
 
 Finally, it is possible to create task lists in R Markdown by implementing the following Markdown annotation syntax:
 
@@ -212,7 +219,8 @@ output: html_document
 
 In the resultant HTML output, this would display as the following:
 
-![task lists](Embedded_Display_Items/task_list.png)
+![Screenshot of an HTML document titled "My html document", authored by "John Smith", dated "2025-05-01". Below the date is a task list with two items: a checkbox labeled "task 1" that is unchecked, and a checkbox labeled "task 2" that is checked.
+](Embedded_Display_Items/task_list.png)
 
 ## How can tables and images be embedded in an R Markdown document?
 
@@ -239,7 +247,8 @@ output: html_document
 
 When processed, the above R Markdown syntax would generate a HTML output that looks like the following:
 
-![table unjustified](Embedded_Display_Items/unjustified_table.png)
+![Screenshot of an HTML document titled "My html document", authored by "John Smith", dated "2025-05-01". Below is a table with three headers: "Header 1", "Header 2", and "Header 3". Each column contains two rows of the word "Text". The table columns are not aligned or justified.
+](Embedded_Display_Items/unjustified_table.png)
 
 The `:` symbol then enables for control of text justification (left, centre or right) in the table:
 
@@ -261,7 +270,8 @@ output: html_document
 
 The HTML output generated upon processing the above would subsequently look like:
 
-![table justified](Embedded_Display_Items/justified_table.png)
+![Screenshot of an HTML document titled "My html document", authored by "John Smith", dated "2025-05-01". It contains a three-column table with headers "Header 1", "Header 2", and "Header 3". The first column is left-aligned, the second is center-aligned, and the third is right-aligned. The rows beneath each header display the words: "Left", "Centre", "Right", followed by "Aligned", "Aligned", "Aligned", and finally "Text", "Text", "Text", each justified according to its column alignment.
+](Embedded_Display_Items/justified_table.png)
 
 ### Embedding external images:
 
@@ -282,7 +292,8 @@ The below figure illustrates how muscle strength changes with ageing: <br>
 
 The HTML output when the above is processed within an R Markdown document is then as follows:
 
-![embed web image](Embedded_Display_Items/embedded_web_image.png)
+![Screenshot of an HTML document titled "My html document", authored by "John Smith" and dated "2025-05-01". Below the introductory text, there is a figure captioned: "The below figure illustrates how muscle strength changes with ageing:". The embedded image is a graph showing three life stages: "Early life – Growth and development to maximise peak", "Adult life – Maintaining peak", and "Older life – Minimising loss". The graph plots muscle mass/strength on the Y-axis and age on the X-axis, with two diverging lines in
+](Embedded_Display_Items/embedded_web_image.png)
 
 It is worth noting that, in the above example, the `<br>` notation was used to make the image appear below the preceding line of unformatted plain text. If you were to instead leave a blank line between the unformatted text and the annotation syntax for embedding the image, the brief textual description contained within the `[ ]` brackets would actually show as an image caption in the resultant output. 
 
@@ -319,7 +330,8 @@ An illustration of how muscle mass and strength change with ageing can he found 
 
 The HTML output generated when the above R Markdown syntax is processed would look like the following:
 
-![embed hyperlink](Embedded_Display_Items/embedded_hyperlink-2.png)
+![Screenshot of an HTML document titled "My html document", authored by "John Smith" and dated "2025-05-06". Below the heading, there is a sentence that reads: "An illustration of how muscle mass and strength change with ageing can be found here." The word "here" is a clickable hyperlink, styled in blue, indicating a link to an external resource.
+](Embedded_Display_Items/embedded_hyperlink-2.png)
 
 ## How are references embedded into R Markdown documents?
 
@@ -359,7 +371,8 @@ Muscle mass declines at a rate of approximately 10% per decade after the age of 
 
 In the resultant HTML output, this would display as the following:
 
-![references](Embedded_Display_Items/bibliography.png)
+![Screenshot of an HTML document titled "My html document", authored by "John Smith" and dated "2025-05-01". The body of the text states: "Muscle mass declines at a rate of approximately 10% per decade after the age of 30 (Distefano and Goodpaster 2018)." A "References:" section follows, listing: "Distefano, Giovanna, and Bret H Goodpaster. 2018. 'Effects of Exercise and Aging on Skeletal Muscle.' *Cold Spring Harbor Perspective*
+](Embedded_Display_Items/bibliography.png)
 
 By default, the Chicago author-date format is applied in R Markdown when embedding references. To use a different referencing style, you will need to download (e.g., from the Zotero Style repository) the associated `.csl` file for that style and then assign it to the value of the `.csl` key in the YAML header.
 
@@ -383,7 +396,7 @@ output: html_document
 
 The above will translate into the below output HTML when processed:
 
-![escaping](Embedded_Display_Items/escaping.png)
+![A screenshot of a simple HTML document. The title "My html document" is displayed at the top. Below that, "John Smith" is written, followed by the date "2025-05-01". There is a bulleted list with one item: "List item 1". Below the list, the text "- display symbol normally" is visible.](Embedded_Display_Items/escaping.png)
 
 ### Task
 
@@ -391,5 +404,6 @@ Below is a HTML output generated using R Markdown that summarises how skeletal m
 
 #### *Task HTML output:*
 
-![formatting task output](Embedded_Display_Items/Text_Formatting_Task_HTML_Output.png)
+![
+A research paper titled "Skeletal Muscle and Exercise" by John Smith, dated 2025-05-01. The paper discusses "Skeletal muscle adaptations to exercise" and "Main types of exercise training," differentiating between endurance and resistance training. It then details "Phenotypic differences" and "Resistance training favours" increased muscle size, maximal force and power output, improved muscle recruitment, and minimal changes in mitochondrial density. Following this is a section on "Molecular differences" with a table comparing molecular pathways in endurance training (AMPK: Strongly activated, PGC-1alpha: Highly upregulated, mTOR: Low activation) and resistance training (AMPK: Weakly activated, PGC-1alpha: Lowly upregulated, mTOR: High activation). The bottom half of the page features a complex diagram illustrating molecular pathway changes in muscle with endurance versus resistance exercise training, showing different signaling cascades and their effects on satellite cell fusion, myofibril accumulation, mitochondrial biogenesis, and mitochondrial protein transcription. The document concludes with a "References" section, citing a paper by Zhao, Yang, Cai, and Bing-hong Gao from 2024.](Embedded_Display_Items/Text_Formatting_Task_HTML_Output.png)
 

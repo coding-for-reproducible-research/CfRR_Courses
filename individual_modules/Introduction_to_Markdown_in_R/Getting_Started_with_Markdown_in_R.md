@@ -43,7 +43,7 @@ Once the `rmarkdown` package has been installed, a new, blank R Markdown documen
 4. Clicking `Create Empty Document` on the resultant pop-up screen
 
 Completing the above four steps should result in an RStudio window that looks like the following:
-![Blank RMarkdown file](Embedded_Display_Items/Blank_RMarkdown_View.png)
+![A screenshot of the RStudio integrated development environment (IDE). The main panel shows an empty R Markdown file named "Untitled1" in the "Source" view. There are tabs for "Visual" and "Source" editing modes. Above the main panel are various menu options and icons, including "File," "Edit," "Code," "View," "Plots," "Session," "Build," "Debug," "Profile," and "Tools," along with buttons like "Knit," "Save," "Run," and "Publish." On the right side, the "Environment" pane is open, showing "Environment is empty" under "Global Environment." Below the Environment pane are tabs for "Files," "Plots," and "Packages." At the bottom of the RStudio window, the "Console" tab is active, displaying R version information ("R version 4.4.3") and introductory text about R, including how to get help and quit. Other tabs visible next to "Console" are "Terminal" and "Background Jobs."](Embedded_Display_Items/Blank_RMarkdown_View.png)
 
 ### Saving a (new) R Markdown document:
 
