@@ -44,11 +44,13 @@ The easiest way to view the content is on our Jupyter Book website (hosted via G
 You can run the materials on your own machine to interact with the notebooks directly. To set up the repository locally and explore the content: 
 
 Clone this repository to your local machine: 
-````bash
+
+```bash
 git clone https://github.com/coding-for-reproducible-research/ CfRR_Courses.git 
 ```
 
 Install the required dependencies, which can be done with pip:
+
 ```bash
 pip install -r requirements.in
 ```
@@ -60,7 +62,9 @@ to interact with the notebooks:
 ```bash
 jupyter lab
 ```
+
  or
+
 ```bash
  jupyter notebook
 ```
