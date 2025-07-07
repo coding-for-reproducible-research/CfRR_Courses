@@ -311,7 +311,7 @@ Format: `![alt text](image path)`.
 ```
 
 **Output:**
-![alt text for screen readers](cat_pic.png)
+![A white and tabby cat with large, wide blue eyes and prominent pink nose, looks curiously over its right shoulder. The cat's whiskers are long and extend out to the left, standing out against the plain black background.](cat_pic.png)
 
 ## 11. Escaping
 Sometimes, you might want to display special characters (like `*`, `_`, or `#`) in your text without them being interpreted as formatting. To do this, you can escape the character by placing a backslash (`\`) before it.
