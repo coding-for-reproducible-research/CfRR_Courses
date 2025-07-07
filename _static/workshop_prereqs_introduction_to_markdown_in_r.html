@@ -282,7 +282,7 @@ function highlightFilter(filter) {
                   
 
                   // parsing and collecting nodes and edges from the python
-                  nodes = new vis.DataSet([{"color": "#B0B0B0", "id": "Introduction to R", "label": "Introduction to R", "level": 1, "shape": "dot", "size": 10, "title": "Course Name: Introduction to R\nCourse Pre-reqs: None\nSubsequent Courses: Introduction to Markdown in R"}, {"color": "#B0B0B0", "id": "Introduction to Markdown in R", "label": "Introduction to Markdown in R", "level": 1, "shape": "dot", "size": 10, "title": "Course Name: Introduction to Markdown in R\nCourse Pre-reqs: Introduction to R\nSubsequent Courses: None"}]);
+                  nodes = new vis.DataSet([{"color": "#B0B0B0", "id": "Introduction to R", "label": "Introduction to R", "level": 1, "shape": "dot", "size": 10, "title": "Course Name: Introduction to R\nCourse Pre-reqs: None\nSubsequent Courses: Introduction to Markdown in R"}, {"color": "#B0B0B0", "id": "Introduction to Markdown in R", "label": "Introduction to Markdown in R", "level": 2, "shape": "dot", "size": 10, "title": "Course Name: Introduction to Markdown in R\nCourse Pre-reqs: Introduction to R\nSubsequent Courses: None"}]);
                   edges = new vis.DataSet([{"arrows": "to", "from": "Introduction to R", "to": "Introduction to Markdown in R", "width": 1}]);
 
                   nodeColors = {};
