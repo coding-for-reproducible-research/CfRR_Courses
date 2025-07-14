@@ -1,0 +1,262 @@
+[
+    {
+        "question": "What is the primary goal of parallelisation in computing?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To run multiple computations at the same time to reduce total run time",
+                "correct": true,
+                "feedback": "Correct. Parallelisation divides work across processors to speed up computation."
+            },
+            {
+                "answer": "To increase memory usage",
+                "correct": false,
+                "feedback": "Incorrect. Memory usage may increase, but that is not the goal."
+            },
+            {
+                "answer": "To write less code",
+                "correct": false,
+                "feedback": "Incorrect. Parallelisation may increase code complexity."
+            },
+            {
+                "answer": "To ensure only one processor is used",
+                "correct": false,
+                "feedback": "Incorrect. The goal is to use multiple processors."
+            }
+        ]
+    },
+    {
+        "question": "Which statement best describes vectorisation in scientific computing?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Transforming code to use array operations instead of explicit loops",
+                "correct": true,
+                "feedback": "Correct. Vectorisation leverages array operations for performance."
+            },
+            {
+                "answer": "Splitting a dataset into multiple files",
+                "correct": false,
+                "feedback": "Incorrect. This is not vectorisation."
+            },
+            {
+                "answer": "Using a GPU for calculations",
+                "correct": false,
+                "feedback": "Incorrect. Vectorisation can be done on CPUs or GPUs."
+            },
+            {
+                "answer": "Making code more readable",
+                "correct": false,
+                "feedback": "Incorrect. Code readability may or may not change."
+            }
+        ]
+    },
+    {
+        "question": "What is microbenchmarking used for?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To precisely measure the performance of small code segments",
+                "correct": true,
+                "feedback": "Correct. Microbenchmarks measure execution time of code snippets."
+            },
+            {
+                "answer": "To debug syntax errors",
+                "correct": false,
+                "feedback": "Incorrect. Microbenchmarking is about measuring performance."
+            },
+            {
+                "answer": "To compile code",
+                "correct": false,
+                "feedback": "Incorrect. Compilation is separate from benchmarking."
+            },
+            {
+                "answer": "To visualize datasets",
+                "correct": false,
+                "feedback": "Incorrect. Microbenchmarking is not about visualization."
+            }
+        ]
+    },
+    {
+        "question": "What is a common advantage of vectorised code compared to code using explicit loops?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "It usually runs faster due to underlying optimisations",
+                "correct": true,
+                "feedback": "Correct. Vectorised code often leverages low-level optimisations."
+            },
+            {
+                "answer": "It is always easier to understand",
+                "correct": false,
+                "feedback": "Incorrect. Vectorised code can sometimes be less clear."
+            },
+            {
+                "answer": "It guarantees correct results",
+                "correct": false,
+                "feedback": "Incorrect. Correctness depends on the logic."
+            },
+            {
+                "answer": "It always uses less memory",
+                "correct": false,
+                "feedback": "Incorrect. Memory usage can increase with vectorisation."
+            }
+        ]
+    },
+    {
+        "question": "Which of the following is typically a challenge when parallelising code?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Managing data dependencies between parallel tasks",
+                "correct": true,
+                "feedback": "Correct. Data dependencies can limit parallelism."
+            },
+            {
+                "answer": "Writing comments",
+                "correct": false,
+                "feedback": "Incorrect. Commenting is not unique to parallelisation."
+            },
+            {
+                "answer": "Using fewer variables",
+                "correct": false,
+                "feedback": "Incorrect. Variable count is not a main challenge."
+            },
+            {
+                "answer": "Only using one CPU core",
+                "correct": false,
+                "feedback": "Incorrect. The point is to use multiple cores."
+            }
+        ]
+    },
+    {
+        "question": "Why is reproducibility important in benchmarking?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "So that results can be reliably compared and verified",
+                "correct": true,
+                "feedback": "Correct. Reproducibility ensures fair, comparable measurements."
+            },
+            {
+                "answer": "To speed up the code",
+                "correct": false,
+                "feedback": "Incorrect. Reproducibility is not about speed."
+            },
+            {
+                "answer": "To increase randomness",
+                "correct": false,
+                "feedback": "Incorrect. Reproducibility often requires controlling randomness."
+            },
+            {
+                "answer": "To avoid vectorisation",
+                "correct": false,
+                "feedback": "Incorrect. Reproducibility and vectorisation are separate concepts."
+            }
+        ]
+    },
+    {
+        "question": "What is a typical use of a data table in data analysis?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To organise and manipulate structured datasets efficiently",
+                "correct": true,
+                "feedback": "Correct. Data tables help structure and process data."
+            },
+            {
+                "answer": "To create graphics",
+                "correct": false,
+                "feedback": "Incorrect. Graphics can use tables, but that's not their main use."
+            },
+            {
+                "answer": "To parallelise code automatically",
+                "correct": false,
+                "feedback": "Incorrect. Data tables themselves do not parallelise code."
+            },
+            {
+                "answer": "To store code snippets",
+                "correct": false,
+                "feedback": "Incorrect. Tables store data, not code."
+            }
+        ]
+    },
+    {
+        "question": "When comparing a parallel program to a serial version, what metric is commonly used?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Speedup (serial run time divided by parallel run time)",
+                "correct": true,
+                "feedback": "Correct. Speedup is a key measure of parallel efficiency."
+            },
+            {
+                "answer": "File size",
+                "correct": false,
+                "feedback": "Incorrect. File size is not used for speedup."
+            },
+            {
+                "answer": "Number of variables",
+                "correct": false,
+                "feedback": "Incorrect. Variable count is unrelated."
+            },
+            {
+                "answer": "Graphics card type",
+                "correct": false,
+                "feedback": "Incorrect. Speedup is independent of hardware details."
+            }
+        ]
+    },
+    {
+        "question": "What is a 'bottleneck' in parallel computing?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "A point where further parallelisation does not improve performance",
+                "correct": true,
+                "feedback": "Correct. Bottlenecks limit potential speedup."
+            },
+            {
+                "answer": "A fast processor",
+                "correct": false,
+                "feedback": "Incorrect. A bottleneck is a slow point."
+            },
+            {
+                "answer": "The total number of processors used",
+                "correct": false,
+                "feedback": "Incorrect. Processor count is not a bottleneck itself."
+            },
+            {
+                "answer": "The amount of available RAM",
+                "correct": false,
+                "feedback": "Incorrect. RAM is not always the limiting factor."
+            }
+        ]
+    },
+    {
+        "question": "Which of the following can improve performance in data analysis code?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Using vectorised operations and parallel processing where appropriate",
+                "correct": true,
+                "feedback": "Correct. These approaches take advantage of hardware capabilities."
+            },
+            {
+                "answer": "Adding more print statements",
+                "correct": false,
+                "feedback": "Incorrect. Print statements can slow down code."
+            },
+            {
+                "answer": "Avoiding functions",
+                "correct": false,
+                "feedback": "Incorrect. Using or avoiding functions does not directly impact performance."
+            },
+            {
+                "answer": "Writing code only in C++",
+                "correct": false,
+                "feedback": "Incorrect. Language choice is important, but not the only factor."
+            }
+        ]
+    }
+]
