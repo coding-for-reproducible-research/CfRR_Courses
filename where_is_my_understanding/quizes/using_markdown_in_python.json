@@ -1,0 +1,262 @@
+[
+    {
+        "question": "What is a markup language primarily used for?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Executing computer programs",
+                "correct": false,
+                "feedback": "Incorrect. Markup languages are not for executing code."
+            },
+            {
+                "answer": "Structuring and formatting text in documents",
+                "correct": true,
+                "feedback": "Correct. Markup languages define structure and formatting."
+            },
+            {
+                "answer": "Encrypting data for security",
+                "correct": false,
+                "feedback": "Incorrect. Encryption is not the main purpose."
+            },
+            {
+                "answer": "Designing operating systems",
+                "correct": false,
+                "feedback": "Incorrect. Operating systems are not made with markup languages."
+            }
+        ]
+    },
+    {
+        "question": "Which of the following is NOT a benefit of using Markdown?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Simplicity of syntax",
+                "correct": false,
+                "feedback": "Incorrect. Markdown is known for its simple syntax."
+            },
+            {
+                "answer": "High readability",
+                "correct": false,
+                "feedback": "Incorrect. Markdown is highly readable."
+            },
+            {
+                "answer": "Complex and hard-to-read formatting",
+                "correct": true,
+                "feedback": "Correct. Markdown is designed to be easy to read and write."
+            },
+            {
+                "answer": "Portability across platforms",
+                "correct": false,
+                "feedback": "Incorrect. Markdown is portable across platforms."
+            }
+        ]
+    },
+    {
+        "question": "How do you create a heading level 2 in Markdown?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "**Heading 2**",
+                "correct": false,
+                "feedback": "Incorrect. This is bold text, not a heading."
+            },
+            {
+                "answer": "== Heading 2 ==",
+                "correct": false,
+                "feedback": "Incorrect. This is not Markdown heading syntax."
+            },
+            {
+                "answer": "## Heading 2",
+                "correct": true,
+                "feedback": "Correct. Two hashes create a level 2 heading."
+            },
+            {
+                "answer": "// Heading 2",
+                "correct": false,
+                "feedback": "Incorrect. This is not valid Markdown syntax."
+            }
+        ]
+    },
+    {
+        "question": "Which symbol(s) can be used to create an unordered (bulleted) list in Markdown?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Only *",
+                "correct": false,
+                "feedback": "Incorrect. Other symbols are allowed too."
+            },
+            {
+                "answer": "Only -",
+                "correct": false,
+                "feedback": "Incorrect. Other symbols are allowed too."
+            },
+            {
+                "answer": "Only +",
+                "correct": false,
+                "feedback": "Incorrect. Other symbols are allowed too."
+            },
+            {
+                "answer": "-, *, or + (all are valid)",
+                "correct": true,
+                "feedback": "Correct. Any of these can be used for bullets."
+            }
+        ]
+    },
+    {
+        "question": "What is the correct syntax to add bold and italic text together in Markdown?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "**Bold and Italic**",
+                "correct": false,
+                "feedback": "Incorrect. This is just bold."
+            },
+            {
+                "answer": "*Bold and Italic*",
+                "correct": false,
+                "feedback": "Incorrect. This is just italic."
+            },
+            {
+                "answer": "***Bold and Italic***",
+                "correct": true,
+                "feedback": "Correct. Triple asterisks are used for bold and italic."
+            },
+            {
+                "answer": "~~Bold and Italic~~",
+                "correct": false,
+                "feedback": "Incorrect. This is strikethrough."
+            }
+        ]
+    },
+    {
+        "question": "What file extension is used for Markdown documents?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": ".txt",
+                "correct": false,
+                "feedback": "Incorrect. This is for plain text files."
+            },
+            {
+                "answer": ".mdown",
+                "correct": false,
+                "feedback": "Incorrect. Not a standard extension."
+            },
+            {
+                "answer": ".md",
+                "correct": true,
+                "feedback": "Correct. .md is the standard for Markdown files."
+            },
+            {
+                "answer": ".markdowns",
+                "correct": false,
+                "feedback": "Incorrect. Not a standard extension."
+            }
+        ]
+    },
+    {
+        "question": "In Jupyter Notebooks, what key should you press to change a cell to a Markdown cell?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "D",
+                "correct": false,
+                "feedback": "Incorrect. D is not used for cell type."
+            },
+            {
+                "answer": "M",
+                "correct": true,
+                "feedback": "Correct. M changes the cell type to Markdown."
+            },
+            {
+                "answer": "C",
+                "correct": false,
+                "feedback": "Incorrect. C is not used for cell type."
+            },
+            {
+                "answer": "T",
+                "correct": false,
+                "feedback": "Incorrect. T is not used for cell type."
+            }
+        ]
+    },
+    {
+        "question": "What is the purpose of embedding Python code in Markdown within Jupyter Notebooks?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To make the file larger",
+                "correct": false,
+                "feedback": "Incorrect. File size is not a goal."
+            },
+            {
+                "answer": "To encrypt Python code",
+                "correct": false,
+                "feedback": "Incorrect. Embedding does not encrypt code."
+            },
+            {
+                "answer": "To display code, explanations, and outputs together for readability and reproducibility",
+                "correct": true,
+                "feedback": "Correct. This is a key benefit of using Markdown with Python in Jupyter."
+            },
+            {
+                "answer": "To disable Python execution",
+                "correct": false,
+                "feedback": "Incorrect. Execution is often desired."
+            }
+        ]
+    },
+    {
+        "question": "Which of the following is a valid way to insert an image in Markdown?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "[image](url)",
+                "correct": false,
+                "feedback": "Incorrect. This is link syntax, not image."
+            },
+            {
+                "answer": "<img src=\"url\">",
+                "correct": false,
+                "feedback": "Incorrect. This is HTML, not Markdown."
+            },
+            {
+                "answer": "![alt text](url)",
+                "correct": true,
+                "feedback": "Correct. This is the right Markdown image syntax."
+            },
+            {
+                "answer": "{image: url}",
+                "correct": false,
+                "feedback": "Incorrect. Not valid Markdown."
+            }
+        ]
+    },
+    {
+        "question": "What is the recommended way to save and export a Jupyter Notebook as a static, shareable web page?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Save as .txt",
+                "correct": false,
+                "feedback": "Incorrect. This loses formatting and outputs."
+            },
+            {
+                "answer": "Export as .csv",
+                "correct": false,
+                "feedback": "Incorrect. CSV is for data, not notebooks."
+            },
+            {
+                "answer": "Export as HTML",
+                "correct": true,
+                "feedback": "Correct. Exporting as HTML creates a static web page."
+            },
+            {
+                "answer": "Convert to .exe",
+                "correct": false,
+                "feedback": "Incorrect. .exe is not a document format."
+            }
+        ]
+    }
+]
