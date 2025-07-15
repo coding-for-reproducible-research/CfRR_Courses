@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+function fixAccessibility() {
   // Fix overlay <label> elements by replacing them with <div>
   document.querySelectorAll('label.overlay').forEach(function(label) {
     var div = document.createElement('div');
@@ -25,8 +25,10 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Inject CSS for .sr-only (optional, in case you use it elsewhere)
-  var style = document.createElement('style');
-  style.innerHTML = `
+  if (!document.getElementById('sr-only-style')) {
+    var style = document.createElement('style');
+    style.id = 'sr-only-style';
+    style.innerHTML = `
 .sr-only {
   position: absolute !important;
   width: 1px !important;
@@ -39,5 +41,15 @@ document.addEventListener('DOMContentLoaded', function() {
   white-space: nowrap !important;
 }
 `;
-  document.head.appendChild(style);
+    document.head.appendChild(style);
+  }
+}
+
+// Run once at DOMContentLoaded (for static content)
+document.addEventListener('DOMContentLoaded', fixAccessibility);
+
+// Also run when new nodes are added (for dynamic content)
+const observer = new MutationObserver(function(mutationsList, observer) {
+  fixAccessibility();
 });
+observer.observe(document.body, { childList: true, subtree: true });
