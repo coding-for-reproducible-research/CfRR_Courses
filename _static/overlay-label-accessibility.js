@@ -14,6 +14,10 @@ function fixAccessibility() {
 
   // For each sidebar checkbox, add an aria-label if missing
   [
+    // New IDs (as in your current HTML)
+    { selector: 'input.sidebar-toggle#pst-primary-sidebar-checkbox', label: 'Toggle primary sidebar' },
+    { selector: 'input.sidebar-toggle#pst-secondary-sidebar-checkbox', label: 'Toggle secondary sidebar' },
+    // Old IDs (for backward compatibility)
     { selector: 'input.sidebar-toggle#\\__primary', label: 'Toggle primary sidebar' },
     { selector: 'input.sidebar-toggle#\\__secondary', label: 'Toggle secondary sidebar' }
   ].forEach(function(cfg) {
