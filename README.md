@@ -74,8 +74,9 @@ Then navigate to the course content of interest (e.g. open the notebooks in `ind
 (Optional) Build the Jupyter Book site locally: 
 
 To build the complete website from this repository, run: 
+
 ```bash
-jupyter-book build
+jupyter-book build .
 ```
 
 This will generate the static site under the `_build/html/` directory, which you can open in a browser to view the book offline. (This step requires the `jupyter-book` package, which is included in the requirements.) 
