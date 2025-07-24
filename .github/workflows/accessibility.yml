@@ -1,0 +1,59 @@
+name: pa11y-accessibility-check
+
+on:
+  pull_request:
+
+jobs:
+  build-book:
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.42.1-jammy # includes Chromium, Node, and tools
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+
+      - name: Install Poetry
+        run: curl -sSL https://install.python-poetry.org | python3 -
+
+      - name: Install dependencies
+        run: poetry install
+
+      - name: Cache executed notebooks
+        uses: actions/cache@v4
+        with:
+          path: _build/.jupyter_cache
+          key: jupyter-book-cache-${{ hashFiles('pyproject.toml') }}
+
+      - name: Build the book
+        run: poetry run jupyter-book build .
+
+      - name: Upload error logs
+        uses: actions/upload-artifact@v4
+        with:
+          name: error-logs
+          path: _build/html/reports/pathways/related_courses.err.log
+        continue-on-error: true
+
+      - name: Install Node.js and dependencies
+        run: |
+          apt-get update
+          apt-get install -y curl gnupg jq findutils
+          curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+          apt-get install -y nodejs
+          npm install --save-dev pa11y-ci
+          npx puppeteer browsers install chrome
+
+      - name: Generate list of .html files in _build as JSON
+        run: |
+          find _build -type f -name "*.html" | jq -R . | jq -s . > pa11y_targets.json
+          echo "Generated pa11y_targets.json:"
+          cat pa11y_targets.json
+
+      - name: Run Pa11y CI and print results to terminal
+        run: |
+          npx pa11y-ci --reporter cli --config pa11yci.js || true
+
