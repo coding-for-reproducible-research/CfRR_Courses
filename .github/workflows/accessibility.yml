@@ -88,34 +88,34 @@ jobs:
           echo "Generated pa11y_targets.json:"
           cat pa11y_targets.json
 
-- name: Run Pa11y CI on changed pages only and save output
-  id: run_pa11y
-  run: |
-    num_files=$(jq length pa11y_targets.json)
-    touch pa11y_output.md
+      - name: Run Pa11y CI on changed pages only and save output
+        id: run_pa11y
+        run: |
+          num_files=$(jq length pa11y_targets.json)
+          touch pa11y_output.md
 
-    if [ "$num_files" -eq 0 ]; then
-      echo "No relevant HTML files to check. Skipping Pa11y." | tee pa11y_output.md
-    else
-      echo "### 🚦 Pa11y Accessibility Report" > pa11y_output.md
-      echo "" >> pa11y_output.md
+          if [ "$num_files" -eq 0 ]; then
+            echo "No relevant HTML files to check. Skipping Pa11y." | tee pa11y_output.md
+          else
+            echo "### 🚦 Pa11y Accessibility Report" > pa11y_output.md
+            echo "" >> pa11y_output.md
 
-      # Deduplicate HTML targets and read them into an array
-      mapfile -t html_files < <(jq -r '.[]' pa11y_targets.json | sort -u)
+            # Deduplicate HTML targets and read them into an array
+            mapfile -t html_files < <(jq -r '.[]' pa11y_targets.json | sort -u)
 
-      for file in "${html_files[@]}"; do
-        echo "#### 📄 $file" >> pa11y_output.md
-        echo '```' >> pa11y_output.md
-        result=$(npx pa11y-ci --reporter cli --config pa11yci.js "file://$(pwd)/$file" 2>&1 || true)
-        echo "$result" >> pa11y_output.md
-        echo '```' >> pa11y_output.md
+            for file in "${html_files[@]}"; do
+              echo "#### 📄 $file" >> pa11y_output.md
+              echo '```' >> pa11y_output.md
+              result=$(npx pa11y-ci --reporter cli --config pa11yci.js "file://$(pwd)/$file" 2>&1 || true)
+              echo "$result" >> pa11y_output.md
+              echo '```' >> pa11y_output.md
 
-        # Attribution line for accessibility error source
-        base=$(basename "$file" .html)
-        echo "_⚠️ This issue likely originates from \`${base}.md\` or \`${base}.ipynb\`, which is used to generate this HTML file._" >> pa11y_output.md
-        echo "" >> pa11y_output.md
-      done
-    fi
+              # Attribution line for accessibility error source
+              base=$(basename "$file" .html)
+              echo "_⚠️ This issue likely originates from \`${base}.md\` or \`${base}.ipynb\`, which is used to generate this HTML file._" >> pa11y_output.md
+              echo "" >> pa11y_output.md
+            done
+          fi
 
 
       - name: Debug GitHub context
