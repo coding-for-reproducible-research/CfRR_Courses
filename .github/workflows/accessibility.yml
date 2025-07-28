@@ -1,8 +1,7 @@
 name: pa11y-accessibility-check
 
 on:
-  pull_request_target:
-    types: [opened, synchronize, reopened]
+  pull_request:
 
 jobs:
   accessibility_assessment:
@@ -11,13 +10,8 @@ jobs:
       image: mcr.microsoft.com/playwright:v1.42.1-jammy
 
     steps:
-      # ✅ Check out the PR branch (head) from the fork safely
-      - name: Checkout PR branch from fork
+      - name: Checkout PR code
         uses: actions/checkout@v3
-        with:
-          repository: ${{ github.event.pull_request.head.repo.full_name }}
-          ref: ${{ github.event.pull_request.head.ref }}
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Python 3.11
         uses: actions/setup-python@v4
@@ -116,25 +110,19 @@ jobs:
             done
           fi
 
-      - name: Post Pa11y report as PR comment
-        uses: actions/github-script@v7
+      - name: Find previous PR comment (if exists)
+        id: find_comment
+        uses: peter-evans/find-comment@v3
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const fs = require('fs');
-            const output = fs.readFileSync('pa11y_output.md', 'utf8');
-            const prNumber = context.payload.pull_request.number;
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: 'github-actions[bot]'
+          body-includes: '### 🚦 Pa11y Accessibility Report'
 
-            if (!prNumber) {
-              console.log("No PR number found.");
-              return;
-            }
-
-            console.log("Commenting on PR number:", prNumber);
-
-            await github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: prNumber,
-              body: output
-            });
+      - name: Create or update PR comment with Pa11y results
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body-path: pa11y_output.md
+          comment-id: ${{ steps.find_comment.outputs.comment-id }}
+          edit-mode: replace
