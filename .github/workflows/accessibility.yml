@@ -102,7 +102,8 @@ jobs:
             jq -r '.[]' pa11y_targets.json | sort | uniq | while read -r file; do
               echo "#### 📄 $file" >> pa11y_output.md
               echo '```' >> pa11y_output.md
-              npx pa11y-ci --reporter cli --config pa11yci.js "file://$(pwd)/$file" 2>&1 || true >> pa11y_output.md
+              result=$(npx pa11y-ci --reporter cli --config pa11yci.js "file://$(pwd)/$file" 2>&1 || true)
+              echo "$result" >> pa11y_output.md
               echo '```' >> pa11y_output.md
               echo "" >> pa11y_output.md
             done
