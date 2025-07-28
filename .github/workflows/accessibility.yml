@@ -4,7 +4,7 @@ on:
   pull_request:
 
 jobs:
-  accessibility_assessment:
+  accessibility_assessment_comment:
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright:v1.42.1-jammy # includes Chromium, Node, and tools
