@@ -2,14 +2,22 @@ name: pa11y-accessibility-check
 
 on:
   pull_request_target:
+    types: [opened, synchronize, reopened]
 
 jobs:
   accessibility_assessment:
     runs-on: ubuntu-latest
     container:
-      image: mcr.microsoft.com/playwright:v1.42.1-jammy # includes Chromium, Node, and tools
+      image: mcr.microsoft.com/playwright:v1.42.1-jammy
+
     steps:
-      - uses: actions/checkout@v3
+      # ✅ Check out the PR branch (head) from the fork safely
+      - name: Checkout PR branch from fork
+        uses: actions/checkout@v3
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Python 3.11
         uses: actions/setup-python@v4
@@ -108,34 +116,25 @@ jobs:
             done
           fi
 
-      - name: Debug GitHub context
-        run: |
-          echo "Event name: ${{ github.event_name }}"
-          echo "PR number: ${{ github.event.pull_request.number || 'None' }}"
-
       - name: Post Pa11y report as PR comment
         uses: actions/github-script@v7
-        if: github.event_name == 'pull_request'
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const fs = require('fs');
             const output = fs.readFileSync('pa11y_output.md', 'utf8');
+            const prNumber = context.payload.pull_request.number;
 
-            if (!context.issue.number) {
-              console.log("No issue number available, skipping comment.");
+            if (!prNumber) {
+              console.log("No PR number found.");
               return;
             }
 
-            console.log("Commenting on PR number:", context.issue.number);
+            console.log("Commenting on PR number:", prNumber);
 
             await github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              issue_number: context.issue.number,
+              issue_number: prNumber,
               body: output
             });
-
-
-
-
