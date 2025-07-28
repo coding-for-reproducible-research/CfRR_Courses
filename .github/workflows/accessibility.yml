@@ -55,6 +55,8 @@ jobs:
         id: map_html_targets
         shell: bash
         run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
           declare -A seen
           echo "[" > pa11y_targets.json
           first=true
