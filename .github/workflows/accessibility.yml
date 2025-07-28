@@ -4,7 +4,7 @@ on:
   pull_request:
 
 jobs:
-  build-book:
+  accessibility_assessment:
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright:v1.42.1-jammy # includes Chromium, Node, and tools
@@ -25,7 +25,6 @@ jobs:
         run: |
           export PATH="$HOME/.local/bin:$PATH"
           poetry install
-
 
       - name: Cache executed notebooks
         uses: actions/cache@v4
@@ -52,13 +51,83 @@ jobs:
           npm install --save-dev pa11y-ci
           npx puppeteer browsers install chrome
 
-      - name: Generate list of .html files in _build as JSON
+      - name: Identify changed files and map to HTML
+        id: map_html_targets
+        shell: bash
         run: |
-          find _build -type f -name "*.html" | jq -R . | jq -s . > pa11y_targets.json
+          declare -A seen
+          echo "[" > pa11y_targets.json
+          first=true
+
+          git fetch origin ${{ github.base_ref }} --depth=1
+          git diff --name-only FETCH_HEAD HEAD | grep -E "\.md$|\.ipynb$" > changed_files.txt || true
+          echo "Changed source files:"
+          cat changed_files.txt || echo "None"
+
+          while IFS= read -r file; do
+            [ -z "$file" ] && continue
+            basefile=$(basename "$file")
+            name="${basefile%.*}"
+            matches=$(find _build/html -type f -name "${name}.html")
+            for match in $matches; do
+              if [[ -z "${seen[$match]}" ]]; then
+                seen[$match]=1
+                if [ "$first" = true ]; then
+                  first=false
+                else
+                  echo "," >> pa11y_targets.json
+                fi
+                echo "\"$match\"" >> pa11y_targets.json
+              fi
+            done
+          done < changed_files.txt
+
+          echo "]" >> pa11y_targets.json
           echo "Generated pa11y_targets.json:"
           cat pa11y_targets.json
 
-      - name: Run Pa11y CI and print results to terminal
+      - name: Run Pa11y CI on changed pages only and save output
+        id: run_pa11y
         run: |
-          npx pa11y-ci --reporter cli --config pa11yci.js || true
+          num_files=$(jq length pa11y_targets.json)
+          touch pa11y_output.md
+
+          if [ "$num_files" -eq 0 ]; then
+            echo "No relevant HTML files to check. Skipping Pa11y." | tee pa11y_output.md
+          else
+            echo "### 🚦 Pa11y Accessibility Report" > pa11y_output.md
+            echo "" >> pa11y_output.md
+            jq -r '.[]' pa11y_targets.json | sort | uniq | while read -r file; do
+              echo "#### 📄 $file" >> pa11y_output.md
+              echo '```' >> pa11y_output.md
+              npx pa11y-ci --reporter cli --config pa11yci.js "file://$(pwd)/$file" 2>&1 || true >> pa11y_output.md
+              echo '```' >> pa11y_output.md
+              echo "" >> pa11y_output.md
+            done
+          fi
+
+      - name: Post Pa11y report as PR comment
+        uses: actions/github-script@v7
+        if: github.event_name == 'pull_request'
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const output = fs.readFileSync('pa11y_output.md', 'utf8');
+
+            if (!context.issue.number) {
+              console.log("No issue number available. Skipping comment.");
+              return;
+            }
+
+            console.log("Commenting on PR number:", context.issue.number);
+
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: output
+            });
+
+
 
