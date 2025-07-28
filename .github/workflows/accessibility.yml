@@ -7,11 +7,9 @@ jobs:
   accessibility_assessment:
     runs-on: ubuntu-latest
     container:
-      image: mcr.microsoft.com/playwright:v1.42.1-jammy
-
+      image: mcr.microsoft.com/playwright:v1.42.1-jammy # includes Chromium, Node, and tools
     steps:
-      - name: Checkout PR code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
       - name: Set up Python 3.11
         uses: actions/setup-python@v4
@@ -110,6 +108,11 @@ jobs:
             done
           fi
 
+      - name: Debug GitHub context
+        run: |
+          echo "Event name: ${{ github.event_name }}"
+          echo "PR number: ${{ github.event.pull_request.number || 'None' }}"
+
       - name: Find previous PR comment (if exists)
         id: find_comment
         uses: peter-evans/find-comment@v3
@@ -126,3 +129,7 @@ jobs:
           body-path: pa11y_output.md
           comment-id: ${{ steps.find_comment.outputs.comment-id }}
           edit-mode: replace
+
+
+
+
