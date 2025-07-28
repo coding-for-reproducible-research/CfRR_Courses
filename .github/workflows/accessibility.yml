@@ -90,6 +90,7 @@ jobs:
 
       - name: Run Pa11y CI on changed pages only and save output
         id: run_pa11y
+        shell: bash  # <-- this fixes the mapfile error
         run: |
           num_files=$(jq length pa11y_targets.json)
           touch pa11y_output.md
@@ -100,7 +101,7 @@ jobs:
             echo "### 🚦 Pa11y Accessibility Report" > pa11y_output.md
             echo "" >> pa11y_output.md
 
-            # Deduplicate HTML targets and read them into an array
+            # Deduplicate HTML targets and read into array
             mapfile -t html_files < <(jq -r '.[]' pa11y_targets.json | sort -u)
 
             for file in "${html_files[@]}"; do
@@ -116,6 +117,7 @@ jobs:
               echo "" >> pa11y_output.md
             done
           fi
+
 
 
       - name: Debug GitHub context
