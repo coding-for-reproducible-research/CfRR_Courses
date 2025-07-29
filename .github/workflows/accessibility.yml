@@ -117,7 +117,7 @@ jobs:
               echo '```' >> pa11y_output.md
 
               base=$(basename "$file" .html)
-              echo "_⚠️ This issue likely originates from the source file (e.g., \`filename.md\`, \`filename.ipynb\`) used to generate this HTML output._" >> pa11y_output.md
+              echo "_⚠️ Any errors likely originates from the source file (e.g., \`filename.md\`, \`filename.ipynb\`) used to generate the HTML._" >> pa11y_output.md
               echo "" >> pa11y_output.md
             done
           fi
