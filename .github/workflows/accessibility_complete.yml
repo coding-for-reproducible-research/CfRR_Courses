@@ -4,10 +4,10 @@ on:
   workflow_dispatch:
 
 jobs:
-  accessibility_check_all_html:
+  accessibility_assessment_all_website_html:
     runs-on: ubuntu-latest
     container:
-      image: mcr.microsoft.com/playwright:v1.42.1-jammy
+      image: mcr.microsoft.com/playwright:v1.42.1-jammy # includes Chromium, Node, and tools
     steps:
       - uses: actions/checkout@v3
 
@@ -35,6 +35,13 @@ jobs:
       - name: Build the book
         run: poetry run jupyter-book build .
 
+      - name: Upload error logs
+        uses: actions/upload-artifact@v4
+        with:
+          name: error-logs
+          path: _build/html/reports/pathways/related_courses.err.log
+        continue-on-error: true
+
       - name: Install Node.js and dependencies
         run: |
           apt-get update
@@ -44,28 +51,29 @@ jobs:
           npm install --save-dev pa11y-ci
           npx puppeteer browsers install chrome
 
-      - name: Find all HTML files
-        id: list_html
+      - name: Identify all HTML files in _build/html
+        id: map_html_targets
         shell: bash
         run: |
-          find _build/html -type f -name '*.html' | jq -R . | jq -s . > all_html_files.json
-          echo "HTML files to check:"
-          cat all_html_files.json
+          find _build/html -type f -name '*.html' | jq -R . | jq -s . > pa11y_targets.json
+          echo "Generated pa11y_targets.json:"
+          cat pa11y_targets.json
 
-      - name: Run Pa11y on all HTML files and save output
+
+      - name: Run Pa11y CI on changed pages only and save output
         id: run_pa11y
         shell: bash
         run: |
-          num_files=$(jq length all_html_files.json)
+          num_files=$(jq length pa11y_targets.json)
           touch pa11y_output.md
 
           if [ "$num_files" -eq 0 ]; then
-            echo "No HTML files found to check." | tee pa11y_output.md
+            echo "No relevant HTML files to check. Skipping Pa11y." | tee pa11y_output.md
           else
             echo "### 🚦 Pa11y Accessibility Report" > pa11y_output.md
             echo "" >> pa11y_output.md
 
-            mapfile -t html_files < <(jq -r '.[]' all_html_files.json | sort -u)
+            mapfile -t html_files < <(jq -r '.[]' pa11y_targets.json | sort -u)
             total_files=${#html_files[@]}
 
             for i in "${!html_files[@]}"; do
@@ -80,12 +88,19 @@ jobs:
               echo "$result" >> pa11y_output.md
               echo '```' >> pa11y_output.md
 
+              base=$(basename "$file" .html)
+              echo "_⚠️ Any errors likely originates from the source file (e.g., \`filename.md\`, \`filename.ipynb\`) used to generate the HTML._" >> pa11y_output.md
               echo "" >> pa11y_output.md
             done
           fi
 
-      - name: Upload Pa11y Report
-        uses: actions/upload-artifact@v4
-        with:
-          name: pa11y-accessibility-report
-          path: pa11y_output.md
+
+      - name: 🔍 Debug comment body
+        run: |
+          echo "------- BEGIN COMMENT BODY -------"
+          cat pa11y_output.md
+          echo "-------- END COMMENT BODY --------"
+
+
+
+
