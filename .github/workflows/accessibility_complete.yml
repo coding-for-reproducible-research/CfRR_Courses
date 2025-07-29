@@ -1,0 +1,91 @@
+name: pa11y-accessibility-check-all-website-html
+
+on:
+  workflow_dispatch:
+
+jobs:
+  accessibility_check_all_html:
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.42.1-jammy
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11.6'
+
+      - name: Install Poetry
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 -
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      - name: Install dependencies
+        run: |
+          export PATH="$HOME/.local/bin:$PATH"
+          poetry install
+
+      - name: Cache executed notebooks
+        uses: actions/cache@v4
+        with:
+          path: _build/.jupyter_cache
+          key: jupyter-book-cache-${{ hashFiles('pyproject.toml') }}
+
+      - name: Build the book
+        run: poetry run jupyter-book build .
+
+      - name: Install Node.js and dependencies
+        run: |
+          apt-get update
+          apt-get install -y curl gnupg jq findutils
+          curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+          apt-get install -y nodejs
+          npm install --save-dev pa11y-ci
+          npx puppeteer browsers install chrome
+
+      - name: Find all HTML files
+        id: list_html
+        shell: bash
+        run: |
+          find _build/html -type f -name '*.html' | jq -R . | jq -s . > all_html_files.json
+          echo "HTML files to check:"
+          cat all_html_files.json
+
+      - name: Run Pa11y on all HTML files and save output
+        id: run_pa11y
+        shell: bash
+        run: |
+          num_files=$(jq length all_html_files.json)
+          touch pa11y_output.md
+
+          if [ "$num_files" -eq 0 ]; then
+            echo "No HTML files found to check." | tee pa11y_output.md
+          else
+            echo "### 🚦 Pa11y Accessibility Report" > pa11y_output.md
+            echo "" >> pa11y_output.md
+
+            mapfile -t html_files < <(jq -r '.[]' all_html_files.json | sort -u)
+            total_files=${#html_files[@]}
+
+            for i in "${!html_files[@]}"; do
+              file="${html_files[$i]}"
+              current_index=$((i + 1))
+              echo "🔎 Checking $current_index of $total_files: $file"
+
+              echo "#### 📄 $file" >> pa11y_output.md
+              echo '```' >> pa11y_output.md
+
+              result=$(npx pa11y-ci --reporter cli --config pa11yci.js "file://$(pwd)/$file" 2>&1 || true)
+              echo "$result" >> pa11y_output.md
+              echo '```' >> pa11y_output.md
+
+              echo "" >> pa11y_output.md
+            done
+          fi
+
+      - name: Upload Pa11y Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: pa11y-accessibility-report
+          path: pa11y_output.md
