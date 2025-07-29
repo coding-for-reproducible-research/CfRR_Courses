@@ -51,48 +51,58 @@ jobs:
           npm install --save-dev pa11y-ci
           npx puppeteer browsers install chrome
 
-      - name: Identify all HTML files in _build/html
+      - name: Identify HTML files with corresponding .md or .ipynb source
         id: map_html_targets
         shell: bash
         run: |
-          find _build/html -type f -name '*.html' | jq -R . | jq -s . > pa11y_targets.json
+          echo "[" > pa11y_targets.json
+          first=true
+
+          # Find all .md and .ipynb files (excluding hidden and irrelevant folders)
+          find . -type f \( -name "*.md" -o -name "*.ipynb" \) ! -path "./.*" ! -path "./_build/*" | while read -r source; do
+            # Strip leading ./ and extension
+            relative_path="${source#./}"
+            base_path="${relative_path%.*}"
+
+            # Match corresponding HTML file in _build/html
+            html_path="_build/html/${base_path}.html"
+            if [[ -f "$html_path" ]]; then
+              if [ "$first" = true ]; then
+                first=false
+              else
+                echo "," >> pa11y_targets.json
+              fi
+              echo "\"$html_path\"" >> pa11y_targets.json
+            fi
+          done
+
+          echo "]" >> pa11y_targets.json
+
           echo "Generated pa11y_targets.json:"
           cat pa11y_targets.json
 
 
-      - name: Run Pa11y CI on changed pages only and save output
+      - name: Run Pa11y CI once on all targets and save output
         id: run_pa11y
         shell: bash
         run: |
-          num_files=$(jq length pa11y_targets.json)
           touch pa11y_output.md
 
+          num_files=$(jq length pa11y_targets.json)
           if [ "$num_files" -eq 0 ]; then
             echo "No relevant HTML files to check. Skipping Pa11y." | tee pa11y_output.md
           else
             echo "### 🚦 Pa11y Accessibility Report" > pa11y_output.md
             echo "" >> pa11y_output.md
 
-            mapfile -t html_files < <(jq -r '.[]' pa11y_targets.json | sort -u)
-            total_files=${#html_files[@]}
+            # Run pa11y-ci once on all files in pa11y_targets.json
+            result=$(npx pa11y-ci --reporter cli --config pa11yci.js 2>&1 || true)
+            echo "$result" >> pa11y_output.md
 
-            for i in "${!html_files[@]}"; do
-              file="${html_files[$i]}"
-              current_index=$((i + 1))
-              echo "🔎 Checking $current_index of $total_files: $file"
-
-              echo "#### 📄 $file" >> pa11y_output.md
-              echo '```' >> pa11y_output.md
-
-              result=$(npx pa11y-ci --reporter cli --config pa11yci.js "file://$(pwd)/$file" 2>&1 || true)
-              echo "$result" >> pa11y_output.md
-              echo '```' >> pa11y_output.md
-
-              base=$(basename "$file" .html)
-              echo "_⚠️ Any errors likely originates from the source file (e.g., \`filename.md\`, \`filename.ipynb\`) used to generate the HTML._" >> pa11y_output.md
-              echo "" >> pa11y_output.md
-            done
+            echo "" >> pa11y_output.md
+            echo "_⚠️ Any errors likely originate from the source file (e.g., \`filename.md\`, \`filename.ipynb\`)._" >> pa11y_output.md
           fi
+
 
 
       - name: 🔍 Debug comment body
