@@ -90,7 +90,7 @@ jobs:
 
       - name: Run Pa11y CI on changed pages only and save output
         id: run_pa11y
-        shell: bash  # <-- this fixes the mapfile error
+        shell: bash
         run: |
           num_files=$(jq length pa11y_targets.json)
           touch pa11y_output.md
@@ -101,17 +101,21 @@ jobs:
             echo "### 🚦 Pa11y Accessibility Report" > pa11y_output.md
             echo "" >> pa11y_output.md
 
-            # Deduplicate HTML targets and read into array
             mapfile -t html_files < <(jq -r '.[]' pa11y_targets.json | sort -u)
+            total_files=${#html_files[@]}
 
-            for file in "${html_files[@]}"; do
+            for i in "${!html_files[@]}"; do
+              file="${html_files[$i]}"
+              current_index=$((i + 1))
+              echo "🔎 Checking $current_index of $total_files: $file"
+
               echo "#### 📄 $file" >> pa11y_output.md
               echo '```' >> pa11y_output.md
+
               result=$(npx pa11y-ci --reporter cli --config pa11yci.js "file://$(pwd)/$file" 2>&1 || true)
               echo "$result" >> pa11y_output.md
               echo '```' >> pa11y_output.md
 
-              # Attribution line for accessibility error source
               base=$(basename "$file" .html)
               echo "_⚠️ This issue likely originates from \`${base}.md\` or \`${base}.ipynb\`, which is used to generate this HTML file._" >> pa11y_output.md
               echo "" >> pa11y_output.md
@@ -119,6 +123,11 @@ jobs:
           fi
 
 
+      - name: 🔍 Debug comment body
+        run: |
+          echo "------- BEGIN COMMENT BODY -------"
+          cat pa11y_output.md
+          echo "-------- END COMMENT BODY --------"
 
       - name: Debug GitHub context
         run: |
