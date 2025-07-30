@@ -1,10 +1,17 @@
-# R/quiz_renderer.R
+# quiz_renderer.R
 
+# Load required libraries
 library(jsonlite)
 library(IRdisplay)
+library(uuid)  # For generating unique quiz IDs
 
-show_quiz_from_json <- function(path, quiz_id_prefix = "quiz") {
+show_quiz_from_json <- function(path, quiz_id_prefix = NULL) {
   quiz_data <- fromJSON(path, simplifyVector = FALSE)
+
+  # Generate a unique prefix if one isn't supplied
+  if (is.null(quiz_id_prefix)) {
+    quiz_id_prefix <- paste0("quiz_", UUIDgenerate(use.time = TRUE))
+  }
 
   html <- '
   <style>
