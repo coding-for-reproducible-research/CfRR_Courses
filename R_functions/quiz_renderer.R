@@ -3,7 +3,7 @@
 library(jsonlite)
 library(IRdisplay)
 
-show_quiz_from_json <- function(path) {
+show_quiz_from_json <- function(path, quiz_id_prefix = "quiz") {
   quiz_data <- fromJSON(path, simplifyVector = FALSE)
 
   html <- '
@@ -61,35 +61,39 @@ show_quiz_from_json <- function(path) {
 
   <script>
   function handleAnswer(qid, aid, feedback, isCorrect) {
-      let buttons = document.querySelectorAll(".answer-" + qid);
+      let buttons = document.querySelectorAll("." + qid);
       buttons.forEach(btn => {
           btn.classList.remove("correct", "incorrect");
       });
 
       let selected = document.getElementById(aid);
-      selected.classList.add(isCorrect ? "correct" : "incorrect");
+      if (selected) {
+        selected.classList.add(isCorrect ? "correct" : "incorrect");
+      }
 
       let feedbackBox = document.getElementById("feedback_" + qid);
-      feedbackBox.innerHTML = feedback;
-      feedbackBox.style.color = isCorrect ? "green" : "red";
+      if (feedbackBox) {
+        feedbackBox.innerHTML = feedback;
+        feedbackBox.style.color = isCorrect ? "green" : "red";
+      }
   }
   </script>
   '
 
   for (i in seq_along(quiz_data)) {
     question <- quiz_data[[i]]
-    qid <- as.character(i)
+    qid <- sprintf("%s_q%s", quiz_id_prefix, i)
     html <- paste0(html, sprintf('<div class="quiz-question">%s</div><form class="quiz-form">', question$question))
 
     for (j in seq_along(question$answers)) {
       answer <- question$answers[[j]]
-      aid <- sprintf("q%s_a%s", i, j)
+      aid <- sprintf("%s_a%s", qid, j)
       feedback <- gsub("'", "\\'", answer$feedback)
       correct <- tolower(substr(answer$feedback, 1, 7)) == "correct"
       correct_js <- tolower(as.character(correct))
 
       html <- paste0(html, sprintf(
-        '<button type="button" class="quiz-answer answer-%s" id="%s"
+        '<button type="button" class="quiz-answer %s" id="%s"
          onclick="handleAnswer(\'%s\', \'%s\', \'%s\', %s)">
          %s</button>',
         qid, aid, qid, aid, feedback, correct_js, answer$answer
