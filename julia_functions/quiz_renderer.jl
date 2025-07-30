@@ -6,7 +6,7 @@ function show_quiz_from_json(path)
     html = """
     <style>
     .quiz-question {
-        background-color: #6c63ff;
+        background-color: #392061;
         color: white;
         padding: 12px;
         border-radius: 10px;

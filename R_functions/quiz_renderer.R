@@ -16,7 +16,7 @@ show_quiz_from_json <- function(path, quiz_id_prefix = NULL) {
   html <- '
   <style>
   .quiz-question {
-      background-color: #6c63ff;
+      background-color: #392061;
       color: white;
       padding: 12px;
       border-radius: 10px;
