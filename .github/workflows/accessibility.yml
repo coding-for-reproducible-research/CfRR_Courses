@@ -50,11 +50,6 @@ jobs:
           apt-get install -y nodejs
           npm install --save-dev pa11y-ci
           npx puppeteer browsers install chrome
-      
-      - name: Debug Git state
-        run: |
-          git log --oneline --graph --decorate --all | head -n 50
-          git branch -a
 
       - name: Identify changed files and map to HTML
         id: map_html_targets
