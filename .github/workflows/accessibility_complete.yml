@@ -1,0 +1,116 @@
+name: pa11y-accessibility-check-all-website-html
+
+on:
+  workflow_dispatch:
+
+jobs:
+  accessibility_assessment_all_website_html:
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.42.1-jammy # includes Chromium, Node, and tools
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11.6'
+
+      - name: Install Poetry
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 -
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      - name: Install dependencies
+        run: |
+          export PATH="$HOME/.local/bin:$PATH"
+          poetry install
+
+      - name: Cache executed notebooks
+        uses: actions/cache@v4
+        with:
+          path: _build/.jupyter_cache
+          key: jupyter-book-cache-${{ hashFiles('pyproject.toml') }}
+
+      - name: Build the book
+        run: poetry run jupyter-book build .
+
+      - name: Upload error logs
+        uses: actions/upload-artifact@v4
+        with:
+          name: error-logs
+          path: _build/html/reports/pathways/related_courses.err.log
+        continue-on-error: true
+
+      - name: Install Node.js and dependencies
+        run: |
+          apt-get update
+          apt-get install -y curl gnupg jq findutils
+          curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+          apt-get install -y nodejs
+          npm install --save-dev pa11y-ci
+          npx puppeteer browsers install chrome
+
+      - name: Identify HTML files with corresponding .md or .ipynb source
+        id: map_html_targets
+        shell: bash
+        run: |
+          echo "[" > pa11y_targets.json
+          first=true
+
+          # Find all .md and .ipynb files (excluding hidden and irrelevant folders)
+          find . -type f \( -name "*.md" -o -name "*.ipynb" \) ! -path "./.*" ! -path "./_build/*" | while read -r source; do
+            # Strip leading ./ and extension
+            relative_path="${source#./}"
+            base_path="${relative_path%.*}"
+
+            # Match corresponding HTML file in _build/html
+            html_path="_build/html/${base_path}.html"
+            if [[ -f "$html_path" ]]; then
+              if [ "$first" = true ]; then
+                first=false
+              else
+                echo "," >> pa11y_targets.json
+              fi
+              echo "\"$html_path\"" >> pa11y_targets.json
+            fi
+          done
+
+          echo "]" >> pa11y_targets.json
+
+          echo "Generated pa11y_targets.json:"
+          cat pa11y_targets.json
+
+
+      - name: Run Pa11y CI once on all targets and save output
+        id: run_pa11y
+        shell: bash
+        run: |
+          touch pa11y_output.md
+
+          num_files=$(jq length pa11y_targets.json)
+          if [ "$num_files" -eq 0 ]; then
+            echo "No relevant HTML files to check. Skipping Pa11y." | tee pa11y_output.md
+          else
+            echo "### 🚦 Pa11y Accessibility Report" > pa11y_output.md
+            echo "" >> pa11y_output.md
+
+            # Run pa11y-ci once on all files in pa11y_targets.json
+            result=$(npx pa11y-ci --reporter cli --config pa11yci.js 2>&1 || true)
+            echo "$result" >> pa11y_output.md
+
+            echo "" >> pa11y_output.md
+            echo "_⚠️ Any errors likely originate from the source file (e.g., \`filename.md\`, \`filename.ipynb\`)._" >> pa11y_output.md
+          fi
+
+
+
+      - name: 🔍 Debug comment body
+        run: |
+          echo "------- BEGIN COMMENT BODY -------"
+          cat pa11y_output.md
+          echo "-------- END COMMENT BODY --------"
+
+
+
+

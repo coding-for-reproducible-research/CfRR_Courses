@@ -1,18 +1,27 @@
 [
     {
-        "question": "Given the decision tree model that has been created, if the NO2 air pollution concentration was predicted from a wind speed of 0.5 m/s, what estimation would be made?",
-        "type": "numeric",
-        "precision":5,
+        "question": "Given the decision tree model that has been created, if the NO₂ air pollution concentration was predicted from a wind speed of 0.5 m/s, what estimation would be made?",
+        "type": "many_choice",
         "answers": [
             {
-                "type": "value",
-                "value": 31.277,
+                "answer": "31.277",
                 "correct": true,
                 "feedback": "Correct."
             },
             {
-                "type": "default",
-                "feedback": "Thats not quite right, try again!"
+                "answer": "24.890",
+                "correct": false,
+                "feedback": "That's a possible value for a higher wind speed. Try again!"
+            },
+            {
+                "answer": "18.003",
+                "correct": false,
+                "feedback": "Too low. Reconsider how the decision tree splits based on wind speed."
+            },
+            {
+                "answer": "36.500",
+                "correct": false,
+                "feedback": "Too high. Try tracing the path through the tree again."
             }
         ]
     }
