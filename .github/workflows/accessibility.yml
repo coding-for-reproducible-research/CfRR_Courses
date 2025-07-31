@@ -61,8 +61,8 @@ jobs:
           echo "[" > pa11y_targets.json
           first=true
 
-          git fetch origin ${{ github.base_ref }} --depth=1
-          git diff --name-only FETCH_HEAD HEAD | grep -E "\.md$|\.ipynb$" > changed_files.txt || true
+          git fetch origin ${{ github.base_ref }}
+          git diff --name-only origin/${{ github.base_ref }}...HEAD | grep -E "\.md$|\.ipynb$" > changed_files.txt || true
           echo "Changed source files:"
           cat changed_files.txt || echo "None"
 
@@ -87,6 +87,7 @@ jobs:
           echo "]" >> pa11y_targets.json
           echo "Generated pa11y_targets.json:"
           cat pa11y_targets.json
+
 
       - name: Run Pa11y CI once on identified pages and save output
         id: run_pa11y
