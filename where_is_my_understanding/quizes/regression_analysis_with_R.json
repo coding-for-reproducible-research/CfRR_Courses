@@ -1,6 +1,6 @@
 [
     {
-        "question": "Which of these are reasons to do regression analysis? Select all that apply.",
+        "question": "Which of these are reasons to do regression analysis?",
         "type": "many_choice",
         "answers": [
             {
@@ -9,12 +9,7 @@
                 "feedback": "Incorrect."
             },
             {
-                "answer": "Making predictions",
-                "correct": true,
-                "feedback": "Correct."
-            },
-            {
-                "answer": "Hypothesis testing",
+                "answer": "Making predictions and Hypothesis testing",
                 "correct": true,
                 "feedback": "Correct."
             },
@@ -62,7 +57,7 @@
             },
             {
                 "answer": "The mean of the outcome when all predictor variables equal 1.",
-                "correct": true,
+                "correct": false,
                 "feedback": "Correct."
             }
         ]
@@ -197,12 +192,7 @@
         "type": "many_choice",
         "answers": [
             {
-                "answer": "$y ~ 1",
-                "correct": true,
-                "feedback": "Correct."
-            },
-            {
-                "answer": "$y ~ age + sex",
+                "answer": "$y ~ 1, $y ~ education_years + age, $y ~ age + sex",
                 "correct": true,
                 "feedback": "Correct."
             },
@@ -210,11 +200,6 @@
                 "answer": "$y ~ age + status",
                 "correct": false,
                 "feedback": "Incorrect."
-            },
-            {
-                "answer": "$y ~ education_years + age",
-                "correct": true,
-                "feedback": "Correct."
             },
             {
                 "answer": "$y ~ age + sex + education_years$",
