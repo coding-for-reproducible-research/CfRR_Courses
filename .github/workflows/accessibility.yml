@@ -10,6 +10,8 @@ jobs:
       image: mcr.microsoft.com/playwright:v1.42.1-jammy # includes Chromium, Node, and tools
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Set up Python 3.11
         uses: actions/setup-python@v4
@@ -61,7 +63,7 @@ jobs:
           echo "[" > pa11y_targets.json
           first=true
 
-          git fetch origin ${{ github.base_ref }}
+          git fetch --no-tags --prune --progress --depth=100 origin ${{ github.base_ref }}
           git diff --name-only origin/${{ github.base_ref }}...HEAD | grep -E "\.md$|\.ipynb$" > changed_files.txt || true
           echo "Changed source files:"
           cat changed_files.txt || echo "None"
