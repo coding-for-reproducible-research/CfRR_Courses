@@ -50,6 +50,11 @@ jobs:
           apt-get install -y nodejs
           npm install --save-dev pa11y-ci
           npx puppeteer browsers install chrome
+      
+      - name: Debug Git state
+        run: |
+          git log --oneline --graph --decorate --all | head -n 50
+          git branch -a
 
       - name: Identify changed files and map to HTML
         id: map_html_targets
@@ -61,7 +66,7 @@ jobs:
           echo "[" > pa11y_targets.json
           first=true
 
-          git fetch origin ${{ github.base_ref }}
+          git fetch --no-tags --prune --progress --depth=100 origin ${{ github.base_ref }}
           git diff --name-only origin/${{ github.base_ref }}...HEAD | grep -E "\.md$|\.ipynb$" > changed_files.txt || true
           echo "Changed source files:"
           cat changed_files.txt || echo "None"
