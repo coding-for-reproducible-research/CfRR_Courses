@@ -69,12 +69,15 @@ parts:
                   - file: where_is_my_understanding/intro_to_python
                   - file: where_is_my_understanding/python_for_data_analysis
                   - file: where_is_my_understanding/introduction_to_machine_learning
+                  - file: where_is_my_understanding/using_markdown_in_python
               - file: where_is_my_understanding/R
                 sections:
                   - file: where_is_my_understanding/intro_to_r
                   - file: where_is_my_understanding/regression_analysis_with_R
                   - file: where_is_my_understanding/advanced_regression_analysis_with_R
                   - file: where_is_my_understanding/working_with_data_in_r
+                  - file: where_is_my_understanding/improve_your_r_code
+                  - file: where_is_my_understanding/intro_to_markdown_with_r
               - file: where_is_my_understanding/unix
                 sections:
                   - file: where_is_my_understanding/intro_to_unix
@@ -198,6 +201,7 @@ parts:
                   - file: individual_modules/advanced_regression_analysis_with_R/advanced_regression_analysis_with_R_summary
                   - file: individual_modules/advanced_regression_analysis_with_R/advanced_regression_analysis_with_R_extras
                   - file: individual_modules/advanced_regression_analysis_with_R/resources
+              - file: individual_modules/section_landing_pages/mixed_effects_regression_with_R
               - file: individual_modules/section_landing_pages/working_with_data_in_R
                 sections:
                   - file: individual_modules/working_with_data_in_R/introducing_tidyverse
@@ -330,9 +334,10 @@ parts:
   - caption: Short Courses
     chapters:
       - file: short_courses/overview
-      - file: short_courses/virtual_environments
-
-
+      - file: short_courses/python_environments
+      - file: short_courses/r_environments
+      - file: short_courses/r_functions
+      - file: short_courses/r_unit_testing
   - caption: Join Us!
     chapters: 
       - file: contributing/community
@@ -346,3 +351,4 @@ parts:
     chapters: 
       - file: cfrr_program_details/code_of_conduct
       - file: cfrr_program_details/code_of_conduct_violations
+      - file: cfrr_program_details/programme_policies

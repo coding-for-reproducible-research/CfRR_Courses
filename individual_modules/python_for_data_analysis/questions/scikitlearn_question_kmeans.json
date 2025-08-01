@@ -1,18 +1,27 @@
 [
     {
-        "question": "Given the k-means clustering model shown above, what cluster would the data point Temperature: 6, NO2 Concentration: 30 be in? ",
-        "type": "numeric",
-        "precision":1,
+        "question": "Given the k-means clustering model shown above, what cluster would the data point Temperature: 6, NO₂ Concentration: 30 be in?",
+        "type": "many_choice",
         "answers": [
             {
-                "type": "value",
-                "value": 2,
+                "answer": "0",
+                "correct": false,
+                "feedback": "Cluster 0 might be for lower concentrations or temperatures. Try again!"
+            },
+            {
+                "answer": "1",
+                "correct": false,
+                "feedback": "Cluster 1 isn't quite right here—revisit the cluster centroids."
+            },
+            {
+                "answer": "2",
                 "correct": true,
                 "feedback": "Correct."
             },
             {
-                "type": "default",
-                "feedback": "Thats not quite right, try again!"
+                "answer": "3",
+                "correct": false,
+                "feedback": "There may not even be a Cluster 3 in this model!"
             }
         ]
     }

@@ -15,7 +15,7 @@ Welcome to Intro to Machine Learning, a course designed to introduce you to core
 
 * Both [*Introduction to Python*](introduction_to_python.md) and [*Python for Data Analysis*](python_for_data_analysis.md) are pre-requisites for attending this course. If you have not attended these courses, please review the full course materials in your own time.
 * As a minimum, you should be comfortable performing data analysis in `Numpy` and `Pandas`, and in creating plots with `Matplotlib`, without the need for regular guidance or support. Familiarity with Jupyter Notebooks is highly recommended.
-* In addition, we also recommend that you are comfortable using virtual environments: please see our [self-study guide](../../short_courses/virtual_environments.ipynb) to do this.
+* In addition, we also recommend that you are comfortable using virtual environments: please see our [self-study guide](../../short_courses/python_environments.ipynb) to do this.
 
 ## Session content
 

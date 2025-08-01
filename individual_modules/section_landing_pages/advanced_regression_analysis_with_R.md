@@ -1,4 +1,4 @@
-# Advanced Regression Analysis with R
+# Regression Analysis in R: Adapting to Varied Data Types
 ## Overview
 
 Welcome to Advanced Regression Analysis with R. Our aim is to build on your existing knowledge of regression to fit more complex models that can handle more complicated data sets. In this session you will learn about different types of regression analysis, when to use them and how to interpret the results.
