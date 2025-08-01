@@ -13,4 +13,4 @@ You can contact the CfRR team at the following email: [codingforreproduciblerese
 
 Please register your interest in a particular course by completing the relevant form on the Workshop Schedule and Signup page available [here](cfrr_program_details/courses_overview.ipynb).
 
-For more details on the structure and use of this website, please go to ['How to use this website'](cfrr_program_details/how_to_use_CfRR.ipynb).
+For more details on the use of this website, please go to ['How to use this website'](cfrr_program_details/how_to_use_CfRR.ipynb).
