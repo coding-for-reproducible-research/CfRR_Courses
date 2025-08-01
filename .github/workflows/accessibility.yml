@@ -2,6 +2,7 @@ name: pa11y-accessibility-check
 
 on:
   pull_request_target:
+    types: [opened, synchronize, reopened]
 
 jobs:
   accessibility_assessment_comment:
