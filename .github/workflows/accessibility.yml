@@ -1,7 +1,8 @@
 name: pa11y-accessibility-check
 
 on:
-  pull_request:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
 
 jobs:
   accessibility_assessment_comment:
@@ -11,6 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
+          ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 0
 
       - name: Set up Python 3.11
