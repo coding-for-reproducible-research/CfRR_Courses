@@ -329,14 +329,17 @@ parts:
                   - file: individual_modules/intermediate_version_control/further_topics
                   - file: individual_modules/intermediate_version_control/resources
       - file: individual_modules/bibliography
-
   - caption: Short Courses
     chapters:
       - file: short_courses/overview
-      - file: short_courses/python_environments
-      - file: short_courses/r_environments
-      - file: short_courses/r_functions
-      - file: short_courses/r_unit_testing
+      - file: short_courses/python
+        sections:
+          - file: short_courses/python_environments
+      - file: short_courses/r
+        sections:
+          - file: short_courses/r_environments
+          - file: short_courses/r_functions
+          - file: short_courses/r_unit_testing
   - caption: Join Us!
     chapters: 
       - file: contributing/community
@@ -345,7 +348,6 @@ parts:
       - file: contributing/contributing_guidelines
       - file: contributing/developing_a_course
       - file: contributing/suggestions_form
-
   - caption: Community Guidelines and Policy Information
     chapters: 
       - file: cfrr_program_details/code_of_conduct
