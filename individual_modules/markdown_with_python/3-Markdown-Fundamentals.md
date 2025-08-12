@@ -122,7 +122,7 @@ Here are the main text styles:
 
  - ***Bold and italic text***: `***Bold and italic text***`
 
- - ~~Strikethrough~~: `~~Strikethrough text~~`
+ - **Strikethrough**: `~~Strikethrough text~~`
 
 These styles help make your writing easier to read. Use them to highlight important points, but keep it simple so your document stays clean and easy to follow.
 
