@@ -1,0 +1,102 @@
+[
+    {
+        "question": "What is a key advantage of using GPUs over CPUs for certain computations?",
+        "type": "many_choice",
+        "answers": [
+            {"answer": "GPUs are optimised for highly parallel tasks", "correct": true, "feedback": "Correct."},
+            {"answer": "GPUs always have higher clock speeds than CPUs", "correct": false, "feedback": "Incorrect."},
+            {"answer": "GPUs require no specialised programming", "correct": false, "feedback": "Incorrect."},
+            {"answer": "GPUs can only be used for graphics rendering", "correct": false, "feedback": "Incorrect."}
+        ]
+    },
+    {
+        "question": "Which Python library is designed to run NumPy-like operations on GPUs?",
+        "type": "many_choice",
+        "answers": [
+            {"answer": "CuPy", "correct": true, "feedback": "Correct."},
+            {"answer": "Pandas", "correct": false, "feedback": "Incorrect."},
+            {"answer": "Matplotlib", "correct": false, "feedback": "Incorrect."},
+            {"answer": "Requests", "correct": false, "feedback": "Incorrect."}
+        ]
+    },
+    {
+        "question": "In the Conway’s Game of Life example, what is the main benefit of using a GPU implementation?",
+        "type": "many_choice",
+        "answers": [
+            {"answer": "Reduced memory requirements", "correct": false, "feedback": "Incorrect."},
+            {"answer": "Significantly faster computation for large grids", "correct": true, "feedback": "Correct."},
+            {"answer": "More accurate simulation results", "correct": false, "feedback": "Incorrect."},
+            {"answer": "Simpler code syntax", "correct": false, "feedback": "Incorrect."}
+        ]
+    },
+    {
+        "question": "Why is parallelism important in GPU computing?",
+        "type": "many_choice",
+        "answers": [
+            {"answer": "It allows many operations to run simultaneously", "correct": true, "feedback": "Correct."},
+            {"answer": "It increases the clock speed of the processor", "correct": false, "feedback": "Incorrect."},
+            {"answer": "It reduces the need for programming skills", "correct": false, "feedback": "Incorrect."},
+            {"answer": "It avoids the need for data transfer between CPU and GPU", "correct": false, "feedback": "Incorrect."}
+        ]
+    },
+    {
+        "question": "What is a common bottleneck when moving computations to the GPU?",
+        "type": "many_choice",
+        "answers": [
+            {"answer": "Data transfer between CPU and GPU memory", "correct": true, "feedback": "Correct."},
+            {"answer": "GPU overheating", "correct": false, "feedback": "Incorrect."},
+            {"answer": "The GPU running out of threads", "correct": false, "feedback": "Incorrect."},
+            {"answer": "The GPU executing code sequentially", "correct": false, "feedback": "Incorrect."}
+        ]
+    },
+    {
+        "question": "Which profiling tool can help identify performance bottlenecks in GPU-enabled code?",
+        "type": "many_choice",
+        "answers": [
+            {"answer": "Nsight Systems", "correct": true, "feedback": "Correct."},
+            {"answer": "Excel", "correct": false, "feedback": "Incorrect."},
+            {"answer": "Matplotlib", "correct": false, "feedback": "Incorrect."},
+            {"answer": "BeautifulSoup", "correct": false, "feedback": "Incorrect."}
+        ]
+    },
+    {
+        "question": "Why is it useful to compare CPU and GPU implementations of the same algorithm?",
+        "type": "many_choice",
+        "answers": [
+            {"answer": "To measure performance gains and understand trade-offs", "correct": true, "feedback": "Correct."},
+            {"answer": "To remove the need for profiling", "correct": false, "feedback": "Incorrect."},
+            {"answer": "To ensure GPUs always run faster", "correct": false, "feedback": "Incorrect."},
+            {"answer": "To make CPU code obsolete", "correct": false, "feedback": "Incorrect."}
+        ]
+    },
+    {
+        "question": "What is the purpose of using libraries like CuPy for numerical simulations?",
+        "type": "many_choice",
+        "answers": [
+            {"answer": "To enable GPU acceleration with minimal code changes from NumPy", "correct": true, "feedback": "Correct."},
+            {"answer": "To rewrite all code in C++", "correct": false, "feedback": "Incorrect."},
+            {"answer": "To disable GPU parallelism", "correct": false, "feedback": "Incorrect."},
+            {"answer": "To visualise simulation results", "correct": false, "feedback": "Incorrect."}
+        ]
+    },
+    {
+        "question": "In high-performance computing, why might you still use CPUs instead of GPUs for some tasks?",
+        "type": "many_choice",
+        "answers": [
+            {"answer": "Some tasks are not easily parallelisable", "correct": true, "feedback": "Correct."},
+            {"answer": "GPUs cannot handle floating-point operations", "correct": false, "feedback": "Incorrect."},
+            {"answer": "CPUs always consume less power", "correct": false, "feedback": "Incorrect."},
+            {"answer": "GPUs cannot be used for simulations", "correct": false, "feedback": "Incorrect."}
+        ]
+    },
+    {
+        "question": "What is a best practice before porting code to run on GPUs?",
+        "type": "many_choice",
+        "answers": [
+            {"answer": "Profile and optimise the CPU version first", "correct": true, "feedback": "Correct."},
+            {"answer": "Skip CPU testing entirely", "correct": false, "feedback": "Incorrect."},
+            {"answer": "Write GPU code from scratch without a CPU baseline", "correct": false, "feedback": "Incorrect."},
+            {"answer": "Always assume the GPU will give 100x speed-up", "correct": false, "feedback": "Incorrect."}
+        ]
+    }
+]

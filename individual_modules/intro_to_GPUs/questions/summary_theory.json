@@ -1,0 +1,226 @@
+[
+    {
+        "question": "What does \"GPU\" stand for?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Graphical Processing Unit",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Graphics Processing Unit",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "General Processing Unit",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Graphics Programmer Unit",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Which characteristic best describes a GPU compared to a CPU?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Fewer, more powerful cores",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "One core with very high clock speed",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Hundreds or thousands of simpler cores optimized for parallel throughput",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "No caching, only direct memory access",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What is VRAM on a GPU?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "The CPU's L1 cache",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Disk-based virtual memory",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "The GPUs dedicated device memory",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "Shared system RAM accessible by CPU and GPU equally",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Which compiler is specifically used to compile NVIDIA CUDA C++ code?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "GCC",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Clang",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "NVCC",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "Intel ICC",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What is meant by “data transfer overhead” in GPU computing?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "The time to launch a kernel",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "The time spent inside GPU registers",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "The time to move data between host (CPU) memory and device (GPU) memory",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "The time to compile the code",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What does “parallel overhead” refer to?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Time to write parallel code",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Cost of launching many small GPU kernels or threads",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "CPU cache misses during parallel loops",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Increased FLOP rate on GPU",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "In the craftsman vs. factory analogy, the GPU is like a…",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Skilled craftsman",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Factory with many workers",
+                "correct": true,
+                "feedback": "Correct"
+            }
+        ]
+    },
+    {
+        "question": "When should you choose a GPU over a CPU?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Tasks with heavy conditional logic",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Low-latency single-thread tasks",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Highly data-parallel tasks applying the same operation to large arrays",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "File I/O bound workloads",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Why is an understanding of compilers important in GPU programming?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Compilers are not used with GPUs",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To manually write PTX by hand",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Because they translate high-level code into optimized GPU machine code, affecting performance and compatibility",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "They handle disk I/O optimisations",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]
