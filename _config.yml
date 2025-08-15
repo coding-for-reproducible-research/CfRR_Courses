@@ -33,6 +33,11 @@ html:
       - _static/overlay-label-accessibility.js
       - _static/search_bar_submit_button.js
 
+sphinx:
+  config:
+    html_extra_path:
+      - _static/
+
 
 launch_buttons:
   thebe                  : false
