@@ -1,0 +1,132 @@
+[
+    {
+        "question": "Which command is used to submit a batch job script to Slurm?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "sinfo",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "sbatch",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "squeue",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "scancel",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "In a job script, which #SBATCH directive requests a single GPU?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "--cpu-per-task=1",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "--mem=1G",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "--partition=gpu",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "--gres=gpu:1",
+                "correct": true,
+                "feedback": "Correct"
+            }
+        ]
+    },
+    {
+        "question": "After submitting a job with sbatch, which Slurm command do you use to check its status in the queue?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "scancel",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "sacct",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "squeue",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "sinfo",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "If you do not specify --output in your script, Slurm writes standard output to a file named by default:",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "job_<jobid>.out",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "slurm-<jobid>.out",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "output_<jobid>.txt",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "stdout.log",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Which #SBATCH option sets the maximum wall-clock time your job is allowed to run?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "--time",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "--mem",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "--cpus-per-task",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "--job-name",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]
