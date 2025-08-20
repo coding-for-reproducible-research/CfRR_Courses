@@ -11,7 +11,7 @@ While it is not essential to follow every recommendation to the letter, thoughtf
 - [Language: Python](#language-python)
 - [Version Control: Git](#version-control-git)
 - [Project Structure](#project-structure)
-- [README: README.md](#readme:-readmemd)
+- [README: README.md](#readmes)
 - [Project Config: TOML](#project-config-toml)
 - [IDE: VSCode](#ide-vscode)
 - [Packaging and Dependency Management: Poetry](#packaging-and-dependency-management-poetry)
@@ -214,7 +214,7 @@ NOTE: files beginning `.` are hidden files and will not appear unless showing hi
 ls -A
 ```
 
-## README: README.md
+## READMEs
 A well-structured README file is essential for providing users with clear instructions about the project. It should give an overview of the project, installation steps, usage instructions, and contribution guidelines. README.md file should be written in markdown, and contain basic project information, installation instructions and links to associated publications.
 
 ```markdown
@@ -496,7 +496,7 @@ These tests can also be run in groups or individually from the Testing panel in 
 ### Writing Tests
 It can be easy to get bogged down in writing extensive tests to ensure your code is doing what you expect. We suggest writing a basic set of tests initially and from there, as and when you encounter bugs or unexpected behaviour in your code, fix the bug, write a test that confirms it is fixed and move on. Over time a comprehensive set of test will develop that ensure your functions and methods are doing precisely what is expected, and prior mistakes are not being repeated.
 
-Some templates for [simple](files/test_simple.py) and more [advanced](files/test_advanced.py) test files have been included.
+Some templates for [simple](files/example_test_simple.py) and more [advanced](files/example_test_advanced.py) test files have been included.
 
 ## Data
 Data should not be included in the git repository. If data is publicly available, then information on where to find it can be included in the README.md, or a script to download the data can be include in `scripts/`.
