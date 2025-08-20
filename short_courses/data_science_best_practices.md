@@ -11,7 +11,7 @@ While it is not essential to follow every recommendation to the letter, thoughtf
 - [Language: Python](#language-python)
 - [Version Control: Git](#version-control-git)
 - [Project Structure](#project-structure)
-- [README: README.md](#readme-readmemd)
+- [README: README.md](#readme:-readmemd)
 - [Project Config: TOML](#project-config-toml)
 - [IDE: VSCode](#ide-vscode)
 - [Packaging and Dependency Management: Poetry](#packaging-and-dependency-management-poetry)
