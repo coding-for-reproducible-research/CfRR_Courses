@@ -1,0 +1,19 @@
+{
+    "python.pythonPath": ".venv/bin/python",   // Ensure VSCode uses Poetry's virtual environment
+    "python.linting.enabled": true,            // Enable linting
+    "python.linting.ruffEnabled": true,        // Enable Ruff as the linter
+    "python.linting.ruffPath": ".venv/bin/ruff", // Point to Ruff inside Poetry's virtual environment
+    "python.formatting.provider": "black",     // Use black for auto-formatting
+    "python.formatting.blackPath": ".venv/bin/black", // Ensure black from Poetry's virtual environment is used
+    "python.testing.pytestEnabled": true,      // Enable pytest for testing
+    "python.testing.pytestArgs": [
+        "tests"                               // Specify the test folder for pytest
+    ],
+    "files.exclude": {
+        "**/.venv": true,                      // Exclude .venv folder from the file explorer
+        "**/__pycache__": true                 // Exclude __pycache__ from the file explorer
+    },
+    "editor.formatOnSave": true,               // Automatically format on save
+    "editor.defaultFormatter": "ms-python.black", // Set black as the default formatter
+    "python.testing.autoTestDiscoverOnSaveEnabled": true // Automatically discover tests on file save
+}
