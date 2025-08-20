@@ -122,7 +122,7 @@ Python is a popular, high-level programming language known for its readability a
 Python is pre-installed on most macOS and Linux systems, meaning users can typically start using it right away from the terminal. However, on Windows, Python usually needs to be installed manually. Windows users can download it from the official Python [website](https://www.python.org/) and should ensure to check the box to "Add Python to PATH" during installation for easy access from the command line.
 
 ## Version Control: Git
-[installation](https://git-scm.com/downloads) · [basics](https://git-scm.com/doc) · [course](https://link-to-course-tbc)
+[installation](https://git-scm.com/downloads) · [basics](https://git-scm.com/doc) · [course](../programme_information/intro_to_python.ipynb)
 
 Git is a widely-used version control system that helps developers track changes in code, collaborate with others, and manage project history efficiently. Git enables branching, merging, and rollback features, making it essential for team-based development and large projects.
 
@@ -162,7 +162,7 @@ To host and share your repositories online, you can use GitHub, a popular remote
 ### Excluding Files: .gitignore
 A .gitignore file is a simple text file used in Git repositories to specify which files and directories should be ignored by Git. This is essential for excluding unnecessary files (like build artifacts, compiled code, and sensitive information) from version control, keeping the repository clean and reducing clutter. By listing patterns in .gitignore, you ensure that specified files won’t be tracked, staged, or committed. Common entries include temporary files, system files, and virtual environment directories (e.g., .venv/, *.log, __pycache__/).
 
-A lot of the content for the `.gitignore` is standard boilerplate which does not change between projects, and there are useful [generators](https://www.toptal.com/developers/gitignore/) to help build comprehensive files. An example `.gitignore` file has been included [here](./.gitignore).
+A lot of the content for the `.gitignore` is standard boilerplate which does not change between projects, and there are useful [generators](https://www.toptal.com/developers/gitignore/) to help build comprehensive files. An example `.gitignore` file has been included [here](../.gitignore).
 
 There are also online resources for generating .gitignore files such as [toptal.com](https://www.toptal.com/developers/gitignore), where you can search operating system, IDEs or programming languages you are using and generate a boilerplate .gitignore to exclude associate unwanted files. 
 
@@ -278,7 +278,7 @@ NOTE: If including api credentials, then this file should be added to the `.giti
 
 
 ## IDE: VSCode
-[installation](https://code.visualstudio.com/Download) · [basics](https://code.visualstudio.com/docs) · [course](https://link-to-courst-tbc)
+[installation](https://code.visualstudio.com/Download) · [basics](https://code.visualstudio.com/docs)
 
 Visual Studio Code (VSCode) is a popular, free, and open-source code editor developed by Microsoft. It’s known for its lightweight nature, speed, and rich feature set, including debugging support, integrated Git control, extensions, and language support. VSCode is highly customizable, with a wide range of extensions available to enhance functionality, making it an excellent choice for Python, web development, data science, and many other programming tasks.
 
@@ -496,7 +496,7 @@ These tests can also be run in groups or individually from the Testing panel in 
 ### Writing Tests
 It can be easy to get bogged down in writing extensive tests to ensure your code is doing what you expect. We suggest writing a basic set of tests initially and from there, as and when you encounter bugs or unexpected behaviour in your code, fix the bug, write a test that confirms it is fixed and move on. Over time a comprehensive set of test will develop that ensure your functions and methods are doing precisely what is expected, and prior mistakes are not being repeated.
 
-Some templates for [simple](./test_simple.py) and more [advanced](./test_advanced.py) test files have been included.
+Some templates for [simple](files/test_simple.py) and more [advanced](files/test_advanced.py) test files have been included.
 
 ## Data
 Data should not be included in the git repository. If data is publicly available, then information on where to find it can be included in the README.md, or a script to download the data can be include in `scripts/`.
