@@ -26,10 +26,10 @@ While it is not essential to follow every recommendation to the letter, thoughtf
 
 ## Quick-start
 
-Most of the instructions in this guide require use of the commandline interface in a Unix based system (Mac and Linux). For use with Windows first install Gitbash via [Git for Windows](gitforwindows.org).
+Most of the instructions in this guide require use of the commandline interface in a Unix based system (Mac and Linux). For use with Windows first install Gitbash via [Git for Windows](https://gitforwindows.org).
 Where `{project-name}` is referenced, replace this with the name of your project _without_ the curly braces.
 
-To get started you will need to make sure [Python](<README#Language: Python>), [Git](<README#Version Control: Git>) and [Poetry](<README#Packaging and Dependency Management: Poetry>) are installed.
+To get started you will need to make sure [Python](#language-python), [Git](#version-control-git) and [Poetry](#packaging-and-dependency-management-poetry) are installed.
 Python and Git come pre-installed on both Mac and Linux systems, and Git is installed as part of Git for Windows, but Windows users will need to [download](https://www.python.org/downloads/) and install Python.
 You will need to additionally install Poetry, which can be done from the [website](https://python-poetry.org/) or by running:
 
@@ -95,7 +95,7 @@ poetry add {package-name}
 
 ### Writing Code:
 
-We recommend writing the majority of code using [VSCode](<README#IDE: VSCode>) which will need [installing]() on all systems
+We recommend writing the majority of code using [VSCode](#ide-vscode) which will need [installing](https://code.visualstudio.com/Download) on all systems
 Core project code can be added to a new `module_name.py` file in `src/{project-name}/` and then functions, classes and variables from that module can be imported into other files using:
 
 ```python
@@ -142,7 +142,7 @@ Git is often pre-installed on macOS and Linux systems, allowing users to start u
 
 A .gitignore file is a simple text file used in Git repositories to specify which files and directories should be ignored by Git. This is essential for excluding unnecessary files (like build artifacts, compiled code, and sensitive information) from version control, keeping the repository clean and reducing clutter. By listing patterns in .gitignore, you ensure that specified files won’t be tracked, staged, or committed. Common entries include temporary files, system files, and virtual environment directories (e.g., .venv/, \*.log, **pycache**/).
 
-A lot of the content for the `.gitignore` is standard boilerplate which does not change between projects, and there are useful [generators](https://www.toptal.com/developers/gitignore/) to help build comprehensive files. An example `.gitignore` file has been included [here](./.gitignore).
+A lot of the content for the `.gitignore` is standard boilerplate which does not change between projects, and there are useful [generators](https://www.toptal.com/developers/gitignore/) to help build comprehensive files.
 
 ## Project Structure
 
@@ -193,7 +193,7 @@ NOTE: files beginning `.` are hidden files and will not appear unless showing hi
 ls -A
 ```
 
-## README: README.md
+## README: README.md {#readme-readmemd}
 
 A well-structured README file is essential for providing users with clear instructions about the project. It should give an overview of the project, installation steps, usage instructions, and contribution guidelines. README.md file should be written in [markdown](https://www.markdownguide.org/), and contain basic project information, installation instructions and links to associated publications.
 
