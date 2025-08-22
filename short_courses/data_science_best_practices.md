@@ -12,7 +12,7 @@ While it is not essential to follow every recommendation to the letter, thoughtf
 - [Language: Python](#language-python)
 - [Version Control: Git](#version-control-git)
 - [Project Structure](#project-structure)
-- [README: README.md](#readme-readmemd)
+- [README: README.md](#readme)
 - [Project Config: TOML](#project-config-toml)
 - [IDE: VSCode](#ide-vscode)
 - [Packaging and Dependency Management: Poetry](#packaging-and-dependency-management-poetry)
@@ -193,7 +193,7 @@ NOTE: files beginning `.` are hidden files and will not appear unless showing hi
 ls -A
 ```
 
-## README: README.md {#readme-readmemd}
+## README
 
 A well-structured README file is essential for providing users with clear instructions about the project. It should give an overview of the project, installation steps, usage instructions, and contribution guidelines. README.md file should be written in [markdown](https://www.markdownguide.org/), and contain basic project information, installation instructions and links to associated publications.
 
