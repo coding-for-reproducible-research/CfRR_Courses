@@ -6,24 +6,6 @@ The goal of this document is to offer a regularly updated resource that outlines
 
 While it is not essential to follow every recommendation to the letter, thoughtfully considering and incorporating the practices discussed here can significantly improve the reproducibility, usability, and interpretability of your research.
 
-## Table of Contents
-
-- [Quick-start](#quick-start)
-- [Language: Python](#language-python)
-- [Version Control: Git](#version-control-git)
-- [Project Structure](#project-structure)
-- [README: README.md](#readme)
-- [Project Config: TOML](#project-config-toml)
-- [IDE: VSCode](#ide-vscode)
-- [Packaging and Dependency Management: Poetry](#packaging-and-dependency-management-poetry)
-- [Code Formatter: Ruff](#code-formatter-ruff)
-- [Tests: Pytest](#tests-pytest)
-- [Data](#data)
-- [Examples](#examples)
-- [Scripts](#scripts)
-
----
-
 ## Quick-start
 
 Most of the instructions in this guide require use of the commandline interface in a Unix based system (Mac and Linux). For use with Windows first install Gitbash via [Git for Windows](https://gitforwindows.org).
@@ -122,7 +104,7 @@ from {project-name}.module_name import function_name
 
 as with a `.py` file.
 
-# Language: Python
+# Language: Python 
 
 [installation](https://www.python.org/downloads/) · [basics](https://wiki.python.org/moin/BeginnersGuide/Programmers) · [course](https://coding-for-reproducible-research.github.io/CfRR_Courses/course_homepages/python.html#)
 
@@ -130,7 +112,7 @@ Python is a popular, high-level programming language known for its readability a
 
 Python is pre-installed on most macOS and Linux systems, meaning users can typically start using it right away from the terminal. However, on Windows, Python usually needs to be installed manually. Windows users can download it from the official Python [website](https://www.python.org/) and should ensure to check the box to "Add Python to PATH" during installation for easy access from the command line.
 
-## Version Control: Git
+## Version Control: Git 
 
 [installation](https://git-scm.com/downloads) · [basics](https://git-scm.com/doc) · [course](https://coding-for-reproducible-research.github.io/CfRR_Courses/course_homepages/version_control.html)
 
