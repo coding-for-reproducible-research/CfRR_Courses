@@ -4,6 +4,8 @@ This section contains our short, focused Python courses designed to help you qui
 
 ## Included modules
 - **Python Environments** – Learn how to set up and manage Python environments for reproducible workflows. [Clickable Link to Self Study Notes](python_environments.ipynb)
+  - **Python Advanced Language Features** – Learn how to use docstrings, type hints, introspection, decorators, error handling, lambda functions, comprehensions, generators, and classes for clearer, more efficient, and reusable code. [Clickable Link to Self Study Notes](python_language_features.ipynb)
+  - **Python Checking and Testing Code** – Learn how to validate software with system and defect testing, use assertions, write unit tests with unittest and pytest, apply fixtures and mocks, and improve code quality with linting and coverage tools. [Clickable Link to Self Study Notes](python_testing.ipynb)
 
 
 
