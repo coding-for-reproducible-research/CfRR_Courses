@@ -1,0 +1,314 @@
+[
+    {
+        "question": "In the above spack spec output, what build system is used for the top-level cuda@12.8.0 package?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Autotools",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "CMake",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Generic",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "Makefile",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "In the above spack spec output, which feature is enabled in the Python build according to the spec?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "tkinter",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "debug symbols",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "sqlite3",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "optimizations",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "In the above spack spec output, what architecture and OS is targeted by all packages in this spec?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "linux-ubuntu20.04-x86_64",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "linux-ubuntu22.04-zen2",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "linux-centos7-x86_64",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "linux-ubuntu22.04-amd64",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "In the above spack spec output, what version of bzip2 is specified as a dependency of Python?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "1.0.6",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "1.0.8",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "1.0.10",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "1.0.4",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What does \"spack env activate -p gpu_training\" do?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Installs all packages in the env",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Deactivates the environment",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Activates the environment making its packages visible in your shell, and modifies the prompt",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "Lists the environment's spec",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Which command shows the planned dependency graph before installation?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "spack install",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "spack spec",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "spack find",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "spack info",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "How do you add a specific package version to your environment?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "spack install py-numpy@1.21.2",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "spack add py-numpy@1.21.2",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "spack spec py-numpy@1.21.2",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "spack list py-numpy@1.21.2",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What symbol indicates a package is already installed in the spec output?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "-",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "^",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "+",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "*",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Which file should you edit to load Spack automatically in Bash?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "~/.profile",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "~/.bashrc",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "~/.spack/config.yaml",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "~/.zshrc",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What does the spec string \"py-numpy@1.21.2%gcc@11.4.1 build_system=python_pip arch=linux-ubuntu20.04-zen2\" include?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Package name and version only",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Package name, version, compiler and version, build system and architecture",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "dependencies list",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Environment name",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "How do you remove a package from the environment spec before installation?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "spack uninstall py-numpy",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "spack purge py-numpy",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "spack remove py-numpy",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "spack delete py-numpy",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Why is Spack particularly useful in HPC/GPU contexts?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "It’s the only package manager that supports Python",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "It only installs GPU libraries",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "It manages complex dependency trees and multiple versions/variants of compilers and libraries, without needing root access",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "It replaces the system package manager",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+]
