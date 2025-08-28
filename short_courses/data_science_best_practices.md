@@ -11,7 +11,6 @@ While it is not essential to follow every recommendation to the letter, thoughtf
 Most of the instructions in this guide require use of the commandline interface in a Unix based system (Mac and Linux). For use with Windows first install Gitbash via [Git for Windows](https://gitforwindows.org).
 Where `{project-name}` is referenced, replace this with the name of your project _without_ the curly braces.
 
-To get started you will need to make sure [Python](#language-python), [Git](#version-control-git) and [Poetry](#packaging-and-dependency-management-poetry) are installed.
 Python and Git come pre-installed on both Mac and Linux systems, and Git is installed as part of Git for Windows, but Windows users will need to [download](https://www.python.org/downloads/) and install Python.
 You will need to additionally install Poetry, which can be done from the [website](https://python-poetry.org/) or by running:
 
@@ -77,7 +76,7 @@ poetry add {package-name}
 
 ### Writing Code:
 
-We recommend writing the majority of code using [VSCode](#ide-vscode) which will need [installing](https://code.visualstudio.com/Download) on all systems
+We recommend writing the majority of code using VSCode which will need [installing](https://code.visualstudio.com/Download) on all systems
 Core project code can be added to a new `module_name.py` file in `src/{project-name}/` and then functions, classes and variables from that module can be imported into other files using:
 
 ```python
@@ -167,7 +166,7 @@ A well-organized project structure is key to keeping code manageable, especially
 - **.gitignore**: Defines what is and is not to be included in the git repository fot the project.
 - **README.md**: Provides an overview of the project, setup instructions, and usage examples.
 
-There will be some additional files created through use of [git](#version-control-git) and [VSCode](#ide-vscode).
+There will be some additional files created through use of git and VSCode.
 
 NOTE: files beginning `.` are hidden files and will not appear unless showing hidden files is specified, i.e. using:
 

@@ -280,7 +280,7 @@ Ensure you can SSH into the remote machine from your terminal. If SSH is not alr
 
 5. Add a new SSH configuration to the file, specifying the remote machine’s details. Here’s an example configuration:
 
-   ```ssh-config
+   ```
    Host my-remote-machine
        HostName <remote-ip-or-hostname>
        User <your-username>
