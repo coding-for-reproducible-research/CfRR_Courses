@@ -1,4 +1,4 @@
-# Regression Analysis with R
+# Introduction to Regression with R
 
 ## Overview
 Regression analysis is a fundamental statistical technique used to model the relationship between multiple variables. It is a very flexible tool that can handle a range of different data types (continuous, binary or categorical) and address both complex and simple research questions. Here we look at how to fit a range of regression models with R, how to interpret the output and the link between regression and other common statistical tools.

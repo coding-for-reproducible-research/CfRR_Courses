@@ -1,0 +1,262 @@
+[
+    {
+        "question": "Broadly, what is machine learning?",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Machine learning is the field of study that gives computes the ability to learn without being explicitly programmed.",
+                "correct": true,
+                "feedback": "Correct: You could also define it as 'The science (and art) of programming computers so they learn from data'"
+            },
+            {
+                "answer": "Machine learning is about writing explicit rules and algorithms to solve specific problems",
+                "correct": false,
+                "feedback": "Incorrect: Machine learning isn't about pre-written rules, but instead learning from data following general patterns"
+            },
+            {
+                "answer": "Machine learning is a technique where algorithms are programmed to iteratively refine their code until they achieve optimal performance.",
+                "correct": false,
+                "feedback": "Incorrect: Generally, ML algorithms adjust their parameters, not their underlying code."
+            },
+            {
+                "answer": "Machine learning is about storing and retrieving vast amounts of data efficiently, like a database system.",
+                "correct": false,
+                "feedback": "Incorrect: While ML uses data, it is about finding patterns and making predictions from said data, rather than storing/retrieving it."
+            }
+        ]
+    },
+    {
+        "question": "What is the general flow of a machine learning approach to a problem?",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Study the problem -> Write rules -> Evaluate -> Publish",
+                "correct": false,
+                "feedback": "Incorrect: In machine learning we don't write explicit rules like in a traditional approach. We train an algorithm to learn said rules instead."
+            },
+            {
+                "answer": "Study the problem -> Solve the problem -> Publish",
+                "correct": false,
+                "feedback": "Incorrect: Although this is how ML can seem upon a quick glance, in reality 'solve the problem' is a little more involved than just that."
+            },
+            {
+                "answer": "Study the problem -data-> Train model -> Evaluate -> Analyse errors -> Update data -data-> Train model -> Evaluate -> Publish",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "Collect data -> Train model -> Publish",
+                "correct": false,
+                "feedback": "Incorrect: This skips the critical steps of ML where you evaluate the model and refine/improve it iteratively"
+            }
+        ]
+    },
+    {
+        "question": "Suppose you want to create and train a model that is able to determine whether a vehicle is electric, hybrid or gas (using various aspects of the car). What kind of model would you use?",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Regression model",
+                "correct": false,
+                "feedback": "Incorrect: regression models will predict a continuous numerical value from the new sample's input features. Our desired output here is categorical."
+            },
+            {
+                "answer": "Classification model",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "Convolutional neural network",
+                "correct": false,
+                "feedback": "Incorrect: Though this might work, its generally better to start with a simpler model before moving on to more complex models like neural networks."
+            },
+            {
+                "answer": "Time-series forcasting model",
+                "correct": false,
+                "feedback": "Incorrect: Time-series models predict future values based on past trends. This doesn't apply here, we want to categorise vehicles not predict trends."
+            }
+        ]
+    },
+    {
+        "question": "What is meant by overfitting?",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "This is when the input data is very poor quality (garbage in, garbage out)",
+                "correct": false,
+                "feedback": "Incorrect: Not quite, overfitting in this case would be if your model perfectly learned this poor training data and therefore couldn't make good predictions on new samples."
+            },
+            {
+                "answer": "This is where the model is too simple to make good predictions on new samples.",
+                "correct": false,
+                "feedback": "Incorrect: This is an example of underfitting."
+            },
+            {
+                "answer": "This is where you train a model that does well on your training data, but not very well on new samples.",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "This is when your model is not a good fit for the dataset.",
+                "correct": false,
+                "feedback": "Incorrect: Even if your model IS a good fit for the dataset, you can still end up overfitting if the model learns the patterns of the input data too heavily (and thusly performs poorly on new samples)."
+            }
+        ]
+    },
+    {
+        "question": "What is meant by a 'cost function'?",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "A function that determines the computational complexity of an algorithm",
+                "correct": false,
+                "feedback": "Incorrect: This describes algorithmic complexity, not a cost function."
+            },
+            {
+                "answer": "A metric used to assess how well the model performs on some data.",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "This is a function banks use to calculate how much money to give out at an ATM.",
+                "correct": false,
+                "feedback": "Incorrect: A cost function is not referring to expenses, but instead prediction errors in the model."
+            },
+            {
+                "answer": "This is a function that calculates how much money your failed AI startup has wasted in cloud computing resources",
+                "correct": false,
+                "feedback": "Incorrect: A cost function is not referring to expenses, but instead prediction errors in the model."
+            }
+        ]
+    },
+    {
+        "question": "Generally, when training a linear regression model, what metric do we use as the cost function?",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Root Mean Squared Error (RMSE)",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "Cubic cost function",
+                "correct": false,
+                "feedback": "Incorrect: This is commonly used in accounting."
+            },
+            {
+                "answer": "Recall",
+                "correct": false,
+                "feedback": "Incorrect: This is generally used in classification models, whilst linear regression is a regression model."
+            },
+            {
+                "answer": "Gradient Descent",
+                "correct": false,
+                "feedback": "Incorrect: This is not a cost function, but instead a method for updating a cost function."
+            }
+        ]
+    },
+    {
+        "question": "What is meant by the no free lunch theorem?",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "There is no single best algorithm for predictive modelling problems; you cannot blindly take a 'good' algorithm and expect it to perform well.",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "Machine learning models can achieve perfect accuracy without any training data.",
+                "correct": false,
+                "feedback": "Incorrect: The no free lunch theorem states the opposite of this."
+            },
+            {
+                "answer": "All optimisation algorithms converge to the same solution given enough time and effort",
+                "correct": false,
+                "feedback": "Incorrect: The theorem applies to performance of models in generalised contexts, not convergence."
+            },
+            {
+                "answer": "This alludes to how conferences in the machine learning space do not provide catering",
+                "correct": false,
+                "feedback": "Incorrect: Though it can be pretty hit-or-miss, conferences usually provide catering. The theorem is about algorithmic performance, not food."
+            }
+        ]
+    },
+    {
+        "question": "In ML, how can we be sure that our model truly does well in unseen scenarios?",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Use a really large dataset",
+                "correct": false,
+                "feedback": "Incorrect: One can still end up overfitting their models, even when using incredibly large datasets"
+            },
+            {
+                "answer": "Inspect predictions and use your superior intellect to ensure they 'look correct'",
+                "correct": false,
+                "feedback": "Incorrect: Although this is a common strategy, it's generally not acceptable to do this. Human bias makes this rather unreliable."
+            },
+            {
+                "answer": "Create a train and test dataset from the original (train-test split) and test the trained model on the test set",
+                "correct": true,
+                "feedback": "Correct: One can extend this further by holding the test set till the very end, instead testing intermediate models on a validation set generated from the training dataset3"
+            },
+            {
+                "answer": "Use a simple model and then work your way up to more complex models",
+                "correct": false,
+                "feedback": "Incorrect: model complexity doesn't guarantee model accuracy in unseen scenarios"
+            }
+        ]
+    },
+    {
+        "question": "After collecting your data and defining the problem to solve, what is best practice before choosing and training a model on said data?",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Explore, visualise and preprocess your data",
+                "correct": true,
+                "feedback": "Correct: This step can help you understand your data which can aid model selection. Bonus: Don't look at your test dataset to reduce your own biases."
+            },
+            {
+                "answer": "Define a cost function to assess the model used",
+                "correct": false,
+                "feedback": "Incorrect: Your cost function will likely change depending on the model you use, so this isn't a great idea."
+            },
+            {
+                "answer": "Perform feature engineering",
+                "correct": false,
+                "feedback": "Incorrect: generally you should explore your data first before deciding what features you might want to have as inputs to the model."
+            },
+            {
+                "answer": "Train a complex initial model with which to compare future models",
+                "correct": false,
+                "feedback": "Incorrect: Explore your data and try simple approaches first (perhaps not even an ML approach)"
+            }
+        ]
+    },
+    {
+        "question": "Which of the following is an example of an unsupervised model?",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Logistic regression model",
+                "correct": false,
+                "feedback": "Incorrect: This requires labelled data and so is an example of supervised learning."
+            },
+            {
+                "answer": "K-means clustering",
+                "correct": true,
+                "feedback": "Correct: This model groups unlabelled data by similarity, a classic unsupervised learning approach"
+            },
+            {
+                "answer": "Decision tree",
+                "correct": false,
+                "feedback": "Incorrect: Generally you would have labelled data points to train this type of model, making it a supervised approach."
+            },
+            {
+                "answer": "Diffusion model",
+                "correct": false,
+                "feedback": "Incorrect: This is a generative model used primarily for tasks like image generation. It usually relies on labelled data points and so is supervised."
+            }
+        ]
+    }
+]

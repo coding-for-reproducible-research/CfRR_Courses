@@ -4,7 +4,7 @@
 title: Home Page
 author: Coding For Reproducible Research Community
 logo: _static/exeter_logo.png
-copyright: "2024"
+copyright: "2025"
 
 # Define the name of the latex output file for PDF builds
 latex:
@@ -29,6 +29,15 @@ html:
   use_navigation_shortcuts: false
   extra_css:
       - _static/remove_prev_next_bottom_buttons.css
+  extra_js:
+      - _static/overlay-label-accessibility.js
+      - _static/search_bar_submit_button.js
+
+sphinx:
+  config:
+    html_extra_path:
+      - _static/
+
 
 launch_buttons:
   thebe                  : false
@@ -57,6 +66,7 @@ execute:
       - 'individual_modules/introduction_to_r/plots.ipynb'
       - 'individual_modules/introduction_to_r/stats.ipynb'
       - 'individual_modules/introduction_to_r/good_practise.ipynb'
+      - 'individual_modules/introduction_to_r/gettingstarted.ipynb'
       - 'individual_modules/regression_analysis_with_R/introduction_to_regression.ipynb'
       - 'individual_modules/regression_analysis_with_R/hypothesis_testing.ipynb'
       - 'individual_modules/regression_analysis_with_R/multiple_linear_regression.ipynb'
@@ -105,3 +115,18 @@ execute:
       - 'individual_modules/Introduction_to_Markdown_in_R/RMarkdown_Components_Formatted_Text.md'
       - 'individual_modules/Introduction_to_Markdown_in_R/RMarkdown_Components_Visual_Prelude.md'
       - 'individual_modules/Introduction_to_Markdown_in_R/RMarkdown_Components_YAML_Header.md'
+      - 'individual_modules/introduction_to_python/analysis_task_1.ipynb'
+      - 'individual_modules/introduction_to_python/analysis_task_2.ipynb'
+      - 'individual_modules/introduction_to_python/analysis_task_3.ipynb'
+      - 'short_courses/r_unit_testing.ipynb'
+      - 'short_courses/r_functions.ipynb'
+      - 'short_courses/r_functions.ipynb'
+      - 'short_courses/python_language_features.ipynb'
+      - 'short_courses/python_testing.ipynb'
+      - 'individual_modules/markdown_with_python/liveOutput.ipynb'
+      - 'individual_modules/intro_to_GPUs/theory.ipynb'
+      - 'individual_modules/intro_to_GPUs/spack.ipynb'
+      - 'individual_modules/intro_to_GPUs/slurm.ipynb'
+      - 'individual_modules/intro_to_GPUs/conways_game_of_life.ipynb'
+      - 'individual_modules/intro_to_GPUs/profiling.ipynb'
+      - 'individual_modules/intro_to_GPUs/temperature_diffusion.ipynb'

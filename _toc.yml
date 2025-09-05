@@ -53,6 +53,9 @@ parts:
                 sections:
                   - file: programme_information/intro_to_version_control
                   - file: programme_information/intermediate_version_control
+              - file: programme_information/gpus
+                sections:
+                  - file: programme_information/intro_to_gpus
       - file: cfrr_program_details/course_feedback
 
   - caption: What Courses Should I Take?
@@ -68,12 +71,16 @@ parts:
                 sections:
                   - file: where_is_my_understanding/intro_to_python
                   - file: where_is_my_understanding/python_for_data_analysis
+                  - file: where_is_my_understanding/introduction_to_machine_learning
+                  - file: where_is_my_understanding/using_markdown_in_python
               - file: where_is_my_understanding/R
                 sections:
                   - file: where_is_my_understanding/intro_to_r
                   - file: where_is_my_understanding/regression_analysis_with_R
                   - file: where_is_my_understanding/advanced_regression_analysis_with_R
                   - file: where_is_my_understanding/working_with_data_in_r
+                  - file: where_is_my_understanding/improve_your_r_code
+                  - file: where_is_my_understanding/intro_to_markdown_with_r
               - file: where_is_my_understanding/unix
                 sections:
                   - file: where_is_my_understanding/intro_to_unix
@@ -93,6 +100,9 @@ parts:
                 sections:
                   - file: where_is_my_understanding/intro_to_version_control
                   - file: where_is_my_understanding/intermediate_version_control
+              - file: where_is_my_understanding/GPUs
+                sections:
+                  - file: where_is_my_understanding/introduction_to_GPUs
       - file: pathways/related_courses
         sections:
           - file: pathways/hpc
@@ -120,6 +130,7 @@ parts:
                   - file: individual_modules/introduction_to_julia/implemented_game_of_life
                   - file: individual_modules/introduction_to_julia/visualisation
                   - file: individual_modules/introduction_to_julia/multi_file_project
+                  - file: individual_modules/introduction_to_julia/resources
           - file: course_homepages/python
             sections:
               - file: individual_modules/section_landing_pages/introduction_to_python
@@ -138,6 +149,7 @@ parts:
                   - file: individual_modules/introduction_to_python/analysis_task_1
                   - file: individual_modules/introduction_to_python/analysis_task_2
                   - file: individual_modules/introduction_to_python/analysis_task_3
+                  - file: individual_modules/introduction_to_python/resources
               - file: individual_modules/section_landing_pages/python_for_data_analysis
                 sections:
                   - file: individual_modules/python_for_data_analysis/Python_NumPy
@@ -146,21 +158,24 @@ parts:
                   - file: individual_modules/python_for_data_analysis/Python_ScikitLearn
                   - file: individual_modules/python_for_data_analysis/data-analysis-plotly
                   - file: individual_modules/python_for_data_analysis/data-analysis-task
+                  - file: individual_modules/python_for_data_analysis/resources
               - file: individual_modules/section_landing_pages/introduction_to_machine_learning
                 sections:
                   - file: individual_modules/introduction_to_machine_learning/1_linear_regression
                   - file: individual_modules/introduction_to_machine_learning/2_model_selection
                   - file: individual_modules/introduction_to_machine_learning/3_pipeline_task
                   - file: individual_modules/introduction_to_machine_learning/4_unsupervised_learning
+                  - file: individual_modules/introduction_to_machine_learning/resources
               - file: individual_modules/section_landing_pages/markdown_with_python
                 sections:
-                  - file: individual_modules/markdown_with_python/2-Motivation-and-Background
-                  - file: individual_modules/markdown_with_python/3-Markdown-Fundamentals
-                  - file: individual_modules/markdown_with_python/4-Markdown-Task-1
-                  - file: individual_modules/markdown_with_python/5-How-to-embed-Python-Code-in-Markdown
-                  - file: individual_modules/markdown_with_python/6-Export-the-Document
-                  - file: individual_modules/markdown_with_python/7-Markdown-Task-2
-                  - file: individual_modules/markdown_with_python/8-Further-Knowledge
+                  - file: individual_modules/markdown_with_python/Motivation-and-Background
+                  - file: individual_modules/markdown_with_python/Markdown-Fundamentals
+                  - file: individual_modules/markdown_with_python/Markdown-Task-1
+                  - file: individual_modules/markdown_with_python/How-to-embed-Python-Code-in-Markdown
+                  - file: individual_modules/markdown_with_python/Export-the-Document
+                  - file: individual_modules/markdown_with_python/Markdown-Task-2
+                  - file: individual_modules/markdown_with_python/Further-Knowledge
+                  - file: individual_modules/markdown_with_python/resources
           - file: course_homepages/R
             sections:
               - file: individual_modules/section_landing_pages/introduction_to_r
@@ -174,6 +189,7 @@ parts:
                   - file: individual_modules/introduction_to_r/plots
                   - file: individual_modules/introduction_to_r/stats
                   - file: individual_modules/introduction_to_r/good_practise
+                  - file: individual_modules/introduction_to_r/resources
               - file: individual_modules/section_landing_pages/regression_analysis_with_R
                 sections:
                   - file: individual_modules/regression_analysis_with_R/introduction_to_regression
@@ -182,6 +198,7 @@ parts:
                   - file: individual_modules/regression_analysis_with_R/logistic_regression
                   - file: individual_modules/regression_analysis_with_R/regression_analysis_with_r_summary.ipynb
                   - file: individual_modules/regression_analysis_with_R/regression_analysis_with_r_extras
+                  - file: individual_modules/regression_analysis_with_R/resources
               - file: individual_modules/section_landing_pages/advanced_regression_analysis_with_R
                 sections:
                   - file: individual_modules/advanced_regression_analysis_with_R/mixed_effects_models
@@ -189,6 +206,8 @@ parts:
                   - file: individual_modules/advanced_regression_analysis_with_R/regression_models_with_interaction_terms
                   - file: individual_modules/advanced_regression_analysis_with_R/advanced_regression_analysis_with_R_summary
                   - file: individual_modules/advanced_regression_analysis_with_R/advanced_regression_analysis_with_R_extras
+                  - file: individual_modules/advanced_regression_analysis_with_R/resources
+              - file: individual_modules/section_landing_pages/mixed_effects_regression_with_R
               - file: individual_modules/section_landing_pages/working_with_data_in_R
                 sections:
                   - file: individual_modules/working_with_data_in_R/introducing_tidyverse
@@ -199,6 +218,7 @@ parts:
                   - file: individual_modules/working_with_data_in_R/reshaping_datasets
                   - file: individual_modules/working_with_data_in_R/strings_and_dates
                   - file: individual_modules/working_with_data_in_R/summary
+                  - file: individual_modules/working_with_data_in_R/resources
               - file: individual_modules/section_landing_pages/improve_your_r_code
                 sections:
                   - file: individual_modules/improve_your_r_code/style
@@ -207,6 +227,7 @@ parts:
                   - file: individual_modules/improve_your_r_code/data_table
                   - file: individual_modules/improve_your_r_code/parallelisation
                   - file: individual_modules/improve_your_r_code/rcpp
+                  - file: individual_modules/improve_your_r_code/resources
               - file: individual_modules/section_landing_pages/Introduction_to_Markdown_in_R
                 sections:
                   - file: individual_modules/Introduction_to_Markdown_in_R/Background_to_Markdown
@@ -217,6 +238,7 @@ parts:
                   - file: individual_modules/Introduction_to_Markdown_in_R/RMarkdown_Components_Embedded_Code
                   - file: individual_modules/Introduction_to_Markdown_in_R/Processing_RMarkdown_Files
                   - file: individual_modules/Introduction_to_Markdown_in_R/Course_Outro
+                  - file: individual_modules/Introduction_to_Markdown_in_R/resources
           - file: course_homepages/unix
             sections:
               - file: individual_modules/section_landing_pages/introduction_to_unix
@@ -229,6 +251,7 @@ parts:
                   - file: individual_modules/introduction_to_unix/script
                   - file: individual_modules/introduction_to_unix/find
                   - file: individual_modules/introduction_to_unix/additional
+                  - file: individual_modules/introduction_to_unix/resources
       - file: cfrr_program_details/coding_practices_self_study
         sections:
           - file: course_homepages/computational_thinking
@@ -242,6 +265,7 @@ parts:
                   - file: individual_modules/computational_thinking/abstraction
                   - file: individual_modules/computational_thinking/alignment
                   - file: individual_modules/computational_thinking/final_exercise
+                  - file: individual_modules/computational_thinking/resources
           - file: course_homepages/high_performance_computing
             sections:
               - file: individual_modules/section_landing_pages/introduction_to_hpc
@@ -254,6 +278,7 @@ parts:
                   - file: individual_modules/introduction_to_hpc/modules
                   - file: individual_modules/introduction_to_hpc/example_jobs
                   - file: individual_modules/introduction_to_hpc/exploiting_slurm
+                  - file: individual_modules/introduction_to_hpc/resources
               - file: individual_modules/section_landing_pages/parallel_computing
                 sections:
                   - file: individual_modules/parallel_computing/architecture_and_concurrency
@@ -263,6 +288,7 @@ parts:
                   - file: individual_modules/parallel_computing/mpi_simple_communication
                   - file: individual_modules/parallel_computing/mpi_collective_comms
                   - file: individual_modules/parallel_computing/mpi_parallel_fractal
+                  - file: individual_modules/parallel_computing/resources
           - file: course_homepages/software_development
             sections:
               - file: individual_modules/section_landing_pages/software_development_best_practice
@@ -276,6 +302,7 @@ parts:
                   - file: individual_modules/software_development_best_practices/testing
                   - file: individual_modules/software_development_best_practices/collaboration
                   - file: individual_modules/software_development_best_practices/reproducibility
+                  - file: individual_modules/software_development_best_practices/resources
           - file: course_homepages/version_control
             sections:
               - file: individual_modules/section_landing_pages/introduction_to_version_control
@@ -295,6 +322,7 @@ parts:
                   - file: individual_modules/introduction_to_version_control/remote_branches_with_github
                   - file: individual_modules/introduction_to_version_control/collaborating_with_branches
                   - file: individual_modules/introduction_to_version_control/merge_conflicts
+                  - file: individual_modules/introduction_to_version_control/resources
               - file: individual_modules/section_landing_pages/intermediate_version_control
                 sections:
                   - file: individual_modules/intermediate_version_control/introduction
@@ -306,14 +334,35 @@ parts:
                   - file: individual_modules/intermediate_version_control/github_workflows
                   - file: individual_modules/intermediate_version_control/rewriting_history
                   - file: individual_modules/intermediate_version_control/further_topics
+                  - file: individual_modules/intermediate_version_control/resources
+          - file: course_homepages/GPUs
+            sections:
+              - file: individual_modules/section_landing_pages/introduction_to_GPUs
+                sections:
+                  - file: individual_modules/intro_to_GPUs/setup
+                  - file: individual_modules/intro_to_GPUs/theory
+                  - file: individual_modules/intro_to_GPUs/spack
+                  - file: individual_modules/intro_to_GPUs/slurm
+                  - file: individual_modules/intro_to_GPUs/conways_game_of_life
+                  - file: individual_modules/intro_to_GPUs/profiling
+                  - file: individual_modules/intro_to_GPUs/temperature_diffusion
       - file: individual_modules/bibliography
-
   - caption: Short Courses
     chapters:
       - file: short_courses/overview
-      - file: short_courses/virtual_environments
-
-
+      - file: short_courses/python
+        sections:
+          - file: short_courses/python_environments
+          - file: short_courses/python_language_features
+          - file: short_courses/python_testing
+      - file: short_courses/r
+        sections:
+          - file: short_courses/r_environments
+          - file: short_courses/r_functions
+          - file: short_courses/r_unit_testing
+      - file: short_courses/best_practices
+        sections:
+          - file: short_courses/data_science_best_practices
   - caption: Join Us!
     chapters: 
       - file: contributing/community
@@ -323,8 +372,8 @@ parts:
       - file: contributing/developing_a_course
       - file: contributing/new_course_checklist_timeline
       - file: contributing/suggestions_form
-
   - caption: Community Guidelines and Policy Information
     chapters: 
       - file: cfrr_program_details/code_of_conduct
       - file: cfrr_program_details/code_of_conduct_violations
+      - file: cfrr_program_details/programme_policies

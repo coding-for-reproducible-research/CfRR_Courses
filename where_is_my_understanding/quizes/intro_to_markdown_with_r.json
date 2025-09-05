@@ -1,0 +1,262 @@
+[
+    {
+        "question": "What is the primary purpose of Markdown?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To create formatted text using simple annotation symbols",
+                "correct": true,
+                "feedback": "Correct! Markdown uses symbols to format text easily."
+            },
+            {
+                "answer": "To run complex algorithms",
+                "correct": false,
+                "feedback": "Incorrect. Markdown is not for running algorithms."
+            },
+            {
+                "answer": "To create databases",
+                "correct": false,
+                "feedback": "Incorrect. Markdown is not for database creation."
+            },
+            {
+                "answer": "To encrypt data files",
+                "correct": false,
+                "feedback": "Incorrect. Markdown is not used for encryption."
+            }
+        ]
+    },
+    {
+        "question": "Who created Markdown and in what year?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Yihui Xie in 2015",
+                "correct": false,
+                "feedback": "Incorrect. Yihui Xie is known for R Markdown tools, but not Markdown itself."
+            },
+            {
+                "answer": "John Gruber in 2004",
+                "correct": true,
+                "feedback": "Correct! John Gruber created Markdown in 2004."
+            },
+            {
+                "answer": "Hadley Wickham in 2010",
+                "correct": false,
+                "feedback": "Incorrect. Hadley Wickham contributed many R packages but not Markdown itself."
+            },
+            {
+                "answer": "Emily Riederer in 2020",
+                "correct": false,
+                "feedback": "Incorrect. Emily Riederer co-authored the R Markdown Cookbook."
+            }
+        ]
+    },
+    {
+        "question": "What is one major benefit of using Markdown files for documentation?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "They are lightweight and portable across devices",
+                "correct": true,
+                "feedback": "Correct! Markdown files are portable and lightweight."
+            },
+            {
+                "answer": "They require special expensive software",
+                "correct": false,
+                "feedback": "Incorrect. Markdown is designed for simplicity and broad compatibility."
+            },
+            {
+                "answer": "They cannot be converted to other formats",
+                "correct": false,
+                "feedback": "Incorrect. Markdown can be converted to HTML, PDF, DOCX, and more."
+            },
+            {
+                "answer": "They always hide all formatting from the user",
+                "correct": false,
+                "feedback": "Incorrect. The annotation symbols are visible when editing the file."
+            }
+        ]
+    },
+    {
+        "question": "What is the typical file extension for an R Markdown document?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": ".rmd",
+                "correct": true,
+                "feedback": "Correct! R Markdown files use the .Rmd extension."
+            },
+            {
+                "answer": ".rmarkdown",
+                "correct": false,
+                "feedback": "Incorrect. The extension is .Rmd."
+            },
+            {
+                "answer": ".mdr",
+                "correct": false,
+                "feedback": "Incorrect. The extension is .Rmd."
+            },
+            {
+                "answer": ".md",
+                "correct": false,
+                "feedback": "Incorrect. .md is for plain Markdown, not R Markdown."
+            }
+        ]
+    },
+    {
+        "question": "Which component of an R Markdown document contains metadata such as title, author, and output format?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "YAML header",
+                "correct": true,
+                "feedback": "Correct! The YAML header stores metadata and options."
+            },
+            {
+                "answer": "R code chunk",
+                "correct": false,
+                "feedback": "Incorrect. R code chunks are for code, not metadata."
+            },
+            {
+                "answer": "BibTeX file",
+                "correct": false,
+                "feedback": "Incorrect. BibTeX files are for references."
+            },
+            {
+                "answer": "HTML body",
+                "correct": false,
+                "feedback": "Incorrect. The HTML body is generated as output."
+            }
+        ]
+    },
+    {
+        "question": "What does 'knitting' an R Markdown document mean in RStudio?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Rendering the .Rmd file into a final output format like HTML, PDF, or Word",
+                "correct": true,
+                "feedback": "Correct! 'Knitting' means rendering the R Markdown document."
+            },
+            {
+                "answer": "Editing the source code",
+                "correct": false,
+                "feedback": "Incorrect. Knitting is about output, not editing."
+            },
+            {
+                "answer": "Saving the file",
+                "correct": false,
+                "feedback": "Incorrect. Saving is different from knitting."
+            },
+            {
+                "answer": "Running R code in the console",
+                "correct": false,
+                "feedback": "Incorrect. Knitting is more than just running code."
+            }
+        ]
+    },
+    {
+        "question": "How can you embed R code in an R Markdown document?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "By using code chunks and in-line code",
+                "correct": true,
+                "feedback": "Correct! Both code chunks and in-line code are used."
+            },
+            {
+                "answer": "By only using the YAML header",
+                "correct": false,
+                "feedback": "Incorrect. The YAML header is for metadata."
+            },
+            {
+                "answer": "By adding HTML tags",
+                "correct": false,
+                "feedback": "Incorrect. HTML tags are for formatting output, not embedding R code."
+            },
+            {
+                "answer": "By saving code in a BibTeX file",
+                "correct": false,
+                "feedback": "Incorrect. BibTeX is for references."
+            }
+        ]
+    },
+    {
+        "question": "Which option in a code chunk controls whether the code is displayed in the output document?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "echo",
+                "correct": true,
+                "feedback": "Correct! The echo option controls code visibility."
+            },
+            {
+                "answer": "eval",
+                "correct": false,
+                "feedback": "Incorrect. eval controls whether code is run."
+            },
+            {
+                "answer": "message",
+                "correct": false,
+                "feedback": "Incorrect. message controls output of messages."
+            },
+            {
+                "answer": "tidy",
+                "correct": false,
+                "feedback": "Incorrect. tidy controls code formatting."
+            }
+        ]
+    },
+    {
+        "question": "What is one benefit of integrating R code and plain text in the same document?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "It promotes reproducible workflows and analysis",
+                "correct": true,
+                "feedback": "Correct! Integrated documents support reproducibility."
+            },
+            {
+                "answer": "It makes it impossible to share the analysis",
+                "correct": false,
+                "feedback": "Incorrect. It actually makes sharing easier."
+            },
+            {
+                "answer": "It hides all code from the user",
+                "correct": false,
+                "feedback": "Incorrect. You can choose whether to show or hide code."
+            },
+            {
+                "answer": "It prevents code from being executed",
+                "correct": false,
+                "feedback": "Incorrect. Code can be executed as part of the document."
+            }
+        ]
+    },
+    {
+        "question": "Which output formats can R Markdown produce?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "HTML, PDF, and Word documents",
+                "correct": true,
+                "feedback": "Correct! R Markdown can generate all these formats."
+            },
+            {
+                "answer": "Executable programs only",
+                "correct": false,
+                "feedback": "Incorrect. R Markdown is for documents, not programs."
+            },
+            {
+                "answer": "BibTeX and LaTeX files only",
+                "correct": false,
+                "feedback": "Incorrect. BibTeX and LaTeX can be included, but are not the primary outputs."
+            },
+            {
+                "answer": "Image files only",
+                "correct": false,
+                "feedback": "Incorrect. R Markdown can embed images, but output is not limited to image files."
+            }
+        ]
+    }
+]

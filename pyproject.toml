@@ -13,11 +13,13 @@ numpy = "^1.26.4"
 pandas = "*"
 jupyter-book = "*"
 ghp-import = "*"
-jupyterquiz = "*"
+jupyterquiz = { git = "https://github.com/liamjberrisford/jupyterquiz.git", branch = "main" }
 matplotlib = "*"
 scikit-learn = "*"
 pyvis = "*"
 plotly = "^6.0.0"
+snowballstemmer = "2.2.0"
+jupyterlab = "^4.4.5"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
