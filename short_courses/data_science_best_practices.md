@@ -1,5 +1,17 @@
 # Data Science Project Best Practices
 
+```{card}
+
+<div class="alert alert-block" style="background-color: #ffffff; border: 1px solid #ccc; padding: 1em; border-radius: 8px;">
+
+**Author:** Finley Gibson (GitHub: [FinleyGibson](https://github.com/FinleyGibson))
+
+**License:** Creative Commons Attribution-ShareAlike 4.0 International license ([CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)).
+
+</div>
+
+```
+
 This guide provides a comprehensive reference for best practices in conducting reproducible research using Python, specifically for data science projects with a focus on research applications.
 
 The goal of this document is to offer a regularly updated resource that outlines approaches, tools, and methodologies that can help ensure the reproducibility, transparency, and overall quality of your research outcomes. By adopting these practices, you can facilitate collaboration, increase the reliability of your findings, and make it easier for others to understand and build upon your work.
