@@ -27,7 +27,7 @@
     const toggle = findToggle(li);
     if (!toggle) return;
 
-    toggle.setAttribute('aria-haspopup', 'menu');
+    toggle.setAttribute('aria-haspopup', 'true');
     toggle.setAttribute('aria-expanded', String(expanded));
 
     const submenu =
