@@ -6,11 +6,18 @@
       'label[for="__secondary"]'
     ];
 
-    selectorsToRemove.forEach((selector) => {
-      document.querySelectorAll(selector).forEach((element) => element.remove());
-    });
-
-    document.querySelectorAll('.sidebar-toggle[name="__secondary"]').forEach((element) => element.remove());
+    selectorsToRemove
+      .concat([
+        '.sidebar-toggle[name="__secondary"]',
+        '.sidebar-toggle.secondary-toggle',
+        'button[data-target="#secondary-sidebar"]',
+        'button[data-bs-target="#secondary-sidebar"]'
+      ])
+      .forEach((selector) => {
+        document
+          .querySelectorAll(selector)
+          .forEach((element) => element.remove());
+      });
 
     if (document.body) {
       document.body.removeAttribute('data-bs-target');
