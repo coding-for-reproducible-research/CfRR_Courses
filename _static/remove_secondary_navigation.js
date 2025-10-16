@@ -19,6 +19,12 @@
           .forEach((element) => element.remove());
       });
 
+    document
+      .querySelectorAll('.theme-switch-button, button[data-bs-toggle="theme-switch"]')
+      .forEach((button) => {
+        button.remove();
+      });
+
     if (document.body) {
       document.body.removeAttribute('data-bs-target');
       document.body.removeAttribute('data-bs-spy');
