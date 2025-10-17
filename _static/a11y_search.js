@@ -10,12 +10,7 @@
         button.removeAttribute('data-bs-placement');
         button.removeAttribute('data-bs-original-title');
 
-        var visibleText = button.innerText.replace(/\s+/g, " ").trim();
-        if (visibleText) {
-          button.setAttribute("aria-label", visibleText);
-        } else {
-          button.setAttribute("aria-label", "Search");
-        }
+        button.setAttribute("aria-label", "Search");
       });
 
     document
