@@ -28,7 +28,7 @@ This table is a helpful summary of the key Markdown features we're going to cove
 | **Code Blocks** | ```` ```python `print("Hello")` ``` ```` |
 | **Tables**     | `| Col1 | Col2 |`              |
 | **Horizontal Line** | `---`                   |
-| **Links**      | `[Text](URL)`                  |
+| **Links**      | `[Url](URL)`                  |
 | **Images**     | `![Alt text](URL/path)`             |
 
 Let's now explore how to implement each of these features.
@@ -279,15 +279,15 @@ Adding links and images is a great way to enrich your documents. In Markdown, ad
 
 **Links** 
 
-To create a link, use the format `[text](URL)`. This will display the text as a clickable link that directs to the specified URL.
+To create a link, use the format `[Url](URL)`. This will display the text as a clickable link that directs to the specified URL.
 
 **Example:**
 ```
-[Link text](https://www.exeter.ac.uk/)
+[University of Exeter](https://www.exeter.ac.uk/)
 ```
 
 **Output:**
-[Link text](https://www.exeter.ac.uk/)
+[University of Exeter](https://www.exeter.ac.uk/)
 
 **Images - Web** 
 

@@ -7,7 +7,7 @@ Below are useful resources, further reading, and links referenced throughout thi
 ## Official Documentation & Books
 
 - [Advanced R: Performance Improvements](https://adv-r.hadley.nz/perf-improve.html)
-- [R Packages (Online Book)](https://r-pkgs.org/)
+- [R Packages book by Hadley Wickham and Jennifer Bryan](https://r-pkgs.org/)
 - [R for Data Science: Projects & Workflow Scripts](https://r4ds.hadley.nz/workflow-scripts.html#projects)
 
 ## Data Table Resources
@@ -32,7 +32,7 @@ Below are useful resources, further reading, and links referenced throughout thi
 
 ## Licensing
 
-- [Creative Commons BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+- [Creative Commons Attribution 4.0 International licence](https://creativecommons.org/licenses/by/4.0/)
 - [MIT License](https://opensource.org/licenses/MIT)
 
 ---

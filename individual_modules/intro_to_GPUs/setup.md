@@ -245,7 +245,7 @@ This section details a number of useful pieces of software that make the develop
 
 ### Using Visual Studio Code (VSCode)
 
-Visual Studio Code (VSCode) can be installed from [its website](https://code.visualstudio.com/).
+Visual Studio Code (VSCode) can be installed from [Visual Studio Code](https://code.visualstudio.com/).
 
 #### Remote-SSH
 
