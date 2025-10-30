@@ -14,6 +14,60 @@
 
   var enhancedDocuments = typeof WeakSet === "function" ? new WeakSet() : [];
 
+  function hasKeyboardFlag(element) {
+    if (!element) {
+      return true;
+    }
+
+    if (element.dataset && element.dataset.visA11yKeyboard === "true") {
+      return true;
+    }
+
+    return element.getAttribute("data-vis-a11y-keyboard") === "true";
+  }
+
+  function setKeyboardFlag(element) {
+    if (!element) {
+      return;
+    }
+
+    if (element.dataset) {
+      element.dataset.visA11yKeyboard = "true";
+    } else {
+      element.setAttribute("data-vis-a11y-keyboard", "true");
+    }
+  }
+
+  function ensureKeyboardSupport(button) {
+    if (!button || hasKeyboardFlag(button)) {
+      return;
+    }
+
+    var handleKeyDown = function (event) {
+      var key = event.key || event.code;
+
+      if (key === "Enter") {
+        event.preventDefault();
+        button.click();
+      } else if (key === " " || key === "Spacebar" || key === "Space") {
+        event.preventDefault();
+      }
+    };
+
+    var handleKeyUp = function (event) {
+      var key = event.key || event.code;
+
+      if (key === " " || key === "Spacebar" || key === "Space") {
+        event.preventDefault();
+        button.click();
+      }
+    };
+
+    button.addEventListener("keydown", handleKeyDown);
+    button.addEventListener("keyup", handleKeyUp);
+    setKeyboardFlag(button);
+  }
+
   function hasDocumentBeenEnhanced(doc) {
     if (!doc) {
       return true;
@@ -70,6 +124,8 @@
     if (!button.hasAttribute("title")) {
       button.setAttribute("title", label);
     }
+
+    ensureKeyboardSupport(button);
   }
 
   function collectButtons(root) {
