@@ -294,11 +294,11 @@ To create a link, use the format `[Url](URL)`. This will display the text as a c
 To add an image from the web, use the format `![alt text](image URL)`. The '!' at the beginning of the syntax distinguishes an image from a link and is telling Markdown to display an image rather than render the line as a hyperlink. The "alt text" is important for accessibility, providing a description for screen readers.
 
 ```
-![alt text for screen readers](https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187.jpg?w=1436&h=958)
+![This is the alt text for the image: Close-up of a gray-and-white tabby cat with a pink nose, looking over its shoulder against a black background.](https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187.jpg?w=1436&h=958)
 ```
 
 **Output:**
-![alt text for screen readers](https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187.jpg?w=1436&h=958)
+![This is the alt text for the image: Close-up of a gray-and-white tabby cat with a pink nose, looking over its shoulder against a black background.](https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187.jpg?w=1436&h=958)
 
 **Images - Local** 
 
