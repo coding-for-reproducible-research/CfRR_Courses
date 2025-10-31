@@ -8,7 +8,7 @@ Below are useful resources, further reading, and links referenced throughout thi
 
 - [Python math module](https://docs.python.org/3/library/math.html)
 - [Python random module](https://docs.python.org/3/library/random.html)
-- [Python: Creating Virtual Environments](https://docs.python.org/3/tutorial/venv.html)
+- [Python Virtual Environments (venv) Tutorial](https://docs.python.org/3/tutorial/venv.html)
 
 ## Python Libraries
 
@@ -29,7 +29,7 @@ Below are useful resources, further reading, and links referenced throughout thi
 
 ## Licensing
 
-- [Creative Commons BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+- [Creative Commons Attribution 4.0 International licence](https://creativecommons.org/licenses/by/4.0/)
 - [MIT License](https://opensource.org/licenses/MIT)
 
 ---

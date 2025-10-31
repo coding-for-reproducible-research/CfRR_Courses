@@ -29,6 +29,7 @@ html:
   use_navigation_shortcuts: false
   extra_css:
       - _static/remove_prev_next_bottom_buttons.css
+      - _static/a11y_sidebar_contrast.css
   extra_js:
       - _static/overlay-label-accessibility.js
       - _static/search_bar_submit_button.js
@@ -38,6 +39,12 @@ html:
       - _static/a11y_landmarks.js
       - _static/a11y_logo_alt.js
       - _static/a11y_focus_ring.js
+      - _static/a11y_code_reflow.js
+      - _static/a11y_remove_empty_headings.js
+      - _static/a11y_vis_network_region.js
+      - _static/a11y_main_landmark.js
+      - _static/a11y_citation_roles.js
+      - _static/vis_button_accessibility.js
 
 sphinx:
   config:

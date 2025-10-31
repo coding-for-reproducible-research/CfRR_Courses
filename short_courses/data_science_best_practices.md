@@ -23,8 +23,8 @@ While it is not essential to follow every recommendation to the letter, thoughtf
 Most of the instructions in this guide require use of the commandline interface in a Unix based system (Mac and Linux). For use with Windows first install Gitbash via [Git for Windows](https://gitforwindows.org).
 Where `{project-name}` is referenced, replace this with the name of your project _without_ the curly braces.
 
-Python and Git come pre-installed on both Mac and Linux systems, and Git is installed as part of Git for Windows, but Windows users will need to [download](https://www.python.org/downloads/) and install Python.
-You will need to additionally install Poetry, which can be done from the [website](https://python-poetry.org/) or by running:
+Python and Git come pre-installed on both Mac and Linux systems, and Git is installed as part of Git for Windows, but Windows users will need to [Python downloads](https://www.python.org/downloads/) and install Python.
+You will need to additionally install Poetry, which can be done from the [Poetry](https://python-poetry.org/) or by running:
 
 ```shell
 curl -sSL https://install.python-poetry.org | python -
@@ -88,7 +88,7 @@ poetry add {package-name}
 
 ### Writing Code:
 
-We recommend writing the majority of code using VSCode which will need [installing](https://code.visualstudio.com/Download) on all systems
+We recommend writing the majority of code using VSCode which will need [Visual Studio Code downloads](https://code.visualstudio.com/Download) on all systems
 Core project code can be added to a new `module_name.py` file in `src/{project-name}/` and then functions, classes and variables from that module can be imported into other files using:
 
 ```python
@@ -117,7 +117,7 @@ as with a `.py` file.
 
 # Language: Python 
 
-[installation](https://www.python.org/downloads/) · [basics](https://wiki.python.org/moin/BeginnersGuide/Programmers) · [course](https://coding-for-reproducible-research.github.io/CfRR_Courses/course_homepages/python.html#)
+[Python downloads](https://www.python.org/downloads/) · [basics](https://wiki.python.org/moin/BeginnersGuide/Programmers) · [course](https://coding-for-reproducible-research.github.io/CfRR_Courses/course_homepages/python.html#)
 
 Python is a popular, high-level programming language known for its readability and versatility. It’s widely used in fields like web development, data science, automation, and artificial intelligence. Python’s simple syntax and vast ecosystem of libraries make it a go-to choice for both beginners and professionals looking to build efficient, scalable applications.
 
@@ -125,11 +125,11 @@ Python is pre-installed on most macOS and Linux systems, meaning users can typic
 
 ## Version Control: Git 
 
-[installation](https://git-scm.com/downloads) · [basics](https://git-scm.com/doc) · [course](https://coding-for-reproducible-research.github.io/CfRR_Courses/course_homepages/version_control.html)
+[Git downloads](https://git-scm.com/downloads) · [basics](https://git-scm.com/doc) · [course](https://coding-for-reproducible-research.github.io/CfRR_Courses/course_homepages/version_control.html)
 
 Git is a widely-used version control system that helps developers track changes in code, collaborate with others, and manage project history efficiently. Git enables branching, merging, and rollback features, making it essential for team-based development and large projects.
 
-Git is often pre-installed on macOS and Linux systems, allowing users to start using it from the terminal. On Windows, Git usually needs to be installed manually. Windows users can download it from the official Git [website](https://git-scm.com/downloads) and should choose "Git Bash" for an enhanced command-line experience.
+Git is often pre-installed on macOS and Linux systems, allowing users to start using it from the terminal. On Windows, Git usually needs to be installed manually. Windows users can download it from the official Git [Git downloads](https://git-scm.com/downloads) and should choose "Git Bash" for an enhanced command-line experience.
 
 ### Excluding Files: .gitignore
 
@@ -188,7 +188,7 @@ ls -A
 
 ## README
 
-A well-structured README file is essential for providing users with clear instructions about the project. It should give an overview of the project, installation steps, usage instructions, and contribution guidelines. README.md file should be written in [markdown](https://www.markdownguide.org/), and contain basic project information, installation instructions and links to associated publications.
+A well-structured README file is essential for providing users with clear instructions about the project. It should give an overview of the project, installation steps, usage instructions, and contribution guidelines. README.md file should be written in [Markdown Guide](https://www.markdownguide.org/), and contain basic project information, installation instructions and links to associated publications.
 
 `````markdown
 # {Project Name}
@@ -256,7 +256,7 @@ NOTE: If including api credentials, then this file should be added to the `.giti
 
 ## IDE: VSCode
 
-[installation](https://code.visualstudio.com/Download) · [basics](https://code.visualstudio.com/docs)
+[Visual Studio Code downloads](https://code.visualstudio.com/Download) · [basics](https://code.visualstudio.com/docs)
 
 Visual Studio Code (VSCode) is a popular, free, and open-source code editor developed by Microsoft. It’s known for its lightweight nature, speed, and rich feature set, including debugging support, integrated Git control, extensions, and language support. VSCode is highly customizable, with a wide range of extensions available to enhance functionality, making it an excellent choice for Python, web development, data science, and many other programming tasks.
 
@@ -264,7 +264,7 @@ VSCode can be installed on all major platforms (Windows, macOS, Linux) and is of
 
 ## Packaging and Dependency Management: Poetry
 
-[installation](https://python-poetry.org/docs/#installation) · [official documentation](https://python-poetry.org/docs/) · [tutorial](https://python-poetry.org/docs/basic-usage/)
+[installation](https://python-poetry.org/docs/#installation) · [Poetry documentation](https://python-poetry.org/docs/) · [Poetry Basic Usage](https://python-poetry.org/docs/basic-usage/)
 
 Poetry is a powerful dependency manager and build tool for Python projects, streamlining the process of creating, configuring, and maintaining project environments. It simplifies dependency management, ensuring reproducible builds and enabling easier project collaboration.
 
@@ -358,7 +358,7 @@ With these steps, Poetry provides a structured, efficient way to build, manage, 
 
 **Ruff** is a fast, modern, and highly efficient Python linter and code formatter that combines several tools like `flake8`, `pylint`, and `black`. Ruff is designed to improve code quality by enforcing style and detecting errors, while also being incredibly fast, making it suitable for even large Python codebases.
 
-With Ruff, you can automatically format your Python code according to [PEP 8](https://peps.python.org/pep-0008/) standards and apply other customizable linting rules to ensure consistency and quality in your project. It's especially useful when working in a team or maintaining a large codebase, as it helps enforce a uniform code style across all contributors.
+With Ruff, you can automatically format your Python code according to [Python Style Guide (PEP 8)](https://peps.python.org/pep-0008/) standards and apply other customizable linting rules to ensure consistency and quality in your project. It's especially useful when working in a team or maintaining a large codebase, as it helps enforce a uniform code style across all contributors.
 
 To use **Ruff** as a code formatter with **Poetry**, you'll first need to install it in your project, and then configure it through your `pyproject.toml`. This setup ensures that Ruff can automatically format your code every time you make changes, allowing you to focus more on writing code than on formatting.
 
