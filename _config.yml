@@ -47,9 +47,17 @@ html:
       - _static/vis_button_accessibility.js
 
 sphinx:
+  extra_extensions:
+    - sphinx_sitemap
   config:
     html_extra_path:
       - _static/
+    templates_path:
+      - _templates
+    html_baseurl: "https://coding-for-reproducible-research.github.io/CfRR_Courses/"
+    sitemap_url_scheme: "{link}"
+    sitemap_filename: "sitemap.xml"
+
 
 
 launch_buttons:
