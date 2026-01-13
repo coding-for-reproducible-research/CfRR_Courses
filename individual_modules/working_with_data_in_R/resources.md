@@ -6,12 +6,14 @@ Below are useful resources, further reading, and links referenced throughout thi
 
 ## Documentation & Tutorials
 
-- [R for Data Science (2e)](https://r4ds.hadley.nz/)
+- [R for Data Science book (2nd ed.)](https://r4ds.hadley.nz/)
 - [Data Carpentry: R for Data Analysis in Ecology](https://datacarpentry.org/R-ecology-lesson/)
 - [Tidyverse Official Site](https://www.tidyverse.org/)
-- [Introducing the Tidyverse (Liza Wood)](https://liza-wood.github.io/tidyverse_intro/)
-- [GGE UCD R DAVIS Course](https://gge-ucd.github.io/R-DAVIS/index.html)
-- [Palmer Penguins Project](https://allisonhorst.github.io/palmerpenguins/index.html)
+- [Tidyverse: Data
+wrangling & visualization](https://liza-wood.github.io/tidyverse_intro/)
+- [UC Davis's R-DAVIS
+course](https://gge-ucd.github.io/R-DAVIS/index.html)
+- [`palmerpenguins` documentation website](https://allisonhorst.github.io/palmerpenguins/index.html)
 - [Palmer Penguins: Project Page](https://allisonhorst.github.io/palmerpenguins/>.)
 - [W3Schools: R Operators](https://www.w3schools.com/r/r_operators.asp)
 
@@ -29,7 +31,8 @@ Below are useful resources, further reading, and links referenced throughout thi
 
 ## Licensing
 
-- [Creative Commons BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+- [Creative Commons BY-NC-SA
+4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 ---
 

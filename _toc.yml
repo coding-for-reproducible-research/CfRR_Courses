@@ -53,6 +53,13 @@ parts:
                 sections:
                   - file: programme_information/intro_to_version_control
                   - file: programme_information/intermediate_version_control
+              - file: programme_information/gpus
+                sections:
+                  - file: programme_information/intro_to_gpus
+          - file: programme_information/drop_in
+            sections:
+              - file: programme_information/languages_drop_in
+              - file: programme_information/practice_drop_in
       - file: cfrr_program_details/course_feedback
 
   - caption: What Courses Should I Take?
@@ -97,6 +104,9 @@ parts:
                 sections:
                   - file: where_is_my_understanding/intro_to_version_control
                   - file: where_is_my_understanding/intermediate_version_control
+              - file: where_is_my_understanding/GPUs
+                sections:
+                  - file: where_is_my_understanding/introduction_to_GPUs
       - file: pathways/related_courses
         sections:
           - file: pathways/hpc
@@ -329,6 +339,17 @@ parts:
                   - file: individual_modules/intermediate_version_control/rewriting_history
                   - file: individual_modules/intermediate_version_control/further_topics
                   - file: individual_modules/intermediate_version_control/resources
+          - file: course_homepages/GPUs
+            sections:
+              - file: individual_modules/section_landing_pages/introduction_to_GPUs
+                sections:
+                  - file: individual_modules/intro_to_GPUs/setup
+                  - file: individual_modules/intro_to_GPUs/theory
+                  - file: individual_modules/intro_to_GPUs/spack
+                  - file: individual_modules/intro_to_GPUs/slurm
+                  - file: individual_modules/intro_to_GPUs/conways_game_of_life
+                  - file: individual_modules/intro_to_GPUs/profiling
+                  - file: individual_modules/intro_to_GPUs/temperature_diffusion
       - file: individual_modules/bibliography
   - caption: Short Courses
     chapters:
@@ -353,9 +374,11 @@ parts:
       - file: contributing/roles
       - file: contributing/contributing_guidelines
       - file: contributing/developing_a_course
+      - file: contributing/new_course_checklist_timeline
       - file: contributing/suggestions_form
   - caption: Community Guidelines and Policy Information
     chapters: 
       - file: cfrr_program_details/code_of_conduct
       - file: cfrr_program_details/code_of_conduct_violations
+      - file: cfrr_program_details/accessibility
       - file: cfrr_program_details/programme_policies

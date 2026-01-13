@@ -1,0 +1,63 @@
+{% extends "!layout.html" %}
+{% block extrahead %}
+  {{ super() }}
+  {% set bioschemas_courses = {
+    "programme_information/intro_to_julia": "Introduction to Julia",
+    "programme_information/computational_thinking": "Computational Thinking",
+    "programme_information/improve_your_r_code": "Improve Your R Code",
+    "programme_information/improve_your_r_code.html": "Improve Your R Code",
+    "programme_information/intermediate_regression_analysis_with_r": "Intermediate Regression Analysis with R",
+    "programme_information/intermediate_version_control": "Intermediate Version Control",
+    "programme_information/intro_regression_analysis_with_r": "Introductory Regression Analysis with R",
+    "programme_information/intro_to_gpus": "Introduction to GPUs",
+    "programme_information/intro_to_hpc": "Introduction to HPC",
+    "programme_information/intro_to_python": "Introduction to Python",
+    "programme_information/intro_to_r": "Introduction to R",
+    "programme_information/intro_to_unix": "Introduction to Unix",
+    "programme_information/intro_to_version_control": "Introduction to Version Control",
+    "programme_information/introduction_to_machine_learning": "Introduction to Machine Learning",
+    "programme_information/Introduction_to_Markdown_in_R": "Introduction to Markdown in R",
+    "programme_information/introduction_to_markdown_in_r": "Introduction to Markdown in R",
+    "programme_information/markdown_with_python": "Markdown with Python",
+    "programme_information/parallel_computing": "Parallel Computing",
+    "programme_information/python_for_data_analysis": "Python for Data Analysis",
+    "programme_information/software_development_best_practices": "Software Development Best Practices",
+    "programme_information/working_with_data_in_r": "Working with Data in R"
+  } %}
+  {% if pagename in bioschemas_courses %}
+    {% set course_title = bioschemas_courses[pagename] %}
+    {% set course_url = "https://coding-for-reproducible-research.github.io/CfRR_Courses/" ~ pagename ~ ".html" %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "LearningResource",
+    "http://purl.org/dc/terms/conformsTo": {
+      "@type": "CreativeWork",
+      "@id": "https://bioschemas.org/profiles/TrainingMaterial/1.0-RELEASE"
+    },
+    "name": "{{ course_title }} — CfRR",
+    "description": "Self-study notes and course information for CfRR’s {{ course_title }}, linking to objectives, prerequisites and all learning materials.",
+    "url": "{{ course_url }}",
+    "inLanguage": "en",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "keywords": ["{{ course_title }}", "scientific computing", "programming", "reproducible research", "CfRR"],
+    "learningResourceType": "tutorial",
+    "provider": {
+      "@type": "Organization",
+      "name": "Coding for Reproducible Research Initiative",
+      "url": "https://coding-for-reproducible-research.github.io/"
+    },
+    "author": [{
+      "@type": "Organization",
+      "name": "Coding for Reproducible Research Initiative",
+      "url": "https://coding-for-reproducible-research.github.io/"
+    }],
+    "isPartOf": {
+      "@type": "CreativeWorkSeries",
+      "name": "CfRR Training Programme",
+      "url": "https://coding-for-reproducible-research.github.io/CfRR_Courses/home_page.html"
+    }
+  }
+  </script>
+  {% endif %}
+{% endblock %}

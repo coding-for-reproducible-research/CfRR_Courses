@@ -29,9 +29,35 @@ html:
   use_navigation_shortcuts: false
   extra_css:
       - _static/remove_prev_next_bottom_buttons.css
+      - _static/a11y_sidebar_contrast.css
   extra_js:
       - _static/overlay-label-accessibility.js
       - _static/search_bar_submit_button.js
+      - _static/remove_secondary_navigation.js
+      - _static/a11y-dropdown.js
+      - _static/a11y_search.js
+      - _static/a11y_landmarks.js
+      - _static/a11y_logo_alt.js
+      - _static/a11y_focus_ring.js
+      - _static/a11y_code_reflow.js
+      - _static/a11y_remove_empty_headings.js
+      - _static/a11y_vis_network_region.js
+      - _static/a11y_main_landmark.js
+      - _static/a11y_citation_roles.js
+      - _static/vis_button_accessibility.js
+
+sphinx:
+  extra_extensions:
+    - sphinx_sitemap
+  config:
+    html_extra_path:
+      - _static/
+    templates_path:
+      - _templates
+    html_baseurl: "https://coding-for-reproducible-research.github.io/CfRR_Courses/"
+    sitemap_url_scheme: "{link}"
+    sitemap_filename: "sitemap.xml"
+
 
 
 launch_buttons:
@@ -119,3 +145,9 @@ execute:
       - 'short_courses/python_language_features.ipynb'
       - 'short_courses/python_testing.ipynb'
       - 'individual_modules/markdown_with_python/liveOutput.ipynb'
+      - 'individual_modules/intro_to_GPUs/theory.ipynb'
+      - 'individual_modules/intro_to_GPUs/spack.ipynb'
+      - 'individual_modules/intro_to_GPUs/slurm.ipynb'
+      - 'individual_modules/intro_to_GPUs/conways_game_of_life.ipynb'
+      - 'individual_modules/intro_to_GPUs/profiling.ipynb'
+      - 'individual_modules/intro_to_GPUs/temperature_diffusion.ipynb'
