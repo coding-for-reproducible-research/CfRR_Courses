@@ -57,6 +57,8 @@ sphinx:
     html_baseurl: "https://coding-for-reproducible-research.github.io/CfRR_Courses/"
     sitemap_url_scheme: "{link}"
     sitemap_filename: "sitemap.xml"
+    # Allow `$$...$$` on a single line to be treated as math (common in converted notebooks)
+    myst_dmath_double_inline: true
 
 
 
@@ -73,6 +75,8 @@ exclude_patterns:
 parse:
   myst_enable_extensions:  # default extensions to enable in the myst parser. See https://myst
     - strikethrough
+    - dollarmath
+    - amsmath
 
 # Execute all notebooks by default. 
 # The R notebooks are excluded from running during the building of the book due to the formatting issues. When ran wen building the output for each of the cells will create a new code block for each space due to the R magic command.
