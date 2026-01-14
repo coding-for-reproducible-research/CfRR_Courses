@@ -44,6 +44,10 @@ learnr::run_tutorial(
   name = "Regression Analysis in R: Adapting to Varied Data Types",
   package = "cfrrRtutorials"
 )
-
-
 ```
+
+## Course Development 
+
+If you are developing content for this course, the learnr materials are maintained in the repository [cfrrRtutorials](https://github.com/coding-for-reproducible-research/cfrrRtutorials)
+
+Please refer to the guidance provided in that repository for the required development workflows and processes to follow.
