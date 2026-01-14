@@ -2,17 +2,16 @@
 
 ## Overview
 
-Improve Your R Code is a hands-on workshop designed for learners who already have some familiarity with R and want to take their skills to the next level. This course focuses on improving **coding style**, **efficiency**, and **best practices** in R.
+Welcome to Improve Your R Code! R is primarily known as a language and environment for statistical computing and graphics. However, the flexibility and accessibility of R has led to its popularity across a diverse range of disciplines including biosciences, medicine and, of course, statistics. This workshop aims to extend your existing knowledge of R, enabling you to improve the **style** and the **speed** of your R code. The material for this workshop was created by Conor Crilly.
 
-## Course Objectives
+### Course Objectives
 
-By the end of this course, you will:
+By the end of the session you will:
 
-- Write clean, readable, and maintainable R code by following the tidyverse style guide.
-- Use benchmarking tools like `microbenchmark` to assess code performance.
-- Optimise code execution using techniques such as vectorisation and parallel processing.
-- Make use of packages such as `data.table`, `parallel`, `parallelly`, and `Rcpp` to write faster R programs.
-- Understand and apply reproducible and stylistic practices using tools like `styler`.
+-   Be able to write clean, readable, and maintainable R code following the tidyverse style guide.
+-   Be able to accurately measure the speed of your code using `microbenchmark`.
+-   Be comfortable with built-in R functions and packages (e.g. `parallel`, `data.table`, `Rcpp`) for improving execution speed.
+    
 
 ## Pre-requisite Knowledge
 
@@ -22,4 +21,31 @@ This workshop is designed for learners who:
 - Are familiar with basic R syntax and using functions.
 - Have used R interactively in environments like RStudio or Jupyter.
 
-If you are not comfortable with some of these topics then you may wish to attend some of our other R programming language courses. 
+If you are not comfortable with some of these topics then you may wish to attend some of our other R programming language courses, particularly [Introduction to R](introduction_to_r.md)
+
+There are three packages need for this workshop. The first two (devtools & learnr) are available from CRAN. The third is a package we have developed with the course materials in and is available from GitHub (cfrrRTutorials). 
+
+This code will install these three packages, and then open the `learnr` window with the interactive course content.
+
+```
+install.packages("devtools")
+install.packages("learnr")
+
+library(devtools)
+library(learnr)
+
+devtools::install_github("ejh243/cfrr-r-tutorials")
+
+library(cfrrRtutorials)
+
+learnr::run_tutorial(
+  name = "Improve Your R Code",
+  package = "cfrrRtutorials"
+)
+```
+
+## Course Development 
+
+If you are developing content for this course, the learnr materials are maintained in the repository [cfrrRtutorials](https://github.com/coding-for-reproducible-research/cfrrRtutorials)
+
+Please refer to the guidance provided in that repository for the required development workflows and processes to follow.
