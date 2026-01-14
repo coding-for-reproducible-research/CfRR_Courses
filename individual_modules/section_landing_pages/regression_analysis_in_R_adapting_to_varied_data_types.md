@@ -1,17 +1,19 @@
-# Mixed Effects Regression with R
+# Regression Analysis in R: Adapting to Varied Data Types
 
-## Overview 
+## Overview
 
-Welcome to **Mixed Effects Regression with R**. Our aim is to build on your existing knowledge of regression to fit more complex models that can handle more complicated data sets. In this session you will learn about different types of regression analysis, when to use them and how to interpret the results.
+
+Welcome to **Regression Analysis in R: Adapting to Varied Data Types**. Our aim is to build on your understanding of simple linear regression and expand this framework to enable you to analyse a broad range of data and answer more complex questions.
+
 
 ## Course Objectives 
-By the end of the session you will be able to :
+By the end of this session you will be able to:
 
--   Use regression answer to answer a wide range of research questions .
--   Be able to fit a regression model with interactions between predictor variables.
--   Be able to fit multi-level regression models
--   Be able to extract and summarise the results from a range of regression models.
--   Be able to design a regression model appropriate for addressing their specific research question.
+* understand what a generlised linear model is
+* fit a logistic regression models with R 
+* select the appropriate regression model for either a continuous or binary outcome
+* include a range of different types of predictor variables in your regression models
+* interpret the coefficients of a regression model
 
 While it is delivered as a stand alone session, it is designed as a part of a series of Regression with R workshops where the content develops the ideas further to give you a comprehensive understanding how regression can be used to address a broad range of questions. 
 
@@ -39,7 +41,9 @@ devtools::install_github("ejh243/cfrr-r-tutorials")
 library(cfrrRtutorials)
 
 learnr::run_tutorial(
-  name = "Mixed Effects Regression with R",
+  name = "Regression Analysis in R: Adapting to Varied Data Types",
   package = "cfrrRtutorials"
 )
+
+
 ```

@@ -1,26 +1,36 @@
 # Introduction to Regression with R
-```{important}
-Please note that we recommend engaging with this course via the `learnr` interface described below, rather than using the pages that follow. The pages below are retained for reference purposes and to provide an overview of the course content and may not represent the up to date course content. 
-```
 ## Overview
-Regression analysis is a fundamental statistical technique used to model the relationship between multiple variables. It is a very flexible tool that can handle a range of different data types (continuous, binary or categorical) and address both complex and simple research questions. Here we look at how to fit a range of regression models with R, how to interpret the output and the link between regression and other common statistical tools.
+Welcome to **Regression Analysis in R: Adapting to Varied Data Types**. Our aim is to build on your understanding of simple linear regression and expand this framework to enable you to analyse a broad range of data and answer more complex questions.
 
 ## Course Objectives
-- Understand the types of questions regression can be used to answer.
-- Be able to fit a linear regression model with multiple predictor variables.
-- Be able to fit a logistic regression model with multiple predictor variables.
-- Be able to extract and summarise the results from a range of regression models.
-- Be able to design a regression model appropriate for addressing a specific research question.
+By the end of this session you will be able to:
+
+* understand what a generlised linear model is
+* fit a logistic regression models with R 
+* select the appropriate regression model for either a continuous or binary outcome
+* include a range of different types of predictor variables in your regression models
+* interpret the coefficients of a regression model
 
 ## Pre-requisite Knowledge
 
-Learners are expected to already be familiar with the basics of R, such as how to load a dataset from a local file and manipulate variables.
+This course will not include an introduction to R, or how to setup and use R or Rstudio. It is assumed you are comfortable coding in R and are familiar with:
+
+* how to write and execute commands in the R console
+* what type of variables are available in R and how to work with these
+
+We also assume that you are comfortable with fitting simple linear regression models in R and interpreting the output of these. If not we recommend that you consult our pre-requisite course **Introduction to Regression with R**.
+
+This course it the first in a series of 3: 
+
+1. [Introduction to Regression with R](regression_analysis_with_R.md)
+2. [Regression Analysis in R: Adapting to Varied Data Types](regression_analysis_in_R_adapting_to_varied_data_types.md)
+3. [Mixed Effects Regression with R](mixed_effects_regression_with_R.md)
 
 ## Install necessary R packages
 
 There are three packages need for this workshop. The first two (devtools & learnr) are available from CRAN. The third is a package we have developed with the course materials in and is available from GitHub (cfrrRTutorials). 
 
-This code will install these three packages.
+This code will install these three packages, and then open the `learnr` window with the interactive course content.
 
 ```
 install.packages("devtools")
