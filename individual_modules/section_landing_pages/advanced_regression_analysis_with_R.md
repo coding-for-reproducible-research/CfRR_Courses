@@ -1,4 +1,8 @@
 # Regression Analysis in R: Adapting to Varied Data Types
+```{important}
+Please note that we recommend engaging with this course via the `learnr` interface described below, rather than using the pages that follow. The pages below are retained for reference purposes and to provide an overview of the course content and may not represent the up to date course content. 
+```
+
 ## Overview
 
 Welcome to Advanced Regression Analysis with R. Our aim is to build on your existing knowledge of regression to fit more complex models that can handle more complicated data sets. In this session you will learn about different types of regression analysis, when to use them and how to interpret the results.
@@ -32,8 +36,20 @@ There are three packages need for this workshop. The first two (devtools & learn
 This code will install these three packages.
 
 ```
-install.packages("devtools") 
-install.packages("learnr") 
+install.packages("devtools")
+install.packages("learnr")
+
 library(devtools)
+library(learnr)
+
 devtools::install_github("ejh243/cfrr-r-tutorials")
+
+library(cfrrRtutorials)
+
+learnr::run_tutorial(
+  name = "Regression Analysis in R: Adapting to Varied Data Types",
+  package = "cfrrRtutorials"
+)
+
+
 ```

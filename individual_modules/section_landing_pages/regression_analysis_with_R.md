@@ -1,5 +1,7 @@
 # Introduction to Regression with R
-
+```{important}
+Please note that we recommend engaging with this course via the `learnr` interface described below, rather than using the pages that follow. The pages below are retained for reference purposes and to provide an overview of the course content and may not represent the up to date course content. 
+```
 ## Overview
 Regression analysis is a fundamental statistical technique used to model the relationship between multiple variables. It is a very flexible tool that can handle a range of different data types (continuous, binary or categorical) and address both complex and simple research questions. Here we look at how to fit a range of regression models with R, how to interpret the output and the link between regression and other common statistical tools.
 
@@ -21,8 +23,19 @@ There are three packages need for this workshop. The first two (devtools & learn
 This code will install these three packages.
 
 ```
-install.packages("devtools") 
-install.packages("learnr") 
+install.packages("devtools")
+install.packages("learnr")
+
 library(devtools)
+library(learnr)
+
 devtools::install_github("ejh243/cfrr-r-tutorials")
+
+library(cfrrRtutorials)
+
+learnr::run_tutorial(
+  name = "Introduction to Regression with R",
+  package = "cfrrRtutorials"
+)
+
 ```
