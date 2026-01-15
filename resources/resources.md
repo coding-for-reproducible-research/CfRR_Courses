@@ -21,14 +21,11 @@ Please add new items under the relevant letter so this page stays easy to scan.
 #### C and C++
 
 - **Core references**
-  - C reference: https://en.cppreference.com/w/c
-  - C++ reference: https://en.cppreference.com/w/
+  - [C reference](https://en.cppreference.com/w/c)
+  - [C++ reference](https://en.cppreference.com/w/)
 - **Tooling**
-  - Compilers: GCC docs https://gcc.gnu.org/onlinedocs/ and Clang docs https://clang.llvm.org/docs/
-  - Build systems: CMake tutorial https://cmake.org/cmake/help/latest/guide/tutorial/
-  - Testing: Catch2 https://github.com/catchorg/Catch2 or GoogleTest https://github.com/google/googletest
-  - Code quality: compile with strict warnings (e.g. `-Wall -Wextra -Wpedantic`), use sanitizers (https://clang.llvm.org/docs/), and format with clang-format (https://clang.llvm.org/docs/ClangFormat.html)
-
+  - [Compilers: GCC docs](https://gcc.gnu.org/onlinedocs/) and [Clang docs](https://clang.llvm.org/docs/)
+  - [Build systems: CMake tutorial](https://cmake.org/cmake/help/latest/guide/tutorial/)
 ### D
 
 *(Add resources here.)*
