@@ -2,7 +2,8 @@
 
 ## Overview
 
-Welcome to Improve Your R Code! R is primarily known as a language and environment for statistical computing and graphics. However, the flexibility and accessibility of R has led to its popularity across a diverse range of disciplines including biosciences, medicine and, of course, statistics. This workshop aims to extend your existing knowledge of R, enabling you to improve the **style** and the **speed** of your R code. The material for this workshop was created by Conor Crilly.
+Welcome to Improve Your R Code! R is primarily known as a language and environment for statistical computing and graphics. However, the flexibility and accessibility of R has led to its popularity across a diverse range of disciplines including biosciences, medicine and, of course, statistics. This workshop aims to extend your existing knowledge of R, enabling you to improve the **style** and the **speed** of your R code.
+
 
 ### Course Objectives
 
@@ -49,3 +50,15 @@ learnr::run_tutorial(
 If you are developing content for this course, the learnr materials are maintained in the repository [cfrrRtutorials](https://github.com/coding-for-reproducible-research/cfrrRtutorials)
 
 Please refer to the guidance provided in that repository for the required development workflows and processes to follow.
+
+## Accessibility statement – learnr-based R courses
+
+Some CfRR courses, including this one, are delivered using the `learnr` framework and are intended to be run within the RStudio software environment.
+
+The use of the `learnr` package supports efficient delivery within a shorter workshop format. By handling data loading and interactive setup automatically, `learnr` reduces technical overhead and allows the workshop to focus more fully on the theoretical concepts being taught, rather than on environment configuration or data management.
+
+However, because these courses are executed within RStudio, overall accessibility is influenced by the capabilities and configuration of the learner’s local software environment. While RStudio provides a range of accessibility features, it may not be fully accessible for all users.
+
+If you encounter barriers when using a learner-based course or require reasonable adjustments or alternative formats, please contact the CfRR team. We are happy to discuss individual needs and explore appropriate support options.
+
+For more information about accessibility across the CfRR programme, and particular guidance on improving the accessibility of RStudio, please see the full accessibility statement: [Accessibility at Coding for Reproducible Research](../../cfrr_program_details/accessibility.ipynb)

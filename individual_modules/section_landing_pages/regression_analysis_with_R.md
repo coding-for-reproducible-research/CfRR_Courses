@@ -1,15 +1,20 @@
 # Introduction to Regression with R
 ## Overview
-Welcome to **Regression Analysis in R: Adapting to Varied Data Types**. Our aim is to build on your understanding of simple linear regression and expand this framework to enable you to analyse a broad range of data and answer more complex questions.
+Welcome to **Introduction to Regression with R**. Our aim is to provide you with a comprehensive introduction to the statistical tool regression and how to perform these analyses in R.
 
 ## Course Objectives
+
 By the end of this session you will be able to:
 
-* understand what a generlised linear model is
-* fit a logistic regression models with R 
-* select the appropriate regression model for either a continuous or binary outcome
-* include a range of different types of predictor variables in your regression models
+* describe what regression is
+* fit a range of regression models with R including:
+    * simple linear regression
+    * multiple linear regression 
+* describe the concept behind hypothesis testing in regression analysis
+* describe and evaluate the assumptions behind hypothesis testing in regression analysis
 * interpret the coefficients of a regression model
+* make predictions from a regression model
+* describe the link between regression and other common statistical tools
 
 ## Pre-requisite Knowledge
 
@@ -55,3 +60,15 @@ learnr::run_tutorial(
 If you are developing content for this course, the learnr materials are maintained in the repository [cfrrRtutorials](https://github.com/coding-for-reproducible-research/cfrrRtutorials)
 
 Please refer to the guidance provided in that repository for the required development workflows and processes to follow.
+
+## Accessibility statement – learnr-based R courses
+
+Some CfRR courses, including this one, are delivered using the `learnr` framework and are intended to be run within the RStudio software environment.
+
+The use of the `learnr` package supports efficient delivery within a shorter workshop format. By handling data loading and interactive setup automatically, `learnr` reduces technical overhead and allows the workshop to focus more fully on the theoretical concepts being taught, rather than on environment configuration or data management.
+
+However, because these courses are executed within RStudio, overall accessibility is influenced by the capabilities and configuration of the learner’s local software environment. While RStudio provides a range of accessibility features, it may not be fully accessible for all users.
+
+If you encounter barriers when using a learner-based course or require reasonable adjustments or alternative formats, please contact the CfRR team. We are happy to discuss individual needs and explore appropriate support options.
+
+For more information about accessibility across the CfRR programme, and particular guidance on improving the accessibility of RStudio, please see the full accessibility statement: [Accessibility at Coding for Reproducible Research](../../cfrr_program_details/accessibility.ipynb)
