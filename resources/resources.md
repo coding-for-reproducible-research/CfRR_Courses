@@ -2,7 +2,7 @@
 
 This page is for sharing useful resources that don’t fit neatly into an existing CfRR course yet (for example: external short courses, excellent references, or recommended tools).
 
-To add a resource, please open a Pull Request (PR) editing this [file](https://github.com/coding-for-reproducible-research/CfRR_Courses/resources/resources.md). For contribution guidance, including the process of opening a PR please see the **Join Us!** section of the website, particularly the [contribution guidance](../contributing/contributing.ipynb). 
+To add a resource, please open a Pull Request (PR) editing this [file](https://github.com/coding-for-reproducible-research/CfRR_Courses/blob/main/resources/resources.md). For contribution guidance, including the process of opening a PR please see the **Join Us!** section of the website, particularly the [contribution guidance](../contributing/contributing.ipynb). 
 
 ## A–Z
 
