@@ -79,7 +79,7 @@ Please add new items under the relevant letter so this page stays easy to scan.
 
 ### P
 
-- [A Philosophy of Software Design, 2nd Edition](https://www.amazon.co.uk/Philosophy-Software-Design-2nd/dp/173210221X/ref=asc_df_173210221X?mcid=4ad72ffa15c63e048dc7c7dfb141e124&th=1&psc=1&tag=googshopuk-21&linkCode=df0&hvadid=697235261482&hvpos=&hvnetw=g&hvrand=13738478100346626867&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9192980&hvtargid=pla-1587146939672&psc=1&hvocijid=13738478100346626867-173210221X-&hvexpln=0&gad_source=1) — A book by John Ousterhout covering software design principles.
+- [A Philosophy of Software Design, 2nd Edition](https://www.amazon.co.uk/dp/173210221X) — A book by John Ousterhout covering software design principles.
 
 ### Q
 
