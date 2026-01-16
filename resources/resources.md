@@ -18,6 +18,9 @@ Please add new items under the relevant letter so this page stays easy to scan.
 
 ### C
 
+- [The Carpentries](https://carpentries.org/) — Teaching foundational coding and data science skills to researchers.
+- [CodeRefinery](https://coderefinery.org/) — Training workshops and resources for better research software development.
+
 #### C and C++
 
 - **Core references**
@@ -60,7 +63,7 @@ Please add new items under the relevant letter so this page stays easy to scan.
 
 ### L
 
-*(Add resources here.)*
+- [Learning and Development Academy - UK ITSS](https://itss.org.uk/learning-and-development-academy/) — Training and professional development resources from the UK IT Support Staff organization.
 
 ### M
 
@@ -76,7 +79,7 @@ Please add new items under the relevant letter so this page stays easy to scan.
 
 ### P
 
-*(Add resources here.)*
+- [A Philosophy of Software Design, 2nd Edition](https://www.amazon.co.uk/dp/173210221X) — A book by John Ousterhout covering software design principles.
 
 ### Q
 
@@ -88,7 +91,7 @@ Please add new items under the relevant letter so this page stays easy to scan.
 
 ### S
 
-*(Add resources here.)*
+- [Software Carpentry Lessons](https://software-carpentry.org/lessons/) — Open-source lessons teaching fundamental programming and data science skills.
 
 ### T
 
