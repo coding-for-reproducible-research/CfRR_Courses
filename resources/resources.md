@@ -29,9 +29,10 @@ Please add new items under the relevant letter so this page stays easy to scan.
 - **Tooling**
   - [Compilers: GCC docs](https://gcc.gnu.org/onlinedocs/) and [Clang docs](https://clang.llvm.org/docs/)
   - [Build systems: CMake tutorial](https://cmake.org/cmake/help/latest/guide/tutorial/)
+
 ### D
 
-*(Add resources here.)*
+- [DES RAP Book](https://pythonhealthdatascience.github.io/des_rap_book/) - step‑by‑step open book on building discrete‑event simulation (DES) models in Python and R as part of a reproducible analytical pipeline (RAP), with worked healthcare examples and template repositories. Although centred on DES as an example, there is lots of guidance that is broadly relevant (e.g., environments, version control, structuring research as a package, documentation, linting, github actions, code review, licensing, citation, sharing and archiving).
 
 ### E
 
@@ -47,7 +48,7 @@ Please add new items under the relevant letter so this page stays easy to scan.
 
 ### H
 
-*(Add resources here.)*
+- [Healthcare Services Analytics and Decision Science Atlas](https://atlas.hsma.co.uk/) - a directory of open-source tools, packages, and projects for analytics and decision science in healthcare.
 
 ### I
 
@@ -55,7 +56,7 @@ Please add new items under the relevant letter so this page stays easy to scan.
 
 ### J
 
-*(Add resources here.)*
+- [Julia for healthcare modelling and data science](https://www.juliahealthcare.org/) - online book with some examples on using Julia in healthcare modelling (including SimJulia).
 
 ### K
 
@@ -64,6 +65,7 @@ Please add new items under the relevant letter so this page stays easy to scan.
 ### L
 
 - [Learning and Development Academy - UK ITSS](https://itss.org.uk/learning-and-development-academy/) — Training and professional development resources from the UK IT Support Staff organization.
+- [The Little Book of DES](https://des.hsma.co.uk/) - an open online book guiding you through creating discrete-event simulation models for healthcare (and beyond) in SimPy (python).
 
 ### M
 
@@ -80,6 +82,7 @@ Please add new items under the relevant letter so this page stays easy to scan.
 ### P
 
 - [A Philosophy of Software Design, 2nd Edition](https://www.amazon.co.uk/dp/173210221X) — A book by John Ousterhout covering software design principles.
+- [Python for Health Data Science](https://www.pythonhealthdatascience.com/content/front_page.html) - an open textbook explaining key concepts in python - algorithms and computational modelling, statistical programming, and managing data science projects.
 
 ### Q
 
