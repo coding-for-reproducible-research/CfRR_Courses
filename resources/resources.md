@@ -98,7 +98,7 @@ Please add new items under the relevant letter so this page stays easy to scan.
 
 ### T
 
-*(Add resources here.)*
+- [Titanic Survival](https://michaelallen1966.github.io/titanic/front_page.html) - tutorials for machine learning classification in Python.
 
 ### U
 
