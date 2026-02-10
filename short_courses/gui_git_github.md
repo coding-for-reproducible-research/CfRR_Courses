@@ -132,7 +132,7 @@ The default branch is often called `main` and represents the stable version of t
 
 ```{figure} figures/gui_git_github/branches.png
 :alt: Illustrated concept of branches for development 
-:name: commit
+:name: branches
 :align: center
 
 The key branch `main` with a `dev` branch splitting off, which in turn has a `feature` branch
@@ -149,7 +149,7 @@ Pull requests:
 
 ```{figure} figures/gui_git_github/pull_request.png
 :alt: Illustrated concept of pull requests
-:name: commit
+:name: pull-request
 :align: center
 
 A pull request to merge a feature branch into the main branch
