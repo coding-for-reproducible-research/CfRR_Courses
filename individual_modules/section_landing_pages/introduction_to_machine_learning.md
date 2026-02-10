@@ -13,7 +13,7 @@ Welcome to Intro to Machine Learning, a course designed to introduce you to core
 
 ## Prerequisites
 
-Attendees should have taken [Introduction To Python](intro_to_python.ipynb), and [Python for Data Analysis](python_for_data_analysis.ipynb). Attendees are also encouraged to have some familiarity with Python virtual environments. Those who would like to build or refresh this knowledge can self-study the short course on the topic: [Python Environments](../short_courses/python_environments.ipynb)
+Attendees should have taken [Introduction To Python](introduction_to_python.md), and [Python for Data Analysis](python_for_data_analysis.md). Attendees are also encouraged to have some familiarity with Python virtual environments. Those who would like to build or refresh this knowledge can self-study the short course on the topic: [Python Environments](../../short_courses/python_environments.ipynb)
 
 ## Session content
 
