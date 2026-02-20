@@ -95,6 +95,7 @@ Please add new items under the relevant letter so this page stays easy to scan.
 ### S
 
 - [Software Carpentry Lessons](https://software-carpentry.org/lessons/) — Open-source lessons teaching fundamental programming and data science skills.
+- [Sustainable computing in science](https://www.ebi.ac.uk/training/online/courses/sustainable-computing-in-science/) - An introduction to the environmental impacts of computational research.
 
 ### T
 
