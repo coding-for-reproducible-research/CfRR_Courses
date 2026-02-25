@@ -49,6 +49,7 @@ Please add new items under the relevant letter so this page stays easy to scan.
 ### H
 
 - [Healthcare Services Analytics and Decision Science Atlas](https://atlas.hsma.co.uk/) - a directory of open-source tools, packages, and projects for analytics and decision science in healthcare.
+- [HDR (Health Data Research) UK RSE Pathway](https://hdruklearn.org/courses/course-v1:HDRUK+RSE001+2024) — A self-paced course introducing research software engineering practices for health data research, covering software design, testing, documentation, reproducibility, collaboration, and performance trade-offs.
 
 ### I
 
