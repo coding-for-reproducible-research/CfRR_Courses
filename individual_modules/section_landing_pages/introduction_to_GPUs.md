@@ -30,5 +30,3 @@ The Python scripts used in this course can be downloaded [here](../intro_to_GPUs
 All supplementary files required for the course are available [here](../intro_to_GPUs/zip_files/files.zip).  
 
 The presentation slides for this course can be accessed [here](../intro_to_GPUs/slides/GPU_Training_Day_Slides.pptx).
-
-
