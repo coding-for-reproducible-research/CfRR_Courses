@@ -24,5 +24,4 @@ Part of the session is concept/discussion based, and part is practical coding to
 
 ## Notes
 
-- The style badge shown on workshop information pages links back to this page.
 - Some courses may evolve over time, so check each workshop page for the latest style label.
