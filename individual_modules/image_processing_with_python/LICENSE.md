@@ -2,8 +2,8 @@
 
 This repository adapts material from:
 
-- https://github.com/bham-carpentries/image-processing  
-- https://github.com/datacarpentry/image-processing
+- <https://github.com/bham-carpentries/image-processing>  
+- <https://github.com/datacarpentry/image-processing>
 
 Licensing in this repository is organised into three categories: **instructional material**, **software**, and **data**.
 
@@ -13,7 +13,7 @@ Licensing in this repository is organised into three categories: **instructional
 
 Except where otherwise noted, the instructional content in this repository is adapted from the **Data Carpentry Image Processing** lesson:
 
-https://github.com/datacarpentry/image-processing
+<https://github.com/datacarpentry/image-processing>
 
 Copyright (c) Data Carpentry contributors.
 
@@ -35,7 +35,7 @@ Under the following terms:
 - **Attribution** — You must give appropriate credit to the original authors and indicate if changes were made.
 
 The full license text is available at:  
-https://creativecommons.org/licenses/by/4.0/
+<https://creativecommons.org/licenses/by/4.0/>
 
 Unless otherwise stated, all instructional material in this repository (including the **Multidimensional Images** episode) is released under this license.
 
@@ -45,7 +45,7 @@ Unless otherwise stated, all instructional material in this repository (includin
 
 Code examples and software components are derived primarily from the Data Carpentry Image Processing lesson:
 
-https://github.com/datacarpentry/image-processing
+<https://github.com/datacarpentry/image-processing>
 
 Original software is:
 
@@ -67,7 +67,7 @@ subject to inclusion of the original copyright notice and permission notice.
 
 Example datasets used in this lesson originate from the **Data Carpentry Image Processing dataset** hosted on Figshare:
 
-https://figshare.com/articles/dataset/Data_Carpentry_Image_Processing_Data_beta_/19260677
+<https://figshare.com/articles/dataset/Data_Carpentry_Image_Processing_Data_beta_/19260677>
 
 Dataset title: *Data Carpentry Image Processing Data (beta)*.
 
@@ -89,13 +89,13 @@ Although attribution is not legally required, citing the original dataset source
 If you reuse or adapt this material, please acknowledge the following sources where appropriate:
 
 - Data Carpentry Image Processing Lesson  
-  https://github.com/datacarpentry/image-processing
+  <https://github.com/datacarpentry/image-processing>
 
 - Adapted materials maintained by the University of Exeter  
-  https://github.com/bham-carpentries/image-processing
+  <https://github.com/bham-carpentries/image-processing>
 
 - Data Carpentry Image Processing Dataset (Figshare)  
-  https://figshare.com/articles/dataset/Data_Carpentry_Image_Processing_Data_beta_/19260677
+  <https://figshare.com/articles/dataset/Data_Carpentry_Image_Processing_Data_beta_/19260677>
 
 ---
 
