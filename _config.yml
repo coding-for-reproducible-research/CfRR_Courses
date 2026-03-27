@@ -69,6 +69,7 @@ launch_buttons:
       
 # Files not to be ran when building the jupyter book
 exclude_patterns:
+  - .venv
   - README.md
   - individual_modules/python_for_data_analysis/data-analysis-task-solutions.ipynb
 
@@ -155,3 +156,4 @@ execute:
       - 'individual_modules/intro_to_GPUs/conways_game_of_life.ipynb'
       - 'individual_modules/intro_to_GPUs/profiling.ipynb'
       - 'individual_modules/intro_to_GPUs/temperature_diffusion.ipynb'
+      - 'individual_modules/image_processing_with_python/multidimensional_data.ipynb'
