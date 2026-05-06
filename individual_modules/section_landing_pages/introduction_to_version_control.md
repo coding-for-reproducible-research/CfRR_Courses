@@ -19,3 +19,7 @@ Version control systems are an incredibly valuable tool for organising software 
 Basic familiarity with working at a Unix command line (e.g. Apple Terminal, a terminal running Bash) is helpful but not essential. A good introduction to this topic more generally can be found at the sister course Introduction to Unix.
 
 Version control systems are primarily used for source code development, so experience writing some code (e.g. R, Python, LaTeX, bash scripts, C,…) is helpful though not essential.
+
+```{note}
+If you would like a short overview of Git and GitHub and their use for version control they you may want to self-study our short course [Using Git and GitHub via Graphical User Interfaces (GUI)](../../short_courses/gui_git_github.md).
+```

@@ -4,7 +4,7 @@
 title: Home Page
 author: Coding For Reproducible Research Community
 logo: _static/exeter_logo.png
-copyright: "2025"
+copyright: "2026"
 
 # Define the name of the latex output file for PDF builds
 latex:
@@ -29,15 +29,37 @@ html:
   use_navigation_shortcuts: false
   extra_css:
       - _static/remove_prev_next_bottom_buttons.css
+      - _static/a11y_sidebar_contrast.css
   extra_js:
       - _static/overlay-label-accessibility.js
       - _static/search_bar_submit_button.js
       - _static/remove_secondary_navigation.js
+      - _static/a11y-dropdown.js
+      - _static/a11y_search.js
+      - _static/a11y_landmarks.js
+      - _static/a11y_logo_alt.js
+      - _static/a11y_focus_ring.js
+      - _static/a11y_code_reflow.js
+      - _static/a11y_remove_empty_headings.js
+      - _static/a11y_vis_network_region.js
+      - _static/a11y_main_landmark.js
+      - _static/a11y_citation_roles.js
+      - _static/vis_button_accessibility.js
 
 sphinx:
+  extra_extensions:
+    - sphinx_sitemap
   config:
     html_extra_path:
       - _static/
+    templates_path:
+      - _templates
+    html_baseurl: "https://coding-for-reproducible-research.github.io/CfRR_Courses/"
+    sitemap_url_scheme: "{link}"
+    sitemap_filename: "sitemap.xml"
+    # Allow `$$...$$` on a single line to be treated as math (common in converted notebooks)
+    myst_dmath_double_inline: true
+
 
 
 launch_buttons:
@@ -53,6 +75,8 @@ exclude_patterns:
 parse:
   myst_enable_extensions:  # default extensions to enable in the myst parser. See https://myst
     - strikethrough
+    - dollarmath
+    - amsmath
 
 # Execute all notebooks by default. 
 # The R notebooks are excluded from running during the building of the book due to the formatting issues. When ran wen building the output for each of the cells will create a new code block for each space due to the R magic command.

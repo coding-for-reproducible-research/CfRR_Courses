@@ -56,4 +56,11 @@ document.addEventListener('DOMContentLoaded', fixAccessibility);
 const observer = new MutationObserver(function(mutationsList, observer) {
   fixAccessibility();
 });
-observer.observe(document.body, { childList: true, subtree: true });
+function startObserver() {
+  if (!document.body) {
+    document.addEventListener("DOMContentLoaded", startObserver, { once: true });
+    return;
+  }
+  observer.observe(document.body, { childList: true, subtree: true });
+}
+startObserver();

@@ -12,7 +12,7 @@ Below are useful resources, further reading, and links referenced throughout thi
 
 ## Exercises & Example Notebooks
 
-- [Flow Control Exercises by fsmeraldi (GitHub)](https://github.com/fsmeraldi/cp-flowcontrol/blob/master/Flow_Control-Exercises.ipynb)
+- [Flow Control-Exercises](https://github.com/fsmeraldi/cp-flowcontrol/blob/master/Flow_Control-Exercises.ipynb)
 
 ## Games & Puzzles
 
@@ -24,7 +24,7 @@ Below are useful resources, further reading, and links referenced throughout thi
 
 ## Licensing
 
-- [Creative Commons BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+- [Creative Commons Attribution 4.0 International licence](https://creativecommons.org/licenses/by/4.0/)
 - [MIT License](https://opensource.org/licenses/MIT)
 
 ---

@@ -12,4 +12,4 @@ This course will provide an introduction to parallel programming. Participants w
 - Gain hands-on experience writing and optimizing parallel code.
 
 ## Pre-requisite Knowledge 
-This course is for participants who already have some programming experience with Python. If you are not familiar with Python, our Introduction to Python course, is available [here](introduction_to_python.md).
+This course is for participants who already have some programming experience with Python. If you are not familiar with Python, our Introduction to Python course, is available [Introduction to Python](introduction_to_python.md).

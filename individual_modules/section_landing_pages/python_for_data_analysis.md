@@ -14,4 +14,4 @@ This course provides an in-depth exploration of Python for data analysis, focusi
 - Learn methods to ensure that research and analyses can be reproduced and validated by other.
 
 ## Pre-requisite Knowledge
-Attendees should have taken the [*Introduction to Python*](introduction_to_python.md) course.
+Attendees should have taken the [Introduction to Python](introduction_to_python.md) course.

@@ -8,6 +8,7 @@ parts:
     chapters:
       - file: cfrr_program_details/about_us
       - file: cfrr_program_details/how_to_use_CfRR
+      - file: cfrr_program_details/course_styles
 
   - caption: Courses We Offer
     chapters:
@@ -60,7 +61,6 @@ parts:
             sections:
               - file: programme_information/languages_drop_in
               - file: programme_information/practice_drop_in
-      - file: cfrr_program_details/course_feedback
 
   - caption: What Courses Should I Take?
     chapters: 
@@ -195,22 +195,7 @@ parts:
                   - file: individual_modules/introduction_to_r/good_practise
                   - file: individual_modules/introduction_to_r/resources
               - file: individual_modules/section_landing_pages/regression_analysis_with_R
-                sections:
-                  - file: individual_modules/regression_analysis_with_R/introduction_to_regression
-                  - file: individual_modules/regression_analysis_with_R/hypothesis_testing
-                  - file: individual_modules/regression_analysis_with_R/multiple_linear_regression
-                  - file: individual_modules/regression_analysis_with_R/logistic_regression
-                  - file: individual_modules/regression_analysis_with_R/regression_analysis_with_r_summary.ipynb
-                  - file: individual_modules/regression_analysis_with_R/regression_analysis_with_r_extras
-                  - file: individual_modules/regression_analysis_with_R/resources
-              - file: individual_modules/section_landing_pages/advanced_regression_analysis_with_R
-                sections:
-                  - file: individual_modules/advanced_regression_analysis_with_R/mixed_effects_models
-                  - file: individual_modules/advanced_regression_analysis_with_R/expanding_the_mixed_effects_model_framework
-                  - file: individual_modules/advanced_regression_analysis_with_R/regression_models_with_interaction_terms
-                  - file: individual_modules/advanced_regression_analysis_with_R/advanced_regression_analysis_with_R_summary
-                  - file: individual_modules/advanced_regression_analysis_with_R/advanced_regression_analysis_with_R_extras
-                  - file: individual_modules/advanced_regression_analysis_with_R/resources
+              - file: individual_modules/section_landing_pages/regression_analysis_in_R_adapting_to_varied_data_types
               - file: individual_modules/section_landing_pages/mixed_effects_regression_with_R
               - file: individual_modules/section_landing_pages/working_with_data_in_R
                 sections:
@@ -224,14 +209,6 @@ parts:
                   - file: individual_modules/working_with_data_in_R/summary
                   - file: individual_modules/working_with_data_in_R/resources
               - file: individual_modules/section_landing_pages/improve_your_r_code
-                sections:
-                  - file: individual_modules/improve_your_r_code/style
-                  - file: individual_modules/improve_your_r_code/microbenchmark
-                  - file: individual_modules/improve_your_r_code/vectorisation
-                  - file: individual_modules/improve_your_r_code/data_table
-                  - file: individual_modules/improve_your_r_code/parallelisation
-                  - file: individual_modules/improve_your_r_code/rcpp
-                  - file: individual_modules/improve_your_r_code/resources
               - file: individual_modules/section_landing_pages/Introduction_to_Markdown_in_R
                 sections:
                   - file: individual_modules/Introduction_to_Markdown_in_R/Background_to_Markdown
@@ -372,6 +349,10 @@ parts:
           - file: short_courses/Data-organisation-and-good-practice
           - file: short_courses/Data-publishing
           - file: short_courses/FAIR-(meta)data
+      - file: short_courses/gui_git_github
+  - caption: Resources
+    chapters:
+      - file: resources/resources
   - caption: Join Us!
     chapters: 
       - file: contributing/community
@@ -379,9 +360,11 @@ parts:
       - file: contributing/roles
       - file: contributing/contributing_guidelines
       - file: contributing/developing_a_course
+      - file: contributing/new_course_checklist_timeline
       - file: contributing/suggestions_form
   - caption: Community Guidelines and Policy Information
     chapters: 
       - file: cfrr_program_details/code_of_conduct
       - file: cfrr_program_details/code_of_conduct_violations
+      - file: cfrr_program_details/accessibility
       - file: cfrr_program_details/programme_policies

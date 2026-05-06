@@ -10,14 +10,14 @@ Below are useful resources, further reading, and links referenced throughout thi
 - [unittest.mock — Mocking in Python](https://docs.python.org/3/library/unittest.mock.html)
 - [Python Virtual Environments (venv) Tutorial](https://docs.python.org/3/tutorial/venv.html)
 - [NumPy arange](https://numpy.org/doc/stable/reference/generated/numpy.arange.html)
-- [NumPy identity](https://numpy.org/doc/stable/reference/generated/numpy.identity.html)
+- [identity matrix](https://numpy.org/doc/stable/reference/generated/numpy.identity.html)
 - [NumPy random module](https://numpy.org/doc/stable/reference/random/index.html)
 - [Pandas DataFrame: resample](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.resample.html)
 - [Pandas DataFrame: rolling](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.rolling.html)
 - [Pandas DataFrame: shift](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.shift.html)
 - [Pandas User Guide: Data Import](https://pandas.pydata.org/docs/user_guide/io.html)
 - [pandas.read_csv](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html)
-- [Matplotlib Gallery](https://matplotlib.org/stable/gallery/index.html)
+- [Matplotlib example gallery](https://matplotlib.org/stable/gallery/index.html)
 - [Matplotlib Showcase: Anatomy of a Figure](https://matplotlib.org/stable/gallery/showcase/anatomy.html)
 - [Python Style Guide (PEP 8)](https://peps.python.org/pep-0008/)
 - [Python Docstring Conventions (PEP 257)](https://peps.python.org/pep-0257/>)
@@ -32,7 +32,7 @@ Below are useful resources, further reading, and links referenced throughout thi
 
 - [Conda Install Guide](https://conda.io/projects/conda/en/latest/user-guide/install/index.html)
 - [Conda: Managing Environments](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html>)
-- [Poetry Documentation](https://python-poetry.org/docs/)
+- [Poetry documentation](https://python-poetry.org/docs/)
 - [Poetry Basic Usage](https://python-poetry.org/docs/basic-usage/)
 - [Virtualenv User Guide](https://virtualenv.pypa.io/en/latest/user_guide.html>)
 - [flake8 Linter](https://flake8.pycqa.org/en/latest/index.html)
@@ -46,7 +46,7 @@ Below are useful resources, further reading, and links referenced throughout thi
 
 ## Licensing
 
-- [Creative Commons BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+- [Creative Commons Attribution 4.0 International licence](https://creativecommons.org/licenses/by/4.0/)
 - [MIT License](https://opensource.org/licenses/MIT)
 
 ---

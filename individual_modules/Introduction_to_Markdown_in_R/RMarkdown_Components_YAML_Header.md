@@ -54,7 +54,7 @@ output: word_document
 ---
 ```
 
-Some output options can be leveraged regardless of output format, whereas others are only valid for specific types of output format. The most common output types and options when defining the `output` key of a YAML header are as follows (sourced from [posit](https://posit.co/wp-content/uploads/2022/10/rmarkdown-1.pdf)):
+Some output options can be leveraged regardless of output format, whereas others are only valid for specific types of output format. The most common output types and options when defining the `output` key of a YAML header are as follows (sourced from [R Markdown: The Definitive Guide (PDF)](https://posit.co/wp-content/uploads/2022/10/rmarkdown-1.pdf)):
 
 ![A section from an R Markdown Cheat Sheet, titled "Set Output Formats and their Options in YAML," explains how to configure document output. It lists various output formats like HTML, PDF, and Word, along with the files they create. The sheet also details important YAML options such as toc (table of contents) and fig_caption (figure captions), indicating which output formats support each option.](Embedded_Display_Items/rmarkdown_cheat_sheet_outputs.png)
 

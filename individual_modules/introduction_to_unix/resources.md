@@ -14,7 +14,7 @@ Below are useful resources, further reading, and links referenced throughout thi
 ## Community & Tutorials
 
 - [Software Carpentry: Shell Novice Reference](https://swcarpentry.github.io/shell-novice/reference.html#argument)
-- [Readline Keyboard Shortcuts (GitHub)](https://github.com/chzyer/readline/blob/master/doc/shortcut.md)
+- [Shortcut](https://github.com/chzyer/readline/blob/master/doc/shortcut.md)
 
 ## Text Editors
 
@@ -31,7 +31,7 @@ Below are useful resources, further reading, and links referenced throughout thi
 
 ## Licensing
 
-- [Creative Commons BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+- [Creative Commons Attribution 4.0 International licence](https://creativecommons.org/licenses/by/4.0/)
 - [MIT License](https://opensource.org/licenses/MIT)
 
 ---

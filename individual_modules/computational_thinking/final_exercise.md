@@ -8,7 +8,7 @@ digits (from 1 to 9) to the empty cells so that every row, column, and sub-grid 
 
 You can write your solution in any programming language. You can work individually or in small groups. We recommend you spend some time planning out your solution before you start implementing. If you want you could design a flow chart to represent your algorithm.
 
-A selection of different difficulty sudokus for you to use to help develop your algorithm can be found [here](https://www.sudokuoftheday.com/dailypuzzles).
+A selection of different difficulty sudokus for you to use to help develop your algorithm can be found [Sudoku of the Day – Daily Puzzles](https://www.sudokuoftheday.com/dailypuzzles).
 
 Once you have a solution, can you use your computational thinking skills to improve the speed of the algorithm?
 

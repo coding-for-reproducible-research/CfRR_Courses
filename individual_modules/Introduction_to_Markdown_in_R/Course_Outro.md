@@ -10,19 +10,19 @@
 
 This workshop shares some thoughts and ideas from the following resources:
 
-- The [Reproducible Research in R](https://monashdatafluency.github.io/r-rep-res/index.html) course developed for the Monash Bioinformatics Platform
-- The [R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/) developed by Yihui Xie, Christophe Dervieux and Emily Riederer
+- The [Monash Data Fluency: Reproducible Research in R](https://monashdatafluency.github.io/r-rep-res/index.html) course developed for the Monash Bioinformatics Platform
+- The [R Markdown Cookbook (bookdown)](https://bookdown.org/yihui/rmarkdown-cookbook/) developed by Yihui Xie, Christophe Dervieux and Emily Riederer
 - The [Introduction to Markdown in Python](../../programme_information/python.ipynb) workshop offered by University of Exeter's Coding for Reproducable Research programme
-- The [R Markdown "cheat sheet"](https://posit.co/wp-content/uploads/2022/10/rmarkdown-1.pdf) available through [posit](https://posit.co/).
+- The [R Markdown: The Definitive Guide (PDF)](https://posit.co/wp-content/uploads/2022/10/rmarkdown-1.pdf) available through [Posit (formerly RStudio)](https://posit.co/).
 
-Creation of this workshop was also supported by [ChatGPT](https://openai.com/index/chatgpt/).
+Creation of this workshop was also supported by [OpenAI ChatGPT](https://openai.com/index/chatgpt/).
 
 ## Bonus task
 
-Below are links to some tutorials from the `microbiome` R package for analysis of microbiome data (Bioconductor landing page [here](https://www.bioconductor.org/packages/release/bioc/html/microbiome.html)):
+Below are links to some tutorials from the `microbiome` R package for analysis of microbiome data (Bioconductor landing page [microbiome (Bioconductor package)](https://www.bioconductor.org/packages/release/bioc/html/microbiome.html)):
 
-- [Alpha diversity tutorial](https://microbiome.github.io/tutorials/Alphadiversity.html)
-- [Beta diversity tutorial](https://microbiome.github.io/tutorials/Betadiversity.html)
-- [Community composition tutorial](https://microbiome.github.io/tutorials/Composition.html)
+- [Microbiome Analysis: Alpha Diversity](https://microbiome.github.io/tutorials/Alphadiversity.html)
+- [Microbiome Analysis: Beta Diversity](https://microbiome.github.io/tutorials/Betadiversity.html)
+- [Microbiome Analysis: Composition](https://microbiome.github.io/tutorials/Composition.html)
 
 Try to reproduce one of the above `microbiome` package tutorials of your choice using R Markdown.

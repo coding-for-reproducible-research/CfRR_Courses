@@ -50,7 +50,7 @@ Below are useful resources, further reading, and links referenced throughout thi
 
 - [GitHub](https://github.com)
 - [Keeping Your Email Address Private on GitHub](https://help.github.com/articles/keeping-your-email-address-private/)
-- [Creative Commons BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+- [Creative Commons Attribution 4.0 International licence](https://creativecommons.org/licenses/by/4.0/)
 - [MIT License](https://opensource.org/licenses/MIT)
 
 ---
