@@ -8,6 +8,7 @@ parts:
     chapters:
       - file: cfrr_program_details/about_us
       - file: cfrr_program_details/how_to_use_CfRR
+      - file: cfrr_program_details/course_styles
 
   - caption: Courses We Offer
     chapters:
@@ -61,7 +62,6 @@ parts:
             sections:
               - file: programme_information/languages_drop_in
               - file: programme_information/practice_drop_in
-      - file: cfrr_program_details/course_feedback
 
   - caption: What Courses Should I Take?
     chapters: 
@@ -358,6 +358,11 @@ parts:
       - file: short_courses/best_practices
         sections:
           - file: short_courses/data_science_best_practices
+      - file: short_courses/data_stewardship
+        sections:
+          - file: short_courses/Data-organisation-and-good-practice
+          - file: short_courses/Data-publishing
+          - file: short_courses/FAIR-(meta)data
       - file: short_courses/gui_git_github
   - caption: Resources
     chapters:

@@ -12,11 +12,17 @@
 
 ```
 
+## Overview 
 This guide provides a comprehensive reference for best practices in conducting reproducible research using Python, specifically for data science projects with a focus on research applications.
 
 The goal of this document is to offer a regularly updated resource that outlines approaches, tools, and methodologies that can help ensure the reproducibility, transparency, and overall quality of your research outcomes. By adopting these practices, you can facilitate collaboration, increase the reliability of your findings, and make it easier for others to understand and build upon your work.
 
 While it is not essential to follow every recommendation to the letter, thoughtfully considering and incorporating the practices discussed here can significantly improve the reproducibility, usability, and interpretability of your research.
+
+## Course Objectives 
+- Develop a reproducible Python data science project using a clear project structure, appropriate documentation, and effective dependency management.
+- Apply good software development practices such as version control, configuration management, code formatting, and testing to improve the quality and maintainability of research code.
+- Use notebooks, scripts, and supporting files appropriately to create research workflows that are transparent, reusable, and easier for others to understand and build upon.
 
 ## Quick-start
 
