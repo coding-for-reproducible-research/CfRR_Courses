@@ -1,0 +1,106 @@
+[
+    {
+        "question": "What is the primary effect of applying a low-pass blurring filter to an image?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "It sharpens edges and increases noise.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "It smooths edges and removes noise from an image.",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "It increases the contrast between light and dark regions.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "It converts a colour image to grayscale.",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "In a typical image processing pipeline, when is blurring most commonly applied?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "As the final step, after all other processing is complete.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Only when saving images to disk.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "As a first step before thresholding or edge detection.",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Only when working with colour images, not grayscale.",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "Which scikit-image function is used to apply a Gaussian blur to an image?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "`ski.filters.blur()`",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "`ski.transform.gaussian()`",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "`ski.filters.gaussian()`",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "`ski.color.gaussian()`",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What is the trade-off when using a larger sigma value in a Gaussian blur?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Larger sigma values produce faster processing but lower quality output.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Larger sigma values may remove more noise, but they will also remove detail from an image.",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Larger sigma values sharpen the image rather than blurring it.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Larger sigma values only affect colour images, not grayscale.",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    }
+]

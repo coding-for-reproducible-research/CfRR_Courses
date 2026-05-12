@@ -1,0 +1,132 @@
+[
+    {
+        "question": "How can you load an image directly in grayscale format using imageio?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Pass `mode=\"L\"` as an argument to `iio.imread()`.",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Use `ski.color.rgb2gray()` before calling `iio.imread()`.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Pass `channels=1` as an argument to `iio.imread()`.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Images cannot be loaded directly as grayscale; they must always be converted afterwards.",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "Which NumPy function is used to create a histogram from image pixel values?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "`np.mean()`",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "`np.histogram()`",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "`np.count_nonzero()`",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "`np.bincount()`",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "How should the output of `np.histogram()` be used to display a histogram with Matplotlib?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Pass the histogram values directly to `ax.imshow()`.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Use `ax.plot()` with `bin_edges` and `histogram` values returned by `np.histogram()`.",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Pass only the `histogram` array to `ax.bar()` without bin edges.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Use `ax.scatter()` with `bin_edges` on the x-axis.",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "Which Matplotlib methods can be used to customise the axes labels, limits, and title of a histogram plot?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "`ax.set_xlabel()`, `ax.set_ylabel()`, `ax.set_xlim()`, `ax.set_ylim()`, and `ax.set_title()`.",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "`ax.xlabel()`, `ax.ylabel()`, `ax.xlim()`, `ax.ylim()`, and `ax.title()`.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "`plt.label()`, `plt.limit()`, and `plt.heading()`.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Only `ax.set_title()` is available; labels and limits cannot be changed.",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "How can you create a separate histogram for each colour channel of an RGB image?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Pass `channels=True` to `np.histogram()`.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Separate the colour channels using slicing operations and create histograms for each channel individually.",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Convert the image to grayscale first; separate channel histograms are not possible.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Use `ski.color.rgb2gray()` three times with different parameters.",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    }
+]

@@ -1,0 +1,262 @@
+[
+    {
+        "question": "How are digital images represented in a computer?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "As a continuous mathematical function of light intensity.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "As rectangular arrays of square pixels.",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "As a list of vector shapes and curves.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "As a single large integer representing the entire scene.",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "How is each pixel stored in a colour (RGB) image array?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "As a single integer between 0 and 255.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "As an RGB triplet of three values.",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "As a floating point number between 0.0 and 1.0.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "As four values: red, green, blue, and alpha.",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "Where is pixel (0, 0) located in a digital image, and how are coordinates specified?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "At the centre of the image; coordinates extend outward in all directions.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "At the lower-left corner; pixel (x, y) is in row x, column y.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "At the upper-left corner; pixel (x, y) is in column x, row y.",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "At the upper-right corner; coordinates decrease left and downward.",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "In what order are the three colour values stored in an RGB triplet in scikit-image?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Blue, Green, Red (BGR).",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Red, Green, Blue (RGB).",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Green, Red, Blue (GRB).",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "The order depends on the image file format.",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What range of values do pixel intensities span in a standard 8-bit image?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "0.0 to 1.0",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "0 to 255",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "-128 to 127",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "0 to 1024",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "Which function is used to read an image from disk in imageio?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "`iio.imwrite()`",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "`iio.imread()`",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "`iio.load()`",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "`iio.open()`",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "Which Python library is used to display images in a notebook in this course?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "NumPy",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Matplotlib",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Pillow",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "scikit-image",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "How do you modify the colour of a single pixel at row `y`, column `x` in an image array?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "`image[x, y] = [r, g, b]`",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "`image[y, x] = [r, g, b]`",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "`image.set_pixel(x, y, [r, g, b])`",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "`image.pixel[y][x] = (r, g, b)`",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "Which image formats use lossless or no compression?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "JPEG and BMP",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "BMP (no compression), PNG and TIFF (lossless compression)",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Only BMP uses no compression; all other formats are lossy.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "All common image formats use lossy compression to save space.",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What type of information can image metadata contain?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Only the dimensions (width and height) of the image.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Textual information such as camera make and model, date and time, GPS coordinates, and more.",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Only the colour profile and compression settings.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Metadata is not stored inside image files; it is kept in a separate database.",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    }
+]

@@ -1,0 +1,106 @@
+[
+    {
+        "question": "How do you open a Napari n-dimensional image viewer in Python?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "`viewer = napari.open()`",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "`viewer = napari.Viewer()`",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "`viewer = napari.show()`",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "`viewer = napari.launch()`",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "Which Napari viewer methods are used to add image data and label data respectively?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "`viewer.add_image()` for images and `viewer.add_labels()` for labels.",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "`viewer.load_image()` for images and `viewer.load_labels()` for labels.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "`viewer.show_image()` for images and `viewer.show_labels()` for labels.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "`viewer.insert(image)` for images and `viewer.insert(labels)` for labels.",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "Which of the following statements about scikit-image functions and 3D image data is correct?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Most scikit-image functions only work with 2D images and cannot be used with 3D data.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Functions such as `ski.filters.gaussian()`, `ski.filters.threshold_otsu()`, `ski.measure.label()`, and `ski.measure.regionprops()` work with 3D image data.",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Only `ski.measure.label()` supports 3D data; all other functions require 2D input.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "scikit-image functions require images to be converted to 2D before processing.",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "How can you analyse a timelapse movie frame by frame using scikit-image?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "scikit-image cannot analyse timelapse data at all.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "By converting the entire timelapse to a single 2D image and analysing that.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "By iterating through time-points and applying scikit-image functions to each frame.",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "By using a special `timelapse` parameter in all scikit-image functions.",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    }
+]
