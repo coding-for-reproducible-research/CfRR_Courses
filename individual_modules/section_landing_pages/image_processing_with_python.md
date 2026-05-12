@@ -17,3 +17,7 @@ This course introduces fundamental concepts in image handling and processing usi
 ## Pre-requisite Knowledge
 
 This course is aimed at researchers who want to learn how to analyse their image data using Python. It assumes you have a very basic working knowledge of Python. Prior attendance at any introductory python course (e.g ["Introduction to Python"](https://coding-for-reproducible-research.github.io/CfRR_Courses/programme_information/intro_to_python.html)) or equivalent independent exposure would be ideal. If you are competent in anouther programming, or sripting, language other than Python this will be sufficient.
+
+## Setup and Installation
+
+Before attending this course, please ensure you have the required software installed. Full instructions can be found on the [course programme information page](../../programme_information/image_processing_with_python.ipynb).
