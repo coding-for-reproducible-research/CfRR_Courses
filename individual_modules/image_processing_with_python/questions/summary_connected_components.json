@@ -1,0 +1,106 @@
+[
+    {
+        "question": "Which scikit-image function is used to find and label connected objects in a binary image?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "`ski.measure.regionprops()`",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "`ski.measure.label()`",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "`ski.morphology.remove_small_objects()`",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "`ski.filters.gaussian()`",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "Which function is used to measure properties (such as area and perimeter) of labeled objects in an image?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "`ski.measure.label()`",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "`ski.filters.threshold_otsu()`",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "`ski.measure.regionprops()`",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "`ski.color.label2rgb()`",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "Which function can be used to mask small objects and remove artifacts from a binary image?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "`ski.measure.label()`",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "`ski.morphology.remove_small_objects()`",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "`ski.filters.gaussian()`",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "`np.count_nonzero()`",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What does displaying a labeled image produced by connected component analysis allow you to see?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "The image in grayscale only.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "The objects coloured by their label, making each distinct object visible.",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "The edges of all objects highlighted in white.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "The histogram of pixel intensity values.",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    }
+]

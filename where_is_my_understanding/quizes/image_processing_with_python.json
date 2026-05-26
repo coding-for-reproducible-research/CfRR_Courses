@@ -1,0 +1,132 @@
+[
+    {
+        "question": "When using a NumPy array to represent an image, how is it structured?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "A 1D array of pixel values listed left to right, top to bottom.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "A 2D array of shape (height, width) for grayscale images, or a 3D array of shape (height, width, channels) for colour images.",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "A 2D array of shape (width, height) regardless of colour or grayscale.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "A 3D array of shape (channels, width, height) for all image types.",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What does a Gaussian blur do to an image and why is this useful?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "It sharpens edges by increasing pixel contrast, which makes object boundaries easier to detect.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "It smooths the image by averaging neighbouring pixel values using a Gaussian-weighted kernel, which reduces noise and makes subsequent steps like thresholding more reliable.",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "It converts the image to grayscale by averaging the colour channels, which is required before thresholding.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "It increases the brightness of the image uniformly, making dark objects easier to detect.",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What does thresholding do to an image and why is this useful?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "It blurs the image to remove noise, making objects easier to count.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "It converts a grayscale image into a binary (True/False) image by classifying pixels as foreground or background based on their intensity, which is useful for isolating objects of interest.",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "It labels each pixel with a unique integer corresponding to the object it belongs to.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "It crops the image to a region of interest defined by a minimum pixel value.",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What is Connected Component Analysis (CCA) and why is it useful?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "A technique that blurs connected regions of an image to reduce noise before thresholding.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "A technique that groups connected foreground pixels into uniquely labeled objects, making it possible to count, measure, and analyse individual objects in an image.",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "A technique that connects separate images together into a single panoramic image.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "A technique that identifies edges between objects by analysing pixel colour gradients.",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What is Napari?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "A Python library for applying Gaussian filters and thresholding to images.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "A file format for storing multidimensional image data.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "An interactive n-dimensional image viewer for Python, useful for visualising and exploring 2D, 3D, and timelapse image data.",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "A machine learning library for automated object classification in images.",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    }
+]

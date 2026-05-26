@@ -1,0 +1,184 @@
+[
+    {
+        "question": "Which function is used to read an image from disk with imageio?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "`iio.imwrite()`",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "`iio.imread()`",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "`iio.load()`",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "`ski.io.imread()`",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "How do you display an image using Matplotlib so that the display window automatically scales to the image?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Call `plt.show()` directly with the image array.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Create a figure with `plt.subplots()` and call `ax.imshow()` on the axes object.",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Use `iio.imshow()` from the imageio library.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Call `ski.display(image)` from scikit-image.",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "Which of the following correctly describes how to convert a colour image to grayscale?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Use `ski.color.rgb2gray()`, or pass `mode=\"L\"` to `iio.imread()` when loading.",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Use `np.mean(image, axis=2)` to average the colour channels.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Images cannot be converted to grayscale once loaded in colour.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Use `ski.transform.grayscale()` to convert the image.",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "Which function is used to resize an image in scikit-image?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "`ski.transform.rescale()`",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "`ski.transform.resize()`",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "`ski.util.resize()`",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "`np.resize()`",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "How can NumPy array operations be used to manipulate pixel values in an image?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "NumPy cannot operate directly on image arrays; a loop over every pixel is required.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Commands such as `image[image < 128] = 0` can be used to manipulate the pixels of an image.",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Only `sklearn` functions can modify pixel values in scikit-image arrays.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Pixel values can only be modified by saving and reloading the image.",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "How can you extract a rectangular sub-image from a NumPy image array?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Using array slicing, e.g. `clip = image[60:150, 135:480, :]`.",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Using `ski.transform.crop(image, rows, cols)`.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Using `image.subimage(y1, x1, y2, x2)`.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Sub-images cannot be extracted; the full image must always be processed.",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What happens to image metadata when an image is loaded as a NumPy array using `iio.imread()`?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Metadata is preserved inside the NumPy array as extra channels.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Metadata is retained and can be accessed via `image.metadata`.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Metadata is not retained when images are loaded as NumPy arrays.",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Metadata is automatically saved to a separate `.meta` file.",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    }
+]

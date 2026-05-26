@@ -1,0 +1,80 @@
+[
+    {
+        "question": "What does thresholding produce, and how does it work?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "A colour-enhanced image where bright pixels are made brighter.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "A binary image where pixels above (or below) a threshold value are turned on and all others are turned off.",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "A grayscale image with reduced contrast.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "An image where pixel values are normalised to the range 0.0 to 1.0.",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "How are the binary images produced by thresholding stored in Python?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "As three-dimensional NumPy arrays with values ranging from 0 to 255.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "As two-dimensional boolean NumPy arrays with values of 0 (off) and 1 (on).",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "As Python lists of tuples containing pixel coordinates.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "As one-dimensional NumPy arrays regardless of image size.",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What are typical use cases for thresholding in an image processing pipeline?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Thresholding can only be used as the final step in a pipeline, after all other processing.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Creating masks to select interesting parts of an image, or as a first step before edge detection or finding contours.",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Thresholding is only used to reduce image file size.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Thresholding is used exclusively to convert colour images to grayscale.",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    }
+]

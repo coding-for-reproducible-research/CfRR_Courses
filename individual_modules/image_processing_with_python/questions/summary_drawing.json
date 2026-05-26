@@ -1,0 +1,80 @@
+[
+    {
+        "question": "Which NumPy function is used to create a blank, black image?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "`np.ones()`",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "`np.empty()`",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "`np.zeros()`",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "`np.full()`",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "Which of the following are valid scikit-image functions for drawing shapes on an image?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "`ski.draw.rectangle()`, `ski.draw.disk()`, and `ski.draw.line()`.",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "`ski.shape.rectangle()`, `ski.shape.circle()`, and `ski.shape.line()`.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "`ski.filters.rectangle()` and `ski.filters.disk()`.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "`matplotlib.patches.Rectangle()` and `matplotlib.patches.Circle()` only.",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    },
+    {
+        "question": "What do scikit-image drawing functions return, and how are they used to draw on an image?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "They return a new image with the shape already drawn on it.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "They return pixel colour values that must be added to the image array.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "They return indices to pixels that can be set directly on the image array.",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "They return a boolean mask that must be inverted before applying to the image.",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+        ]
+    }
+]
