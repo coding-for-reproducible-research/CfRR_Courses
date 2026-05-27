@@ -1,0 +1,262 @@
+[
+  {
+    "question": "What does the abbreviation 'LLM' stand for?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Large Language Model",
+        "correct": true,
+        "feedback": "Correct! LLMs are large neural network models trained on vast amounts of text to understand and generate human language."
+      },
+      {
+        "answer": "Logical Learning Mechanism",
+        "correct": false,
+        "feedback": "Incorrect: LLM stands for Large Language Model — these are neural networks trained on large amounts of text data."
+      },
+      {
+        "answer": "Linear Linguistic Module",
+        "correct": false,
+        "feedback": "Incorrect: LLM stands for Large Language Model. The 'large' refers to the enormous number of parameters these models contain."
+      },
+      {
+        "answer": "Layered Logic Machine",
+        "correct": false,
+        "feedback": "Incorrect: LLM stands for Large Language Model — they are not logic-based systems, but statistical models trained on text."
+      }
+    ]
+  },
+  {
+    "question": "At a high level, what is the core task that a large language model performs?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "It predicts the most likely next sequence given the text it has seen so far.",
+        "correct": true,
+        "feedback": "Correct! This is called next-token prediction, and it is the fundamental mechanism behind how LLMs generate text."
+      },
+      {
+        "answer": "It searches the internet in real time to retrieve relevant information.",
+        "correct": false,
+        "feedback": "Incorrect: Standard LLMs do not browse the internet. They generate responses based on patterns learned during training."
+      },
+      {
+        "answer": "It understands questions the way a human would and draws on genuine knowledge to reason through an answer.",
+        "correct": false,
+        "feedback": "Incorrect: LLMs do not 'understand' in the way humans do. They generate text by predicting likely next tokens based on statistical patterns learned during training — there is no reasoning, awareness, or genuine comprehension behind the output."
+      },
+      {
+        "answer": "It follows a set of logical rules defined by its programmers to answer questions.",
+        "correct": false,
+        "feedback": "Incorrect: LLMs are not rule-based systems. Their behaviour emerges from patterns learned from large amounts of training text, not hand-crafted rules."
+      }
+    ]
+  },
+  {
+    "question": "What is 'tokenization' in the context of large language models?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "The process of splitting text into smaller units (tokens) that the model can process.",
+        "correct": true,
+        "feedback": "Correct! Tokens can be words, parts of words, or individual characters depending on the tokenizer. Understanding tokenization helps explain things like why token counts affect cost and context limits."
+      },
+      {
+        "answer": "A security method that converts text into an encrypted format.",
+        "correct": false,
+        "feedback": "Incorrect: Tokenization in LLMs is about breaking text into processable units, not encryption."
+      },
+      {
+        "answer": "The process of translating text from one language to another.",
+        "correct": false,
+        "feedback": "Incorrect: Tokenization is the step that converts raw text into a sequence of tokens before any processing happens — it is not translation."
+      },
+      {
+        "answer": "A method for compressing large text datasets to save storage space.",
+        "correct": false,
+        "feedback": "Incorrect: Tokenization splits text into units for the model to process — it is an encoding step, not a compression technique."
+      }
+    ]
+  },
+  {
+    "question": "Why does it matter how many tokens are in a piece of text when working with LLMs?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Because models have a maximum context window measured in tokens, and many APIs charge per token used.",
+        "correct": true,
+        "feedback": "Correct! Token counts affect both cost (in pay-per-use APIs) and whether text fits within the model's context window — the maximum amount of text it can consider at once."
+      },
+      {
+        "answer": "Because more tokens always results in a more accurate response.",
+        "correct": false,
+        "feedback": "Incorrect: More tokens does not guarantee better quality. Clarity and relevance of the prompt matter more than sheer length."
+      },
+      {
+        "answer": "Because tokens determine the font size used to display the model's output.",
+        "correct": false,
+        "feedback": "Incorrect: Tokens are units of text used internally by the model — they have no bearing on how output is displayed."
+      },
+      {
+        "answer": "Token counts only matter when using closed-source models, not open-source ones.",
+        "correct": false,
+        "feedback": "Incorrect: Context window limits apply to both open-source and closed-source models. Cost-per-token is specific to paid APIs, but context limits are universal."
+      }
+    ]
+  },
+  {
+    "question": "What is a 'context window' in a large language model?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "The maximum amount of text (measured in tokens) the model can take into account at one time.",
+        "correct": true,
+        "feedback": "Correct! Everything outside the context window is effectively invisible to the model. Longer conversations or documents may need to be managed carefully to stay within this limit."
+      },
+      {
+        "answer": "A graphical pop-up window that displays the model's output.",
+        "correct": false,
+        "feedback": "Incorrect: The context window is a technical constraint on how much text the model can process at once — it is not a user interface element."
+      },
+      {
+        "answer": "The range of topics the model has knowledge about.",
+        "correct": false,
+        "feedback": "Incorrect: The scope of a model's knowledge is determined by its training data, not the context window. The context window refers to the amount of text it can hold in a single interaction."
+      },
+      {
+        "answer": "A setting that controls how creative the model's responses are.",
+        "correct": false,
+        "feedback": "Incorrect: Creativity is controlled by the temperature parameter. The context window is about how much text the model can read and refer to at once."
+      }
+    ]
+  },
+  {
+    "question": "What does the 'temperature' parameter control when generating text with an LLM?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "The randomness of the model's output — higher values produce more varied responses, lower values more predictable ones.",
+        "correct": true,
+        "feedback": "Correct! A temperature close to zero makes the model pick the most likely token almost deterministically. Higher temperatures introduce more randomness, which can make outputs more creative but also less consistent."
+      },
+      {
+        "answer": "The speed at which the model generates text.",
+        "correct": false,
+        "feedback": "Incorrect: Temperature affects the distribution of token probabilities, not how fast the model runs."
+      },
+      {
+        "answer": "The physical operating temperature of the GPU running the model.",
+        "correct": false,
+        "feedback": "Incorrect: Temperature in this context is a mathematical parameter that controls output randomness, not hardware temperature."
+      },
+      {
+        "answer": "The maximum length of the model's response.",
+        "correct": false,
+        "feedback": "Incorrect: Response length is typically controlled by a separate 'max tokens' or 'max length' parameter. Temperature controls variability of word choice."
+      }
+    ]
+  },
+  {
+    "question": "Which of the following best describes 'prompt engineering'?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Carefully designing the input given to a model in order to guide it towards better or more useful outputs.",
+        "correct": true,
+        "feedback": "Correct! Prompt engineering is a practical skill that does not require retraining the model — small changes to how you phrase a question or structure your instructions can significantly affect the quality of the response."
+      },
+      {
+        "answer": "Physically building the computer hardware that runs LLMs.",
+        "correct": false,
+        "feedback": "Incorrect: Prompt engineering is about crafting text inputs — it is a software and communication skill, not a hardware one."
+      },
+      {
+        "answer": "Training a new model from scratch using your own dataset.",
+        "correct": false,
+        "feedback": "Incorrect: Training a model from scratch is a separate (and much more resource-intensive) process. Prompt engineering works with an existing, trained model."
+      },
+      {
+        "answer": "Writing code to optimise the server infrastructure that hosts LLMs.",
+        "correct": false,
+        "feedback": "Incorrect: Prompt engineering focuses on the text you give to a model, not on deployment or infrastructure."
+      }
+    ]
+  },
+  {
+    "question": "What does it mean that LLMs are typically 'stateless'?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "By default, each new conversation starts fresh — the model has no memory of previous interactions.",
+        "correct": true,
+        "feedback": "Correct! Statelessness means the model treats each API call independently. Any 'memory' of earlier turns in a conversation is only possible because the application sends prior messages as part of the current context."
+      },
+      {
+        "answer": "The model cannot process text that contains numbers or special characters.",
+        "correct": false,
+        "feedback": "Incorrect: Stateless refers to the model having no persistent memory between sessions — it has nothing to do with what characters it can handle."
+      },
+      {
+        "answer": "The model's responses are always identical regardless of how you phrase the question.",
+        "correct": false,
+        "feedback": "Incorrect: Stateless means no memory between sessions. Responses can still vary depending on the prompt and temperature settings."
+      },
+      {
+        "answer": "The model's weights are fixed and cannot be updated after training.",
+        "correct": false,
+        "feedback": "Incorrect: While it is true that a deployed model's weights are typically frozen, 'stateless' specifically refers to the lack of persistent memory across interactions."
+      }
+    ]
+  },
+  {
+    "question": "What are 'embeddings' in the context of large language models?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Numerical (vector) representations of text that capture its meaning, allowing similar concepts to be positioned close together.",
+        "correct": true,
+        "feedback": "Correct! Embeddings map words, sentences, or documents into a high-dimensional numerical space. Texts with similar meanings end up with similar embeddings, which is what allows models to reason about semantic relationships."
+      },
+      {
+        "answer": "Images that have been embedded inside the model's training data.",
+        "correct": false,
+        "feedback": "Incorrect: In this context, embeddings are numerical representations of text — not images or files stored inside the model."
+      },
+      {
+        "answer": "The physical memory chips used to store the model's parameters on a GPU.",
+        "correct": false,
+        "feedback": "Incorrect: Embeddings are mathematical objects — vectors of numbers that represent meaning — not physical hardware."
+      },
+      {
+        "answer": "Hyperlinks embedded in the model's output that point to source documents.",
+        "correct": false,
+        "feedback": "Incorrect: Embeddings are internal numerical representations used by the model, not links in the output text."
+      }
+    ]
+  },
+  {
+    "question": "Which of the following is an example of 'few-shot prompting'?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Including two or three worked examples of the desired input-output format in your prompt before asking the model your actual question.",
+        "correct": true,
+        "feedback": "Correct! Few-shot prompting gives the model concrete examples of what you want, helping it understand the task format and produce better-structured answers without any retraining."
+      },
+      {
+        "answer": "Asking the model to reply using as few words as possible.",
+        "correct": false,
+        "feedback": "Incorrect: Few-shot refers to the number of examples provided in the prompt, not the length of the response. 'Zero-shot', 'one-shot', and 'few-shot' describe how many examples you include."
+      },
+      {
+        "answer": "Only using the model for a few minutes at a time to avoid high costs.",
+        "correct": false,
+        "feedback": "Incorrect: Few-shot prompting is about providing example input-output pairs in the prompt to guide the model — it has nothing to do with session duration."
+      },
+      {
+        "answer": "Setting the temperature parameter to a very low value so the model gives short answers.",
+        "correct": false,
+        "feedback": "Incorrect: Temperature controls output randomness. Few-shot prompting is a technique where you demonstrate the desired behaviour with examples inside the prompt itself."
+      }
+    ]
+  }
+]
