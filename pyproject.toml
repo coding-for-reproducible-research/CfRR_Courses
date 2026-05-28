@@ -26,6 +26,16 @@ sphinx-sitemap = "^2.9.0"
 snowballstemmer = "2.2.0"
 jupyterlab = "^4.4.5"
 
+[tool.poetry.group.llm]
+optional = true
+
+[tool.poetry.group.llm.dependencies]
+tiktoken = "*"
+transformers = "*"
+sentence-transformers = "*"
+huggingface-hub = "*"
+python-dotenv = "*"
+
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"

@@ -2,23 +2,56 @@
 
 Below are useful resources, further reading, and links referenced throughout this course.
 
----
+## Course Libraries and Documentation
 
-## Official Documentation & Books
+- [Hugging Face Transformers](https://huggingface.co/docs/transformers/)
+- [Hugging Face Hub InferenceClient](https://huggingface.co/docs/huggingface_hub/en/package_reference/inference_client)
+- [Hugging Face Inference Providers pricing](https://huggingface.co/docs/inference-providers/pricing)
+- [Hugging Face user access tokens](https://huggingface.co/docs/hub/en/security-tokens)
+- [tiktoken](https://github.com/openai/tiktoken)
+- [Sentence Transformers](https://www.sbert.net/)
+- [scikit-learn cosine similarity](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html)
+- [Plotly Python](https://plotly.com/python/)
 
-- [Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow (O'Reilly)](https://www.oreilly.com/library/view/hands-on-machine-learning/9781098125967/)
-- [Linear Models (scikit-learn Documentation)](https://scikit-learn.org/stable/modules/linear_model.html#linear-models)
+## Further Exploration
 
-## Datasets
+### Tokenization
 
-- [A Géron - Data for Machine Learning (GitHub, raw data folder)](https://github.com/ageron/data/raw/main/)
-- [Housing Dataset (direct download)](https://github.com/ageron/data/raw/main/housing.tgz)
+- [OpenAI Tokenizer Tool](https://platform.openai.com/tokenizer) - interactive web tool
+- [tiktoken GitHub](https://github.com/openai/tiktoken) - source code and documentation
+- [Hugging Face Tokenizers](https://huggingface.co/docs/tokenizers/) - learn about other tokenizers
 
-## Licensing
+### Embeddings
 
-- [Creative Commons Attribution 4.0 International licence](https://creativecommons.org/licenses/by/4.0/)
-- [MIT License](https://opensource.org/licenses/MIT)
+- [Sentence Transformers](https://www.sbert.net/) - library used in the embeddings notebook
+- [Hugging Face Model Hub](https://huggingface.co/models?pipeline_tag=sentence-similarity) - browse embedding models
+- [OpenAI Embeddings Guide](https://platform.openai.com/docs/guides/embeddings) - embeddings via API
 
----
+## Hugging Face Models Referenced
 
-> *If you have suggestions for additional resources, or spot a broken link, please let the course authors know!*
+| Model | Course use | Licence listed by provider |
+| --- | --- | --- |
+| [mistralai/Mistral-7B-Instruct-v0.2](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2) | Hosted text-generation examples | Apache-2.0 |
+| [openai-community/gpt2](https://huggingface.co/openai-community/gpt2) | Local text-generation fallback | MIT |
+| [sentence-transformers/all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2) | Embedding examples | Apache-2.0 |
+| [google-bert/bert-base-uncased](https://huggingface.co/google-bert/bert-base-uncased) | Tokenizer comparison | Apache-2.0 |
+| [google-t5/t5-small](https://huggingface.co/google-t5/t5-small) | Tokenizer comparison | Apache-2.0 |
+| [deepseek-ai/DeepSeek-R1-Distill-Llama-8B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Llama-8B) | Tokenizer comparison | MIT listed by provider; model card notes Llama-derived base model |
+
+## Python Package Licences
+
+| Package | Course use | Licence |
+| --- | --- | --- |
+| [tiktoken](https://github.com/openai/tiktoken) | OpenAI-compatible token counting | MIT |
+| [transformers](https://github.com/huggingface/transformers) | Hugging Face tokenizers and local model loading | Apache-2.0 |
+| [sentence-transformers](https://github.com/UKPLab/sentence-transformers) | Embedding model wrapper | Apache-2.0 |
+| [huggingface_hub](https://github.com/huggingface/huggingface_hub) | Hosted inference client | Apache-2.0 |
+| [python-dotenv](https://github.com/theskumar/python-dotenv) | Loading local `.env` files | BSD-3-Clause |
+| [scikit-learn](https://github.com/scikit-learn/scikit-learn) | Cosine similarity utilities | BSD-3-Clause |
+| [plotly](https://github.com/plotly/plotly.py) | Interactive plots | MIT |
+
+## Data and Hosted Inference
+
+The practical prompting notebook can send prompt text to Hugging Face Inference Providers when hosted inference is enabled. Do not submit personal data, confidential research data, student or patient data, unpublished intellectual property, or data covered by ethics or data-sharing restrictions to hosted inference services unless you have explicit approval.
+
+Hugging Face pricing, available providers, token scopes, and model availability can change. Check the current Hugging Face documentation before running live inference examples repeatedly or in teaching sessions.
