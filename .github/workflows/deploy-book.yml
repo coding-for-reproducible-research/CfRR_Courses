@@ -40,10 +40,19 @@ jobs:
         path: _build/.jupyter_cache
         key: jupyter-book-cache-${{ hashFiles('pyproject.toml') }}
 
+    - name: Install Gitleaks
+      uses: ./.github/actions/setup-gitleaks
+      with:
+        version: v8.24.2
+
     # Build the book
     - name: Build the book
       run: |
         poetry run jupyter-book build .
+
+    - name: Scan generated logs for secrets
+      if: always()
+      run: bash .github/scripts/scan_generated_logs.sh _build .gitleaks.toml
 
     # Upload the book's HTML as an artifact
     - name: Upload artifact

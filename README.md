@@ -83,6 +83,20 @@ Notes:
 - Poetry installs from `pyproject.toml` (the same source used in GitHub Actions).
 - If you prefer an activated shell instead of prefixing commands with `poetry run`, use `poetry shell`.
 
+### Secret scanning before commits
+
+This repository includes a Gitleaks pre-commit hook for catching accidental credentials before they are committed. Install `pre-commit`, then enable the hook:
+
+```bash
+pre-commit install
+```
+
+To scan the repository manually:
+
+```bash
+pre-commit run gitleaks --all-files
+```
+
 ## Build and preview the website
 
 Build the Jupyter Book:
@@ -116,3 +130,6 @@ This project uses GitHub Actions to build, test, and deploy the website:
 - `.github/workflows/build-book.yml`: builds the book on pull requests to `main`.
 - `.github/workflows/deploy-book.yml`: builds and deploys `_build/html` to GitHub Pages on pushes to `main` (and on a schedule).
 - `.github/workflows/accessibility*.yml`: builds the book and runs accessibility checks (see above).
+- `.github/workflows/secret-scanning.yml`: runs Gitleaks and posts a PR comment with redacted secret-scanning results.
+
+The build and deploy workflows also scan generated `_build/` log files after the Jupyter Book build. Repository administrators should enable GitHub secret scanning and push protection in the repository's code security settings where available.
