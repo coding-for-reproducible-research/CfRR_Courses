@@ -45,7 +45,7 @@ Below are useful resources, further reading, and links referenced throughout thi
 | --- | --- | --- |
 | <a href="https://github.com/openai/tiktoken" style="color: #005ea8;">tiktoken</a> | OpenAI-compatible token counting | MIT |
 | [transformers](https://github.com/huggingface/transformers) | Hugging Face tokenizers and local model loading | Apache-2.0 |
-| [sentence-transformers](https://github.com/UKPLab/sentence-transformers) | Embedding model wrapper | Apache-2.0 |
+| <a href="https://github.com/UKPLab/sentence-transformers" style="color: #005ea8;">sentence-transformers</a> | Embedding model wrapper | Apache-2.0 |
 | [huggingface_hub](https://github.com/huggingface/huggingface_hub) | Hosted inference client | Apache-2.0 |
 | [python-dotenv](https://github.com/theskumar/python-dotenv) | Loading local `.env` files | BSD-3-Clause |
 | [scikit-learn](https://github.com/scikit-learn/scikit-learn) | Cosine similarity utilities | BSD-3-Clause |
