@@ -31,7 +31,7 @@ Below are useful resources, further reading, and links referenced throughout thi
 
 | Model | Course use | Licence listed by provider |
 | --- | --- | --- |
-| [mistralai/Mistral-7B-Instruct-v0.2](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2) | Hosted text-generation examples | Apache-2.0 |
+| <a href="https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2" style="color: #005ea8;">mistralai/Mistral-7B-Instruct-v0.2</a> | Hosted text-generation examples | Apache-2.0 |
 | [openai-community/gpt2](https://huggingface.co/openai-community/gpt2) | GPT-2 tokenizer comparison | MIT |
 | [sentence-transformers/all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2) | Embedding examples | Apache-2.0 |
 | [google-bert/bert-base-uncased](https://huggingface.co/google-bert/bert-base-uncased) | Tokenizer comparison | Apache-2.0 |
