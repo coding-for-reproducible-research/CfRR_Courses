@@ -49,7 +49,7 @@ Below are useful resources, further reading, and links referenced throughout thi
 | [huggingface_hub](https://github.com/huggingface/huggingface_hub) | Hosted inference client | Apache-2.0 |
 | <a href="https://github.com/theskumar/python-dotenv" style="color: #005ea8;">python-dotenv</a> | Loading local `.env` files | BSD-3-Clause |
 | [scikit-learn](https://github.com/scikit-learn/scikit-learn) | Cosine similarity utilities | BSD-3-Clause |
-| [plotly](https://github.com/plotly/plotly.py) | Interactive plots | MIT |
+| <a href="https://github.com/plotly/plotly.py" style="color: #005ea8;">plotly</a> | Interactive plots | MIT |
 
 ## Data and Hosted Inference
 
