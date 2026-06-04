@@ -32,11 +32,12 @@ Below are useful resources, further reading, and links referenced throughout thi
 | Model | Course use | Licence listed by provider |
 | --- | --- | --- |
 | [mistralai/Mistral-7B-Instruct-v0.2](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2) | Hosted text-generation examples | Apache-2.0 |
-| [openai-community/gpt2](https://huggingface.co/openai-community/gpt2) | Local text-generation fallback | MIT |
+| [openai-community/gpt2](https://huggingface.co/openai-community/gpt2) | GPT-2 tokenizer comparison | MIT |
 | [sentence-transformers/all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2) | Embedding examples | Apache-2.0 |
 | [google-bert/bert-base-uncased](https://huggingface.co/google-bert/bert-base-uncased) | Tokenizer comparison | Apache-2.0 |
 | [google-t5/t5-small](https://huggingface.co/google-t5/t5-small) | Tokenizer comparison | Apache-2.0 |
-| [deepseek-ai/DeepSeek-R1-Distill-Llama-8B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Llama-8B) | Tokenizer comparison | MIT listed by provider; model card notes Llama-derived base model |
+| [deepseek-ai/DeepSeek-R1-Distill-Llama-8B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Llama-8B) | Tokenizer comparison | MIT listed by provider; model card notes this is a distillation from a Llama-derived base model |
+| <a href="https://huggingface.co/distilbert/distilgpt2" style="color: #005ea8;">distilbert/distilgpt2</a> | Local text-generation fallback | Apache-2.0 |
 
 ## Python Package Licences
 
