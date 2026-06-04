@@ -1,0 +1,28 @@
+name: Setup Gitleaks
+description: Install a pinned Gitleaks release on Linux GitHub Actions runners.
+
+inputs:
+  version:
+    description: Gitleaks version tag to install.
+    required: false
+    default: v8.24.2
+
+runs:
+  using: composite
+  steps:
+    - name: Install Gitleaks
+      shell: bash
+      run: |
+        set -euo pipefail
+
+        version="${{ inputs.version }}"
+        version_number="${version#v}"
+        archive="gitleaks_${version_number}_linux_x64.tar.gz"
+        install_dir="$RUNNER_TEMP/gitleaks"
+
+        mkdir -p "$install_dir"
+        curl -fsSL "https://github.com/gitleaks/gitleaks/releases/download/${version}/${archive}" \
+          | tar -xz -C "$install_dir" gitleaks
+
+        chmod +x "$install_dir/gitleaks"
+        echo "$install_dir" >> "$GITHUB_PATH"
