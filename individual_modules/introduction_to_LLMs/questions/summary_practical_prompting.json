@@ -1,0 +1,106 @@
+[
+  {
+    "question": "What does the temperature parameter usually control in text generation?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "The amount of randomness or variation in the model output.",
+        "correct": true,
+        "feedback": "Correct. Lower temperatures are more predictable; higher temperatures allow more varied outputs."
+      },
+      {
+        "answer": "The physical temperature of the computer running the model.",
+        "correct": false,
+        "feedback": "Not quite. Temperature is a generation setting, not a hardware measurement."
+      },
+      {
+        "answer": "The number of examples included in the prompt.",
+        "correct": false,
+        "feedback": "Not quite. Few-shot examples are separate from the temperature parameter."
+      },
+      {
+        "answer": "Whether hosted inference is legally approved.",
+        "correct": false,
+        "feedback": "Not quite. Legal and compliance approval is a policy issue, not a temperature setting."
+      }
+    ]
+  },
+  {
+    "question": "What is the purpose of few-shot prompting?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "To show the model examples of the input-output pattern you want.",
+        "correct": true,
+        "feedback": "Correct. A few clear examples can help the model follow the desired format or classification pattern."
+      },
+      {
+        "answer": "To train a new model from scratch.",
+        "correct": false,
+        "feedback": "Not quite. Few-shot prompting guides an existing model; it does not retrain the model weights."
+      },
+      {
+        "answer": "To hide the prompt from hosted inference providers.",
+        "correct": false,
+        "feedback": "Not quite. Hosted inference still receives the prompt text when you use it."
+      },
+      {
+        "answer": "To avoid using structured outputs.",
+        "correct": false,
+        "feedback": "Not quite. Few-shot examples are often useful for structured outputs such as JSON."
+      }
+    ]
+  },
+  {
+    "question": "Why might you ask an LLM to return JSON?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "So the output is easier to parse and use in later code.",
+        "correct": true,
+        "feedback": "Correct. Structured outputs make it easier to connect LLM responses to downstream workflows."
+      },
+      {
+        "answer": "So the model will always be factually correct.",
+        "correct": false,
+        "feedback": "Not quite. JSON can make output easier to parse, but it does not guarantee factual accuracy."
+      },
+      {
+        "answer": "So the request does not count against hosted inference usage.",
+        "correct": false,
+        "feedback": "Not quite. Structured output still uses hosted inference resources when sent to an API."
+      },
+      {
+        "answer": "So the model no longer needs a prompt.",
+        "correct": false,
+        "feedback": "Not quite. You still need to prompt the model clearly."
+      }
+    ]
+  },
+  {
+    "question": "Which data should learners avoid sending to hosted inference APIs unless they have explicit approval?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Personal, confidential, unpublished, patient, student, or institutionally restricted data.",
+        "correct": true,
+        "feedback": "Correct. Hosted inference can send prompt text to external services, so restricted data needs explicit approval."
+      },
+      {
+        "answer": "Short public example sentences written for the workshop.",
+        "correct": false,
+        "feedback": "Not quite. Public teaching examples are normally suitable, but restricted or sensitive data is not."
+      },
+      {
+        "answer": "Synthetic movie-review examples created for practice.",
+        "correct": false,
+        "feedback": "Not quite. Synthetic examples are usually safer than real restricted data."
+      },
+      {
+        "answer": "Prompts that contain no private or restricted information.",
+        "correct": false,
+        "feedback": "Not quite. The compliance concern is specifically about sensitive or restricted content."
+      }
+    ]
+  }
+]
