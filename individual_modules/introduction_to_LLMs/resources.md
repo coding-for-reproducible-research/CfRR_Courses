@@ -33,7 +33,7 @@ Below are useful resources, further reading, and links referenced throughout thi
 | --- | --- | --- |
 | <a href="https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2" style="color: #005ea8;">mistralai/Mistral-7B-Instruct-v0.2</a> | Hosted text-generation examples | Apache-2.0 |
 | [openai-community/gpt2](https://huggingface.co/openai-community/gpt2) | GPT-2 tokenizer comparison | MIT |
-| [sentence-transformers/all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2) | Embedding examples | Apache-2.0 |
+| <a href="https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2" style="color: #005ea8;">sentence-transformers/all-MiniLM-L6-v2</a> | Embedding examples | Apache-2.0 |
 | [google-bert/bert-base-uncased](https://huggingface.co/google-bert/bert-base-uncased) | Tokenizer comparison | Apache-2.0 |
 | [google-t5/t5-small](https://huggingface.co/google-t5/t5-small) | Tokenizer comparison | Apache-2.0 |
 | [deepseek-ai/DeepSeek-R1-Distill-Llama-8B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Llama-8B) | Tokenizer comparison | MIT listed by provider; model card notes this is a distillation from a Llama-derived base model |
