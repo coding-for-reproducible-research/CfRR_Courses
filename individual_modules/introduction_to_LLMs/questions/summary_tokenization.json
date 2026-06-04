@@ -1,0 +1,106 @@
+[
+  {
+    "question": "What is tokenization in the context of large language models?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Splitting text into smaller units that a model can process.",
+        "correct": true,
+        "feedback": "Correct. LLMs process token IDs rather than raw characters or words."
+      },
+      {
+        "answer": "Encrypting text so that only the model can read it.",
+        "correct": false,
+        "feedback": "Not quite. Tokenization is an encoding step, not an encryption method."
+      },
+      {
+        "answer": "Removing punctuation before sending text to a model.",
+        "correct": false,
+        "feedback": "Not quite. Punctuation can itself become tokens and can affect token counts."
+      },
+      {
+        "answer": "Converting model outputs into plots.",
+        "correct": false,
+        "feedback": "Not quite. Tokenization happens before text is processed by the model."
+      }
+    ]
+  },
+  {
+    "question": "Why can two model families produce different token counts for the same text?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "They may use different tokenizers and vocabularies.",
+        "correct": true,
+        "feedback": "Correct. Token boundaries depend on the tokenizer used by the model."
+      },
+      {
+        "answer": "Token counts are chosen randomly each time text is encoded.",
+        "correct": false,
+        "feedback": "Not quite. Tokenization is deterministic for a given tokenizer and text."
+      },
+      {
+        "answer": "All tokenizers count one token per word, but models display the counts differently.",
+        "correct": false,
+        "feedback": "Not quite. A token can be a word, part of a word, punctuation, or another unit."
+      },
+      {
+        "answer": "Only closed-source models use tokenizers.",
+        "correct": false,
+        "feedback": "Not quite. Open and closed models both use tokenizers."
+      }
+    ]
+  },
+  {
+    "question": "Why do token counts matter when using hosted LLM APIs?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "They affect context-window limits and can affect usage cost.",
+        "correct": true,
+        "feedback": "Correct. Inputs and outputs must fit into the model context window, and many hosted services bill by usage."
+      },
+      {
+        "answer": "They determine whether the output is grammatically correct.",
+        "correct": false,
+        "feedback": "Not quite. Token count is not a guarantee of output quality."
+      },
+      {
+        "answer": "They determine the font size used in the notebook.",
+        "correct": false,
+        "feedback": "Not quite. Tokens are internal text units, not display settings."
+      },
+      {
+        "answer": "They only matter for non-English text.",
+        "correct": false,
+        "feedback": "Not quite. Token counts matter for all text, although the ratio can vary by language and script."
+      }
+    ]
+  },
+  {
+    "question": "What is a good reason to shorten a verbose prompt while preserving its meaning?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "It can reduce token usage while keeping the model task clear.",
+        "correct": true,
+        "feedback": "Correct. Clearer and shorter prompts can reduce cost and leave more room in the context window."
+      },
+      {
+        "answer": "It forces the model to use a different licence.",
+        "correct": false,
+        "feedback": "Not quite. Prompt length does not affect the model or package licence."
+      },
+      {
+        "answer": "It guarantees that the model will produce a shorter answer.",
+        "correct": false,
+        "feedback": "Not quite. Output length is usually controlled by separate generation settings."
+      },
+      {
+        "answer": "It prevents tokenization from happening.",
+        "correct": false,
+        "feedback": "Not quite. Any text sent to an LLM still needs to be tokenized."
+      }
+    ]
+  }
+]

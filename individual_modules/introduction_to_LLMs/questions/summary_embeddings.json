@@ -1,0 +1,106 @@
+[
+  {
+    "question": "What is an embedding in the context of language models?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "A numerical vector representation of text meaning.",
+        "correct": true,
+        "feedback": "Correct. Embeddings represent text as vectors so that similarity and relationships can be compared mathematically."
+      },
+      {
+        "answer": "A copy of the original sentence stored inside a plot.",
+        "correct": false,
+        "feedback": "Not quite. Embeddings are numerical representations, not copies of the original text."
+      },
+      {
+        "answer": "A password used to access a hosted model.",
+        "correct": false,
+        "feedback": "Not quite. Hosted services may require tokens, but embeddings are vector representations of text."
+      },
+      {
+        "answer": "A rule that forces two words to have the same meaning.",
+        "correct": false,
+        "feedback": "Not quite. Embeddings capture patterns of similarity; they do not define meanings by rule."
+      }
+    ]
+  },
+  {
+    "question": "What does cosine similarity measure when comparing embeddings?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "How similar the directions of two vectors are.",
+        "correct": true,
+        "feedback": "Correct. Cosine similarity compares vector direction, which is useful for estimating semantic closeness."
+      },
+      {
+        "answer": "How many characters two strings have in common.",
+        "correct": false,
+        "feedback": "Not quite. Cosine similarity compares vectors, not raw character overlap."
+      },
+      {
+        "answer": "How long a model takes to generate text.",
+        "correct": false,
+        "feedback": "Not quite. It is a similarity measure, not a timing measure."
+      },
+      {
+        "answer": "Whether two vectors have exactly the same values.",
+        "correct": false,
+        "feedback": "Not quite. Two vectors can be similar without being identical."
+      }
+    ]
+  },
+  {
+    "question": "Why can vector arithmetic sometimes reveal relationships between concepts?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Because some semantic relationships are encoded as directions in embedding space.",
+        "correct": true,
+        "feedback": "Correct. Vector differences can sometimes capture relationships such as gender, place, or category patterns."
+      },
+      {
+        "answer": "Because all embeddings are manually labelled by humans.",
+        "correct": false,
+        "feedback": "Not quite. Embeddings are learned from data rather than manually labelled for every relationship."
+      },
+      {
+        "answer": "Because vector arithmetic changes the original text file.",
+        "correct": false,
+        "feedback": "Not quite. Vector arithmetic operates on numerical representations, not source files."
+      },
+      {
+        "answer": "Because every analogy is guaranteed to be correct.",
+        "correct": false,
+        "feedback": "Not quite. Embedding analogies can be useful, but they are approximate and can fail."
+      }
+    ]
+  },
+  {
+    "question": "What is semantic search designed to do?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Find content with similar meaning, even when exact keywords differ.",
+        "correct": true,
+        "feedback": "Correct. Semantic search compares embeddings so related content can be retrieved by meaning."
+      },
+      {
+        "answer": "Find only documents that contain the exact query words.",
+        "correct": false,
+        "feedback": "Not quite. Exact keyword matching is different from semantic search."
+      },
+      {
+        "answer": "Replace the need to evaluate retrieval quality.",
+        "correct": false,
+        "feedback": "Not quite. Semantic search still needs evaluation for the task and audience."
+      },
+      {
+        "answer": "Encrypt search results before showing them to users.",
+        "correct": false,
+        "feedback": "Not quite. Semantic search is about meaning-based retrieval, not encryption."
+      }
+    ]
+  }
+]
