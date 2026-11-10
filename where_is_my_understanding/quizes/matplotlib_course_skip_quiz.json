@@ -26,28 +26,28 @@
         ]
     },
     {
-        "question": "How do you import the pyplot module from matplotlib?",
+        "question": "How do you import the pyplot module from matplotlib using the alias plt?",
         "type": "many_choice",
         "answers": [
             {
                 "answer": "from matplotlib import pyplot as plt",
                 "correct": true,
-                "feedback": "Correct."
+                "feedback": "Correct. This is the standard import under the alias plt."
             },
             {
                 "answer": "import matplotlib as plt",
                 "correct": false,
-                "feedback": "Incorrect."
+                "feedback": "Incorrect. This imports the top-level matplotlib package, not the pyplot module."
             },
             {
                 "answer": "import pyplot from matplotlib",
                 "correct": false,
-                "feedback": "Incorrect."
+                "feedback": "Incorrect. Python syntax requires an import statement using import ... or from ... import ...."
             },
             {
-                "answer": "import matplotlib.pyplot",
-                "correct": false,
-                "feedback": "Incorrect."
+                "answer": "import matplotlib.pyplot as plt",
+                "correct": true,
+                "feedback": "Correct. This is also a valid import form when using the plt alias."
             }
         ]
     },
@@ -214,22 +214,22 @@
             {
                 "answer": "plt.plot(x, y, color='red')",
                 "correct": true,
-                "feedback": "Correct."
+                "feedback": "Correct. The color keyword explicitly sets the line color to red."
             },
             {
                 "answer": "plt.plot(x, y, line='red')",
                 "correct": false,
-                "feedback": "Incorrect."
+                "feedback": "Incorrect. 'line' is not a valid Matplotlib argument for line colour."
             },
             {
                 "answer": "plt.plot(x, y, style='red')",
                 "correct": false,
-                "feedback": "Incorrect."
+                "feedback": "Incorrect. 'style' is not the parameter used to set the colour."
             },
             {
                 "answer": "plt.plot(x, y, 'red')",
-                "correct": false,
-                "feedback": "Incorrect."
+                "correct": true,
+                "feedback": "Correct. In Matplotlib, the third positional argument can be a format string, and 'red' is a valid colour specifier."
             }
         ]
     },
