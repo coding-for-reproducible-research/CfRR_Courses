@@ -332,7 +332,7 @@ We can create a list of the vectors, data.frames we have already constructed as 
 
 
 ```{r, echo=TRUE, eval=TRUE, error=TRUE}
-l <- list(v_log, v_num, v_it, iris)
+l <- list(v_log, v_num, v_int, iris)
 l
 ```
 
@@ -355,9 +355,14 @@ coerce it into a factor.
 a      <- c("March","February","February","November","February","March","March","March","February","November")
 class(a)
 fact <- as.factor(a)
-class(a)
+class(fact)
 ```
 
+we can also see that object `a` type remains the same 
+
+```
+class(a)
+```
 
 
 ## Activity: Data Exploration
