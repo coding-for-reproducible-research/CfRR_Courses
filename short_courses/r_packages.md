@@ -1,9 +1,19 @@
 # Building your first R package
 
+```{card}
+
+<div class="alert alert-block" style="background-color: #ffffff; border: 1px solid #ccc; padding: 1em; border-radius: 8px;">
+
 **Author:** Juan Benavides-Tocarruncho (GitHub: [jbenavidest](https://github.com/jbenavidest)).  
+
 **License:** Creative Commons Attribution-ShareAlike 4.0 International license ([CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)).
 
-**Time:** About 30 minutes, after setup.
+</div>
+
+```
+
+
+
 
 ## Intended Learning Outcome 
 
@@ -25,7 +35,7 @@ install.packages(c("usethis", "devtools", "roxygen2"))
 
 Some tool installations and source builds need system tools: Rtools on Windows, Xcode command line tools on macOS, or R development tools on Linux. Follow the [R Packages system-setup guide](https://r-pkgs.org/setup.html) for your platform. Complete setup before starting the timed lesson.
 
-## 1. Create a package — 5 minutes
+## 1. Create a package
 
 **What is an R Package?** It is a collection of functions, documentation and example data that can be reused and shared easily within users. Usually, new methods developed as part of research can be shared in the form of a package to enhance reproducibility and allow other researchers apply the same methods, i.e. the same R functions. 
 
@@ -76,7 +86,7 @@ In RStudio, you can continue in the newly opened package project. You can open t
 | `NAMESPACE` | Public functions; generated from roxygen comments. |
 | `man/` | Help files generated from roxygen comments. |
 
-## 2. Add a documented function — 10 minutes
+## 2. Add a documented function
 
 Save the following as `R/celsius_to_fahrenheit.R`:
 
@@ -101,7 +111,7 @@ devtools::document()
 
 The `#'` comments become help in `man/`; `@export` makes this function available through the package's public namespace. Look at the generated files. Edit the source comments and rerun `document()` when they change, rather than editing generated files by hand.
 
-## 3. Install and use the package — 10 minutes
+## 3. Install and use the package
 
 To test the package functions you can load it using going to the "Build" tab and click "Install". 
 
@@ -125,7 +135,7 @@ help("celsius_to_fahrenheit", package = "CfRRtemp")
 
 Expect `32 212` and the installed help page. The `CfRRtemp::` prefix selects the installed package's exported function; you do not need to source the function file in this fresh session.
 
-## 4. Quick exercise and recap — 5 minutes
+## 4. Quick exercise and recap
 
 Call the installed function with `c(-40, 100)`. Predict the result before running it.
 
@@ -133,7 +143,7 @@ Call the installed function with `c(-40, 100)`. Predict the result before runnin
 
 Explain what happened at each step: create source files, document the function, install the package, then use it in a fresh session. Which files do you edit, and which does roxygen generate?
 
-## Optional next steps — outside the 30-minute lesson
+## Optional next steps
 
 - [R Packages: The Whole Game](https://r-pkgs.org/whole-game.html): a worked package-development walkthrough.
 - [roxygen2 introduction](https://roxygen2.r-lib.org/articles/roxygen2.html): generating help and exports from source comments.
