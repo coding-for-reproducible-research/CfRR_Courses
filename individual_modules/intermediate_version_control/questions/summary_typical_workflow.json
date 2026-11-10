@@ -5,23 +5,23 @@
         "answers": [
             {
                 "answer": "git stage",
-                "correct": false,
-                "feedback": "Incorrect"
+                "correct": true,
+                "feedback": "Correct. `git stage` is a valid synonym for `git add`."
             },
             {
                 "answer": "git commit",
                 "correct": false,
-                "feedback": "Incorrect"
+                "feedback": "Incorrect. `git commit` creates the snapshot, but does not stage files."
             },
             {
                 "answer": "git add",
                 "correct": true,
-                "feedback": "Correct"
+                "feedback": "Correct. This is the standard command to stage files."
             },
             {
                 "answer": "git push",
                 "correct": false,
-                "feedback": "Incorrect"
+                "feedback": "Incorrect. `git push` sends local commits to a remote repository."
             }
         ]
     },
@@ -58,22 +58,22 @@
             {
                 "answer": "git switch feature",
                 "correct": true,
-                "feedback": "Correct"
+                "feedback": "Correct. This is the modern Git command for switching branches."
             },
             {
                 "answer": "git change feature",
                 "correct": false,
-                "feedback": "Incorrect"
+                "feedback": "Incorrect. There is no `git change` command for switching branches."
             },
             {
                 "answer": "git checkout feature",
-                "correct": false,
-                "feedback": "Incorrect"
+                "correct": true,
+                "feedback": "Correct. `git checkout` is a valid older alternative for switching branches."
             },
             {
                 "answer": "git move feature",
                 "correct": false,
-                "feedback": "Incorrect"
+                "feedback": "Incorrect. `git move` is not used to switch branches."
             }
         ]
     }

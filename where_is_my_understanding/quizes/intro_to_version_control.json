@@ -58,22 +58,22 @@
             {
                 "answer": "git commit add",
                 "correct": false,
-                "feedback": "Incorrect."
+                "feedback": "Incorrect. The staging command is separate from commit."
             },
             {
                 "answer": "git add",
                 "correct": true,
-                "feedback": "Correct."
+                "feedback": "Correct. This is the standard staging command."
             },
             {
                 "answer": "git stage",
-                "correct": false,
-                "feedback": "Incorrect."
+                "correct": true,
+                "feedback": "Correct. `git stage` is a valid synonym for `git add`."
             },
             {
                 "answer": "git setup",
                 "correct": false,
-                "feedback": "Incorrect."
+                "feedback": "Incorrect. This is not a Git staging command."
             }
         ]
     },
