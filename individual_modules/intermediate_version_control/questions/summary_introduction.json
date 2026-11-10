@@ -6,22 +6,22 @@
             {
                 "answer": "git check",
                 "correct": false,
-                "feedback": "Incorrect"
+                "feedback": "Incorrect. There is no `git check` command for this purpose."
             },
             {
                 "answer": "git --version",
                 "correct": true,
-                "feedback": "Correct"
+                "feedback": "Correct. This prints the installed Git version."
             },
             {
                 "answer": "git verify",
                 "correct": false,
-                "feedback": "Incorrect"
+                "feedback": "Incorrect. `git verify` is not the version-check command."
             },
             {
                 "answer": "git version",
-                "correct": false,
-                "feedback": "Incorrect"
+                "correct": true,
+                "feedback": "Correct. `git version` is a valid Git command and prints the version information."
             }
         ]
     },
@@ -57,23 +57,23 @@
         "answers": [
             {
                 "answer": "git config --list",
-                "correct": false,
-                "feedback": "Incorrect"
+                "correct": true,
+                "feedback": "Correct. This lists the current Git configuration values."
             },
             {
                 "answer": "git config --global --list",
                 "correct": true,
-                "feedback": "Correct"
+                "feedback": "Correct. This is a valid way to list the global Git configuration values."
             },
             {
                 "answer": "git config --user",
                 "correct": false,
-                "feedback": "Incorrect"
+                "feedback": "Incorrect. There is no `git config --user` command for this purpose."
             },
             {
                 "answer": "git config --check",
                 "correct": false,
-                "feedback": "Incorrect"
+                "feedback": "Incorrect. `git config --check` checks configuration validity, not listing it."
             }
         ]
     }
