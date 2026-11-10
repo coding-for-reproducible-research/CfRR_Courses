@@ -6,6 +6,8 @@ This section contains our short, focused R courses designed to provide targeted 
 - **R Environments** – Set up and manage R environments for reproducibility and efficiency. [Clickable Link to Self Study Notes](r_environments.ipynb)
 - **R Functions** – Learn how to write and use functions effectively in R. [Clickable Link to Self Study Notes](r_functions.ipynb)
 - **R Unit Testing** – Understand how to test your R code to ensure reliability. [Clickable Link to Self Study Notes](r_unit_testing.ipynb)
+- **Packages** - Understand the basics for package developing and how to documment and load functions into a local package [Clickable Link to Self Study Notes](r_packages.ipynb)
+
 
 ## Who is this for?
 Learners who want to quickly enhance their R skills in targeted areas, or refresh their knowledge on specific topics.
