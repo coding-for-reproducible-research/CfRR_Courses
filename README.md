@@ -1,6 +1,5 @@
 # Coding for Reproducible Research (CfRR) Courses
 
-An extra line!
 
 This repository contains the **Coding for Reproducible Research (CfRR)** training programme materials from the University of Exeter. The content is published as a Jupyter Book website and is also usable locally (e.g., to run notebooks or preview changes before opening a pull request).
 
