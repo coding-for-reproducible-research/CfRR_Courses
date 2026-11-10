@@ -18,17 +18,17 @@ Below are useful resources, further reading, and links referenced throughout thi
 
 ## Platforms & Services
 
-- [GitHub](https://www.github.com>)
-- [Bitbucket](https://bitbucket.org/>)
+- [GitHub](https://www.github.com)
+- [Bitbucket](https://bitbucket.org/)
 - [Git Large File Storage (Git LFS)](https://git-lfs.com/)
-- [Zenodo](https://zenodo.org/>.)
+- [Zenodo](https://zenodo.org/)
 - [Subversion (Apache)](https://subversion.apache.org/)
 - [Mercurial](https://www.mercurial-scm.org/)
 
 ## Workflows, Guides, and Best Practices
 
-- [Semantic Versioning](https://semver.org/>)
-- [Choosing an Open Source License](https://choosealicense.com/>.)
+- [Semantic Versioning](https://semver.org/)
+- [Choosing an Open Source License](https://choosealicense.com/)
 - [A Note About Git Commit Messages (Tim Pope)](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
 - [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
 - [GitHub Actions](https://github.com/features/actions)
@@ -44,10 +44,10 @@ Below are useful resources, further reading, and links referenced throughout thi
 - [Introduction To VCS: Setting up GitHub credentials](https://coding-for-reproducible-research.github.io/CfRR_Courses/individual_modules/introduction_to_version_control/configuring_git.html#setting-up-github-credentials)
 - [GitHub Docs: Checking out pull requests locally](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally)
 - [GitHub Docs: Viewing the line-by-line revision history for a file](https://docs.github.com/en/repositories/working-with-files/using-files/viewing-a-file#viewing-the-line-by-line-revision-history-for-a-file)
-- [University of Exeter Git](https://git.exeter.ac.uk/>.)
+- [University of Exeter Git](https://git.exeter.ac.uk/)
 - [Example Repository: test-repo](https://github.com/username/test-repo.git)
-- [Sample Course Repo Pull Requests](https://github.com/stephenpcook/intermediate-version-control/pulls>.)
-- [Sample Course Repository](https://github.com/stephenpcook/intermediate-version-control>.)
+- [Sample Course Repo Pull Requests](https://github.com/stephenpcook/intermediate-version-control/pulls)
+- [Sample Course Repository](https://github.com/stephenpcook/intermediate-version-control)
 
 ## Tools
 
