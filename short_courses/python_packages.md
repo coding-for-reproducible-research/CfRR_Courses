@@ -1,10 +1,16 @@
 # Creating Python packages
 
+```{card}
+
+<div class="alert alert-block" style="background-color: #ffffff; border: 1px solid #ccc; padding: 1em; border-radius: 8px;">
+
 **Author:** Sophia Nora (GitHub: [sophianora](https://github.com/sophianora), ORCID ID:[0009-0007-2061-1764](https://orcid.org/0009-0007-2061-1764))
 
 **License:** Creative Commons Attribution-ShareAlike 4.0 International license[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)  
 
-**Time:** About 30 minutes, after software setup
+</div>
+
+```
 
 ## Learning objectives
 
@@ -36,11 +42,11 @@ py -m venv .venv
 
 After activation, `python` refers to this environment. Before the session, run `python -m pip install --upgrade pip`; internet access is needed for installation.
 
-## 1. Why create a package? (5 minutes)
+## 1. Why create a package? 
 
 A package lets you import reusable functions into different projects. Our distribution is named `cfrr-demo-package`; Python imports it as `cfrr_demo_package`. We will create just two files: the Python code and the package configuration.
 
-## 2. Create your package (10 minutes)
+## 2. Create your package 
 
 From `cfrr-package-workshop/`, run in the terminal:
 
@@ -85,7 +91,7 @@ where = ["src"]
 
 Explain only the essentials: `project` supplies the installable name and version; `build-system` selects the tool that prepares the package; the final table tells that tool to find Python packages under `src/`.
 
-## 3. Install and use it (10 minutes)
+## 3. Install and use it 
 
 From the learner package root containing `pyproject.toml`, run in the terminal:
 
@@ -97,7 +103,7 @@ python -c "from cfrr_demo_package import celsius_to_fahrenheit; print(celsius_to
 
 Expected output: `32.0`. `cd ..` moves you outside the package project directory; the import uses the package installed in your active environment.
 
-## 4. Exercise and recap (5 minutes)
+## 4. Exercise and recap 
 
 While still outside the package directory, repeat the `python -c` command with `100` instead of `0`. Predict the result before running it. Expected output: `212.0`; an optional second input, `-40`, gives `-40.0`.
 
