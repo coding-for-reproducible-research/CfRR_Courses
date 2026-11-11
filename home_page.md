@@ -7,6 +7,10 @@ It offers an annual series of workshops for all registered staff and students, s
 
 CfRR offers hands-on courses, supplemented by freely available self-study materials, on programming and data science, including guidance on good practice and reproducibility, providing opportunities for novices through to experts to further their skills. 
 
+## Community Activities
+
+Our community helps develop the CfRR courses as well as learning from them. Explore our [community activities and Co-Development Days](contributing/community_activities.md) to see how contributors are building their skills and improving the teaching materials together.
+
 ## Contact and Course Registration Information
 
 You can contact the CfRR team at the following email: [codingforreproducibleresearch@exeter.ac.uk](mailto:codingforreproducibleresearch@exeter.ac.uk)
