@@ -50,6 +50,11 @@ sphinx:
   extra_extensions:
     - sphinx_sitemap
   config:
+    html_theme_options:
+      # Sphinx Book Theme uses the article header for its sidebar toggle.
+      # Disable PyData's default persistent search field so it does not render
+      # a hidden navbar whose toggle receives the mobile menu click handler.
+      navbar_persistent: []
     html_extra_path:
       - _static/
     templates_path:
