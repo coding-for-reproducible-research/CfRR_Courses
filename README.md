@@ -126,6 +126,10 @@ navigation between pages, and desktop sidebar toggling. Pass a different homepag
 URL after `--` if needed. To use an existing Chrome installation, set
 `PUPPETEER_EXECUTABLE_PATH` to its executable path.
 
+Run `npm run test:quiz-labels` against the same preview server to check the Python
+functions quiz's answer labels and feedback, including answers rendered after page
+load. A different page URL can be passed after `--`.
+
 ## Contributing
 
 Contributions are welcome. See `contributing/` for contribution guidelines and course-development notes. The contributing section is also published here:
