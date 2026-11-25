@@ -114,6 +114,18 @@ poetry run python -m http.server --directory _build/html 8000
 
 Then open `http://localhost:8000/` in your browser.
 
+To check mobile navigation in Chrome, keep the preview server running and run:
+
+```bash
+npm install
+npm run test:mobile-navigation
+```
+
+The check covers touch and keyboard opening, Escape and backdrop dismissal,
+navigation between pages, and desktop sidebar toggling. Pass a different homepage
+URL after `--` if needed. To use an existing Chrome installation, set
+`PUPPETEER_EXECUTABLE_PATH` to its executable path.
+
 ## Contributing
 
 Contributions are welcome. See `contributing/` for contribution guidelines and course-development notes. The contributing section is also published here:
